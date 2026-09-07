@@ -1,0 +1,3368 @@
+{
+  "id": "ikuya",
+  "fightId": "dmu",
+  "name": "Ikuya Mitty",
+  "author": "Ikuya Kirishima",
+  "updated": "2026-09-07",
+  "sourceFile": "Ikuya Mitty (DMU).xlsx",
+  "sourceVersion": "6.0 (1 Sep)",
+  "description": "P1–P5 from Ikuya Kirishima’s mitigation plan. Choose a tank position, healer job, or DPS position.",
+  "slots": [
+    {
+      "id": "MT",
+      "role": "tank"
+    },
+    {
+      "id": "OT",
+      "role": "tank"
+    },
+    {
+      "id": "WHM",
+      "job": "WHM",
+      "role": "healer"
+    },
+    {
+      "id": "AST",
+      "job": "AST",
+      "role": "healer"
+    },
+    {
+      "id": "SCH",
+      "job": "SCH",
+      "role": "healer"
+    },
+    {
+      "id": "SGE",
+      "job": "SGE",
+      "role": "healer"
+    },
+    {
+      "id": "D1",
+      "role": "dps"
+    },
+    {
+      "id": "D2",
+      "role": "dps"
+    },
+    {
+      "id": "D3",
+      "role": "dps"
+    },
+    {
+      "id": "D4",
+      "role": "dps"
+    }
+  ],
+  "phases": [
+    {
+      "id": "p1",
+      "mechanics": [
+        {
+          "id": "p1-r8",
+          "name": "Mystery Magic",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Party Mit (GNB/DRK)",
+                "note": "Time this to carry over through Wave Cannon and the first Double-Trouble Trap."
+              }
+            ],
+            "OT": [
+              {
+                "name": "Reprisal"
+              },
+              {
+                "name": "Party Mit",
+                "note": "Use your 90s party mitigation as Kefka re-centres to cast the first Graven Image (WAR/PLD can use after Revolting Ruin III finishes)."
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              },
+              {
+                "name": "Sun Sign"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Spreadlo",
+                "note": "All mechanics require shields."
+              },
+              {
+                "name": "Expedient"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole",
+                "note": "Use your 30s mitigation for the first Mystery Magic after the Graven Image castbar."
+              },
+              {
+                "name": "Zoe Shields",
+                "note": "All mechanics require shields."
+              }
+            ],
+            "D1": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "D3": [
+              {
+                "name": "Party Mit",
+                "note": "Use your 90s party mitigation as Kefka re-centres to cast the first Graven Image (WAR/PLD can use after Revolting Ruin III finishes)."
+              }
+            ]
+          },
+          "time": "0:38"
+        },
+        {
+          "id": "p1-r10",
+          "name": "Wave Cannon",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Party Mit (WAR/PLD)"
+              },
+              {
+                "name": "Party Mit (GNB/DRK)",
+                "carryOver": true
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Divine Caress"
+              },
+              {
+                "name": "Temperance",
+                "carryOver": true
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect",
+                "carryOver": true
+              },
+              {
+                "name": "Sun Sign",
+                "carryOver": true
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Expedient",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Holos"
+              },
+              {
+                "name": "Kerachole",
+                "carryOver": true
+              }
+            ],
+            "D1": [
+              {
+                "name": "Feint",
+                "carryOver": true
+              }
+            ]
+          },
+          "time": "0:43"
+        },
+        {
+          "id": "p1-r12",
+          "name": "Double-Trouble Trap",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Party Mit (GNB/DRK)",
+                "carryOver": true
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance",
+                "carryOver": true
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect",
+                "carryOver": true
+              },
+              {
+                "name": "Sun Sign",
+                "carryOver": true
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Expedient",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Holos",
+                "carryOver": true
+              }
+            ],
+            "D1": [
+              {
+                "name": "Feint",
+                "carryOver": true
+              }
+            ],
+            "D4": [
+              {
+                "name": "Addle"
+              }
+            ]
+          },
+          "time": "0:50"
+        },
+        {
+          "id": "p1-r14",
+          "name": "Light of Judgment",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal",
+                "note": "Use late into the castbar so it also covers Hyperdrive."
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Plenary Indulgence",
+                "note": "Use late into the castbar so it also covers Hyperdrive."
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious",
+                "note": "Use late into the castbar so it also covers Hyperdrive."
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole",
+                "note": "Use late into the castbar so it also covers Hyperdrive."
+              }
+            ],
+            "D2": [
+              {
+                "name": "Feint",
+                "note": "Use late into the castbar so it also covers Hyperdrive."
+              },
+              {
+                "name": "Extra (RDM/MCH)",
+                "note": "Use late into the castbar so it also covers Hyperdrive."
+              }
+            ],
+            "D4": [
+              {
+                "name": "Addle",
+                "carryOver": true
+              },
+              {
+                "name": "Extra (RDM/MCH)",
+                "note": "Use late into the castbar so it also covers Hyperdrive."
+              }
+            ],
+            "D1": [
+              {
+                "name": "Extra (RDM/MCH)",
+                "note": "Use late into the castbar so it also covers Hyperdrive."
+              }
+            ],
+            "D3": [
+              {
+                "name": "Extra (RDM/MCH)",
+                "note": "Use late into the castbar so it also covers Hyperdrive."
+              }
+            ]
+          },
+          "time": "1:03"
+        },
+        {
+          "id": "p1-r16",
+          "name": "Gravitas II (Part I)",
+          "assignments": {
+            "AST": [
+              {
+                "name": "Macrocosmos"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Seraphism",
+                "note": "If you plan to use Dissipation in your opener, use it before Aetherflow. If you use the first Spreadlo earlier, you will get it back for the Double-Trouble Trap in the second Graven Image and be able to use Seraphism earlier/later."
+              }
+            ]
+          },
+          "time": "1:28"
+        },
+        {
+          "id": "p1-r18",
+          "name": "Gravitas II (Part II)",
+          "assignments": {
+            "WHM": [
+              {
+                "name": "Liturgy of the Bell",
+                "note": "You can alternatively use Bell just before the first set of puddles which will provide an immediate heal when the second set of puddles occurs as the Bell will expire shortly after."
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Seraph"
+              },
+              {
+                "name": "Fey Illumination"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              },
+              {
+                "name": "Philosophia"
+              }
+            ]
+          },
+          "time": "1:46"
+        },
+        {
+          "id": "p1-r20",
+          "name": "Double-Trouble Trap",
+          "assignments": {
+            "OT": [
+              {
+                "name": "Reprisal"
+              },
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Spreadlo",
+                "note": "All mechanics require shields."
+              },
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Seraph",
+                "carryOver": true
+              },
+              {
+                "name": "Fey Illumination",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Panhaima"
+              },
+              {
+                "name": "Zoe Shields",
+                "note": "All mechanics require shields."
+              }
+            ],
+            "D3": [
+              {
+                "name": "Party Mit"
+              }
+            ]
+          },
+          "time": "1:58"
+        },
+        {
+          "id": "p1-r22",
+          "name": "Light of Judgment",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal",
+                "note": "Use late into the castbar so it also covers Hyperdrive."
+              },
+              {
+                "name": "Party Mit",
+                "note": "Use late into the castbar so it also covers Hyperdrive."
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Plenary Indulgence",
+                "note": "Use late into the castbar so it also covers Hyperdrive."
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious",
+                "note": "Use late into the castbar so it also covers Hyperdrive."
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole",
+                "note": "Use late into the castbar so it also covers Hyperdrive."
+              },
+              {
+                "name": "Panhaima",
+                "carryOver": true
+              }
+            ],
+            "D1": [
+              {
+                "name": "Feint",
+                "note": "Use late into the castbar so it also covers Hyperdrive."
+              }
+            ]
+          },
+          "time": "2:12"
+        },
+        {
+          "id": "p1-r24",
+          "name": "Double-Trouble Trap",
+          "assignments": {
+            "WHM": [
+              {
+                "name": "Temperance"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Expedient"
+              }
+            ]
+          },
+          "time": "2:45"
+        },
+        {
+          "id": "p1-r26",
+          "name": "Indulgent Will",
+          "assignments": {
+            "WHM": [
+              {
+                "name": "Divine Caress"
+              },
+              {
+                "name": "Temperance",
+                "carryOver": true
+              }
+            ],
+            "AST": [
+              {
+                "name": "Sun Sign"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Expedient",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              }
+            ]
+          },
+          "time": "2:53"
+        },
+        {
+          "id": "p1-r28",
+          "name": "Mystery Magic",
+          "assignments": {
+            "OT": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance",
+                "carryOver": true
+              }
+            ],
+            "AST": [
+              {
+                "name": "Sun Sign",
+                "carryOver": true
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole",
+                "carryOver": true
+              }
+            ]
+          },
+          "time": "3:07"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "mechanics": [
+        {
+          "id": "p2-r8",
+          "name": "Ultimate Embrace",
+          "assignments": {
+            "WHM": [
+              {
+                "name": "Assist Tanks",
+                "note": "Provide single target mitigation and GCD shield both tanks in the phase transition for Ultimate Embrace. Also assist tanks with the last Ultimate Embrace."
+              }
+            ],
+            "AST": [
+              {
+                "name": "Assist Tanks",
+                "note": "Provide single target mitigation and GCD shield both tanks in the phase transition for Ultimate Embrace. Also assist tanks with the last Ultimate Embrace."
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Spreadlo",
+                "note": "Prepare Spreadlo either on the OT shortly beforehand or the MT during Ultimate Embrace to assist the tanks. All mechanics require shields."
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Holos",
+                "note": "Use Holos during the first Ultimate Embrace so it is back for Light of Judgement and provides mitigation to the tanks. Alternatively, you can use Holos for the Wings of Destruction + Ultimate Embrace."
+              }
+            ],
+            "D2": [
+              {
+                "name": "Feint"
+              }
+            ]
+          },
+          "time": "0:24"
+        },
+        {
+          "id": "p2-r10",
+          "name": "Forsaken",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "OT": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Plenary Indulgence"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Spreadlo",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              },
+              {
+                "name": "Zoe Shields",
+                "note": "All mechanics require shields."
+              },
+              {
+                "name": "Holos",
+                "carryOver": true
+              }
+            ],
+            "D1": [
+              {
+                "name": "Feint"
+              },
+              {
+                "name": "Extra (RDM/MCH)"
+              }
+            ],
+            "D3": [
+              {
+                "name": "Party Mit"
+              },
+              {
+                "name": "Extra (RDM/MCH)"
+              }
+            ],
+            "D4": [
+              {
+                "name": "Addle"
+              },
+              {
+                "name": "Extra (RDM/MCH)"
+              }
+            ],
+            "D2": [
+              {
+                "name": "Extra (RDM/MCH)"
+              }
+            ]
+          },
+          "time": "0:39"
+        },
+        {
+          "id": "p2-r12",
+          "name": "Towers I",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal",
+                "carryOver": true
+              }
+            ],
+            "OT": [
+              {
+                "name": "Party Mit (GNB/DRK)"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Seraph"
+              },
+              {
+                "name": "Fey Illumination"
+              },
+              {
+                "name": "Sacred Soil",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Panhaima"
+              },
+              {
+                "name": "Kerachole",
+                "carryOver": true
+              }
+            ],
+            "D1": [
+              {
+                "name": "Feint",
+                "carryOver": true
+              }
+            ],
+            "D3": [
+              {
+                "name": "Party Mit",
+                "carryOver": true
+              }
+            ],
+            "D4": [
+              {
+                "name": "Addle",
+                "carryOver": true
+              }
+            ]
+          },
+          "time": "0:53"
+        },
+        {
+          "id": "p2-r14",
+          "name": "Towers II (Past/Future's End)",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Seraph"
+              },
+              {
+                "name": "Fey Illumination",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Panhaima",
+                "carryOver": true
+              }
+            ]
+          },
+          "time": "1:03"
+        },
+        {
+          "id": "p2-r16",
+          "name": "Towers III (All Things Ending)",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "OT": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Macrocosmos"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              }
+            ]
+          },
+          "time": "1:14"
+        },
+        {
+          "id": "p2-r18",
+          "name": "Towers IV (Past/Future's End)",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Party Mit (GNB/DRK)",
+                "carryOver": true
+              }
+            ],
+            "OT": [
+              {
+                "name": "Reprisal",
+                "carryOver": true
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole",
+                "carryOver": true
+              }
+            ]
+          },
+          "time": "1:24"
+        },
+        {
+          "id": "p2-r20",
+          "name": "Towers V (All Things Ending)",
+          "assignments": {
+            "WHM": [
+              {
+                "name": "Liturgy of the Bell"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Expedient"
+              }
+            ]
+          },
+          "time": "1:35"
+        },
+        {
+          "id": "p2-r22",
+          "name": "Towers VI (Past/Future's End)",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Plenary Indulgence"
+              },
+              {
+                "name": "Temperance"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              },
+              {
+                "name": "Neutral Sect"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Seraphism"
+              },
+              {
+                "name": "Expedient",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Philosophia"
+              }
+            ]
+          },
+          "time": "1:45"
+        },
+        {
+          "id": "p2-r24",
+          "name": "Towers VII (All Things Ending)",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal",
+                "carryOver": true
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Divine Caress"
+              },
+              {
+                "name": "Temperance",
+                "carryOver": true
+              }
+            ],
+            "AST": [
+              {
+                "name": "Sun Sign"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              }
+            ]
+          },
+          "time": "1:55"
+        },
+        {
+          "id": "p2-r26",
+          "name": "Towers VIII (Past/Future's End)",
+          "assignments": {
+            "WHM": [
+              {
+                "name": "Temperance",
+                "carryOver": true
+              }
+            ],
+            "AST": [
+              {
+                "name": "Sun Sign",
+                "carryOver": true
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole",
+                "carryOver": true
+              }
+            ]
+          },
+          "time": "2:06"
+        },
+        {
+          "id": "p2-r28",
+          "name": "Light of Judgement",
+          "assignments": {
+            "OT": [
+              {
+                "name": "Reprisal"
+              },
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Spreadlo",
+                "note": "All mechanics require shields."
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              },
+              {
+                "name": "Holos",
+                "note": "Use Holos during the first Ultimate Embrace so it is back for Light of Judgement and provides mitigation to the tanks. Alternatively, you can use Holos for the Wings of Destruction + Ultimate Embrace."
+              },
+              {
+                "name": "Zoe Shields",
+                "note": "All mechanics require shields."
+              }
+            ],
+            "D1": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "D3": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "D4": [
+              {
+                "name": "Addle"
+              }
+            ]
+          },
+          "time": "2:26"
+        },
+        {
+          "id": "p2-r30",
+          "name": "Wings of Destruction",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal"
+              },
+              {
+                "name": "Party Mit",
+                "note": "Use early to avoid shaking off mitigation if playing WAR."
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Plenary Indulgence"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Fey Illumination"
+              },
+              {
+                "name": "Seraph"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              },
+              {
+                "name": "Panhaima"
+              }
+            ],
+            "D2": [
+              {
+                "name": "Feint"
+              }
+            ]
+          },
+          "time": "2:54"
+        },
+        {
+          "id": "p2-r32",
+          "name": "Ultimate Embrace",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal",
+                "carryOver": true
+              },
+              {
+                "name": "Party Mit",
+                "carryOver": true
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Plenary Indulgence",
+                "carryOver": true
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious",
+                "carryOver": true
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil",
+                "carryOver": true
+              },
+              {
+                "name": "Fey Illumination",
+                "carryOver": true
+              },
+              {
+                "name": "Seraph",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole",
+                "carryOver": true
+              },
+              {
+                "name": "Panhaima",
+                "carryOver": true
+              }
+            ],
+            "D2": [
+              {
+                "name": "Feint",
+                "carryOver": true
+              }
+            ]
+          },
+          "time": "3:01"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "mechanics": [
+        {
+          "id": "p3-r8",
+          "name": "Bowels of Agony (Chaos)",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal",
+                "note": "If you are holding Exdeath instead of Chaos at the beginning, use Reprisal on both before The Decisive Battle finishes. Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides."
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Plenary Indulgence"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil",
+                "note": "At the beginning of the phase, use 30s mitigation after (when the textbox disappears) Kefka says, \"Oh! What other toys can I throw in here...\" to get tank autos and the raidwide + an additional usage for Stray Flames/Tsunami."
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole",
+                "note": "At the beginning of the phase, use 30s mitigation after (when the textbox disappears) Kefka says, \"Oh! What other toys can I throw in here...\" to get tank autos and the raidwide + an additional usage for Stray Flames/Tsunami."
+              }
+            ],
+            "D1": [
+              {
+                "name": "Feint (Chaos)",
+                "note": "Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides."
+              }
+            ]
+          },
+          "time": "1:08"
+        },
+        {
+          "id": "p3-r10",
+          "name": "Stray Flames/Tsunami",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "OT": [
+              {
+                "name": "Reprisal",
+                "note": "Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides."
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Spreadlo",
+                "note": "Prepare immediately after Bowels of Agony. All mechanics require shields."
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Zoe Shields",
+                "note": "Prepare immediately after Bowels of Agony. All mechanics require shields."
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "D1": [
+              {
+                "name": "Extra (RDM/MCH)"
+              }
+            ],
+            "D2": [
+              {
+                "name": "Extra (RDM/MCH)"
+              }
+            ],
+            "D3": [
+              {
+                "name": "Extra (RDM/MCH)"
+              }
+            ],
+            "D4": [
+              {
+                "name": "Extra (RDM/MCH)"
+              }
+            ]
+          },
+          "time": "1:28"
+        },
+        {
+          "id": "p3-r12",
+          "name": "Thunder III (1st Set)",
+          "assignments": {
+            "OT": [
+              {
+                "name": "Reprisal",
+                "carryOver": true,
+                "note": "Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides."
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Expedient",
+                "note": "There is a very small period where you can cover both hits of Thunder III and the next Stray Flames/Tsumani, if you miss the timing, you can use it next GCD."
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Holos",
+                "note": "There is a very small period where you can cover both hits of Thunder III and the next Stray Flames/Tsumani, if you miss the timing, you can use it next GCD."
+              }
+            ],
+            "D4": [
+              {
+                "name": "Addle (Exdeath)",
+                "note": "Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides."
+              },
+              {
+                "name": "Extra (RDM/MCH)"
+              }
+            ],
+            "D1": [
+              {
+                "name": "Extra (RDM/MCH)"
+              }
+            ],
+            "D2": [
+              {
+                "name": "Extra (RDM/MCH)"
+              }
+            ],
+            "D3": [
+              {
+                "name": "Extra (RDM/MCH)"
+              }
+            ]
+          },
+          "time": "1:36"
+        },
+        {
+          "id": "p3-r14",
+          "name": "Stray Flames/Tsunami",
+          "assignments": {
+            "OT": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Seraph"
+              },
+              {
+                "name": "Expedient",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Holos",
+                "carryOver": true
+              }
+            ]
+          },
+          "time": "1:55"
+        },
+        {
+          "id": "p3-r16",
+          "name": "Ultima Blaster",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal",
+                "note": "Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides."
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance",
+                "carryOver": true
+              }
+            ],
+            "AST": [
+              {
+                "name": "Sun Sign"
+              },
+              {
+                "name": "Neutral Sect",
+                "carryOver": true
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Fey Illumination"
+              },
+              {
+                "name": "Seraphism"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              },
+              {
+                "name": "Panhaima"
+              }
+            ],
+            "D2": [
+              {
+                "name": "Feint (Chaos)",
+                "note": "Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides."
+              }
+            ],
+            "D3": [
+              {
+                "name": "Party Mit"
+              }
+            ]
+          },
+          "time": "2:05"
+        },
+        {
+          "id": "p3-r18",
+          "name": "Vacuum Wave",
+          "assignments": {
+            "MT": [
+              {
+                "name": "LB3",
+                "note": "Use LB3 at the W of Vacuum Wave. Either tank can press it, discuss beforehand."
+              },
+              {
+                "name": "Reprisal",
+                "carryOver": true,
+                "note": "Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides."
+              }
+            ],
+            "OT": [
+              {
+                "name": "LB3",
+                "note": "Use LB3 at the W of Vacuum Wave. Either tank can press it, discuss beforehand."
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Plenary Indulgence"
+              },
+              {
+                "name": "Temperance",
+                "carryOver": true
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              },
+              {
+                "name": "Neutral Sect",
+                "carryOver": true
+              },
+              {
+                "name": "Sun Sign",
+                "carryOver": true
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil",
+                "carryOver": true
+              },
+              {
+                "name": "Fey Illumination",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole",
+                "carryOver": true
+              },
+              {
+                "name": "Panhaima",
+                "carryOver": true
+              }
+            ],
+            "D2": [
+              {
+                "name": "Feint",
+                "carryOver": true,
+                "note": "Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides."
+              }
+            ],
+            "D3": [
+              {
+                "name": "Party Mit",
+                "carryOver": true
+              }
+            ]
+          },
+          "time": "2:12"
+        },
+        {
+          "id": "p3-r20",
+          "name": "Cyclone",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal",
+                "carryOver": true,
+                "note": "Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides."
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Divine Caress"
+              },
+              {
+                "name": "Plenary Indulgence",
+                "carryOver": true
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious",
+                "carryOver": true
+              },
+              {
+                "name": "Sun Sign",
+                "carryOver": true
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil",
+                "carryOver": true
+              },
+              {
+                "name": "Fey Illumination",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole",
+                "carryOver": true
+              },
+              {
+                "name": "Panhaima",
+                "carryOver": true
+              }
+            ],
+            "D2": [
+              {
+                "name": "Feint",
+                "carryOver": true,
+                "note": "Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides."
+              }
+            ],
+            "D3": [
+              {
+                "name": "Party Mit",
+                "carryOver": true
+              }
+            ]
+          },
+          "time": "2:16"
+        },
+        {
+          "id": "p3-r22",
+          "name": "The Decisive Battle",
+          "assignments": {
+            "OT": [
+              {
+                "name": "Reprisal (Exdeath)",
+                "note": "Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides."
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Spreadlo",
+                "note": "Prepare Spreadlo on the tanks, prioritizing WAR > DRK > GNB/PLD. All mechanics require shields."
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Zoe Shields",
+                "note": "All mechanics require shields."
+              }
+            ]
+          },
+          "time": "2:43"
+        },
+        {
+          "id": "p3-r24",
+          "name": "Accretions",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Avoid HP-restoring abilities",
+                "note": "Non-healers should avoid using any healing abilities that may cause their Accretion to pop early such as Second Wind, Curing Waltz or Divine Veil. If both Accretions are activated in a short amount of time, it will cause a wipe. Healers will need to manage HP burst accordingly to ensure that Accretions are not popped together. The H1 and H2 can throw single target heals at whoever has the Accretion between them. If playing AST, I recommend popping Macrocosmos immediately for the top-up as this will also take care of the tanks. WHM can use Benediction (if not used earlier) to instantly pop the healer Accretion."
+              }
+            ],
+            "OT": [
+              {
+                "name": "Avoid HP-restoring abilities",
+                "note": "Non-healers should avoid using any healing abilities that may cause their Accretion to pop early such as Second Wind, Curing Waltz or Divine Veil. If both Accretions are activated in a short amount of time, it will cause a wipe. Healers will need to manage HP burst accordingly to ensure that Accretions are not popped together. The H1 and H2 can throw single target heals at whoever has the Accretion between them. If playing AST, I recommend popping Macrocosmos immediately for the top-up as this will also take care of the tanks. WHM can use Benediction (if not used earlier) to instantly pop the healer Accretion."
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Manage Accretion healing",
+                "note": "Non-healers should avoid using any healing abilities that may cause their Accretion to pop early such as Second Wind, Curing Waltz or Divine Veil. If both Accretions are activated in a short amount of time, it will cause a wipe. Healers will need to manage HP burst accordingly to ensure that Accretions are not popped together. The H1 and H2 can throw single target heals at whoever has the Accretion between them. If playing AST, I recommend popping Macrocosmos immediately for the top-up as this will also take care of the tanks. WHM can use Benediction (if not used earlier) to instantly pop the healer Accretion."
+              }
+            ],
+            "AST": [
+              {
+                "name": "Manage Accretion healing",
+                "note": "Non-healers should avoid using any healing abilities that may cause their Accretion to pop early such as Second Wind, Curing Waltz or Divine Veil. If both Accretions are activated in a short amount of time, it will cause a wipe. Healers will need to manage HP burst accordingly to ensure that Accretions are not popped together. The H1 and H2 can throw single target heals at whoever has the Accretion between them. If playing AST, I recommend popping Macrocosmos immediately for the top-up as this will also take care of the tanks. WHM can use Benediction (if not used earlier) to instantly pop the healer Accretion."
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Manage Accretion healing",
+                "note": "Non-healers should avoid using any healing abilities that may cause their Accretion to pop early such as Second Wind, Curing Waltz or Divine Veil. If both Accretions are activated in a short amount of time, it will cause a wipe. Healers will need to manage HP burst accordingly to ensure that Accretions are not popped together. The H1 and H2 can throw single target heals at whoever has the Accretion between them. If playing AST, I recommend popping Macrocosmos immediately for the top-up as this will also take care of the tanks. WHM can use Benediction (if not used earlier) to instantly pop the healer Accretion."
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Manage Accretion healing",
+                "note": "Non-healers should avoid using any healing abilities that may cause their Accretion to pop early such as Second Wind, Curing Waltz or Divine Veil. If both Accretions are activated in a short amount of time, it will cause a wipe. Healers will need to manage HP burst accordingly to ensure that Accretions are not popped together. The H1 and H2 can throw single target heals at whoever has the Accretion between them. If playing AST, I recommend popping Macrocosmos immediately for the top-up as this will also take care of the tanks. WHM can use Benediction (if not used earlier) to instantly pop the healer Accretion."
+              }
+            ],
+            "D1": [
+              {
+                "name": "Avoid HP-restoring abilities",
+                "note": "Non-healers should avoid using any healing abilities that may cause their Accretion to pop early such as Second Wind, Curing Waltz or Divine Veil. If both Accretions are activated in a short amount of time, it will cause a wipe. Healers will need to manage HP burst accordingly to ensure that Accretions are not popped together. The H1 and H2 can throw single target heals at whoever has the Accretion between them. If playing AST, I recommend popping Macrocosmos immediately for the top-up as this will also take care of the tanks. WHM can use Benediction (if not used earlier) to instantly pop the healer Accretion."
+              }
+            ],
+            "D2": [
+              {
+                "name": "Avoid HP-restoring abilities",
+                "note": "Non-healers should avoid using any healing abilities that may cause their Accretion to pop early such as Second Wind, Curing Waltz or Divine Veil. If both Accretions are activated in a short amount of time, it will cause a wipe. Healers will need to manage HP burst accordingly to ensure that Accretions are not popped together. The H1 and H2 can throw single target heals at whoever has the Accretion between them. If playing AST, I recommend popping Macrocosmos immediately for the top-up as this will also take care of the tanks. WHM can use Benediction (if not used earlier) to instantly pop the healer Accretion."
+              }
+            ],
+            "D3": [
+              {
+                "name": "Avoid HP-restoring abilities",
+                "note": "Non-healers should avoid using any healing abilities that may cause their Accretion to pop early such as Second Wind, Curing Waltz or Divine Veil. If both Accretions are activated in a short amount of time, it will cause a wipe. Healers will need to manage HP burst accordingly to ensure that Accretions are not popped together. The H1 and H2 can throw single target heals at whoever has the Accretion between them. If playing AST, I recommend popping Macrocosmos immediately for the top-up as this will also take care of the tanks. WHM can use Benediction (if not used earlier) to instantly pop the healer Accretion."
+              }
+            ],
+            "D4": [
+              {
+                "name": "Avoid HP-restoring abilities",
+                "note": "Non-healers should avoid using any healing abilities that may cause their Accretion to pop early such as Second Wind, Curing Waltz or Divine Veil. If both Accretions are activated in a short amount of time, it will cause a wipe. Healers will need to manage HP burst accordingly to ensure that Accretions are not popped together. The H1 and H2 can throw single target heals at whoever has the Accretion between them. If playing AST, I recommend popping Macrocosmos immediately for the top-up as this will also take care of the tanks. WHM can use Benediction (if not used earlier) to instantly pop the healer Accretion."
+              }
+            ]
+          }
+        },
+        {
+          "id": "p3-r26",
+          "name": "Earthquake",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Party Mit (GNB/DRK)"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Macrocosmos"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              },
+              {
+                "name": "Philosophia",
+                "note": "Philosophia should be used after both Accretions resolves to avoid accidentally popping both at the same time."
+              }
+            ],
+            "D1": [
+              {
+                "name": "Feint (Chaos)",
+                "note": "Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides."
+              }
+            ]
+          },
+          "time": "2:57"
+        },
+        {
+          "id": "p3-r28",
+          "name": "Shocking Impact/Shockwave",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal",
+                "note": "Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides."
+              },
+              {
+                "name": "Party Mit (WAR/PLD)"
+              },
+              {
+                "name": "Party Mit (GNB/DRK)",
+                "carryOver": true
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Plenary Indulgence"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole",
+                "carryOver": true
+              }
+            ]
+          },
+          "time": "3:16"
+        },
+        {
+          "id": "p3-r30",
+          "name": "Shocking Impact/Shockwave",
+          "assignments": {
+            "OT": [
+              {
+                "name": "Party Mit (GNB/DRK)"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Liturgy of the Bell"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Expedient"
+              },
+              {
+                "name": "Seraph"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Holos"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "D1": [
+              {
+                "name": "Extra (RDM/MCH)"
+              }
+            ],
+            "D2": [
+              {
+                "name": "Extra (RDM/MCH)"
+              }
+            ],
+            "D3": [
+              {
+                "name": "Extra (RDM/MCH)"
+              }
+            ],
+            "D4": [
+              {
+                "name": "Extra (RDM/MCH)"
+              }
+            ]
+          },
+          "time": "3:47"
+        },
+        {
+          "id": "p3-r32",
+          "name": "Black Holes II (3rd Tether Set)",
+          "assignments": {
+            "OT": [
+              {
+                "name": "Party Mit (WAR/PLD)"
+              },
+              {
+                "name": "Party Mit (GNB/DRK)",
+                "carryOver": true
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Seraph"
+              },
+              {
+                "name": "Expedient",
+                "carryOver": true
+              },
+              {
+                "name": "Sacred Soil",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Holos",
+                "carryOver": true
+              },
+              {
+                "name": "Kerachole",
+                "carryOver": true
+              }
+            ]
+          },
+          "time": "3:54"
+        },
+        {
+          "id": "p3-r34",
+          "name": "Black Holes II (4th Tether Set)",
+          "assignments": {
+            "OT": [
+              {
+                "name": "Party Mit (GNB/DRK)",
+                "carryOver": true
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Expedient",
+                "carryOver": true
+              },
+              {
+                "name": "Sacred Soil",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Holos",
+                "carryOver": true
+              }
+            ]
+          },
+          "time": "3:59"
+        },
+        {
+          "id": "p3-r36",
+          "name": "Black Holes II (5th Tether Set)",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Fey Illumination"
+              },
+              {
+                "name": "Expedient",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Holos",
+                "carryOver": true
+              }
+            ]
+          },
+          "time": "4:04"
+        },
+        {
+          "id": "p3-r38",
+          "name": "Thunder III (5th Set)",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal",
+                "note": "Shared MT/OT assignment in the source; coordinate which tank uses Reprisal. Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides."
+              }
+            ],
+            "OT": [
+              {
+                "name": "Reprisal",
+                "note": "Shared MT/OT assignment in the source; coordinate which tank uses Reprisal. Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides."
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance",
+                "note": "If you are holding at the end of P3, you can send this for the 6th Tether set."
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect",
+                "note": "If you are holding at the end of P3, you can send this for the 6th Tether set."
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Spreadlo",
+                "note": "All mechanics require shields."
+              },
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Fey Illumination",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Zoe Shields",
+                "note": "All mechanics require shields."
+              },
+              {
+                "name": "Panhaima",
+                "note": "If you are holding at the end of P3, you can send this for the 6th Tether set."
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "D2": [
+              {
+                "name": "Feint (Chaos)",
+                "note": "Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides."
+              }
+            ],
+            "D4": [
+              {
+                "name": "Addle (Exdeath)",
+                "note": "Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides."
+              }
+            ]
+          },
+          "time": "4:15"
+        },
+        {
+          "id": "p3-r40",
+          "name": "Black Holes III (6th Tether Set)",
+          "assignments": {
+            "WHM": [
+              {
+                "name": "Divine Caress"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Sun Sign"
+              },
+              {
+                "name": "Sun Sign (7-8th Set)",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Panhaima",
+                "carryOver": true
+              }
+            ],
+            "D3": [
+              {
+                "name": "Party Mit"
+              },
+              {
+                "name": "Party Mit (7-8th Set)",
+                "carryOver": true
+              }
+            ]
+          },
+          "time": "4:28"
+        },
+        {
+          "id": "p3-r42",
+          "name": "Shocking Impact/Shockwave",
+          "assignments": {
+            "WHM": [
+              {
+                "name": "Plenary Indulgence"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              }
+            ]
+          },
+          "time": "4:55"
+        },
+        {
+          "id": "p3-r44",
+          "name": "Stomp-a-Mole + Knock Down",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal",
+                "note": "Use if holding Chaos, otherwise use at the beginning of P4 for autos. Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides."
+              },
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "OT": [
+              {
+                "name": "Reprisal",
+                "note": "Use if holding Chaos, otherwise use at the beginning of P4 for autos. Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides."
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Seraphism",
+                "note": "Seraphism can be shifted to P4 if you feel you have sufficient mitigation. Both healers should have instant cast heals prepared to top up the party between the first and second set of stomps."
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole",
+                "note": "Both healers should have instant cast heals prepared to top up the party between the first and second set of stomps."
+              }
+            ],
+            "D1": [
+              {
+                "name": "Feint (Chaos)",
+                "note": "Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides."
+              }
+            ]
+          },
+          "time": "5:23"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "mechanics": [
+        {
+          "id": "p4-r8",
+          "name": "Grand Cross",
+          "assignments": {
+            "WHM": [
+              {
+                "name": "Plenary Indulgence"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Spreadlo",
+                "note": "All mechanics require shields."
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              },
+              {
+                "name": "Philosophia"
+              },
+              {
+                "name": "Holos"
+              }
+            ],
+            "D2": [
+              {
+                "name": "Feint",
+                "note": "Use at the beginning of the phase for autos. Targeted mitigation only works on Ultima Upsurge; other uses cover tank autos."
+              },
+              {
+                "name": "Extra (RDM/MCH)"
+              }
+            ],
+            "D1": [
+              {
+                "name": "Extra (RDM/MCH)"
+              }
+            ],
+            "D3": [
+              {
+                "name": "Extra (RDM/MCH)"
+              }
+            ],
+            "D4": [
+              {
+                "name": "Extra (RDM/MCH)"
+              }
+            ]
+          },
+          "time": "0:29"
+        },
+        {
+          "id": "p4-r10",
+          "name": "Inferno/Tsunami",
+          "assignments": {
+            "WHM": [
+              {
+                "name": "Plenary Indulgence",
+                "carryOver": true
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious",
+                "carryOver": true
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole",
+                "carryOver": true
+              },
+              {
+                "name": "Holos",
+                "carryOver": true
+              }
+            ],
+            "D3": [
+              {
+                "name": "Party Mit"
+              }
+            ]
+          },
+          "time": "0:35"
+        },
+        {
+          "id": "p4-r12",
+          "name": "Grand Cross",
+          "assignments": {
+            "WHM": [
+              {
+                "name": "Temperance"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Expedient"
+              },
+              {
+                "name": "Fey Illumination"
+              },
+              {
+                "name": "Sacred Soil",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Panhaima"
+              },
+              {
+                "name": "Holos",
+                "carryOver": true
+              }
+            ],
+            "D3": [
+              {
+                "name": "Party Mit",
+                "carryOver": true
+              }
+            ]
+          },
+          "time": "0:44"
+        },
+        {
+          "id": "p4-r14",
+          "name": "Inferno/Tsunami",
+          "assignments": {
+            "OT": [
+              {
+                "name": "Party Mit (GNB/DRK)"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance",
+                "carryOver": true
+              }
+            ],
+            "AST": [
+              {
+                "name": "Sun Sign"
+              },
+              {
+                "name": "Neutral Sect",
+                "carryOver": true
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Seraph"
+              },
+              {
+                "name": "Expedient",
+                "carryOver": true
+              },
+              {
+                "name": "Fey Illumination",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Panhaima",
+                "carryOver": true
+              }
+            ]
+          },
+          "time": "0:49"
+        },
+        {
+          "id": "p4-r16",
+          "name": "Grand Cross",
+          "assignments": {
+            "OT": [
+              {
+                "name": "Party Mit (WAR/PLD)"
+              },
+              {
+                "name": "Party Mit (GNB/DRK)",
+                "carryOver": true
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Divine Caress"
+              },
+              {
+                "name": "Temperance",
+                "carryOver": true
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect",
+                "carryOver": true
+              },
+              {
+                "name": "Sun Sign",
+                "carryOver": true
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Seraph"
+              },
+              {
+                "name": "Expedient",
+                "carryOver": true
+              },
+              {
+                "name": "Fey Illumination",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Zoe Shields",
+                "note": "All mechanics require shields."
+              }
+            ]
+          },
+          "time": "0:59"
+        },
+        {
+          "id": "p4-r18",
+          "name": "Flood of Naught",
+          "assignments": {
+            "WHM": [
+              {
+                "name": "Liturgy of the Bell"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Macrocosmos"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              }
+            ]
+          },
+          "time": "1:11"
+        },
+        {
+          "id": "p4-r20",
+          "name": "Death Bolt/Wave",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole",
+                "carryOver": true
+              }
+            ]
+          },
+          "time": "1:21"
+        },
+        {
+          "id": "p4-r22",
+          "name": "Ultima Upsurge",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal",
+                "note": "Targeted mitigation only works on Ultima Upsurge; other uses cover tank autos."
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Plenary Indulgence"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "D1": [
+              {
+                "name": "Feint",
+                "note": "Targeted mitigation only works on Ultima Upsurge; other uses cover tank autos."
+              }
+            ],
+            "D4": [
+              {
+                "name": "Addle",
+                "note": "Targeted mitigation only works on Ultima Upsurge; other uses cover tank autos."
+              }
+            ]
+          },
+          "time": "1:39"
+        },
+        {
+          "id": "p4-r24",
+          "name": "Death Bolt/Wave",
+          "assignments": {
+            "WHM": [
+              {
+                "name": "Plenary Indulgence",
+                "carryOver": true
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious",
+                "carryOver": true
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole",
+                "carryOver": true
+              }
+            ]
+          },
+          "time": "1:46"
+        },
+        {
+          "id": "p4-r26",
+          "name": "Ultima Upsurge",
+          "assignments": {
+            "OT": [
+              {
+                "name": "Reprisal",
+                "note": "Targeted mitigation only works on Ultima Upsurge; other uses cover tank autos."
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              }
+            ]
+          },
+          "time": "2:18"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "mechanics": [
+        {
+          "id": "p5-r8",
+          "name": "Ultima Repeater",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "OT": [
+              {
+                "name": "Party Mit",
+                "note": "Use when Kefka brings his staff down to his right side, example here. | The subsequent usages should be pressed immediately off cooldown.",
+                "noteLink": "https://www.twitch.tv/kizuwah/clip/PeppyModernSamosaArsonNoSexy-s6G3BH_VonLSpdI2"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Plenary Indulgence"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Spreadlo",
+                "note": "All mechanics require shields."
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Zoe Shields",
+                "note": "All mechanics require shields."
+              },
+              {
+                "name": "Holos"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "D3": [
+              {
+                "name": "Party Mit",
+                "note": "Use when Kefka brings his staff down to his right side, example here. | The subsequent usages should be pressed immediately off cooldown.",
+                "noteLink": "https://www.twitch.tv/kizuwah/clip/PeppyModernSamosaArsonNoSexy-s6G3BH_VonLSpdI2"
+              },
+              {
+                "name": "Extra (RDM/MCH)"
+              }
+            ],
+            "D1": [
+              {
+                "name": "Extra (RDM/MCH)"
+              }
+            ],
+            "D2": [
+              {
+                "name": "Extra (RDM/MCH)"
+              }
+            ],
+            "D4": [
+              {
+                "name": "Extra (RDM/MCH)"
+              }
+            ]
+          },
+          "time": "0:49"
+        },
+        {
+          "id": "p5-r10",
+          "name": "Fell Forces (3x)",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal",
+                "carryOver": true
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Plenary Indulgence",
+                "carryOver": true
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious",
+                "carryOver": true
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Holos",
+                "carryOver": true
+              },
+              {
+                "name": "Kerachole",
+                "carryOver": true
+              }
+            ]
+          },
+          "time": "0:54"
+        },
+        {
+          "id": "p5-r12",
+          "name": "Chaotic Flood",
+          "assignments": {
+            "WHM": [
+              {
+                "name": "Temperance"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Expedient"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Panhaima"
+              },
+              {
+                "name": "Holos",
+                "carryOver": true
+              }
+            ]
+          },
+          "time": "1:06"
+        },
+        {
+          "id": "p5-r14",
+          "name": "Maddening Orchestra",
+          "assignments": {
+            "OT": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Divine Caress",
+                "note": "Healers should monitor the tanks during Maddening Orchestra (especially the Flare tank) and Fell Forces. For WAR/DRK, you will need to have single target burst healing prepared after their invulnerability expires so they can survive the 3rd auto."
+              },
+              {
+                "name": "Temperance",
+                "carryOver": true
+              }
+            ],
+            "AST": [
+              {
+                "name": "Sun Sign",
+                "note": "Healers should monitor the tanks during Maddening Orchestra (especially the Flare tank) and Fell Forces. For WAR/DRK, you will need to have single target burst healing prepared after their invulnerability expires so they can survive the 3rd auto."
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil",
+                "note": "Healers should monitor the tanks during Maddening Orchestra (especially the Flare tank) and Fell Forces. For WAR/DRK, you will need to have single target burst healing prepared after their invulnerability expires so they can survive the 3rd auto."
+              },
+              {
+                "name": "Fey Illumination"
+              },
+              {
+                "name": "Expedient",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole",
+                "note": "Healers should monitor the tanks during Maddening Orchestra (especially the Flare tank) and Fell Forces. For WAR/DRK, you will need to have single target burst healing prepared after their invulnerability expires so they can survive the 3rd auto."
+              }
+            ],
+            "D2": [
+              {
+                "name": "Feint"
+              }
+            ]
+          },
+          "time": "1:18"
+        },
+        {
+          "id": "p5-r16",
+          "name": "Fell Forces (2x)",
+          "assignments": {
+            "OT": [
+              {
+                "name": "Reprisal",
+                "carryOver": true
+              }
+            ],
+            "AST": [
+              {
+                "name": "Sun Sign",
+                "carryOver": true,
+                "note": "Healers should monitor the tanks during Maddening Orchestra (especially the Flare tank) and Fell Forces. For WAR/DRK, you will need to have single target burst healing prepared after their invulnerability expires so they can survive the 3rd auto."
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil",
+                "carryOver": true,
+                "note": "Healers should monitor the tanks during Maddening Orchestra (especially the Flare tank) and Fell Forces. For WAR/DRK, you will need to have single target burst healing prepared after their invulnerability expires so they can survive the 3rd auto."
+              },
+              {
+                "name": "Fey Illumination",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole",
+                "carryOver": true,
+                "note": "Healers should monitor the tanks during Maddening Orchestra (especially the Flare tank) and Fell Forces. For WAR/DRK, you will need to have single target burst healing prepared after their invulnerability expires so they can survive the 3rd auto."
+              }
+            ],
+            "D2": [
+              {
+                "name": "Feint",
+                "carryOver": true
+              }
+            ]
+          },
+          "time": "1:31"
+        },
+        {
+          "id": "p5-r18",
+          "name": "Celestriad",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Seraph",
+                "note": "Use during the Celestriad castbar."
+              }
+            ]
+          },
+          "time": "1:49"
+        },
+        {
+          "id": "p5-r20",
+          "name": "Ultima Repeater",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "OT": [
+              {
+                "name": "Party Mit",
+                "note": "Use when Kefka brings his staff down to his right side, example here. | The subsequent usages should be pressed immediately off cooldown.",
+                "noteLink": "https://www.twitch.tv/kizuwah/clip/PeppyModernSamosaArsonNoSexy-s6G3BH_VonLSpdI2"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Plenary Indulgence"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "D1": [
+              {
+                "name": "Feint",
+                "note": "Use after the third towers in Celestriad resolves."
+              }
+            ],
+            "D3": [
+              {
+                "name": "Party Mit",
+                "note": "Use when Kefka brings his staff down to his right side, example here. | The subsequent usages should be pressed immediately off cooldown.",
+                "noteLink": "https://www.twitch.tv/kizuwah/clip/PeppyModernSamosaArsonNoSexy-s6G3BH_VonLSpdI2"
+              }
+            ],
+            "D4": [
+              {
+                "name": "Addle",
+                "note": "Use after the third towers in Celestriad resolves."
+              }
+            ]
+          },
+          "time": "2:11"
+        },
+        {
+          "id": "p5-r22",
+          "name": "Fell Forces (2x)",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal",
+                "carryOver": true
+              }
+            ],
+            "OT": [
+              {
+                "name": "Party Mit",
+                "carryOver": true
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Plenary Indulgence",
+                "carryOver": true
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious",
+                "carryOver": true
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole",
+                "carryOver": true
+              }
+            ],
+            "D1": [
+              {
+                "name": "Feint",
+                "carryOver": true
+              }
+            ],
+            "D3": [
+              {
+                "name": "Party Mit",
+                "carryOver": true
+              }
+            ],
+            "D4": [
+              {
+                "name": "Addle",
+                "carryOver": true
+              }
+            ]
+          },
+          "time": "2:16"
+        },
+        {
+          "id": "p5-r24",
+          "name": "Stray Entropy",
+          "assignments": {
+            "OT": [
+              {
+                "name": "Reprisal",
+                "note": "Use two GCDs after the Stray Apocalypse castbar is completed so it is back for Forsaken."
+              }
+            ]
+          },
+          "time": "2:42"
+        },
+        {
+          "id": "p5-r26",
+          "name": "Maddening Orchestra",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Sacred Soil",
+                "note": "Healers should monitor the tanks during Maddening Orchestra (especially the Flare tank) and Fell Forces. For WAR/DRK, you will need to have single target burst healing prepared after their invulnerability expires so they can survive the 3rd auto."
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole",
+                "note": "Healers should monitor the tanks during Maddening Orchestra (especially the Flare tank) and Fell Forces. For WAR/DRK, you will need to have single target burst healing prepared after their invulnerability expires so they can survive the 3rd auto."
+              }
+            ]
+          },
+          "time": "2:51"
+        },
+        {
+          "id": "p5-r28",
+          "name": "Fell Forces (3x)",
+          "assignments": {
+            "WHM": [
+              {
+                "name": "Assist Tanks",
+                "note": "Healers should monitor the tanks during Maddening Orchestra (especially the Flare tank) and Fell Forces. For WAR/DRK, you will need to have single target burst healing prepared after their invulnerability expires so they can survive the 3rd auto."
+              }
+            ],
+            "AST": [
+              {
+                "name": "Assist Tanks",
+                "note": "Healers should monitor the tanks during Maddening Orchestra (especially the Flare tank) and Fell Forces. For WAR/DRK, you will need to have single target burst healing prepared after their invulnerability expires so they can survive the 3rd auto."
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Assist Tanks",
+                "note": "Healers should monitor the tanks during Maddening Orchestra (especially the Flare tank) and Fell Forces. For WAR/DRK, you will need to have single target burst healing prepared after their invulnerability expires so they can survive the 3rd auto."
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Assist Tanks",
+                "note": "Healers should monitor the tanks during Maddening Orchestra (especially the Flare tank) and Fell Forces. For WAR/DRK, you will need to have single target burst healing prepared after their invulnerability expires so they can survive the 3rd auto."
+              }
+            ]
+          },
+          "time": "3:03"
+        },
+        {
+          "id": "p5-r32",
+          "name": "Forsaken (1st Hit)",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal",
+                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
+              },
+              {
+                "name": "Party Mit",
+                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance",
+                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect",
+                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
+              },
+              {
+                "name": "Collective Unconscious",
+                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Spreadlo",
+                "note": "All mechanics require shields. For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
+              },
+              {
+                "name": "Fey Illumination",
+                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
+              },
+              {
+                "name": "Sacred Soil",
+                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Zoe Shields",
+                "note": "All mechanics require shields. For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
+              },
+              {
+                "name": "Holos",
+                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
+              },
+              {
+                "name": "Kerachole",
+                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
+              }
+            ],
+            "D2": [
+              {
+                "name": "Feint",
+                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
+              },
+              {
+                "name": "Extra (RDM/MCH)",
+                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
+              }
+            ],
+            "D1": [
+              {
+                "name": "Extra (RDM/MCH)",
+                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
+              }
+            ],
+            "D3": [
+              {
+                "name": "Extra (RDM/MCH)",
+                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
+              }
+            ],
+            "D4": [
+              {
+                "name": "Extra (RDM/MCH)",
+                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
+              }
+            ]
+          },
+          "time": "3:20"
+        },
+        {
+          "id": "p5-r34",
+          "name": "Forsaken Bonds (2nd Hit)",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal",
+                "carryOver": true
+              },
+              {
+                "name": "Party Mit (GNB/DRK)",
+                "carryOver": true
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Liturgy of the Bell",
+                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
+              },
+              {
+                "name": "Temperance",
+                "carryOver": true
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect",
+                "carryOver": true
+              },
+              {
+                "name": "Collective Unconscious",
+                "carryOver": true
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Seraphism",
+                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
+              },
+              {
+                "name": "Fey Illumination",
+                "carryOver": true
+              },
+              {
+                "name": "Sacred Soil",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Philosophia",
+                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
+              },
+              {
+                "name": "Holos",
+                "carryOver": true
+              },
+              {
+                "name": "Kerachole",
+                "carryOver": true
+              }
+            ],
+            "D2": [
+              {
+                "name": "Feint",
+                "carryOver": true
+              }
+            ]
+          },
+          "time": "3:25"
+        },
+        {
+          "id": "p5-r36",
+          "name": "Forsaken (3rd Hit)",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal",
+                "carryOver": true
+              },
+              {
+                "name": "Party Mit (GNB/DRK)",
+                "carryOver": true
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance",
+                "carryOver": true
+              }
+            ],
+            "AST": [
+              {
+                "name": "Macrocosmos",
+                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
+              },
+              {
+                "name": "Neutral Sect",
+                "carryOver": true
+              },
+              {
+                "name": "Collective Unconscious",
+                "carryOver": true
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Expedient",
+                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
+              },
+              {
+                "name": "Fey Illumination",
+                "carryOver": true
+              },
+              {
+                "name": "Sacred Soil",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Panhaima",
+                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
+              },
+              {
+                "name": "Holos",
+                "carryOver": true
+              },
+              {
+                "name": "Kerachole",
+                "carryOver": true
+              }
+            ],
+            "D2": [
+              {
+                "name": "Feint",
+                "carryOver": true
+              }
+            ]
+          },
+          "time": "3:28"
+        },
+        {
+          "id": "p5-r38",
+          "name": "Forsaken Bonds (4th Hit)",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal",
+                "carryOver": true
+              },
+              {
+                "name": "Party Mit (GNB/DRK)",
+                "carryOver": true
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance",
+                "carryOver": true
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect",
+                "carryOver": true
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Fey Illumination",
+                "carryOver": true
+              },
+              {
+                "name": "Expedient",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Holos",
+                "carryOver": true
+              },
+              {
+                "name": "Panhaima",
+                "carryOver": true
+              }
+            ],
+            "D2": [
+              {
+                "name": "Feint",
+                "carryOver": true
+              }
+            ]
+          },
+          "time": "3:34"
+        },
+        {
+          "id": "p5-r40",
+          "name": "Forsaken (5th Hit)",
+          "assignments": {
+            "OT": [
+              {
+                "name": "Reprisal",
+                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted. It is important that the new round of mitigation for the 5th hit are applied as the first round of mitigation will fall off."
+              },
+              {
+                "name": "Party Mit",
+                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted. It is important that the new round of mitigation for the 5th hit are applied as the first round of mitigation will fall off."
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Divine Caress",
+                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted. It is important that the new round of mitigation for the 5th hit are applied as the first round of mitigation will fall off."
+              },
+              {
+                "name": "Temperance",
+                "carryOver": true
+              }
+            ],
+            "AST": [
+              {
+                "name": "Sun Sign",
+                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted. It is important that the new round of mitigation for the 5th hit are applied as the first round of mitigation will fall off."
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Expedient",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Holos",
+                "carryOver": true
+              },
+              {
+                "name": "Panhaima",
+                "carryOver": true
+              }
+            ],
+            "D1": [
+              {
+                "name": "Feint",
+                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted. It is important that the new round of mitigation for the 5th hit are applied as the first round of mitigation will fall off."
+              }
+            ],
+            "D3": [
+              {
+                "name": "Party Mit",
+                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted. It is important that the new round of mitigation for the 5th hit are applied as the first round of mitigation will fall off."
+              }
+            ],
+            "D4": [
+              {
+                "name": "Addle",
+                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted. It is important that the new round of mitigation for the 5th hit are applied as the first round of mitigation will fall off."
+              }
+            ]
+          },
+          "time": "3:37"
+        },
+        {
+          "id": "p5-r42",
+          "name": "Forsaken Bonds (6th Hit)",
+          "assignments": {
+            "OT": [
+              {
+                "name": "Reprisal",
+                "carryOver": true
+              },
+              {
+                "name": "Party Mit (GNB/DRK)",
+                "carryOver": true
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Plenary Indulgence",
+                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
+              }
+            ],
+            "AST": [
+              {
+                "name": "Sun Sign",
+                "carryOver": true
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Expedient",
+                "carryOver": true
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Panhaima",
+                "carryOver": true
+              }
+            ],
+            "D1": [
+              {
+                "name": "Feint",
+                "carryOver": true
+              }
+            ],
+            "D3": [
+              {
+                "name": "Party Mit",
+                "carryOver": true
+              }
+            ],
+            "D4": [
+              {
+                "name": "Addle",
+                "carryOver": true
+              }
+            ]
+          },
+          "time": "3:42"
+        },
+        {
+          "id": "p5-r44",
+          "name": "Forsaken (7th Hit)",
+          "assignments": {
+            "OT": [
+              {
+                "name": "Reprisal",
+                "carryOver": true
+              },
+              {
+                "name": "Party Mit (GNB/DRK)",
+                "carryOver": true
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Plenary Indulgence",
+                "carryOver": true
+              }
+            ],
+            "AST": [
+              {
+                "name": "Sun Sign",
+                "carryOver": true
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Seraph",
+                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Panhaima",
+                "carryOver": true
+              }
+            ],
+            "D1": [
+              {
+                "name": "Feint",
+                "carryOver": true
+              }
+            ],
+            "D3": [
+              {
+                "name": "Party Mit",
+                "carryOver": true
+              }
+            ],
+            "D4": [
+              {
+                "name": "Addle",
+                "carryOver": true
+              }
+            ]
+          },
+          "time": "3:45"
+        },
+        {
+          "id": "p5-r46",
+          "name": "Forsaken Bonds (8th Hit)",
+          "assignments": {
+            "OT": [
+              {
+                "name": "Reprisal",
+                "carryOver": true
+              },
+              {
+                "name": "Party Mit (GNB/DRK)",
+                "carryOver": true
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Plenary Indulgence",
+                "carryOver": true
+              }
+            ],
+            "AST": [
+              {
+                "name": "Sun Sign",
+                "carryOver": true
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Seraph",
+                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
+              },
+              {
+                "name": "Sacred Soil",
+                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole",
+                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
+              }
+            ],
+            "D1": [
+              {
+                "name": "Feint",
+                "carryOver": true
+              }
+            ],
+            "D3": [
+              {
+                "name": "Party Mit",
+                "carryOver": true
+              }
+            ],
+            "D4": [
+              {
+                "name": "Addle",
+                "carryOver": true
+              }
+            ]
+          },
+          "time": "3:50"
+        },
+        {
+          "id": "p5-r48",
+          "name": "Forsaken Null",
+          "assignments": {},
+          "time": "4:24"
+        }
+      ]
+    }
+  ]
+}

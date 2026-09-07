@@ -2,9 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>xivmits</title>
+    <meta name="description" content="See your FFXIV mitigation assignments by phase, with a compact always-on-top window for pulls." />
+    <meta name="theme-color" content="#f7f8fa" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>XIVMits · FFXIV mitigation by phase</title>
+    <meta property="og:title" content="XIVMits" />
+    <meta property="og:description" content="See your FFXIV mitigation assignments by phase." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://xivmits.com/" />
+    <script>
+      // Applies Mantine's stored color scheme before first paint. Mirrors what
+      // MantineProvider does on mount, so the page never flashes the wrong theme.
+      try {
+        var stored = localStorage.getItem('xivmits-color-scheme');
+        var resolved = stored === 'light' || stored === 'dark' ? stored
+          : window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.mantineColorScheme = resolved;
+      } catch {}
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -1,184 +1,182 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
+/* Only what Mantine props cannot express: the phase-tab selected state (which
+   needs a pseudo-element bar), the scroll container, and the PiP compact layer
+   (descendant overrides on a portalled tree). Everything else is Mantine. */
 
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
+.phase-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--mantine-color-body);
+  padding-block: var(--mantine-spacing-sm);
 }
 
-.hero {
+.phase-tabs {
+  display: flex;
+  flex: 1;
+  gap: var(--mantine-spacing-sm);
+  min-width: 0;
+  overflow-x: auto;
+  padding: 4px;
+  margin: -4px;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+}
+.phase-tabs::-webkit-scrollbar { display: none; }
+
+.phase-tabs button {
   position: relative;
-
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
-
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-  .framework,
-  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
+  flex: 0 0 auto;
+  min-width: 40px;
+  min-height: 40px;
+  padding: var(--mantine-spacing-sm) var(--mantine-spacing-md);
+  scroll-snap-align: start;
+  border: 1px solid var(--border);
+  border-radius: var(--mantine-radius-sm);
+  background: var(--mantine-color-body);
+  color: var(--text-muted);
+  font-size: var(--mantine-font-size-sm);
+}
+.phase-tabs button:hover { background: var(--surface-alt); }
+.phase-tabs button[aria-selected='true'] {
+  background: var(--accent-soft);
+  border-color: var(--accent-border);
+  color: var(--accent-strong);
+  font-weight: 700;
+}
+/* The 2px bar is the third, non-color signal for the selected phase. */
+.phase-tabs button[aria-selected='true']::after {
+  content: '';
+  position: absolute;
+  inset: auto var(--mantine-spacing-sm) 0;
+  height: 2px;
+  background: var(--accent);
 }
 
-#center {
+/* Mantine's SegmentedControl reads as plain text at rest, so it did not look
+   clickable. Borrow the phase tabs' language - the app's established "pick one
+   of these" control - so the affordance is obvious without a new pattern. */
+.display-picker {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--mantine-radius-md);
+}
+.display-picker .mantine-SegmentedControl-indicator {
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--mantine-radius-sm);
+}
+.display-picker .mantine-SegmentedControl-label {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+.display-picker .mantine-SegmentedControl-label[data-active] {
+  color: var(--accent-strong);
+  font-weight: 700;
+}
+.display-picker .mantine-SegmentedControl-label:hover { color: var(--text); }
+
+/* Fixed box so a slow or missing icon never reflows the action row, and the
+   text baseline stays put whether or not an icon is present. */
+/* One height for every control in the row, so their boxes line up instead of
+   floating at four different sizes. 36px is Mantine's `sm` input height. */
+.control-row { --control-h: 36px; }
+.control-row .mantine-InputWrapper-label {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--text-muted);
+  font-size: var(--mantine-font-size-sm);
+  font-weight: 400;
+}
+.control-row .control-input,
+.control-row .display-picker,
+.control-row .mantine-Button-root { height: var(--control-h); min-height: var(--control-h); }
+.control-row .display-picker { display: inline-flex; align-items: stretch; }
+.control-row .display-picker .mantine-SegmentedControl-label { display: flex; align-items: center; }
+/* The switch is much shorter than an input, so centre it in the same box
+   rather than letting it hang off the shared baseline. */
+.control-row .mantine-Switch-body {
+  height: var(--control-h);
   display: flex;
-  flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
+  align-items: center;
 }
 
-#next-steps {
+.kofi-link { transition: color 120ms ease-out; }
+.kofi-link:hover { color: var(--accent); }
+
+.action-icon {
+  flex: 0 0 auto;
+  border-radius: 4px;
+}
+.action-icon.faded { opacity: 0.5; }
+
+.assignments, .actions { list-style: none; padding: 0; margin: 0; }
+.assignments > .assignment { padding-block: var(--mantine-spacing-sm); }
+/* Shown for orientation only - this player has nothing to press here, so the
+   area under the name is deliberately left blank rather than removed. */
+.assignments > .assignment.unassigned { padding-block: 6px; }
+.assignments > .assignment + .assignment { border-top: 1px solid var(--border); }
+
+/* The cast and the ability are both important, so neither is dimmed. They are
+   told apart structurally instead: the cast is a full-width heading row with
+   its timestamp, the abilities are indented beneath it on a rule. */
+.mechanic-name {
+  color: var(--text-secondary);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.mechanic-heading { margin-bottom: 2px; }
+
+/* Boxed and monospaced so a column of times reads as a column, and so the
+   timestamp is findable at a glance rather than being the faintest thing here. */
+.timestamp {
+  flex: 0 0 auto;
+  padding: 2px var(--mantine-spacing-xs);
+  border: 1px solid var(--border);
+  border-radius: var(--mantine-radius-sm);
+  background: var(--surface-alt);
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Abilities sit indented under their cast, on a rule that ties them to it. */
+.actions {
+  padding-left: var(--mantine-spacing-sm);
+  border-left: 2px solid var(--border);
+}
+
+/* Horizontal by default; wraps only when it runs out of room. */
+.actions-flow {
   display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
-
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px var(--mantine-spacing-md);
+}
+.action-item { min-width: 0; }
+/* A zero-height break starts each carry-over run below the press-now actions
+   while letting carry-overs share that new row and wrap naturally. Notes take
+   a full row after every action has rendered. */
+.action-break { flex: 0 0 100%; height: 0; }
+.action-note { flex: 0 0 100%; }
+.carry-over-marker {
+  flex: 0 0 auto;
+  align-self: center;
+  color: var(--mantine-color-dimmed);
 }
 
-#docs {
-  border-right: 1px solid var(--border);
+/* Without icons there is no artwork marking where one name ends and the next
+   begins, so widen the gap. A separator glyph would be better typography but
+   CSS cannot see where a row wraps, and it would strand a dot at a line start. */
+.actions-flow.separated { column-gap: var(--mantine-spacing-xl); }
+.actions-icons { padding-block: 2px; }
+.action-chip { display: flex; align-items: center; }
 
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
+/* Picture-in-Picture: same tree, denser. Background is set explicitly because
+   the cloned stylesheets land in a document Mantine never mounted into. */
+.pip-body {
+  padding: var(--mantine-spacing-sm);
+  background: var(--mantine-color-body);
+  color: var(--text);
 }
-
-#next-steps ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
-}
-
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
-}
-
-.ticks {
-  position: relative;
-  width: 100%;
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
-  }
-
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
-  }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
-  }
-}
+.compact .phase-tabs button { min-width: 32px; min-height: 32px; padding: 4px var(--mantine-spacing-sm); }
+.compact .assignments > .assignment { padding-block: var(--mantine-spacing-sm); }
+.compact .actions { padding-left: var(--mantine-spacing-sm); }

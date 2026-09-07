@@ -1,0 +1,150 @@
+{
+  "jobs": [
+    {
+      "id": "PLD",
+      "name": "Paladin",
+      "role": "tank",
+      "abilities": {
+        "Party Mit": "Divine Veil"
+      }
+    },
+    {
+      "id": "WAR",
+      "name": "Warrior",
+      "role": "tank",
+      "abilities": {
+        "Party Mit": "Shake It Off"
+      }
+    },
+    {
+      "id": "DRK",
+      "name": "Dark Knight",
+      "role": "tank",
+      "abilities": {
+        "Party Mit": "Dark Missionary"
+      }
+    },
+    {
+      "id": "GNB",
+      "name": "Gunbreaker",
+      "role": "tank",
+      "abilities": {
+        "Party Mit": "Heart of Light"
+      }
+    },
+    {
+      "id": "WHM",
+      "name": "White Mage",
+      "role": "healer",
+      "abilities": {
+        "Party Mit": "Temperance"
+      }
+    },
+    {
+      "id": "SCH",
+      "name": "Scholar",
+      "role": "healer",
+      "abilities": {
+        "Party Mit": "Fey Illumination"
+      }
+    },
+    {
+      "id": "AST",
+      "name": "Astrologian",
+      "role": "healer",
+      "abilities": {
+        "Party Mit": "Collective Unconscious"
+      }
+    },
+    {
+      "id": "SGE",
+      "name": "Sage",
+      "role": "healer",
+      "abilities": {
+        "Party Mit": "Kerachole"
+      }
+    },
+    {
+      "id": "MNK",
+      "name": "Monk",
+      "role": "dps"
+    },
+    {
+      "id": "DRG",
+      "name": "Dragoon",
+      "role": "dps"
+    },
+    {
+      "id": "NIN",
+      "name": "Ninja",
+      "role": "dps"
+    },
+    {
+      "id": "SAM",
+      "name": "Samurai",
+      "role": "dps"
+    },
+    {
+      "id": "RPR",
+      "name": "Reaper",
+      "role": "dps"
+    },
+    {
+      "id": "VPR",
+      "name": "Viper",
+      "role": "dps"
+    },
+    {
+      "id": "BRD",
+      "name": "Bard",
+      "role": "dps",
+      "abilities": {
+        "Party Mit": "Troubadour"
+      }
+    },
+    {
+      "id": "MCH",
+      "name": "Machinist",
+      "role": "dps",
+      "abilities": {
+        "Party Mit": "Tactician",
+        "Extra": "Dismantle"
+      }
+    },
+    {
+      "id": "DNC",
+      "name": "Dancer",
+      "role": "dps",
+      "abilities": {
+        "Party Mit": "Shield Samba"
+      }
+    },
+    {
+      "id": "BLM",
+      "name": "Black Mage",
+      "role": "dps"
+    },
+    {
+      "id": "SMN",
+      "name": "Summoner",
+      "role": "dps"
+    },
+    {
+      "id": "RDM",
+      "name": "Red Mage",
+      "role": "dps",
+      "abilities": {
+        "Party Mit": "Addle",
+        "Extra": "Magick Barrier"
+      }
+    },
+    {
+      "id": "PCT",
+      "name": "Pictomancer",
+      "role": "dps",
+      "abilities": {
+        "Party Mit": "Tempera Grassa"
+      }
+    }
+  ]
+}

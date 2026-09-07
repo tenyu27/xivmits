@@ -1,0 +1,33 @@
+{
+  "id": "dmu",
+  "name": "Dancing Mad (Ultimate)",
+  "shortName": "DMU",
+  "type": "Ultimate",
+  "phases": [
+    {
+      "id": "p1",
+      "label": "P1",
+      "name": "Kefka"
+    },
+    {
+      "id": "p2",
+      "label": "P2",
+      "name": "Forsaken Kefka"
+    },
+    {
+      "id": "p3",
+      "label": "P3",
+      "name": "Exdeath & Chaos"
+    },
+    {
+      "id": "p4",
+      "label": "P4",
+      "name": "Kefka Says"
+    },
+    {
+      "id": "p5",
+      "label": "P5",
+      "name": "Kefka Reimagined"
+    }
+  ]
+}
