@@ -249,7 +249,7 @@ function Shell() {
         )}
       </> : <Box maw={480} mx="auto">
         <Title order={1}>What do I mit?</Title>
-        <Text c="dimmed" mt="sm">Pick a community mit sheet and get just your presses, phase by phase.</Text>
+        <Text c="dimmed" mt="sm">Easy focus on your own mit without distraction.</Text>
 
         {selection.error && <Alert color="red" variant="light" mt="md" role="alert">
           <Stack gap="xs" align="flex-start">
@@ -278,7 +278,7 @@ function Shell() {
           />
           <Group grow align="flex-start" gap="sm">{roleSelect}{jobSelect}</Group>
           <Button type="submit" rightSection={<IconArrowRight size={18} aria-hidden />} disabled={!fight || !sheet || !selection.roleId || !job}>
-            View Mits
+            View mits
           </Button>
         </Stack>
       </Box>}
