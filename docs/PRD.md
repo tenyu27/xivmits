@@ -62,7 +62,7 @@ The app *is* the homepage — a reference utility, not a dashboard.
 XIVMits                                    Theme [System ▾]
 
 What do I mit?
-Your role is remembered on this device.
+Pick a community mit sheet and get just your presses, phase by phase.
 
 Fight      [Dancing Mad (Ultimate) ▾]
 Mit sheet  [Ikuya Mitty            ▾]
@@ -75,8 +75,8 @@ FINAL FANTASY is a registered trademark of Square Enix Holdings Co., Ltd.
 ```
 
 The headline is the user's own question, not a description of the product. The
-subheadline answers the only thing a first-time visitor needs to know before
-picking a role: nothing is uploaded, and they will not have to do this again.
+subheadline is the one-line answer to what the tool does, so a first-time
+visitor knows what they are about to get before picking a role.
 
 Each selector unlocks the next; `View Mits` unlocks when complete. Selections apply immediately where practical — the button may become unnecessary, but V1 keeps it for clarity.
 
@@ -291,6 +291,7 @@ The PiP window inherits the **resolved** theme of the opener, not its own OS pre
 | `lastSheetByFight` | `{ [fightId]: sheetId }` | last sheet per fight |
 | `lastRoleBySheet` | `{ "fight/sheet": slotId }` | last role per sheet |
 | `lastPhaseBySheet` | `{ "fight/sheet": phaseId }` | last phase per sheet |
+| `layout` | `tabs` \| `list` | by-phase tabs or one scrolling list of all phases |
 | `theme` | `system` \| `light` \| `dark` | theme choice |
 
 Every read and write is wrapped — a browser with storage blocked loses persistence and nothing else. A stored value that no longer exists in the data (a renamed slot, a deleted sheet) is discarded on read rather than trusted. Nothing is uploaded; no account.
@@ -544,7 +545,8 @@ That's the whole application.
 | Fight selection | Yes |
 | Multiple mit sheets per fight | Yes |
 | Role selection + job labels | Yes |
-| Phase switching | Yes |
+| Phase switching (by-phase tabs) | Yes |
+| All-phases single scrolling list with phase splitters | Yes |
 | Role-focused assignments | Yes |
 | Mechanic names, multiple mits per mechanic | Yes |
 | Optional timestamps | Yes |

@@ -66,6 +66,7 @@ together. Do not patch it at the call site.
 |---|---|
 | `.phase-tabs` + selected state | the 2px bar is a `::after` pseudo-element |
 | `.phase-bar` sticky | positional, and needs the opaque body background |
+| `.phase-splitter` sticky + `.mit-view.list` overrides | positional; opaque body background; `:first-of-type` selector |
 | `.assignments` list reset and dividers | `li + li` sibling selector |
 | `.mechanic-name` uppercase | `text-transform` has no style prop |
 | `.compact` / `.pip-body` | descendant overrides on a portalled tree |
@@ -202,9 +203,9 @@ opens the project Google Form. The second row carries the Square Enix
 trademark notice in `--text-faint`, required because the app ships SE icon
 assets. There is no site map.
 
-The privacy line (*"Your role is remembered on this device"*) is **not** here —
-it is the subheadline on the selection screen, where a first-time visitor
-deciding whether to pick a role will actually read it.
+Persistence is not called out in the footer. The selection screen's subheadline
+says what the tool does instead, which is what a first-time visitor needs before
+picking a role.
 
 ### Selector (fight / sheet / role)
 
@@ -239,12 +240,13 @@ states come from Mantine. Three variants, and no fourth:
 | Mantine variant | Use | Treatment |
 |---|---|---|
 | `filled` (default) | `View Mits` | accent fill, contrast-computed label |
-| `variant="outline"` | `Pop out` | transparent fill, `--accent` text and border |
-| `variant="subtle" color="gray"` | `Change fight/sheet` | no fill or border, `--text-muted` |
+| `variant="outline"` | `Pop out`, `Change fight/sheet` | transparent fill, `--accent` text and border |
+| `variant="subtle" color="gray"` | `Change fight/sheet` in the error alert | no fill or border, `--text-muted` |
 
 All three are theme-resolved (§2) — set the variant, never the colors. Only one
-accent-filled button is ever on screen at a time. `Change fight/sheet` is subtle
-because leaving the view you came for should never compete with the view.
+accent-filled button is ever on screen at a time; the secondary actions in the
+focused view are outline, and the subtle variant is left for the recovery action
+inside an error alert, where it should stay quiet.
 
 ### Phase tabs
 
@@ -258,6 +260,16 @@ A horizontal row of buttons, one per phase, in source order.
 Minimum touch target 40×40. When the row overflows: `overflow-x: auto`, `scroll-snap-type: x proximity`, hidden scrollbar, and the selected tab scrolled into view on change. The row never wraps to two lines and never causes page-level horizontal scroll.
 
 The bar is **sticky to the top of the viewport** with an opaque `--mantine-color-body` and `z-index: 1`. Scrolling a long phase must never cost you the ability to leave it. Because the scroll container is inset, the tab row carries 4px padding with a matching negative margin — without it the focus ring on the first and last tab clips against the overflow edge.
+
+### Layout: by phase / all phases
+
+A two-option `SegmentedControl` in the control row, styled like the display picker. **By phase** is the default — one phase at a time, the tab bar switching it. **All phases** stacks every phase into one scrolling column so the whole fight reads top to bottom.
+
+In **all phases**:
+
+- A **phase splitter** opens each phase: its label in `--accent-strong` weight 700, the long name beside it dimmed, on a 2px `--accent-border` rule. It is sticky to the top of the viewport (`z-index: 2`, opaque body) so you always know which phase you are scrolled into. The first splitter has no top margin.
+- The tab bar stops being sticky (`.mit-view.list .phase-bar`) and becomes a jump nav — clicking a tab scrolls that phase's splitter to the top. No tab carries the selected fill or bar here; none of them is "the current phase" when every phase is on screen. Entering the view scrolls to the phase you were last reading.
+- The choice persists in `localStorage` (`layout`) and the stored phase is shared with by-phase mode, so toggling keeps your place.
 
 ### Phase heading
 

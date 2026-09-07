@@ -11,7 +11,7 @@ import {
 } from '@tabler/icons-react'
 import catalog from './data/catalog'
 import { jobsForRole, positionsForSheet, slotIdFor } from './data/resolve'
-import MitView, { type Display } from './components/MitView'
+import MitView, { type Display, type Layout } from './components/MitView'
 import { theme } from './theme'
 import { initialSelection, readMap, readStored, sheetKey, sheetPath, storeMap, storeValue } from './state'
 import { usePip } from './usePip'
@@ -48,6 +48,13 @@ const DISPLAY_OPTIONS = [
 
 const isDisplay = (value: string): value is Display => ['both', 'icon', 'text'].includes(value)
 
+const LAYOUT_OPTIONS = [
+  { value: 'tabs', label: 'By phase' },
+  { value: 'list', label: 'All phases' },
+]
+
+const isLayout = (value: string): value is Layout => value === 'tabs' || value === 'list'
+
 function Shell() {
   const [selection, setSelection] = useState(initialSelection)
   const [display, setDisplay] = useState<Display>(() => {
@@ -55,6 +62,10 @@ function Shell() {
     return isDisplay(stored) ? stored : 'both'
   })
   const [notes, setNotes] = useState(() => readStored('notes') !== 'off')
+  const [layout, setLayout] = useState<Layout>(() => {
+    const stored = readStored('layout')
+    return isLayout(stored) ? stored : 'tabs'
+  })
   const [jobId, setJobId] = useState(() => readStored('lastJob'))
   const resolvedScheme = useComputedColorScheme('dark')
   const pip = usePip(resolvedScheme)
@@ -80,7 +91,7 @@ function Shell() {
     return () => window.removeEventListener('popstate', onPop)
   }, [])
   useEffect(() => {
-    document.title = viewing ? `${fight.name} · ${selection.roleId} | XIVMits` : 'XIVMits · FFXIV mitigation by phase'
+    document.title = viewing ? `${fight.name} · ${selection.roleId} | XIVMits` : 'XIVMits · FFXIV raid mits'
   }, [viewing, fight, selection.roleId])
 
   function pickSheet(id: string, fightId = selection.fightId) {
@@ -126,6 +137,11 @@ function Shell() {
   function changeNotes(value: boolean) {
     setNotes(value)
     storeValue('notes', value ? 'on' : 'off')
+  }
+  function changeLayout(value: string) {
+    if (!isLayout(value)) return
+    setLayout(value)
+    storeValue('layout', value)
   }
   function changeJob(value: string) {
     setJobId(value)
@@ -173,7 +189,7 @@ function Shell() {
             <Text fz="sm" c="dimmed">{fight.type} · {sheet.name}</Text>
             <Title order={1} fz="xl" lts="-0.035em" style={{ overflowWrap: 'anywhere' }}>{fight.name}</Title>
           </Box>
-          <Button variant="subtle" color="gray" onClick={() => { pip.close(); setSelection(previous => ({ ...previous, viewing: false })); window.history.pushState(null, '', import.meta.env.BASE_URL) }}>
+          <Button variant="outline" onClick={() => { pip.close(); setSelection(previous => ({ ...previous, viewing: false })); window.history.pushState(null, '', import.meta.env.BASE_URL) }}>
             Change fight/sheet
           </Button>
         </Group>
@@ -197,6 +213,12 @@ function Shell() {
               onChange={event => changeNotes(event.currentTarget.checked)}
             />
           </Input.Wrapper>
+          <Input.Wrapper label="Layout" labelElement="div">
+            <SegmentedControl
+              className="display-picker" aria-label="Show one phase or every phase in one list"
+              size="sm" value={layout} onChange={changeLayout} data={LAYOUT_OPTIONS}
+            />
+          </Input.Wrapper>
         </Group>
         {pip.error && <Alert color="red" variant="light" mb="md" role="alert">{pip.error}</Alert>}
 
@@ -204,7 +226,7 @@ function Shell() {
           ? <Text ta="center" c="dimmed" py="xl">Choose your job to see this role's assignments.</Text>
           : <MitView
             fight={fight} sheet={sheet} roleId={slotId} phaseId={selection.phaseId}
-            onPhase={changePhase} job={job} display={display} notes={notes}
+            onPhase={changePhase} job={job} display={display} notes={notes} layout={layout}
             phaseAction={pip.supported && <Button
               variant="outline" size="sm" leftSection={<IconPictureInPicture size={18} aria-hidden />}
               onClick={pip.open}
@@ -222,12 +244,12 @@ function Shell() {
         </Group>}
 
         {pip.pipWindow && createPortal(
-          <MitView compact fight={fight} sheet={sheet} roleId={slotId} phaseId={selection.phaseId} onPhase={changePhase} job={job} display={display} notes={notes} />,
+          <MitView compact fight={fight} sheet={sheet} roleId={slotId} phaseId={selection.phaseId} onPhase={changePhase} job={job} display={display} notes={notes} layout={layout} />,
           pip.pipWindow.document.body,
         )}
       </> : <Box maw={480} mx="auto">
         <Title order={1}>What do I mit?</Title>
-        <Text c="dimmed" mt="sm">Your role is remembered on this device.</Text>
+        <Text c="dimmed" mt="sm">Pick a community mit sheet and get just your presses, phase by phase.</Text>
 
         {selection.error && <Alert color="red" variant="light" mt="md" role="alert">
           <Stack gap="xs" align="flex-start">
