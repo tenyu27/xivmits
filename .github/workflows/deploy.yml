@@ -26,7 +26,9 @@ jobs:
       - run: yarn run lint
       # Validates every mit sheet against the Zod schema; malformed data fails here.
       - run: yarn run build
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/configure-pages@v5
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+      - uses: actions/upload-pages-artifact@v4
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         with:
           path: dist
