@@ -29,8 +29,11 @@ HEALERS = ['SCH', 'SGE', 'WHM', 'AST']
 ROLES = {'T1': 'tank', 'T2': 'tank', **{j: 'healer' for j in HEALERS},
          'M1': 'melee', 'M2': 'melee', 'P': 'ranged', 'C': 'caster'}
 
-# (phase ID, worksheet number). The workbook has no P4 Blue Screen grid.
-PHASES = [('p1', 2), ('p2', 3), ('p3', 4), ('p5', 5), ('p6', 6)]
+# (phase ID, worksheet number, which "Tank 1" header block in that sheet). Every
+# party grid is its own worksheet except "Final Omega" (sheet 4), which stacks
+# two: "P3: Final Omega" then, far below, "P4: Blue Screen".
+PHASES = [('p1', 2, 1), ('p2', 3, 1), ('p3', 4, 1), ('p4', 4, 2),
+          ('p5', 5, 1), ('p6', 6, 1)]
 
 # The sheet writes healer mit in shorthand; expand to the in-game action name so
 # the text reads on its own and scripts/fetch_icons.py can resolve an icon.
@@ -38,6 +41,7 @@ ABILITY = {
     'Soil': 'Sacred Soil', 'Fey': 'Fey Illumination', 'Expedience': 'Expedient',
     'Seraph': "Seraph's Veil", 'Spread-Lo': 'Deployment Tactics',
     'EukProg': 'Eukrasian Prognosis', 'Eukprog': 'Eukrasian Prognosis',
+    'Euk Prog': 'Eukrasian Prognosis', 'Kera': 'Kerachole',
     'CU': 'Collective Unconscious', 'Star': 'Earthly Star', 'Bell': 'Liturgy of the Bell',
     'Zoe EukProg': 'Zoe + Eukrasian Prognosis',  # two buttons, so two actions
 }
@@ -114,8 +118,11 @@ PERSONAL_NOTE = {
     'p5': ('mechanic', 'Sigma Solar Ray'),
 }
 
-# P4 Blue Screen is invuln-note only and has no party grid - skip it.
-DROP_TANK_PHASES = {'p4'}
+# P4 Blue Screen has a party grid (stacked under P3 on the "Final Omega" sheet)
+# but no personal-mit rows in the pairing tabs - just a per-tank "Notes" line
+# ("Use early nascent on squishies"). That still imports, as the plan's
+# unanchored p4 phase note; nothing is dropped.
+DROP_TANK_PHASES = set()
 
 FIGHT = {
     'id': 'top', 'name': 'The Omega Protocol (Ultimate)', 'shortName': 'TOP', 'type': 'Ultimate',
@@ -347,23 +354,30 @@ def convert(path):
         'source': {'name': 'TOP Mitty spreadsheet',
                    'url': 'https://docs.google.com/spreadsheets/d/1ROErvG1BhTuNvXqPGcR6ZyyhJ7uNTZdf2WzKyVj9hh4/edit'},
         'description': "Party mitigation for TOP from Malachite Laurent's plan. "
-                       'Pick a tank position, a healer job, or a DPS position. '
-                       'P4 Blue Screen has no party-wide assignments.',
+                       'Pick a tank position, a healer job, or a DPS position.',
         'slots': [{'id': slot, **({'job': slot} if slot in HEALERS else {}), 'role': ROLES[slot]}
                   for slot in COLUMNS.values()],
         'phases': [],
     }
-    for phase_id, worksheet in PHASES:
-        root = ET.fromstring(archive.read(f'xl/worksheets/sheet{worksheet}.xml'))
-        cells = {}
-        for cell in root.findall('.//s:sheetData/s:row/s:c', NS):
-            value = cell.find('s:v', NS)
-            if value is None or not value.text:
-                continue
-            cells[cell.get('r')] = strings[int(value.text)] if cell.get('t') == 's' else value.text
-        header = next(int(ref[1:]) for ref, value in cells.items() if ref.startswith('C') and value == 'Tank 1')
+    worksheets = {}
+    for phase_id, worksheet, occurrence in PHASES:
+        if worksheet not in worksheets:
+            root = ET.fromstring(archive.read(f'xl/worksheets/sheet{worksheet}.xml'))
+            cells = {}
+            for cell in root.findall('.//s:sheetData/s:row/s:c', NS):
+                value = cell.find('s:v', NS)
+                if value is None or not value.text:
+                    continue
+                cells[cell.get('r')] = strings[int(value.text)] if cell.get('t') == 's' else value.text
+            worksheets[worksheet] = cells
+        cells = worksheets[worksheet]
+        headers = sorted(int(ref[1:]) for ref, value in cells.items()
+                         if ref.startswith('C') and value == 'Tank 1')
+        header = headers[occurrence - 1]
+        # A grid stops at the next "Tank 1" block on the same sheet, or 200 rows on.
+        end = min(header + 200, headers[occurrence] if occurrence < len(headers) else header + 200)
         mechanics = []
-        for row in range(header + 2, header + 200, 2):
+        for row in range(header + 2, end, 2):
             title = cells.get(f'B{row}', '')
             if not title or title == 'Notes' or re.match(r'^P\d+:', title):
                 if title == 'Notes' or re.match(r'^P\d+:', title):

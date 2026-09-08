@@ -9,7 +9,7 @@
     "name": "TOP Mitty spreadsheet",
     "url": "https://docs.google.com/spreadsheets/d/1ROErvG1BhTuNvXqPGcR6ZyyhJ7uNTZdf2WzKyVj9hh4/edit"
   },
-  "description": "Party mitigation for TOP from Malachite Laurent's plan. Pick a tank position, a healer job, or a DPS position. P4 Blue Screen has no party-wide assignments.",
+  "description": "Party mitigation for TOP from Malachite Laurent's plan. Pick a tank position, a healer job, or a DPS position.",
   "slots": [
     {
       "id": "T1",
@@ -537,6 +537,149 @@
             "C": [
               {
                 "name": "Addle"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "mechanics": [
+        {
+          "id": "p4-r1008",
+          "name": "Protean 1",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Deployment Tactics"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Zoe"
+              },
+              {
+                "name": "Eukrasian Prognosis"
+              }
+            ]
+          }
+        },
+        {
+          "id": "p4-r1010",
+          "name": "Stack 1",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Seraph's Veil"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              }
+            ]
+          }
+        },
+        {
+          "id": "p4-r1012",
+          "name": "Protean 2",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Expedient"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              }
+            ]
+          }
+        },
+        {
+          "id": "p4-r1014",
+          "name": "Stack 2",
+          "assignments": {
+            "T2": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Seraph's Veil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Panhaima"
+              }
+            ]
+          }
+        },
+        {
+          "id": "p4-r1016",
+          "name": "Protean 3",
+          "assignments": {
+            "T2": [
+              {
+                "name": "Reprisal"
+              }
+            ]
+          }
+        },
+        {
+          "id": "p4-r1018",
+          "name": "Stack 3",
+          "assignments": {}
+        },
+        {
+          "id": "p4-r1020",
+          "name": "Blue Screen",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Succor"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint"
               }
             ]
           }
@@ -1374,6 +1517,11 @@
             "noteAfter": "p3-r11"
           },
           {
+            "id": "p4",
+            "mechanics": [],
+            "note": "Use early nascent on squishies"
+          },
+          {
             "id": "p5",
             "mechanics": [
               {
@@ -1626,6 +1774,11 @@
             ],
             "note": "Personal mit is free for autos this phase",
             "noteAfter": "p3-r11"
+          },
+          {
+            "id": "p4",
+            "mechanics": [],
+            "note": "Use TBN on squishies (Hold Oblations for P5)"
           },
           {
             "id": "p5",
@@ -1887,6 +2040,11 @@
             "noteAfter": "p3-r11"
           },
           {
+            "id": "p4",
+            "mechanics": [],
+            "note": "Use early nascent on squishies"
+          },
+          {
             "id": "p5",
             "mechanics": [
               {
@@ -2132,6 +2290,11 @@
             "noteAfter": "p3-r11"
           },
           {
+            "id": "p4",
+            "mechanics": [],
+            "note": "Use HOC early on squishies"
+          },
+          {
             "id": "p5",
             "mechanics": [
               {
@@ -2374,6 +2537,11 @@
             ],
             "note": "Personal mit is free for autos this phase",
             "noteAfter": "p3-r11"
+          },
+          {
+            "id": "p4",
+            "mechanics": [],
+            "note": "Use early nascent on squishies"
           },
           {
             "id": "p5",
@@ -2651,6 +2819,11 @@
             "noteAfter": "p3-r11"
           },
           {
+            "id": "p4",
+            "mechanics": [],
+            "note": "Use intervention on squishies"
+          },
+          {
             "id": "p5",
             "mechanics": [
               {
@@ -2924,6 +3097,11 @@
             "noteAfter": "p3-r11"
           },
           {
+            "id": "p4",
+            "mechanics": [],
+            "note": "Use HOC early on squishies"
+          },
+          {
             "id": "p5",
             "mechanics": [
               {
@@ -3192,6 +3370,11 @@
             "noteAfter": "p3-r11"
           },
           {
+            "id": "p4",
+            "mechanics": [],
+            "note": "Use TBN on squishies (Hold Oblations for P5)"
+          },
+          {
             "id": "p5",
             "mechanics": [
               {
@@ -3458,6 +3641,11 @@
             ],
             "note": "Personal mit is free for autos this phase",
             "noteAfter": "p3-r11"
+          },
+          {
+            "id": "p4",
+            "mechanics": [],
+            "note": "Use HOC early on squishies"
           },
           {
             "id": "p5",
@@ -3737,6 +3925,11 @@
             "noteAfter": "p3-r11"
           },
           {
+            "id": "p4",
+            "mechanics": [],
+            "note": "Use intervention on squishies"
+          },
+          {
             "id": "p5",
             "mechanics": [
               {
@@ -4007,6 +4200,11 @@
             ],
             "note": "Personal mit is free for autos this phase",
             "noteAfter": "p3-r11"
+          },
+          {
+            "id": "p4",
+            "mechanics": [],
+            "note": "Use intervention on squishies"
           },
           {
             "id": "p5",
@@ -4304,6 +4502,11 @@
             ],
             "note": "Personal mit is free for autos this phase",
             "noteAfter": "p3-r11"
+          },
+          {
+            "id": "p4",
+            "mechanics": [],
+            "note": "Use TBN on squishies (You may use Oblations as you please)"
           },
           {
             "id": "p5",

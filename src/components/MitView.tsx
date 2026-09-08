@@ -264,7 +264,11 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
       && (entries ?? []).some(e => e.actions.some(a =>
         data.scopedNote!.abilities.some(ab => a.action.name.includes(ab) || a.resolved.label.includes(ab))))
       ? phaseNote(data.scopedNote.text, 'scoped') : null
-    if (!entries?.length) return note || <Text ta="center" c="dimmed" py="xl">No mechanics listed for this phase.</Text>
+    // A phase with no mechanics for this viewer can still carry notes: a
+    // phase-wide party aside, or a tank pairing's own phase note.
+    if (!entries?.length) return note || personal || scoped
+      ? <>{note}{personal}{scoped}</>
+      : <Text ta="center" c="dimmed" py="xl">No mechanics listed for this phase.</Text>
     // One row shape for every entry: a party mechanic, a spliced personal
     // mechanic ('plain' - same shape, accent rule), or a personal continuation
     // of the row above ('bar' - no heading, joined to it). A `note` is the
