@@ -101,10 +101,10 @@ function Shell() {
   const tankPlans = position?.role === 'tank' && job ? sheet?.tankMits?.plans.filter(p => p.job === job.id) ?? [] : []
   const paired = tankPlans.some(p => p.with)
   const otherTankOptions = tankPlans.map(p => p.with).filter((w): w is string => Boolean(w))
-  // A co-tank is always chosen on a paired sheet - default to the first option
-  // when nothing valid is stored. Hiding the personal rows is the "Party" mits
-  // toggle's job, not a blank option here.
-  const otherTank = otherTankOptions.includes(otherTankId) ? otherTankId : otherTankOptions[0] ?? ''
+  // A co-tank must be picked on a paired sheet - no blank/"hide" option. Until
+  // one is, `otherTank` is '' (a "Choose tank" placeholder) and "View mits" is
+  // blocked. Hiding the personal rows once viewing is the "Party" mits toggle.
+  const otherTank = otherTankOptions.includes(otherTankId) ? otherTankId : ''
   const priorities = sheet?.tankMits?.priorities
   // A stored choice wins; otherwise default by seat - MT holds Exdeath and
   // takes the 2nd invuln, OT holds Chaos and goes 1st.
@@ -206,7 +206,7 @@ function Shell() {
     label="Role" value={selection.roleId} disabled={!sheet}
     onChange={event => changeRole(event.currentTarget.value)}
     data={[
-      ...(viewing ? [] : [{ value: '', label: sheet ? 'Choose your role' : 'Pick a sheet first' }]),
+      ...(viewing ? [] : [{ value: '', label: sheet ? 'Choose role' : 'Pick a sheet first' }]),
       ...positions.map(p => ({ value: p.id, label: p.id })),
     ]}
   />
@@ -221,7 +221,7 @@ function Shell() {
     data={jobFree
       ? [{ value: '', label: '--' }]
       : [
-        ...(job ? [] : [{ value: '', label: position ? 'Choose your job' : 'Pick a role first' }]),
+        ...(job ? [] : [{ value: '', label: position ? 'Choose job' : 'Pick a role first' }]),
         ...jobOptions.map(j => ({ value: j.id, label: j.id })),
       ]}
   />
@@ -245,16 +245,19 @@ function Shell() {
       <IconInfoCircle size={12} style={{ verticalAlign: 'text-bottom', opacity: 0.5, cursor: 'help' }} tabIndex={0} aria-label="Suggested job order" />
     </Tooltip>
   }
-  // Tank plan controls, only once a tank seat has a job and the sheet ships
-  // plans. "Mits" is All / Party; on All, the plan picker follows - "Other tank"
-  // for a paired sheet (TOP), P3 boss / P5 invuln branch toggles for a job-keyed
-  // one (DMU). Shown on the mits page control row only.
-  const tankPlanSelects = tankPlans.length === 0 ? null : paired
-    ? <NativeSelect
-      label="Other tank" value={otherTank} w={128}
-      onChange={event => changeOtherTank(event.currentTarget.value)}
-      data={otherTankOptions.map(id => ({ value: id, label: id }))}
-    />
+  // "Other tank" picks the co-tank on a paired sheet (TOP) - each partner is a
+  // whole plan. A "Choose tank" placeholder until one is set, then dropped, like
+  // Job. Rendered in the selection screen's grow row and the mits control row.
+  const otherTankSelect = paired ? <NativeSelect
+    label="Other tank" value={otherTank}
+    onChange={event => changeOtherTank(event.currentTarget.value)}
+    data={[
+      ...(otherTank ? [] : [{ value: '', label: 'Choose tank' }]),
+      ...otherTankOptions.map(id => ({ value: id, label: id })),
+    ]}
+  /> : null
+  // P3 boss / P5 invuln branch toggles for a job-keyed sheet (DMU). Mits page only.
+  const tankBranchToggles = tankPlans.length === 0 || paired ? null
     : <>
       <Input.Wrapper
         label={<Group gap={4} align="center" wrap="nowrap">P3 boss{priorityTip(priorities?.p3Boss, k => k)}</Group>}
@@ -284,7 +287,9 @@ function Shell() {
         data={[{ value: 'both', label: 'All' }, { value: 'party', label: 'Party' }]}
       />
     </Input.Wrapper>
-    {personalMits && tankPlanSelects}
+    {personalMits && (otherTankSelect
+      ? <Box flex="0 0 128px">{otherTankSelect}</Box>
+      : tankBranchToggles)}
   </>
 
   return <Container size={720} px="md" mih="100dvh" display="flex" style={{ flexDirection: 'column' }}>
@@ -350,7 +355,7 @@ function Shell() {
         {pip.error && <Alert color="red" variant="light" mb="md" role="alert">{pip.error}</Alert>}
 
         {needsJob
-          ? <Text ta="center" c="dimmed" py="xl">Choose your job to see this role's assignments.</Text>
+          ? <Text ta="center" c="dimmed" py="xl">Choose a job to see this role's assignments.</Text>
           : <MitView
             fight={fight} sheet={sheet} roleId={slotId} phaseId={selection.phaseId}
             onPhase={changePhase} job={jobFree ? undefined : job} personalPlan={tankPlan}
@@ -387,18 +392,18 @@ function Shell() {
               const saved = readMap('lastSheetByFight')[fightId]
               pickSheet(catalog.sheets.some(s => s.id === saved && s.fightId === fightId) ? saved : '', fightId)
             }}
-            data={[{ value: '', label: 'Choose a fight' }, ...catalog.fights.map(f => ({ value: f.id, label: f.name }))]}
+            data={[{ value: '', label: 'Choose fight' }, ...catalog.fights.map(f => ({ value: f.id, label: f.name }))]}
           />
           <NativeSelect
             label="Mit sheet" value={selection.sheetId} disabled={!fight}
             onChange={event => pickSheet(event.currentTarget.value)}
             data={[
-              { value: '', label: fight ? sheets.length ? 'Choose a sheet' : 'No sheets available' : 'Pick a fight first' },
+              { value: '', label: fight ? sheets.length ? 'Choose sheet' : 'No sheets available' : 'Pick a fight first' },
               ...sheets.map(s => ({ value: s.id, label: s.name })),
             ]}
           />
-          <Group grow align="flex-start" gap="sm">{roleSelect}{jobSelect}</Group>
-          <Button type="submit" rightSection={<IconArrowRight size={18} aria-hidden />} disabled={!fight || !sheet || !selection.roleId || (!job && !jobFree)}>
+          <Group grow align="flex-start" gap="sm">{roleSelect}{jobSelect}{otherTankSelect}</Group>
+          <Button type="submit" rightSection={<IconArrowRight size={18} aria-hidden />} disabled={!fight || !sheet || !selection.roleId || (!job && !jobFree) || (paired && !otherTank)}>
             View mits
           </Button>
         </Stack>
