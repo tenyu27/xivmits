@@ -58,7 +58,12 @@ MIT_90 = {'WAR': 'Thrill of Battle', 'PLD': 'Bulwark', 'DRK': 'Dark Mind', 'GNB'
 SHORT_MIT = {'WAR': 'Nascent Flash', 'PLD': 'Holy Sheltron', 'DRK': 'Oblation', 'GNB': 'Heart of Corundum'}
 SHORTHAND = {'Invulnerability': INVULN, '40%': MIT_40, '90s': MIT_90, 'Short Mit': SHORT_MIT, 'Short': SHORT_MIT}
 BUDDY_MIT = {'WAR': ['Nascent Flash'], 'PLD': ['Intervention'], 'DRK': ['The Blackest Night', 'Oblation'], 'GNB': ['Heart of Corundum']}
-KITCHEN_SINK = {job: ['Rampart', MIT_40[job], MIT_90[job], SHORT_MIT[job]] for job in TANKS}
+# Rampart + 40% + 90s + short mit, pressed together. The short-mit slot is the
+# personal button, not the ally-targeted one SHORT_MIT names for the "Short Mit"
+# shorthand: WAR spends Bloodwhetting here, not Nascent Flash. DRK also adds TBN.
+KITCHEN_SINK_SHORT = dict(SHORT_MIT, WAR='Bloodwhetting')
+KITCHEN_SINK = {job: ['Rampart', MIT_40[job], MIT_90[job], KITCHEN_SINK_SHORT[job]] for job in TANKS}
+KITCHEN_SINK['DRK'].append('The Blackest Night')
 KNOWN_TOKENS = {'Kitchen Sink', 'Buddy Mit', 'Rampart', 'Invulnerability', '40%', '90s', 'Short Mit', 'Short', 'Provoke'}
 
 # phase -> (data rows, mode). Left column is E, right is I, time D.
