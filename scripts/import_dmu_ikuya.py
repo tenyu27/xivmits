@@ -23,6 +23,40 @@ MARKERS = '⁰¹²³⁴⁵⁶⁷⁸⁹'
 MARKER = rf'[{MARKERS}]+'
 PHASE_NAMES = ['Kefka', 'Forsaken Kefka', 'Exdeath & Chaos', 'Kefka Says', 'Kefka Reimagined']
 
+# Rules the source repeats on every row of a phase tab. Hoisted to the phase
+# note (shown once, one rule per line) instead of stamped onto each action, so a
+# mit's own note stays short and specific. One list per phase number.
+# Note fragments that scope the whole note to certain jobs (import stamps
+# `noteJobs` on any action whose note contains the fragment).
+NOTE_JOBS = {
+    'if playing WAR': ['WAR'],
+}
+
+# Short per-row calls the Omnitank cells write as a bare label line ("Close",
+# "First Hit"). Pulled off the note into a `tag` badge on the row.
+POSITION_TAGS = {
+    'Close.': 'Close hit', 'Far.': 'Far hit', 'Solo this hit.': 'Solo',
+    'First Hit.': '1st hit', 'Second Hit.': '2nd hit',
+}
+
+# Targeted mitigation (Reprisal / Addle / Feint / Dismantle). The caveat about
+# what it does in a given phase is a phase-top `scopedNote` - shown only to a
+# seat that brings one of these abilities, and hidden by the notes toggle.
+TARGETED_MIT = ('Reprisal', 'Addle', 'Feint', 'Dismantle')
+TARGETED_NOTE = {
+    3: 'Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers '
+       'tank autos and busters in this phase, not raidwides.',
+    4: 'Targeted mitigation only works on Ultima Upsurge; other uses cover tank autos.',
+}
+
+PHASE_RULES = {
+    1: [],
+    2: [],
+    3: [],
+    4: [],
+    5: [],
+}
+
 
 def clean(value):
     # Correct spelling errors only; preserve the source's terminology.
@@ -44,13 +78,15 @@ def column_number(column):
     return result
 
 
-# Omnitank tab -> tankMits. Two assignment columns per row. P1/P2/P4 columns are
-# MT / OT (rows get a `seat`); P3/P5 columns are a job-priority order, and for a
-# pairing the tank higher in PRIO_ORDER reads the left column. Every ordered pair
-# of the four tanks is one plan. Cells use shorthand, expanded per job below.
+# Omnitank tab -> tankMits. Two assignment columns per row, one plan per tank
+# job. P1/P2/P4 columns are MT / OT and rows get a `seat`. P3/P5 columns are the
+# two sides of a split the viewer picks directly: left (E) is Chaos in P3 / 1st
+# invuln in P5, right (I) the mirror. The sheet's header writes a job-priority
+# order to *suggest* which side each job takes, but we do not apply it - the
+# player chooses via the P3 boss / P5 invuln toggle - so both sides are emitted
+# and tagged `boss` / `invuln`. Cells use shorthand, expanded per job below.
 
 TANKS = ['PLD', 'WAR', 'DRK', 'GNB']
-PRIO_ORDER = ['WAR', 'DRK', 'GNB', 'PLD']  # left-header order, same in P3 and P5
 
 INVULN = {'WAR': 'Holmgang', 'PLD': 'Hallowed Ground', 'DRK': 'Living Dead', 'GNB': 'Superbolide'}
 MIT_40 = {'WAR': 'Damnation', 'PLD': 'Guardian', 'DRK': 'Shadowed Vigil', 'GNB': 'Great Nebula'}
@@ -72,13 +108,14 @@ def as_list(value):
 KITCHEN_SINK = {job: ['Rampart', MIT_40[job], MIT_90[job], *as_list(SHORT_MIT[job])] for job in TANKS}
 KNOWN_TOKENS = {'Kitchen Sink', 'Buddy Mit', 'Rampart', 'Invulnerability', '40%', '90s', 'Short Mit', 'Short', 'Provoke'}
 
-# phase -> (data rows, mode). Left column is E, right is I, time D.
+# phase -> (data rows, mode). Left column is E, right is I, time D. 'seat' rows
+# split by MT / OT; 'split' rows split by the P3-boss / P5-invuln choice.
 OMNI_BLOCKS = [
     (1, [8, 10, 12, 14], 'seat'),
     (2, [27, 29, 31], 'seat'),
-    (3, [45, 47, 49, 51, 53, 55], 'prio'),
+    (3, [45, 47, 49, 51, 53, 55], 'split'),
     (4, [69], 'seat'),
-    (5, [81, 83, 85, 87, 89, 91, 93, 95, 97, 99], 'prio'),
+    (5, [81, 83, 85, 87, 89, 91, 93, 95, 97, 99], 'split'),
 ]
 
 
@@ -194,58 +231,126 @@ def convert_omnitank(archive, strings, party_phases, phase_starts):
                 chosen = (mid, name)
         return chosen
 
+    # One plan per job. Seat-mode phases (P1/P2/P4) emit an MT and an OT row.
+    # Split-mode phases (P3/P5) emit both source columns, each tagged with the
+    # side it belongs to -- P3 by which boss you hold (E Chaos, I Exdeath), P5 by
+    # invuln order (E 1st, I 2nd) -- and the viewer's toggle selects between
+    # them. The sheet's priority list is not applied; the player picks.
+    START_WITH_BOSS = ('You start with the boss. Hold aggro at the phase start '
+                       'so your co-tank does not get the Holy debuff.')
     plans = []
     for job in TANKS:
-        for other in TANKS:
-            if job == other:
-                continue
-            higher = PRIO_ORDER.index(job) < PRIO_ORDER.index(other)
-            phases_out = []
-            for phase_number, rows, mode in OMNI_BLOCKS:
-                start = phase_starts[phase_number - 1]
-                timed = party_lookup(phase_number)
-                notes = block_notes[phase_number]
-                out_mechs = []
-                for row in rows:
-                    title = cells.get(f'B{row}', '')
-                    name = clean(re.sub(MARKER, '', title))
-                    title_markers = re.findall(MARKER, title)
-                    rel = max(0, omni_seconds(cells.get(f'D{row}')) - start)
-                    rel_str = f'{rel // 60}:{rel % 60:02}'
-                    anchor = anchor_for(timed, rel)
-                    seats = [('MT', 'E'), ('OT', 'I')] if mode == 'seat' else \
-                            [(None, 'E' if higher else 'I')]
-                    for seat, column in seats:
-                        actions, extra = parse_omni_cell(cells.get(f'{column}{row}', ''), job, notes)
-                        note_parts = [notes[m] for m in title_markers if m in notes] + extra
-                        alts = omni_alt(phase_number, row, seat, job)
-                        same = bool(anchor) and anchor[1] == name
-                        # Drop an empty row that only repeats a party mechanic
-                        # already on the timeline; keep empty markers for busters
-                        # with no party row (Revolting Ruin, Hyperdrive, Autos).
-                        if same and not actions and not alts and not note_parts:
-                            continue
-                        collapse = same and bool(actions) and not alts
-                        mid = f'{job}{other}-p{phase_number}-r{row}'.lower() + (f'-{seat.lower()}' if seat else '')
-                        mech = {'id': mid, 'name': name}
-                        if not collapse:
-                            mech['time'] = rel_str
-                        if anchor:
-                            mech['after'] = anchor[0]
-                        if seat:
-                            mech['seat'] = seat
-                        if note_parts:
-                            mech['note'] = ' '.join(dict.fromkeys(note_parts))
-                        mech['actions'] = actions
-                        if alts:
-                            mech['alts'] = alts
-                        out_mechs.append(mech)
-                phase_out = {'id': f'p{phase_number}', 'mechanics': out_mechs}
-                if phase_number == 5 and mode == 'prio' and not higher:
-                    phase_out['note'] = 'You start with the boss. Hold aggro at the phase start so your co-tank does not get the Holy debuff.'
-                phases_out.append(phase_out)
-            plans.append({'job': job, 'with': other, 'phases': phases_out})
-    return {'plans': plans}
+        phases_out = []
+        for phase_number, rows, mode in OMNI_BLOCKS:
+            start = phase_starts[phase_number - 1]
+            timed = party_lookup(phase_number)
+            notes = block_notes[phase_number]
+            out_mechs = []
+            for row in rows:
+                row_mechs = []
+                title = cells.get(f'B{row}', '')
+                name = clean(re.sub(MARKER, '', title))
+                title_markers = re.findall(MARKER, title)
+                rel = max(0, omni_seconds(cells.get(f'D{row}')) - start)
+                rel_str = f'{rel // 60}:{rel % 60:02}'
+                anchor = anchor_for(timed, rel)
+                if mode == 'seat':
+                    variants = [('E', {'seat': 'MT'}, 'mt'), ('I', {'seat': 'OT'}, 'ot')]
+                elif phase_number == 3:
+                    variants = [('E', {'boss': 'Chaos'}, 'chaos'), ('I', {'boss': 'Exdeath'}, 'exdeath')]
+                else:
+                    variants = [('E', {'invuln': 1}, 'inv1'), ('I', {'invuln': 2}, 'inv2')]
+                for column, tag, suffix in variants:
+                    actions, extra = parse_omni_cell(cells.get(f'{column}{row}', ''), job, notes)
+                    note_parts = [notes[m] for m in title_markers if m in notes] + extra
+                    alts = omni_alt(phase_number, row, tag.get('seat'), job)
+                    # WAR's kitchen-sink alternative lives in the `alts` sub-row
+                    # on its own rows; the source also repeats it as a footnote
+                    # that lands on every job and row (title markers -> note_parts,
+                    # inline markers -> action notes), so scrub that prose copy.
+                    drop = 'alternatively kitchen sink'
+                    note_parts = [n for n in note_parts if drop not in n.lower()]
+                    for a in actions:
+                        if a.get('note') and drop in a['note'].lower():
+                            a['note'] = ' '.join(
+                                s for s in re.split(r'(?<=\.)\s+', a['note']) if drop not in s.lower()
+                            ).strip()
+                            if not a['note']:
+                                del a['note']
+                    same = bool(anchor) and anchor[1] == name
+                    # Drop an empty row that only repeats a party mechanic
+                    # already on the timeline; keep empty markers for busters
+                    # with no party row (Revolting Ruin, Hyperdrive, Autos).
+                    if same and not actions and not alts and not note_parts:
+                        continue
+                    collapse = same and bool(actions) and not alts
+                    mech = {'id': f'{job}-p{phase_number}-r{row}-{suffix}'.lower(), 'name': name}
+                    if not collapse:
+                        mech['time'] = rel_str
+                    if anchor:
+                        mech['after'] = anchor[0]
+                    mech.update(tag)
+                    # A positional call ("Close." / "Far." / "Solo this hit.")
+                    # reads as a badge, not a trailing sentence fragment.
+                    for frag, tag_val in POSITION_TAGS.items():
+                        if frag in note_parts:
+                            mech['tag'] = tag_val
+                            note_parts = [n for n in note_parts if n != frag]
+                    if note_parts:
+                        mech['note'] = ' '.join(dict.fromkeys(note_parts))
+                    mech['actions'] = actions
+                    if alts:
+                        mech['alts'] = alts
+                    out_mechs.append(mech)
+                    row_mechs.append(mech)
+                # If one invuln variant of this row is the Solo hit, the co-tank
+                # solos on the other - mark that side "Avoid" so this tank holds,
+                # synthesising a marker row when the sheet left it blank.
+                solo = next((m for m in row_mechs if m.get('tag') == 'Solo' and 'invuln' in m), None)
+                if solo:
+                    other = 1 if solo['invuln'] == 2 else 2
+                    sib = next((m for m in row_mechs if m.get('invuln') == other), None)
+                    if sib:
+                        sib['tag'] = 'Avoid'
+                        sib['actions'] = []
+                    else:
+                        marker = {'id': f'{job}-p{phase_number}-r{row}-inv{other}'.lower(),
+                                  'name': solo['name'], 'invuln': other, 'tag': 'Avoid', 'actions': []}
+                        if 'after' in solo:
+                            marker['after'] = solo['after']
+                        out_mechs.append(marker)
+            phase_out = {'id': f'p{phase_number}', 'mechanics': out_mechs}
+            # "You start with the boss" applies to the whole of P5 for the 2nd
+            # invuln - a phase-top personal note, not a per-row one.
+            if phase_number == 5:
+                phase_out['note'] = START_WITH_BOSS
+                phase_out['noteInvuln'] = 2
+            phases_out.append(phase_out)
+        plans.append({'job': job, 'phases': phases_out})
+
+    # Suggested job order per side, from the split-block column headers:
+    # "Chaos (WAR > DRK > GNB > PLD)" / "Exdeath (...)" for P3, and the bare
+    # "WAR > DRK > GNB > PLD" / "PLD > GNB > DRK > WAR (Start With Boss)" for P5.
+    def order_list(text):
+        stripped = re.sub(r'\([^)]*\)', '', re.sub(MARKER, '', text))
+        return [j for j in (p.strip() for p in stripped.split('>')) if j in TANKS]
+
+    p3_pri = {}
+    for cell in (cells.get('E43', ''), cells.get('I43', '')):
+        m = re.match(r'\s*([A-Za-z]+)\s*\((.*)\)', cell)
+        if m:
+            p3_pri[m.group(1)] = order_list(m.group(2))
+    invuln_pri = {k: order_list(cells.get(c, '')) for k, c in (('1', 'E79'), ('2', 'I79'))}
+    priorities = {}
+    if all(len(v) == len(TANKS) for v in p3_pri.values()) and len(p3_pri) == 2:
+        priorities['p3Boss'] = p3_pri
+    if all(len(v) == len(TANKS) for v in invuln_pri.values()):
+        priorities['invuln'] = invuln_pri
+
+    result = {'plans': plans}
+    if priorities:
+        result['priorities'] = priorities
+    return result
 
 
 def omni_alt(phase_number, row, seat, job):
@@ -296,6 +401,11 @@ def convert(path):
         notes = {match[0]: clean(match[1]) for match in re.findall(rf'({MARKER})\s+(.*?)(?=\n{MARKER}\s|$)', raw_notes, re.S)}
         merged = [m.get('ref') for m in root.findall('s:mergeCells/s:mergeCell', NS)]
         mechanics = []
+        # "All mechanics require shields" only matters to the shield healers, so
+        # it rides the first SCH / SGE action of the phase rather than the
+        # phase note (which every role sees).
+        shields_done = set()
+        prev_extras_row = None
         for row in range(8, notes_row, 2):
             title = cells.get(f'B{row}', '')
             if not title or (phase_number == 5 and row == 30):
@@ -348,40 +458,62 @@ def convert(path):
             # The source's checked Extras column calls for the additional raid
             # mitigation available only to RDM and MCH. Add it to every DPS
             # seat; the job qualifier makes the viewer hide it for other jobs.
+            # On back-to-back checked rows one press (Magick Barrier / Dismantle,
+            # ~10s) covers both, so the later ones are carry-overs.
             if cells.get(f'Z{row}') == '✔':
                 # RDM is a caster, MCH a physical ranged - so the extra raid mit
                 # only belongs on those two seats, never on melee.
+                extra = {'name': 'Extra (RDM/MCH)'}
+                if prev_extras_row == row - 2:
+                    extra['carryOver'] = True
                 for slot in ['P', 'C']:
-                    mechanic['assignments'].setdefault(slot, []).append({'name': 'Extra (RDM/MCH)'})
+                    mechanic['assignments'].setdefault(slot, []).append(dict(extra))
+                prev_extras_row = row
             if phase_number == 3 and row == 24:
+                mechanic['note'] = notes['⁴']
                 for slot in COLUMNS.values():
                     name = 'Manage Accretion healing' if slot in HEALERS else 'Avoid HP-restoring abilities'
-                    mechanic['assignments'][slot] = [{'name': name, 'note': notes['⁴']}]
-            # Mechanic footnotes and unnumbered timing rules belong beside the affected actions.
+                    mechanic['assignments'][slot] = [{'name': name}]
+            # Mechanic footnotes and unnumbered timing rules belong beside the
+            # affected actions. Phase-wide rules live in the phase note instead
+            # (see PHASE_RULES) - only genuinely local notes are added here.
             for slot, actions in mechanic['assignments'].items():
+                if slot in ('SCH', 'SGE') and slot not in shields_done:
+                    add_note(actions[0], 'All mechanics require shields.')
+                    shields_done.add(slot)
                 if slot in HEALERS and '¹⁰' in title_notes:
                     add_note(actions[0], notes['¹⁰'])
-                if slot in HEALERS and phase_number == 5 and (row in [14, 16, 26, 28]):
-                    if notes['²'] not in actions[0].get('note', ''):
-                        add_note(actions[0], notes['²'])
+                # The "monitor the tanks / burst-heal after invuln" note only
+                # matters for the Fell Forces (3x) after the second Maddening
+                # Orchestra (row 28), not every P5 healer row.
+                if slot in HEALERS and phase_number == 5 and row == 28:
+                    add_note(actions[0], notes['²'])
                 for action in actions:
-                    name = action['name']
-                    if slot in HEALERS and not action.get('carryOver') and ('Shield' in name or name == 'Spreadlo'):
-                        add_note(action, 'All mechanics require shields.')
-                    if phase_number == 1 and mechanic['name'].startswith('Light of Judg') and not action.get('carryOver'):
-                        add_note(action, 'Use late into the castbar so it also covers Hyperdrive.')
-                    if phase_number == 1 and row == 8 and name == 'Party Mit (GNB/DRK)':
+                    if phase_number == 1 and row == 8 and action['name'] == 'Party Mit (GNB/DRK)':
                         add_note(action, 'Time this to carry over through Wave Cannon and the first Double-Trouble Trap.')
-                    if phase_number == 3 and any(ability in name for ability in ['Reprisal', 'Feint', 'Addle']):
-                        add_note(action, 'Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides.')
-                    if phase_number == 4 and any(ability in name for ability in ['Reprisal', 'Feint', 'Addle']):
-                        add_note(action, 'Targeted mitigation only works on Ultima Upsurge; other uses cover tank autos.')
-                    if phase_number == 5 and row >= 32 and not action.get('carryOver'):
-                        add_note(action, 'For Forsaken, use any timed mitigation as late as possible unless otherwise noted.')
-                        if row == 40:
-                            add_note(action, 'It is important that the new round of mitigation for the 5th hit are applied as the first round of mitigation will fall off.')
+                    # A note that only holds for some of the jobs a generic
+                    # ability covers gets a `noteJobs` scope so the viewer only
+                    # sees it on the job it is about.
+                    for frag, jobs in NOTE_JOBS.items():
+                        if frag in action.get('note', ''):
+                            action['noteJobs'] = jobs
+            # Timing rules that apply to a whole mechanic, every role.
+            if phase_number == 1 and row == 14:
+                mechanic['note'] = 'Use late into the castbar so it also covers Hyperdrive.'
+            if phase_number == 5 and row == 32:
+                mechanic['note'] = 'Use any timed mitigation as late as possible.'
+            if phase_number == 5 and row == 40:
+                mechanic['note'] = ('It is important that the new round of mitigation for the 5th hit '
+                                    'are applied as the first round of mitigation will fall off.')
             mechanics.append(mechanic)
-        sheet['phases'].append({'id': f'p{phase_number}', 'mechanics': mechanics})
+        phase = {'id': f'p{phase_number}', 'mechanics': mechanics}
+        if PHASE_RULES[phase_number]:
+            phase['note'] = '\n'.join(PHASE_RULES[phase_number])
+        # The targeted-mit caveat: a phase-top note shown only to a seat that
+        # brings one of those abilities this phase, and toggleable.
+        if phase_number in TARGETED_NOTE:
+            phase['scopedNote'] = {'text': TARGETED_NOTE[phase_number], 'abilities': list(TARGETED_MIT)}
+        sheet['phases'].append(phase)
     sheet['tankMits'] = convert_omnitank(archive, strings, sheet['phases'], phase_starts)
     output = Path(__file__).resolve().parents[1] / 'data/fights/dmu'
     output.mkdir(parents=True, exist_ok=True)
@@ -392,7 +524,7 @@ def convert(path):
     for filename, data in [('fight.json', fight), ('ikuya.json', sheet)]:
         (output / filename).write_text(json.dumps(data, indent=2, ensure_ascii=False) + '\n')
     print([(p['id'], len(p['mechanics']), sum(len(a) for m in p['mechanics'] for a in m['assignments'].values())) for p in sheet['phases']])
-    print([(f"{p['job']}+{p['with']}", sum(len(m['actions']) for ph in p['phases'] for m in ph['mechanics'])) for p in sheet['tankMits']['plans']])
+    print([(p['job'], sum(len(m['actions']) for ph in p['phases'] for m in ph['mechanics'])) for p in sheet['tankMits']['plans']])
 
 
 if __name__ == '__main__':

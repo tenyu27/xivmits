@@ -1,7 +1,7 @@
 import { Fragment, useId, useRef, useEffect } from 'react'
 import type { ReactNode } from 'react'
 import { Anchor, Box, Group, Text, UnstyledButton } from '@mantine/core'
-import { IconArrowForward, IconExternalLink } from '@tabler/icons-react'
+import { IconArrowForward, IconExternalLink, IconInfoCircle, IconUser } from '@tabler/icons-react'
 import { resolveAction, type Resolved } from '../data/resolve'
 import type { Fight, Job, Sheet, TankMitPlan } from '../data/schema'
 
@@ -14,10 +14,10 @@ const absClock = (start: string | undefined, rel: string) => {
   return fmtClock(clockSecs(start) + clockSecs(rel))
 }
 
-type Action = { name: string; note?: string; carryOver?: boolean; buddy?: boolean; noteLink?: string }
+type Action = { name: string; note?: string; noteJobs?: string[]; carryOver?: boolean; buddy?: boolean; noteLink?: string }
 type ResolvedActions = { action: Action; resolved: Extract<Resolved, { applies: true }> }[]
 type Entry = {
-  mechanic: { id: string; name: string; time?: string }
+  mechanic: { id: string; name: string; time?: string; tag?: string }
   actions: ResolvedActions
   // 'plain' - a personal row that adds a mechanic the party timeline does not
   // have; renders exactly like a party row. 'bar' - a personal row that repeats
@@ -33,9 +33,10 @@ export type Display = 'both' | 'icon' | 'text'
 // scrolling column with a sticky splitter between each.
 export type Layout = 'tabs' | 'list'
 
-export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, personalPlan, display = 'both', notes = true, compact = false, layout = 'tabs', phaseAction }: {
+export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, personalPlan, p3Boss, invulnOrder, display = 'both', notes = true, compact = false, layout = 'tabs', phaseAction }: {
   fight: Fight; sheet: Sheet; roleId: string; phaseId: string; onPhase: (id: string) => void
-  job?: Job; personalPlan?: TankMitPlan; display?: Display; notes?: boolean; compact?: boolean; layout?: Layout; phaseAction?: ReactNode
+  job?: Job; personalPlan?: TankMitPlan; p3Boss?: 'Chaos' | 'Exdeath'; invulnOrder?: 1 | 2
+  display?: Display; notes?: boolean; compact?: boolean; layout?: Layout; phaseAction?: ReactNode
 }) {
   const prefix = useId()
   const tabs = useRef<HTMLElement>(null)
@@ -63,23 +64,32 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
     const data = sheet.phases.find(p => p.id === id)
     const party: Entry[] = (data?.mechanics ?? []).map(mechanic => ({
       mechanic, actions: resolveActions(mechanic.assignments[roleId] ?? []),
+      note: mechanic.note,
     }))
 
     const plan = personalPlan?.phases.find(p => p.id === id)
-    if (!plan) return { data, entries: party, start }
+    if (!plan) return { data, entries: party, start, personalNote: undefined as string | undefined }
 
     const front: Entry[] = []
     const byAnchor = new Map<string, Entry[]>()
     for (const mechanic of plan.mechanics) {
       // A row tagged with a seat belongs only to that seat's viewer.
       if (mechanic.seat && mechanic.seat !== roleId) continue
+      // Branch tags on a job-keyed plan: the row is for one boss / invuln slot
+      // only. Untagged rows always show; a tagged row needs the matching choice.
+      if (mechanic.boss && mechanic.boss !== p3Boss) continue
+      if (mechanic.invuln && mechanic.invuln !== invulnOrder) continue
       // When a personal row names the same mechanic as the party row it sits
       // under, drop the repeated heading - the accent edge already says it is a
       // separate, personal line.
-      const anchorName = mechanic.after ? party.find(pe => pe.mechanic.id === mechanic.after)?.mechanic.name : undefined
-      const sameName = !mechanic.time && anchorName === mechanic.name
+      const anchor = mechanic.after ? party.find(pe => pe.mechanic.id === mechanic.after) : undefined
+      const sameName = !mechanic.time && anchor?.mechanic.name === mechanic.name
+      // A bar row drops its own heading, so its `tag` would float on an empty
+      // one - hoist it onto the party mechanic above instead, right after that
+      // name. A plain row keeps its tag in its own heading.
+      if (sameName && mechanic.tag && anchor) anchor.mechanic = { ...anchor.mechanic, tag: mechanic.tag }
       const entry: Entry = {
-        mechanic: sameName ? { ...mechanic, name: '' } : mechanic,
+        mechanic: sameName ? { ...mechanic, name: '', tag: undefined } : mechanic,
         personal: sameName ? 'bar' : 'plain', note: mechanic.note,
         actions: resolveActions(mechanic.actions),
         alts: mechanic.alts?.map(alt => ({ label: alt.label, actions: resolveActions(alt.actions) })),
@@ -87,18 +97,22 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
       if (!mechanic.after) front.push(entry)
       else byAnchor.set(mechanic.after, [...(byAnchor.get(mechanic.after) ?? []), entry])
     }
-    const noteRow: Entry | undefined = plan.note
+    // The plan's phase note. Anchored (`noteAfter`) it rides the timeline as an
+    // edged personal row; unanchored it reads like any other phase note, at the
+    // top, so `personalNote` carries it out to `mechanics()`.
+    const showPlanNote = plan.note && (!plan.noteInvuln || plan.noteInvuln === invulnOrder)
+    const personalNote = showPlanNote && !plan.noteAfter ? plan.note : undefined
+    const noteRow: Entry | undefined = showPlanNote && plan.noteAfter
       ? { mechanic: { id: `${id}-personal-note`, name: '' }, personal: 'bar', note: plan.note, actions: [] }
       : undefined
 
     const entries: Entry[] = [...front]
-    if (noteRow && !plan.noteAfter) entries.unshift(noteRow)
     for (const pe of party) {
       entries.push(pe)
       for (const spliced of byAnchor.get(pe.mechanic.id) ?? []) entries.push(spliced)
       if (noteRow && plan.noteAfter === pe.mechanic.id) entries.push(noteRow)
     }
-    return { data: data ?? { id, note: undefined as string | undefined, mechanics: [] }, entries, start }
+    return { data: data ?? { id, note: undefined as string | undefined, mechanics: [] }, entries, start, personalNote }
   }
 
   // Keep the active tab in view inside its own horizontal strip. Scroll the
@@ -110,12 +124,9 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
     if (strip && active) strip.scrollTo({ left: active.offsetLeft - strip.clientWidth / 2 + active.clientWidth / 2 })
   }, [phaseId])
 
-  // Entering the single list, land on the phase you were last reading rather
-  // than at the top - the tab bar still points there.
-  useEffect(() => {
-    if (list) sections.current.get(phaseId)?.scrollIntoView()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [list])
+  // Switching to the single list does not scroll: the page stays where it is
+  // and the tab bar still marks which phase you were on. Jumping the viewport
+  // on a layout toggle is more disorienting than a manual scroll.
 
   // Icons carry no meaning of their own in `both` mode - the name is beside
   // them. Alone, they are the only label left, so they take the name as alt.
@@ -157,7 +168,10 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
   )
 
   const actionList = (all: ResolvedActions, keyed: string, trailingNote?: string) => {
-    const actions = all.filter(entry => !entry.action.buddy)
+    const kept = all.filter(entry => !entry.action.buddy)
+    // Press-now first, carry-overs after, whatever order the data had them in -
+    // the "Still active" break assumes every carry-over trails the fresh casts.
+    const actions = [...kept.filter(e => !e.action.carryOver), ...kept.filter(e => e.action.carryOver)]
     const buddies = all.filter(entry => entry.action.buddy)
     const withNotes = display !== 'icon' && showNotes
       && (Boolean(trailingNote) || actions.some(entry => entry.action.note))
@@ -180,7 +194,7 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
         </Fragment>
       })}
     </Group>
-    : <Box component="ul" className={display === 'text' ? 'actions actions-flow separated' : 'actions actions-flow'}>
+    : <Box component="ul" className="actions actions-flow">
       {actions.map(({ action, resolved: { label, icon } }, index) => {
         const startsCarryOverRow = action.carryOver && !actions[index - 1]?.action.carryOver
         return <Fragment key={`${keyed}-${action.name}-${index}`}>
@@ -191,6 +205,11 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
               <Text span fz="xs" c="dimmed" fw={400}>Still active</Text>
             </Group>
           </>}
+          {/* "+" joins abilities pressed together for the same cast. Its own
+              flex item, so it wraps with the name that follows and a stranded
+              leading "+ Foo" still reads right. Not before the first, and not
+              across the carry-over break (the arrow marks that instead). */}
+          {index > 0 && !startsCarryOverRow && <Box component="li" className="action-plus" aria-hidden>+</Box>}
           <Box component="li" className="action-item">
             <Group gap="xs" align="center" wrap="nowrap">
               {display === 'both' && iconFor(icon, label, action.carryOver)}
@@ -203,6 +222,9 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
       })}
       {showNotes && actions.map(({ action }, index) => {
         const note = action.note
+        // A note scoped to certain jobs is dropped for anyone else; with no job
+        // chosen it stays, since we cannot yet judge.
+        if (action.noteJobs && job && !action.noteJobs.includes(job.id)) return null
         if (!note || actions.some(({ action: other }, otherIndex) =>
           otherIndex !== index && other.noteLink === action.noteLink &&
           (other.note === note ? otherIndex < index : Boolean(other.note?.includes(note))))) return null
@@ -223,16 +245,32 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
     </>
   }
 
-  const mechanics =(data: ReturnType<typeof entriesFor>['data'], entries: ReturnType<typeof entriesFor>['entries'], phaseStart?: string) => {
+  const mechanics =(data: ReturnType<typeof entriesFor>['data'], entries: ReturnType<typeof entriesFor>['entries'], phaseStart?: string, personalNote?: string) => {
     if (!data) return <Text ta="center" c="dimmed" py="xl">No mitigation data available for this phase.</Text>
-    // A phase-wide aside sits above the mechanic list.
-    const note = data.note && <Text c="dimmed" fz={compact ? 'xs' : 'sm'} mb="sm" maw="62ch">{data.note}</Text>
+    // A phase-wide aside sits above the mechanic list: the rules the sheet
+    // repeats every row (shields, targeted-mit caveats) collected here once,
+    // one per line, so a mit's own note carries only what is specific to it.
+    const phaseNote = (body: string, key?: string) => <Group key={key} className="phase-note" gap={6} align="flex-start" wrap="nowrap" mb="sm" maw="64ch">
+      <IconInfoCircle size={compact ? 14 : 16} className="phase-note-icon" aria-hidden />
+      <Text c="dimmed" fz={compact ? 'xs' : 'sm'} style={{ whiteSpace: 'pre-line' }}>{body}</Text>
+    </Group>
+    const note = data.note && phaseNote(data.note)
+    // The plan's unanchored phase note - "you start with the boss" - reads like
+    // any other phase note, not an edged personal row. Still notes-toggle gated.
+    const personal = personalNote && showNotes ? phaseNote(personalNote, 'personal') : null
+    // Shown only when this viewer's seat actually presses one of the abilities
+    // the note is about (targeted mit), and only with notes on.
+    const scoped = data.scopedNote && showNotes
+      && (entries ?? []).some(e => e.actions.some(a =>
+        data.scopedNote!.abilities.some(ab => a.action.name.includes(ab) || a.resolved.label.includes(ab))))
+      ? phaseNote(data.scopedNote.text, 'scoped') : null
     if (!entries?.length) return note || <Text ta="center" c="dimmed" py="xl">No mechanics listed for this phase.</Text>
     // One row shape for every entry: a party mechanic, a spliced personal
     // mechanic ('plain' - same shape, accent rule), or a personal continuation
-    // of the row above ('bar' - no heading, joined to it). `alts` and the
-    // mechanic-level `note` only ever come from personal entries.
-    return <>{note}<Box component="ol" className="assignments">
+    // of the row above ('bar' - no heading, joined to it). A `note` is the
+    // mechanic's all-role aside (party) or a personal row's own note; `alts`
+    // only ever come from personal entries.
+    return <>{note}{personal}{scoped}<Box component="ol" className="assignments">
       {entries.map(({ mechanic, actions, personal, note: rowNote, alts }) => <Box
         component="li" key={mechanic.id}
         className={`assignment${personal ? ` personal personal-${personal}` : ''}${!personal && !actions.length ? ' unassigned' : ''}`}
@@ -242,19 +280,27 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
             same kind of text. A 'bar' personal row would only repeat the name
             of the row above, so it has no heading. */}
         {mechanic.name && <Group className="mechanic-heading" justify="space-between" align="center" gap="sm" wrap="nowrap">
-          <Text component="h3" className="mechanic-name" fz={compact ? '0.875rem' : '0.9375rem'} fw={700} lh={1.3}>{mechanic.name}</Text>
+          <Group gap={6} align="center" wrap="nowrap" miw={0}>
+            <Text component="h3" className="mechanic-name" fz={compact ? '0.875rem' : '0.9375rem'} fw={700} lh={1.3}>{mechanic.name}</Text>
+            {mechanic.tag && <Text span className="mechanic-tag" fz={compact ? '0.5rem' : '0.625rem'} fw={700}>{mechanic.tag}</Text>}
+          </Group>
           {mechanic.time && <Text className="timestamp" component="span" ff="monospace" fz={compact ? 'xs' : 'sm'} fw={700}>
             {absClock(phaseStart, mechanic.time) ?? mechanic.time}
-            {absClock(phaseStart, mechanic.time) && <Text component="span" c="dimmed" fw={500}>{' '}{mechanic.time}</Text>}
+            {absClock(phaseStart, mechanic.time) && <Text component="span" fz="inherit" c="dimmed" fw={500}>{' '}{mechanic.time}</Text>}
           </Text>}
         </Group>}
 
         {personal
           ? <Box className="personal-body">
+            {/* Names the block as this tank's own cooldowns, so a personal row
+                is not just "a party row with a differently coloured rule". */}
+            <Text span className="personal-tag" fz={compact ? '0.5rem' : '0.625rem'} fw={700}>
+              <IconUser size={compact ? 9 : 11} aria-hidden />Personal
+            </Text>
             {(actions.length > 0 || (rowNote && showNotes)) && actionList(actions, mechanic.id, rowNote)}
             {alts?.map(alt => miniActions(alt.actions, alt.label, `${mechanic.id}-alt-${alt.label}`))}
           </Box>
-          : actions.length > 0 && actionList(actions, mechanic.id)}
+          : (actions.length > 0 || (rowNote && showNotes)) && actionList(actions, mechanic.id, rowNote)}
       </Box>)}
     </Box></>
   }
@@ -289,7 +335,7 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
     {list
       ? <Box className="phase-list">
         {fight.phases.map(p => {
-          const { data, entries, start } = entriesFor(p.id)
+          const { data, entries, start, personalNote } = entriesFor(p.id)
           return <Box
             key={p.id} component="section"
             id={`${prefix}-panel-${p.id}`} role="tabpanel" aria-labelledby={`${prefix}-${p.id}`}
@@ -301,7 +347,7 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
                 {p.name}
               </Text>}
             </Box>
-            {mechanics(data, entries, start)}
+            {mechanics(data, entries, start, personalNote)}
           </Box>
         })}
       </Box>
@@ -309,7 +355,7 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
         {!compact && <Text component="h2" fz="lg" fw={600} lh={1.2} mt="md" mb="xs" style={{ overflowWrap: 'anywhere' }}>
           {phase.name ?? phase.label}
         </Text>}
-        {mechanics(tab.data, tab.entries, tab.start)}
+        {mechanics(tab.data, tab.entries, tab.start, tab.personalNote)}
       </Box>}
   </Box>
 }

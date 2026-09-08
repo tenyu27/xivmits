@@ -9,6 +9,11 @@ const jobId = text.regex(/^[A-Z]{3}$/)
 const phase = z.object({ id, label: text, name: text.optional(), start: text.regex(/^\d+:[0-5]\d$/).optional() }).strict()
 const action = z.object({
   name: text, note: text.optional(), carryOver: z.boolean().optional(),
+  // Restrict `note` to these jobs - a caveat that only applies to some of the
+  // jobs the generic ability resolves to ("if playing WAR"). The action still
+  // renders for everyone; only its note is hidden off-list. Shown when no job
+  // is picked, like a job-list name constraint.
+  noteJobs: z.array(jobId).optional(),
   // A "cover your co-tank" press (a tank's buddy-mit): rendered small and
   // inline with the notes, not as a full action.
   buddy: z.boolean().optional(),
@@ -31,26 +36,49 @@ const sheetSchema = z.object({
     // A phase-wide aside that is not tied to any one mechanic - "personal mit
     // is free for autos this phase". Renders under the phase heading.
     note: text.optional(),
+    // Also under the phase heading, but only for a viewer whose role presses
+    // one of `abilities` this phase (targeted mit: Reprisal / Addle / …), and
+    // hidden by the notes toggle like an action note.
+    scopedNote: z.object({ text, abilities: z.array(text).min(1) }).strict().optional(),
     mechanics: z.array(z.object({
       id, name: text, time: text.regex(/^\d+:[0-5]\d$/).optional(),
+      // An aside for the whole mechanic, every role - "avoid HP-restoring
+      // abilities here". Renders once under the cast, above the abilities,
+      // whether or not this viewer presses anything.
+      note: text.optional(),
       assignments: z.record(id, z.array(action).min(1)),
     }).strict()),
   }).strict()),
-  // Optional tank personal-mit plans, keyed by the viewer's job and their
-  // co-tank. The party grid says what a tank does *for the group*; this says
-  // what each tank pairing does for *itself*, and the plan changes with the
-  // co-tank because buddy-mit targets and invuln order do. When a tank seat
-  // picks a job and an "other tank", these rows splice into the party timeline
-  // right below the party mechanic each one names in `after`.
+  // Optional tank personal-mit plans. The party grid says what a tank does *for
+  // the group*; this says what each tank does for *itself*, and it branches on
+  // choices the party grid does not carry - buddy-mit targets, which boss you
+  // hold, invuln order. Rows splice into the party timeline right below the
+  // party mechanic each one names in `after`.
+  //
+  // Two ways a plan is keyed. With `with`, it is a co-tank *pairing* (TOP): the
+  // whole plan changes with the partner. Without `with`, it is keyed by `job`
+  // alone (DMU) and its rows self-select on the viewer's own branch choices via
+  // `boss` (which boss in P3) and `invuln` (invuln order in P5) - a sheet whose
+  // pairing only ever mattered to fix those two bits.
   tankMits: z.object({
     note: text.optional(),
+    // Suggested job order for each side of a branch, straight from the sheet's
+    // header. Not applied - the player still picks - but shown in a tooltip by
+    // the P3 boss / P5 invuln toggle so they can see where their job sits.
+    // Keyed by the toggle value (`Chaos`/`Exdeath`, `1`/`2`).
+    priorities: z.object({
+      p3Boss: z.record(text, z.array(jobId)).optional(),
+      invuln: z.record(text, z.array(jobId)).optional(),
+    }).strict().optional(),
     plans: z.array(z.object({
-      job: jobId, with: jobId,
+      job: jobId, with: jobId.optional(),
       phases: z.array(z.object({
         id,
         // A phase-wide aside; `noteAfter` is the party mechanic id it renders
-        // below (phase top when absent).
+        // below (phase top when absent). `noteInvuln` restricts it to one P5
+        // invuln order (e.g. "you start with the boss" is only for the 2nd).
         note: text.optional(), noteAfter: id.optional(),
+        noteInvuln: z.union([z.literal(1), z.literal(2)]).optional(),
         mechanics: z.array(z.object({
           id, name: text, time: text.regex(/^\d+:[0-5]\d$/).optional(),
           // Party mechanic id, same phase, this row renders below. Phase top
@@ -59,8 +87,17 @@ const sheetSchema = z.object({
           // Show this row only for this party seat, hidden for the other. For a
           // plan keyed by job pair whose rows still split by MT/OT (DMU).
           seat: z.enum(['MT', 'OT']).optional(),
+          // Branch tags for a job-keyed plan (no `with`): show this row only
+          // when the viewer holds this boss in P3 / takes this invuln slot in
+          // P5. Untagged rows show for every choice.
+          boss: z.enum(['Chaos', 'Exdeath']).optional(),
+          invuln: z.union([z.literal(1), z.literal(2)]).optional(),
           // An aside tied to this row (folded in from a phase note).
           note: text.optional(),
+          // A short positional call for this row - "Close", "Far", "Solo" -
+          // pulled out of the note so it reads as a badge by the mechanic name
+          // rather than a sentence fragment at the end.
+          tag: text.optional(),
           // May be empty: a marker row that only says the buster happened here.
           actions: z.array(action),
           // "An alternative way to mit this" - e.g. the double-invuln
@@ -114,11 +151,16 @@ export function validateCatalog(files: Record<string, unknown>, rawIcons: unknow
         unique(sheet.phases.map(p => p.id), 'sheet phase IDs')
         unique(sheet.phases.flatMap(p => p.mechanics.map(m => m.id)), 'mechanic IDs')
         if (sheet.tankMits) {
-          unique(sheet.tankMits.plans.map(p => `${p.job}+${p.with}`), `tank plans in ${sheet.id}`)
+          unique(sheet.tankMits.plans.map(p => `${p.job}+${p.with ?? ''}`), `tank plans in ${sheet.id}`)
           for (const plan of sheet.tankMits.plans) {
+            const label = `${plan.job}+${plan.with ?? ''}`
             if (plan.job === plan.with) throw new Error(`Tank plan pairs ${plan.job} with itself in ${sheet.id}`)
-            unique(plan.phases.map(p => p.id), `tank plan ${plan.job}+${plan.with} phase IDs`)
-            unique(plan.phases.flatMap(p => p.mechanics.map(m => m.id)), `tank plan ${plan.job}+${plan.with} mechanic IDs`)
+            // Branch tags (`boss`/`invuln`) belong to job-keyed plans; a pairing
+            // already fixes those bits, so mixing the two is a data error.
+            if (plan.with && plan.phases.some(p => p.mechanics.some(m => m.boss || m.invuln)))
+              throw new Error(`Tank plan ${label} in ${sheet.id} has both a co-tank and boss/invuln branch tags`)
+            unique(plan.phases.map(p => p.id), `tank plan ${label} phase IDs`)
+            unique(plan.phases.flatMap(p => p.mechanics.map(m => m.id)), `tank plan ${label} mechanic IDs`)
           }
         }
         sheets.push(sheet)
@@ -141,14 +183,14 @@ export function validateCatalog(files: Record<string, unknown>, rawIcons: unknow
     }
     for (const plan of sheet.tankMits?.plans ?? []) {
       for (const phase of plan.phases) {
-        if (!fight.phases.some(p => p.id === phase.id)) throw new Error(`Unknown phase ${phase.id} in tank plan ${plan.job}+${plan.with} of ${sheet.id}`)
+        if (!fight.phases.some(p => p.id === phase.id)) throw new Error(`Unknown phase ${phase.id} in tank plan ${plan.job}+${plan.with ?? ''} of ${sheet.id}`)
         // `after` / `noteAfter` anchor a personal row to a party mechanic in
         // the same phase, so the splice has somewhere to land.
         const anchors = new Set(sheet.phases.find(p => p.id === phase.id)?.mechanics.map(m => m.id))
         for (const mechanic of phase.mechanics) {
-          if (mechanic.after && !anchors.has(mechanic.after)) throw new Error(`Tank plan ${plan.job}+${plan.with} ${mechanic.id}: unknown anchor ${mechanic.after}`)
+          if (mechanic.after && !anchors.has(mechanic.after)) throw new Error(`Tank plan ${plan.job}+${plan.with ?? ''} ${mechanic.id}: unknown anchor ${mechanic.after}`)
         }
-        if (phase.noteAfter && !anchors.has(phase.noteAfter)) throw new Error(`Tank plan ${plan.job}+${plan.with} ${phase.id}: unknown noteAfter ${phase.noteAfter}`)
+        if (phase.noteAfter && !anchors.has(phase.noteAfter)) throw new Error(`Tank plan ${plan.job}+${plan.with ?? ''} ${phase.id}: unknown noteAfter ${phase.noteAfter}`)
       }
       plan.phases.sort((a, b) => fight.phases.findIndex(p => p.id === a.id) - fight.phases.findIndex(p => p.id === b.id))
     }

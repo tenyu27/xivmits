@@ -169,6 +169,20 @@
 .assignments > .assignment.personal-bar { border-top: 0; padding-top: 0; }
 .assignments > .assignment.personal-bar .personal-body > :first-child { margin-top: 0; }
 
+/* "Personal" tag at the head of a personal block: the accent edge says
+   "different", this says "different how". */
+.personal-tag {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 3px;
+  margin-bottom: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-strong);
+}
+.personal-tag svg { flex: 0 0 auto; }
+
 /* Small inline row for a mit that is an alternative or a co-tank cover rather
    than a primary press: one wrapping line, note-sized, shrunk icons. */
 .aside {
@@ -191,6 +205,20 @@
   overflow-wrap: anywhere;
 }
 .mechanic-heading { margin-bottom: 2px; }
+
+/* Positional call ("Close" / "Far" / "1st hit") lifted out of the note - an
+   accent pill right after the cast name, always shown, never behind the notes
+   toggle. A bar row's tag hoists onto the party name it sits under. */
+.mechanic-tag {
+  flex: 0 0 auto;
+  padding: 1px 6px;
+  border-radius: var(--mantine-radius-sm);
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.6;
+}
 
 /* Boxed and monospaced so a column of times reads as a column, and so the
    timestamp is findable at a glance rather than being the faintest thing here. */
@@ -238,10 +266,24 @@
   color: var(--mantine-color-dimmed);
 }
 
-/* Without icons there is no artwork marking where one name ends and the next
-   begins, so widen the gap. A separator glyph would be better typography but
-   CSS cannot see where a row wraps, and it would strand a dot at a line start. */
-.actions-flow.separated { column-gap: var(--mantine-spacing-xl); }
+/* Phase note: an info glyph pinned to the first line of the rules block. */
+.phase-note-icon {
+  flex: none;
+  margin-top: 2px;
+  color: var(--mantine-color-dimmed);
+}
+
+/* "+" between abilities pressed together for one cast. Marks where one name ends
+   and the next begins - the job that text mode's wide gap used to do, and
+   readable with icons too. Negative inline margin pulls it in from the full
+   flow gap so it hugs the names it joins rather than floating mid-gap. */
+.action-plus {
+  flex: 0 0 auto;
+  align-self: center;
+  margin-inline: calc(var(--mantine-spacing-md) * -0.6);
+  color: var(--mantine-color-dimmed);
+  font-weight: 400;
+}
 
 /* Picture-in-Picture: same tree, denser. Background is set explicitly because
    the cloned stylesheets land in a document Mantine never mounted into. */

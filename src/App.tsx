@@ -6,8 +6,8 @@ import {
   useComputedColorScheme, useMantineColorScheme,
 } from '@mantine/core'
 import {
-  IconArrowRight, IconBrandX, IconCoffee, IconDeviceDesktop, IconExternalLink, IconMoon,
-  IconPictureInPicture, IconSun,
+  IconArrowRight, IconBrandX, IconCoffee, IconDeviceDesktop, IconExternalLink, IconInfoCircle,
+  IconMoon, IconPictureInPicture, IconSun,
 } from '@tabler/icons-react'
 import catalog from './data/catalog'
 import { jobsForRole, positionsForSheet, slotIdFor } from './data/resolve'
@@ -62,12 +62,15 @@ function Shell() {
     return isDisplay(stored) ? stored : 'both'
   })
   const [notes, setNotes] = useState(() => readStored('notes') !== 'off')
+  const [personalMits, setPersonalMits] = useState(() => readStored('personalMits') !== 'off')
   const [layout, setLayout] = useState<Layout>(() => {
     const stored = readStored('layout')
     return isLayout(stored) ? stored : 'tabs'
   })
   const [jobId, setJobId] = useState(() => readStored('lastJob'))
   const [otherTankId, setOtherTankId] = useState(() => readStored('lastOtherTank'))
+  const [p3BossId, setP3BossId] = useState(() => readStored('lastP3Boss'))
+  const [invulnId, setInvulnId] = useState(() => readStored('lastInvulnOrder'))
   const resolvedScheme = useComputedColorScheme('dark')
   const pip = usePip(resolvedScheme)
   const fight = catalog.fights.find(f => f.id === selection.fightId)
@@ -90,13 +93,27 @@ function Shell() {
   // filtered at all.
   const needsJob = Boolean(position && !jobFree && (!job || !slotId))
 
-  // Tank personal mit: when a tank seat picks a job and a co-tank, that
-  // pairing's rows splice into the party timeline (MitView `personalPlan`).
-  // Buddy-mit targets and invuln order change with the co-tank.
+  // Tank personal mit: once a tank seat has a job, that job's plan splices into
+  // the party timeline (MitView `personalPlan`). A sheet keys these two ways.
+  // TOP pairs the two tanks - each partner is a whole plan, chosen by "Other
+  // tank". DMU keys by job alone and its rows branch on the viewer's own P3
+  // boss and P5 invuln choices, chosen here and passed to MitView.
   const tankPlans = position?.role === 'tank' && job ? sheet?.tankMits?.plans.filter(p => p.job === job.id) ?? [] : []
-  const otherTankOptions = tankPlans.map(p => p.with)
+  const paired = tankPlans.some(p => p.with)
+  const otherTankOptions = tankPlans.map(p => p.with).filter((w): w is string => Boolean(w))
   const otherTank = otherTankOptions.includes(otherTankId) ? otherTankId : ''
-  const tankPlan = tankPlans.find(p => p.with === otherTank)
+  const priorities = sheet?.tankMits?.priorities
+  // A stored choice wins; otherwise default by seat - MT holds Exdeath and
+  // takes the 2nd invuln, OT holds Chaos and goes 1st.
+  const p3Boss: 'Chaos' | 'Exdeath' = p3BossId === 'Chaos' || p3BossId === 'Exdeath'
+    ? p3BossId : selection.roleId === 'OT' ? 'Chaos' : 'Exdeath'
+  const invulnOrder: 1 | 2 = invulnId === '1' || invulnId === '2'
+    ? (Number(invulnId) as 1 | 2) : selection.roleId === 'OT' ? 1 : 2
+  // A tank can hide the personal rows entirely - some raiders only want the
+  // party grid. Off means no plan is spliced, and its branch selects go away.
+  const tankPlan = !personalMits ? undefined
+    : paired ? tankPlans.find(p => p.with === otherTank)
+    : tankPlans[0]
 
   useEffect(() => {
     const onPop = () => setSelection(initialSelection())
@@ -151,6 +168,10 @@ function Shell() {
     setNotes(value)
     storeValue('notes', value ? 'on' : 'off')
   }
+  function changePersonalMits(value: boolean) {
+    setPersonalMits(value)
+    storeValue('personalMits', value ? 'on' : 'off')
+  }
   function changeLayout(value: string) {
     if (!isLayout(value)) return
     setLayout(value)
@@ -163,6 +184,14 @@ function Shell() {
   function changeOtherTank(value: string) {
     setOtherTankId(value)
     storeValue('lastOtherTank', value)
+  }
+  function changeP3Boss(value: string) {
+    setP3BossId(value)
+    storeValue('lastP3Boss', value)
+  }
+  function changeInvuln(value: string) {
+    setInvulnId(value)
+    storeValue('lastInvulnOrder', value)
   }
   function reset() {
     window.history.replaceState(null, '', import.meta.env.BASE_URL)
@@ -193,14 +222,67 @@ function Shell() {
         ...jobOptions.map(j => ({ value: j.id, label: j.id })),
       ]}
   />
-  // Only appears once a tank seat has a job and the sheet ships tank plans
-  // (TOP). Picking a co-tank splices that pairing's personal-mit rows into the
-  // timeline; shown on the selection screen and in the focused view's controls.
-  const otherTankSelect = tankPlans.length > 0 ? <NativeSelect
-    label="Other tank" value={otherTank}
-    onChange={event => changeOtherTank(event.currentTarget.value)}
-    data={[{ value: '', label: 'Hide' }, ...otherTankOptions.map(id => ({ value: id, label: id }))]}
-  /> : null
+  // A small info tooltip by a branch toggle: the sheet's suggested job order for
+  // each side, the viewer's own job pulled out in accent so they can see where
+  // they sit. `keyLabel` prettifies the invuln keys ("1" -> "1st").
+  const priorityTip = (orders: Record<string, string[]> | undefined, keyLabel: (k: string) => string) => {
+    if (!orders || !Object.keys(orders).length) return null
+    return <Tooltip
+      withArrow position="top" events={{ hover: true, focus: true, touch: true }}
+      label={<Box>
+        {Object.entries(orders).map(([opt, jobs]) => <Text key={opt} fz="sm" style={{ whiteSpace: 'nowrap', lineHeight: 1.7 }}>
+          <Text span inherit fw={700}>{keyLabel(opt)}:</Text>{'  '}
+          {jobs.flatMap((j, i) => [
+            i > 0 ? <Text span inherit key={`s${i}`} c="var(--text-muted)">{' > '}</Text> : null,
+            <Text span inherit key={j} fw={job?.id === j ? 700 : 400} c={job?.id === j ? 'var(--accent)' : undefined}>{j}</Text>,
+          ])}
+        </Text>)}
+      </Box>}
+    >
+      <IconInfoCircle size={12} style={{ verticalAlign: 'text-bottom', opacity: 0.5, cursor: 'help' }} tabIndex={0} aria-label="Suggested job order" />
+    </Tooltip>
+  }
+  // Tank plan controls, only once a tank seat has a job and the sheet ships
+  // plans. "Mits" is All / Party; on All, the plan picker follows - "Other tank"
+  // for a paired sheet (TOP), P3 boss / P5 invuln branch toggles for a job-keyed
+  // one (DMU). Shown on the selection screen and the control row.
+  const tankPlanSelects = tankPlans.length === 0 ? null : paired
+    ? <NativeSelect
+      label="Other tank" value={otherTank} w={128}
+      onChange={event => changeOtherTank(event.currentTarget.value)}
+      data={[{ value: '', label: 'Hide' }, ...otherTankOptions.map(id => ({ value: id, label: id }))]}
+    />
+    : <>
+      <Input.Wrapper
+        label={<Group gap={4} align="center" wrap="nowrap">P3 boss{priorityTip(priorities?.p3Boss, k => k)}</Group>}
+        labelElement="div"
+      >
+        <SegmentedControl
+          className="display-picker" size="sm" value={p3Boss} onChange={changeP3Boss}
+          data={[{ value: 'Chaos', label: 'Chaos' }, { value: 'Exdeath', label: 'Exdeath' }]}
+        />
+      </Input.Wrapper>
+      <Input.Wrapper
+        label={<Group gap={4} align="center" wrap="nowrap">P5 invuln{priorityTip(priorities?.invuln, k => k === '1' ? '1st' : k === '2' ? '2nd' : k)}</Group>}
+        labelElement="div"
+      >
+        <SegmentedControl
+          className="display-picker" size="sm" value={String(invulnOrder)} onChange={changeInvuln}
+          data={[{ value: '1', label: '1st' }, { value: '2', label: '2nd' }]}
+        />
+      </Input.Wrapper>
+    </>
+  const tankControls = tankPlans.length === 0 ? null : <>
+    <Input.Wrapper label="Mits" labelElement="div">
+      <SegmentedControl
+        className="display-picker" size="sm" aria-label="Show personal tank mitigation"
+        value={personalMits ? 'both' : 'party'}
+        onChange={value => changePersonalMits(value === 'both')}
+        data={[{ value: 'both', label: 'All' }, { value: 'party', label: 'Party' }]}
+      />
+    </Input.Wrapper>
+    {personalMits && tankPlanSelects}
+  </>
 
   return <Container size={720} px="md" mih="100dvh" display="flex" style={{ flexDirection: 'column' }}>
     <Group component="header" justify="space-between" wrap="nowrap" pt="sm" pb="lg" style={{ borderBottom: '1px solid var(--border)' }}>
@@ -230,35 +312,38 @@ function Shell() {
           </Group>
         </Group>
 
-        {/* Every control here gets the same treatment: label above in the same
-            style, one shared height, bottom-aligned. Mixing label positions and
-            sizes made this row read as five unrelated widgets. */}
-        <Group className="control-row" align="flex-end" gap="sm" my="md" wrap="wrap">
-          <Box flex="0 1 88px" miw={76}>{roleSelect}</Box>
-          {/* Job and Other tank keep one fixed width so the row never reflows
-              as their value text changes. */}
-          <Box flex="0 0 128px">{jobSelect}</Box>
-          {otherTankSelect && <Box flex="0 0 128px">{otherTankSelect}</Box>}
-          <Input.Wrapper label="Show" labelElement="div">
-            <SegmentedControl
-              className="display-picker" aria-label="Show icons, text, or both"
-              size="sm" value={display} onChange={changeDisplay} data={DISPLAY_OPTIONS}
-            />
-          </Input.Wrapper>
-          <Input.Wrapper label="Notes" labelElement="div">
-            <Switch
-              aria-label="Show action notes" size="md" checked={notes}
-              disabled={display === 'icon'}
-              onChange={event => changeNotes(event.currentTarget.checked)}
-            />
-          </Input.Wrapper>
-          <Input.Wrapper label="Layout" labelElement="div">
-            <SegmentedControl
-              className="display-picker" aria-label="Show one phase or every phase in one list"
-              size="sm" value={layout} onChange={changeLayout} data={LAYOUT_OPTIONS}
-            />
-          </Input.Wrapper>
-        </Group>
+        {/* Two fixed rows, one gap between every control. Row 1 - what you are
+            reading: role, job, the plan controls. Row 2 - how the page is
+            drawn: display, layout, notes. Same label style, height, and bottom
+            alignment throughout; each row wraps only if it runs out of width. */}
+        <Stack gap="sm" my="md">
+          <Group className="control-row" align="flex-end" gap="sm" wrap="wrap">
+            <Box flex="0 0 88px" miw={76}>{roleSelect}</Box>
+            <Box flex="0 0 128px">{jobSelect}</Box>
+            {tankControls}
+          </Group>
+          <Group className="control-row" align="flex-end" gap="sm" wrap="wrap">
+            <Input.Wrapper label="Display" labelElement="div">
+              <SegmentedControl
+                className="display-picker" aria-label="Show icons, text, or both"
+                size="sm" value={display} onChange={changeDisplay} data={DISPLAY_OPTIONS}
+              />
+            </Input.Wrapper>
+            <Input.Wrapper label="Layout" labelElement="div">
+              <SegmentedControl
+                className="display-picker" aria-label="Show one phase or every phase in one list"
+                size="sm" value={layout} onChange={changeLayout} data={LAYOUT_OPTIONS}
+              />
+            </Input.Wrapper>
+            <Input.Wrapper label="Notes" labelElement="div">
+              <Switch
+                aria-label="Show action notes" size="md" checked={notes}
+                disabled={display === 'icon'}
+                onChange={event => changeNotes(event.currentTarget.checked)}
+              />
+            </Input.Wrapper>
+          </Group>
+        </Stack>
         {pip.error && <Alert color="red" variant="light" mb="md" role="alert">{pip.error}</Alert>}
 
         {needsJob
@@ -266,6 +351,7 @@ function Shell() {
           : <MitView
             fight={fight} sheet={sheet} roleId={slotId} phaseId={selection.phaseId}
             onPhase={changePhase} job={jobFree ? undefined : job} personalPlan={tankPlan}
+            p3Boss={p3Boss} invulnOrder={invulnOrder}
             display={display} notes={notes} layout={layout}
             phaseAction={pip.supported && <Button
               variant="outline" size="sm" leftSection={<IconPictureInPicture size={18} aria-hidden />}
@@ -276,7 +362,7 @@ function Shell() {
           />}
 
         {pip.pipWindow && createPortal(
-          <MitView compact fight={fight} sheet={sheet} roleId={slotId} phaseId={selection.phaseId} onPhase={changePhase} job={job} personalPlan={tankPlan} display={display} notes={notes} layout={layout} />,
+          <MitView compact fight={fight} sheet={sheet} roleId={slotId} phaseId={selection.phaseId} onPhase={changePhase} job={job} personalPlan={tankPlan} p3Boss={p3Boss} invulnOrder={invulnOrder} display={display} notes={notes} layout={layout} />,
           pip.pipWindow.document.body,
         )}
       </> : <Box maw={480} mx="auto">
@@ -308,7 +394,8 @@ function Shell() {
               ...sheets.map(s => ({ value: s.id, label: s.name })),
             ]}
           />
-          <Group grow align="flex-start" gap="sm">{roleSelect}{jobSelect}{otherTankSelect}</Group>
+          <Group grow align="flex-start" gap="sm">{roleSelect}{jobSelect}</Group>
+          {tankControls && <Group align="flex-start" gap="sm">{tankControls}</Group>}
           <Button type="submit" rightSection={<IconArrowRight size={18} aria-hidden />} disabled={!fight || !sheet || !selection.roleId || (!job && !jobFree)}>
             View mits
           </Button>
