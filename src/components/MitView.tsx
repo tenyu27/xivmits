@@ -30,18 +30,26 @@ type Entry = {
 
 export type Display = 'both' | 'icon' | 'text'
 // `tabs` shows one phase at a time; `list` stacks every phase into one
-// scrolling column with a sticky splitter between each.
-export type Layout = 'tabs' | 'list'
+// scrolling column with a sticky splitter between each; `grid` is the
+// one-screen cheatsheet - one condensed row per phase, icons only.
+export type Layout = 'tabs' | 'list' | 'grid'
 
-export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, personalPlan, p3Boss, invulnOrder, display = 'both', notes = true, compact = false, layout = 'tabs', phaseAction }: {
+export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, personalPlan, p3Boss, invulnOrder, display = 'both', notes = true, compact = false, layout = 'tabs', phaseAction, hideTabs = false }: {
   fight: Fight; sheet: Sheet; roleId: string; phaseId: string; onPhase: (id: string) => void
   job?: Job; personalPlan?: TankMitPlan; p3Boss?: 'Chaos' | 'Exdeath'; invulnOrder?: 1 | 2
   display?: Display; notes?: boolean; compact?: boolean; layout?: Layout; phaseAction?: ReactNode
+  // Drop the phase tab bar entirely - the cheatsheet tab shows every phase at
+  // once, so the jump-nav only costs vertical space.
+  hideTabs?: boolean
 }) {
   const prefix = useId()
   const tabs = useRef<HTMLElement>(null)
   const sections = useRef(new Map<string, HTMLElement | null>())
   const list = layout === 'list'
+  const grid = layout === 'grid'
+  // Both stacked layouts turn the phase tabs into jump-nav and give every
+  // phase its own panel.
+  const stacked = list || grid
   const phase = fight.phases.find(p => p.id === phaseId) ?? fight.phases[0]
   const slot = sheet.slots.find(s => s.id === roleId)
   const iconSize = compact ? 26 : 32
@@ -81,9 +89,16 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
       if (mechanic.invuln && mechanic.invuln !== invulnOrder) continue
       // When a personal row names the same mechanic as the party row it sits
       // under, drop the repeated heading - the accent edge already says it is a
-      // separate, personal line.
+      // separate, personal line. "Same" also covers a numbered party variant:
+      // a personal "Thunder III" folds into "Thunder III (1st Set)", and the
+      // party row's own timestamp then stands for both (so a `time` on the
+      // personal row no longer blocks the fold in that case).
       const anchor = mechanic.after ? party.find(pe => pe.mechanic.id === mechanic.after) : undefined
-      const sameName = !mechanic.time && anchor?.mechanic.name === mechanic.name
+      const anchorName = anchor?.mechanic.name
+      const sameName = Boolean(anchorName && (
+        (!mechanic.time && anchorName === mechanic.name)
+        || anchorName.startsWith(`${mechanic.name} (`)
+      ))
       // A bar row drops its own heading, so its `tag` would float on an empty
       // one - hoist it onto the party mechanic above instead, right after that
       // name. A plain row keeps its tag in its own heading.
@@ -130,21 +145,25 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
 
   // Icons carry no meaning of their own in `both` mode - the name is beside
   // them. Alone, they are the only label left, so they take the name as alt.
-  const iconFor = (file: string | undefined, name: string, carryOver?: boolean) => {
+  const iconFor = (file: string | undefined, name: string, carryOver?: boolean, opts?: { size?: number; labelled?: boolean }) => {
     if (!file) return null
     const label = carryOver ? `${name} (still active)` : name
+    const size = opts?.size ?? iconSize
+    // Grid cells have no text beside the icon, so it takes the name as alt even
+    // in `both` mode - same rule as the icon-only display, just forced per call.
+    const named = opts?.labelled || display === 'icon'
     return <img
       className={carryOver ? 'action-icon faded' : 'action-icon'}
       src={`${import.meta.env.BASE_URL}icons/${file}`}
-      width={iconSize} height={iconSize} loading="lazy" decoding="async"
-      alt={display === 'icon' ? label : ''} aria-hidden={display !== 'icon'}
-      title={display === 'icon' ? label : undefined}
+      width={size} height={size} loading="lazy" decoding="async"
+      alt={named ? label : ''} aria-hidden={!named}
+      title={named ? label : undefined}
     />
   }
 
   const goToPhase = (id: string) => {
     onPhase(id)
-    if (list) sections.current.get(id)?.scrollIntoView({ block: 'start' })
+    if (stacked) sections.current.get(id)?.scrollIntoView({ block: 'start' })
   }
 
   // A mit that is an alternative or a co-tank cover, not a primary press:
@@ -309,15 +328,81 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
     </Box></>
   }
 
+  // The cheatsheet condenses a phase to one row of mechanic cells: name on top,
+  // icons below (icons only, always - it is the densest view). Personal tank
+  // mit and carry-overs never take their own cell - they sit in the mechanic's
+  // cell after a splitter (accent-hued + person glyph for personal, plain for
+  // carry-over). A standalone personal mechanic renders the same, just with no
+  // party icons before the glyph.
+  const cheatIconSize = compact ? 16 : 20
+  // One run of actions: press-now first, then - after a splitter and the same
+  // forward arrow the other views use - any carry-overs, dimmed.
+  const cheatIcons = (all: ResolvedActions, key: string) => {
+    const fresh = all.filter(a => !a.action.carryOver)
+    const carried = all.filter(a => a.action.carryOver)
+    const run = (group: ResolvedActions, tag: string) => group.map((a, index) => <Fragment key={`${key}-${tag}-${index}`}>
+      {iconFor(a.resolved.icon, a.resolved.label, a.action.carryOver, { size: cheatIconSize, labelled: true })
+        ?? <Text span className="cheat-abils" fz="xs" fw={600}>{a.resolved.label}</Text>}
+    </Fragment>)
+    return <>
+      {fresh.length > 0 && run(fresh, 'now')}
+      {carried.length > 0 && <>
+        <Box className="cheat-split" aria-hidden />
+        <IconArrowForward className="cheat-carry-arrow" size={compact ? 12 : 14} aria-label="still active" />
+        {run(carried, 'carry')}
+      </>}
+    </>
+  }
+  const cheatCell = (entry: Entry, partyActions: ResolvedActions, personalRuns: ResolvedActions[], key: string) => {
+    const { mechanic } = entry
+    const name = mechanic.name || (entry.personal ? 'Personal' : '')
+    const empty = partyActions.length === 0 && personalRuns.length === 0
+    return <Box component="li" key={key} className={`cheat-mech${empty ? ' unassigned' : ''}`}>
+      <Box className="cheat-head">
+        {name && <Text span className="cheat-name" fz="xs" fw={700}>{name}</Text>}
+        {mechanic.tag && <Text span className="mechanic-tag cheat-tag" fz="0.5rem" fw={700}>{mechanic.tag}</Text>}
+      </Box>
+      {/* A mechanic this viewer covers nothing at is just its name - no empty
+          icon row, like the unassigned rows in the other layouts. */}
+      {!empty && <Box className="cheat-icons">
+        {partyActions.length > 0 && cheatIcons(partyActions, `${key}-p`)}
+        {personalRuns.map((runActions, index) => <Fragment key={`${key}-x-${index}`}>
+          <Box className="cheat-split cheat-split-personal" aria-hidden />
+          <IconUser className="cheat-personal" size={compact ? 9 : 11} aria-label="personal mit" />
+          {cheatIcons(runActions, `${key}-x-${index}`)}
+        </Fragment>)}
+      </Box>}
+    </Box>
+  }
+  // Personal mit never takes its own cell: a `bar` row folds into the cell
+  // before it, a `plain` personal mechanic keeps its name but renders its icons
+  // through the same glyph + splitter path (with no party icons ahead of it).
+  // A `bar` row with no actions is a personal phase note - nothing to show.
+  const cheatCells = (entries: Entry[]) => {
+    const cells: { entry: Entry; partyActions: ResolvedActions; personalRuns: ResolvedActions[] }[] = []
+    for (const entry of entries) {
+      if (entry.personal === 'bar') {
+        if (entry.actions.length && cells.length) cells[cells.length - 1].personalRuns.push(entry.actions)
+        continue
+      }
+      if (entry.personal === 'plain') {
+        cells.push({ entry, partyActions: [], personalRuns: entry.actions.length ? [entry.actions] : [] })
+        continue
+      }
+      cells.push({ entry, partyActions: entry.actions, personalRuns: [] })
+    }
+    return cells
+  }
+
   const tab = entriesFor(phase.id)
 
-  return <Box component="section" className={`mit-view${compact ? ' compact' : ''}${list ? ' list' : ''}`}>
-    <Group className="phase-bar" gap="sm" wrap="nowrap">
+  return <Box component="section" className={`mit-view${compact ? ' compact' : ''}${list ? ' list' : ''}${grid ? ' grid' : ''}`}>
+    {!hideTabs && <Group className="phase-bar" gap="sm" wrap="nowrap">
       {compact && <Text fz="sm" fw={700}>{slot?.job ?? slot?.id}</Text>}
       <Box component="nav" ref={tabs} className="phase-tabs" role="tablist" aria-label="Encounter phases">
         {fight.phases.map((p, index) => <UnstyledButton
           key={p.id} type="button" role="tab" id={`${prefix}-${p.id}`}
-          aria-controls={list ? `${prefix}-panel-${p.id}` : `${prefix}-panel`} aria-selected={p.id === phase.id}
+          aria-controls={stacked ? `${prefix}-panel-${p.id}` : `${prefix}-panel`} aria-selected={p.id === phase.id}
           aria-current={p.id === phase.id ? 'true' : undefined} tabIndex={p.id === phase.id ? 0 : -1}
           onClick={() => goToPhase(p.id)}
           onKeyDown={event => {
@@ -334,9 +419,34 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
         >{p.label}</UnstyledButton>)}
       </Box>
       {phaseAction}
-    </Group>
+    </Group>}
 
-    {list
+    {grid
+      ? <Box className="cheatsheet">
+        {fight.phases.map(p => {
+          const { entries } = entriesFor(p.id)
+          const cells = cheatCells(entries)
+          return <Box
+            key={p.id} component="section" className="cheat-col"
+            id={hideTabs ? undefined : `${prefix}-panel-${p.id}`}
+            role={hideTabs ? undefined : 'tabpanel'}
+            aria-labelledby={hideTabs ? undefined : `${prefix}-${p.id}`}
+            aria-label={hideTabs ? (p.name ?? p.label) : undefined}
+            ref={el => { sections.current.set(p.id, el) }}
+          >
+            <Text className="cheat-col-head" fw={700} fz={compact ? 'xs' : 'sm'}>
+              {p.label}{p.name && p.name !== p.label && <Text span c="dimmed" fw={500} fz="inherit"> {p.name}</Text>}
+            </Text>
+            {cells.length === 0
+              ? <Text className="cheat-empty" c="dimmed" fz="xs">—</Text>
+              : <Box component="ol" className="cheat-col-list">
+                {cells.map(({ entry, partyActions, personalRuns }, index) =>
+                  cheatCell(entry, partyActions, personalRuns, `${p.id}-${entry.mechanic.id}-${index}`))}
+              </Box>}
+          </Box>
+        })}
+      </Box>
+      : list
       ? <Box className="phase-list">
         {fight.phases.map(p => {
           const { data, entries, start, personalNote } = entriesFor(p.id)

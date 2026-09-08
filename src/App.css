@@ -52,20 +52,127 @@
   background: var(--accent);
 }
 
-/* Single-list layout: every phase stacked into one scroll, with a sticky
-   splitter marking where each one starts. The phase tabs stay as a jump nav
-   but stop sticking - the splitters are the running "where am I" signal. */
-.mit-view.list .phase-bar { position: static; }
+/* Stacked layouts: `list` puts every phase in one scroll with a sticky
+   splitter; `grid` is the one-screen cheatsheet. Both turn the phase tabs into
+   a jump nav that stops sticking - the phase rows are the "where am I" signal. */
+.mit-view.list .phase-bar,
+.mit-view.grid .phase-bar { position: static; }
 /* Every tab here only jumps to a phase; none is "the current one", so the
    selected treatment is dropped and they all read as rest-state buttons. */
-.mit-view.list .phase-tabs button[aria-selected='true'] {
+.mit-view.list .phase-tabs button[aria-selected='true'],
+.mit-view.grid .phase-tabs button[aria-selected='true'] {
   background: var(--mantine-color-body);
   border-color: var(--border);
   color: var(--text-muted);
   font-weight: 400;
 }
-.mit-view.list .phase-tabs button[aria-selected='true']:hover { background: var(--surface-alt); }
-.mit-view.list .phase-tabs button[aria-selected='true']::after { content: none; }
+.mit-view.list .phase-tabs button[aria-selected='true']:hover,
+.mit-view.grid .phase-tabs button[aria-selected='true']:hover { background: var(--surface-alt); }
+.mit-view.list .phase-tabs button[aria-selected='true']::after,
+.mit-view.grid .phase-tabs button[aria-selected='true']::after { content: none; }
+/* Cheatsheet layout: one column per phase, side by side, each a top-down list
+   of that phase's mechanics - mits read along the timeline the way they land.
+   Columns keep a fixed width and never wrap; the strip is its own scroll pane -
+   sideways when the columns overrun, and down its own height so each phase
+   heading can stay pinned to the top as you read. Never the body. */
+/* In the cheatsheet tab the strip fills the space left under the title line -
+   `.mit-view.grid` flexes to fill and this pane takes all of it, so there is
+   no dead band reserved at the bottom. */
+.mit-view.grid {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+.cheatsheet {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  overflow: auto;
+}
+/* Each phase column is only as wide as its content needs - never grows or
+   shrinks to fill - capped so a long mechanic name wraps instead of stretching
+   the column. Tight inline padding; the divider sits between. */
+.cheat-col {
+  flex: 0 0 auto;
+  min-width: 9rem;
+  max-width: 14rem;
+  padding-inline: 6px;
+  display: flex;
+  flex-direction: column;
+}
+.cheat-col + .cheat-col { border-left: 1px solid var(--border); }
+/* Phase heading pins to the top of the scroll pane so you always know which
+   phase you are reading as the column scrolls under it. */
+.cheat-col-head {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding-bottom: 3px;
+  margin-bottom: 4px;
+  border-bottom: 2px solid var(--accent-border);
+  color: var(--accent-strong);
+  background: var(--mantine-color-body);
+}
+.cheat-empty { padding-top: 2px; }
+.cheat-col-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+/* Each mechanic: name on top, icons below. A hairline rule between them keeps
+   the timeline steps legible as you scan down. */
+.cheat-mech {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-block: 5px;
+}
+.cheat-mech + .cheat-mech { border-top: 1px solid var(--border); }
+.cheat-head { display: flex; align-items: center; flex-wrap: wrap; gap: 4px; }
+/* Splitter inside a cell: between press-now and carry-over icons, and before a
+   personal-mit run folded into a party cell (that one takes the accent hue). */
+.cheat-split {
+  align-self: stretch;
+  flex: 0 0 auto;
+  width: 1px;
+  min-height: 16px;
+  margin-inline: 2px;
+  background: var(--border);
+}
+.cheat-split-personal { background: var(--accent-border); }
+.cheat-carried { color: var(--text-muted); }
+.compact .cheat-split { min-height: 14px; }
+.cheat-name {
+  color: var(--text-secondary);
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+.cheat-tag { line-height: 1.5; }
+.cheat-icons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3px;
+  min-height: 20px;
+}
+.cheat-abils { color: var(--text); overflow-wrap: anywhere; }
+/* This viewer presses nothing here - just the dimmed name, no icon row, and
+   tighter so it reads as a timeline marker rather than a gap. */
+.cheat-mech.unassigned { padding-block: 3px; }
+.cheat-mech.unassigned .cheat-name { color: var(--text-muted); font-weight: 400; }
+/* Person glyph before a personal-mit run, forward arrow before a carry-over
+   run - the in-cell markers that stand in for a separate row. */
+.cheat-personal { flex: 0 0 auto; color: var(--accent-strong); }
+.cheat-carry-arrow { flex: 0 0 auto; color: var(--mantine-color-dimmed); }
+.compact .cheat-col { min-width: 7.5rem; max-width: 12rem; }
+.compact .cheat-icons { min-height: 16px; }
+
 .phase-list > section:first-of-type .phase-splitter { margin-top: 0; }
 .phase-splitter {
   position: sticky;

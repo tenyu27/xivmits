@@ -7,7 +7,7 @@ import {
 } from '@mantine/core'
 import {
   IconAlertCircle, IconArrowRight, IconBrandX, IconCoffee, IconDeviceDesktop, IconExternalLink,
-  IconInfoCircle, IconMoon, IconPictureInPicture, IconSun,
+  IconInfoCircle, IconLayoutGrid, IconMoon, IconPictureInPicture, IconSun,
 } from '@tabler/icons-react'
 import catalog from './data/catalog'
 import { jobsForRole, positionsForSheet, slotIdFor } from './data/resolve'
@@ -53,7 +53,14 @@ const LAYOUT_OPTIONS = [
   { value: 'list', label: 'All phases' },
 ]
 
+// `grid` (the cheatsheet) is not a picked layout - it is forced by the
+// `?view=cheatsheet` tab that the Cheatsheet button opens.
 const isLayout = (value: string): value is Layout => value === 'tabs' || value === 'list'
+
+// Read once at mount - the cheatsheet tab is a fixed, read-only view and does
+// not renavigate within itself.
+const query = new URLSearchParams(window.location.search)
+const cheatsheet = query.get('view') === 'cheatsheet'
 
 function Shell() {
   const [selection, setSelection] = useState(initialSelection)
@@ -67,10 +74,12 @@ function Shell() {
     const stored = readStored('layout')
     return isLayout(stored) ? stored : 'tabs'
   })
-  const [jobId, setJobId] = useState(() => readStored('lastJob'))
-  const [otherTankId, setOtherTankId] = useState(() => readStored('lastOtherTank'))
-  const [p3BossId, setP3BossId] = useState(() => readStored('lastP3Boss'))
-  const [invulnId, setInvulnId] = useState(() => readStored('lastInvulnOrder'))
+  // The cheatsheet tab carries the reader's job and tank branch in its URL so it
+  // resolves the same plan as the tab that opened it, without touching storage.
+  const [jobId, setJobId] = useState(() => query.get('job') ?? readStored('lastJob'))
+  const [otherTankId, setOtherTankId] = useState(() => query.get('otherTank') ?? readStored('lastOtherTank'))
+  const [p3BossId, setP3BossId] = useState(() => query.get('p3Boss') ?? readStored('lastP3Boss'))
+  const [invulnId, setInvulnId] = useState(() => query.get('invuln') ?? readStored('lastInvulnOrder'))
   const resolvedScheme = useComputedColorScheme('dark')
   const pip = usePip(resolvedScheme)
   const fight = catalog.fights.find(f => f.id === selection.fightId)
@@ -124,7 +133,9 @@ function Shell() {
     return () => window.removeEventListener('popstate', onPop)
   }, [])
   useEffect(() => {
-    document.title = viewing ? `${fight.name} · ${selection.roleId} | XIVMits` : 'XIVMits · FFXIV raid mits'
+    document.title = viewing
+      ? `${fight.name} · ${selection.roleId}${cheatsheet ? ' · Cheatsheet' : ''} | XIVMits`
+      : 'XIVMits · FFXIV raid mits'
   }, [viewing, fight, selection.roleId])
 
   function pickSheet(id: string, fightId = selection.fightId) {
@@ -311,6 +322,54 @@ function Shell() {
       : tankBranchToggles)}
   </>
 
+  // The cheatsheet is its own bare layout (same tab, `?view=cheatsheet`): no
+  // site header/footer, no 720px reading column, no phase tab bar - every
+  // pixel goes to fitting all phase columns across with the least wrapping.
+  if (cheatsheet) {
+    return <Box px="md" py="sm" h="100dvh" style={{ display: 'flex', flexDirection: 'column' }}>
+      {viewing && fight && sheet ? <>
+        <Group justify="space-between" align="center" wrap="wrap" gap="sm" mb="sm" style={{ flex: '0 0 auto' }}>
+          <Text fz="sm" c="dimmed" style={{ overflowWrap: 'anywhere' }}>
+            {fight.name} · {selection.roleId}{job ? ` ${job.id}` : ''} · {sheet.name}
+          </Text>
+          <Button
+            component="a" href={sheetPath(fight.id, sheet.id)} variant="default" size="compact-sm"
+            leftSection={<IconArrowRight size={14} aria-hidden style={{ transform: 'rotate(180deg)' }} />}
+          >
+            Full view
+          </Button>
+        </Group>
+        {needsJob
+          ? <Text ta="center" c="dimmed" py="xl">Choose a job to see this role's assignments.</Text>
+          : <Box flex={1} mih={0} style={{ display: 'flex', flexDirection: 'column' }}>
+            <MitView
+              hideTabs fight={fight} sheet={sheet} roleId={slotId} phaseId={selection.phaseId}
+              onPhase={changePhase} job={jobFree ? undefined : job} personalPlan={tankPlan}
+              p3Boss={p3Boss} invulnOrder={invulnOrder} display="icon" notes={false} layout="grid"
+            />
+          </Box>}
+      </> : <Text ta="center" c="dimmed" py="xl">
+        Mit sheet not found. <Anchor href={import.meta.env.BASE_URL}>Start over</Anchor>.
+      </Text>}
+    </Box>
+  }
+
+  // Link to this same sheet/role/job forced to the cheatsheet layout (same
+  // tab). The reader's job and tank branch ride the query so the view resolves
+  // the same plan without reading storage.
+  const cheatsheetHref = (() => {
+    if (!fight || !sheet) return undefined
+    // No `phase` - the cheatsheet shows every phase at once.
+    const q = new URLSearchParams({ view: 'cheatsheet' })
+    if (selection.roleId) q.set('role', selection.roleId)
+    if (job) q.set('job', job.id)
+    if (tankPlans.length) {
+      if (paired) { if (otherTank) q.set('otherTank', otherTank) }
+      else { q.set('p3Boss', p3Boss); q.set('invuln', String(invulnOrder)) }
+    }
+    return `${sheetPath(fight.id, sheet.id)}?${q}`
+  })()
+
   return <Container size={720} px="md" mih="100dvh" display="flex" style={{ flexDirection: 'column' }}>
     <Group component="header" justify="space-between" wrap="nowrap" pt="sm" pb="lg" style={{ borderBottom: '1px solid var(--border)' }}>
       <Anchor href={import.meta.env.BASE_URL} underline="never" c="var(--text)" fz="xl" fw={750} lts="-0.04em" style={{ whiteSpace: 'nowrap' }}>
@@ -321,7 +380,9 @@ function Shell() {
 
     <Box component="main" flex={1} miw={0} py="xl">
       {viewing ? <>
-        <Group justify="space-between" align="flex-start" wrap="wrap" gap="sm">
+        {/* Fight name on its own line; the fight/sheet actions always sit as a
+            row beneath it rather than floating to its right. */}
+        <Stack gap="xs">
           <Box miw={0}>
             <Text fz="sm" c="dimmed">{fight.type} · {sheet.name}</Text>
             <Title order={1} fz="xl" lts="-0.035em" style={{ overflowWrap: 'anywhere' }}>{fight.name}</Title>
@@ -333,11 +394,17 @@ function Shell() {
             >
               Source
             </Button>}
+            {cheatsheetHref && <Button
+              component="a" href={cheatsheetHref}
+              variant="default" leftSection={<IconLayoutGrid size={16} aria-hidden />}
+            >
+              Cheatsheet
+            </Button>}
             <Button variant="outline" onClick={() => { pip.close(); setSelection(previous => ({ ...previous, viewing: false })); window.history.pushState(null, '', import.meta.env.BASE_URL) }}>
               Change fight/sheet
             </Button>
           </Group>
-        </Group>
+        </Stack>
 
         {/* Two fixed rows, one gap between every control. Row 1 - what you are
             reading: role, job, the plan controls. Row 2 - how the page is

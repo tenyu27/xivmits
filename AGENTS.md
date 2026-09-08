@@ -45,7 +45,7 @@ src/
   state.ts           localStorage helpers, URL parsing, initial selection
   usePip.ts          Document Picture-in-Picture lifecycle
   components/
-    MitView.tsx      phase tabs + assignment list; renders both normal and compact (PiP)
+    MitView.tsx      phase tabs + assignment list; `layout` = tabs / list / grid (cheatsheet), `compact` flag for PiP, `hideTabs` for the cheatsheet tab
   data/
     schema.ts        Zod schemas + validateCatalog(); the build-time contract
     catalog.ts       typed re-export of the virtual:mit-catalog module
