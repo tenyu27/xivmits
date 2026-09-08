@@ -7,27 +7,32 @@
     {
       "id": "p1",
       "label": "P1",
-      "name": "Kefka"
+      "name": "Kefka",
+      "start": "0:00"
     },
     {
       "id": "p2",
       "label": "P2",
-      "name": "Forsaken Kefka"
+      "name": "Forsaken Kefka",
+      "start": "3:17"
     },
     {
       "id": "p3",
       "label": "P3",
-      "name": "Exdeath & Chaos"
+      "name": "Exdeath & Chaos",
+      "start": "6:22"
     },
     {
       "id": "p4",
       "label": "P4",
-      "name": "Kefka Says"
+      "name": "Kefka Says",
+      "start": "12:14"
     },
     {
       "id": "p5",
       "label": "P5",
-      "name": "Kefka Reimagined"
+      "name": "Kefka Reimagined",
+      "start": "14:22"
     }
   ]
 }

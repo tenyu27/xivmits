@@ -5,6 +5,15 @@ import { IconArrowForward, IconExternalLink } from '@tabler/icons-react'
 import { resolveAction, type Resolved } from '../data/resolve'
 import type { Fight, Job, Sheet, TankMitPlan } from '../data/schema'
 
+const clockSecs = (t: string) => { const [m, s] = t.split(':').map(Number); return m * 60 + s }
+const fmtClock = (secs: number) => `${Math.floor(secs / 60)}:${String(secs % 60).padStart(2, '0')}`
+// Pull-clock time for a phase-relative m:ss. Undefined with no phase start, or
+// when it starts at 0:00 and the two clocks would match.
+const absClock = (start: string | undefined, rel: string) => {
+  if (!start || clockSecs(start) === 0) return undefined
+  return fmtClock(clockSecs(start) + clockSecs(rel))
+}
+
 type Action = { name: string; note?: string; carryOver?: boolean; buddy?: boolean; noteLink?: string }
 type ResolvedActions = { action: Action; resolved: Extract<Resolved, { applies: true }> }[]
 type Entry = {
@@ -50,17 +59,20 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
   // list right below the party mechanic each one names in `after` (phase top
   // when it names none).
   const entriesFor = (id: string) => {
+    const start = fight.phases.find(p => p.id === id)?.start
     const data = sheet.phases.find(p => p.id === id)
     const party: Entry[] = (data?.mechanics ?? []).map(mechanic => ({
       mechanic, actions: resolveActions(mechanic.assignments[roleId] ?? []),
     }))
 
     const plan = personalPlan?.phases.find(p => p.id === id)
-    if (!plan) return { data, entries: party }
+    if (!plan) return { data, entries: party, start }
 
     const front: Entry[] = []
     const byAnchor = new Map<string, Entry[]>()
     for (const mechanic of plan.mechanics) {
+      // A row tagged with a seat belongs only to that seat's viewer.
+      if (mechanic.seat && mechanic.seat !== roleId) continue
       // When a personal row names the same mechanic as the party row it sits
       // under, drop the repeated heading - the accent edge already says it is a
       // separate, personal line.
@@ -86,7 +98,7 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
       for (const spliced of byAnchor.get(pe.mechanic.id) ?? []) entries.push(spliced)
       if (noteRow && plan.noteAfter === pe.mechanic.id) entries.push(noteRow)
     }
-    return { data: data ?? { id, note: undefined as string | undefined, mechanics: [] }, entries }
+    return { data: data ?? { id, note: undefined as string | undefined, mechanics: [] }, entries, start }
   }
 
   // Keep the active tab in view inside its own horizontal strip. Scroll the
@@ -211,7 +223,7 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
     </>
   }
 
-  const mechanics =(data: ReturnType<typeof entriesFor>['data'], entries: ReturnType<typeof entriesFor>['entries']) => {
+  const mechanics =(data: ReturnType<typeof entriesFor>['data'], entries: ReturnType<typeof entriesFor>['entries'], phaseStart?: string) => {
     if (!data) return <Text ta="center" c="dimmed" py="xl">No mitigation data available for this phase.</Text>
     // A phase-wide aside sits above the mechanic list.
     const note = data.note && <Text c="dimmed" fz={compact ? 'xs' : 'sm'} mb="sm" maw="62ch">{data.note}</Text>
@@ -232,7 +244,8 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
         {mechanic.name && <Group className="mechanic-heading" justify="space-between" align="center" gap="sm" wrap="nowrap">
           <Text component="h3" className="mechanic-name" fz={compact ? '0.875rem' : '0.9375rem'} fw={700} lh={1.3}>{mechanic.name}</Text>
           {mechanic.time && <Text className="timestamp" component="span" ff="monospace" fz={compact ? 'xs' : 'sm'} fw={700}>
-            {mechanic.time}
+            {absClock(phaseStart, mechanic.time) ?? mechanic.time}
+            {absClock(phaseStart, mechanic.time) && <Text component="span" c="dimmed" fw={500}>{' '}{mechanic.time}</Text>}
           </Text>}
         </Group>}
 
@@ -276,7 +289,7 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
     {list
       ? <Box className="phase-list">
         {fight.phases.map(p => {
-          const { data, entries } = entriesFor(p.id)
+          const { data, entries, start } = entriesFor(p.id)
           return <Box
             key={p.id} component="section"
             id={`${prefix}-panel-${p.id}`} role="tabpanel" aria-labelledby={`${prefix}-${p.id}`}
@@ -288,7 +301,7 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
                 {p.name}
               </Text>}
             </Box>
-            {mechanics(data, entries)}
+            {mechanics(data, entries, start)}
           </Box>
         })}
       </Box>
@@ -296,7 +309,7 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
         {!compact && <Text component="h2" fz="lg" fw={600} lh={1.2} mt="md" mb="xs" style={{ overflowWrap: 'anywhere' }}>
           {phase.name ?? phase.label}
         </Text>}
-        {mechanics(tab.data, tab.entries)}
+        {mechanics(tab.data, tab.entries, tab.start)}
       </Box>}
   </Box>
 }

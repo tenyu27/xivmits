@@ -4,7 +4,9 @@ const text = z.string().trim().min(1)
 const id = text.regex(/^[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*$/)
 const slug = text.regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
 const jobId = text.regex(/^[A-Z]{3}$/)
-const phase = z.object({ id, label: text, name: text.optional() }).strict()
+// `start` is when the phase begins on the pull clock (m:ss), so a mechanic's
+// phase-relative `time` can also show as an absolute time.
+const phase = z.object({ id, label: text, name: text.optional(), start: text.regex(/^\d+:[0-5]\d$/).optional() }).strict()
 const action = z.object({
   name: text, note: text.optional(), carryOver: z.boolean().optional(),
   // A "cover your co-tank" press (a tank's buddy-mit): rendered small and
@@ -54,16 +56,17 @@ const sheetSchema = z.object({
           // Party mechanic id, same phase, this row renders below. Phase top
           // when absent.
           after: id.optional(),
+          // Show this row only for this party seat, hidden for the other. For a
+          // plan keyed by job pair whose rows still split by MT/OT (DMU).
+          seat: z.enum(['MT', 'OT']).optional(),
           // An aside tied to this row (folded in from a phase note).
           note: text.optional(),
+          // May be empty: a marker row that only says the buster happened here.
           actions: z.array(action),
           // "An alternative way to mit this" - e.g. the double-invuln
           // contingency line. Rendered as a labelled sub-row.
           alts: z.array(z.object({ label: text, actions: z.array(action).min(1) }).strict()).optional(),
-        }).strict().refine(
-          m => m.actions.length || m.note || m.alts?.length,
-          'a personal mechanic needs actions, a note, or alts',
-        )),
+        }).strict()),
       }).strict()).min(1),
     }).strict()).min(1),
   }).strict().optional(),

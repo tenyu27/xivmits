@@ -1,4 +1,5 @@
-"""Convert only the Ikuya DMU P1–P5 workbook tabs into reviewed repo JSON.
+"""Convert the Ikuya DMU P1–P5 workbook tabs, plus the Omnitank tab (tank
+personal-mit -> `tankMits`), into reviewed repo JSON.
 
 Usage: python3 scripts/import_dmu_ikuya.py '/path/to/Ikuya Mitty (DMU).xlsx'
 Uses Python's standard library. The site never reads Excel at runtime.
@@ -43,6 +44,216 @@ def column_number(column):
     return result
 
 
+# Omnitank tab -> tankMits. Two assignment columns per row. P1/P2/P4 columns are
+# MT / OT (rows get a `seat`); P3/P5 columns are a job-priority order, and for a
+# pairing the tank higher in PRIO_ORDER reads the left column. Every ordered pair
+# of the four tanks is one plan. Cells use shorthand, expanded per job below.
+
+TANKS = ['PLD', 'WAR', 'DRK', 'GNB']
+PRIO_ORDER = ['WAR', 'DRK', 'GNB', 'PLD']  # left-header order, same in P3 and P5
+
+INVULN = {'WAR': 'Holmgang', 'PLD': 'Hallowed Ground', 'DRK': 'Living Dead', 'GNB': 'Superbolide'}
+MIT_40 = {'WAR': 'Damnation', 'PLD': 'Guardian', 'DRK': 'Shadowed Vigil', 'GNB': 'Great Nebula'}
+MIT_90 = {'WAR': 'Thrill of Battle', 'PLD': 'Bulwark', 'DRK': 'Dark Mind', 'GNB': 'Camouflage'}
+SHORT_MIT = {'WAR': 'Nascent Flash', 'PLD': 'Holy Sheltron', 'DRK': 'Oblation', 'GNB': 'Heart of Corundum'}
+SHORTHAND = {'Invulnerability': INVULN, '40%': MIT_40, '90s': MIT_90, 'Short Mit': SHORT_MIT, 'Short': SHORT_MIT}
+BUDDY_MIT = {'WAR': ['Nascent Flash'], 'PLD': ['Intervention'], 'DRK': ['The Blackest Night', 'Oblation'], 'GNB': ['Heart of Corundum']}
+KITCHEN_SINK = {job: ['Rampart', MIT_40[job], MIT_90[job], SHORT_MIT[job]] for job in TANKS}
+KNOWN_TOKENS = {'Kitchen Sink', 'Buddy Mit', 'Rampart', 'Invulnerability', '40%', '90s', 'Short Mit', 'Short', 'Provoke'}
+
+# phase -> (data rows, mode). Left column is E, right is I, time D.
+OMNI_BLOCKS = [
+    (1, [8, 10, 12, 14], 'seat'),
+    (2, [27, 29, 31], 'seat'),
+    (3, [45, 47, 49, 51, 53, 55], 'prio'),
+    (4, [69], 'seat'),
+    (5, [81, 83, 85, 87, 89, 91, 93, 95, 97, 99], 'prio'),
+]
+
+
+def omni_seconds(value):
+    """Seconds from an Omnitank D-cell: a stored time fraction, or '12:13+'."""
+    try:
+        return round(float(value) * 1440)
+    except (TypeError, ValueError):
+        match = re.search(r'(\d+):(\d+)', str(value))
+        return int(match.group(1)) * 60 + int(match.group(2)) if match else 0
+
+
+def expand_token(name, job, carry):
+    """One shorthand token -> a list of action dicts for this job."""
+    if name.startswith('Provoke'):
+        action = {'name': 'Provoke'}
+        rest = name[len('Provoke'):].strip()
+        if rest:
+            action['note'] = rest.rstrip('.') + '.'
+        if carry:
+            action['carryOver'] = True
+        return [action]
+    if name == 'Kitchen Sink':
+        names, buddy = KITCHEN_SINK[job], False
+    elif name == 'Buddy Mit':
+        names, buddy = BUDDY_MIT[job], True
+    elif name in SHORTHAND:
+        names, buddy = [SHORTHAND[name][job]], False
+    else:
+        names, buddy = [name], False  # Rampart, or a literal
+    out = []
+    for ability in names:
+        action = {'name': ability}
+        if buddy:
+            action['buddy'] = True
+        if carry:
+            action['carryOver'] = True
+        out.append(action)
+    return out
+
+
+def parse_omni_cell(text, job, notes):
+    """Cell text -> (actions, extra_notes). '➔' lines carry over. A bare label
+    line and a '(Solo/Close/Far)' suffix become notes. A '(PLD/DRK)' suffix
+    scopes its token to those jobs."""
+    actions, extra = [], []
+    for raw_line in text.split('\n'):
+        line = raw_line.strip()
+        if not line:
+            continue
+        carry = '➔' in line
+        line = line.replace('➔', '').strip()
+        tokens = [t.strip() for t in line.split('+') if t.strip()]
+        cleaned = []
+        for token in tokens:
+            suffix = re.search(r'\(([^)]+)\)\s*$', token)
+            scope = None
+            if suffix:
+                tag = suffix.group(1)
+                if tag in ('Solo', 'Close', 'Far'):
+                    extra.append({'Solo': 'Solo this hit.', 'Close': 'Close.', 'Far': 'Far.'}[tag])
+                    token = token[:suffix.start()].strip()
+                elif re.match(r'^[A-Z]{3}(/[A-Z]{3})*$', tag):
+                    scope = tag.split('/')
+                    token = token[:suffix.start()].strip()
+            markers = re.findall(MARKER, token)
+            base = clean(re.sub(MARKER, '', token))
+            cleaned.append((base, markers, scope))
+        recognised = [c for c in cleaned if c[0] in KNOWN_TOKENS or c[0].startswith('Provoke')]
+        if not recognised and len(cleaned) == 1 and cleaned[0][0]:
+            label = cleaned[0][0]
+            extra.append(label if label.endswith('.') else label + '.')
+            continue
+        for base, markers, scope in cleaned:
+            if not base:
+                continue
+            if base not in KNOWN_TOKENS and not base.startswith('Provoke'):
+                raise ValueError(f'Unknown Omnitank token {base!r} in cell {text!r}')
+            if scope and job not in scope:
+                continue
+            for action in expand_token(base, job, carry):
+                for marker in markers:
+                    if marker in notes:
+                        add_note(action, notes[marker])
+                actions.append(action)
+    return actions, extra
+
+
+def convert_omnitank(archive, strings, party_phases, phase_starts):
+    root = ET.fromstring(archive.read('xl/worksheets/sheet15.xml'))
+    cells = {}
+    for cell in root.findall('.//s:sheetData/s:row/s:c', NS):
+        value = cell.find('s:v', NS)
+        if value is None or not value.text:
+            continue
+        cells[cell.get('r')] = strings[int(value.text)] if cell.get('t') == 's' else value.text
+
+    # Footnotes: one dict per phase block, keyed by superscript marker.
+    block_notes = {}
+    for phase_number, rows, _ in OMNI_BLOCKS:
+        raw = cells.get(f'D{rows[-1] + 2}', '')
+        block_notes[phase_number] = {m[0]: clean(m[1]) for m in re.findall(rf'({MARKER})\s+(.*?)(?=\n{MARKER}\s|$)', raw, re.S)}
+
+    def party_lookup(phase_number):
+        mechs = party_phases[phase_number - 1]['mechanics']
+        timed = [(m['id'], m['name'], clock_seconds(m['time'])) for m in mechs if 'time' in m]
+        return timed
+
+    def anchor_for(timed, rel):
+        chosen = None
+        for mid, name, secs in timed:
+            if secs <= rel:
+                chosen = (mid, name)
+        return chosen
+
+    plans = []
+    for job in TANKS:
+        for other in TANKS:
+            if job == other:
+                continue
+            higher = PRIO_ORDER.index(job) < PRIO_ORDER.index(other)
+            phases_out = []
+            for phase_number, rows, mode in OMNI_BLOCKS:
+                start = phase_starts[phase_number - 1]
+                timed = party_lookup(phase_number)
+                notes = block_notes[phase_number]
+                out_mechs = []
+                for row in rows:
+                    title = cells.get(f'B{row}', '')
+                    name = clean(re.sub(MARKER, '', title))
+                    title_markers = re.findall(MARKER, title)
+                    rel = max(0, omni_seconds(cells.get(f'D{row}')) - start)
+                    rel_str = f'{rel // 60}:{rel % 60:02}'
+                    anchor = anchor_for(timed, rel)
+                    seats = [('MT', 'E'), ('OT', 'I')] if mode == 'seat' else \
+                            [(None, 'E' if higher else 'I')]
+                    for seat, column in seats:
+                        actions, extra = parse_omni_cell(cells.get(f'{column}{row}', ''), job, notes)
+                        note_parts = [notes[m] for m in title_markers if m in notes] + extra
+                        alts = omni_alt(phase_number, row, seat, job)
+                        same = bool(anchor) and anchor[1] == name
+                        # Drop an empty row that only repeats a party mechanic
+                        # already on the timeline; keep empty markers for busters
+                        # with no party row (Revolting Ruin, Hyperdrive, Autos).
+                        if same and not actions and not alts and not note_parts:
+                            continue
+                        collapse = same and bool(actions) and not alts
+                        mid = f'{job}{other}-p{phase_number}-r{row}'.lower() + (f'-{seat.lower()}' if seat else '')
+                        mech = {'id': mid, 'name': name}
+                        if not collapse:
+                            mech['time'] = rel_str
+                        if anchor:
+                            mech['after'] = anchor[0]
+                        if seat:
+                            mech['seat'] = seat
+                        if note_parts:
+                            mech['note'] = ' '.join(dict.fromkeys(note_parts))
+                        mech['actions'] = actions
+                        if alts:
+                            mech['alts'] = alts
+                        out_mechs.append(mech)
+                phase_out = {'id': f'p{phase_number}', 'mechanics': out_mechs}
+                if phase_number == 5 and mode == 'prio' and not higher:
+                    phase_out['note'] = 'You start with the boss. Hold aggro at the phase start so your co-tank does not get the Holy debuff.'
+                phases_out.append(phase_out)
+            plans.append({'job': job, 'with': other, 'phases': phases_out})
+    return {'plans': plans}
+
+
+def omni_alt(phase_number, row, seat, job):
+    """WAR's one contingency: keep the P1 invuln, spend it on the first P2
+    Ultimate Embrace instead."""
+    if job != 'WAR' or seat != 'MT':
+        return None
+    if phase_number == 1 and row == 14:
+        return [{'label': 'Alt: kitchen sink', 'actions': [{'name': n} for n in KITCHEN_SINK['WAR']]}]
+    if phase_number == 2 and row == 27:
+        return [{'label': 'Alt: Holmgang (if saved from P1)', 'actions': [{'name': 'Holmgang'}]}]
+    return None
+
+
+def clock_seconds(text):
+    minutes, seconds = text.split(':')
+    return int(minutes) * 60 + int(seconds)
+
+
 def convert(path):
     archive = zipfile.ZipFile(path)
     strings = [''.join(si.itertext()) for si in ET.fromstring(archive.read('xl/sharedStrings.xml'))]
@@ -56,6 +267,7 @@ def convert(path):
         'slots': [{'id': slot, **({'job': slot} if slot in HEALERS else {}), 'role': ROLES[slot]} for slot in COLUMNS.values()],
         'phases': [],
     }
+    phase_starts = []
     for phase_number in range(1, 6):
         root = ET.fromstring(archive.read(f'xl/worksheets/sheet{phase_number + 5}.xml'))
         cells = {}
@@ -64,6 +276,10 @@ def convert(path):
             if value is None or not value.text:
                 continue
             cells[cell.get('r')] = strings[int(value.text)] if cell.get('t') == 's' else value.text
+        # D is absolute pull time, E is phase-relative; their difference on the
+        # first row is when the phase starts.
+        d8, e8 = cells.get('D8'), cells.get('E8')
+        phase_starts.append(round(float(d8) * 1440) - round(float(e8) * 1440) if d8 and e8 else 0)
         notes_row = next(int(ref[1:]) for ref, value in cells.items() if ref.startswith('B') and value == 'Notes')
         raw_notes = cells[f'D{notes_row}']
         notes = {match[0]: clean(match[1]) for match in re.findall(rf'({MARKER})\s+(.*?)(?=\n{MARKER}\s|$)', raw_notes, re.S)}
@@ -155,12 +371,17 @@ def convert(path):
                             add_note(action, 'It is important that the new round of mitigation for the 5th hit are applied as the first round of mitigation will fall off.')
             mechanics.append(mechanic)
         sheet['phases'].append({'id': f'p{phase_number}', 'mechanics': mechanics})
+    sheet['tankMits'] = convert_omnitank(archive, strings, sheet['phases'], phase_starts)
     output = Path(__file__).resolve().parents[1] / 'data/fights/dmu'
     output.mkdir(parents=True, exist_ok=True)
-    fight = {'id': 'dmu', 'name': 'Dancing Mad (Ultimate)', 'shortName': 'DMU', 'type': 'Ultimate', 'phases': [{'id': f'p{i}', 'label': f'P{i}', 'name': name} for i, name in enumerate(PHASE_NAMES, 1)]}
+    fight = {'id': 'dmu', 'name': 'Dancing Mad (Ultimate)', 'shortName': 'DMU', 'type': 'Ultimate',
+             'phases': [{'id': f'p{i}', 'label': f'P{i}', 'name': name,
+                         'start': f'{phase_starts[i - 1] // 60}:{phase_starts[i - 1] % 60:02}'}
+                        for i, name in enumerate(PHASE_NAMES, 1)]}
     for filename, data in [('fight.json', fight), ('ikuya.json', sheet)]:
         (output / filename).write_text(json.dumps(data, indent=2, ensure_ascii=False) + '\n')
     print([(p['id'], len(p['mechanics']), sum(len(a) for m in p['mechanics'] for a in m['assignments'].values())) for p in sheet['phases']])
+    print([(f"{p['job']}+{p['with']}", sum(len(m['actions']) for ph in p['phases'] for m in ph['mechanics'])) for p in sheet['tankMits']['plans']])
 
 
 if __name__ == '__main__':
