@@ -1505,6 +1505,10 @@
                   {
                     "name": "The Blackest Night",
                     "buddy": true
+                  },
+                  {
+                    "name": "Oblation",
+                    "buddy": true
                   }
                 ]
               },
@@ -3055,6 +3059,10 @@
                 "actions": [
                   {
                     "name": "The Blackest Night",
+                    "buddy": true
+                  },
+                  {
+                    "name": "Oblation",
                     "buddy": true
                   }
                 ]

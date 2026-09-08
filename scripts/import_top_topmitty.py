@@ -71,8 +71,9 @@ TANK_ABILITY = {
 
 # The one ally-targeted mitigation each tank brings ("Buddy Mit" with no skill
 # named means this one). "Buddy Mit: <skill>" names it explicitly.
+# DRK brings two ally-targetable mits and the sheet means both; the rest bring one.
 TANK_BUDDY = {'WAR': 'Nascent Flash', 'PLD': 'Intervention',
-              'GNB': 'Heart of Corundum', 'DRK': 'The Blackest Night'}
+              'GNB': 'Heart of Corundum', 'DRK': ['The Blackest Night', 'Oblation']}
 
 # "Kitchen Sink" means press the whole personal-mit kit. Raid mitigation only,
 # level 100 - invulns (Holmgang / Hallowed Ground / Living Dead / Superbolide)
@@ -181,15 +182,20 @@ def read_cells(archive, strings, worksheet):
     return cells, maxrow
 
 
-def buddy_action(text, job):
-    # "Buddy Mit" / "Buddy Mit: <skill>" -> the ally-targeted mit, flagged so
-    # the site renders it small and inline, not as a primary press.
+def buddy_actions(text, job):
+    # "Buddy Mit" / "Buddy Mit: <skill>" -> the ally-targeted mit(s), flagged so
+    # the site renders them small and inline, not as a primary press. A job may
+    # bring more than one (DRK: TBN + Oblation).
     match = re.match(r'^Buddy Mit(?::\s*(.+))?$', str(text).strip())
     if not match:
         return None
     skill = match.group(1)
-    name = TANK_ABILITY.get(skill.strip(), skill.strip()) if skill else TANK_BUDDY.get(job)
-    return {'name': name, 'buddy': True} if name else None
+    if skill:
+        names = [TANK_ABILITY.get(skill.strip(), skill.strip())]
+    else:
+        default = TANK_BUDDY.get(job)
+        names = default if isinstance(default, list) else [default] if default else []
+    return [{'name': n, 'buddy': True} for n in names] or None
 
 
 def tank_actions(raw, job):
@@ -198,9 +204,9 @@ def tank_actions(raw, job):
     # action, so expand the word before it, not the whole string.
     out = []
     for line in str(raw).splitlines():
-        buddy = buddy_action(line, job)
+        buddy = buddy_actions(line, job)
         if buddy:
-            out.append(buddy)
+            out.extend(buddy)
             continue
         for part in re.split(r'[,+/]', line):
             part = clean(part)
@@ -317,9 +323,9 @@ def convert_tank_tabs(archive, strings, party_phases):
                     ):
                         if not raw or not current:
                             continue
-                        buddy = buddy_action(raw, job)
+                        buddy = buddy_actions(raw, job)
                         if buddy:
-                            current['actions'].append(buddy)
+                            current['actions'].extend(buddy)
                             if not any(m is current for m in phase['mechanics']):
                                 phase['mechanics'].append(current)
                         elif current['actions']:
