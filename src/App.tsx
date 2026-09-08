@@ -245,7 +245,8 @@ function Shell() {
   // Tank plan controls, only once a tank seat has a job and the sheet ships
   // plans. "Mits" is All / Party; on All, the plan picker follows - "Other tank"
   // for a paired sheet (TOP), P3 boss / P5 invuln branch toggles for a job-keyed
-  // one (DMU). Shown on the mits page control row only.
+  // one (DMU). The mits page shows the whole set on its control row; the
+  // selection screen shows only the paired "Other tank" select.
   const tankPlanSelects = tankPlans.length === 0 ? null : paired
     ? <NativeSelect
       label="Other tank" value={otherTank} w={128}
@@ -395,6 +396,7 @@ function Shell() {
             ]}
           />
           <Group grow align="flex-start" gap="sm">{roleSelect}{jobSelect}</Group>
+          {paired && tankPlanSelects && <Group align="flex-start" gap="sm">{tankPlanSelects}</Group>}
           <Button type="submit" rightSection={<IconArrowRight size={18} aria-hidden />} disabled={!fight || !sheet || !selection.roleId || (!job && !jobFree)}>
             View mits
           </Button>
