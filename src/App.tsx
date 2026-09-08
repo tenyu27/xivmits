@@ -6,8 +6,8 @@ import {
   useComputedColorScheme, useMantineColorScheme,
 } from '@mantine/core'
 import {
-  IconArrowRight, IconBrandX, IconCoffee, IconDeviceDesktop, IconExternalLink, IconInfoCircle,
-  IconMoon, IconPictureInPicture, IconSun,
+  IconAlertCircle, IconArrowRight, IconBrandX, IconCoffee, IconDeviceDesktop, IconExternalLink,
+  IconInfoCircle, IconMoon, IconPictureInPicture, IconSun,
 } from '@tabler/icons-react'
 import catalog from './data/catalog'
 import { jobsForRole, positionsForSheet, slotIdFor } from './data/resolve'
@@ -245,17 +245,36 @@ function Shell() {
       <IconInfoCircle size={12} style={{ verticalAlign: 'text-bottom', opacity: 0.5, cursor: 'help' }} tabIndex={0} aria-label="Suggested job order" />
     </Tooltip>
   }
+  // On the mits page a co-tank can still be unset (stale storage, a shared URL);
+  // flag it beside the label so the missing personal rows are explained, not
+  // just absent.
+  const otherTankWarning = paired && !otherTank ? <Tooltip
+    withArrow position="top" events={{ hover: true, focus: true, touch: true }}
+    label="Must be selected to see personal mits."
+  >
+    <IconAlertCircle
+      size={13} color="var(--mantine-color-red-6)" tabIndex={0}
+      style={{ cursor: 'help' }}
+      aria-label="Must be selected to see personal mits."
+    />
+  </Tooltip> : null
   // "Other tank" picks the co-tank on a paired sheet (TOP) - each partner is a
   // whole plan. A "Choose tank" placeholder until one is set, then dropped, like
-  // Job. Rendered in the selection screen's grow row and the mits control row.
-  const otherTankSelect = paired ? <NativeSelect
-    label="Other tank" value={otherTank}
-    onChange={event => changeOtherTank(event.currentTarget.value)}
-    data={[
-      ...(otherTank ? [] : [{ value: '', label: 'Choose tank' }]),
-      ...otherTankOptions.map(id => ({ value: id, label: id })),
-    ]}
-  /> : null
+  // Job. Rendered in the selection screen's grow row and the mits control row;
+  // `labelExtra` hangs the missing-co-tank warning off the label there.
+  const otherTankSelect = (labelExtra: React.ReactNode = null) => paired ? <Input.Wrapper
+    labelElement="div"
+    label={<Group gap={4} align="center" wrap="nowrap">Other tank{labelExtra}</Group>}
+  >
+    <NativeSelect
+      value={otherTank}
+      onChange={event => changeOtherTank(event.currentTarget.value)}
+      data={[
+        ...(otherTank ? [] : [{ value: '', label: 'Choose tank' }]),
+        ...otherTankOptions.map(id => ({ value: id, label: id })),
+      ]}
+    />
+  </Input.Wrapper> : null
   // P3 boss / P5 invuln branch toggles for a job-keyed sheet (DMU). Mits page only.
   const tankBranchToggles = tankPlans.length === 0 || paired ? null
     : <>
@@ -287,8 +306,8 @@ function Shell() {
         data={[{ value: 'both', label: 'All' }, { value: 'party', label: 'Party' }]}
       />
     </Input.Wrapper>
-    {personalMits && (otherTankSelect
-      ? <Box flex="0 0 128px">{otherTankSelect}</Box>
+    {personalMits && (paired
+      ? <Box flex="0 0 128px">{otherTankSelect(otherTankWarning)}</Box>
       : tankBranchToggles)}
   </>
 
@@ -402,7 +421,7 @@ function Shell() {
               ...sheets.map(s => ({ value: s.id, label: s.name })),
             ]}
           />
-          <Group grow align="flex-start" gap="sm">{roleSelect}{jobSelect}{otherTankSelect}</Group>
+          <Group grow align="flex-start" gap="sm">{roleSelect}{jobSelect}{otherTankSelect()}</Group>
           <Button type="submit" rightSection={<IconArrowRight size={18} aria-hidden />} disabled={!fight || !sheet || !selection.roleId || (!job && !jobFree) || (paired && !otherTank)}>
             View mits
           </Button>
