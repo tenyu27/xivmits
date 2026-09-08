@@ -6,7 +6,7 @@ import {
   useComputedColorScheme, useMantineColorScheme,
 } from '@mantine/core'
 import {
-  IconArrowRight, IconCoffee, IconDeviceDesktop, IconExternalLink, IconMoon,
+  IconArrowRight, IconBrandX, IconCoffee, IconDeviceDesktop, IconExternalLink, IconMoon,
   IconPictureInPicture, IconSun,
 } from '@tabler/icons-react'
 import catalog from './data/catalog'
@@ -320,6 +320,7 @@ function Shell() {
       <Group justify="space-between" align="center" gap="sm" wrap="wrap">
         <Group gap="xs" align="center">
           <Text fz="sm" c="dimmed">Made by tenyu</Text>
+          <Text fz="sm" c="dimmed" aria-hidden>·</Text>
           {/* Icon-only, so the accessible name has to come from aria-label - see
               DESIGN.md §7. `title` gives sighted users the same words. */}
           <Tooltip label="Support on Ko-fi" position="top" withArrow>
@@ -329,6 +330,15 @@ function Shell() {
               c="dimmed" display="inline-flex" className="kofi-link"
             >
               <IconCoffee size={18} aria-hidden />
+            </Anchor>
+          </Tooltip>
+          <Tooltip label="@tenyu27 on X" position="top" withArrow>
+            <Anchor
+              href="https://x.com/tenyu27" target="_blank" rel="noreferrer noopener"
+              aria-label="tenyu on X"
+              c="dimmed" display="inline-flex"
+            >
+              <IconBrandX size={18} aria-hidden />
             </Anchor>
           </Tooltip>
         </Group>
