@@ -19,7 +19,7 @@ const sheetSchema = z.object({
   source: z.object({ name: text, url: z.url().refine(value => /^https?:\/\//.test(value), 'Use an HTTP(S) source URL') }).strict().optional(),
   // `role` says which jobs may stand in this slot, so a generic assignment
   // ("Party Mit") can be resolved to the job the viewer actually plays.
-  slots: z.array(z.object({ id, job: text.optional(), role: z.enum(['tank', 'healer', 'dps']).optional() }).strict()).min(1),
+  slots: z.array(z.object({ id, job: text.optional(), role: z.enum(['tank', 'healer', 'melee', 'ranged', 'caster']).optional() }).strict()).min(1),
   phases: z.array(z.object({
     id,
     mechanics: z.array(z.object({
@@ -35,7 +35,7 @@ const iconsSchema = z.record(text, text.regex(/^\d{6}\.png$/, 'Icon must be a si
 
 // Jobs, and what a sheet's generic ability names mean for each one.
 const jobSchema = z.object({
-  id: text.regex(/^[A-Z]{3}$/), name: text, role: z.enum(['tank', 'healer', 'dps']),
+  id: text.regex(/^[A-Z]{3}$/), name: text, role: z.enum(['tank', 'healer', 'melee', 'ranged', 'caster']),
   abilities: z.record(text, text).optional(),
 }).strict()
 const jobsSchema = z.object({ jobs: z.array(jobSchema).min(1) }).strict()

@@ -41,19 +41,23 @@ export function resolveAction(name: string, job?: Job): Resolved {
   return { applies: true, label: name, icon: catalog.icons[name] ?? catalog.icons[base] }
 }
 
-/** A seat in the party: MT, H2, D3. Distinct from the job standing in it. */
+/** A seat in the party: MT, H, P. Distinct from the job standing in it. */
 export type Position = { id: string; role: string; slotId?: string }
 
-// A full party, so a sheet that assigns by job still offers real seats.
+// A full party, so a sheet that assigns by job still offers real seats. DPS is
+// split three ways so a seat only offers the jobs that can actually stand in it.
+// The healers share one seat (H): a job-keyed sheet reads the same column
+// whichever of the two you are, so the job alone is the choice.
 const SEATS: Record<string, string[]> = {
-  tank: ['MT', 'OT'], healer: ['H1', 'H2'], dps: ['D1', 'D2', 'D3', 'D4'],
+  tank: ['MT', 'OT'], healer: ['H'],
+  melee: ['M1', 'M2'], ranged: ['P'], caster: ['C'],
 }
-const ROLES = ['tank', 'healer', 'dps']
+const ROLES = ['tank', 'healer', 'melee', 'ranged', 'caster']
 
 /**
  * The seats a sheet offers.
  *
- * Sheets divide the party two ways. Most name positions - `MT`, `D3` - and the
+ * Sheets divide the party two ways. Most name positions - `MT`, `P` - and the
  * job is the viewer's to pick. Some name jobs instead, because that role's plan
  * genuinely differs per job (every healer kit mitigates differently). For those
  * the seat is just a label and the *job* selects which column to read, so we

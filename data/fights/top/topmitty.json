@@ -1,0 +1,1248 @@
+{
+  "id": "topmitty",
+  "fightId": "top",
+  "name": "TOP Mitty",
+  "author": "Malachite Laurent",
+  "updated": "2026-09-07",
+  "sourceFile": "TOP Mitty.xlsx",
+  "source": {
+    "name": "TOP Mitty spreadsheet",
+    "url": "https://docs.google.com/spreadsheets/d/1ROErvG1BhTuNvXqPGcR6ZyyhJ7uNTZdf2WzKyVj9hh4/edit"
+  },
+  "description": "Party mitigation for TOP from Malachite Laurent's plan. Pick a tank position, a healer job, or a DPS position. P4 Blue Screen has no party-wide assignments.",
+  "slots": [
+    {
+      "id": "T1",
+      "role": "tank"
+    },
+    {
+      "id": "T2",
+      "role": "tank"
+    },
+    {
+      "id": "SCH",
+      "job": "SCH",
+      "role": "healer"
+    },
+    {
+      "id": "SGE",
+      "job": "SGE",
+      "role": "healer"
+    },
+    {
+      "id": "WHM",
+      "job": "WHM",
+      "role": "healer"
+    },
+    {
+      "id": "AST",
+      "job": "AST",
+      "role": "healer"
+    },
+    {
+      "id": "M1",
+      "role": "melee"
+    },
+    {
+      "id": "M2",
+      "role": "melee"
+    },
+    {
+      "id": "P",
+      "role": "ranged"
+    },
+    {
+      "id": "C",
+      "role": "caster"
+    }
+  ],
+  "phases": [
+    {
+      "id": "p1",
+      "mechanics": [
+        {
+          "id": "p1-r15",
+          "name": "Pantokrator",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "T2": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Fey Illumination"
+              },
+              {
+                "name": "Expedient"
+              },
+              {
+                "name": "Seraph's Veil"
+              },
+              {
+                "name": "Deployment Tactics"
+              },
+              {
+                "name": "Whispering Dawn"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              },
+              {
+                "name": "Holos"
+              },
+              {
+                "name": "Panhaima"
+              },
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Physis II"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance"
+              },
+              {
+                "name": "Liturgy of the Bell"
+              },
+              {
+                "name": "Plenary Indulgence"
+              },
+              {
+                "name": "Asylum"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              },
+              {
+                "name": "Neutral Sect"
+              },
+              {
+                "name": "Earthly Star"
+              },
+              {
+                "name": "Macrocosmos"
+              },
+              {
+                "name": "Horoscope"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "C": [
+              {
+                "name": "Extra (RDM)"
+              }
+            ]
+          }
+        },
+        {
+          "id": "p1-r17",
+          "name": "Stack 1",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint"
+              }
+            ]
+          }
+        },
+        {
+          "id": "p1-r19",
+          "name": "Stack 2",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Seraph's Veil"
+              }
+            ]
+          }
+        },
+        {
+          "id": "p1-r21",
+          "name": "Stack 3",
+          "assignments": {
+            "T2": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Seraph's Veil"
+              }
+            ],
+            "M2": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle"
+              }
+            ],
+            "P": [
+              {
+                "name": "Extra (MCH)"
+              }
+            ]
+          }
+        },
+        {
+          "id": "p1-r23",
+          "name": "Stack 4",
+          "assignments": {}
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "mechanics": [
+        {
+          "id": "p2-r15",
+          "name": "Party Synergy",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "T2": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Fey Illumination"
+              },
+              {
+                "name": "Expedient"
+              },
+              {
+                "name": "Seraph's Veil"
+              },
+              {
+                "name": "Deployment Tactics"
+              },
+              {
+                "name": "Whispering Dawn"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              },
+              {
+                "name": "Holos"
+              },
+              {
+                "name": "Panhaima"
+              },
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Physis II"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance"
+              },
+              {
+                "name": "Liturgy of the Bell"
+              },
+              {
+                "name": "Plenary Indulgence"
+              },
+              {
+                "name": "Asylum"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              },
+              {
+                "name": "Neutral Sect"
+              },
+              {
+                "name": "Earthly Star"
+              },
+              {
+                "name": "Macrocosmos"
+              },
+              {
+                "name": "Horoscope"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "C": [
+              {
+                "name": "Extra (RDM)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "mechanics": [
+        {
+          "id": "p3-r11",
+          "name": "Hello World",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle"
+              }
+            ]
+          }
+        },
+        {
+          "id": "p3-r13",
+          "name": "1st Patch Set",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Deployment Tactics"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Zoe"
+              },
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Earthly Star",
+                "note": "Place 2 GCDs after HW"
+              }
+            ]
+          }
+        },
+        {
+          "id": "p3-r15",
+          "name": "2nd Patch Set",
+          "assignments": {
+            "T2": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Expedient"
+              },
+              {
+                "name": "Seraph's Veil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Panhaima"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              }
+            ]
+          }
+        },
+        {
+          "id": "p3-r17",
+          "name": "3rd Patch Set",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Fey Illumination"
+              },
+              {
+                "name": "Seraph's Veil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Liturgy of the Bell"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Macrocosmos"
+              }
+            ],
+            "M2": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              },
+              {
+                "name": "Extra (MCH)"
+              }
+            ]
+          }
+        },
+        {
+          "id": "p3-r19",
+          "name": "4th Patch Set",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "T2": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Succor"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Holos"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Earthly Star"
+              }
+            ],
+            "C": [
+              {
+                "name": "Extra (RDM)"
+              }
+            ]
+          }
+        },
+        {
+          "id": "p3-r21",
+          "name": "Critical Error",
+          "assignments": {
+            "T2": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "mechanics": [
+        {
+          "id": "p5-r10",
+          "name": "Delta Cast",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Deployment Tactics"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Zoe"
+              },
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Kerachole"
+              },
+              {
+                "name": "Holos"
+              }
+            ],
+            "M2": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              },
+              {
+                "name": "Extra (MCH)"
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle"
+              },
+              {
+                "name": "Extra (RDM)"
+              }
+            ]
+          }
+        },
+        {
+          "id": "p5-r12",
+          "name": "Delta Mech",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Fey Illumination"
+              },
+              {
+                "name": "Whispering Dawn"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Liturgy of the Bell"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Macrocosmos"
+              },
+              {
+                "name": "Earthly Star"
+              }
+            ]
+          }
+        },
+        {
+          "id": "p5-r14",
+          "name": "Sigma Cast",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Reprisal"
+              },
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "T2": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Seraph's Veil"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Zoe"
+              },
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Kerachole"
+              },
+              {
+                "name": "Panhaima"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              },
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              }
+            ]
+          }
+        },
+        {
+          "id": "p5-r16",
+          "name": "Sigma Mech",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Expedient"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              }
+            ]
+          }
+        },
+        {
+          "id": "p5-r18",
+          "name": "Omega Cast",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Reprisal"
+              },
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "T2": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Deployment Tactics"
+              },
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Fey Illumination"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Zoe"
+              },
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Holos"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "M2": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              },
+              {
+                "name": "Extra (MCH)"
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle"
+              },
+              {
+                "name": "Extra (RDM)"
+              }
+            ]
+          }
+        },
+        {
+          "id": "p5-r20",
+          "name": "Omega Mech",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Seraph's Veil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Panhaima"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Liturgy of the Bell"
+              }
+            ]
+          }
+        },
+        {
+          "id": "p5-r22",
+          "name": "Blind Faith",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Succor"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "p6",
+      "mechanics": [
+        {
+          "id": "p6-r11",
+          "name": "Cosmo Memory",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Tank LB"
+              }
+            ],
+            "T2": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Succor"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "M2": [
+              {
+                "name": "Feint"
+              }
+            ]
+          }
+        },
+        {
+          "id": "p6-r13",
+          "name": "Cosmo Dive 1",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Reprisal"
+              },
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Seraph's Veil"
+              },
+              {
+                "name": "Expedient"
+              },
+              {
+                "name": "Fey Illumination"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Panhaima"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect",
+                "note": "Press late"
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle"
+              }
+            ]
+          }
+        },
+        {
+          "id": "p6-r15",
+          "name": "Protean 1",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Succor"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              }
+            ]
+          }
+        },
+        {
+          "id": "p6-r17",
+          "name": "Wave Cannon 1",
+          "assignments": {
+            "T2": [
+              {
+                "name": "Reprisal"
+              },
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Succor"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Zoe"
+              },
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              }
+            ]
+          }
+        },
+        {
+          "id": "p6-r19",
+          "name": "Protean 2",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Deployment Tactics"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Holos"
+              }
+            ]
+          }
+        },
+        {
+          "id": "p6-r21",
+          "name": "Wave Cannon 2",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Reprisal"
+              },
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Succor"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Macrocosmos"
+              }
+            ],
+            "M2": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "C": [
+              {
+                "name": "Extra (RDM)"
+              }
+            ],
+            "P": [
+              {
+                "name": "Extra (MCH)"
+              }
+            ]
+          }
+        },
+        {
+          "id": "p6-r23",
+          "name": "Cosmo Dive 2",
+          "assignments": {
+            "T2": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Succor"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle"
+              }
+            ]
+          }
+        },
+        {
+          "id": "p6-r25",
+          "name": "Cosmo Meteor",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "T2": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Seraph's Veil"
+              },
+              {
+                "name": "Expedient"
+              },
+              {
+                "name": "Fey Illumination"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Zoe"
+              },
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Panhaima"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance"
+              },
+              {
+                "name": "Liturgy of the Bell"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              }
+            ]
+          }
+        },
+        {
+          "id": "p6-r27",
+          "name": "Flares",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Deployment Tactics"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              }
+            ]
+          }
+        },
+        {
+          "id": "p6-r29",
+          "name": "Magic Number",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Tank LB"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Healer LB"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Healer LB"
+              }
+            ]
+          }
+        },
+        {
+          "id": "p6-r31",
+          "name": "Magic Number",
+          "assignments": {
+            "T2": [
+              {
+                "name": "Tank LB"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Healer LB"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Healer LB"
+              }
+            ],
+            "M2": [
+              {
+                "name": "Feint"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

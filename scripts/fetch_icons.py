@@ -26,11 +26,15 @@ ASSET = 'https://v2.xivapi.com/api/asset'
 # Sheet shorthand that is not the in-game action name.
 ALIASES = {
     'Seraph': 'Summon Seraph',
+    "Seraph's Veil": 'Summon Seraph',
     'Spreadlo': 'Deployment Tactics',
     'Zoe Shields': 'Zoe',
     # Every job's level 3 limit break shares one icon in the game data, so the
-    # sheet's generic "LB3" resolves to it without naming a per-job ability.
+    # sheet's generic "LB3" - and TOP Mitty's "Tank LB" / "Healer LB" - resolve
+    # to it without naming a per-job ability.
     'LB3': 'Last Bastion',
+    'Tank LB': 'Last Bastion',
+    'Healer LB': 'Last Bastion',
 }
 
 # Names that describe a decision, not a single ability. These intentionally get
@@ -42,6 +46,10 @@ NO_ICON = {
 # Generic names resolved per job from data/jobs.json instead of by search.
 # 'Party Mit' means a different button for every job standing in that slot.
 JOB_GENERIC = {'Party Mit', 'Extra'}
+
+# Real, castable actions the game data flags IsPlayerAction=false because they
+# are granted by a stance (SGE's Eukrasia) rather than slotted on a hotbar.
+NONPLAYER_OK = {'Eukrasian Prognosis'}
 
 # The placeholder icon unused Action rows point at.
 PLACEHOLDER = '000000/000405'
@@ -80,7 +88,7 @@ def resolve(name):
         # Limit breaks are not player actions and carry no job level, but they
         # are real, castable, and named per job - they just share one icon.
         player = fields.get('IsPlayerAction') and fields.get('ClassJobLevel')
-        if not player and category != 'Limit Break':
+        if not player and category != 'Limit Break' and fields['Name'] not in NONPLAYER_OK:
             continue
         if PLACEHOLDER in path:
             continue

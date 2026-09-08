@@ -11,11 +11,12 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 NS = {'s': 'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
-COLUMNS = {'F': 'MT', 'H': 'OT', 'J': 'WHM', 'L': 'AST', 'N': 'SCH', 'P': 'SGE', 'R': 'D1', 'T': 'D2', 'V': 'D3', 'X': 'D4'}
+COLUMNS = {'F': 'MT', 'H': 'OT', 'J': 'WHM', 'L': 'AST', 'N': 'SCH', 'P': 'SGE', 'R': 'M1', 'T': 'M2', 'V': 'P', 'X': 'C'}
 HEALERS = ['WHM', 'AST', 'SCH', 'SGE']
 # Which jobs may stand in each slot. Healer slots name a job outright; the tank
-# and DPS slots are positions, so the viewer picks the job themselves.
-ROLES = {'MT': 'tank', 'OT': 'tank', 'D1': 'dps', 'D2': 'dps', 'D3': 'dps', 'D4': 'dps',
+# and DPS slots are positions, so the viewer picks the job themselves -- but each
+# DPS slot only admits jobs of its kind (M1/M2 melee, P ranged, C caster).
+ROLES = {'MT': 'tank', 'OT': 'tank', 'M1': 'melee', 'M2': 'melee', 'P': 'ranged', 'C': 'caster',
          **{job: 'healer' for job in HEALERS}}
 MARKERS = '⁰¹²³⁴⁵⁶⁷⁸⁹'
 MARKER = rf'[{MARKERS}]+'
@@ -49,6 +50,8 @@ def convert(path):
         'id': 'ikuya', 'fightId': 'dmu', 'name': 'Ikuya Mitty',
         'author': 'Ikuya Kirishima', 'updated': '2026-09-07',
         'sourceFile': Path(path).name, 'sourceVersion': '6.0 (1 Sep)',
+        'source': {'name': 'Ikuya Mitty spreadsheet',
+                   'url': 'https://docs.google.com/spreadsheets/d/10C3ytfH3irHqkb45rchIq5oqdAs-v_OKTj57M-Twi3k/edit'},
         'description': 'P1–P5 from Ikuya Kirishima’s mitigation plan. Choose a tank position, healer job, or DPS position.',
         'slots': [{'id': slot, **({'job': slot} if slot in HEALERS else {}), 'role': ROLES[slot]} for slot in COLUMNS.values()],
         'phases': [],
@@ -119,7 +122,9 @@ def convert(path):
             # mitigation available only to RDM and MCH. Add it to every DPS
             # seat; the job qualifier makes the viewer hide it for other jobs.
             if cells.get(f'Z{row}') == '✔':
-                for slot in ['D1', 'D2', 'D3', 'D4']:
+                # RDM is a caster, MCH a physical ranged - so the extra raid mit
+                # only belongs on those two seats, never on melee.
+                for slot in ['P', 'C']:
                     mechanic['assignments'].setdefault(slot, []).append({'name': 'Extra (RDM/MCH)'})
             if phase_number == 3 and row == 24:
                 for slot in COLUMNS.values():

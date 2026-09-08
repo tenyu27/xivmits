@@ -6,6 +6,10 @@
   "updated": "2026-09-07",
   "sourceFile": "Ikuya Mitty (DMU).xlsx",
   "sourceVersion": "6.0 (1 Sep)",
+  "source": {
+    "name": "Ikuya Mitty spreadsheet",
+    "url": "https://docs.google.com/spreadsheets/d/10C3ytfH3irHqkb45rchIq5oqdAs-v_OKTj57M-Twi3k/edit"
+  },
   "description": "P1–P5 from Ikuya Kirishima’s mitigation plan. Choose a tank position, healer job, or DPS position.",
   "slots": [
     {
@@ -37,20 +41,20 @@
       "role": "healer"
     },
     {
-      "id": "D1",
-      "role": "dps"
+      "id": "M1",
+      "role": "melee"
     },
     {
-      "id": "D2",
-      "role": "dps"
+      "id": "M2",
+      "role": "melee"
     },
     {
-      "id": "D3",
-      "role": "dps"
+      "id": "P",
+      "role": "ranged"
     },
     {
-      "id": "D4",
-      "role": "dps"
+      "id": "C",
+      "role": "caster"
     }
   ],
   "phases": [
@@ -108,12 +112,12 @@
                 "note": "All mechanics require shields."
               }
             ],
-            "D1": [
+            "M1": [
               {
                 "name": "Feint"
               }
             ],
-            "D3": [
+            "P": [
               {
                 "name": "Party Mit",
                 "note": "Use your 90s party mitigation as Kefka re-centres to cast the first Graven Image (WAR/PLD can use after Revolting Ruin III finishes)."
@@ -169,7 +173,7 @@
                 "carryOver": true
               }
             ],
-            "D1": [
+            "M1": [
               {
                 "name": "Feint",
                 "carryOver": true
@@ -219,13 +223,13 @@
                 "carryOver": true
               }
             ],
-            "D1": [
+            "M1": [
               {
                 "name": "Feint",
                 "carryOver": true
               }
             ],
-            "D4": [
+            "C": [
               {
                 "name": "Addle"
               }
@@ -267,17 +271,13 @@
                 "note": "Use late into the castbar so it also covers Hyperdrive."
               }
             ],
-            "D2": [
+            "M2": [
               {
                 "name": "Feint",
                 "note": "Use late into the castbar so it also covers Hyperdrive."
-              },
-              {
-                "name": "Extra (RDM/MCH)",
-                "note": "Use late into the castbar so it also covers Hyperdrive."
               }
             ],
-            "D4": [
+            "C": [
               {
                 "name": "Addle",
                 "carryOver": true
@@ -287,13 +287,7 @@
                 "note": "Use late into the castbar so it also covers Hyperdrive."
               }
             ],
-            "D1": [
-              {
-                "name": "Extra (RDM/MCH)",
-                "note": "Use late into the castbar so it also covers Hyperdrive."
-              }
-            ],
-            "D3": [
+            "P": [
               {
                 "name": "Extra (RDM/MCH)",
                 "note": "Use late into the castbar so it also covers Hyperdrive."
@@ -390,7 +384,7 @@
                 "note": "All mechanics require shields."
               }
             ],
-            "D3": [
+            "P": [
               {
                 "name": "Party Mit"
               }
@@ -440,7 +434,7 @@
                 "carryOver": true
               }
             ],
-            "D1": [
+            "M1": [
               {
                 "name": "Feint",
                 "note": "Use late into the castbar so it also covers Hyperdrive."
@@ -575,7 +569,7 @@
                 "note": "Use Holos during the first Ultimate Embrace so it is back for Light of Judgement and provides mitigation to the tanks. Alternatively, you can use Holos for the Wings of Destruction + Ultimate Embrace."
               }
             ],
-            "D2": [
+            "M2": [
               {
                 "name": "Feint"
               }
@@ -629,15 +623,12 @@
                 "carryOver": true
               }
             ],
-            "D1": [
+            "M1": [
               {
                 "name": "Feint"
-              },
-              {
-                "name": "Extra (RDM/MCH)"
               }
             ],
-            "D3": [
+            "P": [
               {
                 "name": "Party Mit"
               },
@@ -645,15 +636,10 @@
                 "name": "Extra (RDM/MCH)"
               }
             ],
-            "D4": [
+            "C": [
               {
                 "name": "Addle"
               },
-              {
-                "name": "Extra (RDM/MCH)"
-              }
-            ],
-            "D2": [
               {
                 "name": "Extra (RDM/MCH)"
               }
@@ -697,19 +683,19 @@
                 "carryOver": true
               }
             ],
-            "D1": [
+            "M1": [
               {
                 "name": "Feint",
                 "carryOver": true
               }
             ],
-            "D3": [
+            "P": [
               {
                 "name": "Party Mit",
                 "carryOver": true
               }
             ],
-            "D4": [
+            "C": [
               {
                 "name": "Addle",
                 "carryOver": true
@@ -964,17 +950,17 @@
                 "note": "All mechanics require shields."
               }
             ],
-            "D1": [
+            "M1": [
               {
                 "name": "Feint"
               }
             ],
-            "D3": [
+            "P": [
               {
                 "name": "Party Mit"
               }
             ],
-            "D4": [
+            "C": [
               {
                 "name": "Addle"
               }
@@ -1024,7 +1010,7 @@
                 "name": "Panhaima"
               }
             ],
-            "D2": [
+            "M2": [
               {
                 "name": "Feint"
               }
@@ -1082,7 +1068,7 @@
                 "carryOver": true
               }
             ],
-            "D2": [
+            "M2": [
               {
                 "name": "Feint",
                 "carryOver": true
@@ -1128,7 +1114,7 @@
                 "note": "At the beginning of the phase, use 30s mitigation after (when the textbox disappears) Kefka says, \"Oh! What other toys can I throw in here...\" to get tank autos and the raidwide + an additional usage for Stray Flames/Tsunami."
               }
             ],
-            "D1": [
+            "M1": [
               {
                 "name": "Feint (Chaos)",
                 "note": "Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides."
@@ -1170,22 +1156,12 @@
                 "name": "Kerachole"
               }
             ],
-            "D1": [
+            "P": [
               {
                 "name": "Extra (RDM/MCH)"
               }
             ],
-            "D2": [
-              {
-                "name": "Extra (RDM/MCH)"
-              }
-            ],
-            "D3": [
-              {
-                "name": "Extra (RDM/MCH)"
-              }
-            ],
-            "D4": [
+            "C": [
               {
                 "name": "Extra (RDM/MCH)"
               }
@@ -1216,7 +1192,7 @@
                 "note": "There is a very small period where you can cover both hits of Thunder III and the next Stray Flames/Tsumani, if you miss the timing, you can use it next GCD."
               }
             ],
-            "D4": [
+            "C": [
               {
                 "name": "Addle (Exdeath)",
                 "note": "Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides."
@@ -1225,17 +1201,7 @@
                 "name": "Extra (RDM/MCH)"
               }
             ],
-            "D1": [
-              {
-                "name": "Extra (RDM/MCH)"
-              }
-            ],
-            "D2": [
-              {
-                "name": "Extra (RDM/MCH)"
-              }
-            ],
-            "D3": [
+            "P": [
               {
                 "name": "Extra (RDM/MCH)"
               }
@@ -1324,13 +1290,13 @@
                 "name": "Panhaima"
               }
             ],
-            "D2": [
+            "M2": [
               {
                 "name": "Feint (Chaos)",
                 "note": "Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides."
               }
             ],
-            "D3": [
+            "P": [
               {
                 "name": "Party Mit"
               }
@@ -1401,14 +1367,14 @@
                 "carryOver": true
               }
             ],
-            "D2": [
+            "M2": [
               {
                 "name": "Feint",
                 "carryOver": true,
                 "note": "Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides."
               }
             ],
-            "D3": [
+            "P": [
               {
                 "name": "Party Mit",
                 "carryOver": true
@@ -1467,14 +1433,14 @@
                 "carryOver": true
               }
             ],
-            "D2": [
+            "M2": [
               {
                 "name": "Feint",
                 "carryOver": true,
                 "note": "Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides."
               }
             ],
-            "D3": [
+            "P": [
               {
                 "name": "Party Mit",
                 "carryOver": true
@@ -1548,25 +1514,25 @@
                 "note": "Non-healers should avoid using any healing abilities that may cause their Accretion to pop early such as Second Wind, Curing Waltz or Divine Veil. If both Accretions are activated in a short amount of time, it will cause a wipe. Healers will need to manage HP burst accordingly to ensure that Accretions are not popped together. The H1 and H2 can throw single target heals at whoever has the Accretion between them. If playing AST, I recommend popping Macrocosmos immediately for the top-up as this will also take care of the tanks. WHM can use Benediction (if not used earlier) to instantly pop the healer Accretion."
               }
             ],
-            "D1": [
+            "M1": [
               {
                 "name": "Avoid HP-restoring abilities",
                 "note": "Non-healers should avoid using any healing abilities that may cause their Accretion to pop early such as Second Wind, Curing Waltz or Divine Veil. If both Accretions are activated in a short amount of time, it will cause a wipe. Healers will need to manage HP burst accordingly to ensure that Accretions are not popped together. The H1 and H2 can throw single target heals at whoever has the Accretion between them. If playing AST, I recommend popping Macrocosmos immediately for the top-up as this will also take care of the tanks. WHM can use Benediction (if not used earlier) to instantly pop the healer Accretion."
               }
             ],
-            "D2": [
+            "M2": [
               {
                 "name": "Avoid HP-restoring abilities",
                 "note": "Non-healers should avoid using any healing abilities that may cause their Accretion to pop early such as Second Wind, Curing Waltz or Divine Veil. If both Accretions are activated in a short amount of time, it will cause a wipe. Healers will need to manage HP burst accordingly to ensure that Accretions are not popped together. The H1 and H2 can throw single target heals at whoever has the Accretion between them. If playing AST, I recommend popping Macrocosmos immediately for the top-up as this will also take care of the tanks. WHM can use Benediction (if not used earlier) to instantly pop the healer Accretion."
               }
             ],
-            "D3": [
+            "P": [
               {
                 "name": "Avoid HP-restoring abilities",
                 "note": "Non-healers should avoid using any healing abilities that may cause their Accretion to pop early such as Second Wind, Curing Waltz or Divine Veil. If both Accretions are activated in a short amount of time, it will cause a wipe. Healers will need to manage HP burst accordingly to ensure that Accretions are not popped together. The H1 and H2 can throw single target heals at whoever has the Accretion between them. If playing AST, I recommend popping Macrocosmos immediately for the top-up as this will also take care of the tanks. WHM can use Benediction (if not used earlier) to instantly pop the healer Accretion."
               }
             ],
-            "D4": [
+            "C": [
               {
                 "name": "Avoid HP-restoring abilities",
                 "note": "Non-healers should avoid using any healing abilities that may cause their Accretion to pop early such as Second Wind, Curing Waltz or Divine Veil. If both Accretions are activated in a short amount of time, it will cause a wipe. Healers will need to manage HP burst accordingly to ensure that Accretions are not popped together. The H1 and H2 can throw single target heals at whoever has the Accretion between them. If playing AST, I recommend popping Macrocosmos immediately for the top-up as this will also take care of the tanks. WHM can use Benediction (if not used earlier) to instantly pop the healer Accretion."
@@ -1602,7 +1568,7 @@
                 "note": "Philosophia should be used after both Accretions resolves to avoid accidentally popping both at the same time."
               }
             ],
-            "D1": [
+            "M1": [
               {
                 "name": "Feint (Chaos)",
                 "note": "Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides."
@@ -1686,22 +1652,12 @@
                 "name": "Kerachole"
               }
             ],
-            "D1": [
+            "P": [
               {
                 "name": "Extra (RDM/MCH)"
               }
             ],
-            "D2": [
-              {
-                "name": "Extra (RDM/MCH)"
-              }
-            ],
-            "D3": [
-              {
-                "name": "Extra (RDM/MCH)"
-              }
-            ],
-            "D4": [
+            "C": [
               {
                 "name": "Extra (RDM/MCH)"
               }
@@ -1853,13 +1809,13 @@
                 "name": "Kerachole"
               }
             ],
-            "D2": [
+            "M2": [
               {
                 "name": "Feint (Chaos)",
                 "note": "Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides."
               }
             ],
-            "D4": [
+            "C": [
               {
                 "name": "Addle (Exdeath)",
                 "note": "Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides."
@@ -1892,7 +1848,7 @@
                 "carryOver": true
               }
             ],
-            "D3": [
+            "P": [
               {
                 "name": "Party Mit"
               },
@@ -1965,7 +1921,7 @@
                 "note": "Both healers should have instant cast heals prepared to top up the party between the first and second set of stomps."
               }
             ],
-            "D1": [
+            "M1": [
               {
                 "name": "Feint (Chaos)",
                 "note": "Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides."
@@ -2013,26 +1969,18 @@
                 "name": "Holos"
               }
             ],
-            "D2": [
+            "M2": [
               {
                 "name": "Feint",
                 "note": "Use at the beginning of the phase for autos. Targeted mitigation only works on Ultima Upsurge; other uses cover tank autos."
-              },
+              }
+            ],
+            "P": [
               {
                 "name": "Extra (RDM/MCH)"
               }
             ],
-            "D1": [
-              {
-                "name": "Extra (RDM/MCH)"
-              }
-            ],
-            "D3": [
-              {
-                "name": "Extra (RDM/MCH)"
-              }
-            ],
-            "D4": [
+            "C": [
               {
                 "name": "Extra (RDM/MCH)"
               }
@@ -2072,7 +2020,7 @@
                 "carryOver": true
               }
             ],
-            "D3": [
+            "P": [
               {
                 "name": "Party Mit"
               }
@@ -2115,7 +2063,7 @@
                 "carryOver": true
               }
             ],
-            "D3": [
+            "P": [
               {
                 "name": "Party Mit",
                 "carryOver": true
@@ -2305,13 +2253,13 @@
                 "name": "Kerachole"
               }
             ],
-            "D1": [
+            "M1": [
               {
                 "name": "Feint",
                 "note": "Targeted mitigation only works on Ultima Upsurge; other uses cover tank autos."
               }
             ],
-            "D4": [
+            "C": [
               {
                 "name": "Addle",
                 "note": "Targeted mitigation only works on Ultima Upsurge; other uses cover tank autos."
@@ -2426,7 +2374,7 @@
                 "name": "Kerachole"
               }
             ],
-            "D3": [
+            "P": [
               {
                 "name": "Party Mit",
                 "note": "Use when Kefka brings his staff down to his right side, example here. | The subsequent usages should be pressed immediately off cooldown.",
@@ -2436,17 +2384,7 @@
                 "name": "Extra (RDM/MCH)"
               }
             ],
-            "D1": [
-              {
-                "name": "Extra (RDM/MCH)"
-              }
-            ],
-            "D2": [
-              {
-                "name": "Extra (RDM/MCH)"
-              }
-            ],
-            "D4": [
+            "C": [
               {
                 "name": "Extra (RDM/MCH)"
               }
@@ -2570,7 +2508,7 @@
                 "note": "Healers should monitor the tanks during Maddening Orchestra (especially the Flare tank) and Fell Forces. For WAR/DRK, you will need to have single target burst healing prepared after their invulnerability expires so they can survive the 3rd auto."
               }
             ],
-            "D2": [
+            "M2": [
               {
                 "name": "Feint"
               }
@@ -2613,7 +2551,7 @@
                 "note": "Healers should monitor the tanks during Maddening Orchestra (especially the Flare tank) and Fell Forces. For WAR/DRK, you will need to have single target burst healing prepared after their invulnerability expires so they can survive the 3rd auto."
               }
             ],
-            "D2": [
+            "M2": [
               {
                 "name": "Feint",
                 "carryOver": true
@@ -2676,20 +2614,20 @@
                 "name": "Kerachole"
               }
             ],
-            "D1": [
+            "M1": [
               {
                 "name": "Feint",
                 "note": "Use after the third towers in Celestriad resolves."
               }
             ],
-            "D3": [
+            "P": [
               {
                 "name": "Party Mit",
                 "note": "Use when Kefka brings his staff down to his right side, example here. | The subsequent usages should be pressed immediately off cooldown.",
                 "noteLink": "https://www.twitch.tv/kizuwah/clip/PeppyModernSamosaArsonNoSexy-s6G3BH_VonLSpdI2"
               }
             ],
-            "D4": [
+            "C": [
               {
                 "name": "Addle",
                 "note": "Use after the third towers in Celestriad resolves."
@@ -2738,19 +2676,19 @@
                 "carryOver": true
               }
             ],
-            "D1": [
+            "M1": [
               {
                 "name": "Feint",
                 "carryOver": true
               }
             ],
-            "D3": [
+            "P": [
               {
                 "name": "Party Mit",
                 "carryOver": true
               }
             ],
-            "D4": [
+            "C": [
               {
                 "name": "Addle",
                 "carryOver": true
@@ -2880,29 +2818,19 @@
                 "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
               }
             ],
-            "D2": [
+            "M2": [
               {
                 "name": "Feint",
                 "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
-              },
+              }
+            ],
+            "P": [
               {
                 "name": "Extra (RDM/MCH)",
                 "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
               }
             ],
-            "D1": [
-              {
-                "name": "Extra (RDM/MCH)",
-                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
-              }
-            ],
-            "D3": [
-              {
-                "name": "Extra (RDM/MCH)",
-                "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
-              }
-            ],
-            "D4": [
+            "C": [
               {
                 "name": "Extra (RDM/MCH)",
                 "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
@@ -2973,7 +2901,7 @@
                 "carryOver": true
               }
             ],
-            "D2": [
+            "M2": [
               {
                 "name": "Feint",
                 "carryOver": true
@@ -3044,7 +2972,7 @@
                 "carryOver": true
               }
             ],
-            "D2": [
+            "M2": [
               {
                 "name": "Feint",
                 "carryOver": true
@@ -3099,7 +3027,7 @@
                 "carryOver": true
               }
             ],
-            "D2": [
+            "M2": [
               {
                 "name": "Feint",
                 "carryOver": true
@@ -3154,19 +3082,19 @@
                 "carryOver": true
               }
             ],
-            "D1": [
+            "M1": [
               {
                 "name": "Feint",
                 "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted. It is important that the new round of mitigation for the 5th hit are applied as the first round of mitigation will fall off."
               }
             ],
-            "D3": [
+            "P": [
               {
                 "name": "Party Mit",
                 "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted. It is important that the new round of mitigation for the 5th hit are applied as the first round of mitigation will fall off."
               }
             ],
-            "D4": [
+            "C": [
               {
                 "name": "Addle",
                 "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted. It is important that the new round of mitigation for the 5th hit are applied as the first round of mitigation will fall off."
@@ -3213,19 +3141,19 @@
                 "carryOver": true
               }
             ],
-            "D1": [
+            "M1": [
               {
                 "name": "Feint",
                 "carryOver": true
               }
             ],
-            "D3": [
+            "P": [
               {
                 "name": "Party Mit",
                 "carryOver": true
               }
             ],
-            "D4": [
+            "C": [
               {
                 "name": "Addle",
                 "carryOver": true
@@ -3272,19 +3200,19 @@
                 "carryOver": true
               }
             ],
-            "D1": [
+            "M1": [
               {
                 "name": "Feint",
                 "carryOver": true
               }
             ],
-            "D3": [
+            "P": [
               {
                 "name": "Party Mit",
                 "carryOver": true
               }
             ],
-            "D4": [
+            "C": [
               {
                 "name": "Addle",
                 "carryOver": true
@@ -3335,19 +3263,19 @@
                 "note": "For Forsaken, use any timed mitigation as late as possible unless otherwise noted."
               }
             ],
-            "D1": [
+            "M1": [
               {
                 "name": "Feint",
                 "carryOver": true
               }
             ],
-            "D3": [
+            "P": [
               {
                 "name": "Party Mit",
                 "carryOver": true
               }
             ],
-            "D4": [
+            "C": [
               {
                 "name": "Addle",
                 "carryOver": true

@@ -33,7 +33,7 @@ export function initialSelection() {
   const query = new URLSearchParams(window.location.search)
   const role = query.get('role') ?? readMap('lastRoleBySheet')[key]
   const phase = query.get('phase') ?? readMap('lastPhaseBySheet')[key]
-  // `role` is a seat (MT, H2, D3), which may be a synthesized position rather
+  // `role` is a seat (MT, H, P), which may be a synthesized position rather
   // than a literal slot id - see positionsForSheet.
   const validRole = sheet && role && isKnownPosition(sheet, role) ? role : ''
   const validPhase = fight?.phases.find(p => p.id.toLowerCase() === phase?.toLowerCase())?.id ?? fight?.phases[0].id ?? ''

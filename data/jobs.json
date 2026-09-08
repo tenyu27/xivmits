@@ -67,37 +67,37 @@
     {
       "id": "MNK",
       "name": "Monk",
-      "role": "dps"
+      "role": "melee"
     },
     {
       "id": "DRG",
       "name": "Dragoon",
-      "role": "dps"
+      "role": "melee"
     },
     {
       "id": "NIN",
       "name": "Ninja",
-      "role": "dps"
+      "role": "melee"
     },
     {
       "id": "SAM",
       "name": "Samurai",
-      "role": "dps"
+      "role": "melee"
     },
     {
       "id": "RPR",
       "name": "Reaper",
-      "role": "dps"
+      "role": "melee"
     },
     {
       "id": "VPR",
       "name": "Viper",
-      "role": "dps"
+      "role": "melee"
     },
     {
       "id": "BRD",
       "name": "Bard",
-      "role": "dps",
+      "role": "ranged",
       "abilities": {
         "Party Mit": "Troubadour"
       }
@@ -105,7 +105,7 @@
     {
       "id": "MCH",
       "name": "Machinist",
-      "role": "dps",
+      "role": "ranged",
       "abilities": {
         "Party Mit": "Tactician",
         "Extra": "Dismantle"
@@ -114,7 +114,7 @@
     {
       "id": "DNC",
       "name": "Dancer",
-      "role": "dps",
+      "role": "ranged",
       "abilities": {
         "Party Mit": "Shield Samba"
       }
@@ -122,17 +122,17 @@
     {
       "id": "BLM",
       "name": "Black Mage",
-      "role": "dps"
+      "role": "caster"
     },
     {
       "id": "SMN",
       "name": "Summoner",
-      "role": "dps"
+      "role": "caster"
     },
     {
       "id": "RDM",
       "name": "Red Mage",
-      "role": "dps",
+      "role": "caster",
       "abilities": {
         "Party Mit": "Addle",
         "Extra": "Magick Barrier"
@@ -141,7 +141,7 @@
     {
       "id": "PCT",
       "name": "Pictomancer",
-      "role": "dps",
+      "role": "caster",
       "abilities": {
         "Party Mit": "Tempera Grassa"
       }

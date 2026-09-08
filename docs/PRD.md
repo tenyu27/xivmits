@@ -66,7 +66,7 @@ Pick a community mit sheet and get just your presses, phase by phase.
 
 Fight      [Dancing Mad (Ultimate) ▾]
 Mit sheet  [Ikuya Mitty            ▾]
-Role [H1 ▾]   Job [SGE ▾]
+Role [H ▾]   Job [SGE ▾]
 
 [View Mits →]
 
@@ -95,7 +95,7 @@ Metadata: id, fightId, name, optional author/source link/description, updated da
 ### Role / Job
 
 Two selectors, because they answer different questions: **role** is the seat you
-occupy in the plan (`MT`, `D3`), **job** is what you actually play (`GNB`).
+occupy in the plan (`MT`, `P`), **job** is what you actually play (`GNB`).
 
 The plan is written once for whoever stands in a slot, so it says `Party Mit` —
 which is Heart of Light for a Gunbreaker and Shake It Off for a Warrior. Without
@@ -108,22 +108,25 @@ The Ikuya sheet's checked `Extras` column works the same way. It adds
 into Magick Barrier for RDM or Dismantle for MCH and drops it for other jobs.
 
 **Job options are filtered by the seat**: `MT`/`OT` offer the four tanks,
-`H1`/`H2` the four healers, `D1`–`D4` the DPS. A seat can never show a job that
-cannot sit in it.
+`H` the four healers (one seat — the job is the whole choice), and DPS is split
+three ways — `M1`/`M2` the six melee, `P` the three physical ranged, `C` the
+four casters. A seat can never show a job that cannot sit in it.
 
-**A job is always required.** `View Mits` stays disabled until one is chosen,
+**A job is usually required.** `View Mits` stays disabled until one is chosen,
 and a seat reached by URL without a job shows a prompt rather than a plan.
 Without the job, `Party Mit` cannot resolve to a real ability and a job-qualified
 line cannot be filtered — so a jobless view is a worse plan, not a faster one.
 Changing seat to one the current job cannot fill clears the job rather than
-silently keeping an impossible pairing.
+silently keeping an impossible pairing. **The exception is a melee seat**: every
+melee job mitigates identically (Feint, and nothing generic), so the job
+selector is disabled and shows `--`, and the view renders with no job.
 
-Seats come from the sheet. Where it names positions (`MT`, `D3`), those are the
+Seats come from the sheet. Where it names positions (`MT`, `P`), those are the
 seats directly. Where it names *jobs* instead — the DMU sheet's healer columns
 are `WHM`/`AST`/`SCH`/`SGE`, because every healer kit mitigates differently —
-the seat is a label and the **job picks which column to read**: `H1` + Sage and
-`H2` + Sage show the same plan, which is correct, since that sheet does not
-distinguish the two healer seats. Until a job is chosen for such a seat there is
+the seat is a label and the **job picks which column to read**: `H` + Sage reads
+the Sage column. There is one healer seat, not two, because a job-keyed
+sheet does not distinguish them. Until a job is chosen for such a seat there is
 genuinely nothing to show, and the view says so.
 
 A sheet declares its own **slots**. A slot is an opaque ID plus an optional `job` label, so one data model covers every way a sheet divides the party — no separate interfaces, no fixed enum.
@@ -132,9 +135,9 @@ A sheet declares its own **slots**. A slot is an opaque ID plus an optional `job
 |---|---|---|
 | Position-based | `MT`, `OT`, `H1`, `H2`, `M1`, `M2`, `R1`, `R2` | `H2` |
 | Job-based | `SGE` (with `job: "SGE"`) | `SGE` |
-| Mixed (the DMU/Ikuya case) | `MT`, `OT`, `WHM`, `AST`, `SCH`, `SGE`, `D1`–`D4` | `MT`, `SGE`, `D3` |
+| Mixed (the DMU/Ikuya case) | `MT`, `OT`, `WHM`, `AST`, `SCH`, `SGE`, `M1`, `M2`, `P`, `C` | `MT`, `SGE`, `P` |
 
-Label rule: show `ID · job` when the two differ (**H2 · SGE**), the ID alone when they match or no job is set (**SGE**, **D3**). Mixed sheets are the common real-world case — tanks and DPS are assigned by position because the plan is the same whatever job stands there, while healers are assigned by job because their kits are not interchangeable.
+Label rule: show `ID · job` when the two differ (**H · SGE**), the ID alone when they match or no job is set (**SGE**, **P**). Mixed sheets are the common real-world case — tanks and DPS are assigned by position because the plan is the same whatever job stands there, while healers are assigned by job because their kits are not interchangeable.
 
 Slot IDs are validated against the sheet's own `slots` array at build time. An assignment referencing an undeclared slot fails the build.
 
@@ -150,7 +153,7 @@ XIVMits                                    Theme [System ▾]
 Ultimate · Ikuya Mitty                       Change fight/sheet
 Dancing Mad (Ultimate)
 
-Role [H1 ▾]  Job [SGE ▾]   Show [Icon + text]  Notes ( )
+Role [H ▾]  Job [SGE ▾]   Show [Icon + text]  Notes ( )
 
 P1   P2   [P3]   P4   P5                         [Pop out]
 
@@ -300,7 +303,7 @@ Sheets get stable URLs:
 
 ```text
 xivmits.com/dmu/community/
-xivmits.com/dmu/community/?role=H2&phase=P3   # optional
+xivmits.com/dmu/community/?role=H&phase=P3   # optional
 ```
 
 The URL identifies encounter + sheet. Role stays local so the whole group shares one link; query params exist for direct links — a raid lead pointing eight people at P3, or someone linking a specific role while explaining it.
@@ -309,7 +312,7 @@ Query params are a **handoff, not a mode**: they seed the initial selection, the
 
 Keep URL state human-readable.
 
-**Workflow:** raid lead posts one sheet link in Discord → everyone opens it → first visit asks *"Who are you?"* → they pick **H2 · SGE** → remembered locally → future visits to that sheet link open their assignments. Visits to the root path always show the selection screen with the saved fight, sheet, role and job prepopulated. Zero signup.
+**Workflow:** raid lead posts one sheet link in Discord → everyone opens it → first visit asks *"Who are you?"* → they pick **H · SGE** → remembered locally → future visits to that sheet link open their assignments. Visits to the root path always show the selection screen with the saved fight, sheet, role and job prepopulated. Zero signup.
 
 ---
 
@@ -389,9 +392,10 @@ The fight owns the phase list. Sheets reference phase IDs but never invent them,
   "slots": [
     { "id": "MT" },
     { "id": "OT" },
-    { "id": "WHM", "job": "WHM" },
-    { "id": "SGE", "job": "SGE" },
-    { "id": "D1" }, { "id": "D2" }, { "id": "D3" }, { "id": "D4" }
+    { "id": "WHM", "job": "WHM", "role": "healer" },
+    { "id": "SGE", "job": "SGE", "role": "healer" },
+    { "id": "M1", "role": "melee" }, { "id": "M2", "role": "melee" },
+    { "id": "P", "role": "ranged" }, { "id": "C", "role": "caster" }
   ],
 
   "phases": [

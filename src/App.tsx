@@ -81,9 +81,13 @@ function Shell() {
   // it rather than silently showing another role's plan.
   const job = jobOptions.find(j => j.id === jobId)
   const slotId = sheet ? slotIdFor(sheet, position, job?.id) : ''
-  // A job is always required: without it a generic line like "Party Mit" cannot
-  // become a real ability, and job-qualified lines cannot be filtered at all.
-  const needsJob = Boolean(position && (!job || !slotId))
+  // Melee mitigation is the same for every melee job, so that seat carries no
+  // generic lines to resolve - the job selector is disabled and no job needed.
+  const jobFree = position?.role === 'melee'
+  // Otherwise a job is always required: without it a generic line like "Party
+  // Mit" cannot become a real ability, and job-qualified lines cannot be
+  // filtered at all.
+  const needsJob = Boolean(position && !jobFree && (!job || !slotId))
 
   useEffect(() => {
     const onPop = () => setSelection(initialSelection())
@@ -162,16 +166,19 @@ function Shell() {
     ]}
   />
   const jobSelect = <NativeSelect
-    label="Job" value={job?.id ?? ''} disabled={!position}
+    label="Job" value={jobFree ? '' : job?.id ?? ''} disabled={!position || jobFree}
     onChange={event => changeJob(event.currentTarget.value)}
     // The placeholder exists only while nothing is chosen. Dropping it once a
     // job is set keeps the closed select narrow and stops it offering a state
     // the app no longer accepts. Raiders read abbreviations faster than names,
-    // and they match what the sheets themselves write.
-    data={[
-      ...(job ? [] : [{ value: '', label: position ? 'Choose your job' : 'Pick a role first' }]),
-      ...jobOptions.map(j => ({ value: j.id, label: j.id })),
-    ]}
+    // and they match what the sheets themselves write. A melee seat needs no
+    // job at all, so it just shows "--".
+    data={jobFree
+      ? [{ value: '', label: '--' }]
+      : [
+        ...(job ? [] : [{ value: '', label: position ? 'Choose your job' : 'Pick a role first' }]),
+        ...jobOptions.map(j => ({ value: j.id, label: j.id })),
+      ]}
   />
 
   return <Container size={720} px="md" mih="100dvh" display="flex" style={{ flexDirection: 'column' }}>
@@ -189,9 +196,17 @@ function Shell() {
             <Text fz="sm" c="dimmed">{fight.type} · {sheet.name}</Text>
             <Title order={1} fz="xl" lts="-0.035em" style={{ overflowWrap: 'anywhere' }}>{fight.name}</Title>
           </Box>
-          <Button variant="outline" onClick={() => { pip.close(); setSelection(previous => ({ ...previous, viewing: false })); window.history.pushState(null, '', import.meta.env.BASE_URL) }}>
-            Change fight/sheet
-          </Button>
+          <Group gap="sm" wrap="wrap">
+            {sheet.source && <Button
+              component="a" href={sheet.source.url} target="_blank" rel="noreferrer"
+              variant="default" leftSection={<IconExternalLink size={16} aria-hidden />}
+            >
+              Source
+            </Button>}
+            <Button variant="outline" onClick={() => { pip.close(); setSelection(previous => ({ ...previous, viewing: false })); window.history.pushState(null, '', import.meta.env.BASE_URL) }}>
+              Change fight/sheet
+            </Button>
+          </Group>
         </Group>
 
         {/* Every control here gets the same treatment: label above in the same
@@ -226,7 +241,7 @@ function Shell() {
           ? <Text ta="center" c="dimmed" py="xl">Choose your job to see this role's assignments.</Text>
           : <MitView
             fight={fight} sheet={sheet} roleId={slotId} phaseId={selection.phaseId}
-            onPhase={changePhase} job={job} display={display} notes={notes} layout={layout}
+            onPhase={changePhase} job={jobFree ? undefined : job} display={display} notes={notes} layout={layout}
             phaseAction={pip.supported && <Button
               variant="outline" size="sm" leftSection={<IconPictureInPicture size={18} aria-hidden />}
               onClick={pip.open}
@@ -234,14 +249,6 @@ function Shell() {
               {pip.pipWindow ? 'Focus window' : 'Pop out'}
             </Button>}
           />}
-
-        {/* Provenance belongs on the selection screen, where you are choosing a
-            plan. Once you are reading one, only the link back is useful. */}
-        {sheet.source && <Group gap="sm" mt="md" pt="lg" style={{ borderTop: '1px solid var(--border)' }}>
-          <Anchor href={sheet.source.url} target="_blank" rel="noreferrer" fz="xs">
-            View original sheet <IconExternalLink size={14} aria-hidden style={{ verticalAlign: 'middle' }} />
-          </Anchor>
-        </Group>}
 
         {pip.pipWindow && createPortal(
           <MitView compact fight={fight} sheet={sheet} roleId={slotId} phaseId={selection.phaseId} onPhase={changePhase} job={job} display={display} notes={notes} layout={layout} />,
@@ -277,7 +284,7 @@ function Shell() {
             ]}
           />
           <Group grow align="flex-start" gap="sm">{roleSelect}{jobSelect}</Group>
-          <Button type="submit" rightSection={<IconArrowRight size={18} aria-hidden />} disabled={!fight || !sheet || !selection.roleId || !job}>
+          <Button type="submit" rightSection={<IconArrowRight size={18} aria-hidden />} disabled={!fight || !sheet || !selection.roleId || (!job && !jobFree)}>
             View mits
           </Button>
         </Stack>
