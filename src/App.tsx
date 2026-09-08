@@ -101,7 +101,10 @@ function Shell() {
   const tankPlans = position?.role === 'tank' && job ? sheet?.tankMits?.plans.filter(p => p.job === job.id) ?? [] : []
   const paired = tankPlans.some(p => p.with)
   const otherTankOptions = tankPlans.map(p => p.with).filter((w): w is string => Boolean(w))
-  const otherTank = otherTankOptions.includes(otherTankId) ? otherTankId : ''
+  // A co-tank is always chosen on a paired sheet - default to the first option
+  // when nothing valid is stored. Hiding the personal rows is the "Party" mits
+  // toggle's job, not a blank option here.
+  const otherTank = otherTankOptions.includes(otherTankId) ? otherTankId : otherTankOptions[0] ?? ''
   const priorities = sheet?.tankMits?.priorities
   // A stored choice wins; otherwise default by seat - MT holds Exdeath and
   // takes the 2nd invuln, OT holds Chaos and goes 1st.
@@ -250,7 +253,7 @@ function Shell() {
     ? <NativeSelect
       label="Other tank" value={otherTank} w={128}
       onChange={event => changeOtherTank(event.currentTarget.value)}
-      data={[{ value: '', label: 'Hide' }, ...otherTankOptions.map(id => ({ value: id, label: id }))]}
+      data={otherTankOptions.map(id => ({ value: id, label: id }))}
     />
     : <>
       <Input.Wrapper
