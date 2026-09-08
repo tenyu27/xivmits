@@ -55,15 +55,21 @@ PRIO_ORDER = ['WAR', 'DRK', 'GNB', 'PLD']  # left-header order, same in P3 and P
 INVULN = {'WAR': 'Holmgang', 'PLD': 'Hallowed Ground', 'DRK': 'Living Dead', 'GNB': 'Superbolide'}
 MIT_40 = {'WAR': 'Damnation', 'PLD': 'Guardian', 'DRK': 'Shadowed Vigil', 'GNB': 'Great Nebula'}
 MIT_90 = {'WAR': 'Thrill of Battle', 'PLD': 'Bulwark', 'DRK': 'Dark Mind', 'GNB': 'Camouflage'}
-SHORT_MIT = {'WAR': 'Nascent Flash', 'PLD': 'Holy Sheltron', 'DRK': 'Oblation', 'GNB': 'Heart of Corundum'}
+# The short personal mitigation each tank presses on itself. A value may be a
+# list (DRK stacks TBN + Oblation). WAR's is Bloodwhetting, not the ally-only
+# Nascent Flash -- that one is the "Buddy Mit" below.
+SHORT_MIT = {'WAR': 'Bloodwhetting', 'PLD': 'Holy Sheltron',
+             'DRK': ['The Blackest Night', 'Oblation'], 'GNB': 'Heart of Corundum'}
 SHORTHAND = {'Invulnerability': INVULN, '40%': MIT_40, '90s': MIT_90, 'Short Mit': SHORT_MIT, 'Short': SHORT_MIT}
 BUDDY_MIT = {'WAR': ['Nascent Flash'], 'PLD': ['Intervention'], 'DRK': ['The Blackest Night', 'Oblation'], 'GNB': ['Heart of Corundum']}
-# Rampart + 40% + 90s + short mit, pressed together. The short-mit slot is the
-# personal button, not the ally-targeted one SHORT_MIT names for the "Short Mit"
-# shorthand: WAR spends Bloodwhetting here, not Nascent Flash. DRK also adds TBN.
-KITCHEN_SINK_SHORT = dict(SHORT_MIT, WAR='Bloodwhetting')
-KITCHEN_SINK = {job: ['Rampart', MIT_40[job], MIT_90[job], KITCHEN_SINK_SHORT[job]] for job in TANKS}
-KITCHEN_SINK['DRK'].append('The Blackest Night')
+
+
+def as_list(value):
+    return list(value) if isinstance(value, list) else [value]
+
+
+# Rampart + 40% + 90s + short mit, pressed together.
+KITCHEN_SINK = {job: ['Rampart', MIT_40[job], MIT_90[job], *as_list(SHORT_MIT[job])] for job in TANKS}
 KNOWN_TOKENS = {'Kitchen Sink', 'Buddy Mit', 'Rampart', 'Invulnerability', '40%', '90s', 'Short Mit', 'Short', 'Provoke'}
 
 # phase -> (data rows, mode). Left column is E, right is I, time D.
@@ -100,7 +106,7 @@ def expand_token(name, job, carry):
     elif name == 'Buddy Mit':
         names, buddy = BUDDY_MIT[job], True
     elif name in SHORTHAND:
-        names, buddy = [SHORTHAND[name][job]], False
+        names, buddy = as_list(SHORTHAND[name][job]), False
     else:
         names, buddy = [name], False  # Rampart, or a literal
     out = []
