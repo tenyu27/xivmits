@@ -10,14 +10,16 @@ It is a **viewer, not a planner**. No accounts, no backend, no database, no edit
 
 Read before non-trivial work:
 
-- [docs/PRD.md](docs/PRD.md) — product scope, data model, feature matrix, non-goals
-- [docs/DESIGN.md](docs/DESIGN.md) — design tokens, components, responsive rules, PiP styling, anti-patterns
+- [DESIGN.md](DESIGN.md) — design tokens, components, responsive rules, PiP styling, anti-patterns
+- [src/data/schema.ts](src/data/schema.ts) — the build-time data contract; the schema *is* the spec
+
+**Non-goals:** mit planner, spreadsheet editor, collaborative planning, accounts, backend, ACT/FFLogs integration, live Google Sheets sync, comments. Do not add them because they seem natural.
 
 ## Stack
 
 React 19 + TypeScript + Vite 8, plain CSS with custom properties. React Compiler is on via the Babel plugin in `vite.config.ts` — do not hand-write `useMemo` / `useCallback` for things the compiler handles. Oxlint, not ESLint. Deploys to GitHub Pages.
 
-**Mantine is the design system.** `@mantine/core` + `@mantine/hooks` own the palette, scale, and component appearance; `@tabler/icons-react` supplies icons. Build UI from Mantine components and style props and reach for CSS only when no prop expresses the rule — `src/App.css` is down to the handful of cases that qualify, each with a comment saying why. Read DESIGN.md §2 before adding to it.
+**Mantine is the design system.** `@mantine/core` + `@mantine/hooks` own the palette, scale, and component appearance; `@tabler/icons-react` supplies icons. Build UI from Mantine components and style props and reach for CSS only when no prop expresses the rule — `src/App.css` is down to the handful of cases that qualify, each with a comment saying why. See the Mantine note at the top of DESIGN.md before adding to it.
 
 No Tailwind, no CSS-in-JS, no second UI library, no state-management library. React state + `localStorage` only.
 
@@ -50,10 +52,9 @@ src/
     resolve.ts       generic action name + job -> concrete ability and icon
   theme.ts           Mantine theme: palette tuples, scale, variantColorResolver
   index.css          binds Mantine's color variables and aliases product tokens
-  App.css            only what Mantine props cannot express (see DESIGN.md §2)
+  App.css            only what Mantine props cannot express (see DESIGN.md)
 public/              static assets served at root
-docs/                PRD.md, DESIGN.md
-data/fights/         <fightId>/fight.json + <fightId>/<sheetId>.json (PRD §9)
+data/fights/         <fightId>/fight.json + <fightId>/<sheetId>.json
 data/icons.json      action name → icon filename (generated, committed)
 data/jobs.json       jobs, their roles, and what generic names mean per job
 public/icons/        40×40 action icons from XIVAPI (generated, committed)
@@ -65,11 +66,11 @@ The catalog is built by the `mit-catalog` Vite plugin in `vite.config.ts`: it re
 ## Conventions
 
 - **TypeScript throughout.** `verbatimModuleSyntax` is on — use `import type` for type-only imports. `noUnusedLocals` / `noUnusedParameters` are errors.
-- **Prefer Mantine props over CSS.** Layout is `Container` / `Stack` / `Group` / `Box`; type is `Text` / `Title`; spacing, size, and color come from props (`p`, `gap`, `fz`, `c`, `maw`). Write a CSS rule only when no prop expresses it — DESIGN.md §2 lists the ones that qualify and why.
+- **Prefer Mantine props over CSS.** Layout is `Container` / `Stack` / `Group` / `Box`; type is `Text` / `Title`; spacing, size, and color come from props (`p`, `gap`, `fz`, `c`, `maw`). Write a CSS rule only when no prop expresses it.
 - **The palette lives in `src/theme.ts`**, as Mantine color tuples; `src/index.css` aliases the product tokens onto Mantine's generated variables. Never hardcode a hex outside `theme.ts`. Fix a wrong Mantine default in `variantColorResolver`, not at the call site.
 - **Theming is Mantine's.** `MantineProvider` uses `defaultColorScheme="auto"` with a `localStorageColorSchemeManager` keyed `xivmits-color-scheme`, and stamps `data-mantine-color-scheme` on `<html>`. The inline script in `index.html` applies the same stored value pre-paint — change the key in both places or you get a flash.
 - **Semantic elements.** Real `<button>` and `<select>`; no clickable `<div>`. Keep visible focus rings.
-- **Mit sheet data is repo data**, validated at build time. Malformed data fails the build rather than shipping. Schemas are `.strict()` — adding a field to the data means adding it to `src/data/schema.ts` and documenting it in PRD §9, in that order.
+- **Mit sheet data is repo data**, validated at build time. Malformed data fails the build rather than shipping. Schemas are `.strict()` — adding a field to the data means adding it to `src/data/schema.ts` first.
 - **Actions flow horizontally.** They wrap only when out of room; only notes and carry-overs take a full row. Anything that forces every action onto its own line is a regression.
 - **One component renders both views.** `MitView` takes a `compact` flag for PiP. Never fork it — a PiP-only copy will drift.
 - **Slots are opaque IDs**, not a fixed enum. A sheet may key assignments by position (`MT`, `P`), by job (`SGE`), or both in one sheet. Do not hardcode a role list anywhere.
@@ -78,14 +79,14 @@ The catalog is built by the `mit-catalog` Vite plugin in `vite.config.ts`: it re
 
 ## Guardrails
 
-- **Read the two docs before non-trivial work.** They are current and specific; PRD §9 is the data contract and DESIGN.md §6 is the component spec.
+- **Read DESIGN.md and `src/data/schema.ts` before non-trivial work.** The schema is the data contract; DESIGN.md §4 is the component spec.
 - **Every mechanic renders, assigned or not.** Blank rows are load-bearing: phases repeat mechanic names, so hiding the unassigned ones makes it ambiguous which occurrence you are covering. Do not "tidy" them away.
-- **Do not expand scope.** PRD §3 lists the non-goals — planner, editor, accounts, backend, ACT/FFLogs integration, live Google Sheets sync, comments. Do not add them because they seem natural.
+- **Do not expand scope.** See the non-goals list at the top of this file. Do not add them because they seem natural.
 - **Phase switching stays instant** — client-side, no spinner, no route transition, no animation.
 - **PiP is progressive enhancement.** Feature-detect `"documentPictureInPicture" in window`; the normal view must work fully without it.
 - **No horizontal page scroll**, at any width, ever. Overflowing rows scroll inside their own container.
 - **No third-party network requests after load.** System fonts, bundled data, no CDN.
-- Check DESIGN.md §11 before adding visual flourish — hero images, gradients, skeletons, spinners, toasts, and job-color theming are explicitly out.
+- Check DESIGN.md §8 before adding visual flourish — hero images, gradients, skeletons, spinners, toasts, and job-color theming are explicitly out.
 
 ## Notes
 

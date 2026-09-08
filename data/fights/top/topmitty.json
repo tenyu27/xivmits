@@ -1244,5 +1244,3223 @@
         }
       ]
     }
-  ]
+  ],
+  "tankMits": {
+    "plans": [
+      {
+        "job": "WAR",
+        "with": "DRK",
+        "phases": [
+          {
+            "id": "p1",
+            "mechanics": [
+              {
+                "id": "wardrk-p1-r7",
+                "name": "Prepull",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Vengeance"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "wardrk-p1-r9",
+                "name": "Diffuse Wave Cannon",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ],
+                "after": "p1-r23",
+                "note": "If double invuln: Rampart when beetle dies."
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "mechanics": [
+              {
+                "id": "wardrk-p2-r21",
+                "name": "Solar Ray",
+                "actions": [
+                  {
+                    "name": "Holmgang"
+                  }
+                ],
+                "alts": [
+                  {
+                    "label": "P1 Double Invuln",
+                    "actions": [
+                      {
+                        "name": "Rampart"
+                      },
+                      {
+                        "name": "Thrill of Battle"
+                      },
+                      {
+                        "name": "Bloodwhetting"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "wardrk-p2-r23",
+                "name": "Tank Tethers",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Vengeance"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ],
+                "after": "p2-r15"
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "mechanics": [
+              {
+                "id": "wardrk-p3-r39",
+                "name": "Patch 3",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  }
+                ],
+                "after": "p3-r17"
+              },
+              {
+                "id": "wardrk-p3-r41",
+                "name": "Patch 4",
+                "actions": [
+                  {
+                    "name": "Vengeance"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ],
+                "after": "p3-r19"
+              }
+            ],
+            "note": "Personal mit is free for autos this phase",
+            "noteAfter": "p3-r11"
+          },
+          {
+            "id": "p5",
+            "mechanics": [
+              {
+                "id": "wardrk-p5-r68",
+                "name": "Delta Solar Ray",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Vengeance"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "wardrk-p5-r72",
+                "name": "Omega Solar Ray",
+                "actions": [
+                  {
+                    "name": "Holmgang"
+                  }
+                ],
+                "after": "p5-r16"
+              },
+              {
+                "id": "wardrk-p5-r74",
+                "name": "Final Buster",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Vengeance"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ],
+                "after": "p5-r20"
+              }
+            ]
+          },
+          {
+            "id": "p6",
+            "mechanics": [
+              {
+                "id": "wardrk-p6-r87",
+                "name": "Cosmo Dive 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ],
+                "after": "p6-r13"
+              },
+              {
+                "id": "wardrk-p6-r89",
+                "name": "Wave Cannon 1",
+                "actions": [
+                  {
+                    "name": "Vengeance"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ],
+                "after": "p6-r17"
+              },
+              {
+                "id": "wardrk-p6-r91",
+                "name": "Wave Cannon 2",
+                "actions": [
+                  {
+                    "name": "Holmgang"
+                  },
+                  {
+                    "name": "Nascent Flash",
+                    "buddy": true
+                  }
+                ],
+                "after": "p6-r21"
+              },
+              {
+                "id": "wardrk-p6-r93",
+                "name": "Cosmo Dive 2",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ],
+                "after": "p6-r23"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "job": "DRK",
+        "with": "WAR",
+        "phases": [
+          {
+            "id": "p1",
+            "mechanics": [
+              {
+                "id": "drkwar-p1-r7",
+                "name": "Prepull",
+                "actions": [
+                  {
+                    "name": "The Blackest Night",
+                    "buddy": true
+                  }
+                ]
+              },
+              {
+                "id": "drkwar-p1-r9",
+                "name": "Diffuse Wave Cannon",
+                "actions": [
+                  {
+                    "name": "Living Dead"
+                  }
+                ],
+                "after": "p1-r23",
+                "note": "If double invuln: Rampart when beetle dies."
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "mechanics": [
+              {
+                "id": "drkwar-p2-r21",
+                "name": "Solar Ray",
+                "actions": [
+                  {
+                    "name": "Voke after Buster"
+                  }
+                ],
+                "alts": [
+                  {
+                    "label": "P1 Double Invuln",
+                    "actions": [
+                      {
+                        "name": "Rampart"
+                      },
+                      {
+                        "name": "Dark Mind"
+                      },
+                      {
+                        "name": "Oblation"
+                      },
+                      {
+                        "name": "The Blackest Night"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "drkwar-p2-r23",
+                "name": "Tank Tethers",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Shadow Wall"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ],
+                "after": "p2-r15"
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "mechanics": [
+              {
+                "id": "drkwar-p3-r35",
+                "name": "Patch 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  }
+                ],
+                "after": "p3-r13"
+              },
+              {
+                "id": "drkwar-p3-r37",
+                "name": "Patch 2",
+                "actions": [
+                  {
+                    "name": "Shadow Wall"
+                  }
+                ],
+                "after": "p3-r15"
+              },
+              {
+                "id": "drkwar-p3-r43",
+                "name": "Critical Error",
+                "actions": [
+                  {
+                    "name": "Dark Mind"
+                  }
+                ],
+                "after": "p3-r21"
+              },
+              {
+                "id": "drkwar-p3-r45",
+                "name": "Monitors",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  }
+                ],
+                "after": "p3-r21"
+              }
+            ],
+            "note": "Personal mit is free for autos this phase",
+            "noteAfter": "p3-r11"
+          },
+          {
+            "id": "p5",
+            "mechanics": [
+              {
+                "id": "drkwar-p5-r68",
+                "name": "Delta Solar Ray",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Shadow Wall"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drkwar-p5-r70",
+                "name": "Sigma Solar Ray",
+                "actions": [
+                  {
+                    "name": "Living Dead"
+                  }
+                ],
+                "after": "p5-r12"
+              },
+              {
+                "id": "drkwar-p5-r74",
+                "name": "Final Buster",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Shadow Wall"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ],
+                "after": "p5-r20"
+              }
+            ]
+          },
+          {
+            "id": "p6",
+            "mechanics": [
+              {
+                "id": "drkwar-p6-r87",
+                "name": "Cosmo Dive 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ],
+                "after": "p6-r13"
+              },
+              {
+                "id": "drkwar-p6-r89",
+                "name": "Wave Cannon 1",
+                "actions": [
+                  {
+                    "name": "Living Dead"
+                  },
+                  {
+                    "name": "The Blackest Night",
+                    "buddy": true
+                  }
+                ],
+                "after": "p6-r17"
+              },
+              {
+                "id": "drkwar-p6-r91",
+                "name": "Wave Cannon 2",
+                "actions": [
+                  {
+                    "name": "Shadow Wall"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ],
+                "after": "p6-r21"
+              },
+              {
+                "id": "drkwar-p6-r93",
+                "name": "Cosmo Dive 2",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ],
+                "after": "p6-r23"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "job": "WAR",
+        "with": "GNB",
+        "phases": [
+          {
+            "id": "p1",
+            "mechanics": [
+              {
+                "id": "wargnb-p1-r7",
+                "name": "Prepull",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Vengeance"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "wargnb-p1-r9",
+                "name": "Diffuse Wave Cannon",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ],
+                "after": "p1-r23",
+                "note": "If double invuln: Rampart when beetle dies."
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "mechanics": [
+              {
+                "id": "wargnb-p2-r21",
+                "name": "Solar Ray",
+                "actions": [
+                  {
+                    "name": "Holmgang"
+                  }
+                ],
+                "alts": [
+                  {
+                    "label": "P1 Double Invuln",
+                    "actions": [
+                      {
+                        "name": "Rampart"
+                      },
+                      {
+                        "name": "Thrill of Battle"
+                      },
+                      {
+                        "name": "Bloodwhetting"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "wargnb-p2-r23",
+                "name": "Tank Tethers",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Vengeance"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ],
+                "after": "p2-r15"
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "mechanics": [
+              {
+                "id": "wargnb-p3-r39",
+                "name": "Patch 3",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  }
+                ],
+                "after": "p3-r17"
+              },
+              {
+                "id": "wargnb-p3-r41",
+                "name": "Patch 4",
+                "actions": [
+                  {
+                    "name": "Vengeance"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ],
+                "after": "p3-r19"
+              }
+            ],
+            "note": "Personal mit is free for autos this phase",
+            "noteAfter": "p3-r11"
+          },
+          {
+            "id": "p5",
+            "mechanics": [
+              {
+                "id": "wargnb-p5-r70",
+                "name": "Sigma Solar Ray",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Vengeance"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ],
+                "after": "p5-r12"
+              },
+              {
+                "id": "wargnb-p5-r72",
+                "name": "Omega Solar Ray",
+                "actions": [
+                  {
+                    "name": "Holmgang"
+                  }
+                ],
+                "after": "p5-r16"
+              },
+              {
+                "id": "wargnb-p5-r74",
+                "name": "Final Buster",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Vengeance"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ],
+                "after": "p5-r20"
+              }
+            ]
+          },
+          {
+            "id": "p6",
+            "mechanics": [
+              {
+                "id": "wargnb-p6-r87",
+                "name": "Cosmo Dive 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ],
+                "after": "p6-r13"
+              },
+              {
+                "id": "wargnb-p6-r89",
+                "name": "Wave Cannon 1",
+                "actions": [
+                  {
+                    "name": "Vengeance"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ],
+                "after": "p6-r17"
+              },
+              {
+                "id": "wargnb-p6-r91",
+                "name": "Wave Cannon 2",
+                "actions": [
+                  {
+                    "name": "Holmgang"
+                  },
+                  {
+                    "name": "Nascent Flash",
+                    "buddy": true
+                  }
+                ],
+                "after": "p6-r21"
+              },
+              {
+                "id": "wargnb-p6-r93",
+                "name": "Cosmo Dive 2",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ],
+                "after": "p6-r23"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "job": "GNB",
+        "with": "WAR",
+        "phases": [
+          {
+            "id": "p1",
+            "mechanics": [
+              {
+                "id": "gnbwar-p1-r7",
+                "name": "Prepull",
+                "actions": [
+                  {
+                    "name": "Heart of Corundum",
+                    "buddy": true
+                  }
+                ]
+              },
+              {
+                "id": "gnbwar-p1-r9",
+                "name": "Diffuse Wave Cannon",
+                "actions": [
+                  {
+                    "name": "Superbolide"
+                  }
+                ],
+                "after": "p1-r23",
+                "note": "If double invuln: Rampart when beetle dies."
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "mechanics": [
+              {
+                "id": "gnbwar-p2-r21",
+                "name": "Solar Ray",
+                "actions": [
+                  {
+                    "name": "Voke after Buster"
+                  }
+                ],
+                "alts": [
+                  {
+                    "label": "P1 Double Invuln",
+                    "actions": [
+                      {
+                        "name": "Rampart"
+                      },
+                      {
+                        "name": "Camouflage"
+                      },
+                      {
+                        "name": "Heart of Corundum"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "gnbwar-p2-r23",
+                "name": "Tank Tethers",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Great Nebula"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "after": "p2-r15"
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "mechanics": [
+              {
+                "id": "gnbwar-p3-r35",
+                "name": "Patch 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  }
+                ],
+                "after": "p3-r13"
+              },
+              {
+                "id": "gnbwar-p3-r37",
+                "name": "Patch 2",
+                "actions": [
+                  {
+                    "name": "Great Nebula"
+                  }
+                ],
+                "after": "p3-r15"
+              },
+              {
+                "id": "gnbwar-p3-r43",
+                "name": "Critical Error",
+                "actions": [
+                  {
+                    "name": "Camouflage"
+                  }
+                ],
+                "after": "p3-r21"
+              },
+              {
+                "id": "gnbwar-p3-r45",
+                "name": "Monitors",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  }
+                ],
+                "after": "p3-r21"
+              }
+            ],
+            "note": "Personal mit is free for autos this phase",
+            "noteAfter": "p3-r11"
+          },
+          {
+            "id": "p5",
+            "mechanics": [
+              {
+                "id": "gnbwar-p5-r68",
+                "name": "Delta Solar Ray",
+                "actions": [
+                  {
+                    "name": "Superbolide"
+                  }
+                ]
+              },
+              {
+                "id": "gnbwar-p5-r70",
+                "name": "Sigma Solar Ray",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Great Nebula"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "after": "p5-r12"
+              },
+              {
+                "id": "gnbwar-p5-r74",
+                "name": "Final Buster",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Great Nebula"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "after": "p5-r20"
+              }
+            ]
+          },
+          {
+            "id": "p6",
+            "mechanics": [
+              {
+                "id": "gnbwar-p6-r87",
+                "name": "Cosmo Dive 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "after": "p6-r13"
+              },
+              {
+                "id": "gnbwar-p6-r89",
+                "name": "Wave Cannon 1",
+                "actions": [
+                  {
+                    "name": "Superbolide"
+                  },
+                  {
+                    "name": "Heart of Corundum",
+                    "buddy": true
+                  }
+                ],
+                "after": "p6-r17"
+              },
+              {
+                "id": "gnbwar-p6-r91",
+                "name": "Wave Cannon 2",
+                "actions": [
+                  {
+                    "name": "Great Nebula"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "after": "p6-r21"
+              },
+              {
+                "id": "gnbwar-p6-r93",
+                "name": "Cosmo Dive 2",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "after": "p6-r23"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "job": "WAR",
+        "with": "PLD",
+        "phases": [
+          {
+            "id": "p1",
+            "mechanics": [
+              {
+                "id": "warpld-p1-r7",
+                "name": "Prepull",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Vengeance"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "warpld-p1-r9",
+                "name": "Diffuse Wave Cannon",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ],
+                "after": "p1-r23",
+                "note": "If double invuln: Rampart when beetle dies."
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "mechanics": [
+              {
+                "id": "warpld-p2-r21",
+                "name": "Solar Ray",
+                "actions": [
+                  {
+                    "name": "Holmgang"
+                  }
+                ],
+                "alts": [
+                  {
+                    "label": "P1 Double Invuln",
+                    "actions": [
+                      {
+                        "name": "Rampart"
+                      },
+                      {
+                        "name": "Thrill of Battle"
+                      },
+                      {
+                        "name": "Bloodwhetting"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "warpld-p2-r23",
+                "name": "Tank Tethers",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Vengeance"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ],
+                "after": "p2-r15"
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "mechanics": [
+              {
+                "id": "warpld-p3-r39",
+                "name": "Patch 3",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  }
+                ],
+                "after": "p3-r17"
+              },
+              {
+                "id": "warpld-p3-r41",
+                "name": "Patch 4",
+                "actions": [
+                  {
+                    "name": "Vengeance"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ],
+                "after": "p3-r19"
+              }
+            ],
+            "note": "Personal mit is free for autos this phase",
+            "noteAfter": "p3-r11"
+          },
+          {
+            "id": "p5",
+            "mechanics": [
+              {
+                "id": "warpld-p5-r68",
+                "name": "Delta Solar Ray",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Vengeance"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "warpld-p5-r70",
+                "name": "Sigma Solar Ray",
+                "actions": [
+                  {
+                    "name": "Holmgang"
+                  }
+                ],
+                "after": "p5-r12",
+                "note": "Prepop Rampart right before Omega-F is targettable (after Sigma)"
+              },
+              {
+                "id": "warpld-p5-r72",
+                "name": "Omega Solar Ray",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Vengeance"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ],
+                "after": "p5-r16"
+              },
+              {
+                "id": "warpld-p5-r74",
+                "name": "Final Buster",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  }
+                ],
+                "after": "p5-r20"
+              }
+            ]
+          },
+          {
+            "id": "p6",
+            "mechanics": [
+              {
+                "id": "warpld-p6-r87",
+                "name": "Cosmo Dive 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Nascent Flash",
+                    "buddy": true
+                  }
+                ],
+                "after": "p6-r13"
+              },
+              {
+                "id": "warpld-p6-r89",
+                "name": "Wave Cannon 1",
+                "actions": [
+                  {
+                    "name": "Vengeance"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ],
+                "after": "p6-r17"
+              },
+              {
+                "id": "warpld-p6-r91",
+                "name": "Wave Cannon 2",
+                "actions": [
+                  {
+                    "name": "Holmgang"
+                  },
+                  {
+                    "name": "Nascent Flash",
+                    "buddy": true
+                  }
+                ],
+                "after": "p6-r21"
+              },
+              {
+                "id": "warpld-p6-r93",
+                "name": "Cosmo Dive 2",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ],
+                "after": "p6-r23"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "job": "PLD",
+        "with": "WAR",
+        "phases": [
+          {
+            "id": "p1",
+            "mechanics": [
+              {
+                "id": "pldwar-p1-r7",
+                "name": "Prepull",
+                "actions": [
+                  {
+                    "name": "Intervention",
+                    "buddy": true
+                  }
+                ]
+              },
+              {
+                "id": "pldwar-p1-r9",
+                "name": "Diffuse Wave Cannon",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  },
+                  {
+                    "name": "Intervention",
+                    "buddy": true
+                  }
+                ],
+                "after": "p1-r23",
+                "note": "If double invuln: Rampart when beetle dies."
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "mechanics": [
+              {
+                "id": "pldwar-p2-r21",
+                "name": "Solar Ray",
+                "actions": [
+                  {
+                    "name": "Voke after Buster"
+                  }
+                ],
+                "alts": [
+                  {
+                    "label": "P1 Double Invuln",
+                    "actions": [
+                      {
+                        "name": "Rampart"
+                      },
+                      {
+                        "name": "Holy Sheltron"
+                      },
+                      {
+                        "name": "Bulwark"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "pldwar-p2-r23",
+                "name": "Tank Tethers",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Sentinel"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  },
+                  {
+                    "name": "Bulwark"
+                  }
+                ],
+                "after": "p2-r15"
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "mechanics": [
+              {
+                "id": "pldwar-p3-r35",
+                "name": "Patch 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  }
+                ],
+                "after": "p3-r13"
+              },
+              {
+                "id": "pldwar-p3-r37",
+                "name": "Patch 2",
+                "actions": [
+                  {
+                    "name": "Sentinel"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ],
+                "after": "p3-r15"
+              },
+              {
+                "id": "pldwar-p3-r43",
+                "name": "Critical Error",
+                "actions": [
+                  {
+                    "name": "Holy Sheltron"
+                  },
+                  {
+                    "name": "Bulwark"
+                  }
+                ],
+                "after": "p3-r21"
+              },
+              {
+                "id": "pldwar-p3-r45",
+                "name": "Monitors",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  }
+                ],
+                "after": "p3-r21"
+              }
+            ],
+            "note": "Personal mit is free for autos this phase",
+            "noteAfter": "p3-r11"
+          },
+          {
+            "id": "p5",
+            "mechanics": [
+              {
+                "id": "pldwar-p5-r68",
+                "name": "Delta Solar Ray",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Sentinel"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  },
+                  {
+                    "name": "Bulwark"
+                  }
+                ]
+              },
+              {
+                "id": "pldwar-p5-r72",
+                "name": "Omega Solar Ray",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Reprisal"
+                  },
+                  {
+                    "name": "Intervention",
+                    "buddy": true
+                  }
+                ],
+                "after": "p5-r16"
+              },
+              {
+                "id": "pldwar-p5-r74",
+                "name": "Final Buster",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Sentinel"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Reprisal"
+                  },
+                  {
+                    "name": "Intervention",
+                    "buddy": true
+                  }
+                ],
+                "after": "p5-r20"
+              },
+              {
+                "id": "pldwar-p5-note",
+                "name": "Sigma Solar Ray",
+                "actions": [],
+                "after": "p5-r12",
+                "note": "Prepop Rampart, 1st gcd Bulwark right before Omega-F is targettable (after Sigma)"
+              }
+            ]
+          },
+          {
+            "id": "p6",
+            "mechanics": [
+              {
+                "id": "pldwar-p6-r87",
+                "name": "Cosmo Dive 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  },
+                  {
+                    "name": "Intervention",
+                    "buddy": true
+                  }
+                ],
+                "after": "p6-r13"
+              },
+              {
+                "id": "pldwar-p6-r89",
+                "name": "Wave Cannon 1",
+                "actions": [
+                  {
+                    "name": "Hallowed Ground"
+                  },
+                  {
+                    "name": "Intervention",
+                    "buddy": true
+                  }
+                ],
+                "after": "p6-r17"
+              },
+              {
+                "id": "pldwar-p6-r91",
+                "name": "Wave Cannon 2",
+                "actions": [
+                  {
+                    "name": "Sentinel"
+                  },
+                  {
+                    "name": "Holy Sheltron (hold Passage for Block)"
+                  }
+                ],
+                "after": "p6-r21"
+              },
+              {
+                "id": "pldwar-p6-r93",
+                "name": "Cosmo Dive 2",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  },
+                  {
+                    "name": "Intervention",
+                    "buddy": true
+                  }
+                ],
+                "after": "p6-r23"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "job": "GNB",
+        "with": "DRK",
+        "phases": [
+          {
+            "id": "p1",
+            "mechanics": [
+              {
+                "id": "gnbdrk-p1-r7",
+                "name": "Prepull",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Great Nebula"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnbdrk-p1-r9",
+                "name": "Diffuse Wave Cannon",
+                "actions": [
+                  {
+                    "name": "Superbolide"
+                  }
+                ],
+                "after": "p1-r23",
+                "note": "If double invuln: Rampart when beetle dies."
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "mechanics": [
+              {
+                "id": "gnbdrk-p2-r21",
+                "name": "Solar Ray",
+                "actions": [
+                  {
+                    "name": "Voke after Buster"
+                  }
+                ],
+                "alts": [
+                  {
+                    "label": "P1 Double Invuln",
+                    "actions": [
+                      {
+                        "name": "Rampart"
+                      },
+                      {
+                        "name": "Camouflage"
+                      },
+                      {
+                        "name": "Heart of Corundum"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "gnbdrk-p2-r23",
+                "name": "Tank Tethers",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Great Nebula"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "after": "p2-r15"
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "mechanics": [
+              {
+                "id": "gnbdrk-p3-r39",
+                "name": "Patch 3",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Camouflage"
+                  }
+                ],
+                "after": "p3-r17"
+              },
+              {
+                "id": "gnbdrk-p3-r41",
+                "name": "Patch 4",
+                "actions": [
+                  {
+                    "name": "Great Nebula"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "after": "p3-r19"
+              }
+            ],
+            "note": "Personal mit is free for autos this phase",
+            "noteAfter": "p3-r11"
+          },
+          {
+            "id": "p5",
+            "mechanics": [
+              {
+                "id": "gnbdrk-p5-r68",
+                "name": "Delta Solar Ray",
+                "actions": [
+                  {
+                    "name": "Superbolide"
+                  }
+                ]
+              },
+              {
+                "id": "gnbdrk-p5-r72",
+                "name": "Omega Solar Ray",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "after": "p5-r16"
+              },
+              {
+                "id": "gnbdrk-p5-r74",
+                "name": "Final Buster",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Great Nebula"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "after": "p5-r20"
+              },
+              {
+                "id": "gnbdrk-p5-note",
+                "name": "Sigma Solar Ray",
+                "actions": [],
+                "after": "p5-r12",
+                "note": "Prepop Rampart+Camo right before Omega-F is targettable (after Sigma)"
+              }
+            ]
+          },
+          {
+            "id": "p6",
+            "mechanics": [
+              {
+                "id": "gnbdrk-p6-r87",
+                "name": "Cosmo Dive 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "after": "p6-r13"
+              },
+              {
+                "id": "gnbdrk-p6-r89",
+                "name": "Wave Cannon 1",
+                "actions": [
+                  {
+                    "name": "Great Nebula"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "after": "p6-r17"
+              },
+              {
+                "id": "gnbdrk-p6-r91",
+                "name": "Wave Cannon 2",
+                "actions": [
+                  {
+                    "name": "Superbolide"
+                  },
+                  {
+                    "name": "Heart of Corundum",
+                    "buddy": true
+                  }
+                ],
+                "after": "p6-r21"
+              },
+              {
+                "id": "gnbdrk-p6-r93",
+                "name": "Cosmo Dive 2",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "after": "p6-r23"
+              }
+            ],
+            "note": "You can switch Wave Cannon 1 & 2 tank invulns if you like"
+          }
+        ]
+      },
+      {
+        "job": "DRK",
+        "with": "GNB",
+        "phases": [
+          {
+            "id": "p1",
+            "mechanics": [
+              {
+                "id": "drkgnb-p1-r7",
+                "name": "Prepull",
+                "actions": [
+                  {
+                    "name": "The Blackest Night",
+                    "buddy": true
+                  }
+                ]
+              },
+              {
+                "id": "drkgnb-p1-r9",
+                "name": "Diffuse Wave Cannon",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "Oblation"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  }
+                ],
+                "after": "p1-r23",
+                "note": "If double invuln: Rampart when beetle dies."
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "mechanics": [
+              {
+                "id": "drkgnb-p2-r21",
+                "name": "Solar Ray",
+                "actions": [
+                  {
+                    "name": "Living Dead"
+                  }
+                ],
+                "alts": [
+                  {
+                    "label": "P1 Double Invuln",
+                    "actions": [
+                      {
+                        "name": "Rampart"
+                      },
+                      {
+                        "name": "Dark Mind"
+                      },
+                      {
+                        "name": "Oblation"
+                      },
+                      {
+                        "name": "The Blackest Night"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "drkgnb-p2-r23",
+                "name": "Tank Tethers",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Shadow Wall"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ],
+                "after": "p2-r15"
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "mechanics": [
+              {
+                "id": "drkgnb-p3-r35",
+                "name": "Patch 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  }
+                ],
+                "after": "p3-r13"
+              },
+              {
+                "id": "drkgnb-p3-r37",
+                "name": "Patch 2",
+                "actions": [
+                  {
+                    "name": "Shadow Wall"
+                  }
+                ],
+                "after": "p3-r15"
+              },
+              {
+                "id": "drkgnb-p3-r43",
+                "name": "Critical Error",
+                "actions": [
+                  {
+                    "name": "Dark Mind"
+                  }
+                ],
+                "after": "p3-r21"
+              },
+              {
+                "id": "drkgnb-p3-r45",
+                "name": "Monitors",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  }
+                ],
+                "after": "p3-r21"
+              }
+            ],
+            "note": "Personal mit is free for autos this phase",
+            "noteAfter": "p3-r11"
+          },
+          {
+            "id": "p5",
+            "mechanics": [
+              {
+                "id": "drkgnb-p5-r70",
+                "name": "Sigma Solar Ray",
+                "actions": [
+                  {
+                    "name": "Living Dead"
+                  }
+                ],
+                "after": "p5-r12",
+                "note": "Prepop Rampart right before Omega-F is targettable (after Sigma)"
+              },
+              {
+                "id": "drkgnb-p5-r72",
+                "name": "Omega Solar Ray",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Shadow Wall"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  },
+                  {
+                    "name": "Reprisal"
+                  },
+                  {
+                    "name": "The Blackest Night",
+                    "buddy": true
+                  }
+                ],
+                "after": "p5-r16"
+              },
+              {
+                "id": "drkgnb-p5-r74",
+                "name": "Final Buster",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  },
+                  {
+                    "name": "Reprisal"
+                  }
+                ],
+                "after": "p5-r20"
+              }
+            ]
+          },
+          {
+            "id": "p6",
+            "mechanics": [
+              {
+                "id": "drkgnb-p6-r87",
+                "name": "Cosmo Dive 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ],
+                "after": "p6-r13"
+              },
+              {
+                "id": "drkgnb-p6-r89",
+                "name": "Wave Cannon 1",
+                "actions": [
+                  {
+                    "name": "Living Dead"
+                  },
+                  {
+                    "name": "The Blackest Night",
+                    "buddy": true
+                  }
+                ],
+                "after": "p6-r17"
+              },
+              {
+                "id": "drkgnb-p6-r91",
+                "name": "Wave Cannon 2",
+                "actions": [
+                  {
+                    "name": "Shadow Wall"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ],
+                "after": "p6-r21"
+              },
+              {
+                "id": "drkgnb-p6-r93",
+                "name": "Cosmo Dive 2",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ],
+                "after": "p6-r23"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "job": "GNB",
+        "with": "PLD",
+        "phases": [
+          {
+            "id": "p1",
+            "mechanics": [
+              {
+                "id": "gnbpld-p1-r7",
+                "name": "Prepull",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Great Nebula"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnbpld-p1-r9",
+                "name": "Diffuse Wave Cannon",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "after": "p1-r23",
+                "note": "If double invuln: Rampart when beetle dies."
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "mechanics": [
+              {
+                "id": "gnbpld-p2-r21",
+                "name": "Solar Ray",
+                "actions": [
+                  {
+                    "name": "Superbolide"
+                  }
+                ],
+                "alts": [
+                  {
+                    "label": "P1 Double Invuln",
+                    "actions": [
+                      {
+                        "name": "Rampart"
+                      },
+                      {
+                        "name": "Camouflage"
+                      },
+                      {
+                        "name": "Heart of Corundum"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "gnbpld-p2-r23",
+                "name": "Tank Tethers",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Great Nebula"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "after": "p2-r15"
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "mechanics": [
+              {
+                "id": "gnbpld-p3-r39",
+                "name": "Patch 3",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Camouflage"
+                  }
+                ],
+                "after": "p3-r17"
+              },
+              {
+                "id": "gnbpld-p3-r41",
+                "name": "Patch 4",
+                "actions": [
+                  {
+                    "name": "Great Nebula"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "after": "p3-r19"
+              }
+            ],
+            "note": "Personal mit is free for autos this phase",
+            "noteAfter": "p3-r11"
+          },
+          {
+            "id": "p5",
+            "mechanics": [
+              {
+                "id": "gnbpld-p5-r68",
+                "name": "Delta Solar Ray",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Great Nebula"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnbpld-p5-r70",
+                "name": "Sigma Solar Ray",
+                "actions": [
+                  {
+                    "name": "Superbolide"
+                  }
+                ],
+                "after": "p5-r12",
+                "note": "Prepop Rampart+Camo right before Omega-F is targettable (after Sigma)"
+              },
+              {
+                "id": "gnbpld-p5-r72",
+                "name": "Omega Solar Ray",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "after": "p5-r16"
+              },
+              {
+                "id": "gnbpld-p5-r74",
+                "name": "Final Buster",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Great Nebula"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "after": "p5-r20"
+              }
+            ]
+          },
+          {
+            "id": "p6",
+            "mechanics": [
+              {
+                "id": "gnbpld-p6-r87",
+                "name": "Cosmo Dive 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "after": "p6-r13"
+              },
+              {
+                "id": "gnbpld-p6-r89",
+                "name": "Wave Cannon 1",
+                "actions": [
+                  {
+                    "name": "Great Nebula"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "after": "p6-r17"
+              },
+              {
+                "id": "gnbpld-p6-r91",
+                "name": "Wave Cannon 2",
+                "actions": [
+                  {
+                    "name": "Superbolide"
+                  },
+                  {
+                    "name": "Heart of Corundum",
+                    "buddy": true
+                  }
+                ],
+                "after": "p6-r21"
+              },
+              {
+                "id": "gnbpld-p6-r93",
+                "name": "Cosmo Dive 2",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "after": "p6-r23"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "job": "PLD",
+        "with": "GNB",
+        "phases": [
+          {
+            "id": "p1",
+            "mechanics": [
+              {
+                "id": "pldgnb-p1-r7",
+                "name": "Prepull",
+                "actions": [
+                  {
+                    "name": "Intervention",
+                    "buddy": true
+                  }
+                ]
+              },
+              {
+                "id": "pldgnb-p1-r9",
+                "name": "Diffuse Wave Cannon",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Intervention",
+                    "buddy": true
+                  }
+                ],
+                "after": "p1-r23",
+                "note": "If double invuln: Rampart when beetle dies."
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "mechanics": [
+              {
+                "id": "pldgnb-p2-r21",
+                "name": "Solar Ray",
+                "actions": [
+                  {
+                    "name": "Voke after Buster"
+                  }
+                ],
+                "alts": [
+                  {
+                    "label": "P1 Double Invuln",
+                    "actions": [
+                      {
+                        "name": "Rampart"
+                      },
+                      {
+                        "name": "Holy Sheltron"
+                      },
+                      {
+                        "name": "Bulwark"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "pldgnb-p2-r23",
+                "name": "Tank Tethers",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Sentinel"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  },
+                  {
+                    "name": "Bulwark"
+                  }
+                ],
+                "after": "p2-r15"
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "mechanics": [
+              {
+                "id": "pldgnb-p3-r35",
+                "name": "Patch 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  }
+                ],
+                "after": "p3-r13"
+              },
+              {
+                "id": "pldgnb-p3-r37",
+                "name": "Patch 2",
+                "actions": [
+                  {
+                    "name": "Sentinel"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ],
+                "after": "p3-r15"
+              },
+              {
+                "id": "pldgnb-p3-r43",
+                "name": "Critical Error",
+                "actions": [
+                  {
+                    "name": "Holy Sheltron"
+                  },
+                  {
+                    "name": "Bulwark"
+                  }
+                ],
+                "after": "p3-r21"
+              },
+              {
+                "id": "pldgnb-p3-r45",
+                "name": "Monitors",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  }
+                ],
+                "after": "p3-r21"
+              }
+            ],
+            "note": "Personal mit is free for autos this phase",
+            "noteAfter": "p3-r11"
+          },
+          {
+            "id": "p5",
+            "mechanics": [
+              {
+                "id": "pldgnb-p5-r68",
+                "name": "Delta Solar Ray",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Sentinel"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  },
+                  {
+                    "name": "Bulwark"
+                  }
+                ]
+              },
+              {
+                "id": "pldgnb-p5-r72",
+                "name": "Omega Solar Ray",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Sentinel"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Reprisal"
+                  },
+                  {
+                    "name": "Intervention",
+                    "buddy": true
+                  }
+                ],
+                "after": "p5-r16"
+              },
+              {
+                "id": "pldgnb-p5-r74",
+                "name": "Final Buster",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  },
+                  {
+                    "name": "Reprisal"
+                  },
+                  {
+                    "name": "Intervention",
+                    "buddy": true
+                  }
+                ],
+                "after": "p5-r20"
+              },
+              {
+                "id": "pldgnb-p5-note",
+                "name": "Sigma Solar Ray",
+                "actions": [],
+                "after": "p5-r12",
+                "note": "Prepop Rampart, 1st gcd Bulwark right before Omega-F is targettable (after Sigma)"
+              }
+            ]
+          },
+          {
+            "id": "p6",
+            "mechanics": [
+              {
+                "id": "pldgnb-p6-r87",
+                "name": "Cosmo Dive 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  },
+                  {
+                    "name": "Intervention",
+                    "buddy": true
+                  }
+                ],
+                "after": "p6-r13"
+              },
+              {
+                "id": "pldgnb-p6-r89",
+                "name": "Wave Cannon 1",
+                "actions": [
+                  {
+                    "name": "Hallowed Ground"
+                  },
+                  {
+                    "name": "Intervention",
+                    "buddy": true
+                  }
+                ],
+                "after": "p6-r17"
+              },
+              {
+                "id": "pldgnb-p6-r91",
+                "name": "Wave Cannon 2",
+                "actions": [
+                  {
+                    "name": "Sentinel"
+                  },
+                  {
+                    "name": "Holy Sheltron (hold Passage for block)"
+                  }
+                ],
+                "after": "p6-r21"
+              },
+              {
+                "id": "pldgnb-p6-r93",
+                "name": "Cosmo Dive 2",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  },
+                  {
+                    "name": "Intervention",
+                    "buddy": true
+                  }
+                ],
+                "after": "p6-r23"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "job": "PLD",
+        "with": "DRK",
+        "phases": [
+          {
+            "id": "p1",
+            "mechanics": [
+              {
+                "id": "plddrk-p1-r7",
+                "name": "Prepull",
+                "actions": [
+                  {
+                    "name": "Intervention",
+                    "buddy": true
+                  }
+                ]
+              },
+              {
+                "id": "plddrk-p1-r9",
+                "name": "Diffuse Wave Cannon",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Intervention",
+                    "buddy": true
+                  }
+                ],
+                "after": "p1-r23",
+                "note": "If double invuln: Rampart when beetle dies."
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "mechanics": [
+              {
+                "id": "plddrk-p2-r21",
+                "name": "Solar Ray",
+                "actions": [
+                  {
+                    "name": "Voke after Buster"
+                  }
+                ],
+                "alts": [
+                  {
+                    "label": "P1 Double Invuln",
+                    "actions": [
+                      {
+                        "name": "Rampart"
+                      },
+                      {
+                        "name": "Bulwark"
+                      },
+                      {
+                        "name": "Holy Sheltron"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "plddrk-p2-r23",
+                "name": "Tank Tethers",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Sentinel"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  },
+                  {
+                    "name": "Bulwark"
+                  }
+                ],
+                "after": "p2-r15"
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "mechanics": [
+              {
+                "id": "plddrk-p3-r39",
+                "name": "Patch 3",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Bulwark"
+                  }
+                ],
+                "after": "p3-r17"
+              },
+              {
+                "id": "plddrk-p3-r41",
+                "name": "Patch 4",
+                "actions": [
+                  {
+                    "name": "Sentinel"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ],
+                "after": "p3-r19"
+              }
+            ],
+            "note": "Personal mit is free for autos this phase",
+            "noteAfter": "p3-r11"
+          },
+          {
+            "id": "p5",
+            "mechanics": [
+              {
+                "id": "plddrk-p5-r68",
+                "name": "Delta Solar Ray",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Sentinel"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  },
+                  {
+                    "name": "Bulwark"
+                  }
+                ]
+              },
+              {
+                "id": "plddrk-p5-r72",
+                "name": "Omega Solar Ray",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  },
+                  {
+                    "name": "Intervention",
+                    "buddy": true
+                  }
+                ],
+                "after": "p5-r16"
+              },
+              {
+                "id": "plddrk-p5-r74",
+                "name": "Final Buster",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Sentinel"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Intervention",
+                    "buddy": true
+                  }
+                ],
+                "after": "p5-r20"
+              },
+              {
+                "id": "plddrk-p5-note",
+                "name": "Sigma Solar Ray",
+                "actions": [],
+                "after": "p5-r12",
+                "note": "Prepop Rampart, 1st gcd Bulwark right before Omega-F is targettable (after Sigma)"
+              }
+            ]
+          },
+          {
+            "id": "p6",
+            "mechanics": [
+              {
+                "id": "plddrk-p6-r87",
+                "name": "Cosmo Dive 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  },
+                  {
+                    "name": "Intervention",
+                    "buddy": true
+                  }
+                ],
+                "after": "p6-r13"
+              },
+              {
+                "id": "plddrk-p6-r89",
+                "name": "Wave Cannon 1",
+                "actions": [
+                  {
+                    "name": "Sentinel"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ],
+                "after": "p6-r17"
+              },
+              {
+                "id": "plddrk-p6-r91",
+                "name": "Wave Cannon 2",
+                "actions": [
+                  {
+                    "name": "Hallowed Ground (Passage of Arms)"
+                  },
+                  {
+                    "name": "Intervention",
+                    "buddy": true
+                  }
+                ],
+                "after": "p6-r21"
+              },
+              {
+                "id": "plddrk-p6-r93",
+                "name": "Cosmo Dive 2",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  },
+                  {
+                    "name": "Intervention",
+                    "buddy": true
+                  }
+                ],
+                "after": "p6-r23"
+              }
+            ],
+            "note": "You can switch Wave Cannon 1 & 2 tank invulns if you like"
+          }
+        ]
+      },
+      {
+        "job": "DRK",
+        "with": "PLD",
+        "phases": [
+          {
+            "id": "p1",
+            "mechanics": [
+              {
+                "id": "drkpld-p1-r7",
+                "name": "Prepull",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Shadow Wall"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drkpld-p1-r9",
+                "name": "Diffuse Wave Cannon",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "Oblation"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  }
+                ],
+                "after": "p1-r23",
+                "note": "If double invuln: Rampart when beetle dies."
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "mechanics": [
+              {
+                "id": "drkpld-p2-r21",
+                "name": "Solar Ray",
+                "actions": [
+                  {
+                    "name": "Living Dead"
+                  }
+                ],
+                "alts": [
+                  {
+                    "label": "P1 Double Invuln",
+                    "actions": [
+                      {
+                        "name": "Rampart"
+                      },
+                      {
+                        "name": "Dark Mind"
+                      },
+                      {
+                        "name": "Oblation"
+                      },
+                      {
+                        "name": "The Blackest Night"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "drkpld-p2-r23",
+                "name": "Tank Tethers",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Shadow Wall"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ],
+                "after": "p2-r15"
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "mechanics": [
+              {
+                "id": "drkpld-p3-r35",
+                "name": "Patch 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  }
+                ],
+                "after": "p3-r13"
+              },
+              {
+                "id": "drkpld-p3-r37",
+                "name": "Patch 2",
+                "actions": [
+                  {
+                    "name": "Shadow Wall"
+                  }
+                ],
+                "after": "p3-r15"
+              },
+              {
+                "id": "drkpld-p3-r43",
+                "name": "Critical Error",
+                "actions": [
+                  {
+                    "name": "Dark Mind"
+                  }
+                ],
+                "after": "p3-r21"
+              },
+              {
+                "id": "drkpld-p3-r45",
+                "name": "Monitors",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  }
+                ],
+                "after": "p3-r21"
+              }
+            ],
+            "note": "Personal mit is free for autos this phase",
+            "noteAfter": "p3-r11"
+          },
+          {
+            "id": "p5",
+            "mechanics": [
+              {
+                "id": "drkpld-p5-r68",
+                "name": "Delta Solar Ray",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Shadow Wall"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drkpld-p5-r70",
+                "name": "Sigma Solar Ray",
+                "actions": [
+                  {
+                    "name": "Living Dead"
+                  }
+                ],
+                "after": "p5-r12",
+                "note": "Prepop Rampart right before Omega-F is targettable (after Sigma)"
+              },
+              {
+                "id": "drkpld-p5-r72",
+                "name": "Omega Solar Ray",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Shadow Wall"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  },
+                  {
+                    "name": "Reprisal"
+                  },
+                  {
+                    "name": "The Blackest Night",
+                    "buddy": true
+                  }
+                ],
+                "after": "p5-r16"
+              },
+              {
+                "id": "drkpld-p5-r74",
+                "name": "Final Buster",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "Oblation"
+                  },
+                  {
+                    "name": "Reprisal"
+                  },
+                  {
+                    "name": "The Blackest Night",
+                    "buddy": true
+                  }
+                ],
+                "after": "p5-r20"
+              }
+            ]
+          },
+          {
+            "id": "p6",
+            "mechanics": [
+              {
+                "id": "drkpld-p6-r87",
+                "name": "Cosmo Dive 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ],
+                "after": "p6-r13"
+              },
+              {
+                "id": "drkpld-p6-r89",
+                "name": "Wave Cannon 1",
+                "actions": [
+                  {
+                    "name": "Living Dead"
+                  },
+                  {
+                    "name": "The Blackest Night",
+                    "buddy": true
+                  }
+                ],
+                "after": "p6-r17"
+              },
+              {
+                "id": "drkpld-p6-r91",
+                "name": "Wave Cannon 2",
+                "actions": [
+                  {
+                    "name": "Shadow Wall"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ],
+                "after": "p6-r21"
+              },
+              {
+                "id": "drkpld-p6-r93",
+                "name": "Cosmo Dive 2",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ],
+                "after": "p6-r23"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 }

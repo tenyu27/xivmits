@@ -25,7 +25,7 @@ export function resolveAction(name: string, job?: Job): Resolved {
 
   // A job list is a constraint, not a hint. "Party Mit (GNB/DRK)" is an
   // instruction to whoever is the GNB or DRK - so for anyone else it is not an
-  // assignment at all, and the view shows only what *you* press (PRD section 5).
+  // assignment at all, and the view shows only what *you* press.
   // With no job chosen we cannot judge, so the line stays.
   if (qualifier && JOB_LIST.test(qualifier) && job && !qualifier.split('/').includes(job.id)) {
     return { applies: false }

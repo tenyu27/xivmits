@@ -11,7 +11,7 @@ const accent: MantineColorsTuple = [
   '#3b82f6', '#2563eb', '#1d4ed8', '#1e40af', '#16273f',
 ]
 
-// Overrides Mantine's stock greys with the surfaces from DESIGN.md §3.
+// Overrides Mantine's stock greys with the surfaces from DESIGN.md §2.
 // Index order is Mantine's: 0 is the lightest text, 7 the page background.
 // Index 1 is the secondary text shade, tuned so a mechanic name reads a clear
 // step below an ability name (1.6x) without dropping to note level.
@@ -22,7 +22,7 @@ const dark: MantineColorsTuple = [
 
 // Index 5 is the faint text shade (timestamps). It is darker than a stock grey
 // ramp would put it because #8b94a3 on white measures 3.06:1 - under the 4.5:1
-// DESIGN.md §3 requires.
+// DESIGN.md §2 requires.
 // Warm neutrals for the mechanic (cast) name. The ability text is cool-tinted,
 // so shifting the cast warm separates the two by hue as well as by contrast -
 // they stop reading as the same kind of text at a glance. Not an accent: these

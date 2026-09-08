@@ -35,12 +35,17 @@ ALIASES = {
     'LB3': 'Last Bastion',
     'Tank LB': 'Last Bastion',
     'Healer LB': 'Last Bastion',
+    # TOP Mitty's tank-pairing tabs write pre-7.0 / shorthand names.
+    'Vengeance': 'Damnation',
 }
 
 # Names that describe a decision, not a single ability. These intentionally get
-# no icon - the text carries the whole meaning (PRD section 5).
+# no icon - the text carries the whole meaning.
 NO_ICON = {
     'Assist Tanks', 'Avoid HP-restoring abilities', 'Manage Accretion healing',
+    # TOP Mitty tank tabs: "press your whole kit" / "cover your co-tank" / a
+    # cue, not one button.
+    'Kitchen Sink', 'Buddy Mit', 'Voke after Buster',
 }
 
 # Generic names resolved per job from data/jobs.json instead of by search.
@@ -111,6 +116,11 @@ def main(force=False):
             for mechanic in phase['mechanics']:
                 for actions in mechanic['assignments'].values():
                     names.update(action['name'] for action in actions)
+        # Tank personal-mit plans carry their own mechanic/action lists.
+        for plan in sheet.get('tankMits', {}).get('plans', []):
+            for phase in plan['phases']:
+                for mechanic in phase['mechanics']:
+                    names.update(action['name'] for action in mechanic['actions'])
 
     # Every per-job ability a sheet can resolve a generic name to.
     jobs = json.loads((ROOT / 'data/jobs.json').read_text())['jobs']

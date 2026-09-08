@@ -151,6 +151,37 @@
 .assignments > .assignment.unassigned { padding-block: 6px; }
 .assignments > .assignment + .assignment { border-top: 1px solid var(--border); }
 
+/* Spliced tank personal-mit rows. The accent left edge runs the row's body -
+   actions, notes and the small inline asides - but never the mechanic name
+   above it, which reads like any other. The body's own rules (the grey ability
+   rule, the aside indent) give way to that single edge.
+   - .personal-plain adds a mechanic the party timeline lacks; a normal row
+     otherwise - heading, padding, dividers.
+   - .personal-bar repeats the name of the row above, so it drops its heading
+     (in the markup), the divider above it, and its top padding: it reads as a
+     continuation of that row. */
+.personal-body {
+  border-left: 2px solid var(--accent-border);
+  padding-left: var(--mantine-spacing-sm);
+}
+.personal-body .actions,
+.personal-body .aside { border-left: 0; padding-left: 0; }
+.assignments > .assignment.personal-bar { border-top: 0; padding-top: 0; }
+.assignments > .assignment.personal-bar .personal-body > :first-child { margin-top: 0; }
+
+/* Small inline row for a mit that is an alternative or a co-tank cover rather
+   than a primary press: one wrapping line, note-sized, shrunk icons. */
+.aside {
+  margin-top: 4px;
+  padding-left: var(--mantine-spacing-sm);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px var(--mantine-spacing-xs);
+}
+.aside-item { display: inline-flex; align-items: center; gap: 3px; min-height: 18px; }
+.aside-icon { border-radius: 3px; flex: 0 0 auto; }
+
 /* The cast and the ability are both important, so neither is dimmed. They are
    told apart structurally instead: the cast is a full-width heading row with
    its timestamp, the abilities are indented beneath it on a rule. */
@@ -175,6 +206,7 @@
 
 /* Abilities sit indented under their cast, on a rule that ties them to it. */
 .actions {
+  margin-top: 4px;
   padding-left: var(--mantine-spacing-sm);
   border-left: 2px solid var(--border);
 }
@@ -186,7 +218,15 @@
   align-items: baseline;
   gap: 4px var(--mantine-spacing-md);
 }
-.action-item { min-width: 0; }
+/* Every action row is the icon's height in all three display modes, so toggling
+   Icon / Text / Icon+text never reflows the rows below. */
+.action-item, .action-chip {
+  min-width: 0;
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+}
+.compact .action-item, .compact .action-chip { min-height: 26px; }
 /* A zero-height break starts each carry-over run below the press-now actions
    while letting carry-overs share that new row and wrap naturally. Notes take
    a full row after every action has rendered. */
@@ -202,8 +242,6 @@
    begins, so widen the gap. A separator glyph would be better typography but
    CSS cannot see where a row wraps, and it would strand a dot at a line start. */
 .actions-flow.separated { column-gap: var(--mantine-spacing-xl); }
-.actions-icons { padding-block: 2px; }
-.action-chip { display: flex; align-items: center; }
 
 /* Picture-in-Picture: same tree, denser. Background is set explicitly because
    the cloned stylesheets land in a document Mantine never mounted into. */

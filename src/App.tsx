@@ -67,6 +67,7 @@ function Shell() {
     return isLayout(stored) ? stored : 'tabs'
   })
   const [jobId, setJobId] = useState(() => readStored('lastJob'))
+  const [otherTankId, setOtherTankId] = useState(() => readStored('lastOtherTank'))
   const resolvedScheme = useComputedColorScheme('dark')
   const pip = usePip(resolvedScheme)
   const fight = catalog.fights.find(f => f.id === selection.fightId)
@@ -88,6 +89,14 @@ function Shell() {
   // Mit" cannot become a real ability, and job-qualified lines cannot be
   // filtered at all.
   const needsJob = Boolean(position && !jobFree && (!job || !slotId))
+
+  // Tank personal mit: when a tank seat picks a job and a co-tank, that
+  // pairing's rows splice into the party timeline (MitView `personalPlan`).
+  // Buddy-mit targets and invuln order change with the co-tank.
+  const tankPlans = position?.role === 'tank' && job ? sheet?.tankMits?.plans.filter(p => p.job === job.id) ?? [] : []
+  const otherTankOptions = tankPlans.map(p => p.with)
+  const otherTank = otherTankOptions.includes(otherTankId) ? otherTankId : ''
+  const tankPlan = tankPlans.find(p => p.with === otherTank)
 
   useEffect(() => {
     const onPop = () => setSelection(initialSelection())
@@ -151,6 +160,10 @@ function Shell() {
     setJobId(value)
     storeValue('lastJob', value)
   }
+  function changeOtherTank(value: string) {
+    setOtherTankId(value)
+    storeValue('lastOtherTank', value)
+  }
   function reset() {
     window.history.replaceState(null, '', import.meta.env.BASE_URL)
     setSelection({ fightId: '', sheetId: '', roleId: '', phaseId: '', viewing: false, error: '' })
@@ -180,6 +193,14 @@ function Shell() {
         ...jobOptions.map(j => ({ value: j.id, label: j.id })),
       ]}
   />
+  // Only appears once a tank seat has a job and the sheet ships tank plans
+  // (TOP). Picking a co-tank splices that pairing's personal-mit rows into the
+  // timeline; shown on the selection screen and in the focused view's controls.
+  const otherTankSelect = tankPlans.length > 0 ? <NativeSelect
+    label="Other tank" value={otherTank}
+    onChange={event => changeOtherTank(event.currentTarget.value)}
+    data={[{ value: '', label: 'Hide' }, ...otherTankOptions.map(id => ({ value: id, label: id }))]}
+  /> : null
 
   return <Container size={720} px="md" mih="100dvh" display="flex" style={{ flexDirection: 'column' }}>
     <Group component="header" justify="space-between" wrap="nowrap" pt="sm" pb="lg" style={{ borderBottom: '1px solid var(--border)' }}>
@@ -214,7 +235,10 @@ function Shell() {
             sizes made this row read as five unrelated widgets. */}
         <Group className="control-row" align="flex-end" gap="sm" my="md" wrap="wrap">
           <Box flex="0 1 88px" miw={76}>{roleSelect}</Box>
-          <Box flex="0 1 120px" miw={96}>{jobSelect}</Box>
+          {/* Job and Other tank keep one fixed width so the row never reflows
+              as their value text changes. */}
+          <Box flex="0 0 128px">{jobSelect}</Box>
+          {otherTankSelect && <Box flex="0 0 128px">{otherTankSelect}</Box>}
           <Input.Wrapper label="Show" labelElement="div">
             <SegmentedControl
               className="display-picker" aria-label="Show icons, text, or both"
@@ -241,7 +265,8 @@ function Shell() {
           ? <Text ta="center" c="dimmed" py="xl">Choose your job to see this role's assignments.</Text>
           : <MitView
             fight={fight} sheet={sheet} roleId={slotId} phaseId={selection.phaseId}
-            onPhase={changePhase} job={jobFree ? undefined : job} display={display} notes={notes} layout={layout}
+            onPhase={changePhase} job={jobFree ? undefined : job} personalPlan={tankPlan}
+            display={display} notes={notes} layout={layout}
             phaseAction={pip.supported && <Button
               variant="outline" size="sm" leftSection={<IconPictureInPicture size={18} aria-hidden />}
               onClick={pip.open}
@@ -251,7 +276,7 @@ function Shell() {
           />}
 
         {pip.pipWindow && createPortal(
-          <MitView compact fight={fight} sheet={sheet} roleId={slotId} phaseId={selection.phaseId} onPhase={changePhase} job={job} display={display} notes={notes} layout={layout} />,
+          <MitView compact fight={fight} sheet={sheet} roleId={slotId} phaseId={selection.phaseId} onPhase={changePhase} job={job} personalPlan={tankPlan} display={display} notes={notes} layout={layout} />,
           pip.pipWindow.document.body,
         )}
       </> : <Box maw={480} mx="auto">
@@ -283,7 +308,7 @@ function Shell() {
               ...sheets.map(s => ({ value: s.id, label: s.name })),
             ]}
           />
-          <Group grow align="flex-start" gap="sm">{roleSelect}{jobSelect}</Group>
+          <Group grow align="flex-start" gap="sm">{roleSelect}{jobSelect}{otherTankSelect}</Group>
           <Button type="submit" rightSection={<IconArrowRight size={18} aria-hidden />} disabled={!fight || !sheet || !selection.roleId || (!job && !jobFree)}>
             View mits
           </Button>
@@ -296,7 +321,7 @@ function Shell() {
         <Group gap="xs" align="center">
           <Text fz="sm" c="dimmed">Made by tenyu</Text>
           {/* Icon-only, so the accessible name has to come from aria-label - see
-              DESIGN.md section 11. `title` gives sighted users the same words. */}
+              DESIGN.md §7. `title` gives sighted users the same words. */}
           <Tooltip label="Support on Ko-fi" position="top" withArrow>
             <Anchor
               href="https://ko-fi.com/tenyu" target="_blank" rel="noreferrer noopener"

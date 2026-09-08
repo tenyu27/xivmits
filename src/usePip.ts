@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 // `scheme` is the opener's already-resolved 'light' | 'dark'. The PiP window
-// follows it rather than its own OS preference - see DESIGN.md §8.
+// follows it rather than its own OS preference - see DESIGN.md §6.
 export function usePip(scheme: string) {
   const [pipWindow, setPipWindow] = useState<Window | null>(null)
   const [error, setError] = useState('')

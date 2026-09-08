@@ -1,6 +1,6 @@
 """Convert only the Ikuya DMU P1–P5 workbook tabs into reviewed repo JSON.
 
-Usage: python3 scripts/import_ikuya.py '/path/to/Ikuya Mitty (DMU).xlsx'
+Usage: python3 scripts/import_dmu_ikuya.py '/path/to/Ikuya Mitty (DMU).xlsx'
 Uses Python's standard library. The site never reads Excel at runtime.
 """
 import json
