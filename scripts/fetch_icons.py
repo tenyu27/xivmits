@@ -46,15 +46,20 @@ NO_ICON = {
     # TOP Mitty tank tabs: "press your whole kit" / "cover your co-tank" / a
     # cue, not one button.
     'Kitchen Sink', 'Buddy Mit', 'Voke after Buster',
+    # LPDU writes a couple of calls as prose: a bundle of AST cooldowns, a
+    # babysitting instruction, and the enrage marker.
+    'All single-target mit', 'Card mits', 'Babysit the beam tank', 'Enrage',
+    # An AST card, drawn and played through Play II/III - no Action row of its own.
+    'The Ewer',
 }
 
 # Generic names resolved per job from data/jobs.json instead of by search.
 # 'Party Mit' means a different button for every job standing in that slot.
-JOB_GENERIC = {'Party Mit', 'Extra'}
+JOB_GENERIC = {'Party Mit', 'Extra', 'Short Mit', '90s Mit', '120s Mit', 'Invuln'}
 
 # Real, castable actions the game data flags IsPlayerAction=false because they
 # are granted by a stance (SGE's Eukrasia) rather than slotted on a hotbar.
-NONPLAYER_OK = {'Eukrasian Prognosis', 'Eukrasian Prognosis II'}
+NONPLAYER_OK = {'Eukrasian Prognosis', 'Eukrasian Prognosis II', 'Eukrasian Diagnosis'}
 
 # The placeholder icon unused Action rows point at.
 PLACEHOLDER = '000000/000405'

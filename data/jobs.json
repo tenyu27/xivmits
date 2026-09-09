@@ -6,7 +6,11 @@
       "role": "tank",
       "abilities": {
         "Party Mit": "Divine Veil",
-        "Buddy Mit": "Intervention"
+        "Buddy Mit": "Intervention",
+        "Short Mit": "Holy Sheltron",
+        "90s Mit": "Bulwark",
+        "120s Mit": "Guardian",
+        "Invuln": "Hallowed Ground"
       }
     },
     {
@@ -15,7 +19,11 @@
       "role": "tank",
       "abilities": {
         "Party Mit": "Shake It Off",
-        "Buddy Mit": "Nascent Flash"
+        "Buddy Mit": "Nascent Flash",
+        "Short Mit": "Bloodwhetting",
+        "90s Mit": "Thrill of Battle",
+        "120s Mit": "Damnation",
+        "Invuln": "Holmgang"
       }
     },
     {
@@ -25,7 +33,11 @@
       "abilities": {
         "Party Mit": "Dark Missionary",
         "Buddy Mit": "The Blackest Night",
-        "Oblation": "Oblation"
+        "Oblation": "Oblation",
+        "Short Mit": "The Blackest Night",
+        "90s Mit": "Dark Mind",
+        "120s Mit": "Shadowed Vigil",
+        "Invuln": "Living Dead"
       }
     },
     {
@@ -34,7 +46,11 @@
       "role": "tank",
       "abilities": {
         "Party Mit": "Heart of Light",
-        "Buddy Mit": "Heart of Corundum"
+        "Buddy Mit": "Heart of Corundum",
+        "Short Mit": "Heart of Corundum",
+        "90s Mit": "Camouflage",
+        "120s Mit": "Great Nebula",
+        "Invuln": "Superbolide"
       }
     },
     {

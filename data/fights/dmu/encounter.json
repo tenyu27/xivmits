@@ -11,6 +11,14 @@
       "start": "0:00",
       "mechanics": [
         {
+          "id": "p1-revolting-ruin-1",
+          "name": "Revolting Ruin (1)",
+          "time": "0:16",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
           "id": "p1-mystery-magic-1",
           "name": "Mystery Magic (1)",
           "time": "0:38",
@@ -43,9 +51,25 @@
           }
         },
         {
+          "id": "p1-hyperdrive-1",
+          "name": "Hyperdrive (1)",
+          "time": "1:05",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
           "id": "p1-gravitas-ii-part-i-1",
           "name": "Gravitas II (Part I)",
           "time": "1:28",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p1-revolting-ruin-2",
+          "name": "Revolting Ruin (2)",
+          "time": "1:38",
           "fflogs": {
             "abilityIds": []
           }
@@ -70,6 +94,14 @@
           "id": "p1-light-of-judgment-2",
           "name": "Light of Judgment (2)",
           "time": "2:12",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p1-hyperdrive-2",
+          "name": "Hyperdrive (2)",
+          "time": "2:16",
           "fflogs": {
             "abilityIds": []
           }
