@@ -45,10 +45,10 @@ export type Display = 'both' | 'icon' | 'text'
 // one-screen cheatsheet - one condensed row per phase, icons only.
 export type Layout = 'tabs' | 'list' | 'grid'
 
-export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, personalPlan, p3Boss, invulnOrder, display = 'both', notes = true, compact = false, layout = 'tabs', phaseAction, hideTabs = false }: {
+export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, personalPlan, p3Boss, invulnOrder, display = 'both', notes = true, compact = false, layout = 'tabs', hideTabs = false }: {
   fight: Fight; sheet: Sheet; roleId: string; phaseId: string; onPhase: (id: string) => void
   job?: Job; personalPlan?: TankMitPlan; p3Boss?: 'Chaos' | 'Exdeath'; invulnOrder?: 1 | 2
-  display?: Display; notes?: boolean; compact?: boolean; layout?: Layout; phaseAction?: ReactNode
+  display?: Display; notes?: boolean; compact?: boolean; layout?: Layout
   // Drop the phase tab bar entirely - the cheatsheet tab shows every phase at
   // once, so the jump-nav only costs vertical space.
   hideTabs?: boolean
@@ -476,7 +476,6 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
           }}
         >{p.label}</UnstyledButton>)}
       </Box>
-      {phaseAction}
     </Group>}
 
     {grid

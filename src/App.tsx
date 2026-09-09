@@ -390,29 +390,27 @@ function Shell() {
             <Text fz="sm" c="dimmed">{fight.type} · {sheet.name}</Text>
             <Title order={1} fz="xl" lts="-0.035em" style={{ overflowWrap: 'anywhere' }}>{fight.name}</Title>
           </Box>
+          {/* Which fight and sheet you are reading: the action that changes it
+              leads, and the link that leaves the site trails. Opening the plan
+              on another surface is not one of these - that is control row 3. */}
           <Group gap="sm" wrap="wrap">
+            <Button variant="outline" onClick={() => { pip.close(); setSelection(previous => ({ ...previous, viewing: false })); window.history.pushState(null, '', import.meta.env.BASE_URL) }}>
+              Change fight/sheet
+            </Button>
             {sheet.source && <Button
               component="a" href={sheet.source.url} target="_blank" rel="noreferrer"
               variant="default" leftSection={<IconExternalLink size={16} aria-hidden />}
             >
               Source
             </Button>}
-            {cheatsheetHref && <Button
-              component="a" href={cheatsheetHref}
-              variant="default" leftSection={<IconLayoutGrid size={16} aria-hidden />}
-            >
-              Cheatsheet
-            </Button>}
-            <Button variant="outline" onClick={() => { pip.close(); setSelection(previous => ({ ...previous, viewing: false })); window.history.pushState(null, '', import.meta.env.BASE_URL) }}>
-              Change fight/sheet
-            </Button>
           </Group>
         </Stack>
 
-        {/* Two fixed rows, one gap between every control. Row 1 - what you are
-            reading: role, job, the plan controls. Row 2 - how the page is
-            drawn: display, layout, notes. Same label style, height, and bottom
-            alignment throughout; each row wraps only if it runs out of width. */}
+        {/* Three fixed rows, one gap between every control. Row 1 - what you
+            are reading: role, job, the plan controls. Row 2 - how the page is
+            drawn: display, layout, notes. Row 3 - where: cheatsheet, pop out.
+            Same label style, height, and bottom alignment throughout; each row
+            wraps only if it runs out of width. */}
         <Stack gap="sm" my="md">
           <Group className="control-row" align="flex-end" gap="sm" wrap="wrap">
             <Box flex="0 0 88px" miw={76}>{roleSelect}</Box>
@@ -440,6 +438,22 @@ function Shell() {
               />
             </Input.Wrapper>
           </Group>
+          {/* Row 3 - where the page is drawn: the same plan on another surface.
+              Two separate buttons sharing one variant, not a joined pair. */}
+          {(cheatsheetHref || pip.supported) && <Group className="control-row" align="flex-end" gap="sm" wrap="wrap">
+            {cheatsheetHref && <Button
+              component="a" href={cheatsheetHref} variant="default" size="sm"
+              leftSection={<IconLayoutGrid size={18} aria-hidden />}
+            >
+              Cheatsheet
+            </Button>}
+            {pip.supported && <Button
+              variant="default" size="sm" onClick={pip.open}
+              leftSection={<IconPictureInPicture size={18} aria-hidden />}
+            >
+              {pip.pipWindow ? 'Focus window' : 'Pop out'}
+            </Button>}
+          </Group>}
         </Stack>
         {pip.error && <Alert color="red" variant="light" mb="md" role="alert">{pip.error}</Alert>}
 
@@ -450,12 +464,6 @@ function Shell() {
             onPhase={changePhase} job={jobFree ? undefined : job} personalPlan={tankPlan}
             p3Boss={p3Boss} invulnOrder={invulnOrder}
             display={display} notes={notes} layout={layout}
-            phaseAction={pip.supported && <Button
-              variant="outline" size="sm" leftSection={<IconPictureInPicture size={18} aria-hidden />}
-              onClick={pip.open}
-            >
-              {pip.pipWindow ? 'Focus window' : 'Pop out'}
-            </Button>}
           />}
 
         {pip.pipWindow && createPortal(
