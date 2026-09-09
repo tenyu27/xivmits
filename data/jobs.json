@@ -5,7 +5,8 @@
       "name": "Paladin",
       "role": "tank",
       "abilities": {
-        "Party Mit": "Divine Veil"
+        "Party Mit": "Divine Veil",
+        "Buddy Mit": "Intervention"
       }
     },
     {
@@ -13,7 +14,8 @@
       "name": "Warrior",
       "role": "tank",
       "abilities": {
-        "Party Mit": "Shake It Off"
+        "Party Mit": "Shake It Off",
+        "Buddy Mit": "Nascent Flash"
       }
     },
     {
@@ -21,7 +23,9 @@
       "name": "Dark Knight",
       "role": "tank",
       "abilities": {
-        "Party Mit": "Dark Missionary"
+        "Party Mit": "Dark Missionary",
+        "Buddy Mit": "The Blackest Night",
+        "Oblation": "Oblation"
       }
     },
     {
@@ -29,7 +33,8 @@
       "name": "Gunbreaker",
       "role": "tank",
       "abilities": {
-        "Party Mit": "Heart of Light"
+        "Party Mit": "Heart of Light",
+        "Buddy Mit": "Heart of Corundum"
       }
     },
     {

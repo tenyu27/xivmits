@@ -43,7 +43,8 @@ const sheetSchema = z.object({
   phases: z.array(z.object({
     id,
     // A phase-wide aside that is not tied to any one mechanic - "personal mit
-    // is free for autos this phase". Renders under the phase heading.
+    // is free for autos this phase". Renders under the phase heading, and is
+    // hidden by the notes toggle like an action note.
     note: text.optional(),
     // Also under the phase heading, but only for a viewer whose role presses
     // one of `abilities` this phase (targeted mit: Reprisal / Addle / …), and

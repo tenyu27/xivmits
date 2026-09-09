@@ -54,7 +54,7 @@ JOB_GENERIC = {'Party Mit', 'Extra'}
 
 # Real, castable actions the game data flags IsPlayerAction=false because they
 # are granted by a stance (SGE's Eukrasia) rather than slotted on a hotbar.
-NONPLAYER_OK = {'Eukrasian Prognosis'}
+NONPLAYER_OK = {'Eukrasian Prognosis', 'Eukrasian Prognosis II'}
 
 # The placeholder icon unused Action rows point at.
 PLACEHOLDER = '000000/000405'
@@ -109,7 +109,9 @@ def main(force=False):
     ICON_DIR.mkdir(parents=True, exist_ok=True)
     names = set()
     for path in sorted((ROOT / 'data/fights').rglob('*.json')):
-        if path.name == 'fight.json':
+        # Encounters carry the canonical mechanic timeline; only sheets under
+        # sheets/ carry assignments and tankMits.
+        if path.name in ('fight.json', 'encounter.json'):
             continue
         sheet = json.loads(path.read_text())
         for phase in sheet['phases']:

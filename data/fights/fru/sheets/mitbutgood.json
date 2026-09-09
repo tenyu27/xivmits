@@ -1,0 +1,1958 @@
+{
+  "id": "mitbutgood",
+  "fightId": "fru",
+  "name": "FRU Mit but Good",
+  "author": "Fae Nightwolf & Valiaa Masume",
+  "updated": "2026-09-08",
+  "sourceFile": "FRU Mit but Good.xlsx",
+  "sourceVersion": "3/2",
+  "source": {
+    "name": "FRU Mit but Good spreadsheet",
+    "url": "https://docs.google.com/spreadsheets/d/1M1LHe4mpb1lyxkLWJxrDwe_JH897nickG3XLTtwnI90/edit"
+  },
+  "description": "Party mitigation for FRU from Fae Nightwolf & Valiaa Masume's plan. Pick a tank position, a healer job, or a DPS position.",
+  "slots": [
+    {
+      "id": "T1",
+      "role": "tank"
+    },
+    {
+      "id": "T2",
+      "role": "tank"
+    },
+    {
+      "id": "SCH",
+      "job": "SCH",
+      "role": "healer"
+    },
+    {
+      "id": "SGE",
+      "job": "SGE",
+      "role": "healer"
+    },
+    {
+      "id": "WHM",
+      "job": "WHM",
+      "role": "healer"
+    },
+    {
+      "id": "AST",
+      "job": "AST",
+      "role": "healer"
+    },
+    {
+      "id": "M1",
+      "role": "melee"
+    },
+    {
+      "id": "M2",
+      "role": "melee"
+    },
+    {
+      "id": "P",
+      "role": "ranged"
+    },
+    {
+      "id": "C",
+      "role": "caster"
+    }
+  ],
+  "phases": [
+    {
+      "id": "p1",
+      "mechanics": [
+        {
+          "mechanicId": "p1-cyclonic-break-1-1",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Reprisal"
+              },
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "T2": [
+              {
+                "name": "Party Mit",
+                "note": "Shake/Veil can be used prepull to cover break 1",
+                "noteJobs": [
+                  "WAR",
+                  "PLD"
+                ]
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Deployment Tactics"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis II"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p1-utopian-sky-1",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Concitation"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis II"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Plenary Indulgence"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p1-cyclonic-break-2-1",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Concitation"
+              },
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Expedient"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Zoe"
+              },
+              {
+                "name": "Eukrasian Prognosis II"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p1-burnished-glory-1-1",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "T2": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil",
+                "note": "Use early."
+              },
+              {
+                "name": "Deployment Tactics"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole",
+                "note": "Use early."
+              },
+              {
+                "name": "Holos"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Liturgy of the Bell"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Macrocosmos"
+              },
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "M2": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle"
+              },
+              {
+                "name": "Extra (RDM)"
+              }
+            ],
+            "P": [
+              {
+                "name": "Extra (MCH)"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p1-fall-of-faith-1-2-1",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Fey Illumination"
+              },
+              {
+                "name": "Seraphism"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Panhaima"
+              },
+              {
+                "name": "Philosophia"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p1-fall-of-faith-3-4-1",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Fey Illumination"
+              },
+              {
+                "name": "Consolation"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              },
+              {
+                "name": "Sun Sign"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p1-burnished-glory-2-1",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "T2": [
+              {
+                "name": "Reprisal",
+                "note": "Use late."
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Fey Illumination"
+              },
+              {
+                "name": "Concitation"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis II"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance"
+              },
+              {
+                "name": "Plenary Indulgence"
+              },
+              {
+                "name": "Divine Caress"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Sun Sign"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint",
+                "note": "Use late."
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              }
+            ]
+          }
+        }
+      ],
+      "note": "Using too many single target mits on MT for PM2 can cause buff cap, please be careful"
+    },
+    {
+      "id": "p2",
+      "mechanics": [
+        {
+          "mechanicId": "p2-diamond-dust-1",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "T2": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Concitation"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis II"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Plenary Indulgence"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "M2": [
+              {
+                "name": "Feint",
+                "note": "Feint/Addle at start of Mirror Image castbar to have back up for Banish III"
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle",
+                "note": "Feint/Addle at start of Mirror Image castbar to have back up for Banish III"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p2-sinbound-holy-1",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Deployment Tactics"
+              },
+              {
+                "name": "Expedient",
+                "note": "Expedience should be used as soon as Frigid Stone prey markers appear, Samba/Tact/Troub should be used walking in before KB"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Zoe"
+              },
+              {
+                "name": "Eukrasian Prognosis II"
+              },
+              {
+                "name": "Holos"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit",
+                "note": "Expedience should be used as soon as Frigid Stone prey markers appear, Samba/Tact/Troub should be used walking in before KB"
+              }
+            ],
+            "C": [
+              {
+                "name": "Extra (RDM)"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p2-hallowed-ray-1",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "T2": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Concitation"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis II"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p2-mirror-mirror-1",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Fey Illumination"
+              },
+              {
+                "name": "Summon Seraph"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Panhaima"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Plenary Indulgence"
+              },
+              {
+                "name": "Temperance"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              },
+              {
+                "name": "Sun Sign"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p2-banish-iii-1",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Reprisal"
+              },
+              {
+                "name": "Buddy Mit",
+                "note": "On M1.",
+                "buddy": true
+              },
+              {
+                "name": "Oblation (DRK)",
+                "note": "On M1.",
+                "buddy": true
+              }
+            ],
+            "T2": [
+              {
+                "name": "Buddy Mit",
+                "note": "On M2.",
+                "buddy": true
+              },
+              {
+                "name": "Oblation (DRK)",
+                "note": "On M2.",
+                "buddy": true
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Consolation"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Divine Caress"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Sun Sign"
+              }
+            ],
+            "M2": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p2-light-rampant-1",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Concitation"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis II"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "M2": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle"
+              }
+            ],
+            "P": [
+              {
+                "name": "Extra (MCH)"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p2-powerful-light-1",
+          "assignments": {
+            "T2": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Deployment Tactics"
+              },
+              {
+                "name": "Seraphism"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Zoe"
+              },
+              {
+                "name": "Eukrasian Prognosis II"
+              },
+              {
+                "name": "Philosophia"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Liturgy of the Bell"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Macrocosmos"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p2-banish-iii-2",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Concitation"
+              },
+              {
+                "name": "Expedient"
+              },
+              {
+                "name": "Sacred Soil",
+                "note": "Use early. Soil/Kera should be used immediately after walking towards the middle tower soak"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis II"
+              },
+              {
+                "name": "Kerachole",
+                "note": "Use early. Soil/Kera should be used immediately after walking towards the middle tower soak"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p2-house-of-light-1",
+          "assignments": {
+            "T2": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Concitation"
+              },
+              {
+                "name": "Expedient"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Holos"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p2-absolute-zero-1",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Reprisal"
+              },
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Concitation"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis II"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Plenary Indulgence"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "C": [
+              {
+                "name": "Extra (RDM)"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p2-junction-transition-1",
+          "assignments": {
+            "T2": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Concitation"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis II"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "mechanics": [
+        {
+          "mechanicId": "p3-ultimate-relativity-1",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Reprisal",
+                "note": "15s mits slightly after Hell's Judgement to have up for Shell Crusher or additional use on CD for soil/kera"
+              },
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Concitation"
+              },
+              {
+                "name": "Sacred Soil",
+                "note": "15s mits slightly after Hell's Judgement to have up for Shell Crusher or additional use on CD for soil/kera"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis II"
+              },
+              {
+                "name": "Kerachole",
+                "note": "15s mits slightly after Hell's Judgement to have up for Shell Crusher or additional use on CD for soil/kera"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p3-fire-dark-set-1-2-1",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Deployment Tactics"
+              },
+              {
+                "name": "Summon Seraph"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis II"
+              },
+              {
+                "name": "Holos"
+              },
+              {
+                "name": "Panhaima"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance"
+              },
+              {
+                "name": "Plenary Indulgence"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p3-set-3-and-rewind-1",
+          "assignments": {
+            "T2": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Concitation"
+              },
+              {
+                "name": "Seraphism"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis II"
+              },
+              {
+                "name": "Philosophia"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Divine Caress"
+              },
+              {
+                "name": "Liturgy of the Bell"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Macrocosmos"
+              },
+              {
+                "name": "Sun Sign"
+              }
+            ],
+            "C": [
+              {
+                "name": "Extra (RDM)"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p3-shell-crusher-1",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "T2": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "M2": [
+              {
+                "name": "Feint"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p3-shockwave-pulsar-1",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Concitation"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis II"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "M2": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "P": [
+              {
+                "name": "Extra (MCH)"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p3-dark-water-1-1",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Expedient"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p3-dark-eruption-1",
+          "assignments": {
+            "T2": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Expedient"
+              },
+              {
+                "name": "Deployment Tactics"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis II"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Plenary Indulgence"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p3-dark-water-3-1",
+          "assignments": {
+            "C": [
+              {
+                "name": "Extra (RDM)"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p3-shockwave-pulsar-2",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Reprisal",
+                "note": "The timing for 15s to catch Shockwave Pulsar and Memory's End is fairly precise, hit mits at the P in Pulsar"
+              },
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Concitation"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis II"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint",
+                "note": "The timing for 15s to catch Shockwave Pulsar and Memory's End is fairly precise, hit mits at the P in Pulsar"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit",
+                "note": "The timing for 15s to catch Shockwave Pulsar and Memory's End is fairly precise, hit mits at the P in Pulsar"
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle",
+                "note": "The timing for 15s to catch Shockwave Pulsar and Memory's End is fairly precise, hit mits at the P in Pulsar"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p3-memory-s-end-1",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Concitation"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Holos",
+                "note": "Use early."
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "mechanics": [
+        {
+          "mechanicId": "p4-edge-of-oblivion-1",
+          "assignments": {}
+        },
+        {
+          "mechanicId": "p4-darklit-dragonsong-1",
+          "assignments": {
+            "T2": [
+              {
+                "name": "Reprisal"
+              },
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Recitation"
+              },
+              {
+                "name": "Concitation"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Zoe"
+              },
+              {
+                "name": "Eukrasian Prognosis II"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              }
+            ],
+            "C": [
+              {
+                "name": "Extra (RDM)"
+              }
+            ],
+            "P": [
+              {
+                "name": "Extra (MCH)"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p4-the-path-of-light-1",
+          "assignments": {
+            "T2": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance"
+              },
+              {
+                "name": "Divine Caress"
+              },
+              {
+                "name": "Plenary Indulgence"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              },
+              {
+                "name": "Sun Sign"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p4-edge-of-oblivion-2",
+          "assignments": {}
+        },
+        {
+          "mechanicId": "p4-akh-morn-afah-1",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Concitation"
+              },
+              {
+                "name": "Summon Seraph"
+              },
+              {
+                "name": "Sacred Soil",
+                "note": "Kera/Soil should be used after 2nd somber"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis II"
+              },
+              {
+                "name": "Panhaima"
+              },
+              {
+                "name": "Kerachole",
+                "note": "Kera/Soil should be used after 2nd somber"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint",
+                "note": "On Shiva."
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p4-crystallize-time-1",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "T2": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Concitation"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis II"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Plenary Indulgence"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "M2": [
+              {
+                "name": "Feint",
+                "note": "On Gaia."
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle",
+                "note": "On Gaia."
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p4-crystallize-mech-1",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Deployment Tactics"
+              },
+              {
+                "name": "Expedient"
+              },
+              {
+                "name": "Seraphism"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis II"
+              },
+              {
+                "name": "Holos"
+              },
+              {
+                "name": "Philosophia"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Liturgy of the Bell",
+                "note": "Bell and Macro should be used immediately for the Crystallize Time castbar finishes to heal for dark party stack"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Macrocosmos",
+                "note": "Bell and Macro should be used immediately for the Crystallize Time castbar finishes to heal for dark party stack"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p4-hallowed-wing-1",
+          "assignments": {
+            "T2": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Concitation"
+              },
+              {
+                "name": "Sacred Soil",
+                "note": "Kera/Soil immediately after rewinds are placed to have up for Morn Afah"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis II"
+              },
+              {
+                "name": "Kerachole",
+                "note": "Kera/Soil immediately after rewinds are placed to have up for Morn Afah"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p4-akh-morn-afah-2",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Concitation"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis II"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Plenary Indulgence"
+              },
+              {
+                "name": "Temperance"
+              },
+              {
+                "name": "Divine Caress"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              },
+              {
+                "name": "Sun Sign"
+              },
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint",
+                "note": "On Shiva."
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              },
+              {
+                "name": "Extra (MCH)"
+              }
+            ],
+            "C": [
+              {
+                "name": "Extra (RDM)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "mechanics": [
+        {
+          "mechanicId": "p5-fulgent-blade-1-1",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Concitation"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis II"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Plenary Indulgence"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p5-akh-morn-1-1",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "T2": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Deployment Tactics"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Holos",
+                "note": "Use early. Holos immediately after dodging first exaline"
+              },
+              {
+                "name": "Eukrasian Prognosis II"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "M2": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle"
+              },
+              {
+                "name": "Extra (RDM)"
+              }
+            ],
+            "P": [
+              {
+                "name": "Extra (MCH)"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p5-polarizing-strikes-1-1",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "T2": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Summon Seraph"
+              },
+              {
+                "name": "Fey Illumination"
+              },
+              {
+                "name": "Expedient"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Panhaima"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance"
+              },
+              {
+                "name": "Divine Caress"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              },
+              {
+                "name": "Sun Sign"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p5-pandora-s-box-1",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Tank LB"
+              }
+            ],
+            "T2": [
+              {
+                "name": "Reprisal",
+                "note": "15s mits on the B in Box, it's more important to catch Fulgent Blade"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Concitation"
+              },
+              {
+                "name": "Sacred Soil",
+                "note": "15s mits on the B in Box, it's more important to catch Fulgent Blade"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis II"
+              },
+              {
+                "name": "Kerachole",
+                "note": "15s mits on the B in Box, it's more important to catch Fulgent Blade"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint",
+                "note": "15s mits on the B in Box, it's more important to catch Fulgent Blade"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p5-fulgent-blade-2-1",
+          "assignments": {
+            "T2": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Concitation"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis II"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Plenary Indulgence"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p5-akh-morn-2-1",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Reprisal"
+              },
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Deployment Tactics"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Holos"
+              },
+              {
+                "name": "Eukrasian Prognosis II"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "M2": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p5-polarizing-strikes-2-1",
+          "assignments": {
+            "T2": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Seraphism"
+              },
+              {
+                "name": "Expedient"
+              },
+              {
+                "name": "Fey Illumination"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Panhaima"
+              },
+              {
+                "name": "Philosophia"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance"
+              },
+              {
+                "name": "Liturgy of the Bell"
+              },
+              {
+                "name": "Divine Caress"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              },
+              {
+                "name": "Sun Sign"
+              },
+              {
+                "name": "Macrocosmos"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "C": [
+              {
+                "name": "Extra (RDM)"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p5-fulgent-blade-3-1",
+          "assignments": {
+            "T2": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Concitation"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis II"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance"
+              },
+              {
+                "name": "Plenary Indulgence"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              },
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "P": [
+              {
+                "name": "Extra (MCH)"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p5-akh-morn-3-1",
+          "assignments": {
+            "T1": [
+              {
+                "name": "Reprisal"
+              },
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Deployment Tactics"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Zoe"
+              },
+              {
+                "name": "Eukrasian Prognosis II"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "M2": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

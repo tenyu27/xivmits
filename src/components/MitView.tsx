@@ -1,7 +1,7 @@
 import { Fragment, useId, useRef, useEffect } from 'react'
 import type { ReactNode } from 'react'
 import { Anchor, Box, Group, Text, UnstyledButton } from '@mantine/core'
-import { IconArrowForward, IconExternalLink, IconInfoCircle, IconUser } from '@tabler/icons-react'
+import { IconArrowForward, IconExternalLink, IconInfoCircle, IconUser, IconUsers } from '@tabler/icons-react'
 import { resolveAction, type Resolved } from '../data/resolve'
 import type { Fight, Job, Sheet, TankMitPlan } from '../data/schema'
 
@@ -168,23 +168,32 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
 
   // A mit that is an alternative or a co-tank cover, not a primary press:
   // rendered small and inline with the notes - a label, then shrunk icon + name
-  // per entry.
-  const miniActions = (list: ResolvedActions, label: string, keyed: string) => list.length > 0 && (
-    <Box className="aside" key={keyed}>
+  // per entry, joined by "+" (they are pressed together), with any distinct
+  // notes folded in after.
+  const miniActions = (list: ResolvedActions, label: string, keyed: string) => {
+    if (!list.length) return false
+    const notes = showNotes
+      ? Array.from(new Set(list.map(e => e.action.note).filter((n): n is string => Boolean(n))))
+      : []
+    return <Box className="aside" key={keyed}>
       <Text span className="aside-label" fz={compact ? 'xs' : 'sm'} fw={700} c="dimmed">{label}</Text>
-      {list.map(({ resolved: { label: name, icon } }, index) => <Text
-        span key={`${keyed}-${index}`} className="aside-item" fz={compact ? 'xs' : 'sm'} fw={500} c="dimmed"
-      >
-        {display !== 'text' && icon && <img
-          className="aside-icon" src={`${import.meta.env.BASE_URL}icons/${icon}`}
-          width={compact ? 14 : 16} height={compact ? 14 : 16}
-          alt={display === 'icon' ? name : ''} aria-hidden={display !== 'icon'}
-          title={display === 'icon' ? name : undefined}
-        />}
-        {(display !== 'icon' || !icon) && name}
-      </Text>)}
+      {list.map(({ resolved: { label: name, icon } }, index) => <Fragment key={`${keyed}-${index}`}>
+        {index > 0 && <Text span className="aside-plus" fz={compact ? 'xs' : 'sm'} c="dimmed" aria-hidden>+</Text>}
+        <Text span className="aside-item" fz={compact ? 'xs' : 'sm'} fw={500} c="dimmed">
+          {display !== 'text' && icon && <img
+            className="aside-icon" src={`${import.meta.env.BASE_URL}icons/${icon}`}
+            width={compact ? 14 : 16} height={compact ? 14 : 16}
+            alt={display === 'icon' ? name : ''} aria-hidden={display !== 'icon'}
+            title={display === 'icon' ? name : undefined}
+          />}
+          {(display !== 'icon' || !icon) && name}
+        </Text>
+      </Fragment>)}
+      {notes.map((note, index) => <Text
+        span key={`${keyed}-note-${index}`} className="aside-note" fz={compact ? 'xs' : 'sm'} fw={400} c="dimmed"
+      >{note}</Text>)}
     </Box>
-  )
+  }
 
   const actionList = (all: ResolvedActions, keyed: string, trailingNote?: string) => {
     const kept = all.filter(entry => !entry.action.buddy)
@@ -260,7 +269,18 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
         <Text fz="sm" fw={400} c="dimmed" maw="62ch">{trailingNote}</Text>
       </Box>}
     </Box>)}
-      {miniActions(buddies, 'Buddy:', `${keyed}-buddy`)}
+      {(() => {
+        // When every buddy press just names the melee it covers ("On M1."),
+        // that target is the label - not a repeated note under a "Buddy:" line.
+        const target = buddies.length > 0
+          && buddies.every(e => /^On (M\d)\.$/.test(e.action.note ?? ''))
+          && buddies[0].action.note!.match(/^On (M\d)\.$/)![1]
+        return miniActions(
+          target ? buddies.map(e => ({ ...e, action: { ...e.action, note: undefined } })) : buddies,
+          target ? `${target}:` : 'Buddy:',
+          `${keyed}-buddy`,
+        )
+      })()}
     </>
   }
 
@@ -273,7 +293,7 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
       <IconInfoCircle size={compact ? 14 : 16} className="phase-note-icon" aria-hidden />
       <Text c="dimmed" fz={compact ? 'xs' : 'sm'} style={{ whiteSpace: 'pre-line' }}>{body}</Text>
     </Group>
-    const note = data.note && phaseNote(data.note)
+    const note = data.note && showNotes && phaseNote(data.note)
     // The plan's unanchored phase note - "you start with the boss" - reads like
     // any other phase note, not an edged personal row. Still notes-toggle gated.
     const personal = personalNote && showNotes ? phaseNote(personalNote, 'personal') : null
@@ -353,6 +373,26 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
       </>}
     </>
   }
+  // One run of icons, buddy-mit presses split off behind their own marker so
+  // they never read as an on-self press. `lead` is whatever precedes the
+  // non-buddy icons (the person glyph for a personal run, nothing for party).
+  const cheatRun = (actions: ResolvedActions, key: string, lead: ReactNode) => {
+    const main = actions.filter(a => !a.action.buddy)
+    const buddies = actions.filter(a => a.action.buddy)
+    const buddyLabel = buddies.length > 0 && buddies.every(a => /^On (M\d)\.$/.test(a.action.note ?? ''))
+      ? buddies[0].action.note!.match(/^On (M\d)\.$/)![1]
+      : 'Buddy'
+    return <>
+      {main.length > 0 && <>{lead}{cheatIcons(main, `${key}-m`)}</>}
+      {buddies.length > 0 && <>
+        <Box className="cheat-split cheat-split-personal" aria-hidden />
+        <Text span className="cheat-buddy" fz={compact ? '0.5rem' : '0.625rem'} fw={700} aria-label={`buddy mit on ${buddyLabel}`}>
+          <IconUsers size={compact ? 9 : 11} aria-hidden />{buddyLabel}
+        </Text>
+        {cheatIcons(buddies, `${key}-b`)}
+      </>}
+    </>
+  }
   const cheatCell = (entry: Entry, partyActions: ResolvedActions, personalRuns: ResolvedActions[], key: string) => {
     const { mechanic } = entry
     const name = mechanic.name || (entry.personal ? 'Personal' : '')
@@ -365,11 +405,12 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
       {/* A mechanic this viewer covers nothing at is just its name - no empty
           icon row, like the unassigned rows in the other layouts. */}
       {!empty && <Box className="cheat-icons">
-        {partyActions.length > 0 && cheatIcons(partyActions, `${key}-p`)}
+        {cheatRun(partyActions, `${key}-p`, null)}
         {personalRuns.map((runActions, index) => <Fragment key={`${key}-x-${index}`}>
-          <Box className="cheat-split cheat-split-personal" aria-hidden />
-          <IconUser className="cheat-personal" size={compact ? 9 : 11} aria-label="personal mit" />
-          {cheatIcons(runActions, `${key}-x-${index}`)}
+          {cheatRun(runActions, `${key}-x-${index}`, <>
+            <Box className="cheat-split cheat-split-personal" aria-hidden />
+            <IconUser className="cheat-personal" size={compact ? 9 : 11} aria-label="personal mit" />
+          </>)}
         </Fragment>)}
       </Box>}
     </Box>

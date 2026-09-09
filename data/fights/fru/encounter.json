@@ -1,0 +1,368 @@
+{
+  "id": "fru",
+  "name": "Futures Rewritten (Ultimate)",
+  "shortName": "FRU",
+  "type": "Ultimate",
+  "fflogs": {
+    "encounterIds": []
+  },
+  "phases": [
+    {
+      "id": "p1",
+      "label": "P1",
+      "name": "Fatebreaker",
+      "mechanics": [
+        {
+          "id": "p1-cyclonic-break-1-1",
+          "name": "Cyclonic Break 1",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p1-utopian-sky-1",
+          "name": "Utopian Sky",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p1-cyclonic-break-2-1",
+          "name": "Cyclonic Break 2",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p1-burnished-glory-1-1",
+          "name": "Burnished Glory 1",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p1-fall-of-faith-1-2-1",
+          "name": "Fall of Faith (1/2)",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p1-fall-of-faith-3-4-1",
+          "name": "Fall of Faith (3/4)",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p1-burnished-glory-2-1",
+          "name": "Burnished Glory 2",
+          "fflogs": {
+            "abilityIds": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "label": "P2",
+      "name": "Usurper of Frost",
+      "mechanics": [
+        {
+          "id": "p2-diamond-dust-1",
+          "name": "Diamond Dust",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p2-sinbound-holy-1",
+          "name": "Sinbound Holy",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p2-hallowed-ray-1",
+          "name": "Hallowed Ray",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p2-mirror-mirror-1",
+          "name": "Mirror Mirror",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p2-banish-iii-1",
+          "name": "Banish III (1)",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p2-light-rampant-1",
+          "name": "Light Rampant",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p2-powerful-light-1",
+          "name": "Powerful Light",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p2-banish-iii-2",
+          "name": "Banish III (2)",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p2-house-of-light-1",
+          "name": "House of Light",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p2-absolute-zero-1",
+          "name": "Absolute Zero",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p2-junction-transition-1",
+          "name": "Junction (Transition)",
+          "fflogs": {
+            "abilityIds": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "label": "P3",
+      "name": "Oracle of Darkness",
+      "mechanics": [
+        {
+          "id": "p3-ultimate-relativity-1",
+          "name": "Ultimate Relativity",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-fire-dark-set-1-2-1",
+          "name": "Fire/Dark Set 1/2",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-set-3-and-rewind-1",
+          "name": "Set 3 and Rewind",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-shell-crusher-1",
+          "name": "Shell Crusher",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-shockwave-pulsar-1",
+          "name": "Shockwave Pulsar (1)",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-dark-water-1-1",
+          "name": "Dark Water 1",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-dark-eruption-1",
+          "name": "Dark Eruption",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-dark-water-3-1",
+          "name": "Dark Water 3",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-shockwave-pulsar-2",
+          "name": "Shockwave Pulsar (2)",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-memory-s-end-1",
+          "name": "Memory's End",
+          "fflogs": {
+            "abilityIds": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "label": "P4",
+      "name": "Light and Dark",
+      "mechanics": [
+        {
+          "id": "p4-edge-of-oblivion-1",
+          "name": "Edge of Oblivion (1)",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p4-darklit-dragonsong-1",
+          "name": "Darklit Dragonsong",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p4-the-path-of-light-1",
+          "name": "The Path of Light",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p4-edge-of-oblivion-2",
+          "name": "Edge of Oblivion (2)",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p4-akh-morn-afah-1",
+          "name": "Akh Morn Afah (1)",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p4-crystallize-time-1",
+          "name": "Crystallize Time",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p4-crystallize-mech-1",
+          "name": "Crystallize Mech",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p4-hallowed-wing-1",
+          "name": "Hallowed Wing",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p4-akh-morn-afah-2",
+          "name": "Akh Morn Afah (2)",
+          "fflogs": {
+            "abilityIds": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "label": "P5",
+      "name": "Pandora",
+      "mechanics": [
+        {
+          "id": "p5-fulgent-blade-1-1",
+          "name": "Fulgent Blade 1",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-akh-morn-1-1",
+          "name": "Akh Morn 1",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-polarizing-strikes-1-1",
+          "name": "Polarizing Strikes 1",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-pandora-s-box-1",
+          "name": "Pandora's Box",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-fulgent-blade-2-1",
+          "name": "Fulgent Blade 2",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-akh-morn-2-1",
+          "name": "Akh Morn 2",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-polarizing-strikes-2-1",
+          "name": "Polarizing Strikes 2",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-fulgent-blade-3-1",
+          "name": "Fulgent Blade 3",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-akh-morn-3-1",
+          "name": "Akh Morn 3",
+          "fflogs": {
+            "abilityIds": []
+          }
+        }
+      ]
+    }
+  ]
+}

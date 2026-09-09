@@ -169,6 +169,17 @@
 /* Person glyph before a personal-mit run, forward arrow before a carry-over
    run - the in-cell markers that stand in for a separate row. */
 .cheat-personal { flex: 0 0 auto; color: var(--accent-strong); }
+/* Marker before a buddy-mit run in a cheatsheet cell: an arrow plus the melee
+   it covers ("M1") or "Buddy", accent-hued - a hand-off, not an on-self press. */
+.cheat-buddy {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+  color: var(--accent-strong);
+  line-height: 1;
+  white-space: nowrap;
+}
 .cheat-carry-arrow { flex: 0 0 auto; color: var(--mantine-color-dimmed); }
 .compact .cheat-col { min-width: 7.5rem; max-width: 12rem; }
 .compact .cheat-icons { min-height: 16px; }
@@ -301,6 +312,9 @@
   gap: 2px var(--mantine-spacing-xs);
 }
 .aside-item { display: inline-flex; align-items: center; gap: 3px; min-height: 18px; }
+.aside-plus { flex: 0 0 auto; }
+/* Folded-in notes break to their own full-width line under the abilities. */
+.aside-note { flex-basis: 100%; }
 .aside-icon { border-radius: 3px; flex: 0 0 auto; }
 
 /* The cast and the ability are both important, so neither is dimmed. They are
