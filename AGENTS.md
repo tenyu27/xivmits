@@ -33,9 +33,10 @@ rtk yarn run dev     # vite dev server
 rtk yarn run build   # tsc -b && vite build
 rtk yarn run lint    # oxlint
 rtk yarn run preview # serve dist/
+rtk yarn run test    # node --test over tests/*.test.ts
 ```
 
-Run `rtk yarn run lint` and `rtk yarn run build` before declaring work done. There is no test setup yet; if you add one, document it here.
+Run `rtk yarn run lint`, `rtk yarn run build`, and `rtk yarn run test` before declaring work done. Tests are Node's built-in runner over `tests/*.test.ts`; they cover the schema contract and validate the committed catalog.
 
 ## Layout
 

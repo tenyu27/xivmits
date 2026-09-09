@@ -16,6 +16,17 @@ const absClock = (start: string | undefined, rel: string) => {
 
 type Action = { name: string; note?: string; noteJobs?: string[]; carryOver?: boolean; buddy?: boolean; noteLink?: string }
 type ResolvedActions = { action: Action; resolved: Extract<Resolved, { applies: true }> }[]
+
+// A buddy press whose only note names the melee it covers ("On M1.") carries
+// its target in that note. When every press in a run names the *same* melee,
+// that target becomes the run's label instead of a note repeated under it.
+// Mixed targets have no single label, so the notes stay where they are.
+const BUDDY_TARGET = /^On (M\d)\.$/
+const buddyTarget = (list: ResolvedActions): string | undefined => {
+  const targets = new Set(list.map(e => e.action.note?.match(BUDDY_TARGET)?.[1]))
+  const [only] = targets
+  return list.length > 0 && targets.size === 1 && only ? only : undefined
+}
 type Entry = {
   mechanic: { id: string; name: string; time?: string; tag?: string }
   actions: ResolvedActions
@@ -270,11 +281,7 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
       </Box>}
     </Box>)}
       {(() => {
-        // When every buddy press just names the melee it covers ("On M1."),
-        // that target is the label - not a repeated note under a "Buddy:" line.
-        const target = buddies.length > 0
-          && buddies.every(e => /^On (M\d)\.$/.test(e.action.note ?? ''))
-          && buddies[0].action.note!.match(/^On (M\d)\.$/)![1]
+        const target = buddyTarget(buddies)
         return miniActions(
           target ? buddies.map(e => ({ ...e, action: { ...e.action, note: undefined } })) : buddies,
           target ? `${target}:` : 'Buddy:',
@@ -374,18 +381,19 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
     </>
   }
   // One run of icons, buddy-mit presses split off behind their own marker so
-  // they never read as an on-self press. `lead` is whatever precedes the
-  // non-buddy icons (the person glyph for a personal run, nothing for party).
+  // they never read as an on-self press. `lead` is whatever opens the run (the
+  // divider + person glyph for a personal run, nothing for party); it renders
+  // for a buddy-only run too, or that run would merge into the one before it.
   const cheatRun = (actions: ResolvedActions, key: string, lead: ReactNode) => {
     const main = actions.filter(a => !a.action.buddy)
     const buddies = actions.filter(a => a.action.buddy)
-    const buddyLabel = buddies.length > 0 && buddies.every(a => /^On (M\d)\.$/.test(a.action.note ?? ''))
-      ? buddies[0].action.note!.match(/^On (M\d)\.$/)![1]
-      : 'Buddy'
+    if (main.length === 0 && buddies.length === 0) return null
+    const buddyLabel = buddyTarget(buddies) ?? 'Buddy'
     return <>
-      {main.length > 0 && <>{lead}{cheatIcons(main, `${key}-m`)}</>}
+      {lead}
+      {main.length > 0 && cheatIcons(main, `${key}-m`)}
       {buddies.length > 0 && <>
-        <Box className="cheat-split cheat-split-personal" aria-hidden />
+        {main.length > 0 && <Box className="cheat-split cheat-split-personal" aria-hidden />}
         <Text span className="cheat-buddy" fz={compact ? '0.5rem' : '0.625rem'} fw={700} aria-label={`buddy mit on ${buddyLabel}`}>
           <IconUsers size={compact ? 9 : 11} aria-hidden />{buddyLabel}
         </Text>

@@ -67,8 +67,10 @@ test('validates the repository catalog and keeps FFLogs placeholders empty', () 
     JSON.parse(readFileSync(new URL('../data/jobs.json', import.meta.url), 'utf8')),
   )
 
-  assert.equal(catalog.fights.length, 2)
-  assert.equal(catalog.sheets.length, 2)
+  const encounterCount = dataFiles.filter(path => path.endsWith('encounter.json')).length
+  const sheetCount = dataFiles.filter(path => path.includes('/sheets/')).length
+  assert.equal(catalog.fights.length, encounterCount)
+  assert.equal(catalog.sheets.length, sheetCount)
   for (const fight of catalog.fights) {
     assert.deepEqual(fight.fflogs?.encounterIds, [])
     const mechanics = fight.phases.flatMap(phase => phase.mechanics)
