@@ -216,10 +216,10 @@ OVERRIDES = {
     ('p3', 'E', 24): [{'name': 'Provoke', 'note': 'On Chaos. Stand under, and make sure neither boss can move before you move under.'}],
     ('p3', 'G', 24): [{'name': 'Provoke', 'note': 'On Exdeath. Stand under, and make sure neither boss can move before you move under.'}],
     ('p3', 'E', 26): [{'name': '120s Mit', 'note': 'Use late, on the second hit.'},
-                      {'name': 'Short Mit', 'note': 'Not Heart of Corundum.', 'noteJobs': ['GNB']}],
+                      {'name': 'Short Mit (WAR/PLD/DRK)'}],
     ('p3', 'G', 26): [{'name': '120s Mit', 'note': 'Use late.'},
                       {'name': 'Reprisal', 'note': 'First hit.'},
-                      {'name': 'Short Mit', 'note': 'Not Heart of Corundum.', 'noteJobs': ['GNB']}],
+                      {'name': 'Short Mit (WAR/PLD/DRK)'}],
     ('p3', 'P', 26): [{'name': 'Zoe Shields'}, {'name': 'Haima', 'note': 'On the MT.'},
                       {'name': 'Taurochole', 'note': 'On the OT.'},
                       {'name': 'Eukrasian Diagnosis', 'note': 'Both tanks, after the hits.'}],
@@ -430,7 +430,10 @@ def read_cells(archive, strings, worksheet):
     return cells
 
 
-def convert(path):
+def convert(path, moved=None):
+    """The party grid. `moved` collects the personal mit lifted out of the tank
+    columns, keyed by (phase, mechanic, seat), for the tank plan to absorb."""
+    moved = {} if moved is None else moved
     archive = zipfile.ZipFile(path)
     strings = [''.join(node.itertext()) for node in
                ET.fromstring(archive.read('xl/sharedStrings.xml'))]
@@ -458,6 +461,27 @@ def convert(path):
             if note:
                 entry['note'] = note
             if not assignments and not note:
+                continue
+            # The tank columns keep only what a tank presses for the group;
+            # its own cooldowns move to `tankMits`, so the two are stated once
+            # each. `moved` carries them (and their notes) to convert_tanks.
+            lifted = False
+            for seat in ('MT', 'OT'):
+                actions = assignments.get(seat)
+                if not actions:
+                    continue
+                personal = [a for a in actions if not is_group_mit(a['name'])]
+                if personal:
+                    moved[(phase_id, mechanic_id, seat)] = personal
+                    lifted = True
+                group = [a for a in actions if is_group_mit(a['name'])]
+                if group:
+                    assignments[seat] = group
+                else:
+                    del assignments[seat]
+            # A mechanic whose only tank content just moved to `tankMits` still
+            # keeps its row: the personal line anchors to it, and folds into it.
+            if not assignments and not note and not lifted:
                 continue
             entry['assignments'] = assignments
             mechanics.append(entry)
@@ -596,6 +620,12 @@ TANK_CELLS = {
     (125, 'OT'): [('Invuln', 'CARRY'), ('90', 'On the third auto.')],
 }
 
+# Where the tank sheet and the compile disagree, the compile wins - it is the
+# sheet LPDU points people at. Row 67 is the third Thunder III, where the tank
+# sheet writes a flat "Short" but the compile says "Shorts (not corundum)", so
+# the Gunbreaker does not press one at all.
+TANK_EXCLUDE = {(67, 'GNB'): {'Heart of Corundum'}}
+
 # A row note that only holds for some tank jobs. The plan is generated per job,
 # so an off-list note is simply not written.
 TANK_NOTE_JOBS = {
@@ -680,6 +710,30 @@ def tank_actions(raw, job, row, seat):
     return deduped
 
 
+# What a tank does *for the group* - the only thing that belongs in the party
+# grid's tank columns, as in the Ikuya sheet, whose MT/OT columns hold nothing
+# but these. Everything else the LPDU compile writes there is personal mit and
+# moves to `tankMits`, where the tank sheet's own rows already live.
+def is_group_mit(name):
+    return name.startswith('Party Mit') or re.sub(r'\s*\([^)]*\)$', '', name) == 'Reprisal'
+
+
+def moved_actions(action, job):
+    """A personal action lifted off the party grid -> what this job presses."""
+    out = []
+    for name in party_buttons(action['name'], job):
+        moved = {'name': name}
+        if action.get('buddy'):
+            moved['buddy'] = True
+        if action.get('carryOver'):
+            moved['carryOver'] = True
+        # `noteJobs` scopes the note, not the press.
+        if action.get('note') and job in (action.get('noteJobs') or TANKS):
+            moved['note'] = action['note']
+        out.append(moved)
+    return out
+
+
 def party_buttons(name, job):
     """A party-grid action name -> the buttons this job actually presses, so a
     personal row can be compared against what the party row already shows."""
@@ -698,21 +752,7 @@ def party_buttons(name, job):
     }.get(base, [base])
 
 
-def party_index(sheet, job):
-    """(phase, mechanic, seat) -> the buttons the party grid already shows."""
-    index = {}
-    for phase in sheet['phases']:
-        for mechanic in phase['mechanics']:
-            for seat in ('MT', 'OT'):
-                shown = set()
-                for action in mechanic['assignments'].get(seat, []):
-                    shown.update(party_buttons(action['name'], job))
-                if shown:
-                    index[(phase['id'], mechanic['mechanicId'], seat)] = shown
-    return index
-
-
-def convert_tanks(path, phase_starts, mechanic_names, sheet):
+def convert_tanks(path, phase_starts, mechanic_names, moved):
     archive = zipfile.ZipFile(path)
     strings = [''.join(node.itertext()) for node in
                ET.fromstring(archive.read('xl/sharedStrings.xml'))]
@@ -728,11 +768,6 @@ def convert_tanks(path, phase_starts, mechanic_names, sheet):
 
     plans = []
     for job in TANKS:
-        # The compile's party grid is the source for anything it already states,
-        # so a personal row only keeps the buttons that grid does not show for
-        # this seat and mechanic. Without this both sheets say "Rampart, Bulwark,
-        # Holy Sheltron" on the same buster and the viewer reads it twice.
-        already = party_index(sheet, job)
         phases = {}
         for row, (phase_id, anchor) in sorted(TANK_ROWS.items()):
             start = phase_starts[phase_id]
@@ -756,10 +791,10 @@ def convert_tanks(path, phase_starts, mechanic_names, sheet):
             if written and all(token in PARTY_TOKENS for token in written):
                 continue
             by_seat = {seat: tank_actions(raw[seat], job, row, seat) for seat in ('MT', 'OT')}
-            if anchor:
-                for seat, actions in by_seat.items():
-                    shown = already.get((phase_id, anchor, seat), set())
-                    by_seat[seat] = [a for a in actions if a['name'] not in shown]
+            drop = TANK_EXCLUDE.get((row, job))
+            if drop:
+                by_seat = {seat: [a for a in actions if a['name'] not in drop]
+                           for seat, actions in by_seat.items()}
             # A row note belongs to whoever presses something on that row. A row
             # the sheet wrote with no buttons at all is a marker ("Covered by the
             # Thunder III mitigation above") and both seats keep it; otherwise the
@@ -787,11 +822,33 @@ def convert_tanks(path, phase_starts, mechanic_names, sheet):
                     mechanic['note'] = ' '.join(dict.fromkeys(seat_notes))
                 mechanic['actions'] = actions
                 phases.setdefault(phase_id, []).append(mechanic)
+        # Personal mit lifted off the party grid. Whatever the tank sheet's own
+        # rows already press is left to them - they carry the sheet's labels
+        # ("Autos 1", "Flare Diffusion 1"), which say more than the encounter's
+        # name for the same beat - but their notes are the compile's, which are
+        # the better ones. Anything left over becomes a row of its own, named
+        # for the mechanic so it folds into the party row above.
+        for (phase_id, anchor, seat), actions in moved.items():
+            rows = [m for m in phases.get(phase_id, [])
+                    if m.get('after') == anchor and m['seat'] == seat]
+            leftover = []
+            for action in (a for source in actions for a in moved_actions(source, job)):
+                existing = next((a for row in rows for a in row['actions']
+                                 if a['name'] == action['name']), None)
+                if existing is None:
+                    leftover.append(action)
+                elif action.get('note') and 'note' not in existing:
+                    existing['note'] = action['note']
+            if leftover:
+                phases.setdefault(phase_id, []).append({
+                    'id': f'{job}-{anchor}-{seat}'.lower(), 'name': mechanic_names[anchor],
+                    'after': anchor, 'seat': seat, 'actions': leftover,
+                })
         plans.append({'job': job, 'phases': [
             {'id': phase_id,
              **({'note': TANK_PHASE_NOTES[phase_id]} if phase_id in TANK_PHASE_NOTES else {}),
              'mechanics': mechanics}
-            for phase_id, mechanics in phases.items() if mechanics
+            for phase_id, mechanics in sorted(phases.items()) if mechanics
         ]})
     return {
         'note': 'Tank personal mit from the LPDU tank sheet, which is universal: '
@@ -802,14 +859,15 @@ def convert_tanks(path, phase_starts, mechanic_names, sheet):
 
 
 if __name__ == '__main__':
-    sheet = convert(sys.argv[1])
+    moved = {}
+    sheet = convert(sys.argv[1], moved)
     if len(sys.argv) > 2:
         encounter = json.loads((Path(__file__).resolve().parent.parent / 'data' / 'fights'
                                 / 'dmu' / 'encounter.json').read_text(encoding='utf-8'))
         starts = {p['id']: int(p['start'].split(':')[0]) * 60 + int(p['start'].split(':')[1])
                   for p in encounter['phases']}
         names = {m['id']: m['name'] for p in encounter['phases'] for m in p['mechanics']}
-        sheet['tankMits'] = convert_tanks(sys.argv[2], starts, names, sheet)
+        sheet['tankMits'] = convert_tanks(sys.argv[2], starts, names, moved)
     out = Path(__file__).resolve().parent.parent / 'data' / 'fights' / 'dmu' / 'sheets' / 'lpdu.json'
     out.write_text(json.dumps(sheet, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
     print(f'wrote {out}')

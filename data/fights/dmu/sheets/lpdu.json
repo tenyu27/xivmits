@@ -68,24 +68,6 @@
         {
           "mechanicId": "p1-revolting-ruin-1",
           "assignments": {
-            "MT": [
-              {
-                "name": "Kitchen Sink"
-              }
-            ],
-            "OT": [
-              {
-                "name": "Buddy Mit",
-                "buddy": true
-              },
-              {
-                "name": "Oblation (DRK)",
-                "buddy": true
-              },
-              {
-                "name": "Provoke"
-              }
-            ],
             "WHM": [
               {
                 "name": "Divine Benison"
@@ -312,30 +294,6 @@
         {
           "mechanicId": "p1-hyperdrive-1",
           "assignments": {
-            "MT": [
-              {
-                "name": "Buddy Mit",
-                "buddy": true
-              },
-              {
-                "name": "Oblation (DRK)",
-                "buddy": true
-              }
-            ],
-            "OT": [
-              {
-                "name": "Rampart"
-              },
-              {
-                "name": "120s Mit"
-              },
-              {
-                "name": "90s Mit"
-              },
-              {
-                "name": "Short Mit"
-              }
-            ],
             "WHM": [
               {
                 "name": "Divine Benison",
@@ -404,16 +362,6 @@
         {
           "mechanicId": "p1-revolting-ruin-2",
           "assignments": {
-            "MT": [
-              {
-                "name": "Provoke"
-              }
-            ],
-            "OT": [
-              {
-                "name": "Invuln"
-              }
-            ],
             "WHM": [
               {
                 "name": "Benediction",
@@ -563,15 +511,6 @@
         {
           "mechanicId": "p1-hyperdrive-2",
           "assignments": {
-            "MT": [
-              {
-                "name": "Invuln",
-                "note": "Kitchen sink instead if WAR.",
-                "noteJobs": [
-                  "WAR"
-                ]
-              }
-            ],
             "AST": [
               {
                 "name": "Neutral Sect",
@@ -690,28 +629,7 @@
         {
           "mechanicId": "p2-ultimate-embrace-1",
           "assignments": {
-            "MT": [
-              {
-                "name": "Kitchen Sink",
-                "note": "Invuln and solo it if WAR.",
-                "noteJobs": [
-                  "WAR"
-                ]
-              }
-            ],
             "OT": [
-              {
-                "name": "Rampart"
-              },
-              {
-                "name": "120s Mit"
-              },
-              {
-                "name": "90s Mit"
-              },
-              {
-                "name": "Short Mit"
-              },
               {
                 "name": "Reprisal"
               }
@@ -1146,17 +1064,7 @@
           "assignments": {
             "MT": [
               {
-                "name": "Kitchen Sink",
-                "note": "No short mit."
-              },
-              {
                 "name": "Reprisal"
-              }
-            ],
-            "OT": [
-              {
-                "name": "Kitchen Sink",
-                "note": "No short mit."
               }
             ],
             "SCH": [
@@ -1196,16 +1104,6 @@
         {
           "mechanicId": "p2-ultimate-embrace-2",
           "assignments": {
-            "MT": [
-              {
-                "name": "Short Mit"
-              }
-            ],
-            "OT": [
-              {
-                "name": "Short Mit"
-              }
-            ],
             "WHM": [
               {
                 "name": "Aquaveil",
@@ -1349,31 +1247,9 @@
         {
           "mechanicId": "p3-thunder-iii-1st-set-1",
           "assignments": {
-            "MT": [
-              {
-                "name": "Short Mit"
-              },
-              {
-                "name": "Rampart"
-              },
-              {
-                "name": "90s Mit",
-                "note": "First hit."
-              }
-            ],
             "OT": [
               {
                 "name": "Reprisal"
-              },
-              {
-                "name": "Short Mit"
-              },
-              {
-                "name": "Rampart"
-              },
-              {
-                "name": "90s Mit",
-                "note": "Second hit."
               }
             ],
             "WHM": [
@@ -1563,14 +1439,6 @@
             "MT": [
               {
                 "name": "Party Mit"
-              },
-              {
-                "name": "Short Mit"
-              }
-            ],
-            "OT": [
-              {
-                "name": "Short Mit"
               }
             ],
             "SCH": [
@@ -1597,11 +1465,6 @@
         {
           "mechanicId": "p3-thunder-iii-2nd-set-1",
           "assignments": {
-            "MT": [
-              {
-                "name": "Invuln"
-              }
-            ],
             "WHM": [
               {
                 "name": "Asylum"
@@ -1611,52 +1474,15 @@
         },
         {
           "mechanicId": "p3-the-decisive-battle-1",
-          "assignments": {
-            "MT": [
-              {
-                "name": "Provoke",
-                "note": "On Chaos. Stand under, and make sure neither boss can move before you move under."
-              }
-            ],
-            "OT": [
-              {
-                "name": "Provoke",
-                "note": "On Exdeath. Stand under, and make sure neither boss can move before you move under."
-              }
-            ]
-          }
+          "assignments": {}
         },
         {
           "mechanicId": "p3-thunder-iii-3rd-set-1",
           "assignments": {
-            "MT": [
-              {
-                "name": "120s Mit",
-                "note": "Use late, on the second hit."
-              },
-              {
-                "name": "Short Mit",
-                "note": "Not Heart of Corundum.",
-                "noteJobs": [
-                  "GNB"
-                ]
-              }
-            ],
             "OT": [
-              {
-                "name": "120s Mit",
-                "note": "Use late."
-              },
               {
                 "name": "Reprisal",
                 "note": "First hit."
-              },
-              {
-                "name": "Short Mit",
-                "note": "Not Heart of Corundum.",
-                "noteJobs": [
-                  "GNB"
-                ]
               }
             ],
             "WHM": [
@@ -1715,24 +1541,6 @@
           "mechanicId": "p3-earthquake-1",
           "note": "Both tanks swap bosses here: the Exdeath starter takes Chaos and the Chaos starter takes Exdeath.",
           "assignments": {
-            "MT": [
-              {
-                "name": "Short Mit",
-                "note": "At 1 HP. WAR: use Equilibrium once your HP drops to 1.",
-                "noteJobs": [
-                  "WAR"
-                ]
-              }
-            ],
-            "OT": [
-              {
-                "name": "Short Mit",
-                "note": "At 1 HP. WAR: use Equilibrium once your HP drops to 1.",
-                "noteJobs": [
-                  "WAR"
-                ]
-              }
-            ],
             "WHM": [
               {
                 "name": "Plenary Indulgence"
@@ -1840,13 +1648,7 @@
         {
           "mechanicId": "p3-thunder-iii-4th-set-1",
           "note": "Use the first beam set on either tank if it is the stack.",
-          "assignments": {
-            "OT": [
-              {
-                "name": "Invuln"
-              }
-            ]
-          }
+          "assignments": {}
         },
         {
           "mechanicId": "p3-shocking-impact-shockwave-2",
@@ -1930,29 +1732,7 @@
         {
           "mechanicId": "p3-thunder-iii-5th-set-1",
           "assignments": {
-            "MT": [
-              {
-                "name": "Short Mit"
-              },
-              {
-                "name": "Rampart"
-              },
-              {
-                "name": "90s Mit",
-                "note": "Second hit."
-              }
-            ],
             "OT": [
-              {
-                "name": "Short Mit"
-              },
-              {
-                "name": "Rampart"
-              },
-              {
-                "name": "90s Mit",
-                "note": "First hit."
-              },
               {
                 "name": "Reprisal"
               }
@@ -2019,30 +1799,11 @@
         },
         {
           "mechanicId": "p3-black-holes-ii-5th-tether-set-1",
-          "assignments": {
-            "MT": [
-              {
-                "name": "Short Mit",
-                "note": "On cooldown from this point."
-              }
-            ],
-            "OT": [
-              {
-                "name": "Short Mit",
-                "note": "On cooldown from this point."
-              }
-            ]
-          }
+          "assignments": {}
         },
         {
           "mechanicId": "p3-shocking-impact-shockwave-3",
           "assignments": {
-            "MT": [
-              {
-                "name": "Provoke",
-                "note": "Face the boss NW, Kefka-relative, right after the third beam."
-              }
-            ],
             "OT": [
               {
                 "name": "Party Mit"
@@ -2090,18 +1851,6 @@
         {
           "mechanicId": "p3-black-holes-iii-6th-tether-set-1",
           "assignments": {
-            "MT": [
-              {
-                "name": "120s Mit",
-                "note": "After the last beam."
-              }
-            ],
-            "OT": [
-              {
-                "name": "120s Mit",
-                "note": "After the last beam."
-              }
-            ],
             "WHM": [
               {
                 "name": "Babysit the beam tank"
@@ -2191,21 +1940,6 @@
         {
           "mechanicId": "p4-grand-cross-1",
           "assignments": {
-            "MT": [
-              {
-                "name": "90s Mit"
-              },
-              {
-                "name": "Short Mit",
-                "note": "For the autos."
-              }
-            ],
-            "OT": [
-              {
-                "name": "90s Mit",
-                "note": "In case you forgot your stance."
-              }
-            ],
             "WHM": [
               {
                 "name": "Divine Benison",
@@ -2372,31 +2106,9 @@
         {
           "mechanicId": "p4-grand-cross-3",
           "assignments": {
-            "MT": [
-              {
-                "name": "Buddy Mit",
-                "note": "On R1.",
-                "buddy": true
-              },
-              {
-                "name": "Oblation (DRK)",
-                "note": "On R1.",
-                "buddy": true
-              }
-            ],
             "OT": [
               {
                 "name": "Party Mit (WAR/PLD)"
-              },
-              {
-                "name": "Buddy Mit",
-                "note": "On R2.",
-                "buddy": true
-              },
-              {
-                "name": "Oblation (DRK)",
-                "note": "On R2.",
-                "buddy": true
               }
             ],
             "WHM": [
@@ -2613,10 +2325,6 @@
             ],
             "OT": [
               {
-                "name": "Provoke",
-                "note": "Start with aggro."
-              },
-              {
                 "name": "Party Mit",
                 "note": "At the Smile quote; WAR/PLD can use theirs earlier."
               }
@@ -2682,25 +2390,6 @@
         {
           "mechanicId": "p5-fell-forces-3x-1",
           "assignments": {
-            "MT": [
-              {
-                "name": "120s Mit"
-              },
-              {
-                "name": "Short Mit"
-              }
-            ],
-            "OT": [
-              {
-                "name": "Rampart"
-              },
-              {
-                "name": "90s Mit"
-              },
-              {
-                "name": "Short Mit"
-              }
-            ],
             "WHM": [
               {
                 "name": "Divine Benison",
@@ -2780,31 +2469,6 @@
         {
           "mechanicId": "p5-maddening-orchestra-1",
           "assignments": {
-            "MT": [
-              {
-                "name": "Rampart"
-              },
-              {
-                "name": "90s Mit"
-              },
-              {
-                "name": "Short Mit"
-              },
-              {
-                "name": "Invuln",
-                "note": "On the flare."
-              }
-            ],
-            "OT": [
-              {
-                "name": "120s Mit",
-                "note": "First two hits."
-              },
-              {
-                "name": "Short Mit",
-                "note": "On the flare."
-              }
-            ],
             "WHM": [
               {
                 "name": "Divine Benison",
@@ -2850,11 +2514,6 @@
         {
           "mechanicId": "p5-fell-forces-2x-1",
           "assignments": {
-            "MT": [
-              {
-                "name": "Invuln"
-              }
-            ],
             "SCH": [
               {
                 "name": "Succor"
@@ -2966,16 +2625,6 @@
         {
           "mechanicId": "p5-fell-forces-2x-2",
           "assignments": {
-            "MT": [
-              {
-                "name": "Short Mit"
-              }
-            ],
-            "OT": [
-              {
-                "name": "Short Mit"
-              }
-            ],
             "WHM": [
               {
                 "name": "Divine Benison",
@@ -3032,30 +2681,6 @@
         {
           "mechanicId": "p5-maddening-orchestra-2",
           "assignments": {
-            "MT": [
-              {
-                "name": "Rampart"
-              },
-              {
-                "name": "Short Mit"
-              },
-              {
-                "name": "120s Mit",
-                "note": "On the flare."
-              }
-            ],
-            "OT": [
-              {
-                "name": "Rampart"
-              },
-              {
-                "name": "Short Mit"
-              },
-              {
-                "name": "Invuln",
-                "note": "On the flare."
-              }
-            ],
             "WHM": [
               {
                 "name": "Divine Benison",
@@ -3089,21 +2714,6 @@
         {
           "mechanicId": "p5-fell-forces-3x-2",
           "assignments": {
-            "MT": [
-              {
-                "name": "90s Mit",
-                "note": "On the third auto; share it with the OT."
-              }
-            ],
-            "OT": [
-              {
-                "name": "Invuln"
-              },
-              {
-                "name": "90s Mit",
-                "note": "On the third auto."
-              }
-            ],
             "WHM": [
               {
                 "name": "Benediction",
@@ -3413,30 +3023,6 @@
         {
           "mechanicId": "p5-forsaken-7th-hit-1",
           "assignments": {
-            "MT": [
-              {
-                "name": "Buddy Mit",
-                "note": "On R1.",
-                "buddy": true
-              },
-              {
-                "name": "Oblation (DRK)",
-                "note": "On R1.",
-                "buddy": true
-              }
-            ],
-            "OT": [
-              {
-                "name": "Buddy Mit",
-                "note": "On R2.",
-                "buddy": true
-              },
-              {
-                "name": "Oblation (DRK)",
-                "note": "On R2.",
-                "buddy": true
-              }
-            ],
             "SCH": [
               {
                 "name": "Succor"
@@ -3504,9 +3090,333 @@
         "job": "PLD",
         "phases": [
           {
+            "id": "p1",
+            "mechanics": [
+              {
+                "id": "pld-r7-mt",
+                "name": "Revolting Ruin 1",
+                "after": "p1-revolting-ruin-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Guardian"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r7-ot",
+                "name": "Revolting Ruin 1",
+                "after": "p1-revolting-ruin-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Provoke"
+                  },
+                  {
+                    "name": "Intervention",
+                    "buddy": true
+                  }
+                ]
+              },
+              {
+                "id": "pld-r15-mt",
+                "name": "Hyperdrive 1",
+                "after": "p1-hyperdrive-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Intervention",
+                    "buddy": true
+                  }
+                ]
+              },
+              {
+                "id": "pld-r15-ot",
+                "name": "Hyperdrive 1",
+                "after": "p1-hyperdrive-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Guardian"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r17-mt",
+                "name": "Revolting Ruin 2",
+                "after": "p1-revolting-ruin-2",
+                "seat": "MT",
+                "note": "MT Provoke obviously",
+                "actions": [
+                  {
+                    "name": "Provoke"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r17-ot",
+                "name": "Revolting Ruin 2",
+                "after": "p1-revolting-ruin-2",
+                "seat": "OT",
+                "note": "MT Provoke obviously",
+                "actions": [
+                  {
+                    "name": "Hallowed Ground"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r25-mt",
+                "name": "Hyperdrive 2",
+                "after": "p1-hyperdrive-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Hallowed Ground"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "mechanics": [
+              {
+                "id": "pld-r31-mt",
+                "name": "Ultimate Embrace",
+                "time": "0:23",
+                "after": "p2-ultimate-embrace-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Guardian"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r31-ot",
+                "name": "Ultimate Embrace",
+                "time": "0:23",
+                "after": "p2-ultimate-embrace-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Guardian"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r41-mt",
+                "name": "Wings of Destruction",
+                "after": "p2-wings-of-destruction-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Guardian",
+                    "note": "No short mit."
+                  },
+                  {
+                    "name": "Bulwark",
+                    "note": "No short mit."
+                  },
+                  {
+                    "name": "Rampart",
+                    "note": "No short mit."
+                  }
+                ]
+              },
+              {
+                "id": "pld-r41-ot",
+                "name": "Wings of Destruction",
+                "after": "p2-wings-of-destruction-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Guardian",
+                    "note": "No short mit."
+                  },
+                  {
+                    "name": "Bulwark",
+                    "note": "No short mit."
+                  },
+                  {
+                    "name": "Rampart",
+                    "note": "No short mit."
+                  }
+                ]
+              },
+              {
+                "id": "pld-r43-mt",
+                "name": "Ultimate Embrace 2",
+                "after": "p2-ultimate-embrace-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r43-ot",
+                "name": "Ultimate Embrace 2",
+                "after": "p2-ultimate-embrace-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
+              {
+                "id": "pld-p2-wings-of-destruction-1-mt",
+                "name": "Wings of Destruction",
+                "after": "p2-wings-of-destruction-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Holy Sheltron",
+                    "note": "No short mit."
+                  }
+                ]
+              },
+              {
+                "id": "pld-p2-wings-of-destruction-1-ot",
+                "name": "Wings of Destruction",
+                "after": "p2-wings-of-destruction-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Holy Sheltron",
+                    "note": "No short mit."
+                  }
+                ]
+              }
+            ]
+          },
+          {
             "id": "p3",
             "note": "The MT starts on Exdeath and the OT on Chaos, then the two swap during the Decisive Battle by standing under their boss after it cast-locks and provoking. Paladin is forced offtank from P3 onward: the invulns do not work with a Paladin main tank.",
             "mechanics": [
+              {
+                "id": "pld-r55-mt",
+                "name": "Thunder III",
+                "time": "1:37",
+                "after": "p3-thunder-iii-1st-set-1",
+                "seat": "MT",
+                "note": "Assumes Exdeath is held middle. Check the wall-Exdeath sheet for Walldeath.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Bulwark",
+                    "note": "First hit."
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r55-ot",
+                "name": "Thunder III",
+                "time": "1:37",
+                "after": "p3-thunder-iii-1st-set-1",
+                "seat": "OT",
+                "note": "Assumes Exdeath is held middle. Check the wall-Exdeath sheet for Walldeath.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Bulwark",
+                    "note": "Second hit."
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r61-mt",
+                "name": "Thunder III",
+                "time": "2:34",
+                "after": "p3-thunder-iii-2nd-set-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Hallowed Ground"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r67-mt",
+                "name": "Thunder III",
+                "time": "2:52",
+                "after": "p3-thunder-iii-3rd-set-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Guardian",
+                    "note": "Use late, on the second hit."
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r67-ot",
+                "name": "Thunder III",
+                "time": "2:52",
+                "after": "p3-thunder-iii-3rd-set-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Guardian",
+                    "note": "Use late."
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
               {
                 "id": "pld-r69-mt",
                 "name": "HP Reduction",
@@ -3524,6 +3434,56 @@
                 "seat": "OT",
                 "note": "Covered by the Thunder III mitigation above.",
                 "actions": []
+              },
+              {
+                "id": "pld-r73-ot",
+                "name": "Thunder III",
+                "time": "3:33",
+                "after": "p3-thunder-iii-4th-set-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Hallowed Ground"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r77-mt",
+                "name": "Thunder III",
+                "time": "4:15",
+                "after": "p3-thunder-iii-5th-set-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Bulwark",
+                    "note": "Second hit."
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r77-ot",
+                "name": "Thunder III",
+                "time": "4:15",
+                "after": "p3-thunder-iii-5th-set-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Bulwark",
+                    "note": "First hit."
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
               },
               {
                 "id": "pld-r81-mt",
@@ -3556,6 +3516,192 @@
                     "name": "Holy Sheltron"
                   }
                 ]
+              },
+              {
+                "id": "pld-p3-cyclone-1-mt",
+                "name": "Cyclone",
+                "after": "p3-cyclone-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
+              {
+                "id": "pld-p3-cyclone-1-ot",
+                "name": "Cyclone",
+                "after": "p3-cyclone-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
+              {
+                "id": "pld-p3-the-decisive-battle-1-mt",
+                "name": "The Decisive Battle",
+                "after": "p3-the-decisive-battle-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Provoke",
+                    "note": "On Chaos. Stand under, and make sure neither boss can move before you move under."
+                  }
+                ]
+              },
+              {
+                "id": "pld-p3-the-decisive-battle-1-ot",
+                "name": "The Decisive Battle",
+                "after": "p3-the-decisive-battle-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Provoke",
+                    "note": "On Exdeath. Stand under, and make sure neither boss can move before you move under."
+                  }
+                ]
+              },
+              {
+                "id": "pld-p3-earthquake-1-mt",
+                "name": "Earthquake",
+                "after": "p3-earthquake-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
+              {
+                "id": "pld-p3-earthquake-1-ot",
+                "name": "Earthquake",
+                "after": "p3-earthquake-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
+              {
+                "id": "pld-p3-black-holes-ii-5th-tether-set-1-mt",
+                "name": "Black Holes II (5th Tether Set)",
+                "after": "p3-black-holes-ii-5th-tether-set-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Holy Sheltron",
+                    "note": "On cooldown from this point."
+                  }
+                ]
+              },
+              {
+                "id": "pld-p3-black-holes-ii-5th-tether-set-1-ot",
+                "name": "Black Holes II (5th Tether Set)",
+                "after": "p3-black-holes-ii-5th-tether-set-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Holy Sheltron",
+                    "note": "On cooldown from this point."
+                  }
+                ]
+              },
+              {
+                "id": "pld-p3-shocking-impact-shockwave-3-mt",
+                "name": "Shocking Impact/Shockwave 3",
+                "after": "p3-shocking-impact-shockwave-3",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Provoke",
+                    "note": "Face the boss NW, Kefka-relative, right after the third beam."
+                  }
+                ]
+              },
+              {
+                "id": "pld-p3-black-holes-iii-6th-tether-set-1-mt",
+                "name": "Black Holes III (6th Tether Set)",
+                "after": "p3-black-holes-iii-6th-tether-set-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Guardian",
+                    "note": "After the last beam."
+                  }
+                ]
+              },
+              {
+                "id": "pld-p3-black-holes-iii-6th-tether-set-1-ot",
+                "name": "Black Holes III (6th Tether Set)",
+                "after": "p3-black-holes-iii-6th-tether-set-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Guardian",
+                    "note": "After the last beam."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "p4",
+            "mechanics": [
+              {
+                "id": "pld-p4-grand-cross-1-mt",
+                "name": "Grand Cross 1",
+                "after": "p4-grand-cross-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Holy Sheltron",
+                    "note": "For the autos."
+                  }
+                ]
+              },
+              {
+                "id": "pld-p4-grand-cross-1-ot",
+                "name": "Grand Cross 1",
+                "after": "p4-grand-cross-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Bulwark",
+                    "note": "In case you forgot your stance."
+                  }
+                ]
+              },
+              {
+                "id": "pld-p4-grand-cross-3-mt",
+                "name": "Grand Cross 3",
+                "after": "p4-grand-cross-3",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Intervention",
+                    "buddy": true,
+                    "note": "On R1."
+                  }
+                ]
+              },
+              {
+                "id": "pld-p4-grand-cross-3-ot",
+                "name": "Grand Cross 3",
+                "after": "p4-grand-cross-3",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Intervention",
+                    "buddy": true,
+                    "note": "On R2."
+                  }
+                ]
               }
             ]
           },
@@ -3563,6 +3709,39 @@
             "id": "p5",
             "note": "The OT starts with aggro.",
             "mechanics": [
+              {
+                "id": "pld-r105-mt",
+                "name": "Autos 1",
+                "time": "0:45",
+                "after": "p5-fell-forces-3x-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Guardian"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r105-ot",
+                "name": "Autos 1",
+                "time": "0:45",
+                "after": "p5-fell-forces-3x-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
               {
                 "id": "pld-r107-ot",
                 "name": "Flood",
@@ -3585,7 +3764,110 @@
                 "note": "Tank swap so the boss does not get dragged out.",
                 "actions": [
                   {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  },
+                  {
                     "name": "Provoke"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r109-ot",
+                "name": "Flare Diffusion 1",
+                "time": "1:17",
+                "after": "p5-maddening-orchestra-1",
+                "seat": "OT",
+                "note": "Tank swap so the boss does not get dragged out.",
+                "actions": [
+                  {
+                    "name": "Guardian",
+                    "note": "First two hits."
+                  }
+                ]
+              },
+              {
+                "id": "pld-r111-mt",
+                "name": "Flare 1",
+                "time": "1:17",
+                "after": "p5-maddening-orchestra-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Hallowed Ground",
+                    "note": "On the flare."
+                  }
+                ]
+              },
+              {
+                "id": "pld-r111-ot",
+                "name": "Flare 1",
+                "time": "1:17",
+                "after": "p5-maddening-orchestra-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Holy Sheltron",
+                    "note": "On the flare."
+                  }
+                ]
+              },
+              {
+                "id": "pld-r113-mt",
+                "name": "Autos 2",
+                "time": "1:22",
+                "after": "p5-fell-forces-2x-1",
+                "seat": "MT",
+                "note": "The MT is main threat until the next flare.",
+                "actions": [
+                  {
+                    "name": "Hallowed Ground",
+                    "carryOver": true
+                  }
+                ]
+              },
+              {
+                "id": "pld-r119-mt",
+                "name": "Autos 3",
+                "time": "2:07",
+                "after": "p5-fell-forces-2x-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r119-ot",
+                "name": "Autos 3",
+                "time": "2:07",
+                "after": "p5-fell-forces-2x-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r121-mt",
+                "name": "Flare Diffusion 2",
+                "time": "2:46",
+                "after": "p5-maddening-orchestra-2",
+                "seat": "MT",
+                "note": "Tank swap so the boss does not get dragged out. Press Rampart last so it holds until the final auto.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Holy Sheltron"
                   }
                 ]
               },
@@ -3598,7 +3880,107 @@
                 "note": "Tank swap so the boss does not get dragged out. Press Rampart last so it holds until the final auto.",
                 "actions": [
                   {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  },
+                  {
                     "name": "Provoke"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r123-mt",
+                "name": "Flare 2",
+                "time": "2:46",
+                "after": "p5-maddening-orchestra-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Guardian",
+                    "note": "On the flare."
+                  }
+                ]
+              },
+              {
+                "id": "pld-r123-ot",
+                "name": "Flare 2",
+                "time": "2:46",
+                "after": "p5-maddening-orchestra-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Hallowed Ground",
+                    "note": "On the flare."
+                  }
+                ]
+              },
+              {
+                "id": "pld-r125-mt",
+                "name": "Autos 4",
+                "time": "2:54",
+                "after": "p5-fell-forces-3x-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Bulwark",
+                    "note": "Share the third auto with your co-tank."
+                  }
+                ]
+              },
+              {
+                "id": "pld-r125-ot",
+                "name": "Autos 4",
+                "time": "2:54",
+                "after": "p5-fell-forces-3x-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Hallowed Ground",
+                    "carryOver": true
+                  },
+                  {
+                    "name": "Bulwark",
+                    "note": "On the third auto."
+                  }
+                ]
+              },
+              {
+                "id": "pld-p5-ultima-repeater-1-ot",
+                "name": "Ultima Repeater 1",
+                "after": "p5-ultima-repeater-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Provoke",
+                    "note": "Start with aggro."
+                  }
+                ]
+              },
+              {
+                "id": "pld-p5-forsaken-7th-hit-1-mt",
+                "name": "Forsaken (7th Hit)",
+                "after": "p5-forsaken-7th-hit-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Intervention",
+                    "buddy": true,
+                    "note": "On R1."
+                  }
+                ]
+              },
+              {
+                "id": "pld-p5-forsaken-7th-hit-1-ot",
+                "name": "Forsaken (7th Hit)",
+                "after": "p5-forsaken-7th-hit-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Intervention",
+                    "buddy": true,
+                    "note": "On R2."
                   }
                 ]
               }
@@ -3610,9 +3992,340 @@
         "job": "WAR",
         "phases": [
           {
+            "id": "p1",
+            "mechanics": [
+              {
+                "id": "war-r7-mt",
+                "name": "Revolting Ruin 1",
+                "after": "p1-revolting-ruin-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Damnation"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "war-r7-ot",
+                "name": "Revolting Ruin 1",
+                "after": "p1-revolting-ruin-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Provoke"
+                  },
+                  {
+                    "name": "Nascent Flash",
+                    "buddy": true
+                  }
+                ]
+              },
+              {
+                "id": "war-r15-mt",
+                "name": "Hyperdrive 1",
+                "after": "p1-hyperdrive-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Nascent Flash",
+                    "buddy": true
+                  }
+                ]
+              },
+              {
+                "id": "war-r15-ot",
+                "name": "Hyperdrive 1",
+                "after": "p1-hyperdrive-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Damnation"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "war-r17-mt",
+                "name": "Revolting Ruin 2",
+                "after": "p1-revolting-ruin-2",
+                "seat": "MT",
+                "note": "MT Provoke obviously",
+                "actions": [
+                  {
+                    "name": "Provoke"
+                  }
+                ]
+              },
+              {
+                "id": "war-r17-ot",
+                "name": "Revolting Ruin 2",
+                "after": "p1-revolting-ruin-2",
+                "seat": "OT",
+                "note": "MT Provoke obviously",
+                "actions": [
+                  {
+                    "name": "Holmgang"
+                  }
+                ]
+              },
+              {
+                "id": "war-r25-mt",
+                "name": "Hyperdrive 2",
+                "after": "p1-hyperdrive-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Holmgang",
+                    "note": "Kitchen sink instead if WAR."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "mechanics": [
+              {
+                "id": "war-r31-mt",
+                "name": "Ultimate Embrace",
+                "time": "0:23",
+                "after": "p2-ultimate-embrace-1",
+                "seat": "MT",
+                "note": "Holmgang instead if WAR.",
+                "actions": [
+                  {
+                    "name": "Rampart",
+                    "note": "Invuln and solo it if WAR."
+                  },
+                  {
+                    "name": "Damnation",
+                    "note": "Invuln and solo it if WAR."
+                  },
+                  {
+                    "name": "Thrill of Battle",
+                    "note": "Invuln and solo it if WAR."
+                  },
+                  {
+                    "name": "Bloodwhetting",
+                    "note": "Invuln and solo it if WAR."
+                  }
+                ]
+              },
+              {
+                "id": "war-r31-ot",
+                "name": "Ultimate Embrace",
+                "time": "0:23",
+                "after": "p2-ultimate-embrace-1",
+                "seat": "OT",
+                "note": "Holmgang instead if WAR.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Damnation"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "war-r41-mt",
+                "name": "Wings of Destruction",
+                "after": "p2-wings-of-destruction-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Damnation",
+                    "note": "No short mit."
+                  },
+                  {
+                    "name": "Thrill of Battle",
+                    "note": "No short mit."
+                  },
+                  {
+                    "name": "Rampart",
+                    "note": "No short mit."
+                  }
+                ]
+              },
+              {
+                "id": "war-r41-ot",
+                "name": "Wings of Destruction",
+                "after": "p2-wings-of-destruction-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Damnation",
+                    "note": "No short mit."
+                  },
+                  {
+                    "name": "Thrill of Battle",
+                    "note": "No short mit."
+                  },
+                  {
+                    "name": "Rampart",
+                    "note": "No short mit."
+                  }
+                ]
+              },
+              {
+                "id": "war-r43-mt",
+                "name": "Ultimate Embrace 2",
+                "after": "p2-ultimate-embrace-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "war-r43-ot",
+                "name": "Ultimate Embrace 2",
+                "after": "p2-ultimate-embrace-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "war-p2-wings-of-destruction-1-mt",
+                "name": "Wings of Destruction",
+                "after": "p2-wings-of-destruction-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Bloodwhetting",
+                    "note": "No short mit."
+                  }
+                ]
+              },
+              {
+                "id": "war-p2-wings-of-destruction-1-ot",
+                "name": "Wings of Destruction",
+                "after": "p2-wings-of-destruction-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Bloodwhetting",
+                    "note": "No short mit."
+                  }
+                ]
+              }
+            ]
+          },
+          {
             "id": "p3",
             "note": "The MT starts on Exdeath and the OT on Chaos, then the two swap during the Decisive Battle by standing under their boss after it cast-locks and provoking. Paladin is forced offtank from P3 onward: the invulns do not work with a Paladin main tank.",
             "mechanics": [
+              {
+                "id": "war-r55-mt",
+                "name": "Thunder III",
+                "time": "1:37",
+                "after": "p3-thunder-iii-1st-set-1",
+                "seat": "MT",
+                "note": "Assumes Exdeath is held middle. Check the wall-Exdeath sheet for Walldeath.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Thrill of Battle",
+                    "note": "First hit."
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "war-r55-ot",
+                "name": "Thunder III",
+                "time": "1:37",
+                "after": "p3-thunder-iii-1st-set-1",
+                "seat": "OT",
+                "note": "Assumes Exdeath is held middle. Check the wall-Exdeath sheet for Walldeath.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Thrill of Battle",
+                    "note": "Second hit."
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "war-r61-mt",
+                "name": "Thunder III",
+                "time": "2:34",
+                "after": "p3-thunder-iii-2nd-set-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Holmgang"
+                  }
+                ]
+              },
+              {
+                "id": "war-r67-mt",
+                "name": "Thunder III",
+                "time": "2:52",
+                "after": "p3-thunder-iii-3rd-set-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Damnation",
+                    "note": "Use late, on the second hit."
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "war-r67-ot",
+                "name": "Thunder III",
+                "time": "2:52",
+                "after": "p3-thunder-iii-3rd-set-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Damnation",
+                    "note": "Use late."
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
               {
                 "id": "war-r69-mt",
                 "name": "HP Reduction",
@@ -3630,6 +4343,56 @@
                 "seat": "OT",
                 "note": "Covered by the Thunder III mitigation above.",
                 "actions": []
+              },
+              {
+                "id": "war-r73-ot",
+                "name": "Thunder III",
+                "time": "3:33",
+                "after": "p3-thunder-iii-4th-set-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Holmgang"
+                  }
+                ]
+              },
+              {
+                "id": "war-r77-mt",
+                "name": "Thunder III",
+                "time": "4:15",
+                "after": "p3-thunder-iii-5th-set-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Thrill of Battle",
+                    "note": "Second hit."
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "war-r77-ot",
+                "name": "Thunder III",
+                "time": "4:15",
+                "after": "p3-thunder-iii-5th-set-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Thrill of Battle",
+                    "note": "First hit."
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
               },
               {
                 "id": "war-r81-mt",
@@ -3662,6 +4425,194 @@
                     "name": "Bloodwhetting"
                   }
                 ]
+              },
+              {
+                "id": "war-p3-cyclone-1-mt",
+                "name": "Cyclone",
+                "after": "p3-cyclone-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "war-p3-cyclone-1-ot",
+                "name": "Cyclone",
+                "after": "p3-cyclone-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "war-p3-the-decisive-battle-1-mt",
+                "name": "The Decisive Battle",
+                "after": "p3-the-decisive-battle-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Provoke",
+                    "note": "On Chaos. Stand under, and make sure neither boss can move before you move under."
+                  }
+                ]
+              },
+              {
+                "id": "war-p3-the-decisive-battle-1-ot",
+                "name": "The Decisive Battle",
+                "after": "p3-the-decisive-battle-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Provoke",
+                    "note": "On Exdeath. Stand under, and make sure neither boss can move before you move under."
+                  }
+                ]
+              },
+              {
+                "id": "war-p3-earthquake-1-mt",
+                "name": "Earthquake",
+                "after": "p3-earthquake-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Bloodwhetting",
+                    "note": "At 1 HP. WAR: use Equilibrium once your HP drops to 1."
+                  }
+                ]
+              },
+              {
+                "id": "war-p3-earthquake-1-ot",
+                "name": "Earthquake",
+                "after": "p3-earthquake-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Bloodwhetting",
+                    "note": "At 1 HP. WAR: use Equilibrium once your HP drops to 1."
+                  }
+                ]
+              },
+              {
+                "id": "war-p3-black-holes-ii-5th-tether-set-1-mt",
+                "name": "Black Holes II (5th Tether Set)",
+                "after": "p3-black-holes-ii-5th-tether-set-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Bloodwhetting",
+                    "note": "On cooldown from this point."
+                  }
+                ]
+              },
+              {
+                "id": "war-p3-black-holes-ii-5th-tether-set-1-ot",
+                "name": "Black Holes II (5th Tether Set)",
+                "after": "p3-black-holes-ii-5th-tether-set-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Bloodwhetting",
+                    "note": "On cooldown from this point."
+                  }
+                ]
+              },
+              {
+                "id": "war-p3-shocking-impact-shockwave-3-mt",
+                "name": "Shocking Impact/Shockwave 3",
+                "after": "p3-shocking-impact-shockwave-3",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Provoke",
+                    "note": "Face the boss NW, Kefka-relative, right after the third beam."
+                  }
+                ]
+              },
+              {
+                "id": "war-p3-black-holes-iii-6th-tether-set-1-mt",
+                "name": "Black Holes III (6th Tether Set)",
+                "after": "p3-black-holes-iii-6th-tether-set-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Damnation",
+                    "note": "After the last beam."
+                  }
+                ]
+              },
+              {
+                "id": "war-p3-black-holes-iii-6th-tether-set-1-ot",
+                "name": "Black Holes III (6th Tether Set)",
+                "after": "p3-black-holes-iii-6th-tether-set-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Damnation",
+                    "note": "After the last beam."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "p4",
+            "mechanics": [
+              {
+                "id": "war-p4-grand-cross-1-mt",
+                "name": "Grand Cross 1",
+                "after": "p4-grand-cross-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting",
+                    "note": "For the autos."
+                  }
+                ]
+              },
+              {
+                "id": "war-p4-grand-cross-1-ot",
+                "name": "Grand Cross 1",
+                "after": "p4-grand-cross-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Thrill of Battle",
+                    "note": "In case you forgot your stance."
+                  }
+                ]
+              },
+              {
+                "id": "war-p4-grand-cross-3-mt",
+                "name": "Grand Cross 3",
+                "after": "p4-grand-cross-3",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Nascent Flash",
+                    "buddy": true,
+                    "note": "On R1."
+                  }
+                ]
+              },
+              {
+                "id": "war-p4-grand-cross-3-ot",
+                "name": "Grand Cross 3",
+                "after": "p4-grand-cross-3",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Nascent Flash",
+                    "buddy": true,
+                    "note": "On R2."
+                  }
+                ]
               }
             ]
           },
@@ -3669,6 +4620,39 @@
             "id": "p5",
             "note": "The OT starts with aggro.",
             "mechanics": [
+              {
+                "id": "war-r105-mt",
+                "name": "Autos 1",
+                "time": "0:45",
+                "after": "p5-fell-forces-3x-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Damnation"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "war-r105-ot",
+                "name": "Autos 1",
+                "time": "0:45",
+                "after": "p5-fell-forces-3x-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
               {
                 "id": "war-r107-ot",
                 "name": "Flood",
@@ -3691,7 +4675,110 @@
                 "note": "Tank swap so the boss does not get dragged out.",
                 "actions": [
                   {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  },
+                  {
                     "name": "Provoke"
+                  }
+                ]
+              },
+              {
+                "id": "war-r109-ot",
+                "name": "Flare Diffusion 1",
+                "time": "1:17",
+                "after": "p5-maddening-orchestra-1",
+                "seat": "OT",
+                "note": "Tank swap so the boss does not get dragged out.",
+                "actions": [
+                  {
+                    "name": "Damnation",
+                    "note": "First two hits."
+                  }
+                ]
+              },
+              {
+                "id": "war-r111-mt",
+                "name": "Flare 1",
+                "time": "1:17",
+                "after": "p5-maddening-orchestra-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Holmgang",
+                    "note": "On the flare."
+                  }
+                ]
+              },
+              {
+                "id": "war-r111-ot",
+                "name": "Flare 1",
+                "time": "1:17",
+                "after": "p5-maddening-orchestra-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Bloodwhetting",
+                    "note": "On the flare."
+                  }
+                ]
+              },
+              {
+                "id": "war-r113-mt",
+                "name": "Autos 2",
+                "time": "1:22",
+                "after": "p5-fell-forces-2x-1",
+                "seat": "MT",
+                "note": "The MT is main threat until the next flare.",
+                "actions": [
+                  {
+                    "name": "Holmgang",
+                    "carryOver": true
+                  }
+                ]
+              },
+              {
+                "id": "war-r119-mt",
+                "name": "Autos 3",
+                "time": "2:07",
+                "after": "p5-fell-forces-2x-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "war-r119-ot",
+                "name": "Autos 3",
+                "time": "2:07",
+                "after": "p5-fell-forces-2x-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "war-r121-mt",
+                "name": "Flare Diffusion 2",
+                "time": "2:46",
+                "after": "p5-maddening-orchestra-2",
+                "seat": "MT",
+                "note": "Tank swap so the boss does not get dragged out. Press Rampart last so it holds until the final auto.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Bloodwhetting"
                   }
                 ]
               },
@@ -3704,7 +4791,107 @@
                 "note": "Tank swap so the boss does not get dragged out. Press Rampart last so it holds until the final auto.",
                 "actions": [
                   {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  },
+                  {
                     "name": "Provoke"
+                  }
+                ]
+              },
+              {
+                "id": "war-r123-mt",
+                "name": "Flare 2",
+                "time": "2:46",
+                "after": "p5-maddening-orchestra-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Damnation",
+                    "note": "On the flare."
+                  }
+                ]
+              },
+              {
+                "id": "war-r123-ot",
+                "name": "Flare 2",
+                "time": "2:46",
+                "after": "p5-maddening-orchestra-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Holmgang",
+                    "note": "On the flare."
+                  }
+                ]
+              },
+              {
+                "id": "war-r125-mt",
+                "name": "Autos 4",
+                "time": "2:54",
+                "after": "p5-fell-forces-3x-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Thrill of Battle",
+                    "note": "Share the third auto with your co-tank."
+                  }
+                ]
+              },
+              {
+                "id": "war-r125-ot",
+                "name": "Autos 4",
+                "time": "2:54",
+                "after": "p5-fell-forces-3x-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Holmgang",
+                    "carryOver": true
+                  },
+                  {
+                    "name": "Thrill of Battle",
+                    "note": "On the third auto."
+                  }
+                ]
+              },
+              {
+                "id": "war-p5-ultima-repeater-1-ot",
+                "name": "Ultima Repeater 1",
+                "after": "p5-ultima-repeater-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Provoke",
+                    "note": "Start with aggro."
+                  }
+                ]
+              },
+              {
+                "id": "war-p5-forsaken-7th-hit-1-mt",
+                "name": "Forsaken (7th Hit)",
+                "after": "p5-forsaken-7th-hit-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Nascent Flash",
+                    "buddy": true,
+                    "note": "On R1."
+                  }
+                ]
+              },
+              {
+                "id": "war-p5-forsaken-7th-hit-1-ot",
+                "name": "Forsaken (7th Hit)",
+                "after": "p5-forsaken-7th-hit-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Nascent Flash",
+                    "buddy": true,
+                    "note": "On R2."
                   }
                 ]
               }
@@ -3716,9 +4903,379 @@
         "job": "DRK",
         "phases": [
           {
+            "id": "p1",
+            "mechanics": [
+              {
+                "id": "drk-r7-mt",
+                "name": "Revolting Ruin 1",
+                "after": "p1-revolting-ruin-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Shadowed Vigil"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r7-ot",
+                "name": "Revolting Ruin 1",
+                "after": "p1-revolting-ruin-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Provoke"
+                  },
+                  {
+                    "name": "The Blackest Night",
+                    "buddy": true
+                  },
+                  {
+                    "name": "Oblation",
+                    "buddy": true
+                  }
+                ]
+              },
+              {
+                "id": "drk-r15-mt",
+                "name": "Hyperdrive 1",
+                "after": "p1-hyperdrive-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "The Blackest Night",
+                    "buddy": true
+                  },
+                  {
+                    "name": "Oblation",
+                    "buddy": true
+                  }
+                ]
+              },
+              {
+                "id": "drk-r15-ot",
+                "name": "Hyperdrive 1",
+                "after": "p1-hyperdrive-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Shadowed Vigil"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r17-mt",
+                "name": "Revolting Ruin 2",
+                "after": "p1-revolting-ruin-2",
+                "seat": "MT",
+                "note": "MT Provoke obviously",
+                "actions": [
+                  {
+                    "name": "Provoke"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r17-ot",
+                "name": "Revolting Ruin 2",
+                "after": "p1-revolting-ruin-2",
+                "seat": "OT",
+                "note": "MT Provoke obviously",
+                "actions": [
+                  {
+                    "name": "Living Dead"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r25-mt",
+                "name": "Hyperdrive 2",
+                "after": "p1-hyperdrive-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Living Dead"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "mechanics": [
+              {
+                "id": "drk-r31-mt",
+                "name": "Ultimate Embrace",
+                "time": "0:23",
+                "after": "p2-ultimate-embrace-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Shadowed Vigil"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r31-ot",
+                "name": "Ultimate Embrace",
+                "time": "0:23",
+                "after": "p2-ultimate-embrace-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Shadowed Vigil"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r41-mt",
+                "name": "Wings of Destruction",
+                "after": "p2-wings-of-destruction-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Shadowed Vigil",
+                    "note": "No short mit."
+                  },
+                  {
+                    "name": "Dark Mind",
+                    "note": "No short mit."
+                  },
+                  {
+                    "name": "Rampart",
+                    "note": "No short mit."
+                  }
+                ]
+              },
+              {
+                "id": "drk-r41-ot",
+                "name": "Wings of Destruction",
+                "after": "p2-wings-of-destruction-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Shadowed Vigil",
+                    "note": "No short mit."
+                  },
+                  {
+                    "name": "Dark Mind",
+                    "note": "No short mit."
+                  },
+                  {
+                    "name": "Rampart",
+                    "note": "No short mit."
+                  }
+                ]
+              },
+              {
+                "id": "drk-r43-mt",
+                "name": "Ultimate Embrace 2",
+                "after": "p2-ultimate-embrace-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r43-ot",
+                "name": "Ultimate Embrace 2",
+                "after": "p2-ultimate-embrace-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drk-p2-wings-of-destruction-1-mt",
+                "name": "Wings of Destruction",
+                "after": "p2-wings-of-destruction-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "The Blackest Night",
+                    "note": "No short mit."
+                  },
+                  {
+                    "name": "Oblation",
+                    "note": "No short mit."
+                  }
+                ]
+              },
+              {
+                "id": "drk-p2-wings-of-destruction-1-ot",
+                "name": "Wings of Destruction",
+                "after": "p2-wings-of-destruction-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "The Blackest Night",
+                    "note": "No short mit."
+                  },
+                  {
+                    "name": "Oblation",
+                    "note": "No short mit."
+                  }
+                ]
+              }
+            ]
+          },
+          {
             "id": "p3",
             "note": "The MT starts on Exdeath and the OT on Chaos, then the two swap during the Decisive Battle by standing under their boss after it cast-locks and provoking. Paladin is forced offtank from P3 onward: the invulns do not work with a Paladin main tank.",
             "mechanics": [
+              {
+                "id": "drk-r55-mt",
+                "name": "Thunder III",
+                "time": "1:37",
+                "after": "p3-thunder-iii-1st-set-1",
+                "seat": "MT",
+                "note": "Assumes Exdeath is held middle. Check the wall-Exdeath sheet for Walldeath.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Dark Mind",
+                    "note": "First hit."
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r55-ot",
+                "name": "Thunder III",
+                "time": "1:37",
+                "after": "p3-thunder-iii-1st-set-1",
+                "seat": "OT",
+                "note": "Assumes Exdeath is held middle. Check the wall-Exdeath sheet for Walldeath.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Dark Mind",
+                    "note": "Second hit."
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r61-mt",
+                "name": "Thunder III",
+                "time": "2:34",
+                "after": "p3-thunder-iii-2nd-set-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Living Dead"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r67-mt",
+                "name": "Thunder III",
+                "time": "2:52",
+                "after": "p3-thunder-iii-3rd-set-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Shadowed Vigil",
+                    "note": "Use late, on the second hit."
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r67-ot",
+                "name": "Thunder III",
+                "time": "2:52",
+                "after": "p3-thunder-iii-3rd-set-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Shadowed Vigil",
+                    "note": "Use late."
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
               {
                 "id": "drk-r69-mt",
                 "name": "HP Reduction",
@@ -3736,6 +5293,62 @@
                 "seat": "OT",
                 "note": "Covered by the Thunder III mitigation above.",
                 "actions": []
+              },
+              {
+                "id": "drk-r73-ot",
+                "name": "Thunder III",
+                "time": "3:33",
+                "after": "p3-thunder-iii-4th-set-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Living Dead"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r77-mt",
+                "name": "Thunder III",
+                "time": "4:15",
+                "after": "p3-thunder-iii-5th-set-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Dark Mind",
+                    "note": "Second hit."
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r77-ot",
+                "name": "Thunder III",
+                "time": "4:15",
+                "after": "p3-thunder-iii-5th-set-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Dark Mind",
+                    "note": "First hit."
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
               },
               {
                 "id": "drk-r81-mt",
@@ -3774,6 +5387,236 @@
                     "name": "Oblation"
                   }
                 ]
+              },
+              {
+                "id": "drk-p3-cyclone-1-mt",
+                "name": "Cyclone",
+                "after": "p3-cyclone-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drk-p3-cyclone-1-ot",
+                "name": "Cyclone",
+                "after": "p3-cyclone-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drk-p3-the-decisive-battle-1-mt",
+                "name": "The Decisive Battle",
+                "after": "p3-the-decisive-battle-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Provoke",
+                    "note": "On Chaos. Stand under, and make sure neither boss can move before you move under."
+                  }
+                ]
+              },
+              {
+                "id": "drk-p3-the-decisive-battle-1-ot",
+                "name": "The Decisive Battle",
+                "after": "p3-the-decisive-battle-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Provoke",
+                    "note": "On Exdeath. Stand under, and make sure neither boss can move before you move under."
+                  }
+                ]
+              },
+              {
+                "id": "drk-p3-earthquake-1-mt",
+                "name": "Earthquake",
+                "after": "p3-earthquake-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drk-p3-earthquake-1-ot",
+                "name": "Earthquake",
+                "after": "p3-earthquake-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drk-p3-black-holes-ii-5th-tether-set-1-mt",
+                "name": "Black Holes II (5th Tether Set)",
+                "after": "p3-black-holes-ii-5th-tether-set-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "The Blackest Night",
+                    "note": "On cooldown from this point."
+                  },
+                  {
+                    "name": "Oblation",
+                    "note": "On cooldown from this point."
+                  }
+                ]
+              },
+              {
+                "id": "drk-p3-black-holes-ii-5th-tether-set-1-ot",
+                "name": "Black Holes II (5th Tether Set)",
+                "after": "p3-black-holes-ii-5th-tether-set-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "The Blackest Night",
+                    "note": "On cooldown from this point."
+                  },
+                  {
+                    "name": "Oblation",
+                    "note": "On cooldown from this point."
+                  }
+                ]
+              },
+              {
+                "id": "drk-p3-shocking-impact-shockwave-3-mt",
+                "name": "Shocking Impact/Shockwave 3",
+                "after": "p3-shocking-impact-shockwave-3",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Provoke",
+                    "note": "Face the boss NW, Kefka-relative, right after the third beam."
+                  }
+                ]
+              },
+              {
+                "id": "drk-p3-black-holes-iii-6th-tether-set-1-mt",
+                "name": "Black Holes III (6th Tether Set)",
+                "after": "p3-black-holes-iii-6th-tether-set-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Shadowed Vigil",
+                    "note": "After the last beam."
+                  }
+                ]
+              },
+              {
+                "id": "drk-p3-black-holes-iii-6th-tether-set-1-ot",
+                "name": "Black Holes III (6th Tether Set)",
+                "after": "p3-black-holes-iii-6th-tether-set-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Shadowed Vigil",
+                    "note": "After the last beam."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "p4",
+            "mechanics": [
+              {
+                "id": "drk-p4-grand-cross-1-mt",
+                "name": "Grand Cross 1",
+                "after": "p4-grand-cross-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night",
+                    "note": "For the autos."
+                  },
+                  {
+                    "name": "Oblation",
+                    "note": "For the autos."
+                  }
+                ]
+              },
+              {
+                "id": "drk-p4-grand-cross-1-ot",
+                "name": "Grand Cross 1",
+                "after": "p4-grand-cross-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Dark Mind",
+                    "note": "In case you forgot your stance."
+                  }
+                ]
+              },
+              {
+                "id": "drk-p4-grand-cross-3-mt",
+                "name": "Grand Cross 3",
+                "after": "p4-grand-cross-3",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "The Blackest Night",
+                    "buddy": true,
+                    "note": "On R1."
+                  },
+                  {
+                    "name": "Oblation",
+                    "buddy": true,
+                    "note": "On R1."
+                  },
+                  {
+                    "name": "Oblation",
+                    "buddy": true,
+                    "note": "On R1."
+                  }
+                ]
+              },
+              {
+                "id": "drk-p4-grand-cross-3-ot",
+                "name": "Grand Cross 3",
+                "after": "p4-grand-cross-3",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "The Blackest Night",
+                    "buddy": true,
+                    "note": "On R2."
+                  },
+                  {
+                    "name": "Oblation",
+                    "buddy": true,
+                    "note": "On R2."
+                  },
+                  {
+                    "name": "Oblation",
+                    "buddy": true,
+                    "note": "On R2."
+                  }
+                ]
               }
             ]
           },
@@ -3781,6 +5624,45 @@
             "id": "p5",
             "note": "The OT starts with aggro.",
             "mechanics": [
+              {
+                "id": "drk-r105-mt",
+                "name": "Autos 1",
+                "time": "0:45",
+                "after": "p5-fell-forces-3x-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Shadowed Vigil"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r105-ot",
+                "name": "Autos 1",
+                "time": "0:45",
+                "after": "p5-fell-forces-3x-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
               {
                 "id": "drk-r107-ot",
                 "name": "Flood",
@@ -3803,7 +5685,126 @@
                 "note": "Tank swap so the boss does not get dragged out.",
                 "actions": [
                   {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  },
+                  {
                     "name": "Provoke"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r109-ot",
+                "name": "Flare Diffusion 1",
+                "time": "1:17",
+                "after": "p5-maddening-orchestra-1",
+                "seat": "OT",
+                "note": "Tank swap so the boss does not get dragged out.",
+                "actions": [
+                  {
+                    "name": "Shadowed Vigil",
+                    "note": "First two hits."
+                  }
+                ]
+              },
+              {
+                "id": "drk-r111-mt",
+                "name": "Flare 1",
+                "time": "1:17",
+                "after": "p5-maddening-orchestra-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Living Dead",
+                    "note": "On the flare."
+                  }
+                ]
+              },
+              {
+                "id": "drk-r111-ot",
+                "name": "Flare 1",
+                "time": "1:17",
+                "after": "p5-maddening-orchestra-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "The Blackest Night",
+                    "note": "On the flare."
+                  },
+                  {
+                    "name": "Oblation",
+                    "note": "On the flare."
+                  }
+                ]
+              },
+              {
+                "id": "drk-r113-mt",
+                "name": "Autos 2",
+                "time": "1:22",
+                "after": "p5-fell-forces-2x-1",
+                "seat": "MT",
+                "note": "The MT is main threat until the next flare.",
+                "actions": [
+                  {
+                    "name": "Living Dead",
+                    "carryOver": true
+                  }
+                ]
+              },
+              {
+                "id": "drk-r119-mt",
+                "name": "Autos 3",
+                "time": "2:07",
+                "after": "p5-fell-forces-2x-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r119-ot",
+                "name": "Autos 3",
+                "time": "2:07",
+                "after": "p5-fell-forces-2x-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r121-mt",
+                "name": "Flare Diffusion 2",
+                "time": "2:46",
+                "after": "p5-maddening-orchestra-2",
+                "seat": "MT",
+                "note": "Tank swap so the boss does not get dragged out. Press Rampart last so it holds until the final auto.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
                   }
                 ]
               },
@@ -3816,7 +5817,130 @@
                 "note": "Tank swap so the boss does not get dragged out. Press Rampart last so it holds until the final auto.",
                 "actions": [
                   {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  },
+                  {
                     "name": "Provoke"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r123-mt",
+                "name": "Flare 2",
+                "time": "2:46",
+                "after": "p5-maddening-orchestra-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Shadowed Vigil",
+                    "note": "On the flare."
+                  }
+                ]
+              },
+              {
+                "id": "drk-r123-ot",
+                "name": "Flare 2",
+                "time": "2:46",
+                "after": "p5-maddening-orchestra-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Living Dead",
+                    "note": "On the flare."
+                  }
+                ]
+              },
+              {
+                "id": "drk-r125-mt",
+                "name": "Autos 4",
+                "time": "2:54",
+                "after": "p5-fell-forces-3x-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Dark Mind",
+                    "note": "Share the third auto with your co-tank."
+                  }
+                ]
+              },
+              {
+                "id": "drk-r125-ot",
+                "name": "Autos 4",
+                "time": "2:54",
+                "after": "p5-fell-forces-3x-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Living Dead",
+                    "carryOver": true
+                  },
+                  {
+                    "name": "Dark Mind",
+                    "note": "On the third auto."
+                  }
+                ]
+              },
+              {
+                "id": "drk-p5-ultima-repeater-1-ot",
+                "name": "Ultima Repeater 1",
+                "after": "p5-ultima-repeater-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Provoke",
+                    "note": "Start with aggro."
+                  }
+                ]
+              },
+              {
+                "id": "drk-p5-forsaken-7th-hit-1-mt",
+                "name": "Forsaken (7th Hit)",
+                "after": "p5-forsaken-7th-hit-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "The Blackest Night",
+                    "buddy": true,
+                    "note": "On R1."
+                  },
+                  {
+                    "name": "Oblation",
+                    "buddy": true,
+                    "note": "On R1."
+                  },
+                  {
+                    "name": "Oblation",
+                    "buddy": true,
+                    "note": "On R1."
+                  }
+                ]
+              },
+              {
+                "id": "drk-p5-forsaken-7th-hit-1-ot",
+                "name": "Forsaken (7th Hit)",
+                "after": "p5-forsaken-7th-hit-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "The Blackest Night",
+                    "buddy": true,
+                    "note": "On R2."
+                  },
+                  {
+                    "name": "Oblation",
+                    "buddy": true,
+                    "note": "On R2."
+                  },
+                  {
+                    "name": "Oblation",
+                    "buddy": true,
+                    "note": "On R2."
                   }
                 ]
               }
@@ -3828,9 +5952,327 @@
         "job": "GNB",
         "phases": [
           {
+            "id": "p1",
+            "mechanics": [
+              {
+                "id": "gnb-r7-mt",
+                "name": "Revolting Ruin 1",
+                "after": "p1-revolting-ruin-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Great Nebula"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r7-ot",
+                "name": "Revolting Ruin 1",
+                "after": "p1-revolting-ruin-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Provoke"
+                  },
+                  {
+                    "name": "Heart of Corundum",
+                    "buddy": true
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r15-mt",
+                "name": "Hyperdrive 1",
+                "after": "p1-hyperdrive-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Heart of Corundum",
+                    "buddy": true
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r15-ot",
+                "name": "Hyperdrive 1",
+                "after": "p1-hyperdrive-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Great Nebula"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r17-mt",
+                "name": "Revolting Ruin 2",
+                "after": "p1-revolting-ruin-2",
+                "seat": "MT",
+                "note": "MT Provoke obviously",
+                "actions": [
+                  {
+                    "name": "Provoke"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r17-ot",
+                "name": "Revolting Ruin 2",
+                "after": "p1-revolting-ruin-2",
+                "seat": "OT",
+                "note": "MT Provoke obviously",
+                "actions": [
+                  {
+                    "name": "Superbolide"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r25-mt",
+                "name": "Hyperdrive 2",
+                "after": "p1-hyperdrive-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Superbolide"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "mechanics": [
+              {
+                "id": "gnb-r31-mt",
+                "name": "Ultimate Embrace",
+                "time": "0:23",
+                "after": "p2-ultimate-embrace-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Great Nebula"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r31-ot",
+                "name": "Ultimate Embrace",
+                "time": "0:23",
+                "after": "p2-ultimate-embrace-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Great Nebula"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r41-mt",
+                "name": "Wings of Destruction",
+                "after": "p2-wings-of-destruction-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Great Nebula",
+                    "note": "No short mit."
+                  },
+                  {
+                    "name": "Camouflage",
+                    "note": "No short mit."
+                  },
+                  {
+                    "name": "Rampart",
+                    "note": "No short mit."
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r41-ot",
+                "name": "Wings of Destruction",
+                "after": "p2-wings-of-destruction-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Great Nebula",
+                    "note": "No short mit."
+                  },
+                  {
+                    "name": "Camouflage",
+                    "note": "No short mit."
+                  },
+                  {
+                    "name": "Rampart",
+                    "note": "No short mit."
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r43-mt",
+                "name": "Ultimate Embrace 2",
+                "after": "p2-ultimate-embrace-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r43-ot",
+                "name": "Ultimate Embrace 2",
+                "after": "p2-ultimate-embrace-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-p2-wings-of-destruction-1-mt",
+                "name": "Wings of Destruction",
+                "after": "p2-wings-of-destruction-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Heart of Corundum",
+                    "note": "No short mit."
+                  }
+                ]
+              },
+              {
+                "id": "gnb-p2-wings-of-destruction-1-ot",
+                "name": "Wings of Destruction",
+                "after": "p2-wings-of-destruction-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Heart of Corundum",
+                    "note": "No short mit."
+                  }
+                ]
+              }
+            ]
+          },
+          {
             "id": "p3",
             "note": "The MT starts on Exdeath and the OT on Chaos, then the two swap during the Decisive Battle by standing under their boss after it cast-locks and provoking. Paladin is forced offtank from P3 onward: the invulns do not work with a Paladin main tank.",
             "mechanics": [
+              {
+                "id": "gnb-r55-mt",
+                "name": "Thunder III",
+                "time": "1:37",
+                "after": "p3-thunder-iii-1st-set-1",
+                "seat": "MT",
+                "note": "Assumes Exdeath is held middle. Check the wall-Exdeath sheet for Walldeath.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Camouflage",
+                    "note": "First hit."
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r55-ot",
+                "name": "Thunder III",
+                "time": "1:37",
+                "after": "p3-thunder-iii-1st-set-1",
+                "seat": "OT",
+                "note": "Assumes Exdeath is held middle. Check the wall-Exdeath sheet for Walldeath.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Camouflage",
+                    "note": "Second hit."
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r61-mt",
+                "name": "Thunder III",
+                "time": "2:34",
+                "after": "p3-thunder-iii-2nd-set-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Superbolide"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r67-mt",
+                "name": "Thunder III",
+                "time": "2:52",
+                "after": "p3-thunder-iii-3rd-set-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Great Nebula",
+                    "note": "Use late, on the second hit."
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r67-ot",
+                "name": "Thunder III",
+                "time": "2:52",
+                "after": "p3-thunder-iii-3rd-set-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Great Nebula",
+                    "note": "Use late."
+                  }
+                ]
+              },
               {
                 "id": "gnb-r69-mt",
                 "name": "HP Reduction",
@@ -3848,6 +6290,56 @@
                 "seat": "OT",
                 "note": "Covered by the Thunder III mitigation above.",
                 "actions": []
+              },
+              {
+                "id": "gnb-r73-ot",
+                "name": "Thunder III",
+                "time": "3:33",
+                "after": "p3-thunder-iii-4th-set-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Superbolide"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r77-mt",
+                "name": "Thunder III",
+                "time": "4:15",
+                "after": "p3-thunder-iii-5th-set-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Camouflage",
+                    "note": "Second hit."
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r77-ot",
+                "name": "Thunder III",
+                "time": "4:15",
+                "after": "p3-thunder-iii-5th-set-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Camouflage",
+                    "note": "First hit."
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
               },
               {
                 "id": "gnb-r81-mt",
@@ -3880,6 +6372,192 @@
                     "name": "Heart of Corundum"
                   }
                 ]
+              },
+              {
+                "id": "gnb-p3-cyclone-1-mt",
+                "name": "Cyclone",
+                "after": "p3-cyclone-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-p3-cyclone-1-ot",
+                "name": "Cyclone",
+                "after": "p3-cyclone-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-p3-the-decisive-battle-1-mt",
+                "name": "The Decisive Battle",
+                "after": "p3-the-decisive-battle-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Provoke",
+                    "note": "On Chaos. Stand under, and make sure neither boss can move before you move under."
+                  }
+                ]
+              },
+              {
+                "id": "gnb-p3-the-decisive-battle-1-ot",
+                "name": "The Decisive Battle",
+                "after": "p3-the-decisive-battle-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Provoke",
+                    "note": "On Exdeath. Stand under, and make sure neither boss can move before you move under."
+                  }
+                ]
+              },
+              {
+                "id": "gnb-p3-earthquake-1-mt",
+                "name": "Earthquake",
+                "after": "p3-earthquake-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-p3-earthquake-1-ot",
+                "name": "Earthquake",
+                "after": "p3-earthquake-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-p3-black-holes-ii-5th-tether-set-1-mt",
+                "name": "Black Holes II (5th Tether Set)",
+                "after": "p3-black-holes-ii-5th-tether-set-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Heart of Corundum",
+                    "note": "On cooldown from this point."
+                  }
+                ]
+              },
+              {
+                "id": "gnb-p3-black-holes-ii-5th-tether-set-1-ot",
+                "name": "Black Holes II (5th Tether Set)",
+                "after": "p3-black-holes-ii-5th-tether-set-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Heart of Corundum",
+                    "note": "On cooldown from this point."
+                  }
+                ]
+              },
+              {
+                "id": "gnb-p3-shocking-impact-shockwave-3-mt",
+                "name": "Shocking Impact/Shockwave 3",
+                "after": "p3-shocking-impact-shockwave-3",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Provoke",
+                    "note": "Face the boss NW, Kefka-relative, right after the third beam."
+                  }
+                ]
+              },
+              {
+                "id": "gnb-p3-black-holes-iii-6th-tether-set-1-mt",
+                "name": "Black Holes III (6th Tether Set)",
+                "after": "p3-black-holes-iii-6th-tether-set-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Great Nebula",
+                    "note": "After the last beam."
+                  }
+                ]
+              },
+              {
+                "id": "gnb-p3-black-holes-iii-6th-tether-set-1-ot",
+                "name": "Black Holes III (6th Tether Set)",
+                "after": "p3-black-holes-iii-6th-tether-set-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Great Nebula",
+                    "note": "After the last beam."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "p4",
+            "mechanics": [
+              {
+                "id": "gnb-p4-grand-cross-1-mt",
+                "name": "Grand Cross 1",
+                "after": "p4-grand-cross-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum",
+                    "note": "For the autos."
+                  }
+                ]
+              },
+              {
+                "id": "gnb-p4-grand-cross-1-ot",
+                "name": "Grand Cross 1",
+                "after": "p4-grand-cross-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Camouflage",
+                    "note": "In case you forgot your stance."
+                  }
+                ]
+              },
+              {
+                "id": "gnb-p4-grand-cross-3-mt",
+                "name": "Grand Cross 3",
+                "after": "p4-grand-cross-3",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Heart of Corundum",
+                    "buddy": true,
+                    "note": "On R1."
+                  }
+                ]
+              },
+              {
+                "id": "gnb-p4-grand-cross-3-ot",
+                "name": "Grand Cross 3",
+                "after": "p4-grand-cross-3",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Heart of Corundum",
+                    "buddy": true,
+                    "note": "On R2."
+                  }
+                ]
               }
             ]
           },
@@ -3887,6 +6565,39 @@
             "id": "p5",
             "note": "The OT starts with aggro.",
             "mechanics": [
+              {
+                "id": "gnb-r105-mt",
+                "name": "Autos 1",
+                "time": "0:45",
+                "after": "p5-fell-forces-3x-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Great Nebula"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r105-ot",
+                "name": "Autos 1",
+                "time": "0:45",
+                "after": "p5-fell-forces-3x-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
               {
                 "id": "gnb-r107-ot",
                 "name": "Flood",
@@ -3909,7 +6620,110 @@
                 "note": "Tank swap so the boss does not get dragged out.",
                 "actions": [
                   {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  },
+                  {
                     "name": "Provoke"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r109-ot",
+                "name": "Flare Diffusion 1",
+                "time": "1:17",
+                "after": "p5-maddening-orchestra-1",
+                "seat": "OT",
+                "note": "Tank swap so the boss does not get dragged out.",
+                "actions": [
+                  {
+                    "name": "Great Nebula",
+                    "note": "First two hits."
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r111-mt",
+                "name": "Flare 1",
+                "time": "1:17",
+                "after": "p5-maddening-orchestra-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Superbolide",
+                    "note": "On the flare."
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r111-ot",
+                "name": "Flare 1",
+                "time": "1:17",
+                "after": "p5-maddening-orchestra-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Heart of Corundum",
+                    "note": "On the flare."
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r113-mt",
+                "name": "Autos 2",
+                "time": "1:22",
+                "after": "p5-fell-forces-2x-1",
+                "seat": "MT",
+                "note": "The MT is main threat until the next flare.",
+                "actions": [
+                  {
+                    "name": "Superbolide",
+                    "carryOver": true
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r119-mt",
+                "name": "Autos 3",
+                "time": "2:07",
+                "after": "p5-fell-forces-2x-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r119-ot",
+                "name": "Autos 3",
+                "time": "2:07",
+                "after": "p5-fell-forces-2x-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r121-mt",
+                "name": "Flare Diffusion 2",
+                "time": "2:46",
+                "after": "p5-maddening-orchestra-2",
+                "seat": "MT",
+                "note": "Tank swap so the boss does not get dragged out. Press Rampart last so it holds until the final auto.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Heart of Corundum"
                   }
                 ]
               },
@@ -3922,7 +6736,107 @@
                 "note": "Tank swap so the boss does not get dragged out. Press Rampart last so it holds until the final auto.",
                 "actions": [
                   {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  },
+                  {
                     "name": "Provoke"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r123-mt",
+                "name": "Flare 2",
+                "time": "2:46",
+                "after": "p5-maddening-orchestra-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Great Nebula",
+                    "note": "On the flare."
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r123-ot",
+                "name": "Flare 2",
+                "time": "2:46",
+                "after": "p5-maddening-orchestra-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Superbolide",
+                    "note": "On the flare."
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r125-mt",
+                "name": "Autos 4",
+                "time": "2:54",
+                "after": "p5-fell-forces-3x-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Camouflage",
+                    "note": "Share the third auto with your co-tank."
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r125-ot",
+                "name": "Autos 4",
+                "time": "2:54",
+                "after": "p5-fell-forces-3x-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Superbolide",
+                    "carryOver": true
+                  },
+                  {
+                    "name": "Camouflage",
+                    "note": "On the third auto."
+                  }
+                ]
+              },
+              {
+                "id": "gnb-p5-ultima-repeater-1-ot",
+                "name": "Ultima Repeater 1",
+                "after": "p5-ultima-repeater-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Provoke",
+                    "note": "Start with aggro."
+                  }
+                ]
+              },
+              {
+                "id": "gnb-p5-forsaken-7th-hit-1-mt",
+                "name": "Forsaken (7th Hit)",
+                "after": "p5-forsaken-7th-hit-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Heart of Corundum",
+                    "buddy": true,
+                    "note": "On R1."
+                  }
+                ]
+              },
+              {
+                "id": "gnb-p5-forsaken-7th-hit-1-ot",
+                "name": "Forsaken (7th Hit)",
+                "after": "p5-forsaken-7th-hit-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Heart of Corundum",
+                    "buddy": true,
+                    "note": "On R2."
                   }
                 ]
               }
