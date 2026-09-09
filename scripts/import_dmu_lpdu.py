@@ -466,7 +466,7 @@ def convert(path):
     return {
         'id': 'lpdu',
         'fightId': 'dmu',
-        'name': 'LPDU Mit Compile',
+        'name': 'LPDU',
         'author': 'LPDU',
         'updated': '2026-09-09',
         'sourceFile': 'LPDU GENERAL DMU MIT COMPILE',
