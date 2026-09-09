@@ -3486,13 +3486,8 @@
         },
         {
           "mechanicId": "p5-forsaken-null-1",
-          "assignments": {
-            "MT": [
-              {
-                "name": "Enrage"
-              }
-            ]
-          }
+          "note": "Enrage.",
+          "assignments": {}
         }
       ]
     }

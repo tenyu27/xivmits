@@ -100,6 +100,10 @@ MECHANICS = {
 ROW_NOTES = {
     ('p3', 'p3-earthquake-1'): 'Both tanks swap bosses here: the Exdeath starter takes Chaos and the Chaos starter takes Exdeath.',
     ('p3', 'p3-thunder-iii-4th-set-1'): 'Use the first beam set on either tank if it is the stack.',
+    # The source writes "Enrage!" in the MT column because that is where it fit
+    # on the row. It is not an MT assignment and not a button, so it belongs to
+    # the mechanic, shown once for every role.
+    ('p5', 'p5-forsaken-null-1'): 'Enrage.',
 }
 
 # A phase-wide aside, shown once under the phase heading.
@@ -155,7 +159,9 @@ ABILITY = {
     'Feint': 'Feint', 'Addle': 'Addle', 'Pranged 90s': 'Party Mit',
 }
 
-# Cells that are prose, not a token list. Keyed by (phase, column, row).
+# Cells that are prose, not a token list. Keyed by (phase, column, row). An
+# empty list means the cell says nothing this slot presses -- its text belongs
+# to the mechanic instead, via ROW_NOTES.
 OVERRIDES = {
     # -- P1
     ('p1', 'E', 8): [{'name': 'Kitchen Sink'}],
@@ -306,11 +312,12 @@ OVERRIDES = {
                       {'name': 'Oblation (DRK)', 'note': 'On R1.', 'buddy': True}],
     ('p5', 'G', 44): [{'name': 'Buddy Mit', 'note': 'On R2.', 'buddy': True},
                       {'name': 'Oblation (DRK)', 'note': 'On R2.', 'buddy': True}],
+    # "Enrage!" is not a button, and not an MT assignment - see ROW_NOTES.
+    ('p5', 'E', 48): [],
     ('p5', 'N', 42): [{'name': 'Succor'}, {'name': 'Seraphism'},
                       {'name': 'Summon Seraph', 'note': 'Off cooldown.'}],
     ('p5', 'P', 44): [{'name': 'Eukrasian Prognosis II'}, {'name': 'Panhaima'},
                       {'name': 'Physis II'}, {'name': 'Pneuma', 'note': 'After.'}],
-    ('p5', 'E', 48): [{'name': 'Enrage'}],
 }
 
 SEPARATORS = [' + ', '+ ', ' // ', ' -> ', ', ', '/']
@@ -434,8 +441,10 @@ def convert(path):
                 raw = cells.get(f'{column}{row}')
                 if not raw:
                     continue
-                actions = OVERRIDES.get((phase_id, column, row)) or cell_actions(raw)
-                assignments.setdefault(slot, []).extend(actions)
+                key = (phase_id, column, row)
+                actions = OVERRIDES[key] if key in OVERRIDES else cell_actions(raw)
+                if actions:
+                    assignments.setdefault(slot, []).extend(actions)
             for slot, action in extras(cells.get(f'{EXTRAS_COLUMN}{row}', '') or ''):
                 assignments.setdefault(slot, []).append(action)
             entry = {'mechanicId': mechanic_id}
