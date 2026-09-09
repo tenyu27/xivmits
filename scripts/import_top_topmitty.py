@@ -16,6 +16,7 @@ import sys
 import zipfile
 import xml.etree.ElementTree as ET
 from pathlib import Path
+from normalize_sheet import normalize_encounter
 
 NS = {'s': 'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
 
@@ -396,10 +397,11 @@ def convert(path):
             mechanics.append(mechanic)
         sheet['phases'].append({'id': phase_id, 'mechanics': mechanics})
     sheet['tankMits'] = convert_tank_tabs(archive, strings, sheet['phases'])
+    encounter, sheet = normalize_encounter(FIGHT, sheet)
     output = Path(__file__).resolve().parents[1] / 'data/fights/top'
-    output.mkdir(parents=True, exist_ok=True)
-    for filename, data in [('fight.json', FIGHT), ('topmitty.json', sheet)]:
-        (output / filename).write_text(json.dumps(data, indent=2, ensure_ascii=False) + '\n')
+    (output / 'sheets').mkdir(parents=True, exist_ok=True)
+    for path, data in [('encounter.json', encounter), ('sheets/topmitty.json', sheet)]:
+        (output / path).write_text(json.dumps(data, indent=2, ensure_ascii=False) + '\n')
     print([(p['id'], len(p['mechanics']),
             sum(len(a) for m in p['mechanics'] for a in m['assignments'].values())) for p in sheet['phases']])
     print([(f"{p['job']}+{p['with']}", sum(len(m['actions']) for ph in p['phases'] for m in ph['mechanics']))

@@ -10,6 +10,7 @@ import sys
 import zipfile
 import xml.etree.ElementTree as ET
 from pathlib import Path
+from normalize_sheet import normalize_encounter
 
 NS = {'s': 'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
 COLUMNS = {'F': 'MT', 'H': 'OT', 'J': 'WHM', 'L': 'AST', 'N': 'SCH', 'P': 'SGE', 'R': 'M1', 'T': 'M2', 'V': 'P', 'X': 'C'}
@@ -521,8 +522,10 @@ def convert(path):
              'phases': [{'id': f'p{i}', 'label': f'P{i}', 'name': name,
                          'start': f'{phase_starts[i - 1] // 60}:{phase_starts[i - 1] % 60:02}'}
                         for i, name in enumerate(PHASE_NAMES, 1)]}
-    for filename, data in [('fight.json', fight), ('ikuya.json', sheet)]:
-        (output / filename).write_text(json.dumps(data, indent=2, ensure_ascii=False) + '\n')
+    encounter, sheet = normalize_encounter(fight, sheet)
+    (output / 'sheets').mkdir(parents=True, exist_ok=True)
+    for path, data in [('encounter.json', encounter), ('sheets/ikuya.json', sheet)]:
+        (output / path).write_text(json.dumps(data, indent=2, ensure_ascii=False) + '\n')
     print([(p['id'], len(p['mechanics']), sum(len(a) for m in p['mechanics'] for a in m['assignments'].values())) for p in sheet['phases']])
     print([(p['job'], sum(len(m['actions']) for ph in p['phases'] for m in ph['mechanics'])) for p in sheet['tankMits']['plans']])
 

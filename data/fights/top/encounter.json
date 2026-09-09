@@ -1,0 +1,312 @@
+{
+  "id": "top",
+  "name": "The Omega Protocol (Ultimate)",
+  "shortName": "TOP",
+  "type": "Ultimate",
+  "phases": [
+    {
+      "id": "p1",
+      "label": "P1",
+      "name": "Omega",
+      "mechanics": [
+        {
+          "id": "p1-pantokrator-1",
+          "name": "Pantokrator",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p1-stack-1-1",
+          "name": "Stack 1",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p1-stack-2-1",
+          "name": "Stack 2",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p1-stack-3-1",
+          "name": "Stack 3",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p1-stack-4-1",
+          "name": "Stack 4",
+          "fflogs": {
+            "abilityIds": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "label": "P2",
+      "name": "Omega M/F",
+      "mechanics": [
+        {
+          "id": "p2-party-synergy-1",
+          "name": "Party Synergy",
+          "fflogs": {
+            "abilityIds": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "label": "P3",
+      "name": "Omega Reconfigured",
+      "mechanics": [
+        {
+          "id": "p3-hello-world-1",
+          "name": "Hello World",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-1st-patch-set-1",
+          "name": "1st Patch Set",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-2nd-patch-set-1",
+          "name": "2nd Patch Set",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-3rd-patch-set-1",
+          "name": "3rd Patch Set",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-4th-patch-set-1",
+          "name": "4th Patch Set",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-critical-error-1",
+          "name": "Critical Error",
+          "fflogs": {
+            "abilityIds": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "label": "P4",
+      "name": "Blue Screen",
+      "mechanics": [
+        {
+          "id": "p4-protean-1-1",
+          "name": "Protean 1",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p4-stack-1-1",
+          "name": "Stack 1",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p4-protean-2-1",
+          "name": "Protean 2",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p4-stack-2-1",
+          "name": "Stack 2",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p4-protean-3-1",
+          "name": "Protean 3",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p4-stack-3-1",
+          "name": "Stack 3",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p4-blue-screen-1",
+          "name": "Blue Screen",
+          "fflogs": {
+            "abilityIds": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "label": "P5",
+      "name": "Run: Dynamis",
+      "mechanics": [
+        {
+          "id": "p5-delta-cast-1",
+          "name": "Delta Cast",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-delta-mech-1",
+          "name": "Delta Mech",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-sigma-cast-1",
+          "name": "Sigma Cast",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-sigma-mech-1",
+          "name": "Sigma Mech",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-omega-cast-1",
+          "name": "Omega Cast",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-omega-mech-1",
+          "name": "Omega Mech",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-blind-faith-1",
+          "name": "Blind Faith",
+          "fflogs": {
+            "abilityIds": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "p6",
+      "label": "P6",
+      "name": "Alpha Omega",
+      "mechanics": [
+        {
+          "id": "p6-cosmo-memory-1",
+          "name": "Cosmo Memory",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p6-cosmo-dive-1-1",
+          "name": "Cosmo Dive 1",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p6-protean-1-1",
+          "name": "Protean 1",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p6-wave-cannon-1-1",
+          "name": "Wave Cannon 1",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p6-protean-2-1",
+          "name": "Protean 2",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p6-wave-cannon-2-1",
+          "name": "Wave Cannon 2",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p6-cosmo-dive-2-1",
+          "name": "Cosmo Dive 2",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p6-cosmo-meteor-1",
+          "name": "Cosmo Meteor",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p6-flares-1",
+          "name": "Flares",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p6-magic-number-1",
+          "name": "Magic Number (1)",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p6-magic-number-2",
+          "name": "Magic Number (2)",
+          "fflogs": {
+            "abilityIds": []
+          }
+        }
+      ]
+    }
+  ],
+  "fflogs": {
+    "encounterIds": []
+  }
+}

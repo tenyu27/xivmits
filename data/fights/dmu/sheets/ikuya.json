@@ -62,8 +62,7 @@
       "id": "p1",
       "mechanics": [
         {
-          "id": "p1-r8",
-          "name": "Mystery Magic",
+          "mechanicId": "p1-mystery-magic-1",
           "assignments": {
             "MT": [
               {
@@ -122,12 +121,10 @@
                 "note": "Use your 90s party mitigation as Kefka re-centres to cast the first Graven Image (WAR/PLD can use after Revolting Ruin III finishes)."
               }
             ]
-          },
-          "time": "0:38"
+          }
         },
         {
-          "id": "p1-r10",
-          "name": "Wave Cannon",
+          "mechanicId": "p1-wave-cannon-1",
           "assignments": {
             "MT": [
               {
@@ -178,12 +175,10 @@
                 "carryOver": true
               }
             ]
-          },
-          "time": "0:43"
+          }
         },
         {
-          "id": "p1-r12",
-          "name": "Double-Trouble Trap",
+          "mechanicId": "p1-double-trouble-trap-1",
           "assignments": {
             "MT": [
               {
@@ -233,12 +228,11 @@
                 "name": "Addle"
               }
             ]
-          },
-          "time": "0:50"
+          }
         },
         {
-          "id": "p1-r14",
-          "name": "Light of Judgment",
+          "mechanicId": "p1-light-of-judgment-1",
+          "note": "Use late into the castbar so it also covers Hyperdrive.",
           "assignments": {
             "MT": [
               {
@@ -285,13 +279,10 @@
                 "name": "Extra (RDM/MCH)"
               }
             ]
-          },
-          "time": "1:03",
-          "note": "Use late into the castbar so it also covers Hyperdrive."
+          }
         },
         {
-          "id": "p1-r16",
-          "name": "Gravitas II (Part I)",
+          "mechanicId": "p1-gravitas-ii-part-i-1",
           "assignments": {
             "AST": [
               {
@@ -307,12 +298,10 @@
                 "note": "If you plan to use Dissipation in your opener, use it before Aetherflow. If you use the first Spreadlo earlier, you will get it back for the Double-Trouble Trap in the second Graven Image and be able to use Seraphism earlier/later."
               }
             ]
-          },
-          "time": "1:28"
+          }
         },
         {
-          "id": "p1-r18",
-          "name": "Gravitas II (Part II)",
+          "mechanicId": "p1-gravitas-ii-part-ii-1",
           "assignments": {
             "WHM": [
               {
@@ -336,12 +325,10 @@
                 "name": "Philosophia"
               }
             ]
-          },
-          "time": "1:46"
+          }
         },
         {
-          "id": "p1-r20",
-          "name": "Double-Trouble Trap",
+          "mechanicId": "p1-double-trouble-trap-2",
           "assignments": {
             "OT": [
               {
@@ -380,12 +367,10 @@
                 "name": "Party Mit"
               }
             ]
-          },
-          "time": "1:58"
+          }
         },
         {
-          "id": "p1-r22",
-          "name": "Light of Judgment",
+          "mechanicId": "p1-light-of-judgment-2",
           "assignments": {
             "MT": [
               {
@@ -425,12 +410,10 @@
                 "name": "Feint"
               }
             ]
-          },
-          "time": "2:12"
+          }
         },
         {
-          "id": "p1-r24",
-          "name": "Double-Trouble Trap",
+          "mechanicId": "p1-double-trouble-trap-3",
           "assignments": {
             "WHM": [
               {
@@ -447,12 +430,10 @@
                 "name": "Expedient"
               }
             ]
-          },
-          "time": "2:45"
+          }
         },
         {
-          "id": "p1-r26",
-          "name": "Indulgent Will",
+          "mechanicId": "p1-indulgent-will-1",
           "assignments": {
             "WHM": [
               {
@@ -482,12 +463,10 @@
                 "name": "Kerachole"
               }
             ]
-          },
-          "time": "2:53"
+          }
         },
         {
-          "id": "p1-r28",
-          "name": "Mystery Magic",
+          "mechanicId": "p1-mystery-magic-2",
           "assignments": {
             "OT": [
               {
@@ -518,8 +497,7 @@
                 "carryOver": true
               }
             ]
-          },
-          "time": "3:07"
+          }
         }
       ]
     },
@@ -527,8 +505,7 @@
       "id": "p2",
       "mechanics": [
         {
-          "id": "p2-r8",
-          "name": "Ultimate Embrace",
+          "mechanicId": "p2-ultimate-embrace-1",
           "assignments": {
             "WHM": [
               {
@@ -559,12 +536,10 @@
                 "name": "Feint"
               }
             ]
-          },
-          "time": "0:24"
+          }
         },
         {
-          "id": "p2-r10",
-          "name": "Forsaken",
+          "mechanicId": "p2-forsaken-1",
           "assignments": {
             "MT": [
               {
@@ -628,12 +603,10 @@
                 "name": "Extra (RDM/MCH)"
               }
             ]
-          },
-          "time": "0:39"
+          }
         },
         {
-          "id": "p2-r12",
-          "name": "Towers I",
+          "mechanicId": "p2-towers-i-1",
           "assignments": {
             "MT": [
               {
@@ -685,12 +658,10 @@
                 "carryOver": true
               }
             ]
-          },
-          "time": "0:53"
+          }
         },
         {
-          "id": "p2-r14",
-          "name": "Towers II (Past/Future's End)",
+          "mechanicId": "p2-towers-ii-past-future-s-end-1",
           "assignments": {
             "SCH": [
               {
@@ -707,12 +678,10 @@
                 "carryOver": true
               }
             ]
-          },
-          "time": "1:03"
+          }
         },
         {
-          "id": "p2-r16",
-          "name": "Towers III (All Things Ending)",
+          "mechanicId": "p2-towers-iii-all-things-ending-1",
           "assignments": {
             "MT": [
               {
@@ -739,12 +708,10 @@
                 "name": "Kerachole"
               }
             ]
-          },
-          "time": "1:14"
+          }
         },
         {
-          "id": "p2-r18",
-          "name": "Towers IV (Past/Future's End)",
+          "mechanicId": "p2-towers-iv-past-future-s-end-1",
           "assignments": {
             "MT": [
               {
@@ -770,12 +737,10 @@
                 "carryOver": true
               }
             ]
-          },
-          "time": "1:24"
+          }
         },
         {
-          "id": "p2-r20",
-          "name": "Towers V (All Things Ending)",
+          "mechanicId": "p2-towers-v-all-things-ending-1",
           "assignments": {
             "WHM": [
               {
@@ -787,12 +752,10 @@
                 "name": "Expedient"
               }
             ]
-          },
-          "time": "1:35"
+          }
         },
         {
-          "id": "p2-r22",
-          "name": "Towers VI (Past/Future's End)",
+          "mechanicId": "p2-towers-vi-past-future-s-end-1",
           "assignments": {
             "MT": [
               {
@@ -829,12 +792,10 @@
                 "name": "Philosophia"
               }
             ]
-          },
-          "time": "1:45"
+          }
         },
         {
-          "id": "p2-r24",
-          "name": "Towers VII (All Things Ending)",
+          "mechanicId": "p2-towers-vii-all-things-ending-1",
           "assignments": {
             "MT": [
               {
@@ -866,12 +827,10 @@
                 "name": "Kerachole"
               }
             ]
-          },
-          "time": "1:55"
+          }
         },
         {
-          "id": "p2-r26",
-          "name": "Towers VIII (Past/Future's End)",
+          "mechanicId": "p2-towers-viii-past-future-s-end-1",
           "assignments": {
             "WHM": [
               {
@@ -897,12 +856,10 @@
                 "carryOver": true
               }
             ]
-          },
-          "time": "2:06"
+          }
         },
         {
-          "id": "p2-r28",
-          "name": "Light of Judgement",
+          "mechanicId": "p2-light-of-judgement-1",
           "assignments": {
             "OT": [
               {
@@ -947,12 +904,10 @@
                 "name": "Addle"
               }
             ]
-          },
-          "time": "2:26"
+          }
         },
         {
-          "id": "p2-r30",
-          "name": "Wings of Destruction",
+          "mechanicId": "p2-wings-of-destruction-1",
           "assignments": {
             "MT": [
               {
@@ -1000,12 +955,10 @@
                 "name": "Feint"
               }
             ]
-          },
-          "time": "2:54"
+          }
         },
         {
-          "id": "p2-r32",
-          "name": "Ultimate Embrace",
+          "mechanicId": "p2-ultimate-embrace-2",
           "assignments": {
             "MT": [
               {
@@ -1059,17 +1012,24 @@
                 "carryOver": true
               }
             ]
-          },
-          "time": "3:01"
+          }
         }
       ]
     },
     {
       "id": "p3",
+      "scopedNote": {
+        "text": "Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides.",
+        "abilities": [
+          "Reprisal",
+          "Addle",
+          "Feint",
+          "Dismantle"
+        ]
+      },
       "mechanics": [
         {
-          "id": "p3-r8",
-          "name": "Bowels of Agony (Chaos)",
+          "mechanicId": "p3-bowels-of-agony-chaos-1",
           "assignments": {
             "MT": [
               {
@@ -1104,12 +1064,10 @@
                 "name": "Feint (Chaos)"
               }
             ]
-          },
-          "time": "1:08"
+          }
         },
         {
-          "id": "p3-r10",
-          "name": "Stray Flames/Tsunami",
+          "mechanicId": "p3-stray-flames-tsunami-1",
           "assignments": {
             "MT": [
               {
@@ -1149,12 +1107,10 @@
                 "name": "Extra (RDM/MCH)"
               }
             ]
-          },
-          "time": "1:28"
+          }
         },
         {
-          "id": "p3-r12",
-          "name": "Thunder III (1st Set)",
+          "mechanicId": "p3-thunder-iii-1st-set-1",
           "assignments": {
             "OT": [
               {
@@ -1189,12 +1145,10 @@
                 "carryOver": true
               }
             ]
-          },
-          "time": "1:36"
+          }
         },
         {
-          "id": "p3-r14",
-          "name": "Stray Flames/Tsunami",
+          "mechanicId": "p3-stray-flames-tsunami-2",
           "assignments": {
             "OT": [
               {
@@ -1226,12 +1180,10 @@
                 "carryOver": true
               }
             ]
-          },
-          "time": "1:55"
+          }
         },
         {
-          "id": "p3-r16",
-          "name": "Ultima Blaster",
+          "mechanicId": "p3-ultima-blaster-1",
           "assignments": {
             "MT": [
               {
@@ -1282,12 +1234,10 @@
                 "name": "Party Mit"
               }
             ]
-          },
-          "time": "2:05"
+          }
         },
         {
-          "id": "p3-r18",
-          "name": "Vacuum Wave",
+          "mechanicId": "p3-vacuum-wave-1",
           "assignments": {
             "MT": [
               {
@@ -1359,12 +1309,10 @@
                 "carryOver": true
               }
             ]
-          },
-          "time": "2:12"
+          }
         },
         {
-          "id": "p3-r20",
-          "name": "Cyclone",
+          "mechanicId": "p3-cyclone-1",
           "assignments": {
             "MT": [
               {
@@ -1423,18 +1371,14 @@
                 "carryOver": true
               }
             ]
-          },
-          "time": "2:16"
+          }
         },
         {
-          "id": "p3-thunder2",
-          "name": "Thunder III (2nd Set)",
-          "time": "2:34",
+          "mechanicId": "p3-thunder-iii-2nd-set-1",
           "assignments": {}
         },
         {
-          "id": "p3-r22",
-          "name": "The Decisive Battle",
+          "mechanicId": "p3-the-decisive-battle-1",
           "assignments": {
             "OT": [
               {
@@ -1452,18 +1396,15 @@
                 "name": "Zoe Shields"
               }
             ]
-          },
-          "time": "2:43"
+          }
         },
         {
-          "id": "p3-thunder3",
-          "name": "Thunder III (3rd Set)",
-          "time": "2:52",
+          "mechanicId": "p3-thunder-iii-3rd-set-1",
           "assignments": {}
         },
         {
-          "id": "p3-r24",
-          "name": "Accretions",
+          "mechanicId": "p3-accretions-1",
+          "note": "Non-healers should avoid using any healing abilities that may cause their Accretion to pop early such as Second Wind, Curing Waltz or Divine Veil. If both Accretions are activated in a short amount of time, it will cause a wipe. Healers will need to manage HP burst accordingly to ensure that Accretions are not popped together. The H1 and H2 can throw single target heals at whoever has the Accretion between them. If playing AST, I recommend popping Macrocosmos immediately for the top-up as this will also take care of the tanks. WHM can use Benediction (if not used earlier) to instantly pop the healer Accretion.",
           "assignments": {
             "MT": [
               {
@@ -1515,12 +1456,10 @@
                 "name": "Avoid HP-restoring abilities"
               }
             ]
-          },
-          "note": "Non-healers should avoid using any healing abilities that may cause their Accretion to pop early such as Second Wind, Curing Waltz or Divine Veil. If both Accretions are activated in a short amount of time, it will cause a wipe. Healers will need to manage HP burst accordingly to ensure that Accretions are not popped together. The H1 and H2 can throw single target heals at whoever has the Accretion between them. If playing AST, I recommend popping Macrocosmos immediately for the top-up as this will also take care of the tanks. WHM can use Benediction (if not used earlier) to instantly pop the healer Accretion."
+          }
         },
         {
-          "id": "p3-r26",
-          "name": "Earthquake",
+          "mechanicId": "p3-earthquake-1",
           "assignments": {
             "MT": [
               {
@@ -1551,12 +1490,10 @@
                 "name": "Feint (Chaos)"
               }
             ]
-          },
-          "time": "2:57"
+          }
         },
         {
-          "id": "p3-r28",
-          "name": "Shocking Impact/Shockwave",
+          "mechanicId": "p3-shocking-impact-shockwave-1",
           "assignments": {
             "MT": [
               {
@@ -1592,18 +1529,14 @@
                 "carryOver": true
               }
             ]
-          },
-          "time": "3:16"
+          }
         },
         {
-          "id": "p3-thunder4",
-          "name": "Thunder III (4th Set)",
-          "time": "3:33",
+          "mechanicId": "p3-thunder-iii-4th-set-1",
           "assignments": {}
         },
         {
-          "id": "p3-r30",
-          "name": "Shocking Impact/Shockwave",
+          "mechanicId": "p3-shocking-impact-shockwave-2",
           "assignments": {
             "OT": [
               {
@@ -1644,12 +1577,10 @@
                 "name": "Extra (RDM/MCH)"
               }
             ]
-          },
-          "time": "3:47"
+          }
         },
         {
-          "id": "p3-r32",
-          "name": "Black Holes II (3rd Tether Set)",
+          "mechanicId": "p3-black-holes-ii-3rd-tether-set-1",
           "assignments": {
             "OT": [
               {
@@ -1683,12 +1614,10 @@
                 "carryOver": true
               }
             ]
-          },
-          "time": "3:54"
+          }
         },
         {
-          "id": "p3-r34",
-          "name": "Black Holes II (4th Tether Set)",
+          "mechanicId": "p3-black-holes-ii-4th-tether-set-1",
           "assignments": {
             "OT": [
               {
@@ -1712,12 +1641,10 @@
                 "carryOver": true
               }
             ]
-          },
-          "time": "3:59"
+          }
         },
         {
-          "id": "p3-r36",
-          "name": "Black Holes II (5th Tether Set)",
+          "mechanicId": "p3-black-holes-ii-5th-tether-set-1",
           "assignments": {
             "SCH": [
               {
@@ -1734,12 +1661,10 @@
                 "carryOver": true
               }
             ]
-          },
-          "time": "4:04"
+          }
         },
         {
-          "id": "p3-r38",
-          "name": "Thunder III (5th Set)",
+          "mechanicId": "p3-thunder-iii-5th-set-1",
           "assignments": {
             "MT": [
               {
@@ -1799,12 +1724,10 @@
                 "name": "Addle (Exdeath)"
               }
             ]
-          },
-          "time": "4:15"
+          }
         },
         {
-          "id": "p3-r40",
-          "name": "Black Holes III (6th Tether Set)",
+          "mechanicId": "p3-black-holes-iii-6th-tether-set-1",
           "assignments": {
             "WHM": [
               {
@@ -1835,12 +1758,10 @@
                 "carryOver": true
               }
             ]
-          },
-          "time": "4:28"
+          }
         },
         {
-          "id": "p3-r42",
-          "name": "Shocking Impact/Shockwave",
+          "mechanicId": "p3-shocking-impact-shockwave-3",
           "assignments": {
             "WHM": [
               {
@@ -1862,12 +1783,10 @@
                 "name": "Kerachole"
               }
             ]
-          },
-          "time": "4:55"
+          }
         },
         {
-          "id": "p3-r44",
-          "name": "Stomp-a-Mole + Knock Down",
+          "mechanicId": "p3-stomp-a-mole-knock-down-1",
           "assignments": {
             "MT": [
               {
@@ -1904,26 +1823,24 @@
                 "name": "Feint (Chaos)"
               }
             ]
-          },
-          "time": "5:23"
+          }
         }
-      ],
+      ]
+    },
+    {
+      "id": "p4",
       "scopedNote": {
-        "text": "Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides.",
+        "text": "Targeted mitigation only works on Ultima Upsurge; other uses cover tank autos.",
         "abilities": [
           "Reprisal",
           "Addle",
           "Feint",
           "Dismantle"
         ]
-      }
-    },
-    {
-      "id": "p4",
+      },
       "mechanics": [
         {
-          "id": "p4-r8",
-          "name": "Grand Cross",
+          "mechanicId": "p4-grand-cross-1",
           "assignments": {
             "WHM": [
               {
@@ -1972,12 +1889,10 @@
                 "name": "Extra (RDM/MCH)"
               }
             ]
-          },
-          "time": "0:29"
+          }
         },
         {
-          "id": "p4-r10",
-          "name": "Inferno/Tsunami",
+          "mechanicId": "p4-inferno-tsunami-1",
           "assignments": {
             "WHM": [
               {
@@ -2012,12 +1927,10 @@
                 "name": "Party Mit"
               }
             ]
-          },
-          "time": "0:35"
+          }
         },
         {
-          "id": "p4-r12",
-          "name": "Grand Cross",
+          "mechanicId": "p4-grand-cross-2",
           "assignments": {
             "WHM": [
               {
@@ -2056,12 +1969,10 @@
                 "carryOver": true
               }
             ]
-          },
-          "time": "0:44"
+          }
         },
         {
-          "id": "p4-r14",
-          "name": "Inferno/Tsunami",
+          "mechanicId": "p4-inferno-tsunami-2",
           "assignments": {
             "OT": [
               {
@@ -2102,12 +2013,10 @@
                 "carryOver": true
               }
             ]
-          },
-          "time": "0:49"
+          }
         },
         {
-          "id": "p4-r16",
-          "name": "Grand Cross",
+          "mechanicId": "p4-grand-cross-3",
           "assignments": {
             "OT": [
               {
@@ -2155,12 +2064,10 @@
                 "name": "Zoe Shields"
               }
             ]
-          },
-          "time": "0:59"
+          }
         },
         {
-          "id": "p4-r18",
-          "name": "Flood of Naught",
+          "mechanicId": "p4-flood-of-naught-1",
           "assignments": {
             "WHM": [
               {
@@ -2182,12 +2089,10 @@
                 "name": "Kerachole"
               }
             ]
-          },
-          "time": "1:11"
+          }
         },
         {
-          "id": "p4-r20",
-          "name": "Death Bolt/Wave",
+          "mechanicId": "p4-death-bolt-wave-1",
           "assignments": {
             "MT": [
               {
@@ -2206,12 +2111,10 @@
                 "carryOver": true
               }
             ]
-          },
-          "time": "1:21"
+          }
         },
         {
-          "id": "p4-r22",
-          "name": "Ultima Upsurge",
+          "mechanicId": "p4-ultima-upsurge-1",
           "assignments": {
             "MT": [
               {
@@ -2248,12 +2151,10 @@
                 "name": "Addle"
               }
             ]
-          },
-          "time": "1:39"
+          }
         },
         {
-          "id": "p4-r24",
-          "name": "Death Bolt/Wave",
+          "mechanicId": "p4-death-bolt-wave-2",
           "assignments": {
             "WHM": [
               {
@@ -2279,12 +2180,10 @@
                 "carryOver": true
               }
             ]
-          },
-          "time": "1:46"
+          }
         },
         {
-          "id": "p4-r26",
-          "name": "Ultima Upsurge",
+          "mechanicId": "p4-ultima-upsurge-2",
           "assignments": {
             "OT": [
               {
@@ -2301,26 +2200,15 @@
                 "name": "Kerachole"
               }
             ]
-          },
-          "time": "2:18"
+          }
         }
-      ],
-      "scopedNote": {
-        "text": "Targeted mitigation only works on Ultima Upsurge; other uses cover tank autos.",
-        "abilities": [
-          "Reprisal",
-          "Addle",
-          "Feint",
-          "Dismantle"
-        ]
-      }
+      ]
     },
     {
       "id": "p5",
       "mechanics": [
         {
-          "id": "p5-r8",
-          "name": "Ultima Repeater",
+          "mechanicId": "p5-ultima-repeater-1",
           "assignments": {
             "MT": [
               {
@@ -2380,12 +2268,10 @@
                 "name": "Extra (RDM/MCH)"
               }
             ]
-          },
-          "time": "0:49"
+          }
         },
         {
-          "id": "p5-r10",
-          "name": "Fell Forces (3x)",
+          "mechanicId": "p5-fell-forces-3x-1",
           "assignments": {
             "MT": [
               {
@@ -2421,12 +2307,10 @@
                 "carryOver": true
               }
             ]
-          },
-          "time": "0:54"
+          }
         },
         {
-          "id": "p5-r12",
-          "name": "Chaotic Flood",
+          "mechanicId": "p5-chaotic-flood-1",
           "assignments": {
             "WHM": [
               {
@@ -2452,12 +2336,10 @@
                 "carryOver": true
               }
             ]
-          },
-          "time": "1:06"
+          }
         },
         {
-          "id": "p5-r14",
-          "name": "Maddening Orchestra",
+          "mechanicId": "p5-maddening-orchestra-1",
           "assignments": {
             "OT": [
               {
@@ -2500,12 +2382,10 @@
                 "name": "Feint"
               }
             ]
-          },
-          "time": "1:18"
+          }
         },
         {
-          "id": "p5-r16",
-          "name": "Fell Forces (2x)",
+          "mechanicId": "p5-fell-forces-2x-1",
           "assignments": {
             "OT": [
               {
@@ -2541,12 +2421,10 @@
                 "carryOver": true
               }
             ]
-          },
-          "time": "1:31"
+          }
         },
         {
-          "id": "p5-r18",
-          "name": "Celestriad",
+          "mechanicId": "p5-celestriad-1",
           "assignments": {
             "MT": [
               {
@@ -2559,12 +2437,10 @@
                 "note": "Use during the Celestriad castbar."
               }
             ]
-          },
-          "time": "1:49"
+          }
         },
         {
-          "id": "p5-r20",
-          "name": "Ultima Repeater",
+          "mechanicId": "p5-ultima-repeater-2",
           "assignments": {
             "MT": [
               {
@@ -2617,12 +2493,10 @@
                 "note": "Use after the third towers in Celestriad resolves."
               }
             ]
-          },
-          "time": "2:11"
+          }
         },
         {
-          "id": "p5-r22",
-          "name": "Fell Forces (2x)",
+          "mechanicId": "p5-fell-forces-2x-2",
           "assignments": {
             "MT": [
               {
@@ -2678,12 +2552,10 @@
                 "carryOver": true
               }
             ]
-          },
-          "time": "2:16"
+          }
         },
         {
-          "id": "p5-r24",
-          "name": "Stray Entropy",
+          "mechanicId": "p5-stray-entropy-1",
           "assignments": {
             "OT": [
               {
@@ -2691,12 +2563,10 @@
                 "note": "Use two GCDs after the Stray Apocalypse castbar is completed so it is back for Forsaken."
               }
             ]
-          },
-          "time": "2:42"
+          }
         },
         {
-          "id": "p5-r26",
-          "name": "Maddening Orchestra",
+          "mechanicId": "p5-maddening-orchestra-2",
           "assignments": {
             "SCH": [
               {
@@ -2708,12 +2578,10 @@
                 "name": "Kerachole"
               }
             ]
-          },
-          "time": "2:51"
+          }
         },
         {
-          "id": "p5-r28",
-          "name": "Fell Forces (3x)",
+          "mechanicId": "p5-fell-forces-3x-2",
           "assignments": {
             "WHM": [
               {
@@ -2739,12 +2607,11 @@
                 "note": "Healers should monitor the tanks during Maddening Orchestra (especially the Flare tank) and Fell Forces. For WAR/DRK, you will need to have single target burst healing prepared after their invulnerability expires so they can survive the 3rd auto."
               }
             ]
-          },
-          "time": "3:03"
+          }
         },
         {
-          "id": "p5-r32",
-          "name": "Forsaken (1st Hit)",
+          "mechanicId": "p5-forsaken-1st-hit-1",
+          "note": "Use any timed mitigation as late as possible.",
           "assignments": {
             "MT": [
               {
@@ -2804,13 +2671,10 @@
                 "name": "Extra (RDM/MCH)"
               }
             ]
-          },
-          "time": "3:20",
-          "note": "Use any timed mitigation as late as possible."
+          }
         },
         {
-          "id": "p5-r34",
-          "name": "Forsaken Bonds (2nd Hit)",
+          "mechanicId": "p5-forsaken-bonds-2nd-hit-1",
           "assignments": {
             "MT": [
               {
@@ -2873,12 +2737,10 @@
                 "carryOver": true
               }
             ]
-          },
-          "time": "3:25"
+          }
         },
         {
-          "id": "p5-r36",
-          "name": "Forsaken (3rd Hit)",
+          "mechanicId": "p5-forsaken-3rd-hit-1",
           "assignments": {
             "MT": [
               {
@@ -2941,12 +2803,10 @@
                 "carryOver": true
               }
             ]
-          },
-          "time": "3:28"
+          }
         },
         {
-          "id": "p5-r38",
-          "name": "Forsaken Bonds (4th Hit)",
+          "mechanicId": "p5-forsaken-bonds-4th-hit-1",
           "assignments": {
             "MT": [
               {
@@ -2996,12 +2856,11 @@
                 "carryOver": true
               }
             ]
-          },
-          "time": "3:34"
+          }
         },
         {
-          "id": "p5-r40",
-          "name": "Forsaken (5th Hit)",
+          "mechanicId": "p5-forsaken-5th-hit-1",
+          "note": "It is important that the new round of mitigation for the 5th hit are applied as the first round of mitigation will fall off.",
           "assignments": {
             "OT": [
               {
@@ -3056,13 +2915,10 @@
                 "name": "Addle"
               }
             ]
-          },
-          "time": "3:37",
-          "note": "It is important that the new round of mitigation for the 5th hit are applied as the first round of mitigation will fall off."
+          }
         },
         {
-          "id": "p5-r42",
-          "name": "Forsaken Bonds (6th Hit)",
+          "mechanicId": "p5-forsaken-bonds-6th-hit-1",
           "assignments": {
             "OT": [
               {
@@ -3115,12 +2971,10 @@
                 "carryOver": true
               }
             ]
-          },
-          "time": "3:42"
+          }
         },
         {
-          "id": "p5-r44",
-          "name": "Forsaken (7th Hit)",
+          "mechanicId": "p5-forsaken-7th-hit-1",
           "assignments": {
             "OT": [
               {
@@ -3173,12 +3027,10 @@
                 "carryOver": true
               }
             ]
-          },
-          "time": "3:45"
+          }
         },
         {
-          "id": "p5-r46",
-          "name": "Forsaken Bonds (8th Hit)",
+          "mechanicId": "p5-forsaken-bonds-8th-hit-1",
           "assignments": {
             "OT": [
               {
@@ -3233,14 +3085,11 @@
                 "carryOver": true
               }
             ]
-          },
-          "time": "3:50"
+          }
         },
         {
-          "id": "p5-r48",
-          "name": "Forsaken Null",
-          "assignments": {},
-          "time": "4:24"
+          "mechanicId": "p5-forsaken-null-1",
+          "assignments": {}
         }
       ]
     }
@@ -3295,7 +3144,7 @@
                 "id": "pld-p1-r10-mt",
                 "name": "Hyperdrive (3x)",
                 "time": "1:05",
-                "after": "p1-r14",
+                "after": "p1-light-of-judgment-1",
                 "seat": "MT",
                 "note": "Hyperdrive does not have a castbar and occurs immediately after Light of Judgement.",
                 "actions": [
@@ -3309,7 +3158,7 @@
                 "id": "pld-p1-r10-ot",
                 "name": "Hyperdrive (3x)",
                 "time": "1:05",
-                "after": "p1-r14",
+                "after": "p1-light-of-judgment-1",
                 "seat": "OT",
                 "note": "Hyperdrive does not have a castbar and occurs immediately after Light of Judgement.",
                 "actions": [
@@ -3331,7 +3180,7 @@
                 "id": "pld-p1-r12-mt",
                 "name": "Revolting Ruin III",
                 "time": "1:38",
-                "after": "p1-r16",
+                "after": "p1-gravitas-ii-part-i-1",
                 "seat": "MT",
                 "note": "Revolting Ruin III targets first in enmity and retargets to second in emity when the castbar ends.",
                 "actions": [
@@ -3345,7 +3194,7 @@
                 "id": "pld-p1-r12-ot",
                 "name": "Revolting Ruin III",
                 "time": "1:38",
-                "after": "p1-r16",
+                "after": "p1-gravitas-ii-part-i-1",
                 "seat": "OT",
                 "note": "Revolting Ruin III targets first in enmity and retargets to second in emity when the castbar ends.",
                 "actions": [
@@ -3358,7 +3207,7 @@
                 "id": "pld-p1-r14-mt",
                 "name": "Hyperdrive (3x)",
                 "time": "2:16",
-                "after": "p1-r22",
+                "after": "p1-light-of-judgment-2",
                 "seat": "MT",
                 "note": "Hyperdrive does not have a castbar and occurs immediately after Light of Judgement.",
                 "actions": [
@@ -3371,7 +3220,7 @@
                 "id": "pld-p1-r14-ot",
                 "name": "Hyperdrive (3x)",
                 "time": "2:16",
-                "after": "p1-r22",
+                "after": "p1-light-of-judgment-2",
                 "seat": "OT",
                 "note": "Hyperdrive does not have a castbar and occurs immediately after Light of Judgement.",
                 "actions": []
@@ -3424,7 +3273,7 @@
               {
                 "id": "pld-p2-r29-mt",
                 "name": "Wings of Destruction",
-                "after": "p2-r30",
+                "after": "p2-wings-of-destruction-1",
                 "seat": "MT",
                 "tag": "Close hit",
                 "note": "Rampart end of first Wings of Destruction (halfroom) cast, 40% two GCDs later and 10s mitigation at the end of second Wings of Destruction cast. PLD can take the Wings of Destruction at the wall to assist their co-tank with no downtime (discuss beforehand if MT).",
@@ -3443,7 +3292,7 @@
               {
                 "id": "pld-p2-r29-ot",
                 "name": "Wings of Destruction",
-                "after": "p2-r30",
+                "after": "p2-wings-of-destruction-1",
                 "seat": "OT",
                 "tag": "Far hit",
                 "note": "Rampart end of first Wings of Destruction (halfroom) cast, 40% two GCDs later and 10s mitigation at the end of second Wings of Destruction cast. PLD can take the Wings of Destruction at the wall to assist their co-tank with no downtime (discuss beforehand if MT).",
@@ -3462,7 +3311,7 @@
               {
                 "id": "pld-p2-r31-mt",
                 "name": "Ultimate Embrace",
-                "after": "p2-r32",
+                "after": "p2-ultimate-embrace-2",
                 "seat": "MT",
                 "note": "Short mitigation before Ultimate Embrace finishes casting.",
                 "actions": [
@@ -3486,7 +3335,7 @@
               {
                 "id": "pld-p2-r31-ot",
                 "name": "Ultimate Embrace",
-                "after": "p2-r32",
+                "after": "p2-ultimate-embrace-2",
                 "seat": "OT",
                 "note": "Short mitigation before Ultimate Embrace finishes casting.",
                 "actions": [
@@ -3516,7 +3365,7 @@
                 "id": "pld-p3-r45-chaos",
                 "name": "Thunder III",
                 "time": "1:37",
-                "after": "p3-r12",
+                "after": "p3-thunder-iii-1st-set-1",
                 "boss": "Chaos",
                 "tag": "1st hit",
                 "actions": [
@@ -3535,7 +3384,7 @@
                 "id": "pld-p3-r45-exdeath",
                 "name": "Thunder III",
                 "time": "1:37",
-                "after": "p3-r12",
+                "after": "p3-thunder-iii-1st-set-1",
                 "boss": "Exdeath",
                 "tag": "2nd hit",
                 "actions": [
@@ -3554,7 +3403,7 @@
                 "id": "pld-p3-r47-chaos",
                 "name": "Thunder III",
                 "time": "2:34",
-                "after": "p3-thunder2",
+                "after": "p3-thunder-iii-2nd-set-1",
                 "boss": "Chaos",
                 "tag": "Both hits",
                 "actions": [
@@ -3567,7 +3416,7 @@
                 "id": "pld-p3-r47-exdeath",
                 "name": "Thunder III",
                 "time": "2:34",
-                "after": "p3-thunder2",
+                "after": "p3-thunder-iii-2nd-set-1",
                 "boss": "Exdeath",
                 "tag": "Avoid",
                 "actions": []
@@ -3576,7 +3425,7 @@
                 "id": "pld-p3-r49-chaos",
                 "name": "Thunder III",
                 "time": "2:52",
-                "after": "p3-thunder3",
+                "after": "p3-thunder-iii-3rd-set-1",
                 "boss": "Chaos",
                 "tag": "2nd hit",
                 "actions": [
@@ -3592,7 +3441,7 @@
                 "id": "pld-p3-r49-exdeath",
                 "name": "Thunder III",
                 "time": "2:52",
-                "after": "p3-thunder3",
+                "after": "p3-thunder-iii-3rd-set-1",
                 "boss": "Exdeath",
                 "tag": "1st hit",
                 "actions": [
@@ -3608,7 +3457,7 @@
                 "id": "pld-p3-r51-chaos",
                 "name": "Thunder III",
                 "time": "3:33",
-                "after": "p3-thunder4",
+                "after": "p3-thunder-iii-4th-set-1",
                 "boss": "Chaos",
                 "tag": "Avoid",
                 "actions": []
@@ -3617,7 +3466,7 @@
                 "id": "pld-p3-r51-exdeath",
                 "name": "Thunder III",
                 "time": "3:33",
-                "after": "p3-thunder4",
+                "after": "p3-thunder-iii-4th-set-1",
                 "boss": "Exdeath",
                 "tag": "Both hits",
                 "actions": [
@@ -3630,7 +3479,7 @@
                 "id": "pld-p3-r53-chaos",
                 "name": "Thunder III",
                 "time": "4:15",
-                "after": "p3-r38",
+                "after": "p3-thunder-iii-5th-set-1",
                 "boss": "Chaos",
                 "tag": "2nd hit",
                 "actions": [
@@ -3649,7 +3498,7 @@
                 "id": "pld-p3-r53-exdeath",
                 "name": "Thunder III",
                 "time": "4:15",
-                "after": "p3-r38",
+                "after": "p3-thunder-iii-5th-set-1",
                 "boss": "Exdeath",
                 "tag": "1st hit",
                 "actions": [
@@ -3668,7 +3517,7 @@
                 "id": "pld-p3-r55-chaos",
                 "name": "Black Holes IV (10th Tether Set)",
                 "time": "5:09",
-                "after": "p3-r42",
+                "after": "p3-shocking-impact-shockwave-3",
                 "boss": "Chaos",
                 "actions": [
                   {
@@ -3683,7 +3532,7 @@
                 "id": "pld-p3-r55-exdeath",
                 "name": "Black Holes IV (10th Tether Set)",
                 "time": "5:09",
-                "after": "p3-r42",
+                "after": "p3-shocking-impact-shockwave-3",
                 "boss": "Exdeath",
                 "actions": [
                   {
@@ -3736,7 +3585,7 @@
               {
                 "id": "pld-p5-r81-inv1",
                 "name": "Fell Forces (3x)",
-                "after": "p5-r10",
+                "after": "p5-fell-forces-3x-1",
                 "invuln": 1,
                 "actions": [
                   {
@@ -3751,7 +3600,7 @@
               {
                 "id": "pld-p5-r81-inv2",
                 "name": "Fell Forces (3x)",
-                "after": "p5-r10",
+                "after": "p5-fell-forces-3x-1",
                 "invuln": 2,
                 "actions": [
                   {
@@ -3766,7 +3615,7 @@
               {
                 "id": "pld-p5-r83-inv1",
                 "name": "Maddening Orchestra",
-                "after": "p5-r14",
+                "after": "p5-maddening-orchestra-1",
                 "invuln": 1,
                 "actions": [
                   {
@@ -3784,7 +3633,7 @@
               {
                 "id": "pld-p5-r83-inv2",
                 "name": "Maddening Orchestra",
-                "after": "p5-r14",
+                "after": "p5-maddening-orchestra-1",
                 "invuln": 2,
                 "actions": [
                   {
@@ -3799,7 +3648,7 @@
                 "id": "pld-p5-r85-inv1",
                 "name": "Flare/Holy",
                 "time": "1:26",
-                "after": "p5-r14",
+                "after": "p5-maddening-orchestra-1",
                 "invuln": 1,
                 "actions": [
                   {
@@ -3812,7 +3661,7 @@
                 "id": "pld-p5-r85-inv2",
                 "name": "Flare/Holy",
                 "time": "1:26",
-                "after": "p5-r14",
+                "after": "p5-maddening-orchestra-1",
                 "invuln": 2,
                 "actions": [
                   {
@@ -3828,7 +3677,7 @@
               {
                 "id": "pld-p5-r87-inv1",
                 "name": "Fell Forces (2x)",
-                "after": "p5-r16",
+                "after": "p5-fell-forces-2x-1",
                 "invuln": 1,
                 "tag": "Solo",
                 "actions": [
@@ -3844,12 +3693,12 @@
                 "invuln": 2,
                 "tag": "Avoid",
                 "actions": [],
-                "after": "p5-r16"
+                "after": "p5-fell-forces-2x-1"
               },
               {
                 "id": "pld-p5-r89-inv1",
                 "name": "Fell Forces (2x)",
-                "after": "p5-r22",
+                "after": "p5-fell-forces-2x-2",
                 "invuln": 1,
                 "actions": [
                   {
@@ -3863,7 +3712,7 @@
               {
                 "id": "pld-p5-r89-inv2",
                 "name": "Fell Forces (2x)",
-                "after": "p5-r22",
+                "after": "p5-fell-forces-2x-2",
                 "invuln": 2,
                 "actions": [
                   {
@@ -3877,7 +3726,7 @@
               {
                 "id": "pld-p5-r91-inv1",
                 "name": "Maddening Orchestra",
-                "after": "p5-r26",
+                "after": "p5-maddening-orchestra-2",
                 "invuln": 1,
                 "actions": [
                   {
@@ -3892,7 +3741,7 @@
               {
                 "id": "pld-p5-r91-inv2",
                 "name": "Maddening Orchestra",
-                "after": "p5-r26",
+                "after": "p5-maddening-orchestra-2",
                 "invuln": 2,
                 "actions": [
                   {
@@ -3915,7 +3764,7 @@
                 "id": "pld-p5-r93-inv1",
                 "name": "Flare/Holy",
                 "time": "2:58",
-                "after": "p5-r26",
+                "after": "p5-maddening-orchestra-2",
                 "invuln": 1,
                 "actions": [
                   {
@@ -3932,7 +3781,7 @@
                 "id": "pld-p5-r93-inv2",
                 "name": "Flare/Holy",
                 "time": "2:58",
-                "after": "p5-r26",
+                "after": "p5-maddening-orchestra-2",
                 "invuln": 2,
                 "actions": [
                   {
@@ -3945,7 +3794,7 @@
                 "id": "pld-p5-r95-inv1",
                 "name": "Fell Forces I",
                 "time": "3:03",
-                "after": "p5-r28",
+                "after": "p5-fell-forces-3x-2",
                 "invuln": 1,
                 "actions": [],
                 "tag": "Avoid"
@@ -3954,7 +3803,7 @@
                 "id": "pld-p5-r95-inv2",
                 "name": "Fell Forces I",
                 "time": "3:03",
-                "after": "p5-r28",
+                "after": "p5-fell-forces-3x-2",
                 "invuln": 2,
                 "tag": "Solo",
                 "actions": [
@@ -3968,7 +3817,7 @@
                 "id": "pld-p5-r97-inv1",
                 "name": "Fell Forces II",
                 "time": "3:06",
-                "after": "p5-r28",
+                "after": "p5-fell-forces-3x-2",
                 "invuln": 1,
                 "actions": [],
                 "tag": "Avoid"
@@ -3977,7 +3826,7 @@
                 "id": "pld-p5-r97-inv2",
                 "name": "Fell Forces II",
                 "time": "3:06",
-                "after": "p5-r28",
+                "after": "p5-fell-forces-3x-2",
                 "invuln": 2,
                 "tag": "Solo",
                 "actions": [
@@ -3991,7 +3840,7 @@
                 "id": "pld-p5-r99-inv1",
                 "name": "Fell Forces III",
                 "time": "3:09",
-                "after": "p5-r28",
+                "after": "p5-fell-forces-3x-2",
                 "invuln": 1,
                 "note": "The third auto must be shared as invulnerabilities will run out.",
                 "actions": [
@@ -4008,7 +3857,7 @@
                 "id": "pld-p5-r99-inv2",
                 "name": "Fell Forces III",
                 "time": "3:09",
-                "after": "p5-r28",
+                "after": "p5-fell-forces-3x-2",
                 "invuln": 2,
                 "note": "The third auto must be shared as invulnerabilities will run out.",
                 "actions": [
@@ -4075,7 +3924,7 @@
                 "id": "war-p1-r10-mt",
                 "name": "Hyperdrive (3x)",
                 "time": "1:05",
-                "after": "p1-r14",
+                "after": "p1-light-of-judgment-1",
                 "seat": "MT",
                 "note": "Hyperdrive does not have a castbar and occurs immediately after Light of Judgement.",
                 "actions": [
@@ -4089,7 +3938,7 @@
                 "id": "war-p1-r10-ot",
                 "name": "Hyperdrive (3x)",
                 "time": "1:05",
-                "after": "p1-r14",
+                "after": "p1-light-of-judgment-1",
                 "seat": "OT",
                 "note": "Hyperdrive does not have a castbar and occurs immediately after Light of Judgement.",
                 "actions": [
@@ -4111,7 +3960,7 @@
                 "id": "war-p1-r12-mt",
                 "name": "Revolting Ruin III",
                 "time": "1:38",
-                "after": "p1-r16",
+                "after": "p1-gravitas-ii-part-i-1",
                 "seat": "MT",
                 "note": "Revolting Ruin III targets first in enmity and retargets to second in emity when the castbar ends.",
                 "actions": [
@@ -4125,7 +3974,7 @@
                 "id": "war-p1-r12-ot",
                 "name": "Revolting Ruin III",
                 "time": "1:38",
-                "after": "p1-r16",
+                "after": "p1-gravitas-ii-part-i-1",
                 "seat": "OT",
                 "note": "Revolting Ruin III targets first in enmity and retargets to second in emity when the castbar ends.",
                 "actions": [
@@ -4138,7 +3987,7 @@
                 "id": "war-p1-r14-mt",
                 "name": "Hyperdrive (3x)",
                 "time": "2:16",
-                "after": "p1-r22",
+                "after": "p1-light-of-judgment-2",
                 "seat": "MT",
                 "note": "Hyperdrive does not have a castbar and occurs immediately after Light of Judgement.",
                 "actions": [
@@ -4170,7 +4019,7 @@
                 "id": "war-p1-r14-ot",
                 "name": "Hyperdrive (3x)",
                 "time": "2:16",
-                "after": "p1-r22",
+                "after": "p1-light-of-judgment-2",
                 "seat": "OT",
                 "note": "Hyperdrive does not have a castbar and occurs immediately after Light of Judgement.",
                 "actions": []
@@ -4233,7 +4082,7 @@
               {
                 "id": "war-p2-r29-mt",
                 "name": "Wings of Destruction",
-                "after": "p2-r30",
+                "after": "p2-wings-of-destruction-1",
                 "seat": "MT",
                 "tag": "Close hit",
                 "note": "Rampart end of first Wings of Destruction (halfroom) cast, 40% two GCDs later and 10s mitigation at the end of second Wings of Destruction cast. PLD can take the Wings of Destruction at the wall to assist their co-tank with no downtime (discuss beforehand if MT).",
@@ -4252,7 +4101,7 @@
               {
                 "id": "war-p2-r29-ot",
                 "name": "Wings of Destruction",
-                "after": "p2-r30",
+                "after": "p2-wings-of-destruction-1",
                 "seat": "OT",
                 "tag": "Far hit",
                 "note": "Rampart end of first Wings of Destruction (halfroom) cast, 40% two GCDs later and 10s mitigation at the end of second Wings of Destruction cast. PLD can take the Wings of Destruction at the wall to assist their co-tank with no downtime (discuss beforehand if MT).",
@@ -4271,7 +4120,7 @@
               {
                 "id": "war-p2-r31-mt",
                 "name": "Ultimate Embrace",
-                "after": "p2-r32",
+                "after": "p2-ultimate-embrace-2",
                 "seat": "MT",
                 "note": "Short mitigation before Ultimate Embrace finishes casting.",
                 "actions": [
@@ -4295,7 +4144,7 @@
               {
                 "id": "war-p2-r31-ot",
                 "name": "Ultimate Embrace",
-                "after": "p2-r32",
+                "after": "p2-ultimate-embrace-2",
                 "seat": "OT",
                 "note": "Short mitigation before Ultimate Embrace finishes casting.",
                 "actions": [
@@ -4325,7 +4174,7 @@
                 "id": "war-p3-r45-chaos",
                 "name": "Thunder III",
                 "time": "1:37",
-                "after": "p3-r12",
+                "after": "p3-thunder-iii-1st-set-1",
                 "boss": "Chaos",
                 "tag": "1st hit",
                 "actions": [
@@ -4344,7 +4193,7 @@
                 "id": "war-p3-r45-exdeath",
                 "name": "Thunder III",
                 "time": "1:37",
-                "after": "p3-r12",
+                "after": "p3-thunder-iii-1st-set-1",
                 "boss": "Exdeath",
                 "tag": "2nd hit",
                 "actions": [
@@ -4363,7 +4212,7 @@
                 "id": "war-p3-r47-chaos",
                 "name": "Thunder III",
                 "time": "2:34",
-                "after": "p3-thunder2",
+                "after": "p3-thunder-iii-2nd-set-1",
                 "boss": "Chaos",
                 "tag": "Both hits",
                 "actions": [
@@ -4376,7 +4225,7 @@
                 "id": "war-p3-r47-exdeath",
                 "name": "Thunder III",
                 "time": "2:34",
-                "after": "p3-thunder2",
+                "after": "p3-thunder-iii-2nd-set-1",
                 "boss": "Exdeath",
                 "tag": "Avoid",
                 "actions": []
@@ -4385,7 +4234,7 @@
                 "id": "war-p3-r49-chaos",
                 "name": "Thunder III",
                 "time": "2:52",
-                "after": "p3-thunder3",
+                "after": "p3-thunder-iii-3rd-set-1",
                 "boss": "Chaos",
                 "tag": "2nd hit",
                 "actions": [
@@ -4401,7 +4250,7 @@
                 "id": "war-p3-r49-exdeath",
                 "name": "Thunder III",
                 "time": "2:52",
-                "after": "p3-thunder3",
+                "after": "p3-thunder-iii-3rd-set-1",
                 "boss": "Exdeath",
                 "tag": "1st hit",
                 "actions": [
@@ -4417,7 +4266,7 @@
                 "id": "war-p3-r51-chaos",
                 "name": "Thunder III",
                 "time": "3:33",
-                "after": "p3-thunder4",
+                "after": "p3-thunder-iii-4th-set-1",
                 "boss": "Chaos",
                 "tag": "Avoid",
                 "actions": []
@@ -4426,7 +4275,7 @@
                 "id": "war-p3-r51-exdeath",
                 "name": "Thunder III",
                 "time": "3:33",
-                "after": "p3-thunder4",
+                "after": "p3-thunder-iii-4th-set-1",
                 "boss": "Exdeath",
                 "tag": "Both hits",
                 "actions": [
@@ -4439,7 +4288,7 @@
                 "id": "war-p3-r53-chaos",
                 "name": "Thunder III",
                 "time": "4:15",
-                "after": "p3-r38",
+                "after": "p3-thunder-iii-5th-set-1",
                 "boss": "Chaos",
                 "tag": "2nd hit",
                 "actions": [
@@ -4458,7 +4307,7 @@
                 "id": "war-p3-r53-exdeath",
                 "name": "Thunder III",
                 "time": "4:15",
-                "after": "p3-r38",
+                "after": "p3-thunder-iii-5th-set-1",
                 "boss": "Exdeath",
                 "tag": "1st hit",
                 "actions": [
@@ -4477,7 +4326,7 @@
                 "id": "war-p3-r55-chaos",
                 "name": "Black Holes IV (10th Tether Set)",
                 "time": "5:09",
-                "after": "p3-r42",
+                "after": "p3-shocking-impact-shockwave-3",
                 "boss": "Chaos",
                 "actions": [
                   {
@@ -4492,7 +4341,7 @@
                 "id": "war-p3-r55-exdeath",
                 "name": "Black Holes IV (10th Tether Set)",
                 "time": "5:09",
-                "after": "p3-r42",
+                "after": "p3-shocking-impact-shockwave-3",
                 "boss": "Exdeath",
                 "actions": [
                   {
@@ -4545,7 +4394,7 @@
               {
                 "id": "war-p5-r81-inv1",
                 "name": "Fell Forces (3x)",
-                "after": "p5-r10",
+                "after": "p5-fell-forces-3x-1",
                 "invuln": 1,
                 "actions": [
                   {
@@ -4560,7 +4409,7 @@
               {
                 "id": "war-p5-r81-inv2",
                 "name": "Fell Forces (3x)",
-                "after": "p5-r10",
+                "after": "p5-fell-forces-3x-1",
                 "invuln": 2,
                 "actions": [
                   {
@@ -4575,7 +4424,7 @@
               {
                 "id": "war-p5-r83-inv1",
                 "name": "Maddening Orchestra",
-                "after": "p5-r14",
+                "after": "p5-maddening-orchestra-1",
                 "invuln": 1,
                 "actions": [
                   {
@@ -4593,7 +4442,7 @@
               {
                 "id": "war-p5-r83-inv2",
                 "name": "Maddening Orchestra",
-                "after": "p5-r14",
+                "after": "p5-maddening-orchestra-1",
                 "invuln": 2,
                 "actions": [
                   {
@@ -4608,7 +4457,7 @@
                 "id": "war-p5-r85-inv1",
                 "name": "Flare/Holy",
                 "time": "1:26",
-                "after": "p5-r14",
+                "after": "p5-maddening-orchestra-1",
                 "invuln": 1,
                 "actions": [
                   {
@@ -4621,7 +4470,7 @@
                 "id": "war-p5-r85-inv2",
                 "name": "Flare/Holy",
                 "time": "1:26",
-                "after": "p5-r14",
+                "after": "p5-maddening-orchestra-1",
                 "invuln": 2,
                 "actions": [
                   {
@@ -4637,7 +4486,7 @@
               {
                 "id": "war-p5-r87-inv1",
                 "name": "Fell Forces (2x)",
-                "after": "p5-r16",
+                "after": "p5-fell-forces-2x-1",
                 "invuln": 1,
                 "tag": "Solo",
                 "actions": [
@@ -4653,12 +4502,12 @@
                 "invuln": 2,
                 "tag": "Avoid",
                 "actions": [],
-                "after": "p5-r16"
+                "after": "p5-fell-forces-2x-1"
               },
               {
                 "id": "war-p5-r89-inv1",
                 "name": "Fell Forces (2x)",
-                "after": "p5-r22",
+                "after": "p5-fell-forces-2x-2",
                 "invuln": 1,
                 "actions": [
                   {
@@ -4672,7 +4521,7 @@
               {
                 "id": "war-p5-r89-inv2",
                 "name": "Fell Forces (2x)",
-                "after": "p5-r22",
+                "after": "p5-fell-forces-2x-2",
                 "invuln": 2,
                 "actions": [
                   {
@@ -4686,7 +4535,7 @@
               {
                 "id": "war-p5-r91-inv1",
                 "name": "Maddening Orchestra",
-                "after": "p5-r26",
+                "after": "p5-maddening-orchestra-2",
                 "invuln": 1,
                 "actions": [
                   {
@@ -4701,7 +4550,7 @@
               {
                 "id": "war-p5-r91-inv2",
                 "name": "Maddening Orchestra",
-                "after": "p5-r26",
+                "after": "p5-maddening-orchestra-2",
                 "invuln": 2,
                 "actions": [
                   {
@@ -4721,7 +4570,7 @@
                 "id": "war-p5-r93-inv1",
                 "name": "Flare/Holy",
                 "time": "2:58",
-                "after": "p5-r26",
+                "after": "p5-maddening-orchestra-2",
                 "invuln": 1,
                 "actions": [
                   {
@@ -4738,7 +4587,7 @@
                 "id": "war-p5-r93-inv2",
                 "name": "Flare/Holy",
                 "time": "2:58",
-                "after": "p5-r26",
+                "after": "p5-maddening-orchestra-2",
                 "invuln": 2,
                 "actions": [
                   {
@@ -4751,7 +4600,7 @@
                 "id": "war-p5-r95-inv1",
                 "name": "Fell Forces I",
                 "time": "3:03",
-                "after": "p5-r28",
+                "after": "p5-fell-forces-3x-2",
                 "invuln": 1,
                 "actions": [],
                 "tag": "Avoid"
@@ -4760,7 +4609,7 @@
                 "id": "war-p5-r95-inv2",
                 "name": "Fell Forces I",
                 "time": "3:03",
-                "after": "p5-r28",
+                "after": "p5-fell-forces-3x-2",
                 "invuln": 2,
                 "tag": "Solo",
                 "actions": [
@@ -4774,7 +4623,7 @@
                 "id": "war-p5-r97-inv1",
                 "name": "Fell Forces II",
                 "time": "3:06",
-                "after": "p5-r28",
+                "after": "p5-fell-forces-3x-2",
                 "invuln": 1,
                 "actions": [],
                 "tag": "Avoid"
@@ -4783,7 +4632,7 @@
                 "id": "war-p5-r97-inv2",
                 "name": "Fell Forces II",
                 "time": "3:06",
-                "after": "p5-r28",
+                "after": "p5-fell-forces-3x-2",
                 "invuln": 2,
                 "tag": "Solo",
                 "actions": [
@@ -4797,7 +4646,7 @@
                 "id": "war-p5-r99-inv1",
                 "name": "Fell Forces III",
                 "time": "3:09",
-                "after": "p5-r28",
+                "after": "p5-fell-forces-3x-2",
                 "invuln": 1,
                 "note": "The third auto must be shared as invulnerabilities will run out.",
                 "actions": [
@@ -4814,7 +4663,7 @@
                 "id": "war-p5-r99-inv2",
                 "name": "Fell Forces III",
                 "time": "3:09",
-                "after": "p5-r28",
+                "after": "p5-fell-forces-3x-2",
                 "invuln": 2,
                 "note": "The third auto must be shared as invulnerabilities will run out.",
                 "actions": [
@@ -4888,7 +4737,7 @@
                 "id": "drk-p1-r10-mt",
                 "name": "Hyperdrive (3x)",
                 "time": "1:05",
-                "after": "p1-r14",
+                "after": "p1-light-of-judgment-1",
                 "seat": "MT",
                 "note": "Hyperdrive does not have a castbar and occurs immediately after Light of Judgement.",
                 "actions": [
@@ -4906,7 +4755,7 @@
                 "id": "drk-p1-r10-ot",
                 "name": "Hyperdrive (3x)",
                 "time": "1:05",
-                "after": "p1-r14",
+                "after": "p1-light-of-judgment-1",
                 "seat": "OT",
                 "note": "Hyperdrive does not have a castbar and occurs immediately after Light of Judgement.",
                 "actions": [
@@ -4931,7 +4780,7 @@
                 "id": "drk-p1-r12-mt",
                 "name": "Revolting Ruin III",
                 "time": "1:38",
-                "after": "p1-r16",
+                "after": "p1-gravitas-ii-part-i-1",
                 "seat": "MT",
                 "note": "Revolting Ruin III targets first in enmity and retargets to second in emity when the castbar ends.",
                 "actions": [
@@ -4945,7 +4794,7 @@
                 "id": "drk-p1-r12-ot",
                 "name": "Revolting Ruin III",
                 "time": "1:38",
-                "after": "p1-r16",
+                "after": "p1-gravitas-ii-part-i-1",
                 "seat": "OT",
                 "note": "Revolting Ruin III targets first in enmity and retargets to second in emity when the castbar ends.",
                 "actions": [
@@ -4958,7 +4807,7 @@
                 "id": "drk-p1-r14-mt",
                 "name": "Hyperdrive (3x)",
                 "time": "2:16",
-                "after": "p1-r22",
+                "after": "p1-light-of-judgment-2",
                 "seat": "MT",
                 "note": "Hyperdrive does not have a castbar and occurs immediately after Light of Judgement.",
                 "actions": [
@@ -4971,7 +4820,7 @@
                 "id": "drk-p1-r14-ot",
                 "name": "Hyperdrive (3x)",
                 "time": "2:16",
-                "after": "p1-r22",
+                "after": "p1-light-of-judgment-2",
                 "seat": "OT",
                 "note": "Hyperdrive does not have a castbar and occurs immediately after Light of Judgement.",
                 "actions": []
@@ -5030,7 +4879,7 @@
               {
                 "id": "drk-p2-r29-mt",
                 "name": "Wings of Destruction",
-                "after": "p2-r30",
+                "after": "p2-wings-of-destruction-1",
                 "seat": "MT",
                 "tag": "Close hit",
                 "note": "Rampart end of first Wings of Destruction (halfroom) cast, 40% two GCDs later and 10s mitigation at the end of second Wings of Destruction cast. PLD can take the Wings of Destruction at the wall to assist their co-tank with no downtime (discuss beforehand if MT).",
@@ -5049,7 +4898,7 @@
               {
                 "id": "drk-p2-r29-ot",
                 "name": "Wings of Destruction",
-                "after": "p2-r30",
+                "after": "p2-wings-of-destruction-1",
                 "seat": "OT",
                 "tag": "Far hit",
                 "note": "Rampart end of first Wings of Destruction (halfroom) cast, 40% two GCDs later and 10s mitigation at the end of second Wings of Destruction cast. PLD can take the Wings of Destruction at the wall to assist their co-tank with no downtime (discuss beforehand if MT).",
@@ -5068,7 +4917,7 @@
               {
                 "id": "drk-p2-r31-mt",
                 "name": "Ultimate Embrace",
-                "after": "p2-r32",
+                "after": "p2-ultimate-embrace-2",
                 "seat": "MT",
                 "note": "Short mitigation before Ultimate Embrace finishes casting.",
                 "actions": [
@@ -5095,7 +4944,7 @@
               {
                 "id": "drk-p2-r31-ot",
                 "name": "Ultimate Embrace",
-                "after": "p2-r32",
+                "after": "p2-ultimate-embrace-2",
                 "seat": "OT",
                 "note": "Short mitigation before Ultimate Embrace finishes casting.",
                 "actions": [
@@ -5128,7 +4977,7 @@
                 "id": "drk-p3-r45-chaos",
                 "name": "Thunder III",
                 "time": "1:37",
-                "after": "p3-r12",
+                "after": "p3-thunder-iii-1st-set-1",
                 "boss": "Chaos",
                 "tag": "1st hit",
                 "actions": [
@@ -5150,7 +4999,7 @@
                 "id": "drk-p3-r45-exdeath",
                 "name": "Thunder III",
                 "time": "1:37",
-                "after": "p3-r12",
+                "after": "p3-thunder-iii-1st-set-1",
                 "boss": "Exdeath",
                 "tag": "2nd hit",
                 "actions": [
@@ -5172,7 +5021,7 @@
                 "id": "drk-p3-r47-chaos",
                 "name": "Thunder III",
                 "time": "2:34",
-                "after": "p3-thunder2",
+                "after": "p3-thunder-iii-2nd-set-1",
                 "boss": "Chaos",
                 "tag": "Both hits",
                 "actions": [
@@ -5185,7 +5034,7 @@
                 "id": "drk-p3-r47-exdeath",
                 "name": "Thunder III",
                 "time": "2:34",
-                "after": "p3-thunder2",
+                "after": "p3-thunder-iii-2nd-set-1",
                 "boss": "Exdeath",
                 "tag": "Avoid",
                 "actions": []
@@ -5194,7 +5043,7 @@
                 "id": "drk-p3-r49-chaos",
                 "name": "Thunder III",
                 "time": "2:52",
-                "after": "p3-thunder3",
+                "after": "p3-thunder-iii-3rd-set-1",
                 "boss": "Chaos",
                 "tag": "2nd hit",
                 "actions": [
@@ -5213,7 +5062,7 @@
                 "id": "drk-p3-r49-exdeath",
                 "name": "Thunder III",
                 "time": "2:52",
-                "after": "p3-thunder3",
+                "after": "p3-thunder-iii-3rd-set-1",
                 "boss": "Exdeath",
                 "tag": "1st hit",
                 "actions": [
@@ -5232,7 +5081,7 @@
                 "id": "drk-p3-r51-chaos",
                 "name": "Thunder III",
                 "time": "3:33",
-                "after": "p3-thunder4",
+                "after": "p3-thunder-iii-4th-set-1",
                 "boss": "Chaos",
                 "tag": "Avoid",
                 "actions": []
@@ -5241,7 +5090,7 @@
                 "id": "drk-p3-r51-exdeath",
                 "name": "Thunder III",
                 "time": "3:33",
-                "after": "p3-thunder4",
+                "after": "p3-thunder-iii-4th-set-1",
                 "boss": "Exdeath",
                 "tag": "Both hits",
                 "actions": [
@@ -5254,7 +5103,7 @@
                 "id": "drk-p3-r53-chaos",
                 "name": "Thunder III",
                 "time": "4:15",
-                "after": "p3-r38",
+                "after": "p3-thunder-iii-5th-set-1",
                 "boss": "Chaos",
                 "tag": "2nd hit",
                 "actions": [
@@ -5276,7 +5125,7 @@
                 "id": "drk-p3-r53-exdeath",
                 "name": "Thunder III",
                 "time": "4:15",
-                "after": "p3-r38",
+                "after": "p3-thunder-iii-5th-set-1",
                 "boss": "Exdeath",
                 "tag": "1st hit",
                 "actions": [
@@ -5298,7 +5147,7 @@
                 "id": "drk-p3-r55-chaos",
                 "name": "Black Holes IV (10th Tether Set)",
                 "time": "5:09",
-                "after": "p3-r42",
+                "after": "p3-shocking-impact-shockwave-3",
                 "boss": "Chaos",
                 "actions": [
                   {
@@ -5316,7 +5165,7 @@
                 "id": "drk-p3-r55-exdeath",
                 "name": "Black Holes IV (10th Tether Set)",
                 "time": "5:09",
-                "after": "p3-r42",
+                "after": "p3-shocking-impact-shockwave-3",
                 "boss": "Exdeath",
                 "actions": [
                   {
@@ -5379,7 +5228,7 @@
               {
                 "id": "drk-p5-r81-inv1",
                 "name": "Fell Forces (3x)",
-                "after": "p5-r10",
+                "after": "p5-fell-forces-3x-1",
                 "invuln": 1,
                 "actions": [
                   {
@@ -5397,7 +5246,7 @@
               {
                 "id": "drk-p5-r81-inv2",
                 "name": "Fell Forces (3x)",
-                "after": "p5-r10",
+                "after": "p5-fell-forces-3x-1",
                 "invuln": 2,
                 "actions": [
                   {
@@ -5415,7 +5264,7 @@
               {
                 "id": "drk-p5-r83-inv1",
                 "name": "Maddening Orchestra",
-                "after": "p5-r14",
+                "after": "p5-maddening-orchestra-1",
                 "invuln": 1,
                 "actions": [
                   {
@@ -5436,7 +5285,7 @@
               {
                 "id": "drk-p5-r83-inv2",
                 "name": "Maddening Orchestra",
-                "after": "p5-r14",
+                "after": "p5-maddening-orchestra-1",
                 "invuln": 2,
                 "actions": [
                   {
@@ -5454,7 +5303,7 @@
                 "id": "drk-p5-r85-inv1",
                 "name": "Flare/Holy",
                 "time": "1:26",
-                "after": "p5-r14",
+                "after": "p5-maddening-orchestra-1",
                 "invuln": 1,
                 "actions": [
                   {
@@ -5467,7 +5316,7 @@
                 "id": "drk-p5-r85-inv2",
                 "name": "Flare/Holy",
                 "time": "1:26",
-                "after": "p5-r14",
+                "after": "p5-maddening-orchestra-1",
                 "invuln": 2,
                 "actions": [
                   {
@@ -5487,7 +5336,7 @@
               {
                 "id": "drk-p5-r87-inv1",
                 "name": "Fell Forces (2x)",
-                "after": "p5-r16",
+                "after": "p5-fell-forces-2x-1",
                 "invuln": 1,
                 "tag": "Solo",
                 "actions": [
@@ -5503,12 +5352,12 @@
                 "invuln": 2,
                 "tag": "Avoid",
                 "actions": [],
-                "after": "p5-r16"
+                "after": "p5-fell-forces-2x-1"
               },
               {
                 "id": "drk-p5-r89-inv1",
                 "name": "Fell Forces (2x)",
-                "after": "p5-r22",
+                "after": "p5-fell-forces-2x-2",
                 "invuln": 1,
                 "actions": [
                   {
@@ -5525,7 +5374,7 @@
               {
                 "id": "drk-p5-r89-inv2",
                 "name": "Fell Forces (2x)",
-                "after": "p5-r22",
+                "after": "p5-fell-forces-2x-2",
                 "invuln": 2,
                 "actions": [
                   {
@@ -5542,7 +5391,7 @@
               {
                 "id": "drk-p5-r91-inv1",
                 "name": "Maddening Orchestra",
-                "after": "p5-r26",
+                "after": "p5-maddening-orchestra-2",
                 "invuln": 1,
                 "actions": [
                   {
@@ -5557,7 +5406,7 @@
               {
                 "id": "drk-p5-r91-inv2",
                 "name": "Maddening Orchestra",
-                "after": "p5-r26",
+                "after": "p5-maddening-orchestra-2",
                 "invuln": 2,
                 "actions": [
                   {
@@ -5583,7 +5432,7 @@
                 "id": "drk-p5-r93-inv1",
                 "name": "Flare/Holy",
                 "time": "2:58",
-                "after": "p5-r26",
+                "after": "p5-maddening-orchestra-2",
                 "invuln": 1,
                 "actions": [
                   {
@@ -5600,7 +5449,7 @@
                 "id": "drk-p5-r93-inv2",
                 "name": "Flare/Holy",
                 "time": "2:58",
-                "after": "p5-r26",
+                "after": "p5-maddening-orchestra-2",
                 "invuln": 2,
                 "actions": [
                   {
@@ -5613,7 +5462,7 @@
                 "id": "drk-p5-r95-inv1",
                 "name": "Fell Forces I",
                 "time": "3:03",
-                "after": "p5-r28",
+                "after": "p5-fell-forces-3x-2",
                 "invuln": 1,
                 "actions": [],
                 "tag": "Avoid"
@@ -5622,7 +5471,7 @@
                 "id": "drk-p5-r95-inv2",
                 "name": "Fell Forces I",
                 "time": "3:03",
-                "after": "p5-r28",
+                "after": "p5-fell-forces-3x-2",
                 "invuln": 2,
                 "tag": "Solo",
                 "actions": [
@@ -5636,7 +5485,7 @@
                 "id": "drk-p5-r97-inv1",
                 "name": "Fell Forces II",
                 "time": "3:06",
-                "after": "p5-r28",
+                "after": "p5-fell-forces-3x-2",
                 "invuln": 1,
                 "actions": [],
                 "tag": "Avoid"
@@ -5645,7 +5494,7 @@
                 "id": "drk-p5-r97-inv2",
                 "name": "Fell Forces II",
                 "time": "3:06",
-                "after": "p5-r28",
+                "after": "p5-fell-forces-3x-2",
                 "invuln": 2,
                 "tag": "Solo",
                 "actions": [
@@ -5659,7 +5508,7 @@
                 "id": "drk-p5-r99-inv1",
                 "name": "Fell Forces III",
                 "time": "3:09",
-                "after": "p5-r28",
+                "after": "p5-fell-forces-3x-2",
                 "invuln": 1,
                 "note": "The third auto must be shared as invulnerabilities will run out.",
                 "actions": [
@@ -5679,7 +5528,7 @@
                 "id": "drk-p5-r99-inv2",
                 "name": "Fell Forces III",
                 "time": "3:09",
-                "after": "p5-r28",
+                "after": "p5-fell-forces-3x-2",
                 "invuln": 2,
                 "note": "The third auto must be shared as invulnerabilities will run out.",
                 "actions": [
@@ -5749,7 +5598,7 @@
                 "id": "gnb-p1-r10-mt",
                 "name": "Hyperdrive (3x)",
                 "time": "1:05",
-                "after": "p1-r14",
+                "after": "p1-light-of-judgment-1",
                 "seat": "MT",
                 "note": "Hyperdrive does not have a castbar and occurs immediately after Light of Judgement.",
                 "actions": [
@@ -5763,7 +5612,7 @@
                 "id": "gnb-p1-r10-ot",
                 "name": "Hyperdrive (3x)",
                 "time": "1:05",
-                "after": "p1-r14",
+                "after": "p1-light-of-judgment-1",
                 "seat": "OT",
                 "note": "Hyperdrive does not have a castbar and occurs immediately after Light of Judgement.",
                 "actions": [
@@ -5785,7 +5634,7 @@
                 "id": "gnb-p1-r12-mt",
                 "name": "Revolting Ruin III",
                 "time": "1:38",
-                "after": "p1-r16",
+                "after": "p1-gravitas-ii-part-i-1",
                 "seat": "MT",
                 "note": "Revolting Ruin III targets first in enmity and retargets to second in emity when the castbar ends.",
                 "actions": [
@@ -5799,7 +5648,7 @@
                 "id": "gnb-p1-r12-ot",
                 "name": "Revolting Ruin III",
                 "time": "1:38",
-                "after": "p1-r16",
+                "after": "p1-gravitas-ii-part-i-1",
                 "seat": "OT",
                 "note": "Revolting Ruin III targets first in enmity and retargets to second in emity when the castbar ends.",
                 "actions": [
@@ -5812,7 +5661,7 @@
                 "id": "gnb-p1-r14-mt",
                 "name": "Hyperdrive (3x)",
                 "time": "2:16",
-                "after": "p1-r22",
+                "after": "p1-light-of-judgment-2",
                 "seat": "MT",
                 "note": "Hyperdrive does not have a castbar and occurs immediately after Light of Judgement.",
                 "actions": [
@@ -5825,7 +5674,7 @@
                 "id": "gnb-p1-r14-ot",
                 "name": "Hyperdrive (3x)",
                 "time": "2:16",
-                "after": "p1-r22",
+                "after": "p1-light-of-judgment-2",
                 "seat": "OT",
                 "note": "Hyperdrive does not have a castbar and occurs immediately after Light of Judgement.",
                 "actions": []
@@ -5878,7 +5727,7 @@
               {
                 "id": "gnb-p2-r29-mt",
                 "name": "Wings of Destruction",
-                "after": "p2-r30",
+                "after": "p2-wings-of-destruction-1",
                 "seat": "MT",
                 "tag": "Close hit",
                 "note": "Rampart end of first Wings of Destruction (halfroom) cast, 40% two GCDs later and 10s mitigation at the end of second Wings of Destruction cast. PLD can take the Wings of Destruction at the wall to assist their co-tank with no downtime (discuss beforehand if MT).",
@@ -5897,7 +5746,7 @@
               {
                 "id": "gnb-p2-r29-ot",
                 "name": "Wings of Destruction",
-                "after": "p2-r30",
+                "after": "p2-wings-of-destruction-1",
                 "seat": "OT",
                 "tag": "Far hit",
                 "note": "Rampart end of first Wings of Destruction (halfroom) cast, 40% two GCDs later and 10s mitigation at the end of second Wings of Destruction cast. PLD can take the Wings of Destruction at the wall to assist their co-tank with no downtime (discuss beforehand if MT).",
@@ -5916,7 +5765,7 @@
               {
                 "id": "gnb-p2-r31-mt",
                 "name": "Ultimate Embrace",
-                "after": "p2-r32",
+                "after": "p2-ultimate-embrace-2",
                 "seat": "MT",
                 "note": "Short mitigation before Ultimate Embrace finishes casting.",
                 "actions": [
@@ -5940,7 +5789,7 @@
               {
                 "id": "gnb-p2-r31-ot",
                 "name": "Ultimate Embrace",
-                "after": "p2-r32",
+                "after": "p2-ultimate-embrace-2",
                 "seat": "OT",
                 "note": "Short mitigation before Ultimate Embrace finishes casting.",
                 "actions": [
@@ -5970,7 +5819,7 @@
                 "id": "gnb-p3-r45-chaos",
                 "name": "Thunder III",
                 "time": "1:37",
-                "after": "p3-r12",
+                "after": "p3-thunder-iii-1st-set-1",
                 "boss": "Chaos",
                 "tag": "1st hit",
                 "actions": [
@@ -5989,7 +5838,7 @@
                 "id": "gnb-p3-r45-exdeath",
                 "name": "Thunder III",
                 "time": "1:37",
-                "after": "p3-r12",
+                "after": "p3-thunder-iii-1st-set-1",
                 "boss": "Exdeath",
                 "tag": "2nd hit",
                 "actions": [
@@ -6008,7 +5857,7 @@
                 "id": "gnb-p3-r47-chaos",
                 "name": "Thunder III",
                 "time": "2:34",
-                "after": "p3-thunder2",
+                "after": "p3-thunder-iii-2nd-set-1",
                 "boss": "Chaos",
                 "tag": "Both hits",
                 "actions": [
@@ -6021,7 +5870,7 @@
                 "id": "gnb-p3-r47-exdeath",
                 "name": "Thunder III",
                 "time": "2:34",
-                "after": "p3-thunder2",
+                "after": "p3-thunder-iii-2nd-set-1",
                 "boss": "Exdeath",
                 "tag": "Avoid",
                 "actions": []
@@ -6030,7 +5879,7 @@
                 "id": "gnb-p3-r49-chaos",
                 "name": "Thunder III",
                 "time": "2:52",
-                "after": "p3-thunder3",
+                "after": "p3-thunder-iii-3rd-set-1",
                 "boss": "Chaos",
                 "tag": "2nd hit",
                 "actions": [
@@ -6046,7 +5895,7 @@
                 "id": "gnb-p3-r49-exdeath",
                 "name": "Thunder III",
                 "time": "2:52",
-                "after": "p3-thunder3",
+                "after": "p3-thunder-iii-3rd-set-1",
                 "boss": "Exdeath",
                 "tag": "1st hit",
                 "actions": [
@@ -6062,7 +5911,7 @@
                 "id": "gnb-p3-r51-chaos",
                 "name": "Thunder III",
                 "time": "3:33",
-                "after": "p3-thunder4",
+                "after": "p3-thunder-iii-4th-set-1",
                 "boss": "Chaos",
                 "tag": "Avoid",
                 "actions": []
@@ -6071,7 +5920,7 @@
                 "id": "gnb-p3-r51-exdeath",
                 "name": "Thunder III",
                 "time": "3:33",
-                "after": "p3-thunder4",
+                "after": "p3-thunder-iii-4th-set-1",
                 "boss": "Exdeath",
                 "tag": "Both hits",
                 "actions": [
@@ -6084,7 +5933,7 @@
                 "id": "gnb-p3-r53-chaos",
                 "name": "Thunder III",
                 "time": "4:15",
-                "after": "p3-r38",
+                "after": "p3-thunder-iii-5th-set-1",
                 "boss": "Chaos",
                 "tag": "2nd hit",
                 "actions": [
@@ -6103,7 +5952,7 @@
                 "id": "gnb-p3-r53-exdeath",
                 "name": "Thunder III",
                 "time": "4:15",
-                "after": "p3-r38",
+                "after": "p3-thunder-iii-5th-set-1",
                 "boss": "Exdeath",
                 "tag": "1st hit",
                 "actions": [
@@ -6122,7 +5971,7 @@
                 "id": "gnb-p3-r55-chaos",
                 "name": "Black Holes IV (10th Tether Set)",
                 "time": "5:09",
-                "after": "p3-r42",
+                "after": "p3-shocking-impact-shockwave-3",
                 "boss": "Chaos",
                 "actions": [
                   {
@@ -6137,7 +5986,7 @@
                 "id": "gnb-p3-r55-exdeath",
                 "name": "Black Holes IV (10th Tether Set)",
                 "time": "5:09",
-                "after": "p3-r42",
+                "after": "p3-shocking-impact-shockwave-3",
                 "boss": "Exdeath",
                 "actions": [
                   {
@@ -6190,7 +6039,7 @@
               {
                 "id": "gnb-p5-r81-inv1",
                 "name": "Fell Forces (3x)",
-                "after": "p5-r10",
+                "after": "p5-fell-forces-3x-1",
                 "invuln": 1,
                 "actions": [
                   {
@@ -6205,7 +6054,7 @@
               {
                 "id": "gnb-p5-r81-inv2",
                 "name": "Fell Forces (3x)",
-                "after": "p5-r10",
+                "after": "p5-fell-forces-3x-1",
                 "invuln": 2,
                 "actions": [
                   {
@@ -6220,7 +6069,7 @@
               {
                 "id": "gnb-p5-r83-inv1",
                 "name": "Maddening Orchestra",
-                "after": "p5-r14",
+                "after": "p5-maddening-orchestra-1",
                 "invuln": 1,
                 "actions": [
                   {
@@ -6238,7 +6087,7 @@
               {
                 "id": "gnb-p5-r83-inv2",
                 "name": "Maddening Orchestra",
-                "after": "p5-r14",
+                "after": "p5-maddening-orchestra-1",
                 "invuln": 2,
                 "actions": [
                   {
@@ -6253,7 +6102,7 @@
                 "id": "gnb-p5-r85-inv1",
                 "name": "Flare/Holy",
                 "time": "1:26",
-                "after": "p5-r14",
+                "after": "p5-maddening-orchestra-1",
                 "invuln": 1,
                 "actions": [
                   {
@@ -6266,7 +6115,7 @@
                 "id": "gnb-p5-r85-inv2",
                 "name": "Flare/Holy",
                 "time": "1:26",
-                "after": "p5-r14",
+                "after": "p5-maddening-orchestra-1",
                 "invuln": 2,
                 "actions": [
                   {
@@ -6282,7 +6131,7 @@
               {
                 "id": "gnb-p5-r87-inv1",
                 "name": "Fell Forces (2x)",
-                "after": "p5-r16",
+                "after": "p5-fell-forces-2x-1",
                 "invuln": 1,
                 "tag": "Solo",
                 "actions": [
@@ -6298,12 +6147,12 @@
                 "invuln": 2,
                 "tag": "Avoid",
                 "actions": [],
-                "after": "p5-r16"
+                "after": "p5-fell-forces-2x-1"
               },
               {
                 "id": "gnb-p5-r89-inv1",
                 "name": "Fell Forces (2x)",
-                "after": "p5-r22",
+                "after": "p5-fell-forces-2x-2",
                 "invuln": 1,
                 "actions": [
                   {
@@ -6317,7 +6166,7 @@
               {
                 "id": "gnb-p5-r89-inv2",
                 "name": "Fell Forces (2x)",
-                "after": "p5-r22",
+                "after": "p5-fell-forces-2x-2",
                 "invuln": 2,
                 "actions": [
                   {
@@ -6331,7 +6180,7 @@
               {
                 "id": "gnb-p5-r91-inv1",
                 "name": "Maddening Orchestra",
-                "after": "p5-r26",
+                "after": "p5-maddening-orchestra-2",
                 "invuln": 1,
                 "actions": [
                   {
@@ -6346,7 +6195,7 @@
               {
                 "id": "gnb-p5-r91-inv2",
                 "name": "Maddening Orchestra",
-                "after": "p5-r26",
+                "after": "p5-maddening-orchestra-2",
                 "invuln": 2,
                 "actions": [
                   {
@@ -6366,7 +6215,7 @@
                 "id": "gnb-p5-r93-inv1",
                 "name": "Flare/Holy",
                 "time": "2:58",
-                "after": "p5-r26",
+                "after": "p5-maddening-orchestra-2",
                 "invuln": 1,
                 "actions": [
                   {
@@ -6383,7 +6232,7 @@
                 "id": "gnb-p5-r93-inv2",
                 "name": "Flare/Holy",
                 "time": "2:58",
-                "after": "p5-r26",
+                "after": "p5-maddening-orchestra-2",
                 "invuln": 2,
                 "actions": [
                   {
@@ -6396,7 +6245,7 @@
                 "id": "gnb-p5-r95-inv1",
                 "name": "Fell Forces I",
                 "time": "3:03",
-                "after": "p5-r28",
+                "after": "p5-fell-forces-3x-2",
                 "invuln": 1,
                 "actions": [],
                 "tag": "Avoid"
@@ -6405,7 +6254,7 @@
                 "id": "gnb-p5-r95-inv2",
                 "name": "Fell Forces I",
                 "time": "3:03",
-                "after": "p5-r28",
+                "after": "p5-fell-forces-3x-2",
                 "invuln": 2,
                 "tag": "Solo",
                 "actions": [
@@ -6419,7 +6268,7 @@
                 "id": "gnb-p5-r97-inv1",
                 "name": "Fell Forces II",
                 "time": "3:06",
-                "after": "p5-r28",
+                "after": "p5-fell-forces-3x-2",
                 "invuln": 1,
                 "actions": [],
                 "tag": "Avoid"
@@ -6428,7 +6277,7 @@
                 "id": "gnb-p5-r97-inv2",
                 "name": "Fell Forces II",
                 "time": "3:06",
-                "after": "p5-r28",
+                "after": "p5-fell-forces-3x-2",
                 "invuln": 2,
                 "tag": "Solo",
                 "actions": [
@@ -6442,7 +6291,7 @@
                 "id": "gnb-p5-r99-inv1",
                 "name": "Fell Forces III",
                 "time": "3:09",
-                "after": "p5-r28",
+                "after": "p5-fell-forces-3x-2",
                 "invuln": 1,
                 "note": "The third auto must be shared as invulnerabilities will run out.",
                 "actions": [
@@ -6459,7 +6308,7 @@
                 "id": "gnb-p5-r99-inv2",
                 "name": "Fell Forces III",
                 "time": "3:09",
-                "after": "p5-r28",
+                "after": "p5-fell-forces-3x-2",
                 "invuln": 2,
                 "note": "The third auto must be shared as invulnerabilities will run out.",
                 "actions": [

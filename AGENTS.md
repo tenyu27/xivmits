@@ -54,7 +54,7 @@ src/
   index.css          binds Mantine's color variables and aliases product tokens
   App.css            only what Mantine props cannot express (see DESIGN.md)
 public/              static assets served at root
-data/fights/         <fightId>/fight.json + <fightId>/<sheetId>.json
+data/fights/         <fightId>/encounter.json + <fightId>/sheets/<sheetId>.json
 data/icons.json      action name → icon filename (generated, committed)
 data/jobs.json       jobs, their roles, and what generic names mean per job
 public/icons/        40×40 action icons from XIVAPI (generated, committed)

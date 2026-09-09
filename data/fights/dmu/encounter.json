@@ -1,0 +1,658 @@
+{
+  "id": "dmu",
+  "name": "Dancing Mad (Ultimate)",
+  "shortName": "DMU",
+  "type": "Ultimate",
+  "phases": [
+    {
+      "id": "p1",
+      "label": "P1",
+      "name": "Kefka",
+      "start": "0:00",
+      "mechanics": [
+        {
+          "id": "p1-mystery-magic-1",
+          "name": "Mystery Magic (1)",
+          "time": "0:38",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p1-wave-cannon-1",
+          "name": "Wave Cannon",
+          "time": "0:43",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p1-double-trouble-trap-1",
+          "name": "Double-Trouble Trap (1)",
+          "time": "0:50",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p1-light-of-judgment-1",
+          "name": "Light of Judgment (1)",
+          "time": "1:03",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p1-gravitas-ii-part-i-1",
+          "name": "Gravitas II (Part I)",
+          "time": "1:28",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p1-gravitas-ii-part-ii-1",
+          "name": "Gravitas II (Part II)",
+          "time": "1:46",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p1-double-trouble-trap-2",
+          "name": "Double-Trouble Trap (2)",
+          "time": "1:58",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p1-light-of-judgment-2",
+          "name": "Light of Judgment (2)",
+          "time": "2:12",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p1-double-trouble-trap-3",
+          "name": "Double-Trouble Trap (3)",
+          "time": "2:45",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p1-indulgent-will-1",
+          "name": "Indulgent Will",
+          "time": "2:53",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p1-mystery-magic-2",
+          "name": "Mystery Magic (2)",
+          "time": "3:07",
+          "fflogs": {
+            "abilityIds": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "label": "P2",
+      "name": "Forsaken Kefka",
+      "start": "3:17",
+      "mechanics": [
+        {
+          "id": "p2-ultimate-embrace-1",
+          "name": "Ultimate Embrace (1)",
+          "time": "0:24",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p2-forsaken-1",
+          "name": "Forsaken",
+          "time": "0:39",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p2-towers-i-1",
+          "name": "Towers I",
+          "time": "0:53",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p2-towers-ii-past-future-s-end-1",
+          "name": "Towers II (Past/Future's End)",
+          "time": "1:03",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p2-towers-iii-all-things-ending-1",
+          "name": "Towers III (All Things Ending)",
+          "time": "1:14",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p2-towers-iv-past-future-s-end-1",
+          "name": "Towers IV (Past/Future's End)",
+          "time": "1:24",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p2-towers-v-all-things-ending-1",
+          "name": "Towers V (All Things Ending)",
+          "time": "1:35",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p2-towers-vi-past-future-s-end-1",
+          "name": "Towers VI (Past/Future's End)",
+          "time": "1:45",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p2-towers-vii-all-things-ending-1",
+          "name": "Towers VII (All Things Ending)",
+          "time": "1:55",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p2-towers-viii-past-future-s-end-1",
+          "name": "Towers VIII (Past/Future's End)",
+          "time": "2:06",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p2-light-of-judgement-1",
+          "name": "Light of Judgement",
+          "time": "2:26",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p2-wings-of-destruction-1",
+          "name": "Wings of Destruction",
+          "time": "2:54",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p2-ultimate-embrace-2",
+          "name": "Ultimate Embrace (2)",
+          "time": "3:01",
+          "fflogs": {
+            "abilityIds": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "label": "P3",
+      "name": "Exdeath & Chaos",
+      "start": "6:22",
+      "mechanics": [
+        {
+          "id": "p3-bowels-of-agony-chaos-1",
+          "name": "Bowels of Agony (Chaos)",
+          "time": "1:08",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-stray-flames-tsunami-1",
+          "name": "Stray Flames/Tsunami (1)",
+          "time": "1:28",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-thunder-iii-1st-set-1",
+          "name": "Thunder III (1st Set)",
+          "time": "1:36",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-stray-flames-tsunami-2",
+          "name": "Stray Flames/Tsunami (2)",
+          "time": "1:55",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-ultima-blaster-1",
+          "name": "Ultima Blaster",
+          "time": "2:05",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-vacuum-wave-1",
+          "name": "Vacuum Wave",
+          "time": "2:12",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-cyclone-1",
+          "name": "Cyclone",
+          "time": "2:16",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-thunder-iii-2nd-set-1",
+          "name": "Thunder III (2nd Set)",
+          "time": "2:34",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-the-decisive-battle-1",
+          "name": "The Decisive Battle",
+          "time": "2:43",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-thunder-iii-3rd-set-1",
+          "name": "Thunder III (3rd Set)",
+          "time": "2:52",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-accretions-1",
+          "name": "Accretions",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-earthquake-1",
+          "name": "Earthquake",
+          "time": "2:57",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-shocking-impact-shockwave-1",
+          "name": "Shocking Impact/Shockwave (1)",
+          "time": "3:16",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-thunder-iii-4th-set-1",
+          "name": "Thunder III (4th Set)",
+          "time": "3:33",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-shocking-impact-shockwave-2",
+          "name": "Shocking Impact/Shockwave (2)",
+          "time": "3:47",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-black-holes-ii-3rd-tether-set-1",
+          "name": "Black Holes II (3rd Tether Set)",
+          "time": "3:54",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-black-holes-ii-4th-tether-set-1",
+          "name": "Black Holes II (4th Tether Set)",
+          "time": "3:59",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-black-holes-ii-5th-tether-set-1",
+          "name": "Black Holes II (5th Tether Set)",
+          "time": "4:04",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-thunder-iii-5th-set-1",
+          "name": "Thunder III (5th Set)",
+          "time": "4:15",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-black-holes-iii-6th-tether-set-1",
+          "name": "Black Holes III (6th Tether Set)",
+          "time": "4:28",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-shocking-impact-shockwave-3",
+          "name": "Shocking Impact/Shockwave (3)",
+          "time": "4:55",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-stomp-a-mole-knock-down-1",
+          "name": "Stomp-a-Mole + Knock Down",
+          "time": "5:23",
+          "fflogs": {
+            "abilityIds": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "label": "P4",
+      "name": "Kefka Says",
+      "start": "12:14",
+      "mechanics": [
+        {
+          "id": "p4-grand-cross-1",
+          "name": "Grand Cross (1)",
+          "time": "0:29",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p4-inferno-tsunami-1",
+          "name": "Inferno/Tsunami (1)",
+          "time": "0:35",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p4-grand-cross-2",
+          "name": "Grand Cross (2)",
+          "time": "0:44",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p4-inferno-tsunami-2",
+          "name": "Inferno/Tsunami (2)",
+          "time": "0:49",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p4-grand-cross-3",
+          "name": "Grand Cross (3)",
+          "time": "0:59",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p4-flood-of-naught-1",
+          "name": "Flood of Naught",
+          "time": "1:11",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p4-death-bolt-wave-1",
+          "name": "Death Bolt/Wave (1)",
+          "time": "1:21",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p4-ultima-upsurge-1",
+          "name": "Ultima Upsurge (1)",
+          "time": "1:39",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p4-death-bolt-wave-2",
+          "name": "Death Bolt/Wave (2)",
+          "time": "1:46",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p4-ultima-upsurge-2",
+          "name": "Ultima Upsurge (2)",
+          "time": "2:18",
+          "fflogs": {
+            "abilityIds": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "label": "P5",
+      "name": "Kefka Reimagined",
+      "start": "14:22",
+      "mechanics": [
+        {
+          "id": "p5-ultima-repeater-1",
+          "name": "Ultima Repeater (1)",
+          "time": "0:49",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-fell-forces-3x-1",
+          "name": "Fell Forces (3x) (1)",
+          "time": "0:54",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-chaotic-flood-1",
+          "name": "Chaotic Flood",
+          "time": "1:06",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-maddening-orchestra-1",
+          "name": "Maddening Orchestra (1)",
+          "time": "1:18",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-fell-forces-2x-1",
+          "name": "Fell Forces (2x) (1)",
+          "time": "1:31",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-celestriad-1",
+          "name": "Celestriad",
+          "time": "1:49",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-ultima-repeater-2",
+          "name": "Ultima Repeater (2)",
+          "time": "2:11",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-fell-forces-2x-2",
+          "name": "Fell Forces (2x) (2)",
+          "time": "2:16",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-stray-entropy-1",
+          "name": "Stray Entropy",
+          "time": "2:42",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-maddening-orchestra-2",
+          "name": "Maddening Orchestra (2)",
+          "time": "2:51",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-fell-forces-3x-2",
+          "name": "Fell Forces (3x) (2)",
+          "time": "3:03",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-forsaken-1st-hit-1",
+          "name": "Forsaken (1st Hit)",
+          "time": "3:20",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-forsaken-bonds-2nd-hit-1",
+          "name": "Forsaken Bonds (2nd Hit)",
+          "time": "3:25",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-forsaken-3rd-hit-1",
+          "name": "Forsaken (3rd Hit)",
+          "time": "3:28",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-forsaken-bonds-4th-hit-1",
+          "name": "Forsaken Bonds (4th Hit)",
+          "time": "3:34",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-forsaken-5th-hit-1",
+          "name": "Forsaken (5th Hit)",
+          "time": "3:37",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-forsaken-bonds-6th-hit-1",
+          "name": "Forsaken Bonds (6th Hit)",
+          "time": "3:42",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-forsaken-7th-hit-1",
+          "name": "Forsaken (7th Hit)",
+          "time": "3:45",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-forsaken-bonds-8th-hit-1",
+          "name": "Forsaken Bonds (8th Hit)",
+          "time": "3:50",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p5-forsaken-null-1",
+          "name": "Forsaken Null",
+          "time": "4:24",
+          "fflogs": {
+            "abilityIds": []
+          }
+        }
+      ]
+    }
+  ],
+  "fflogs": {
+    "encounterIds": []
+  }
+}

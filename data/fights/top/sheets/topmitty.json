@@ -61,8 +61,7 @@
       "id": "p1",
       "mechanics": [
         {
-          "id": "p1-r15",
-          "name": "Pantokrator",
+          "mechanicId": "p1-pantokrator-1",
           "assignments": {
             "T1": [
               {
@@ -155,8 +154,7 @@
           }
         },
         {
-          "id": "p1-r17",
-          "name": "Stack 1",
+          "mechanicId": "p1-stack-1-1",
           "assignments": {
             "T1": [
               {
@@ -171,8 +169,7 @@
           }
         },
         {
-          "id": "p1-r19",
-          "name": "Stack 2",
+          "mechanicId": "p1-stack-2-1",
           "assignments": {
             "SCH": [
               {
@@ -182,8 +179,7 @@
           }
         },
         {
-          "id": "p1-r21",
-          "name": "Stack 3",
+          "mechanicId": "p1-stack-3-1",
           "assignments": {
             "T2": [
               {
@@ -213,8 +209,7 @@
           }
         },
         {
-          "id": "p1-r23",
-          "name": "Stack 4",
+          "mechanicId": "p1-stack-4-1",
           "assignments": {}
         }
       ]
@@ -223,8 +218,7 @@
       "id": "p2",
       "mechanics": [
         {
-          "id": "p2-r15",
-          "name": "Party Synergy",
+          "mechanicId": "p2-party-synergy-1",
           "assignments": {
             "T1": [
               {
@@ -322,8 +316,7 @@
       "id": "p3",
       "mechanics": [
         {
-          "id": "p3-r11",
-          "name": "Hello World",
+          "mechanicId": "p3-hello-world-1",
           "assignments": {
             "T1": [
               {
@@ -358,8 +351,7 @@
           }
         },
         {
-          "id": "p3-r13",
-          "name": "1st Patch Set",
+          "mechanicId": "p3-1st-patch-set-1",
           "assignments": {
             "T1": [
               {
@@ -391,8 +383,7 @@
           }
         },
         {
-          "id": "p3-r15",
-          "name": "2nd Patch Set",
+          "mechanicId": "p3-2nd-patch-set-1",
           "assignments": {
             "T2": [
               {
@@ -425,8 +416,7 @@
           }
         },
         {
-          "id": "p3-r17",
-          "name": "3rd Patch Set",
+          "mechanicId": "p3-3rd-patch-set-1",
           "assignments": {
             "SCH": [
               {
@@ -470,8 +460,7 @@
           }
         },
         {
-          "id": "p3-r19",
-          "name": "4th Patch Set",
+          "mechanicId": "p3-4th-patch-set-1",
           "assignments": {
             "T1": [
               {
@@ -506,8 +495,7 @@
           }
         },
         {
-          "id": "p3-r21",
-          "name": "Critical Error",
+          "mechanicId": "p3-critical-error-1",
           "assignments": {
             "T2": [
               {
@@ -547,8 +535,7 @@
       "id": "p4",
       "mechanics": [
         {
-          "id": "p4-r1008",
-          "name": "Protean 1",
+          "mechanicId": "p4-protean-1-1",
           "assignments": {
             "T1": [
               {
@@ -571,8 +558,7 @@
           }
         },
         {
-          "id": "p4-r1010",
-          "name": "Stack 1",
+          "mechanicId": "p4-stack-1-1",
           "assignments": {
             "SCH": [
               {
@@ -590,8 +576,7 @@
           }
         },
         {
-          "id": "p4-r1012",
-          "name": "Protean 2",
+          "mechanicId": "p4-protean-2-1",
           "assignments": {
             "T1": [
               {
@@ -616,8 +601,7 @@
           }
         },
         {
-          "id": "p4-r1014",
-          "name": "Stack 2",
+          "mechanicId": "p4-stack-2-1",
           "assignments": {
             "T2": [
               {
@@ -637,8 +621,7 @@
           }
         },
         {
-          "id": "p4-r1016",
-          "name": "Protean 3",
+          "mechanicId": "p4-protean-3-1",
           "assignments": {
             "T2": [
               {
@@ -648,13 +631,11 @@
           }
         },
         {
-          "id": "p4-r1018",
-          "name": "Stack 3",
+          "mechanicId": "p4-stack-3-1",
           "assignments": {}
         },
         {
-          "id": "p4-r1020",
-          "name": "Blue Screen",
+          "mechanicId": "p4-blue-screen-1",
           "assignments": {
             "SCH": [
               {
@@ -690,8 +671,7 @@
       "id": "p5",
       "mechanics": [
         {
-          "id": "p5-r10",
-          "name": "Delta Cast",
+          "mechanicId": "p5-delta-cast-1",
           "assignments": {
             "T1": [
               {
@@ -744,8 +724,7 @@
           }
         },
         {
-          "id": "p5-r12",
-          "name": "Delta Mech",
+          "mechanicId": "p5-delta-mech-1",
           "assignments": {
             "SCH": [
               {
@@ -771,8 +750,7 @@
           }
         },
         {
-          "id": "p5-r14",
-          "name": "Sigma Cast",
+          "mechanicId": "p5-sigma-cast-1",
           "assignments": {
             "T1": [
               {
@@ -835,8 +813,7 @@
           }
         },
         {
-          "id": "p5-r16",
-          "name": "Sigma Mech",
+          "mechanicId": "p5-sigma-mech-1",
           "assignments": {
             "SCH": [
               {
@@ -851,8 +828,7 @@
           }
         },
         {
-          "id": "p5-r18",
-          "name": "Omega Cast",
+          "mechanicId": "p5-omega-cast-1",
           "assignments": {
             "T1": [
               {
@@ -921,8 +897,7 @@
           }
         },
         {
-          "id": "p5-r20",
-          "name": "Omega Mech",
+          "mechanicId": "p5-omega-mech-1",
           "assignments": {
             "SCH": [
               {
@@ -942,8 +917,7 @@
           }
         },
         {
-          "id": "p5-r22",
-          "name": "Blind Faith",
+          "mechanicId": "p5-blind-faith-1",
           "assignments": {
             "SCH": [
               {
@@ -976,8 +950,7 @@
       "id": "p6",
       "mechanics": [
         {
-          "id": "p6-r11",
-          "name": "Cosmo Memory",
+          "mechanicId": "p6-cosmo-memory-1",
           "assignments": {
             "T1": [
               {
@@ -1018,8 +991,7 @@
           }
         },
         {
-          "id": "p6-r13",
-          "name": "Cosmo Dive 1",
+          "mechanicId": "p6-cosmo-dive-1-1",
           "assignments": {
             "T1": [
               {
@@ -1070,8 +1042,7 @@
           }
         },
         {
-          "id": "p6-r15",
-          "name": "Protean 1",
+          "mechanicId": "p6-protean-1-1",
           "assignments": {
             "SCH": [
               {
@@ -1102,8 +1073,7 @@
           }
         },
         {
-          "id": "p6-r17",
-          "name": "Wave Cannon 1",
+          "mechanicId": "p6-wave-cannon-1-1",
           "assignments": {
             "T2": [
               {
@@ -1145,8 +1115,7 @@
           }
         },
         {
-          "id": "p6-r19",
-          "name": "Protean 2",
+          "mechanicId": "p6-protean-2-1",
           "assignments": {
             "SCH": [
               {
@@ -1164,8 +1133,7 @@
           }
         },
         {
-          "id": "p6-r21",
-          "name": "Wave Cannon 2",
+          "mechanicId": "p6-wave-cannon-2-1",
           "assignments": {
             "T1": [
               {
@@ -1214,8 +1182,7 @@
           }
         },
         {
-          "id": "p6-r23",
-          "name": "Cosmo Dive 2",
+          "mechanicId": "p6-cosmo-dive-2-1",
           "assignments": {
             "T2": [
               {
@@ -1256,8 +1223,7 @@
           }
         },
         {
-          "id": "p6-r25",
-          "name": "Cosmo Meteor",
+          "mechanicId": "p6-cosmo-meteor-1",
           "assignments": {
             "T1": [
               {
@@ -1312,8 +1278,7 @@
           }
         },
         {
-          "id": "p6-r27",
-          "name": "Flares",
+          "mechanicId": "p6-flares-1",
           "assignments": {
             "SCH": [
               {
@@ -1339,8 +1304,7 @@
           }
         },
         {
-          "id": "p6-r29",
-          "name": "Magic Number",
+          "mechanicId": "p6-magic-number-1",
           "assignments": {
             "T1": [
               {
@@ -1360,8 +1324,7 @@
           }
         },
         {
-          "id": "p6-r31",
-          "name": "Magic Number",
+          "mechanicId": "p6-magic-number-2",
           "assignments": {
             "T2": [
               {
@@ -1429,7 +1392,7 @@
                     "name": "Bloodwhetting"
                   }
                 ],
-                "after": "p1-r23",
+                "after": "p1-stack-4-1",
                 "note": "If double invuln: Rampart when beetle dies."
               }
             ]
@@ -1479,7 +1442,7 @@
                     "name": "Bloodwhetting"
                   }
                 ],
-                "after": "p2-r15"
+                "after": "p2-party-synergy-1"
               }
             ]
           },
@@ -1497,7 +1460,7 @@
                     "name": "Thrill of Battle"
                   }
                 ],
-                "after": "p3-r17"
+                "after": "p3-3rd-patch-set-1"
               },
               {
                 "id": "wardrk-p3-r41",
@@ -1510,11 +1473,11 @@
                     "name": "Bloodwhetting"
                   }
                 ],
-                "after": "p3-r19"
+                "after": "p3-4th-patch-set-1"
               }
             ],
             "note": "Personal mit is free for autos this phase",
-            "noteAfter": "p3-r11"
+            "noteAfter": "p3-hello-world-1"
           },
           {
             "id": "p4",
@@ -1550,7 +1513,7 @@
                     "name": "Holmgang"
                   }
                 ],
-                "after": "p5-r16"
+                "after": "p5-sigma-mech-1"
               },
               {
                 "id": "wardrk-p5-r74",
@@ -1569,7 +1532,7 @@
                     "name": "Bloodwhetting"
                   }
                 ],
-                "after": "p5-r20"
+                "after": "p5-omega-mech-1"
               }
             ]
           },
@@ -1590,7 +1553,7 @@
                     "name": "Bloodwhetting"
                   }
                 ],
-                "after": "p6-r13"
+                "after": "p6-cosmo-dive-1-1"
               },
               {
                 "id": "wardrk-p6-r89",
@@ -1603,7 +1566,7 @@
                     "name": "Bloodwhetting"
                   }
                 ],
-                "after": "p6-r17"
+                "after": "p6-wave-cannon-1-1"
               },
               {
                 "id": "wardrk-p6-r91",
@@ -1617,7 +1580,7 @@
                     "buddy": true
                   }
                 ],
-                "after": "p6-r21"
+                "after": "p6-wave-cannon-2-1"
               },
               {
                 "id": "wardrk-p6-r93",
@@ -1633,7 +1596,7 @@
                     "name": "Bloodwhetting"
                   }
                 ],
-                "after": "p6-r23"
+                "after": "p6-cosmo-dive-2-1"
               }
             ]
           }
@@ -1668,7 +1631,7 @@
                     "name": "Living Dead"
                   }
                 ],
-                "after": "p1-r23",
+                "after": "p1-stack-4-1",
                 "note": "If double invuln: Rampart when beetle dies."
               }
             ]
@@ -1724,7 +1687,7 @@
                     "name": "Oblation"
                   }
                 ],
-                "after": "p2-r15"
+                "after": "p2-party-synergy-1"
               }
             ]
           },
@@ -1739,7 +1702,7 @@
                     "name": "Rampart"
                   }
                 ],
-                "after": "p3-r13"
+                "after": "p3-1st-patch-set-1"
               },
               {
                 "id": "drkwar-p3-r37",
@@ -1749,7 +1712,7 @@
                     "name": "Shadow Wall"
                   }
                 ],
-                "after": "p3-r15"
+                "after": "p3-2nd-patch-set-1"
               },
               {
                 "id": "drkwar-p3-r43",
@@ -1759,7 +1722,7 @@
                     "name": "Dark Mind"
                   }
                 ],
-                "after": "p3-r21"
+                "after": "p3-critical-error-1"
               },
               {
                 "id": "drkwar-p3-r45",
@@ -1769,11 +1732,11 @@
                     "name": "Rampart"
                   }
                 ],
-                "after": "p3-r21"
+                "after": "p3-critical-error-1"
               }
             ],
             "note": "Personal mit is free for autos this phase",
-            "noteAfter": "p3-r11"
+            "noteAfter": "p3-hello-world-1"
           },
           {
             "id": "p4",
@@ -1812,7 +1775,7 @@
                     "name": "Living Dead"
                   }
                 ],
-                "after": "p5-r12"
+                "after": "p5-delta-mech-1"
               },
               {
                 "id": "drkwar-p5-r74",
@@ -1834,7 +1797,7 @@
                     "name": "Oblation"
                   }
                 ],
-                "after": "p5-r20"
+                "after": "p5-omega-mech-1"
               }
             ]
           },
@@ -1858,7 +1821,7 @@
                     "name": "Oblation"
                   }
                 ],
-                "after": "p6-r13"
+                "after": "p6-cosmo-dive-1-1"
               },
               {
                 "id": "drkwar-p6-r89",
@@ -1872,7 +1835,7 @@
                     "buddy": true
                   }
                 ],
-                "after": "p6-r17"
+                "after": "p6-wave-cannon-1-1"
               },
               {
                 "id": "drkwar-p6-r91",
@@ -1888,7 +1851,7 @@
                     "name": "Oblation"
                   }
                 ],
-                "after": "p6-r21"
+                "after": "p6-wave-cannon-2-1"
               },
               {
                 "id": "drkwar-p6-r93",
@@ -1907,7 +1870,7 @@
                     "name": "Oblation"
                   }
                 ],
-                "after": "p6-r23"
+                "after": "p6-cosmo-dive-2-1"
               }
             ]
           }
@@ -1952,7 +1915,7 @@
                     "name": "Bloodwhetting"
                   }
                 ],
-                "after": "p1-r23",
+                "after": "p1-stack-4-1",
                 "note": "If double invuln: Rampart when beetle dies."
               }
             ]
@@ -2002,7 +1965,7 @@
                     "name": "Bloodwhetting"
                   }
                 ],
-                "after": "p2-r15"
+                "after": "p2-party-synergy-1"
               }
             ]
           },
@@ -2020,7 +1983,7 @@
                     "name": "Thrill of Battle"
                   }
                 ],
-                "after": "p3-r17"
+                "after": "p3-3rd-patch-set-1"
               },
               {
                 "id": "wargnb-p3-r41",
@@ -2033,11 +1996,11 @@
                     "name": "Bloodwhetting"
                   }
                 ],
-                "after": "p3-r19"
+                "after": "p3-4th-patch-set-1"
               }
             ],
             "note": "Personal mit is free for autos this phase",
-            "noteAfter": "p3-r11"
+            "noteAfter": "p3-hello-world-1"
           },
           {
             "id": "p4",
@@ -2064,7 +2027,7 @@
                     "name": "Bloodwhetting"
                   }
                 ],
-                "after": "p5-r12"
+                "after": "p5-delta-mech-1"
               },
               {
                 "id": "wargnb-p5-r72",
@@ -2074,7 +2037,7 @@
                     "name": "Holmgang"
                   }
                 ],
-                "after": "p5-r16"
+                "after": "p5-sigma-mech-1"
               },
               {
                 "id": "wargnb-p5-r74",
@@ -2093,7 +2056,7 @@
                     "name": "Bloodwhetting"
                   }
                 ],
-                "after": "p5-r20"
+                "after": "p5-omega-mech-1"
               }
             ]
           },
@@ -2114,7 +2077,7 @@
                     "name": "Bloodwhetting"
                   }
                 ],
-                "after": "p6-r13"
+                "after": "p6-cosmo-dive-1-1"
               },
               {
                 "id": "wargnb-p6-r89",
@@ -2127,7 +2090,7 @@
                     "name": "Bloodwhetting"
                   }
                 ],
-                "after": "p6-r17"
+                "after": "p6-wave-cannon-1-1"
               },
               {
                 "id": "wargnb-p6-r91",
@@ -2141,7 +2104,7 @@
                     "buddy": true
                   }
                 ],
-                "after": "p6-r21"
+                "after": "p6-wave-cannon-2-1"
               },
               {
                 "id": "wargnb-p6-r93",
@@ -2157,7 +2120,7 @@
                     "name": "Bloodwhetting"
                   }
                 ],
-                "after": "p6-r23"
+                "after": "p6-cosmo-dive-2-1"
               }
             ]
           }
@@ -2188,7 +2151,7 @@
                     "name": "Superbolide"
                   }
                 ],
-                "after": "p1-r23",
+                "after": "p1-stack-4-1",
                 "note": "If double invuln: Rampart when beetle dies."
               }
             ]
@@ -2238,7 +2201,7 @@
                     "name": "Heart of Corundum"
                   }
                 ],
-                "after": "p2-r15"
+                "after": "p2-party-synergy-1"
               }
             ]
           },
@@ -2253,7 +2216,7 @@
                     "name": "Rampart"
                   }
                 ],
-                "after": "p3-r13"
+                "after": "p3-1st-patch-set-1"
               },
               {
                 "id": "gnbwar-p3-r37",
@@ -2263,7 +2226,7 @@
                     "name": "Great Nebula"
                   }
                 ],
-                "after": "p3-r15"
+                "after": "p3-2nd-patch-set-1"
               },
               {
                 "id": "gnbwar-p3-r43",
@@ -2273,7 +2236,7 @@
                     "name": "Camouflage"
                   }
                 ],
-                "after": "p3-r21"
+                "after": "p3-critical-error-1"
               },
               {
                 "id": "gnbwar-p3-r45",
@@ -2283,11 +2246,11 @@
                     "name": "Rampart"
                   }
                 ],
-                "after": "p3-r21"
+                "after": "p3-critical-error-1"
               }
             ],
             "note": "Personal mit is free for autos this phase",
-            "noteAfter": "p3-r11"
+            "noteAfter": "p3-hello-world-1"
           },
           {
             "id": "p4",
@@ -2323,7 +2286,7 @@
                     "name": "Heart of Corundum"
                   }
                 ],
-                "after": "p5-r12"
+                "after": "p5-delta-mech-1"
               },
               {
                 "id": "gnbwar-p5-r74",
@@ -2342,7 +2305,7 @@
                     "name": "Heart of Corundum"
                   }
                 ],
-                "after": "p5-r20"
+                "after": "p5-omega-mech-1"
               }
             ]
           },
@@ -2363,7 +2326,7 @@
                     "name": "Heart of Corundum"
                   }
                 ],
-                "after": "p6-r13"
+                "after": "p6-cosmo-dive-1-1"
               },
               {
                 "id": "gnbwar-p6-r89",
@@ -2377,7 +2340,7 @@
                     "buddy": true
                   }
                 ],
-                "after": "p6-r17"
+                "after": "p6-wave-cannon-1-1"
               },
               {
                 "id": "gnbwar-p6-r91",
@@ -2390,7 +2353,7 @@
                     "name": "Heart of Corundum"
                   }
                 ],
-                "after": "p6-r21"
+                "after": "p6-wave-cannon-2-1"
               },
               {
                 "id": "gnbwar-p6-r93",
@@ -2406,7 +2369,7 @@
                     "name": "Heart of Corundum"
                   }
                 ],
-                "after": "p6-r23"
+                "after": "p6-cosmo-dive-2-1"
               }
             ]
           }
@@ -2451,7 +2414,7 @@
                     "name": "Bloodwhetting"
                   }
                 ],
-                "after": "p1-r23",
+                "after": "p1-stack-4-1",
                 "note": "If double invuln: Rampart when beetle dies."
               }
             ]
@@ -2501,7 +2464,7 @@
                     "name": "Bloodwhetting"
                   }
                 ],
-                "after": "p2-r15"
+                "after": "p2-party-synergy-1"
               }
             ]
           },
@@ -2519,7 +2482,7 @@
                     "name": "Thrill of Battle"
                   }
                 ],
-                "after": "p3-r17"
+                "after": "p3-3rd-patch-set-1"
               },
               {
                 "id": "warpld-p3-r41",
@@ -2532,11 +2495,11 @@
                     "name": "Bloodwhetting"
                   }
                 ],
-                "after": "p3-r19"
+                "after": "p3-4th-patch-set-1"
               }
             ],
             "note": "Personal mit is free for autos this phase",
-            "noteAfter": "p3-r11"
+            "noteAfter": "p3-hello-world-1"
           },
           {
             "id": "p4",
@@ -2572,7 +2535,7 @@
                     "name": "Holmgang"
                   }
                 ],
-                "after": "p5-r12",
+                "after": "p5-delta-mech-1",
                 "note": "Prepop Rampart right before Omega-F is targettable (after Sigma)"
               },
               {
@@ -2589,7 +2552,7 @@
                     "name": "Bloodwhetting"
                   }
                 ],
-                "after": "p5-r16"
+                "after": "p5-sigma-mech-1"
               },
               {
                 "id": "warpld-p5-r74",
@@ -2605,7 +2568,7 @@
                     "name": "Thrill of Battle"
                   }
                 ],
-                "after": "p5-r20"
+                "after": "p5-omega-mech-1"
               }
             ]
           },
@@ -2627,7 +2590,7 @@
                     "buddy": true
                   }
                 ],
-                "after": "p6-r13"
+                "after": "p6-cosmo-dive-1-1"
               },
               {
                 "id": "warpld-p6-r89",
@@ -2640,7 +2603,7 @@
                     "name": "Bloodwhetting"
                   }
                 ],
-                "after": "p6-r17"
+                "after": "p6-wave-cannon-1-1"
               },
               {
                 "id": "warpld-p6-r91",
@@ -2654,7 +2617,7 @@
                     "buddy": true
                   }
                 ],
-                "after": "p6-r21"
+                "after": "p6-wave-cannon-2-1"
               },
               {
                 "id": "warpld-p6-r93",
@@ -2670,7 +2633,7 @@
                     "name": "Bloodwhetting"
                   }
                 ],
-                "after": "p6-r23"
+                "after": "p6-cosmo-dive-2-1"
               }
             ]
           }
@@ -2711,7 +2674,7 @@
                     "buddy": true
                   }
                 ],
-                "after": "p1-r23",
+                "after": "p1-stack-4-1",
                 "note": "If double invuln: Rampart when beetle dies."
               }
             ]
@@ -2761,7 +2724,7 @@
                     "name": "Bulwark"
                   }
                 ],
-                "after": "p2-r15"
+                "after": "p2-party-synergy-1"
               }
             ]
           },
@@ -2776,7 +2739,7 @@
                     "name": "Rampart"
                   }
                 ],
-                "after": "p3-r13"
+                "after": "p3-1st-patch-set-1"
               },
               {
                 "id": "pldwar-p3-r37",
@@ -2789,7 +2752,7 @@
                     "name": "Holy Sheltron"
                   }
                 ],
-                "after": "p3-r15"
+                "after": "p3-2nd-patch-set-1"
               },
               {
                 "id": "pldwar-p3-r43",
@@ -2802,7 +2765,7 @@
                     "name": "Bulwark"
                   }
                 ],
-                "after": "p3-r21"
+                "after": "p3-critical-error-1"
               },
               {
                 "id": "pldwar-p3-r45",
@@ -2812,11 +2775,11 @@
                     "name": "Rampart"
                   }
                 ],
-                "after": "p3-r21"
+                "after": "p3-critical-error-1"
               }
             ],
             "note": "Personal mit is free for autos this phase",
-            "noteAfter": "p3-r11"
+            "noteAfter": "p3-hello-world-1"
           },
           {
             "id": "p4",
@@ -2865,7 +2828,7 @@
                     "buddy": true
                   }
                 ],
-                "after": "p5-r16"
+                "after": "p5-sigma-mech-1"
               },
               {
                 "id": "pldwar-p5-r74",
@@ -2891,13 +2854,13 @@
                     "buddy": true
                   }
                 ],
-                "after": "p5-r20"
+                "after": "p5-omega-mech-1"
               },
               {
                 "id": "pldwar-p5-note",
                 "name": "Sigma Solar Ray",
                 "actions": [],
-                "after": "p5-r12",
+                "after": "p5-delta-mech-1",
                 "note": "Prepop Rampart, 1st gcd Bulwark right before Omega-F is targettable (after Sigma)"
               }
             ]
@@ -2923,7 +2886,7 @@
                     "buddy": true
                   }
                 ],
-                "after": "p6-r13"
+                "after": "p6-cosmo-dive-1-1"
               },
               {
                 "id": "pldwar-p6-r89",
@@ -2937,7 +2900,7 @@
                     "buddy": true
                   }
                 ],
-                "after": "p6-r17"
+                "after": "p6-wave-cannon-1-1"
               },
               {
                 "id": "pldwar-p6-r91",
@@ -2950,7 +2913,7 @@
                     "name": "Holy Sheltron (hold Passage for Block)"
                   }
                 ],
-                "after": "p6-r21"
+                "after": "p6-wave-cannon-2-1"
               },
               {
                 "id": "pldwar-p6-r93",
@@ -2970,7 +2933,7 @@
                     "buddy": true
                   }
                 ],
-                "after": "p6-r23"
+                "after": "p6-cosmo-dive-2-1"
               }
             ]
           }
@@ -3009,7 +2972,7 @@
                     "name": "Superbolide"
                   }
                 ],
-                "after": "p1-r23",
+                "after": "p1-stack-4-1",
                 "note": "If double invuln: Rampart when beetle dies."
               }
             ]
@@ -3059,7 +3022,7 @@
                     "name": "Heart of Corundum"
                   }
                 ],
-                "after": "p2-r15"
+                "after": "p2-party-synergy-1"
               }
             ]
           },
@@ -3077,7 +3040,7 @@
                     "name": "Camouflage"
                   }
                 ],
-                "after": "p3-r17"
+                "after": "p3-3rd-patch-set-1"
               },
               {
                 "id": "gnbdrk-p3-r41",
@@ -3090,11 +3053,11 @@
                     "name": "Heart of Corundum"
                   }
                 ],
-                "after": "p3-r19"
+                "after": "p3-4th-patch-set-1"
               }
             ],
             "note": "Personal mit is free for autos this phase",
-            "noteAfter": "p3-r11"
+            "noteAfter": "p3-hello-world-1"
           },
           {
             "id": "p4",
@@ -3127,7 +3090,7 @@
                     "name": "Heart of Corundum"
                   }
                 ],
-                "after": "p5-r16"
+                "after": "p5-sigma-mech-1"
               },
               {
                 "id": "gnbdrk-p5-r74",
@@ -3146,13 +3109,13 @@
                     "name": "Heart of Corundum"
                   }
                 ],
-                "after": "p5-r20"
+                "after": "p5-omega-mech-1"
               },
               {
                 "id": "gnbdrk-p5-note",
                 "name": "Sigma Solar Ray",
                 "actions": [],
-                "after": "p5-r12",
+                "after": "p5-delta-mech-1",
                 "note": "Prepop Rampart+Camo right before Omega-F is targettable (after Sigma)"
               }
             ]
@@ -3174,7 +3137,7 @@
                     "name": "Heart of Corundum"
                   }
                 ],
-                "after": "p6-r13"
+                "after": "p6-cosmo-dive-1-1"
               },
               {
                 "id": "gnbdrk-p6-r89",
@@ -3187,7 +3150,7 @@
                     "name": "Heart of Corundum"
                   }
                 ],
-                "after": "p6-r17"
+                "after": "p6-wave-cannon-1-1"
               },
               {
                 "id": "gnbdrk-p6-r91",
@@ -3201,7 +3164,7 @@
                     "buddy": true
                   }
                 ],
-                "after": "p6-r21"
+                "after": "p6-wave-cannon-2-1"
               },
               {
                 "id": "gnbdrk-p6-r93",
@@ -3217,7 +3180,7 @@
                     "name": "Heart of Corundum"
                   }
                 ],
-                "after": "p6-r23"
+                "after": "p6-cosmo-dive-2-1"
               }
             ],
             "note": "You can switch Wave Cannon 1 & 2 tank invulns if you like"
@@ -3262,7 +3225,7 @@
                     "name": "The Blackest Night"
                   }
                 ],
-                "after": "p1-r23",
+                "after": "p1-stack-4-1",
                 "note": "If double invuln: Rampart when beetle dies."
               }
             ]
@@ -3318,7 +3281,7 @@
                     "name": "Oblation"
                   }
                 ],
-                "after": "p2-r15"
+                "after": "p2-party-synergy-1"
               }
             ]
           },
@@ -3333,7 +3296,7 @@
                     "name": "Rampart"
                   }
                 ],
-                "after": "p3-r13"
+                "after": "p3-1st-patch-set-1"
               },
               {
                 "id": "drkgnb-p3-r37",
@@ -3343,7 +3306,7 @@
                     "name": "Shadow Wall"
                   }
                 ],
-                "after": "p3-r15"
+                "after": "p3-2nd-patch-set-1"
               },
               {
                 "id": "drkgnb-p3-r43",
@@ -3353,7 +3316,7 @@
                     "name": "Dark Mind"
                   }
                 ],
-                "after": "p3-r21"
+                "after": "p3-critical-error-1"
               },
               {
                 "id": "drkgnb-p3-r45",
@@ -3363,11 +3326,11 @@
                     "name": "Rampart"
                   }
                 ],
-                "after": "p3-r21"
+                "after": "p3-critical-error-1"
               }
             ],
             "note": "Personal mit is free for autos this phase",
-            "noteAfter": "p3-r11"
+            "noteAfter": "p3-hello-world-1"
           },
           {
             "id": "p4",
@@ -3385,7 +3348,7 @@
                     "name": "Living Dead"
                   }
                 ],
-                "after": "p5-r12",
+                "after": "p5-delta-mech-1",
                 "note": "Prepop Rampart right before Omega-F is targettable (after Sigma)"
               },
               {
@@ -3415,7 +3378,7 @@
                     "buddy": true
                   }
                 ],
-                "after": "p5-r16"
+                "after": "p5-sigma-mech-1"
               },
               {
                 "id": "drkgnb-p5-r74",
@@ -3437,7 +3400,7 @@
                     "name": "Reprisal"
                   }
                 ],
-                "after": "p5-r20"
+                "after": "p5-omega-mech-1"
               }
             ]
           },
@@ -3461,7 +3424,7 @@
                     "name": "Oblation"
                   }
                 ],
-                "after": "p6-r13"
+                "after": "p6-cosmo-dive-1-1"
               },
               {
                 "id": "drkgnb-p6-r89",
@@ -3475,7 +3438,7 @@
                     "buddy": true
                   }
                 ],
-                "after": "p6-r17"
+                "after": "p6-wave-cannon-1-1"
               },
               {
                 "id": "drkgnb-p6-r91",
@@ -3491,7 +3454,7 @@
                     "name": "Oblation"
                   }
                 ],
-                "after": "p6-r21"
+                "after": "p6-wave-cannon-2-1"
               },
               {
                 "id": "drkgnb-p6-r93",
@@ -3510,7 +3473,7 @@
                     "name": "Oblation"
                   }
                 ],
-                "after": "p6-r23"
+                "after": "p6-cosmo-dive-2-1"
               }
             ]
           }
@@ -3555,7 +3518,7 @@
                     "name": "Heart of Corundum"
                   }
                 ],
-                "after": "p1-r23",
+                "after": "p1-stack-4-1",
                 "note": "If double invuln: Rampart when beetle dies."
               }
             ]
@@ -3605,7 +3568,7 @@
                     "name": "Heart of Corundum"
                   }
                 ],
-                "after": "p2-r15"
+                "after": "p2-party-synergy-1"
               }
             ]
           },
@@ -3623,7 +3586,7 @@
                     "name": "Camouflage"
                   }
                 ],
-                "after": "p3-r17"
+                "after": "p3-3rd-patch-set-1"
               },
               {
                 "id": "gnbpld-p3-r41",
@@ -3636,11 +3599,11 @@
                     "name": "Heart of Corundum"
                   }
                 ],
-                "after": "p3-r19"
+                "after": "p3-4th-patch-set-1"
               }
             ],
             "note": "Personal mit is free for autos this phase",
-            "noteAfter": "p3-r11"
+            "noteAfter": "p3-hello-world-1"
           },
           {
             "id": "p4",
@@ -3676,7 +3639,7 @@
                     "name": "Superbolide"
                   }
                 ],
-                "after": "p5-r12",
+                "after": "p5-delta-mech-1",
                 "note": "Prepop Rampart+Camo right before Omega-F is targettable (after Sigma)"
               },
               {
@@ -3693,7 +3656,7 @@
                     "name": "Heart of Corundum"
                   }
                 ],
-                "after": "p5-r16"
+                "after": "p5-sigma-mech-1"
               },
               {
                 "id": "gnbpld-p5-r74",
@@ -3712,7 +3675,7 @@
                     "name": "Heart of Corundum"
                   }
                 ],
-                "after": "p5-r20"
+                "after": "p5-omega-mech-1"
               }
             ]
           },
@@ -3733,7 +3696,7 @@
                     "name": "Heart of Corundum"
                   }
                 ],
-                "after": "p6-r13"
+                "after": "p6-cosmo-dive-1-1"
               },
               {
                 "id": "gnbpld-p6-r89",
@@ -3746,7 +3709,7 @@
                     "name": "Heart of Corundum"
                   }
                 ],
-                "after": "p6-r17"
+                "after": "p6-wave-cannon-1-1"
               },
               {
                 "id": "gnbpld-p6-r91",
@@ -3760,7 +3723,7 @@
                     "buddy": true
                   }
                 ],
-                "after": "p6-r21"
+                "after": "p6-wave-cannon-2-1"
               },
               {
                 "id": "gnbpld-p6-r93",
@@ -3776,7 +3739,7 @@
                     "name": "Heart of Corundum"
                   }
                 ],
-                "after": "p6-r23"
+                "after": "p6-cosmo-dive-2-1"
               }
             ]
           }
@@ -3817,7 +3780,7 @@
                     "buddy": true
                   }
                 ],
-                "after": "p1-r23",
+                "after": "p1-stack-4-1",
                 "note": "If double invuln: Rampart when beetle dies."
               }
             ]
@@ -3867,7 +3830,7 @@
                     "name": "Bulwark"
                   }
                 ],
-                "after": "p2-r15"
+                "after": "p2-party-synergy-1"
               }
             ]
           },
@@ -3882,7 +3845,7 @@
                     "name": "Rampart"
                   }
                 ],
-                "after": "p3-r13"
+                "after": "p3-1st-patch-set-1"
               },
               {
                 "id": "pldgnb-p3-r37",
@@ -3895,7 +3858,7 @@
                     "name": "Holy Sheltron"
                   }
                 ],
-                "after": "p3-r15"
+                "after": "p3-2nd-patch-set-1"
               },
               {
                 "id": "pldgnb-p3-r43",
@@ -3908,7 +3871,7 @@
                     "name": "Bulwark"
                   }
                 ],
-                "after": "p3-r21"
+                "after": "p3-critical-error-1"
               },
               {
                 "id": "pldgnb-p3-r45",
@@ -3918,11 +3881,11 @@
                     "name": "Rampart"
                   }
                 ],
-                "after": "p3-r21"
+                "after": "p3-critical-error-1"
               }
             ],
             "note": "Personal mit is free for autos this phase",
-            "noteAfter": "p3-r11"
+            "noteAfter": "p3-hello-world-1"
           },
           {
             "id": "p4",
@@ -3971,7 +3934,7 @@
                     "buddy": true
                   }
                 ],
-                "after": "p5-r16"
+                "after": "p5-sigma-mech-1"
               },
               {
                 "id": "pldgnb-p5-r74",
@@ -3994,13 +3957,13 @@
                     "buddy": true
                   }
                 ],
-                "after": "p5-r20"
+                "after": "p5-omega-mech-1"
               },
               {
                 "id": "pldgnb-p5-note",
                 "name": "Sigma Solar Ray",
                 "actions": [],
-                "after": "p5-r12",
+                "after": "p5-delta-mech-1",
                 "note": "Prepop Rampart, 1st gcd Bulwark right before Omega-F is targettable (after Sigma)"
               }
             ]
@@ -4026,7 +3989,7 @@
                     "buddy": true
                   }
                 ],
-                "after": "p6-r13"
+                "after": "p6-cosmo-dive-1-1"
               },
               {
                 "id": "pldgnb-p6-r89",
@@ -4040,7 +4003,7 @@
                     "buddy": true
                   }
                 ],
-                "after": "p6-r17"
+                "after": "p6-wave-cannon-1-1"
               },
               {
                 "id": "pldgnb-p6-r91",
@@ -4053,7 +4016,7 @@
                     "name": "Holy Sheltron (hold Passage for block)"
                   }
                 ],
-                "after": "p6-r21"
+                "after": "p6-wave-cannon-2-1"
               },
               {
                 "id": "pldgnb-p6-r93",
@@ -4073,7 +4036,7 @@
                     "buddy": true
                   }
                 ],
-                "after": "p6-r23"
+                "after": "p6-cosmo-dive-2-1"
               }
             ]
           }
@@ -4114,7 +4077,7 @@
                     "buddy": true
                   }
                 ],
-                "after": "p1-r23",
+                "after": "p1-stack-4-1",
                 "note": "If double invuln: Rampart when beetle dies."
               }
             ]
@@ -4164,7 +4127,7 @@
                     "name": "Bulwark"
                   }
                 ],
-                "after": "p2-r15"
+                "after": "p2-party-synergy-1"
               }
             ]
           },
@@ -4182,7 +4145,7 @@
                     "name": "Bulwark"
                   }
                 ],
-                "after": "p3-r17"
+                "after": "p3-3rd-patch-set-1"
               },
               {
                 "id": "plddrk-p3-r41",
@@ -4195,11 +4158,11 @@
                     "name": "Holy Sheltron"
                   }
                 ],
-                "after": "p3-r19"
+                "after": "p3-4th-patch-set-1"
               }
             ],
             "note": "Personal mit is free for autos this phase",
-            "noteAfter": "p3-r11"
+            "noteAfter": "p3-hello-world-1"
           },
           {
             "id": "p4",
@@ -4245,7 +4208,7 @@
                     "buddy": true
                   }
                 ],
-                "after": "p5-r16"
+                "after": "p5-sigma-mech-1"
               },
               {
                 "id": "plddrk-p5-r74",
@@ -4265,13 +4228,13 @@
                     "buddy": true
                   }
                 ],
-                "after": "p5-r20"
+                "after": "p5-omega-mech-1"
               },
               {
                 "id": "plddrk-p5-note",
                 "name": "Sigma Solar Ray",
                 "actions": [],
-                "after": "p5-r12",
+                "after": "p5-delta-mech-1",
                 "note": "Prepop Rampart, 1st gcd Bulwark right before Omega-F is targettable (after Sigma)"
               }
             ]
@@ -4297,7 +4260,7 @@
                     "buddy": true
                   }
                 ],
-                "after": "p6-r13"
+                "after": "p6-cosmo-dive-1-1"
               },
               {
                 "id": "plddrk-p6-r89",
@@ -4310,7 +4273,7 @@
                     "name": "Holy Sheltron"
                   }
                 ],
-                "after": "p6-r17"
+                "after": "p6-wave-cannon-1-1"
               },
               {
                 "id": "plddrk-p6-r91",
@@ -4324,7 +4287,7 @@
                     "buddy": true
                   }
                 ],
-                "after": "p6-r21"
+                "after": "p6-wave-cannon-2-1"
               },
               {
                 "id": "plddrk-p6-r93",
@@ -4344,7 +4307,7 @@
                     "buddy": true
                   }
                 ],
-                "after": "p6-r23"
+                "after": "p6-cosmo-dive-2-1"
               }
             ],
             "note": "You can switch Wave Cannon 1 & 2 tank invulns if you like"
@@ -4396,7 +4359,7 @@
                     "name": "The Blackest Night"
                   }
                 ],
-                "after": "p1-r23",
+                "after": "p1-stack-4-1",
                 "note": "If double invuln: Rampart when beetle dies."
               }
             ]
@@ -4452,7 +4415,7 @@
                     "name": "Oblation"
                   }
                 ],
-                "after": "p2-r15"
+                "after": "p2-party-synergy-1"
               }
             ]
           },
@@ -4467,7 +4430,7 @@
                     "name": "Rampart"
                   }
                 ],
-                "after": "p3-r13"
+                "after": "p3-1st-patch-set-1"
               },
               {
                 "id": "drkpld-p3-r37",
@@ -4477,7 +4440,7 @@
                     "name": "Shadow Wall"
                   }
                 ],
-                "after": "p3-r15"
+                "after": "p3-2nd-patch-set-1"
               },
               {
                 "id": "drkpld-p3-r43",
@@ -4487,7 +4450,7 @@
                     "name": "Dark Mind"
                   }
                 ],
-                "after": "p3-r21"
+                "after": "p3-critical-error-1"
               },
               {
                 "id": "drkpld-p3-r45",
@@ -4497,11 +4460,11 @@
                     "name": "Rampart"
                   }
                 ],
-                "after": "p3-r21"
+                "after": "p3-critical-error-1"
               }
             ],
             "note": "Personal mit is free for autos this phase",
-            "noteAfter": "p3-r11"
+            "noteAfter": "p3-hello-world-1"
           },
           {
             "id": "p4",
@@ -4540,7 +4503,7 @@
                     "name": "Living Dead"
                   }
                 ],
-                "after": "p5-r12",
+                "after": "p5-delta-mech-1",
                 "note": "Prepop Rampart right before Omega-F is targettable (after Sigma)"
               },
               {
@@ -4570,7 +4533,7 @@
                     "buddy": true
                   }
                 ],
-                "after": "p5-r16"
+                "after": "p5-sigma-mech-1"
               },
               {
                 "id": "drkpld-p5-r74",
@@ -4593,7 +4556,7 @@
                     "buddy": true
                   }
                 ],
-                "after": "p5-r20"
+                "after": "p5-omega-mech-1"
               }
             ]
           },
@@ -4617,7 +4580,7 @@
                     "name": "Oblation"
                   }
                 ],
-                "after": "p6-r13"
+                "after": "p6-cosmo-dive-1-1"
               },
               {
                 "id": "drkpld-p6-r89",
@@ -4631,7 +4594,7 @@
                     "buddy": true
                   }
                 ],
-                "after": "p6-r17"
+                "after": "p6-wave-cannon-1-1"
               },
               {
                 "id": "drkpld-p6-r91",
@@ -4647,7 +4610,7 @@
                     "name": "Oblation"
                   }
                 ],
-                "after": "p6-r21"
+                "after": "p6-wave-cannon-2-1"
               },
               {
                 "id": "drkpld-p6-r93",
@@ -4666,7 +4629,7 @@
                     "name": "Oblation"
                   }
                 ],
-                "after": "p6-r23"
+                "after": "p6-cosmo-dive-2-1"
               }
             ]
           }

@@ -6,7 +6,15 @@ const slug = text.regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
 const jobId = text.regex(/^[A-Z]{3}$/)
 // `start` is when the phase begins on the pull clock (m:ss), so a mechanic's
 // phase-relative `time` can also show as an absolute time.
-const phase = z.object({ id, label: text, name: text.optional(), start: text.regex(/^\d+:[0-5]\d$/).optional() }).strict()
+const time = text.regex(/^\d+:[0-5]\d$/)
+const encounterMechanicSchema = z.object({
+  id, name: text, time: time.optional(),
+  fflogs: z.object({ abilityIds: z.array(z.number().int().positive()) }).strict().optional(),
+}).strict()
+const encounterPhaseSchema = z.object({
+  id, label: text, name: text.optional(), start: time.optional(),
+  mechanics: z.array(encounterMechanicSchema),
+}).strict()
 const action = z.object({
   name: text, note: text.optional(), carryOver: z.boolean().optional(),
   // Restrict `note` to these jobs - a caveat that only applies to some of the
@@ -19,10 +27,11 @@ const action = z.object({
   buddy: z.boolean().optional(),
   noteLink: z.url().refine(value => /^https?:\/\//.test(value)).optional(),
 }).strict()
-const fightSchema = z.object({
+const encounterSchema = z.object({
   id: slug, name: text, shortName: text.optional(),
   type: z.enum(['Savage', 'Ultimate', 'Criterion', 'Other']),
-  phases: z.array(phase).min(1),
+  fflogs: z.object({ encounterIds: z.array(z.number().int().positive()) }).strict().optional(),
+  phases: z.array(encounterPhaseSchema).min(1),
 }).strict()
 const sheetSchema = z.object({
   id: slug, fightId: slug, name: text, updated: z.iso.date(),
@@ -41,7 +50,7 @@ const sheetSchema = z.object({
     // hidden by the notes toggle like an action note.
     scopedNote: z.object({ text, abilities: z.array(text).min(1) }).strict().optional(),
     mechanics: z.array(z.object({
-      id, name: text, time: text.regex(/^\d+:[0-5]\d$/).optional(),
+      mechanicId: id,
       // An aside for the whole mechanic, every role - "avoid HP-restoring
       // abilities here". Renders once under the cast, above the abilities,
       // whether or not this viewer presses anything.
@@ -80,7 +89,7 @@ const sheetSchema = z.object({
         note: text.optional(), noteAfter: id.optional(),
         noteInvuln: z.union([z.literal(1), z.literal(2)]).optional(),
         mechanics: z.array(z.object({
-          id, name: text, time: text.regex(/^\d+:[0-5]\d$/).optional(),
+          id, name: text, time: time.optional(),
           // Party mechanic id, same phase, this row renders below. Phase top
           // when absent.
           after: id.optional(),
@@ -120,36 +129,66 @@ const jobSchema = z.object({
 }).strict()
 const jobsSchema = z.object({ jobs: z.array(jobSchema).min(1) }).strict()
 
-export type Fight = z.infer<typeof fightSchema>
-export type Sheet = z.infer<typeof sheetSchema>
+export type EncounterMechanic = z.infer<typeof encounterMechanicSchema>
+export type EncounterPhase = z.infer<typeof encounterPhaseSchema>
+export type Encounter = z.infer<typeof encounterSchema>
+export type MitSheet = z.infer<typeof sheetSchema>
+export type MitSheetMechanicReference = MitSheet['phases'][number]['mechanics'][number]
+export type ResolvedMechanic = EncounterMechanic & Omit<MitSheetMechanicReference, 'mechanicId'>
+export type ResolvedSheet = Omit<MitSheet, 'phases'> & {
+  phases: Array<Omit<MitSheet['phases'][number], 'mechanics'> & { mechanics: ResolvedMechanic[] }>
+}
+// Runtime names retained because the UI consumes the resolved view, not the
+// persisted formats. They are aliases, not compatibility parsing paths.
+export type Fight = Encounter
+export type Sheet = ResolvedSheet
 export type TankMitPlan = NonNullable<Sheet['tankMits']>['plans'][number]
 export type Icons = z.infer<typeof iconsSchema>
 export type Job = z.infer<typeof jobSchema>
-export type Catalog = { fights: Fight[]; sheets: Sheet[]; icons: Icons; jobs: Job[] }
+export type Catalog = { fights: Encounter[]; sheets: ResolvedSheet[]; icons: Icons; jobs: Job[] }
 
 function unique(values: string[], label: string) {
   if (new Set(values).size !== values.length) throw new Error(`Duplicate ${label}`)
+}
+
+/** Join normalized source data into the view model consumed by React. */
+export function resolveSheet(encounter: Encounter, sheet: MitSheet): ResolvedSheet {
+  return {
+    ...sheet,
+    phases: sheet.phases.map(phase => {
+      const encounterPhase = encounter.phases.find(candidate => candidate.id === phase.id)!
+      const overlays = new Map(phase.mechanics.map(mechanic => [mechanic.mechanicId, mechanic]))
+      return {
+        ...phase,
+        mechanics: encounterPhase.mechanics.map(mechanic => {
+          const overlay = overlays.get(mechanic.id)
+          return { ...mechanic, note: overlay?.note, assignments: overlay?.assignments ?? {} }
+        }),
+      }
+    }),
+  }
 }
 
 export function validateCatalog(files: Record<string, unknown>, rawIcons: unknown = {}, rawJobs: unknown = { jobs: [] }): Catalog {
   const icons = iconsSchema.parse(rawIcons)
   const { jobs } = jobsSchema.parse(rawJobs)
   unique(jobs.map(j => j.id), 'job IDs')
-  const fights: Fight[] = []
-  const sheets: Sheet[] = []
+  const fights: Encounter[] = []
+  const rawSheets: MitSheet[] = []
   for (const [path, value] of Object.entries(files)) {
     try {
-      if (path.endsWith('/fight.json')) {
-        const fight = fightSchema.parse(value)
-        if (!path.endsWith(`/${fight.id}/fight.json`)) throw new Error('Fight ID must match its directory')
+      if (path.endsWith('/encounter.json')) {
+        const fight = encounterSchema.parse(value)
+        if (!path.endsWith(`/${fight.id}/encounter.json`)) throw new Error('Encounter ID must match its directory')
         unique(fight.phases.map(p => p.id), 'phase IDs')
+        unique(fight.phases.flatMap(p => p.mechanics.map(m => m.id)), 'canonical mechanic IDs')
         fights.push(fight)
-      } else {
+      } else if (path.includes('/sheets/')) {
         const sheet = sheetSchema.parse(value)
-        if (!path.endsWith(`/${sheet.fightId}/${sheet.id}.json`)) throw new Error('Sheet IDs must match its path')
+        if (!path.endsWith(`/${sheet.fightId}/sheets/${sheet.id}.json`)) throw new Error('Sheet IDs must match its path')
         unique(sheet.slots.map(s => s.id), 'slot IDs')
         unique(sheet.phases.map(p => p.id), 'sheet phase IDs')
-        unique(sheet.phases.flatMap(p => p.mechanics.map(m => m.id)), 'mechanic IDs')
+        unique(sheet.phases.flatMap(p => p.mechanics.map(m => m.mechanicId)), 'sheet mechanic references')
         if (sheet.tankMits) {
           unique(sheet.tankMits.plans.map(p => `${p.job}+${p.with ?? ''}`), `tank plans in ${sheet.id}`)
           for (const plan of sheet.tankMits.plans) {
@@ -163,21 +202,28 @@ export function validateCatalog(files: Record<string, unknown>, rawIcons: unknow
             unique(plan.phases.flatMap(p => p.mechanics.map(m => m.id)), `tank plan ${label} mechanic IDs`)
           }
         }
-        sheets.push(sheet)
+        rawSheets.push(sheet)
+      } else {
+        throw new Error('Expected encounter.json or a JSON file under sheets/')
       }
     } catch (error) { throw new Error(`${path}: ${String(error)}`) }
   }
   if (!fights.length) throw new Error('At least one fight is required')
   unique(fights.map(f => f.id), 'fight IDs')
-  unique(sheets.map(s => `${s.fightId}/${s.id}`), 'sheet IDs')
-  for (const sheet of sheets) {
+  unique(rawSheets.map(s => `${s.fightId}/${s.id}`), 'sheet IDs')
+  const sheets: ResolvedSheet[] = []
+  for (const sheet of rawSheets) {
     const fight = fights.find(f => f.id === sheet.fightId)
     if (!fight) throw new Error(`Unknown fight ${sheet.fightId}`)
     for (const phase of sheet.phases) {
       if (!fight.phases.some(p => p.id === phase.id)) throw new Error(`Unknown phase ${phase.id} in ${sheet.id}`)
       for (const mechanic of phase.mechanics) {
+        const canonical = fight.phases.flatMap(candidate => candidate.mechanics).find(candidate => candidate.id === mechanic.mechanicId)
+        if (!canonical) throw new Error(`Unknown mechanic ${mechanic.mechanicId} in ${sheet.id}`)
+        if (!fight.phases.find(candidate => candidate.id === phase.id)?.mechanics.some(candidate => candidate.id === mechanic.mechanicId))
+          throw new Error(`Mechanic ${mechanic.mechanicId} is not in phase ${phase.id} of ${sheet.id}`)
         for (const slot of Object.keys(mechanic.assignments)) {
-          if (!sheet.slots.some(s => s.id === slot)) throw new Error(`Unknown slot ${slot} in ${mechanic.id}`)
+          if (!sheet.slots.some(s => s.id === slot)) throw new Error(`Unknown slot ${slot} in ${mechanic.mechanicId}`)
         }
       }
     }
@@ -186,7 +232,7 @@ export function validateCatalog(files: Record<string, unknown>, rawIcons: unknow
         if (!fight.phases.some(p => p.id === phase.id)) throw new Error(`Unknown phase ${phase.id} in tank plan ${plan.job}+${plan.with ?? ''} of ${sheet.id}`)
         // `after` / `noteAfter` anchor a personal row to a party mechanic in
         // the same phase, so the splice has somewhere to land.
-        const anchors = new Set(sheet.phases.find(p => p.id === phase.id)?.mechanics.map(m => m.id))
+        const anchors = new Set(sheet.phases.find(p => p.id === phase.id)?.mechanics.map(m => m.mechanicId))
         for (const mechanic of phase.mechanics) {
           if (mechanic.after && !anchors.has(mechanic.after)) throw new Error(`Tank plan ${plan.job}+${plan.with ?? ''} ${mechanic.id}: unknown anchor ${mechanic.after}`)
         }
@@ -195,6 +241,7 @@ export function validateCatalog(files: Record<string, unknown>, rawIcons: unknow
       plan.phases.sort((a, b) => fight.phases.findIndex(p => p.id === a.id) - fight.phases.findIndex(p => p.id === b.id))
     }
     sheet.phases.sort((a, b) => fight.phases.findIndex(p => p.id === a.id) - fight.phases.findIndex(p => p.id === b.id))
+    sheets.push(resolveSheet(fight, sheet))
   }
   return { fights, sheets, icons, jobs }
 }
