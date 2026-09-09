@@ -48,8 +48,6 @@ COLUMNS = {'E': 'MT', 'G': 'OT', 'J': 'WHM', 'L': 'AST', 'N': 'SCH', 'P': 'SGE',
 # ranged brings when the party runs a fake melee, so it lands on those seats.
 EXTRAS_COLUMN = 'Z'
 HEALERS = ['WHM', 'AST', 'SCH', 'SGE']
-ROLES = {'MT': 'tank', 'OT': 'tank', 'M1': 'melee', 'M2': 'melee', 'P': 'ranged', 'C': 'caster',
-         **{job: 'healer' for job in HEALERS}}
 
 SHEETS = {'p1': 3, 'p2': 4, 'p3': 5, 'p4': 6, 'p5': 9}
 
@@ -120,10 +118,10 @@ PHASE_NOTES = {
 COLUMN_A_NOTES = {('p2', 30): 'Wall priority: PLD > WAR > DRK > GNB.',
                   ('p3', 18): 'Tank LB priority: WAR > DRK > PLD > GNB.'}
 
-# Generic names, resolved to the viewer's own button by data/jobs.json. Anything
-# not listed here has to be a real in-game action name.
-GENERIC = {'Party Mit', 'Buddy Mit', 'Short Mit', '90s Mit', '120s Mit', 'Invuln', 'Extra'}
-
+# Shorthand -> action name. A name data/jobs.json knows how to resolve per job
+# ("Party Mit", "Short Mit", "90s Mit", "120s Mit", "Invuln") is left generic on
+# purpose; everything else has to be a real in-game action name. A value may
+# name several buttons, joined by " + ".
 ABILITY = {
     # Tanks
     'Rep': 'Reprisal', 'Ramp': 'Rampart', 'Provoke': 'Provoke',
@@ -502,7 +500,9 @@ def convert(path, moved=None):
             'name': 'LPDU General DMU Mit Compile',
             'url': 'https://docs.google.com/spreadsheets/d/1aA_qF_UsoS51MCDZ4PwQHhprpK7eGO8TXOdZ7pQlkV0/edit',
         },
-        'description': 'P1–P5 party mitigation from the LPDU compile sheet, which follows LPDU strats. Choose a tank position, healer job, or DPS position.',
+        'description': 'P1–P5 mitigation from the LPDU compile sheet, which follows LPDU strats, '
+                       'with tank personal mit from the LPDU tank sheet. Choose a tank position, '
+                       'healer job, or DPS position.',
         # Paladin is forced offtank from P3 onward - the sheet calls it
         # non-negotiable, because the invulns do not line up with a PLD main
         # tank - so the MT seat does not offer it.
@@ -851,9 +851,9 @@ def convert_tanks(path, phase_starts, mechanic_names, moved):
             for phase_id, mechanics in sorted(phases.items()) if mechanics
         ]})
     return {
-        'note': 'Tank personal mit from the LPDU tank sheet, which is universal: '
-                'both bosses in P3 and both invulns in P5 are fixed by seat, so there is '
-                'nothing to choose here.',
+        'note': 'Tank personal mit from the LPDU tank sheet (tinyurl.com/LPDUtankmit), which is '
+                'universal: both bosses in P3 and both invulns in P5 are fixed by seat, so there '
+                'is nothing to choose here.',
         'plans': plans,
     }
 

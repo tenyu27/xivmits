@@ -9,7 +9,7 @@
     "name": "LPDU General DMU Mit Compile",
     "url": "https://docs.google.com/spreadsheets/d/1aA_qF_UsoS51MCDZ4PwQHhprpK7eGO8TXOdZ7pQlkV0/edit"
   },
-  "description": "P1–P5 party mitigation from the LPDU compile sheet, which follows LPDU strats. Choose a tank position, healer job, or DPS position.",
+  "description": "P1–P5 mitigation from the LPDU compile sheet, which follows LPDU strats, with tank personal mit from the LPDU tank sheet. Choose a tank position, healer job, or DPS position.",
   "slots": [
     {
       "id": "MT",
@@ -3084,7 +3084,7 @@
     }
   ],
   "tankMits": {
-    "note": "Tank personal mit from the LPDU tank sheet, which is universal: both bosses in P3 and both invulns in P5 are fixed by seat, so there is nothing to choose here.",
+    "note": "Tank personal mit from the LPDU tank sheet (tinyurl.com/LPDUtankmit), which is universal: both bosses in P3 and both invulns in P5 are fixed by seat, so there is nothing to choose here.",
     "plans": [
       {
         "job": "PLD",
