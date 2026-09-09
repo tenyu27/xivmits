@@ -62,4 +62,4 @@ def _number_repeated_mechanics(phases):
         name = mechanic['name']
         if totals.get(name, 0) > 1:
             seen[name] = seen.get(name, 0) + 1
-            mechanic['name'] = f"{name} ({seen[name]})"
+            mechanic['name'] = f"{name} {seen[name]}"

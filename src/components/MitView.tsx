@@ -107,15 +107,17 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
       if (mechanic.invuln && mechanic.invuln !== invulnOrder) continue
       // When a personal row names the same mechanic as the party row it sits
       // under, drop the repeated heading - the accent edge already says it is a
-      // separate, personal line. "Same" also covers a numbered party variant:
-      // a personal "Thunder III" folds into "Thunder III (1st Set)", and the
+      // separate, personal line. "Same" also covers a qualified party variant:
+      // a personal "Thunder III" folds into "Thunder III (1st Set)" and an
+      // "Ultimate Embrace" into the timeline's "Ultimate Embrace 2", and the
       // party row's own timestamp then stands for both (so a `time` on the
       // personal row no longer blocks the fold in that case).
       const anchor = mechanic.after ? party.find(pe => pe.mechanic.id === mechanic.after) : undefined
       const anchorName = anchor?.mechanic.name
+      const qualified = anchorName && anchorName.startsWith(`${mechanic.name} `)
+        && /^(\(.*\)|\d+)$/.test(anchorName.slice(mechanic.name.length + 1))
       const sameName = Boolean(anchorName && (
-        (!mechanic.time && anchorName === mechanic.name)
-        || anchorName.startsWith(`${mechanic.name} (`)
+        (!mechanic.time && anchorName === mechanic.name) || qualified
       ))
       // A bar row drops its own heading, so its `tag` would float on an empty
       // one - hoist it onto the party mechanic above instead, right after that

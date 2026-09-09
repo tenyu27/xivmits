@@ -291,14 +291,14 @@
         },
         {
           "id": "p6-magic-number-1",
-          "name": "Magic Number (1)",
+          "name": "Magic Number 1",
           "fflogs": {
             "abilityIds": []
           }
         },
         {
           "id": "p6-magic-number-2",
-          "name": "Magic Number (2)",
+          "name": "Magic Number 2",
           "fflogs": {
             "abilityIds": []
           }

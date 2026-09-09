@@ -98,7 +98,7 @@
         },
         {
           "id": "p2-banish-iii-1",
-          "name": "Banish III (1)",
+          "name": "Banish III 1",
           "fflogs": {
             "abilityIds": []
           }
@@ -119,7 +119,7 @@
         },
         {
           "id": "p2-banish-iii-2",
-          "name": "Banish III (2)",
+          "name": "Banish III 2",
           "fflogs": {
             "abilityIds": []
           }
@@ -182,7 +182,7 @@
         },
         {
           "id": "p3-shockwave-pulsar-1",
-          "name": "Shockwave Pulsar (1)",
+          "name": "Shockwave Pulsar 1",
           "fflogs": {
             "abilityIds": []
           }
@@ -210,7 +210,7 @@
         },
         {
           "id": "p3-shockwave-pulsar-2",
-          "name": "Shockwave Pulsar (2)",
+          "name": "Shockwave Pulsar 2",
           "fflogs": {
             "abilityIds": []
           }
@@ -231,7 +231,7 @@
       "mechanics": [
         {
           "id": "p4-edge-of-oblivion-1",
-          "name": "Edge of Oblivion (1)",
+          "name": "Edge of Oblivion 1",
           "fflogs": {
             "abilityIds": []
           }
@@ -252,14 +252,14 @@
         },
         {
           "id": "p4-edge-of-oblivion-2",
-          "name": "Edge of Oblivion (2)",
+          "name": "Edge of Oblivion 2",
           "fflogs": {
             "abilityIds": []
           }
         },
         {
           "id": "p4-akh-morn-afah-1",
-          "name": "Akh Morn Afah (1)",
+          "name": "Akh Morn Afah 1",
           "fflogs": {
             "abilityIds": []
           }
@@ -287,7 +287,7 @@
         },
         {
           "id": "p4-akh-morn-afah-2",
-          "name": "Akh Morn Afah (2)",
+          "name": "Akh Morn Afah 2",
           "fflogs": {
             "abilityIds": []
           }

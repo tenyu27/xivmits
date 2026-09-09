@@ -614,7 +614,6 @@ TANK_NOTES = {
     69: 'Covered by the Thunder III mitigation above.',
     81: 'Only if you are third in line. Cover your co-tank if they are.',
     101: 'At a third of the "I\'ll raze to the ground" textbox.',
-    103: 'The OT starts with aggro.',
     107: 'Voke again for safety - the OT needs aggro.',
     109: 'Tank swap so the boss does not get dragged out.',
     113: 'The MT is main threat until the next flare.',
@@ -625,6 +624,7 @@ TANK_SEAT_NOTES = {(21, 'MT'): 'WAR/PLD mit after the Confetti hit.'}
 
 # Phase-wide asides on the tank plan, from the sheet's assignment headers.
 TANK_PHASE_NOTES = {
+    'p5': 'The OT starts with aggro.',
     'p3': ('The MT starts on Exdeath and the OT on Chaos, then the two swap during the '
            'Decisive Battle by standing under their boss after it cast-locks and provoking. '
            'Paladin is forced offtank from P3 onward: the invulns do not work with a Paladin '
@@ -632,14 +632,32 @@ TANK_PHASE_NOTES = {
 }
 
 
+# Party mitigation the tank workbook also writes down. `tankMits` is what a tank
+# does for *itself*; what it does for the group is the party grid's job, and the
+# compile is the source for that. So these tokens are dropped here rather than
+# said twice, in two sheets that can disagree. A row left with nothing after the
+# drop is not emitted at all.
+PARTY_TOKENS = {'Party Mit', 'Rep'}
+
+
+def tank_tokens_for(raw, row, seat):
+    """The raw shorthand tokens in one MT/OT cell, before any expansion."""
+    pairs = TANK_CELLS.get((row, seat))
+    if pairs is not None:
+        return [token for token, _ in pairs]
+    return split_top(clean(raw), [' + ', '+']) if raw else []
+
+
 def tank_actions(raw, job, row, seat):
-    """One MT/OT cell -> action dicts for this job."""
+    """One MT/OT cell -> the personal-mit action dicts for this job."""
     pairs = TANK_CELLS.get((row, seat))
     if pairs is None:
         pairs = [(token, None) for token in split_top(clean(raw), [' + ', '+'])] if raw else []
     tokens = tank_tokens(job)
     out = []
     for token, note in pairs:
+        if token in PARTY_TOKENS:
+            continue
         if token == 'Short to cotank':
             for name in BUDDY_MIT[job]:
                 out.append({'name': name, 'buddy': True})
@@ -662,7 +680,39 @@ def tank_actions(raw, job, row, seat):
     return deduped
 
 
-def convert_tanks(path, phase_starts):
+def party_buttons(name, job):
+    """A party-grid action name -> the buttons this job actually presses, so a
+    personal row can be compared against what the party row already shows."""
+    match = re.match(r'^(.*?)\s*\(([^)]*)\)$', name)
+    base, qualifier = (match.group(1), match.group(2)) if match else (name, None)
+    if qualifier and re.fullmatch(r'[A-Z]{3}(/[A-Z]{3})*', qualifier):
+        if job not in qualifier.split('/'):
+            return []          # someone else's line
+    else:
+        base = name            # "(3x)" and friends are part of the real name
+    return {
+        'Party Mit': [PARTY_MIT[job]], 'Short Mit': SHORT_MIT[job],
+        '90s Mit': [MIT_90[job]], '120s Mit': [MIT_120[job]],
+        'Invuln': [INVULN[job]], 'Buddy Mit': BUDDY_MIT[job],
+        'Kitchen Sink': TANK_KITCHEN_SINK[job],
+    }.get(base, [base])
+
+
+def party_index(sheet, job):
+    """(phase, mechanic, seat) -> the buttons the party grid already shows."""
+    index = {}
+    for phase in sheet['phases']:
+        for mechanic in phase['mechanics']:
+            for seat in ('MT', 'OT'):
+                shown = set()
+                for action in mechanic['assignments'].get(seat, []):
+                    shown.update(party_buttons(action['name'], job))
+                if shown:
+                    index[(phase['id'], mechanic['mechanicId'], seat)] = shown
+    return index
+
+
+def convert_tanks(path, phase_starts, mechanic_names, sheet):
     archive = zipfile.ZipFile(path)
     strings = [''.join(node.itertext()) for node in
                ET.fromstring(archive.read('xl/sharedStrings.xml'))]
@@ -678,6 +728,11 @@ def convert_tanks(path, phase_starts):
 
     plans = []
     for job in TANKS:
+        # The compile's party grid is the source for anything it already states,
+        # so a personal row only keeps the buttons that grid does not show for
+        # this seat and mechanic. Without this both sheets say "Rampart, Bulwark,
+        # Holy Sheltron" on the same buster and the viewer reads it twice.
+        already = party_index(sheet, job)
         phases = {}
         for row, (phase_id, anchor) in sorted(TANK_ROWS.items()):
             start = phase_starts[phase_id]
@@ -692,13 +747,24 @@ def convert_tanks(path, phase_starts):
                 jobs, text_note = TANK_NOTE_JOBS[row]
                 if job in jobs:
                     notes.append(text_note)
-            by_seat = {seat: tank_actions(cells.get(f'{column}{row}'), job, row, seat)
-                       for seat, column in (('MT', 'D'), ('OT', 'E'))}
-            # A row note belongs to whoever presses something on that row. When
-            # neither seat does the row is a marker ("Covered by the Thunder III
-            # mitigation above") and both keep it; otherwise the idle seat would
-            # show a note about the other tank's press.
-            marker = not any(by_seat.values())
+            raw = {seat: cells.get(f'{column}{row}') for seat, column in (('MT', 'D'), ('OT', 'E'))}
+            written = [token for seat in ('MT', 'OT')
+                       for token in tank_tokens_for(raw[seat], row, seat)]
+            # A row the tank sheet spends entirely on party mitigation is the
+            # party grid's to state, note and all - drop it whole rather than
+            # leave an empty row carrying its note.
+            if written and all(token in PARTY_TOKENS for token in written):
+                continue
+            by_seat = {seat: tank_actions(raw[seat], job, row, seat) for seat in ('MT', 'OT')}
+            if anchor:
+                for seat, actions in by_seat.items():
+                    shown = already.get((phase_id, anchor, seat), set())
+                    by_seat[seat] = [a for a in actions if a['name'] not in shown]
+            # A row note belongs to whoever presses something on that row. A row
+            # the sheet wrote with no buttons at all is a marker ("Covered by the
+            # Thunder III mitigation above") and both seats keep it; otherwise the
+            # idle seat would show a note about the other tank's press.
+            marker = not written
             for seat in ('MT', 'OT'):
                 actions = by_seat[seat]
                 seat_notes = list(notes) if actions or marker else []
@@ -706,8 +772,14 @@ def convert_tanks(path, phase_starts):
                     seat_notes.append(TANK_SEAT_NOTES[(row, seat)])
                 if not actions and not seat_notes:
                     continue
-                mechanic = {'id': f'{job}-r{row}-{seat}'.lower(), 'name': name,
-                            'time': f'{relative // 60}:{relative % 60:02}'}
+                # A row that names the very mechanic it hangs off is that
+                # mechanic's personal line, not a beat of its own - drop the
+                # timestamp so MitView folds it into the party row instead of
+                # repeating the heading underneath it. Rows the tank sheet gives
+                # its own label ("Autos 1", "Flare Diffusion 1") keep both.
+                mechanic = {'id': f'{job}-r{row}-{seat}'.lower(), 'name': name}
+                if name != mechanic_names.get(anchor):
+                    mechanic['time'] = f'{relative // 60}:{relative % 60:02}'
                 if anchor:
                     mechanic['after'] = anchor
                 mechanic['seat'] = seat
@@ -719,7 +791,7 @@ def convert_tanks(path, phase_starts):
             {'id': phase_id,
              **({'note': TANK_PHASE_NOTES[phase_id]} if phase_id in TANK_PHASE_NOTES else {}),
              'mechanics': mechanics}
-            for phase_id, mechanics in phases.items()
+            for phase_id, mechanics in phases.items() if mechanics
         ]})
     return {
         'note': 'Tank personal mit from the LPDU tank sheet, which is universal: '
@@ -736,7 +808,8 @@ if __name__ == '__main__':
                                 / 'dmu' / 'encounter.json').read_text(encoding='utf-8'))
         starts = {p['id']: int(p['start'].split(':')[0]) * 60 + int(p['start'].split(':')[1])
                   for p in encounter['phases']}
-        sheet['tankMits'] = convert_tanks(sys.argv[2], starts)
+        names = {m['id']: m['name'] for p in encounter['phases'] for m in p['mechanics']}
+        sheet['tankMits'] = convert_tanks(sys.argv[2], starts, names, sheet)
     out = Path(__file__).resolve().parent.parent / 'data' / 'fights' / 'dmu' / 'sheets' / 'lpdu.json'
     out.write_text(json.dumps(sheet, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
     print(f'wrote {out}')

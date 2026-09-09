@@ -12,7 +12,7 @@
       "mechanics": [
         {
           "id": "p1-revolting-ruin-1",
-          "name": "Revolting Ruin (1)",
+          "name": "Revolting Ruin 1",
           "time": "0:16",
           "roles": [
             "tank"
@@ -23,7 +23,7 @@
         },
         {
           "id": "p1-mystery-magic-1",
-          "name": "Mystery Magic (1)",
+          "name": "Mystery Magic 1",
           "time": "0:38",
           "fflogs": {
             "abilityIds": []
@@ -39,7 +39,7 @@
         },
         {
           "id": "p1-double-trouble-trap-1",
-          "name": "Double-Trouble Trap (1)",
+          "name": "Double-Trouble Trap 1",
           "time": "0:50",
           "fflogs": {
             "abilityIds": []
@@ -47,7 +47,7 @@
         },
         {
           "id": "p1-light-of-judgment-1",
-          "name": "Light of Judgment (1)",
+          "name": "Light of Judgment 1",
           "time": "1:03",
           "fflogs": {
             "abilityIds": []
@@ -55,7 +55,7 @@
         },
         {
           "id": "p1-hyperdrive-1",
-          "name": "Hyperdrive (1)",
+          "name": "Hyperdrive 1",
           "time": "1:05",
           "roles": [
             "tank"
@@ -74,7 +74,7 @@
         },
         {
           "id": "p1-revolting-ruin-2",
-          "name": "Revolting Ruin (2)",
+          "name": "Revolting Ruin 2",
           "time": "1:38",
           "roles": [
             "tank"
@@ -93,7 +93,7 @@
         },
         {
           "id": "p1-double-trouble-trap-2",
-          "name": "Double-Trouble Trap (2)",
+          "name": "Double-Trouble Trap 2",
           "time": "1:58",
           "fflogs": {
             "abilityIds": []
@@ -101,7 +101,7 @@
         },
         {
           "id": "p1-light-of-judgment-2",
-          "name": "Light of Judgment (2)",
+          "name": "Light of Judgment 2",
           "time": "2:12",
           "fflogs": {
             "abilityIds": []
@@ -109,7 +109,7 @@
         },
         {
           "id": "p1-hyperdrive-2",
-          "name": "Hyperdrive (2)",
+          "name": "Hyperdrive 2",
           "time": "2:16",
           "roles": [
             "tank"
@@ -120,7 +120,7 @@
         },
         {
           "id": "p1-double-trouble-trap-3",
-          "name": "Double-Trouble Trap (3)",
+          "name": "Double-Trouble Trap 3",
           "time": "2:45",
           "fflogs": {
             "abilityIds": []
@@ -136,7 +136,7 @@
         },
         {
           "id": "p1-mystery-magic-2",
-          "name": "Mystery Magic (2)",
+          "name": "Mystery Magic 2",
           "time": "3:07",
           "fflogs": {
             "abilityIds": []
@@ -152,7 +152,7 @@
       "mechanics": [
         {
           "id": "p2-ultimate-embrace-1",
-          "name": "Ultimate Embrace (1)",
+          "name": "Ultimate Embrace 1",
           "time": "0:24",
           "fflogs": {
             "abilityIds": []
@@ -248,7 +248,7 @@
         },
         {
           "id": "p2-ultimate-embrace-2",
-          "name": "Ultimate Embrace (2)",
+          "name": "Ultimate Embrace 2",
           "time": "3:01",
           "fflogs": {
             "abilityIds": []
@@ -272,7 +272,7 @@
         },
         {
           "id": "p3-stray-flames-tsunami-1",
-          "name": "Stray Flames/Tsunami (1)",
+          "name": "Stray Flames/Tsunami 1",
           "time": "1:28",
           "fflogs": {
             "abilityIds": []
@@ -288,7 +288,7 @@
         },
         {
           "id": "p3-stray-flames-tsunami-2",
-          "name": "Stray Flames/Tsunami (2)",
+          "name": "Stray Flames/Tsunami 2",
           "time": "1:55",
           "fflogs": {
             "abilityIds": []
@@ -359,7 +359,7 @@
         },
         {
           "id": "p3-shocking-impact-shockwave-1",
-          "name": "Shocking Impact/Shockwave (1)",
+          "name": "Shocking Impact/Shockwave 1",
           "time": "3:16",
           "fflogs": {
             "abilityIds": []
@@ -375,7 +375,7 @@
         },
         {
           "id": "p3-shocking-impact-shockwave-2",
-          "name": "Shocking Impact/Shockwave (2)",
+          "name": "Shocking Impact/Shockwave 2",
           "time": "3:47",
           "fflogs": {
             "abilityIds": []
@@ -423,7 +423,7 @@
         },
         {
           "id": "p3-shocking-impact-shockwave-3",
-          "name": "Shocking Impact/Shockwave (3)",
+          "name": "Shocking Impact/Shockwave 3",
           "time": "4:55",
           "fflogs": {
             "abilityIds": []
@@ -447,7 +447,7 @@
       "mechanics": [
         {
           "id": "p4-grand-cross-1",
-          "name": "Grand Cross (1)",
+          "name": "Grand Cross 1",
           "time": "0:29",
           "fflogs": {
             "abilityIds": []
@@ -455,7 +455,7 @@
         },
         {
           "id": "p4-inferno-tsunami-1",
-          "name": "Inferno/Tsunami (1)",
+          "name": "Inferno/Tsunami 1",
           "time": "0:35",
           "fflogs": {
             "abilityIds": []
@@ -463,7 +463,7 @@
         },
         {
           "id": "p4-grand-cross-2",
-          "name": "Grand Cross (2)",
+          "name": "Grand Cross 2",
           "time": "0:44",
           "fflogs": {
             "abilityIds": []
@@ -471,7 +471,7 @@
         },
         {
           "id": "p4-inferno-tsunami-2",
-          "name": "Inferno/Tsunami (2)",
+          "name": "Inferno/Tsunami 2",
           "time": "0:49",
           "fflogs": {
             "abilityIds": []
@@ -479,7 +479,7 @@
         },
         {
           "id": "p4-grand-cross-3",
-          "name": "Grand Cross (3)",
+          "name": "Grand Cross 3",
           "time": "0:59",
           "fflogs": {
             "abilityIds": []
@@ -495,7 +495,7 @@
         },
         {
           "id": "p4-death-bolt-wave-1",
-          "name": "Death Bolt/Wave (1)",
+          "name": "Death Bolt/Wave 1",
           "time": "1:21",
           "fflogs": {
             "abilityIds": []
@@ -503,7 +503,7 @@
         },
         {
           "id": "p4-ultima-upsurge-1",
-          "name": "Ultima Upsurge (1)",
+          "name": "Ultima Upsurge 1",
           "time": "1:39",
           "fflogs": {
             "abilityIds": []
@@ -511,7 +511,7 @@
         },
         {
           "id": "p4-death-bolt-wave-2",
-          "name": "Death Bolt/Wave (2)",
+          "name": "Death Bolt/Wave 2",
           "time": "1:46",
           "fflogs": {
             "abilityIds": []
@@ -519,7 +519,7 @@
         },
         {
           "id": "p4-ultima-upsurge-2",
-          "name": "Ultima Upsurge (2)",
+          "name": "Ultima Upsurge 2",
           "time": "2:18",
           "fflogs": {
             "abilityIds": []
@@ -535,7 +535,7 @@
       "mechanics": [
         {
           "id": "p5-ultima-repeater-1",
-          "name": "Ultima Repeater (1)",
+          "name": "Ultima Repeater 1",
           "time": "0:49",
           "fflogs": {
             "abilityIds": []
@@ -543,7 +543,7 @@
         },
         {
           "id": "p5-fell-forces-3x-1",
-          "name": "Fell Forces (3x) (1)",
+          "name": "Fell Forces (3x) 1",
           "time": "0:54",
           "fflogs": {
             "abilityIds": []
@@ -559,7 +559,7 @@
         },
         {
           "id": "p5-maddening-orchestra-1",
-          "name": "Maddening Orchestra (1)",
+          "name": "Maddening Orchestra 1",
           "time": "1:18",
           "fflogs": {
             "abilityIds": []
@@ -567,7 +567,7 @@
         },
         {
           "id": "p5-fell-forces-2x-1",
-          "name": "Fell Forces (2x) (1)",
+          "name": "Fell Forces (2x) 1",
           "time": "1:31",
           "fflogs": {
             "abilityIds": []
@@ -583,7 +583,7 @@
         },
         {
           "id": "p5-ultima-repeater-2",
-          "name": "Ultima Repeater (2)",
+          "name": "Ultima Repeater 2",
           "time": "2:11",
           "fflogs": {
             "abilityIds": []
@@ -591,7 +591,7 @@
         },
         {
           "id": "p5-fell-forces-2x-2",
-          "name": "Fell Forces (2x) (2)",
+          "name": "Fell Forces (2x) 2",
           "time": "2:16",
           "fflogs": {
             "abilityIds": []
@@ -607,7 +607,7 @@
         },
         {
           "id": "p5-maddening-orchestra-2",
-          "name": "Maddening Orchestra (2)",
+          "name": "Maddening Orchestra 2",
           "time": "2:51",
           "fflogs": {
             "abilityIds": []
@@ -615,7 +615,7 @@
         },
         {
           "id": "p5-fell-forces-3x-2",
-          "name": "Fell Forces (3x) (2)",
+          "name": "Fell Forces (3x) 2",
           "time": "3:03",
           "fflogs": {
             "abilityIds": []
