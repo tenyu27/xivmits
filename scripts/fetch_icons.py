@@ -49,9 +49,11 @@ NO_ICON = {
     # LPDU writes a couple of calls as prose: a bundle of AST cooldowns, a
     # babysitting instruction, and the enrage marker.
     'All single-target mit', 'Card mits', 'Babysit the beam tank', 'Enrage',
-    # An AST card, drawn and played through Play II/III - no Action row of its own.
-    'The Ewer',
 }
+
+# AST cards have no Action row - they are drawn and played through Play I/II/III
+# - so the card art lives in the Status sheet instead. Resolved by name there.
+STATUS_ICONS = {'The Balance', 'The Bole', 'The Arrow', 'The Spear', 'The Ewer', 'The Spire'}
 
 # Generic names resolved per job from data/jobs.json instead of by search.
 # 'Party Mit' means a different button for every job standing in that slot.
@@ -81,8 +83,22 @@ def candidate(name):
     return ALIASES.get(base, ALIASES.get(name, base))
 
 
+def resolve_status(name):
+    """Return (icon_id, icon_path, status_name) for a Status-sheet icon."""
+    payload = json.loads(get(SEARCH, {
+        'sheets': 'Status', 'query': f'Name="{name}"', 'fields': 'Name,Icon.path,Icon.id', 'limit': 5,
+    }))
+    for row in payload.get('results', []):
+        icon = row['fields'].get('Icon') or {}
+        if icon.get('path') and PLACEHOLDER not in icon['path']:
+            return icon['id'], icon['path'], row['fields']['Name']
+    return None
+
+
 def resolve(name):
     """Return (icon_id, icon_path, action_name) for the real player action."""
+    if name in STATUS_ICONS:
+        return resolve_status(name)
     payload = json.loads(get(SEARCH, {
         'sheets': 'Action',
         'query': f'Name="{name}"',

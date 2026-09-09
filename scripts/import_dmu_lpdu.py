@@ -134,7 +134,9 @@ ABILITY = {
     'Neutral': 'Neutral Sect', 'Sun Sign': 'Sun Sign', 'Macrocosmos': 'Macrocosmos',
     'Collective Unconsious': 'Collective Unconscious', 'Exalt': 'Exaltation',
     'Celestial Intersection': 'Celestial Intersection', 'Ewer': 'The Ewer',
-    'All single target mit': 'All single-target mit', 'Card mits': 'Card mits',
+    # "All single target mit" is AST's pair of single-target tank mits; "Card
+    # mits" is the damage-reduction card.
+    'All single target mit': 'Exaltation + Celestial Intersection', 'Card mits': 'The Bole',
     # Scholar
     'Soil': 'Sacred Soil', 'Exped': 'Expedient', 'Expedient': 'Expedient',
     'Expedience': 'Expedient', 'Illum': 'Fey Illumination', 'Fey Illum': 'Fey Illumination',
@@ -367,12 +369,12 @@ def expand(token):
     name = ABILITY.get(token)
     if name is None:
         raise ValueError(f'Unknown token {token!r}')
-    if name not in GENERIC and not name.startswith('Party Mit'):
-        pass
-    action = {'name': name}
+    # One shorthand may stand for several buttons pressed together.
+    actions = [{'name': part} for part in name.split(' + ')]
     if note:
-        action['note'] = note
-    return [action]
+        for action in actions:
+            action['note'] = note
+    return actions
 
 
 def cell_actions(raw):

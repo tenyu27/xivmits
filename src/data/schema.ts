@@ -7,8 +7,16 @@ const jobId = text.regex(/^[A-Z]{3}$/)
 // `start` is when the phase begins on the pull clock (m:ss), so a mechanic's
 // phase-relative `time` can also show as an absolute time.
 const time = text.regex(/^\d+:[0-5]\d$/)
+const role = z.enum(['tank', 'healer', 'melee', 'ranged', 'caster'])
 const encounterMechanicSchema = z.object({
   id, name: text, time: time.optional(),
+  // Who the mechanic is *about*, when it is not about everyone - a tank buster
+  // is `['tank']`. It only governs the blank row: an unassigned mechanic is
+  // dropped for a viewer whose role is not listed, because a tank buster no
+  // healer mitigates is not a gap in their plan, it is someone else's line.
+  // A sheet that *does* assign someone still shows them the row, so the flag
+  // never hides an assignment - see MitView.
+  roles: z.array(role).min(1).optional(),
   fflogs: z.object({ abilityIds: z.array(z.number().int().positive()) }).strict().optional(),
 }).strict()
 const encounterPhaseSchema = z.object({
@@ -39,7 +47,7 @@ const sheetSchema = z.object({
   source: z.object({ name: text, url: z.url().refine(value => /^https?:\/\//.test(value), 'Use an HTTP(S) source URL') }).strict().optional(),
   // `role` says which jobs may stand in this slot, so a generic assignment
   // ("Party Mit") can be resolved to the job the viewer actually plays.
-  slots: z.array(z.object({ id, job: text.optional(), role: z.enum(['tank', 'healer', 'melee', 'ranged', 'caster']).optional() }).strict()).min(1),
+  slots: z.array(z.object({ id, job: text.optional(), role: role.optional() }).strict()).min(1),
   phases: z.array(z.object({
     id,
     // A phase-wide aside that is not tied to any one mechanic - "personal mit

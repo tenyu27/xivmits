@@ -57,6 +57,25 @@ test('rejects duplicate canonical mechanic IDs', () => {
   }, {}, jobs), /Duplicate canonical mechanic IDs/)
 })
 
+test('carries a role-scoped mechanic through to the resolved sheet', () => {
+  const scoped = structuredClone(encounter)
+  scoped.phases[0].mechanics[0] = { ...scoped.phases[0].mechanics[0], roles: ['tank'] }
+  const catalog = validateCatalog({
+    '/repo/data/fights/test/encounter.json': scoped,
+    '/repo/data/fights/test/sheets/plan.json': sheet,
+  }, {}, jobs)
+  assert.deepEqual(catalog.sheets[0].phases[0].mechanics[0].roles, ['tank'])
+})
+
+test('rejects a mechanic scoped to something that is not a role', () => {
+  const scoped = structuredClone(encounter)
+  scoped.phases[0].mechanics[0] = { ...scoped.phases[0].mechanics[0], roles: ['MT'] }
+  assert.throws(() => validateCatalog({
+    '/repo/data/fights/test/encounter.json': scoped,
+    '/repo/data/fights/test/sheets/plan.json': sheet,
+  }, {}, jobs))
+})
+
 test('validates the repository catalog and keeps FFLogs placeholders empty', () => {
   const root = new URL('../data/fights/', import.meta.url)
   const dataFiles = readdirSync(root, { recursive: true, encoding: 'utf8' })

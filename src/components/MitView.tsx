@@ -81,10 +81,17 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
   const entriesFor = (id: string) => {
     const start = fight.phases.find(p => p.id === id)?.start
     const data = sheet.phases.find(p => p.id === id)
-    const party: Entry[] = (data?.mechanics ?? []).map(mechanic => ({
-      mechanic, actions: resolveActions(mechanic.assignments[roleId] ?? []),
-      note: mechanic.note,
-    }))
+    const party: Entry[] = (data?.mechanics ?? [])
+      // A role-scoped mechanic (a tank buster) keeps its blank row only for the
+      // roles it is about. Anyone the sheet actually assigns still sees it -
+      // LPDU has the healers mitigating the same busters ikuya leaves to the
+      // tanks - so the flag hides an empty row, never an assignment.
+      .filter(mechanic => !mechanic.roles || !slot?.role || mechanic.roles.includes(slot.role)
+        || (mechanic.assignments[roleId]?.length ?? 0) > 0)
+      .map(mechanic => ({
+        mechanic, actions: resolveActions(mechanic.assignments[roleId] ?? []),
+        note: mechanic.note,
+      }))
 
     const plan = personalPlan?.phases.find(p => p.id === id)
     if (!plan) return { data, entries: party, start, personalNote: undefined as string | undefined }

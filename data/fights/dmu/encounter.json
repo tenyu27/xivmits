@@ -14,6 +14,9 @@
           "id": "p1-revolting-ruin-1",
           "name": "Revolting Ruin (1)",
           "time": "0:16",
+          "roles": [
+            "tank"
+          ],
           "fflogs": {
             "abilityIds": []
           }
@@ -54,6 +57,9 @@
           "id": "p1-hyperdrive-1",
           "name": "Hyperdrive (1)",
           "time": "1:05",
+          "roles": [
+            "tank"
+          ],
           "fflogs": {
             "abilityIds": []
           }
@@ -70,6 +76,9 @@
           "id": "p1-revolting-ruin-2",
           "name": "Revolting Ruin (2)",
           "time": "1:38",
+          "roles": [
+            "tank"
+          ],
           "fflogs": {
             "abilityIds": []
           }
@@ -102,6 +111,9 @@
           "id": "p1-hyperdrive-2",
           "name": "Hyperdrive (2)",
           "time": "2:16",
+          "roles": [
+            "tank"
+          ],
           "fflogs": {
             "abilityIds": []
           }
