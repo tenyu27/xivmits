@@ -47,7 +47,10 @@ const sheetSchema = z.object({
   source: z.object({ name: text, url: z.url().refine(value => /^https?:\/\//.test(value), 'Use an HTTP(S) source URL') }).strict().optional(),
   // `role` says which jobs may stand in this slot, so a generic assignment
   // ("Party Mit") can be resolved to the job the viewer actually plays.
-  slots: z.array(z.object({ id, job: text.optional(), role: role.optional() }).strict()).min(1),
+  // `jobs` narrows a positional seat to the jobs a sheet actually allows there
+  // - LPDU forces Paladin into the offtank seat, so its MT seat lists the other
+  // three. Absent means every job of the seat's role.
+  slots: z.array(z.object({ id, job: text.optional(), role: role.optional(), jobs: z.array(jobId).min(1).optional() }).strict()).min(1),
   phases: z.array(z.object({
     id,
     // A phase-wide aside that is not tied to any one mechanic - "personal mit

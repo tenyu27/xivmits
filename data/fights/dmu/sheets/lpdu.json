@@ -4,7 +4,7 @@
   "name": "LPDU",
   "author": "LPDU",
   "updated": "2026-09-09",
-  "sourceFile": "LPDU GENERAL DMU MIT COMPILE",
+  "sourceFile": "LPDU GENERAL DMU MIT COMPILE + LPDU tank mit sheet",
   "source": {
     "name": "LPDU General DMU Mit Compile",
     "url": "https://docs.google.com/spreadsheets/d/1aA_qF_UsoS51MCDZ4PwQHhprpK7eGO8TXOdZ7pQlkV0/edit"
@@ -13,7 +13,12 @@
   "slots": [
     {
       "id": "MT",
-      "role": "tank"
+      "role": "tank",
+      "jobs": [
+        "WAR",
+        "DRK",
+        "GNB"
+      ]
     },
     {
       "id": "OT",
@@ -3491,5 +3496,4608 @@
         }
       ]
     }
-  ]
+  ],
+  "tankMits": {
+    "note": "Tank personal mit from the LPDU tank sheet, which is universal: both bosses in P3 and both invulns in P5 are fixed by seat, so there is nothing to choose here.",
+    "plans": [
+      {
+        "job": "PLD",
+        "phases": [
+          {
+            "id": "p1",
+            "mechanics": [
+              {
+                "id": "pld-r7-mt",
+                "name": "Revolting Ruin 1",
+                "time": "0:16",
+                "after": "p1-revolting-ruin-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Guardian"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r7-ot",
+                "name": "Revolting Ruin 1",
+                "time": "0:16",
+                "after": "p1-revolting-ruin-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Provoke"
+                  },
+                  {
+                    "name": "Intervention",
+                    "buddy": true
+                  }
+                ]
+              },
+              {
+                "id": "pld-r9-mt",
+                "name": "Graven Image 1",
+                "time": "0:28",
+                "after": "p1-revolting-ruin-1",
+                "seat": "MT",
+                "note": "Mit immediately after the second buster hit.",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  },
+                  {
+                    "name": "Divine Veil"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r11-ot",
+                "name": "Mystery Magic 1",
+                "time": "0:38",
+                "after": "p1-mystery-magic-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Divine Veil"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r13-ot",
+                "name": "Light of Judgement 1",
+                "time": "1:02",
+                "after": "p1-light-of-judgment-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r15-mt",
+                "name": "Hyperdrive 1",
+                "time": "1:05",
+                "after": "p1-hyperdrive-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Intervention",
+                    "buddy": true
+                  }
+                ]
+              },
+              {
+                "id": "pld-r15-ot",
+                "name": "Hyperdrive 1",
+                "time": "1:05",
+                "after": "p1-hyperdrive-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Guardian"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r17-mt",
+                "name": "Revolting Ruin 2",
+                "time": "1:38",
+                "after": "p1-revolting-ruin-2",
+                "seat": "MT",
+                "note": "MT Provoke obviously",
+                "actions": [
+                  {
+                    "name": "Provoke"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r17-ot",
+                "name": "Revolting Ruin 2",
+                "time": "1:38",
+                "after": "p1-revolting-ruin-2",
+                "seat": "OT",
+                "note": "MT Provoke obviously",
+                "actions": [
+                  {
+                    "name": "Hallowed Ground"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r19-mt",
+                "name": "Gravitas 2",
+                "time": "1:46",
+                "after": "p1-gravitas-ii-part-ii-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal",
+                    "note": "Use after the second part lands."
+                  }
+                ]
+              },
+              {
+                "id": "pld-r21-mt",
+                "name": "Confettis 2",
+                "time": "1:58",
+                "after": "p1-double-trouble-trap-2",
+                "seat": "MT",
+                "note": "Press when Confetti is on 1s to catch Light of Judgement. WAR/PLD mit after the Confetti hit.",
+                "actions": [
+                  {
+                    "name": "Divine Veil"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r21-ot",
+                "name": "Confettis 2",
+                "time": "1:58",
+                "after": "p1-double-trouble-trap-2",
+                "seat": "OT",
+                "note": "Press when Confetti is on 1s to catch Light of Judgement.",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r23-ot",
+                "name": "Light of Judgement 2",
+                "time": "2:12",
+                "after": "p1-light-of-judgment-2",
+                "seat": "OT",
+                "note": "Press on cooldown.",
+                "actions": [
+                  {
+                    "name": "Divine Veil"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r25-mt",
+                "name": "Hyperdrive 2",
+                "time": "2:16",
+                "after": "p1-hyperdrive-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Hallowed Ground"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r27-mt",
+                "name": "Confettis 3",
+                "time": "2:48",
+                "after": "p1-double-trouble-trap-3",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "mechanics": [
+              {
+                "id": "pld-r31-mt",
+                "name": "Ultimate Embrace",
+                "time": "0:23",
+                "after": "p2-ultimate-embrace-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Guardian"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r31-ot",
+                "name": "Ultimate Embrace",
+                "time": "0:23",
+                "after": "p2-ultimate-embrace-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Guardian"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  },
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r33-mt",
+                "name": "Forsaken",
+                "time": "0:38",
+                "after": "p2-forsaken-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Divine Veil"
+                  },
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r33-ot",
+                "name": "Forsaken",
+                "time": "0:38",
+                "after": "p2-forsaken-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Divine Veil"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r35-ot",
+                "name": "Towers Set 4",
+                "time": "1:23",
+                "after": "p2-towers-iv-past-future-s-end-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r37-mt",
+                "name": "Towers Set 6",
+                "time": "1:44",
+                "after": "p2-towers-vi-past-future-s-end-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r39-mt",
+                "name": "Light of Judgement",
+                "time": "2:24",
+                "after": "p2-light-of-judgement-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Divine Veil"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r39-ot",
+                "name": "Light of Judgement",
+                "time": "2:24",
+                "after": "p2-light-of-judgement-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Divine Veil"
+                  },
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r41-mt",
+                "name": "Wings of Destruction",
+                "time": "2:54",
+                "after": "p2-wings-of-destruction-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Guardian"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r41-ot",
+                "name": "Wings of Destruction",
+                "time": "2:54",
+                "after": "p2-wings-of-destruction-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Guardian"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Rampart"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r43-mt",
+                "name": "Ultimate Embrace 2",
+                "time": "3:00",
+                "after": "p2-ultimate-embrace-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r43-ot",
+                "name": "Ultimate Embrace 2",
+                "time": "3:00",
+                "after": "p2-ultimate-embrace-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "note": "The MT starts on Exdeath and the OT on Chaos, then the two swap during the Decisive Battle by standing under their boss after it cast-locks and provoking. Paladin is forced offtank from P3 onward: the invulns do not work with a Paladin main tank.",
+            "mechanics": [
+              {
+                "id": "pld-r51-mt",
+                "name": "Targetable",
+                "time": "0:45",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r53-ot",
+                "name": "Crystal 1",
+                "time": "1:24",
+                "after": "p3-stray-flames-tsunami-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  },
+                  {
+                    "name": "Divine Veil"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r55-mt",
+                "name": "Thunder III",
+                "time": "1:37",
+                "after": "p3-thunder-iii-1st-set-1",
+                "seat": "MT",
+                "note": "Assumes Exdeath is held middle. Check the wall-Exdeath sheet for Walldeath.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r55-ot",
+                "name": "Thunder III",
+                "time": "1:37",
+                "after": "p3-thunder-iii-1st-set-1",
+                "seat": "OT",
+                "note": "Assumes Exdeath is held middle. Check the wall-Exdeath sheet for Walldeath.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r57-mt",
+                "name": "Crystal 2",
+                "time": "1:54",
+                "after": "p3-stray-flames-tsunami-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r59-mt",
+                "name": "Winds",
+                "time": "2:15",
+                "after": "p3-cyclone-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Divine Veil"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r61-mt",
+                "name": "Thunder III",
+                "time": "2:34",
+                "after": "p3-thunder-iii-2nd-set-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Hallowed Ground"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r67-mt",
+                "name": "Thunder III",
+                "time": "2:52",
+                "after": "p3-thunder-iii-3rd-set-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Guardian"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r67-ot",
+                "name": "Thunder III",
+                "time": "2:52",
+                "after": "p3-thunder-iii-3rd-set-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Guardian"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  },
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r69-mt",
+                "name": "HP Reduction",
+                "time": "2:59",
+                "after": "p3-earthquake-1",
+                "seat": "MT",
+                "note": "Covered by the Thunder III mitigation above.",
+                "actions": []
+              },
+              {
+                "id": "pld-r69-ot",
+                "name": "HP Reduction",
+                "time": "2:59",
+                "after": "p3-earthquake-1",
+                "seat": "OT",
+                "note": "Covered by the Thunder III mitigation above.",
+                "actions": []
+              },
+              {
+                "id": "pld-r71-mt",
+                "name": "Kefka Stack/THD 1",
+                "time": "3:15",
+                "after": "p3-shocking-impact-shockwave-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal",
+                    "note": "On Chaos."
+                  }
+                ]
+              },
+              {
+                "id": "pld-r71-ot",
+                "name": "Kefka Stack/THD 1",
+                "time": "3:15",
+                "after": "p3-shocking-impact-shockwave-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Divine Veil"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r73-ot",
+                "name": "Thunder III",
+                "time": "3:33",
+                "after": "p3-thunder-iii-4th-set-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Hallowed Ground"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r75-mt",
+                "name": "Kefka Stack/THD 2",
+                "time": "3:45",
+                "after": "p3-shocking-impact-shockwave-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Divine Veil"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r77-mt",
+                "name": "Thunder III",
+                "time": "4:15",
+                "after": "p3-thunder-iii-5th-set-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  },
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r77-ot",
+                "name": "Thunder III",
+                "time": "4:15",
+                "after": "p3-thunder-iii-5th-set-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  },
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r79-ot",
+                "name": "Kefka Stack/THD 3",
+                "time": "4:54",
+                "after": "p3-shocking-impact-shockwave-3",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Divine Veil"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r81-mt",
+                "name": "3rd in Line Tank",
+                "time": "5:08",
+                "after": "p3-shocking-impact-shockwave-3",
+                "seat": "MT",
+                "note": "Only if you are third in line. Cover your co-tank if they are.",
+                "actions": [
+                  {
+                    "name": "Guardian"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r81-ot",
+                "name": "3rd in Line Tank",
+                "time": "5:08",
+                "after": "p3-shocking-impact-shockwave-3",
+                "seat": "OT",
+                "note": "Only if you are third in line. Cover your co-tank if they are.",
+                "actions": [
+                  {
+                    "name": "Guardian"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r83-mt",
+                "name": "Stompies+Stacks",
+                "time": "5:23",
+                "after": "p3-stomp-a-mole-knock-down-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  },
+                  {
+                    "name": "Divine Veil"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r83-ot",
+                "name": "Stompies+Stacks",
+                "time": "5:23",
+                "after": "p3-stomp-a-mole-knock-down-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "p4",
+            "mechanics": [
+              {
+                "id": "pld-r89-ot",
+                "name": "Chaos 2/GC3",
+                "time": "0:47",
+                "after": "p4-grand-cross-3",
+                "seat": "OT",
+                "note": "Press after the Chaos 2 debuff damage.",
+                "actions": [
+                  {
+                    "name": "Divine Veil"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r91-mt",
+                "name": "Ultima Upsurge 1",
+                "time": "1:39",
+                "after": "p4-ultima-upsurge-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r93-mt",
+                "name": "Stacks/Spread 2",
+                "time": "1:46",
+                "after": "p4-death-bolt-wave-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Divine Veil"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r95-ot",
+                "name": "Ultima Upsurge 2",
+                "time": "2:15",
+                "after": "p4-ultima-upsurge-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "p5",
+            "mechanics": [
+              {
+                "id": "pld-r101-ot",
+                "name": "Targetable",
+                "time": "0:33",
+                "seat": "OT",
+                "note": "At a third of the \"I'll raze to the ground\" textbox.",
+                "actions": [
+                  {
+                    "name": "Divine Veil"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r103-mt",
+                "name": "Ultima Repeater 1",
+                "time": "0:45",
+                "after": "p5-ultima-repeater-1",
+                "seat": "MT",
+                "note": "The OT starts with aggro.",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r105-mt",
+                "name": "Autos 1",
+                "time": "0:45",
+                "after": "p5-fell-forces-3x-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Guardian"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r105-ot",
+                "name": "Autos 1",
+                "time": "0:45",
+                "after": "p5-fell-forces-3x-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r107-ot",
+                "name": "Flood",
+                "time": "1:01",
+                "after": "p5-chaotic-flood-1",
+                "seat": "OT",
+                "note": "Voke again for safety - the OT needs aggro.",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  },
+                  {
+                    "name": "Provoke"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r109-mt",
+                "name": "Flare Diffusion 1",
+                "time": "1:17",
+                "after": "p5-maddening-orchestra-1",
+                "seat": "MT",
+                "note": "Tank swap so the boss does not get dragged out.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  },
+                  {
+                    "name": "Provoke"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r109-ot",
+                "name": "Flare Diffusion 1",
+                "time": "1:17",
+                "after": "p5-maddening-orchestra-1",
+                "seat": "OT",
+                "note": "Tank swap so the boss does not get dragged out.",
+                "actions": [
+                  {
+                    "name": "Guardian"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r111-mt",
+                "name": "Flare 1",
+                "time": "1:17",
+                "after": "p5-maddening-orchestra-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Hallowed Ground"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r111-ot",
+                "name": "Flare 1",
+                "time": "1:17",
+                "after": "p5-maddening-orchestra-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r113-mt",
+                "name": "Autos 2",
+                "time": "1:22",
+                "after": "p5-fell-forces-2x-1",
+                "seat": "MT",
+                "note": "The MT is main threat until the next flare.",
+                "actions": [
+                  {
+                    "name": "Hallowed Ground",
+                    "carryOver": true
+                  }
+                ]
+              },
+              {
+                "id": "pld-r115-mt",
+                "name": "Tower Set 1",
+                "time": "1:46",
+                "after": "p5-celestriad-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r117-mt",
+                "name": "Ultima Repeater",
+                "time": "2:02",
+                "after": "p5-ultima-repeater-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Divine Veil"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r117-ot",
+                "name": "Ultima Repeater",
+                "time": "2:02",
+                "after": "p5-ultima-repeater-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  },
+                  {
+                    "name": "Divine Veil"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r119-mt",
+                "name": "Autos 3",
+                "time": "2:07",
+                "after": "p5-fell-forces-2x-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r119-ot",
+                "name": "Autos 3",
+                "time": "2:07",
+                "after": "p5-fell-forces-2x-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r121-mt",
+                "name": "Flare Diffusion 2",
+                "time": "2:46",
+                "after": "p5-maddening-orchestra-2",
+                "seat": "MT",
+                "note": "Tank swap so the boss does not get dragged out. Press Rampart last so it holds until the final auto.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r121-ot",
+                "name": "Flare Diffusion 2",
+                "time": "2:46",
+                "after": "p5-maddening-orchestra-2",
+                "seat": "OT",
+                "note": "Tank swap so the boss does not get dragged out. Press Rampart last so it holds until the final auto.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  },
+                  {
+                    "name": "Provoke"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r123-mt",
+                "name": "Flare 2",
+                "time": "2:46",
+                "after": "p5-maddening-orchestra-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Guardian"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r123-ot",
+                "name": "Flare 2",
+                "time": "2:46",
+                "after": "p5-maddening-orchestra-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Hallowed Ground"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r125-mt",
+                "name": "Autos 4",
+                "time": "2:54",
+                "after": "p5-fell-forces-3x-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Bulwark",
+                    "note": "Share the third auto with your co-tank."
+                  }
+                ]
+              },
+              {
+                "id": "pld-r125-ot",
+                "name": "Autos 4",
+                "time": "2:54",
+                "after": "p5-fell-forces-3x-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Hallowed Ground",
+                    "carryOver": true
+                  },
+                  {
+                    "name": "Bulwark",
+                    "note": "On the third auto."
+                  }
+                ]
+              },
+              {
+                "id": "pld-r127-mt",
+                "name": "Forsaken Cast",
+                "time": "3:18",
+                "after": "p5-forsaken-1st-hit-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r129-mt",
+                "name": "After Stack 2",
+                "time": "3:35",
+                "after": "p5-forsaken-bonds-4th-hit-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Divine Veil"
+                  }
+                ]
+              },
+              {
+                "id": "pld-r129-ot",
+                "name": "After Stack 2",
+                "time": "3:35",
+                "after": "p5-forsaken-bonds-4th-hit-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  },
+                  {
+                    "name": "Divine Veil"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "job": "WAR",
+        "phases": [
+          {
+            "id": "p1",
+            "mechanics": [
+              {
+                "id": "war-r7-mt",
+                "name": "Revolting Ruin 1",
+                "time": "0:16",
+                "after": "p1-revolting-ruin-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Damnation"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "war-r7-ot",
+                "name": "Revolting Ruin 1",
+                "time": "0:16",
+                "after": "p1-revolting-ruin-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Provoke"
+                  },
+                  {
+                    "name": "Nascent Flash",
+                    "buddy": true
+                  }
+                ]
+              },
+              {
+                "id": "war-r9-mt",
+                "name": "Graven Image 1",
+                "time": "0:28",
+                "after": "p1-revolting-ruin-1",
+                "seat": "MT",
+                "note": "Mit immediately after the second buster hit.",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  },
+                  {
+                    "name": "Shake It Off"
+                  }
+                ]
+              },
+              {
+                "id": "war-r11-ot",
+                "name": "Mystery Magic 1",
+                "time": "0:38",
+                "after": "p1-mystery-magic-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Shake It Off"
+                  }
+                ]
+              },
+              {
+                "id": "war-r13-ot",
+                "name": "Light of Judgement 1",
+                "time": "1:02",
+                "after": "p1-light-of-judgment-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "war-r15-mt",
+                "name": "Hyperdrive 1",
+                "time": "1:05",
+                "after": "p1-hyperdrive-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Nascent Flash",
+                    "buddy": true
+                  }
+                ]
+              },
+              {
+                "id": "war-r15-ot",
+                "name": "Hyperdrive 1",
+                "time": "1:05",
+                "after": "p1-hyperdrive-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Damnation"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "war-r17-mt",
+                "name": "Revolting Ruin 2",
+                "time": "1:38",
+                "after": "p1-revolting-ruin-2",
+                "seat": "MT",
+                "note": "MT Provoke obviously",
+                "actions": [
+                  {
+                    "name": "Provoke"
+                  }
+                ]
+              },
+              {
+                "id": "war-r17-ot",
+                "name": "Revolting Ruin 2",
+                "time": "1:38",
+                "after": "p1-revolting-ruin-2",
+                "seat": "OT",
+                "note": "MT Provoke obviously",
+                "actions": [
+                  {
+                    "name": "Holmgang"
+                  }
+                ]
+              },
+              {
+                "id": "war-r19-mt",
+                "name": "Gravitas 2",
+                "time": "1:46",
+                "after": "p1-gravitas-ii-part-ii-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal",
+                    "note": "Use after the second part lands."
+                  }
+                ]
+              },
+              {
+                "id": "war-r21-mt",
+                "name": "Confettis 2",
+                "time": "1:58",
+                "after": "p1-double-trouble-trap-2",
+                "seat": "MT",
+                "note": "Press when Confetti is on 1s to catch Light of Judgement. WAR/PLD mit after the Confetti hit.",
+                "actions": [
+                  {
+                    "name": "Shake It Off"
+                  }
+                ]
+              },
+              {
+                "id": "war-r21-ot",
+                "name": "Confettis 2",
+                "time": "1:58",
+                "after": "p1-double-trouble-trap-2",
+                "seat": "OT",
+                "note": "Press when Confetti is on 1s to catch Light of Judgement.",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "war-r23-ot",
+                "name": "Light of Judgement 2",
+                "time": "2:12",
+                "after": "p1-light-of-judgment-2",
+                "seat": "OT",
+                "note": "Press on cooldown.",
+                "actions": [
+                  {
+                    "name": "Shake It Off"
+                  }
+                ]
+              },
+              {
+                "id": "war-r25-mt",
+                "name": "Hyperdrive 2",
+                "time": "2:16",
+                "after": "p1-hyperdrive-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Holmgang"
+                  }
+                ]
+              },
+              {
+                "id": "war-r27-mt",
+                "name": "Confettis 3",
+                "time": "2:48",
+                "after": "p1-double-trouble-trap-3",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "mechanics": [
+              {
+                "id": "war-r31-mt",
+                "name": "Ultimate Embrace",
+                "time": "0:23",
+                "after": "p2-ultimate-embrace-1",
+                "seat": "MT",
+                "note": "Holmgang instead if WAR.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Damnation"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "war-r31-ot",
+                "name": "Ultimate Embrace",
+                "time": "0:23",
+                "after": "p2-ultimate-embrace-1",
+                "seat": "OT",
+                "note": "Holmgang instead if WAR.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Damnation"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  },
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "war-r33-mt",
+                "name": "Forsaken",
+                "time": "0:38",
+                "after": "p2-forsaken-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Shake It Off"
+                  },
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "war-r33-ot",
+                "name": "Forsaken",
+                "time": "0:38",
+                "after": "p2-forsaken-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Shake It Off"
+                  }
+                ]
+              },
+              {
+                "id": "war-r35-ot",
+                "name": "Towers Set 4",
+                "time": "1:23",
+                "after": "p2-towers-iv-past-future-s-end-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "war-r37-mt",
+                "name": "Towers Set 6",
+                "time": "1:44",
+                "after": "p2-towers-vi-past-future-s-end-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "war-r39-mt",
+                "name": "Light of Judgement",
+                "time": "2:24",
+                "after": "p2-light-of-judgement-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Shake It Off"
+                  }
+                ]
+              },
+              {
+                "id": "war-r39-ot",
+                "name": "Light of Judgement",
+                "time": "2:24",
+                "after": "p2-light-of-judgement-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Shake It Off"
+                  },
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "war-r41-mt",
+                "name": "Wings of Destruction",
+                "time": "2:54",
+                "after": "p2-wings-of-destruction-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Damnation"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "war-r41-ot",
+                "name": "Wings of Destruction",
+                "time": "2:54",
+                "after": "p2-wings-of-destruction-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Damnation"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Rampart"
+                  }
+                ]
+              },
+              {
+                "id": "war-r43-mt",
+                "name": "Ultimate Embrace 2",
+                "time": "3:00",
+                "after": "p2-ultimate-embrace-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "war-r43-ot",
+                "name": "Ultimate Embrace 2",
+                "time": "3:00",
+                "after": "p2-ultimate-embrace-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "note": "The MT starts on Exdeath and the OT on Chaos, then the two swap during the Decisive Battle by standing under their boss after it cast-locks and provoking. Paladin is forced offtank from P3 onward: the invulns do not work with a Paladin main tank.",
+            "mechanics": [
+              {
+                "id": "war-r51-mt",
+                "name": "Targetable",
+                "time": "0:45",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "war-r53-ot",
+                "name": "Crystal 1",
+                "time": "1:24",
+                "after": "p3-stray-flames-tsunami-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  },
+                  {
+                    "name": "Shake It Off"
+                  }
+                ]
+              },
+              {
+                "id": "war-r55-mt",
+                "name": "Thunder III",
+                "time": "1:37",
+                "after": "p3-thunder-iii-1st-set-1",
+                "seat": "MT",
+                "note": "Assumes Exdeath is held middle. Check the wall-Exdeath sheet for Walldeath.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "war-r55-ot",
+                "name": "Thunder III",
+                "time": "1:37",
+                "after": "p3-thunder-iii-1st-set-1",
+                "seat": "OT",
+                "note": "Assumes Exdeath is held middle. Check the wall-Exdeath sheet for Walldeath.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "war-r57-mt",
+                "name": "Crystal 2",
+                "time": "1:54",
+                "after": "p3-stray-flames-tsunami-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "war-r59-mt",
+                "name": "Winds",
+                "time": "2:15",
+                "after": "p3-cyclone-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Shake It Off"
+                  }
+                ]
+              },
+              {
+                "id": "war-r61-mt",
+                "name": "Thunder III",
+                "time": "2:34",
+                "after": "p3-thunder-iii-2nd-set-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Holmgang"
+                  }
+                ]
+              },
+              {
+                "id": "war-r67-mt",
+                "name": "Thunder III",
+                "time": "2:52",
+                "after": "p3-thunder-iii-3rd-set-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Damnation"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "war-r67-ot",
+                "name": "Thunder III",
+                "time": "2:52",
+                "after": "p3-thunder-iii-3rd-set-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Damnation"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  },
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "war-r69-mt",
+                "name": "HP Reduction",
+                "time": "2:59",
+                "after": "p3-earthquake-1",
+                "seat": "MT",
+                "note": "Covered by the Thunder III mitigation above.",
+                "actions": []
+              },
+              {
+                "id": "war-r69-ot",
+                "name": "HP Reduction",
+                "time": "2:59",
+                "after": "p3-earthquake-1",
+                "seat": "OT",
+                "note": "Covered by the Thunder III mitigation above.",
+                "actions": []
+              },
+              {
+                "id": "war-r71-mt",
+                "name": "Kefka Stack/THD 1",
+                "time": "3:15",
+                "after": "p3-shocking-impact-shockwave-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal",
+                    "note": "On Chaos."
+                  }
+                ]
+              },
+              {
+                "id": "war-r71-ot",
+                "name": "Kefka Stack/THD 1",
+                "time": "3:15",
+                "after": "p3-shocking-impact-shockwave-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Shake It Off"
+                  }
+                ]
+              },
+              {
+                "id": "war-r73-ot",
+                "name": "Thunder III",
+                "time": "3:33",
+                "after": "p3-thunder-iii-4th-set-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Holmgang"
+                  }
+                ]
+              },
+              {
+                "id": "war-r75-mt",
+                "name": "Kefka Stack/THD 2",
+                "time": "3:45",
+                "after": "p3-shocking-impact-shockwave-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Shake It Off"
+                  }
+                ]
+              },
+              {
+                "id": "war-r77-mt",
+                "name": "Thunder III",
+                "time": "4:15",
+                "after": "p3-thunder-iii-5th-set-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  },
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "war-r77-ot",
+                "name": "Thunder III",
+                "time": "4:15",
+                "after": "p3-thunder-iii-5th-set-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  },
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "war-r79-ot",
+                "name": "Kefka Stack/THD 3",
+                "time": "4:54",
+                "after": "p3-shocking-impact-shockwave-3",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Shake It Off"
+                  }
+                ]
+              },
+              {
+                "id": "war-r81-mt",
+                "name": "3rd in Line Tank",
+                "time": "5:08",
+                "after": "p3-shocking-impact-shockwave-3",
+                "seat": "MT",
+                "note": "Only if you are third in line. Cover your co-tank if they are.",
+                "actions": [
+                  {
+                    "name": "Damnation"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "war-r81-ot",
+                "name": "3rd in Line Tank",
+                "time": "5:08",
+                "after": "p3-shocking-impact-shockwave-3",
+                "seat": "OT",
+                "note": "Only if you are third in line. Cover your co-tank if they are.",
+                "actions": [
+                  {
+                    "name": "Damnation"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "war-r83-mt",
+                "name": "Stompies+Stacks",
+                "time": "5:23",
+                "after": "p3-stomp-a-mole-knock-down-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  },
+                  {
+                    "name": "Shake It Off"
+                  }
+                ]
+              },
+              {
+                "id": "war-r83-ot",
+                "name": "Stompies+Stacks",
+                "time": "5:23",
+                "after": "p3-stomp-a-mole-knock-down-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "p4",
+            "mechanics": [
+              {
+                "id": "war-r89-ot",
+                "name": "Chaos 2/GC3",
+                "time": "0:47",
+                "after": "p4-grand-cross-3",
+                "seat": "OT",
+                "note": "Press after the Chaos 2 debuff damage.",
+                "actions": [
+                  {
+                    "name": "Shake It Off"
+                  }
+                ]
+              },
+              {
+                "id": "war-r91-mt",
+                "name": "Ultima Upsurge 1",
+                "time": "1:39",
+                "after": "p4-ultima-upsurge-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "war-r93-mt",
+                "name": "Stacks/Spread 2",
+                "time": "1:46",
+                "after": "p4-death-bolt-wave-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Shake It Off"
+                  }
+                ]
+              },
+              {
+                "id": "war-r95-ot",
+                "name": "Ultima Upsurge 2",
+                "time": "2:15",
+                "after": "p4-ultima-upsurge-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "p5",
+            "mechanics": [
+              {
+                "id": "war-r101-ot",
+                "name": "Targetable",
+                "time": "0:33",
+                "seat": "OT",
+                "note": "At a third of the \"I'll raze to the ground\" textbox.",
+                "actions": [
+                  {
+                    "name": "Shake It Off"
+                  }
+                ]
+              },
+              {
+                "id": "war-r103-mt",
+                "name": "Ultima Repeater 1",
+                "time": "0:45",
+                "after": "p5-ultima-repeater-1",
+                "seat": "MT",
+                "note": "The OT starts with aggro.",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "war-r105-mt",
+                "name": "Autos 1",
+                "time": "0:45",
+                "after": "p5-fell-forces-3x-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Damnation"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "war-r105-ot",
+                "name": "Autos 1",
+                "time": "0:45",
+                "after": "p5-fell-forces-3x-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "war-r107-ot",
+                "name": "Flood",
+                "time": "1:01",
+                "after": "p5-chaotic-flood-1",
+                "seat": "OT",
+                "note": "Voke again for safety - the OT needs aggro.",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  },
+                  {
+                    "name": "Provoke"
+                  }
+                ]
+              },
+              {
+                "id": "war-r109-mt",
+                "name": "Flare Diffusion 1",
+                "time": "1:17",
+                "after": "p5-maddening-orchestra-1",
+                "seat": "MT",
+                "note": "Tank swap so the boss does not get dragged out.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  },
+                  {
+                    "name": "Provoke"
+                  }
+                ]
+              },
+              {
+                "id": "war-r109-ot",
+                "name": "Flare Diffusion 1",
+                "time": "1:17",
+                "after": "p5-maddening-orchestra-1",
+                "seat": "OT",
+                "note": "Tank swap so the boss does not get dragged out.",
+                "actions": [
+                  {
+                    "name": "Damnation"
+                  }
+                ]
+              },
+              {
+                "id": "war-r111-mt",
+                "name": "Flare 1",
+                "time": "1:17",
+                "after": "p5-maddening-orchestra-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Holmgang"
+                  }
+                ]
+              },
+              {
+                "id": "war-r111-ot",
+                "name": "Flare 1",
+                "time": "1:17",
+                "after": "p5-maddening-orchestra-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "war-r113-mt",
+                "name": "Autos 2",
+                "time": "1:22",
+                "after": "p5-fell-forces-2x-1",
+                "seat": "MT",
+                "note": "The MT is main threat until the next flare.",
+                "actions": [
+                  {
+                    "name": "Holmgang",
+                    "carryOver": true
+                  }
+                ]
+              },
+              {
+                "id": "war-r115-mt",
+                "name": "Tower Set 1",
+                "time": "1:46",
+                "after": "p5-celestriad-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "war-r117-mt",
+                "name": "Ultima Repeater",
+                "time": "2:02",
+                "after": "p5-ultima-repeater-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Shake It Off"
+                  }
+                ]
+              },
+              {
+                "id": "war-r117-ot",
+                "name": "Ultima Repeater",
+                "time": "2:02",
+                "after": "p5-ultima-repeater-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  },
+                  {
+                    "name": "Shake It Off"
+                  }
+                ]
+              },
+              {
+                "id": "war-r119-mt",
+                "name": "Autos 3",
+                "time": "2:07",
+                "after": "p5-fell-forces-2x-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "war-r119-ot",
+                "name": "Autos 3",
+                "time": "2:07",
+                "after": "p5-fell-forces-2x-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "war-r121-mt",
+                "name": "Flare Diffusion 2",
+                "time": "2:46",
+                "after": "p5-maddening-orchestra-2",
+                "seat": "MT",
+                "note": "Tank swap so the boss does not get dragged out. Press Rampart last so it holds until the final auto.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ]
+              },
+              {
+                "id": "war-r121-ot",
+                "name": "Flare Diffusion 2",
+                "time": "2:46",
+                "after": "p5-maddening-orchestra-2",
+                "seat": "OT",
+                "note": "Tank swap so the boss does not get dragged out. Press Rampart last so it holds until the final auto.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  },
+                  {
+                    "name": "Provoke"
+                  }
+                ]
+              },
+              {
+                "id": "war-r123-mt",
+                "name": "Flare 2",
+                "time": "2:46",
+                "after": "p5-maddening-orchestra-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Damnation"
+                  }
+                ]
+              },
+              {
+                "id": "war-r123-ot",
+                "name": "Flare 2",
+                "time": "2:46",
+                "after": "p5-maddening-orchestra-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Holmgang"
+                  }
+                ]
+              },
+              {
+                "id": "war-r125-mt",
+                "name": "Autos 4",
+                "time": "2:54",
+                "after": "p5-fell-forces-3x-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Thrill of Battle",
+                    "note": "Share the third auto with your co-tank."
+                  }
+                ]
+              },
+              {
+                "id": "war-r125-ot",
+                "name": "Autos 4",
+                "time": "2:54",
+                "after": "p5-fell-forces-3x-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Holmgang",
+                    "carryOver": true
+                  },
+                  {
+                    "name": "Thrill of Battle",
+                    "note": "On the third auto."
+                  }
+                ]
+              },
+              {
+                "id": "war-r127-mt",
+                "name": "Forsaken Cast",
+                "time": "3:18",
+                "after": "p5-forsaken-1st-hit-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "war-r129-mt",
+                "name": "After Stack 2",
+                "time": "3:35",
+                "after": "p5-forsaken-bonds-4th-hit-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Shake It Off"
+                  }
+                ]
+              },
+              {
+                "id": "war-r129-ot",
+                "name": "After Stack 2",
+                "time": "3:35",
+                "after": "p5-forsaken-bonds-4th-hit-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  },
+                  {
+                    "name": "Shake It Off"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "job": "DRK",
+        "phases": [
+          {
+            "id": "p1",
+            "mechanics": [
+              {
+                "id": "drk-r7-mt",
+                "name": "Revolting Ruin 1",
+                "time": "0:16",
+                "after": "p1-revolting-ruin-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Shadowed Vigil"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r7-ot",
+                "name": "Revolting Ruin 1",
+                "time": "0:16",
+                "after": "p1-revolting-ruin-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Provoke"
+                  },
+                  {
+                    "name": "The Blackest Night",
+                    "buddy": true
+                  },
+                  {
+                    "name": "Oblation",
+                    "buddy": true
+                  }
+                ]
+              },
+              {
+                "id": "drk-r9-mt",
+                "name": "Graven Image 1",
+                "time": "0:28",
+                "after": "p1-revolting-ruin-1",
+                "seat": "MT",
+                "note": "Mit immediately after the second buster hit.",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  },
+                  {
+                    "name": "Dark Missionary"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r11-ot",
+                "name": "Mystery Magic 1",
+                "time": "0:38",
+                "after": "p1-mystery-magic-1",
+                "seat": "OT",
+                "note": "GNB/DRK can mit when the tether knockback appears.",
+                "actions": [
+                  {
+                    "name": "Dark Missionary"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r13-ot",
+                "name": "Light of Judgement 1",
+                "time": "1:02",
+                "after": "p1-light-of-judgment-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r15-mt",
+                "name": "Hyperdrive 1",
+                "time": "1:05",
+                "after": "p1-hyperdrive-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "The Blackest Night",
+                    "buddy": true
+                  },
+                  {
+                    "name": "Oblation",
+                    "buddy": true
+                  }
+                ]
+              },
+              {
+                "id": "drk-r15-ot",
+                "name": "Hyperdrive 1",
+                "time": "1:05",
+                "after": "p1-hyperdrive-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Shadowed Vigil"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r17-mt",
+                "name": "Revolting Ruin 2",
+                "time": "1:38",
+                "after": "p1-revolting-ruin-2",
+                "seat": "MT",
+                "note": "MT Provoke obviously",
+                "actions": [
+                  {
+                    "name": "Provoke"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r17-ot",
+                "name": "Revolting Ruin 2",
+                "time": "1:38",
+                "after": "p1-revolting-ruin-2",
+                "seat": "OT",
+                "note": "MT Provoke obviously",
+                "actions": [
+                  {
+                    "name": "Living Dead"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r19-mt",
+                "name": "Gravitas 2",
+                "time": "1:46",
+                "after": "p1-gravitas-ii-part-ii-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal",
+                    "note": "Use after the second part lands."
+                  }
+                ]
+              },
+              {
+                "id": "drk-r21-mt",
+                "name": "Confettis 2",
+                "time": "1:58",
+                "after": "p1-double-trouble-trap-2",
+                "seat": "MT",
+                "note": "Press when Confetti is on 1s to catch Light of Judgement. WAR/PLD mit after the Confetti hit.",
+                "actions": [
+                  {
+                    "name": "Dark Missionary"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r21-ot",
+                "name": "Confettis 2",
+                "time": "1:58",
+                "after": "p1-double-trouble-trap-2",
+                "seat": "OT",
+                "note": "Press when Confetti is on 1s to catch Light of Judgement.",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r23-ot",
+                "name": "Light of Judgement 2",
+                "time": "2:12",
+                "after": "p1-light-of-judgment-2",
+                "seat": "OT",
+                "note": "Press on cooldown.",
+                "actions": [
+                  {
+                    "name": "Dark Missionary"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r25-mt",
+                "name": "Hyperdrive 2",
+                "time": "2:16",
+                "after": "p1-hyperdrive-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Living Dead"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r27-mt",
+                "name": "Confettis 3",
+                "time": "2:48",
+                "after": "p1-double-trouble-trap-3",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "mechanics": [
+              {
+                "id": "drk-r31-mt",
+                "name": "Ultimate Embrace",
+                "time": "0:23",
+                "after": "p2-ultimate-embrace-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Shadowed Vigil"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r31-ot",
+                "name": "Ultimate Embrace",
+                "time": "0:23",
+                "after": "p2-ultimate-embrace-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Shadowed Vigil"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  },
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r33-mt",
+                "name": "Forsaken",
+                "time": "0:38",
+                "after": "p2-forsaken-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Dark Missionary"
+                  },
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r33-ot",
+                "name": "Forsaken",
+                "time": "0:38",
+                "after": "p2-forsaken-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Dark Missionary"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r35-ot",
+                "name": "Towers Set 4",
+                "time": "1:23",
+                "after": "p2-towers-iv-past-future-s-end-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r37-mt",
+                "name": "Towers Set 6",
+                "time": "1:44",
+                "after": "p2-towers-vi-past-future-s-end-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r39-mt",
+                "name": "Light of Judgement",
+                "time": "2:24",
+                "after": "p2-light-of-judgement-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Dark Missionary"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r39-ot",
+                "name": "Light of Judgement",
+                "time": "2:24",
+                "after": "p2-light-of-judgement-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Dark Missionary"
+                  },
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r41-mt",
+                "name": "Wings of Destruction",
+                "time": "2:54",
+                "after": "p2-wings-of-destruction-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Shadowed Vigil"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r41-ot",
+                "name": "Wings of Destruction",
+                "time": "2:54",
+                "after": "p2-wings-of-destruction-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Shadowed Vigil"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "Rampart"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r43-mt",
+                "name": "Ultimate Embrace 2",
+                "time": "3:00",
+                "after": "p2-ultimate-embrace-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r43-ot",
+                "name": "Ultimate Embrace 2",
+                "time": "3:00",
+                "after": "p2-ultimate-embrace-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "note": "The MT starts on Exdeath and the OT on Chaos, then the two swap during the Decisive Battle by standing under their boss after it cast-locks and provoking. Paladin is forced offtank from P3 onward: the invulns do not work with a Paladin main tank.",
+            "mechanics": [
+              {
+                "id": "drk-r51-mt",
+                "name": "Targetable",
+                "time": "0:45",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r53-ot",
+                "name": "Crystal 1",
+                "time": "1:24",
+                "after": "p3-stray-flames-tsunami-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  },
+                  {
+                    "name": "Dark Missionary"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r55-mt",
+                "name": "Thunder III",
+                "time": "1:37",
+                "after": "p3-thunder-iii-1st-set-1",
+                "seat": "MT",
+                "note": "Assumes Exdeath is held middle. Check the wall-Exdeath sheet for Walldeath.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r55-ot",
+                "name": "Thunder III",
+                "time": "1:37",
+                "after": "p3-thunder-iii-1st-set-1",
+                "seat": "OT",
+                "note": "Assumes Exdeath is held middle. Check the wall-Exdeath sheet for Walldeath.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r57-mt",
+                "name": "Crystal 2",
+                "time": "1:54",
+                "after": "p3-stray-flames-tsunami-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r59-mt",
+                "name": "Winds",
+                "time": "2:15",
+                "after": "p3-cyclone-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Dark Missionary"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r61-mt",
+                "name": "Thunder III",
+                "time": "2:34",
+                "after": "p3-thunder-iii-2nd-set-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Living Dead"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r67-mt",
+                "name": "Thunder III",
+                "time": "2:52",
+                "after": "p3-thunder-iii-3rd-set-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Shadowed Vigil"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r67-ot",
+                "name": "Thunder III",
+                "time": "2:52",
+                "after": "p3-thunder-iii-3rd-set-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Shadowed Vigil"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  },
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r69-mt",
+                "name": "HP Reduction",
+                "time": "2:59",
+                "after": "p3-earthquake-1",
+                "seat": "MT",
+                "note": "Covered by the Thunder III mitigation above.",
+                "actions": []
+              },
+              {
+                "id": "drk-r69-ot",
+                "name": "HP Reduction",
+                "time": "2:59",
+                "after": "p3-earthquake-1",
+                "seat": "OT",
+                "note": "Covered by the Thunder III mitigation above.",
+                "actions": []
+              },
+              {
+                "id": "drk-r71-mt",
+                "name": "Kefka Stack/THD 1",
+                "time": "3:15",
+                "after": "p3-shocking-impact-shockwave-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal",
+                    "note": "On Chaos."
+                  }
+                ]
+              },
+              {
+                "id": "drk-r71-ot",
+                "name": "Kefka Stack/THD 1",
+                "time": "3:15",
+                "after": "p3-shocking-impact-shockwave-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Dark Missionary"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r73-ot",
+                "name": "Thunder III",
+                "time": "3:33",
+                "after": "p3-thunder-iii-4th-set-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Living Dead"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r75-mt",
+                "name": "Kefka Stack/THD 2",
+                "time": "3:45",
+                "after": "p3-shocking-impact-shockwave-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Dark Missionary"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r77-mt",
+                "name": "Thunder III",
+                "time": "4:15",
+                "after": "p3-thunder-iii-5th-set-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  },
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r77-ot",
+                "name": "Thunder III",
+                "time": "4:15",
+                "after": "p3-thunder-iii-5th-set-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  },
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r79-ot",
+                "name": "Kefka Stack/THD 3",
+                "time": "4:54",
+                "after": "p3-shocking-impact-shockwave-3",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Dark Missionary"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r81-mt",
+                "name": "3rd in Line Tank",
+                "time": "5:08",
+                "after": "p3-shocking-impact-shockwave-3",
+                "seat": "MT",
+                "note": "Only if you are third in line. Cover your co-tank if they are.",
+                "actions": [
+                  {
+                    "name": "Shadowed Vigil"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r81-ot",
+                "name": "3rd in Line Tank",
+                "time": "5:08",
+                "after": "p3-shocking-impact-shockwave-3",
+                "seat": "OT",
+                "note": "Only if you are third in line. Cover your co-tank if they are.",
+                "actions": [
+                  {
+                    "name": "Shadowed Vigil"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r83-mt",
+                "name": "Stompies+Stacks",
+                "time": "5:23",
+                "after": "p3-stomp-a-mole-knock-down-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  },
+                  {
+                    "name": "Dark Missionary"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r83-ot",
+                "name": "Stompies+Stacks",
+                "time": "5:23",
+                "after": "p3-stomp-a-mole-knock-down-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "p4",
+            "mechanics": [
+              {
+                "id": "drk-r89-ot",
+                "name": "Chaos 2/GC3",
+                "time": "0:47",
+                "after": "p4-grand-cross-3",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Dark Missionary"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r91-mt",
+                "name": "Ultima Upsurge 1",
+                "time": "1:39",
+                "after": "p4-ultima-upsurge-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r93-mt",
+                "name": "Stacks/Spread 2",
+                "time": "1:46",
+                "after": "p4-death-bolt-wave-2",
+                "seat": "MT",
+                "note": "Press at the start of the Ultima Upsurge castbar.",
+                "actions": [
+                  {
+                    "name": "Dark Missionary"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r95-ot",
+                "name": "Ultima Upsurge 2",
+                "time": "2:15",
+                "after": "p4-ultima-upsurge-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "p5",
+            "mechanics": [
+              {
+                "id": "drk-r101-ot",
+                "name": "Targetable",
+                "time": "0:33",
+                "seat": "OT",
+                "note": "At a third of the \"I'll raze to the ground\" textbox.",
+                "actions": [
+                  {
+                    "name": "Dark Missionary"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r103-mt",
+                "name": "Ultima Repeater 1",
+                "time": "0:45",
+                "after": "p5-ultima-repeater-1",
+                "seat": "MT",
+                "note": "The OT starts with aggro.",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r105-mt",
+                "name": "Autos 1",
+                "time": "0:45",
+                "after": "p5-fell-forces-3x-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Shadowed Vigil"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r105-ot",
+                "name": "Autos 1",
+                "time": "0:45",
+                "after": "p5-fell-forces-3x-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r107-ot",
+                "name": "Flood",
+                "time": "1:01",
+                "after": "p5-chaotic-flood-1",
+                "seat": "OT",
+                "note": "Voke again for safety - the OT needs aggro.",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  },
+                  {
+                    "name": "Provoke"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r109-mt",
+                "name": "Flare Diffusion 1",
+                "time": "1:17",
+                "after": "p5-maddening-orchestra-1",
+                "seat": "MT",
+                "note": "Tank swap so the boss does not get dragged out.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  },
+                  {
+                    "name": "Provoke"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r109-ot",
+                "name": "Flare Diffusion 1",
+                "time": "1:17",
+                "after": "p5-maddening-orchestra-1",
+                "seat": "OT",
+                "note": "Tank swap so the boss does not get dragged out.",
+                "actions": [
+                  {
+                    "name": "Shadowed Vigil"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r111-mt",
+                "name": "Flare 1",
+                "time": "1:17",
+                "after": "p5-maddening-orchestra-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Living Dead"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r111-ot",
+                "name": "Flare 1",
+                "time": "1:17",
+                "after": "p5-maddening-orchestra-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r113-mt",
+                "name": "Autos 2",
+                "time": "1:22",
+                "after": "p5-fell-forces-2x-1",
+                "seat": "MT",
+                "note": "The MT is main threat until the next flare.",
+                "actions": [
+                  {
+                    "name": "Living Dead",
+                    "carryOver": true
+                  }
+                ]
+              },
+              {
+                "id": "drk-r115-mt",
+                "name": "Tower Set 1",
+                "time": "1:46",
+                "after": "p5-celestriad-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r117-mt",
+                "name": "Ultima Repeater",
+                "time": "2:02",
+                "after": "p5-ultima-repeater-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Dark Missionary"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r117-ot",
+                "name": "Ultima Repeater",
+                "time": "2:02",
+                "after": "p5-ultima-repeater-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  },
+                  {
+                    "name": "Dark Missionary"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r119-mt",
+                "name": "Autos 3",
+                "time": "2:07",
+                "after": "p5-fell-forces-2x-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r119-ot",
+                "name": "Autos 3",
+                "time": "2:07",
+                "after": "p5-fell-forces-2x-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r121-mt",
+                "name": "Flare Diffusion 2",
+                "time": "2:46",
+                "after": "p5-maddening-orchestra-2",
+                "seat": "MT",
+                "note": "Tank swap so the boss does not get dragged out. Press Rampart last so it holds until the final auto.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r121-ot",
+                "name": "Flare Diffusion 2",
+                "time": "2:46",
+                "after": "p5-maddening-orchestra-2",
+                "seat": "OT",
+                "note": "Tank swap so the boss does not get dragged out. Press Rampart last so it holds until the final auto.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  },
+                  {
+                    "name": "Oblation"
+                  },
+                  {
+                    "name": "Provoke"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r123-mt",
+                "name": "Flare 2",
+                "time": "2:46",
+                "after": "p5-maddening-orchestra-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Shadowed Vigil"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r123-ot",
+                "name": "Flare 2",
+                "time": "2:46",
+                "after": "p5-maddening-orchestra-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Living Dead"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r125-mt",
+                "name": "Autos 4",
+                "time": "2:54",
+                "after": "p5-fell-forces-3x-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Dark Mind",
+                    "note": "Share the third auto with your co-tank."
+                  }
+                ]
+              },
+              {
+                "id": "drk-r125-ot",
+                "name": "Autos 4",
+                "time": "2:54",
+                "after": "p5-fell-forces-3x-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Living Dead",
+                    "carryOver": true
+                  },
+                  {
+                    "name": "Dark Mind",
+                    "note": "On the third auto."
+                  }
+                ]
+              },
+              {
+                "id": "drk-r127-mt",
+                "name": "Forsaken Cast",
+                "time": "3:18",
+                "after": "p5-forsaken-1st-hit-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r129-mt",
+                "name": "After Stack 2",
+                "time": "3:35",
+                "after": "p5-forsaken-bonds-4th-hit-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Dark Missionary"
+                  }
+                ]
+              },
+              {
+                "id": "drk-r129-ot",
+                "name": "After Stack 2",
+                "time": "3:35",
+                "after": "p5-forsaken-bonds-4th-hit-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  },
+                  {
+                    "name": "Dark Missionary"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "job": "GNB",
+        "phases": [
+          {
+            "id": "p1",
+            "mechanics": [
+              {
+                "id": "gnb-r7-mt",
+                "name": "Revolting Ruin 1",
+                "time": "0:16",
+                "after": "p1-revolting-ruin-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Great Nebula"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r7-ot",
+                "name": "Revolting Ruin 1",
+                "time": "0:16",
+                "after": "p1-revolting-ruin-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Provoke"
+                  },
+                  {
+                    "name": "Heart of Corundum",
+                    "buddy": true
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r9-mt",
+                "name": "Graven Image 1",
+                "time": "0:28",
+                "after": "p1-revolting-ruin-1",
+                "seat": "MT",
+                "note": "Mit immediately after the second buster hit.",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  },
+                  {
+                    "name": "Heart of Light"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r11-ot",
+                "name": "Mystery Magic 1",
+                "time": "0:38",
+                "after": "p1-mystery-magic-1",
+                "seat": "OT",
+                "note": "GNB/DRK can mit when the tether knockback appears.",
+                "actions": [
+                  {
+                    "name": "Heart of Light"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r13-ot",
+                "name": "Light of Judgement 1",
+                "time": "1:02",
+                "after": "p1-light-of-judgment-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r15-mt",
+                "name": "Hyperdrive 1",
+                "time": "1:05",
+                "after": "p1-hyperdrive-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Heart of Corundum",
+                    "buddy": true
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r15-ot",
+                "name": "Hyperdrive 1",
+                "time": "1:05",
+                "after": "p1-hyperdrive-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Great Nebula"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r17-mt",
+                "name": "Revolting Ruin 2",
+                "time": "1:38",
+                "after": "p1-revolting-ruin-2",
+                "seat": "MT",
+                "note": "MT Provoke obviously",
+                "actions": [
+                  {
+                    "name": "Provoke"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r17-ot",
+                "name": "Revolting Ruin 2",
+                "time": "1:38",
+                "after": "p1-revolting-ruin-2",
+                "seat": "OT",
+                "note": "MT Provoke obviously",
+                "actions": [
+                  {
+                    "name": "Superbolide"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r19-mt",
+                "name": "Gravitas 2",
+                "time": "1:46",
+                "after": "p1-gravitas-ii-part-ii-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal",
+                    "note": "Use after the second part lands."
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r21-mt",
+                "name": "Confettis 2",
+                "time": "1:58",
+                "after": "p1-double-trouble-trap-2",
+                "seat": "MT",
+                "note": "Press when Confetti is on 1s to catch Light of Judgement. WAR/PLD mit after the Confetti hit.",
+                "actions": [
+                  {
+                    "name": "Heart of Light"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r21-ot",
+                "name": "Confettis 2",
+                "time": "1:58",
+                "after": "p1-double-trouble-trap-2",
+                "seat": "OT",
+                "note": "Press when Confetti is on 1s to catch Light of Judgement.",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r23-ot",
+                "name": "Light of Judgement 2",
+                "time": "2:12",
+                "after": "p1-light-of-judgment-2",
+                "seat": "OT",
+                "note": "Press on cooldown.",
+                "actions": [
+                  {
+                    "name": "Heart of Light"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r25-mt",
+                "name": "Hyperdrive 2",
+                "time": "2:16",
+                "after": "p1-hyperdrive-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Superbolide"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r27-mt",
+                "name": "Confettis 3",
+                "time": "2:48",
+                "after": "p1-double-trouble-trap-3",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "mechanics": [
+              {
+                "id": "gnb-r31-mt",
+                "name": "Ultimate Embrace",
+                "time": "0:23",
+                "after": "p2-ultimate-embrace-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Great Nebula"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r31-ot",
+                "name": "Ultimate Embrace",
+                "time": "0:23",
+                "after": "p2-ultimate-embrace-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Great Nebula"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  },
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r33-mt",
+                "name": "Forsaken",
+                "time": "0:38",
+                "after": "p2-forsaken-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Heart of Light"
+                  },
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r33-ot",
+                "name": "Forsaken",
+                "time": "0:38",
+                "after": "p2-forsaken-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Heart of Light"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r35-ot",
+                "name": "Towers Set 4",
+                "time": "1:23",
+                "after": "p2-towers-iv-past-future-s-end-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r37-mt",
+                "name": "Towers Set 6",
+                "time": "1:44",
+                "after": "p2-towers-vi-past-future-s-end-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r39-mt",
+                "name": "Light of Judgement",
+                "time": "2:24",
+                "after": "p2-light-of-judgement-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Heart of Light"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r39-ot",
+                "name": "Light of Judgement",
+                "time": "2:24",
+                "after": "p2-light-of-judgement-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Heart of Light"
+                  },
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r41-mt",
+                "name": "Wings of Destruction",
+                "time": "2:54",
+                "after": "p2-wings-of-destruction-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Great Nebula"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r41-ot",
+                "name": "Wings of Destruction",
+                "time": "2:54",
+                "after": "p2-wings-of-destruction-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Great Nebula"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Rampart"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r43-mt",
+                "name": "Ultimate Embrace 2",
+                "time": "3:00",
+                "after": "p2-ultimate-embrace-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r43-ot",
+                "name": "Ultimate Embrace 2",
+                "time": "3:00",
+                "after": "p2-ultimate-embrace-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "note": "The MT starts on Exdeath and the OT on Chaos, then the two swap during the Decisive Battle by standing under their boss after it cast-locks and provoking. Paladin is forced offtank from P3 onward: the invulns do not work with a Paladin main tank.",
+            "mechanics": [
+              {
+                "id": "gnb-r51-mt",
+                "name": "Targetable",
+                "time": "0:45",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r53-ot",
+                "name": "Crystal 1",
+                "time": "1:24",
+                "after": "p3-stray-flames-tsunami-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  },
+                  {
+                    "name": "Heart of Light"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r55-mt",
+                "name": "Thunder III",
+                "time": "1:37",
+                "after": "p3-thunder-iii-1st-set-1",
+                "seat": "MT",
+                "note": "Assumes Exdeath is held middle. Check the wall-Exdeath sheet for Walldeath.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r55-ot",
+                "name": "Thunder III",
+                "time": "1:37",
+                "after": "p3-thunder-iii-1st-set-1",
+                "seat": "OT",
+                "note": "Assumes Exdeath is held middle. Check the wall-Exdeath sheet for Walldeath.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r57-mt",
+                "name": "Crystal 2",
+                "time": "1:54",
+                "after": "p3-stray-flames-tsunami-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r59-mt",
+                "name": "Winds",
+                "time": "2:15",
+                "after": "p3-cyclone-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Heart of Light"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r61-mt",
+                "name": "Thunder III",
+                "time": "2:34",
+                "after": "p3-thunder-iii-2nd-set-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Superbolide"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r67-mt",
+                "name": "Thunder III",
+                "time": "2:52",
+                "after": "p3-thunder-iii-3rd-set-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Great Nebula"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r67-ot",
+                "name": "Thunder III",
+                "time": "2:52",
+                "after": "p3-thunder-iii-3rd-set-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Great Nebula"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  },
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r69-mt",
+                "name": "HP Reduction",
+                "time": "2:59",
+                "after": "p3-earthquake-1",
+                "seat": "MT",
+                "note": "Covered by the Thunder III mitigation above.",
+                "actions": []
+              },
+              {
+                "id": "gnb-r69-ot",
+                "name": "HP Reduction",
+                "time": "2:59",
+                "after": "p3-earthquake-1",
+                "seat": "OT",
+                "note": "Covered by the Thunder III mitigation above.",
+                "actions": []
+              },
+              {
+                "id": "gnb-r71-mt",
+                "name": "Kefka Stack/THD 1",
+                "time": "3:15",
+                "after": "p3-shocking-impact-shockwave-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal",
+                    "note": "On Chaos."
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r71-ot",
+                "name": "Kefka Stack/THD 1",
+                "time": "3:15",
+                "after": "p3-shocking-impact-shockwave-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Heart of Light"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r73-ot",
+                "name": "Thunder III",
+                "time": "3:33",
+                "after": "p3-thunder-iii-4th-set-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Superbolide"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r75-mt",
+                "name": "Kefka Stack/THD 2",
+                "time": "3:45",
+                "after": "p3-shocking-impact-shockwave-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Heart of Light"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r77-mt",
+                "name": "Thunder III",
+                "time": "4:15",
+                "after": "p3-thunder-iii-5th-set-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  },
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r77-ot",
+                "name": "Thunder III",
+                "time": "4:15",
+                "after": "p3-thunder-iii-5th-set-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  },
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r79-ot",
+                "name": "Kefka Stack/THD 3",
+                "time": "4:54",
+                "after": "p3-shocking-impact-shockwave-3",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Heart of Light"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r81-mt",
+                "name": "3rd in Line Tank",
+                "time": "5:08",
+                "after": "p3-shocking-impact-shockwave-3",
+                "seat": "MT",
+                "note": "Only if you are third in line. Cover your co-tank if they are.",
+                "actions": [
+                  {
+                    "name": "Great Nebula"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r81-ot",
+                "name": "3rd in Line Tank",
+                "time": "5:08",
+                "after": "p3-shocking-impact-shockwave-3",
+                "seat": "OT",
+                "note": "Only if you are third in line. Cover your co-tank if they are.",
+                "actions": [
+                  {
+                    "name": "Great Nebula"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r83-mt",
+                "name": "Stompies+Stacks",
+                "time": "5:23",
+                "after": "p3-stomp-a-mole-knock-down-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  },
+                  {
+                    "name": "Heart of Light"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r83-ot",
+                "name": "Stompies+Stacks",
+                "time": "5:23",
+                "after": "p3-stomp-a-mole-knock-down-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "p4",
+            "mechanics": [
+              {
+                "id": "gnb-r89-ot",
+                "name": "Chaos 2/GC3",
+                "time": "0:47",
+                "after": "p4-grand-cross-3",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Heart of Light"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r91-mt",
+                "name": "Ultima Upsurge 1",
+                "time": "1:39",
+                "after": "p4-ultima-upsurge-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r93-mt",
+                "name": "Stacks/Spread 2",
+                "time": "1:46",
+                "after": "p4-death-bolt-wave-2",
+                "seat": "MT",
+                "note": "Press at the start of the Ultima Upsurge castbar.",
+                "actions": [
+                  {
+                    "name": "Heart of Light"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r95-ot",
+                "name": "Ultima Upsurge 2",
+                "time": "2:15",
+                "after": "p4-ultima-upsurge-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "p5",
+            "mechanics": [
+              {
+                "id": "gnb-r101-ot",
+                "name": "Targetable",
+                "time": "0:33",
+                "seat": "OT",
+                "note": "At a third of the \"I'll raze to the ground\" textbox.",
+                "actions": [
+                  {
+                    "name": "Heart of Light"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r103-mt",
+                "name": "Ultima Repeater 1",
+                "time": "0:45",
+                "after": "p5-ultima-repeater-1",
+                "seat": "MT",
+                "note": "The OT starts with aggro.",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r105-mt",
+                "name": "Autos 1",
+                "time": "0:45",
+                "after": "p5-fell-forces-3x-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Great Nebula"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r105-ot",
+                "name": "Autos 1",
+                "time": "0:45",
+                "after": "p5-fell-forces-3x-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r107-ot",
+                "name": "Flood",
+                "time": "1:01",
+                "after": "p5-chaotic-flood-1",
+                "seat": "OT",
+                "note": "Voke again for safety - the OT needs aggro.",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  },
+                  {
+                    "name": "Provoke"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r109-mt",
+                "name": "Flare Diffusion 1",
+                "time": "1:17",
+                "after": "p5-maddening-orchestra-1",
+                "seat": "MT",
+                "note": "Tank swap so the boss does not get dragged out.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  },
+                  {
+                    "name": "Provoke"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r109-ot",
+                "name": "Flare Diffusion 1",
+                "time": "1:17",
+                "after": "p5-maddening-orchestra-1",
+                "seat": "OT",
+                "note": "Tank swap so the boss does not get dragged out.",
+                "actions": [
+                  {
+                    "name": "Great Nebula"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r111-mt",
+                "name": "Flare 1",
+                "time": "1:17",
+                "after": "p5-maddening-orchestra-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Superbolide"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r111-ot",
+                "name": "Flare 1",
+                "time": "1:17",
+                "after": "p5-maddening-orchestra-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r113-mt",
+                "name": "Autos 2",
+                "time": "1:22",
+                "after": "p5-fell-forces-2x-1",
+                "seat": "MT",
+                "note": "The MT is main threat until the next flare.",
+                "actions": [
+                  {
+                    "name": "Superbolide",
+                    "carryOver": true
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r115-mt",
+                "name": "Tower Set 1",
+                "time": "1:46",
+                "after": "p5-celestriad-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r117-mt",
+                "name": "Ultima Repeater",
+                "time": "2:02",
+                "after": "p5-ultima-repeater-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Heart of Light"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r117-ot",
+                "name": "Ultima Repeater",
+                "time": "2:02",
+                "after": "p5-ultima-repeater-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  },
+                  {
+                    "name": "Heart of Light"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r119-mt",
+                "name": "Autos 3",
+                "time": "2:07",
+                "after": "p5-fell-forces-2x-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r119-ot",
+                "name": "Autos 3",
+                "time": "2:07",
+                "after": "p5-fell-forces-2x-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r121-mt",
+                "name": "Flare Diffusion 2",
+                "time": "2:46",
+                "after": "p5-maddening-orchestra-2",
+                "seat": "MT",
+                "note": "Tank swap so the boss does not get dragged out. Press Rampart last so it holds until the final auto.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r121-ot",
+                "name": "Flare Diffusion 2",
+                "time": "2:46",
+                "after": "p5-maddening-orchestra-2",
+                "seat": "OT",
+                "note": "Tank swap so the boss does not get dragged out. Press Rampart last so it holds until the final auto.",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  },
+                  {
+                    "name": "Provoke"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r123-mt",
+                "name": "Flare 2",
+                "time": "2:46",
+                "after": "p5-maddening-orchestra-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Great Nebula"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r123-ot",
+                "name": "Flare 2",
+                "time": "2:46",
+                "after": "p5-maddening-orchestra-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Superbolide"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r125-mt",
+                "name": "Autos 4",
+                "time": "2:54",
+                "after": "p5-fell-forces-3x-2",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Camouflage",
+                    "note": "Share the third auto with your co-tank."
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r125-ot",
+                "name": "Autos 4",
+                "time": "2:54",
+                "after": "p5-fell-forces-3x-2",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Superbolide",
+                    "carryOver": true
+                  },
+                  {
+                    "name": "Camouflage",
+                    "note": "On the third auto."
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r127-mt",
+                "name": "Forsaken Cast",
+                "time": "3:18",
+                "after": "p5-forsaken-1st-hit-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r129-mt",
+                "name": "After Stack 2",
+                "time": "3:35",
+                "after": "p5-forsaken-bonds-4th-hit-1",
+                "seat": "MT",
+                "actions": [
+                  {
+                    "name": "Heart of Light"
+                  }
+                ]
+              },
+              {
+                "id": "gnb-r129-ot",
+                "name": "After Stack 2",
+                "time": "3:35",
+                "after": "p5-forsaken-bonds-4th-hit-1",
+                "seat": "OT",
+                "actions": [
+                  {
+                    "name": "Reprisal"
+                  },
+                  {
+                    "name": "Heart of Light"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 }

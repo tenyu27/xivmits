@@ -1,11 +1,15 @@
 """Convert the "LPDU General DMU Mit Compile" P1-P5 tabs into reviewed repo JSON.
 
-Usage: python3 scripts/import_dmu_lpdu.py '/path/to/LPDU.xlsx'
+Usage: python3 scripts/import_dmu_lpdu.py '/path/to/LPDU.xlsx' ['/path/to/tank.xlsx']
+
 Uses Python's standard library. The site never reads Excel at runtime.
 
-Scope (this pass): the five party-wide mitigation grids only. The hidden
-"Tank FAQ" / "Tank Mitigation (All Comps)" tabs are NOT imported -- they would
-become `tankMits`, and that is a separate pass.
+Two workbooks. The first is the compile itself, whose five phase tabs are the
+party-wide grids. The second is optional and is the separate tank workbook
+("Dancing Mad (Ultimate) EU Mitigation - Tanks", tinyurl.com/LPDUtankmit) that
+the compile links to; when given, its one tab becomes `tankMits`. The compile's
+own hidden "Tank FAQ" / "Tank Mitigation (All Comps)" tabs are leftovers from
+other sheets and are deliberately ignored.
 
 Layout, per phase tab:
   * row 6 is the header: D "Time", then E MT / G OT / J White Mage /
@@ -469,13 +473,17 @@ def convert(path):
         'name': 'LPDU',
         'author': 'LPDU',
         'updated': '2026-09-09',
-        'sourceFile': 'LPDU GENERAL DMU MIT COMPILE',
+        'sourceFile': 'LPDU GENERAL DMU MIT COMPILE + LPDU tank mit sheet',
         'source': {
             'name': 'LPDU General DMU Mit Compile',
             'url': 'https://docs.google.com/spreadsheets/d/1aA_qF_UsoS51MCDZ4PwQHhprpK7eGO8TXOdZ7pQlkV0/edit',
         },
         'description': 'P1–P5 party mitigation from the LPDU compile sheet, which follows LPDU strats. Choose a tank position, healer job, or DPS position.',
-        'slots': [{'id': 'MT', 'role': 'tank'}, {'id': 'OT', 'role': 'tank'},
+        # Paladin is forced offtank from P3 onward - the sheet calls it
+        # non-negotiable, because the invulns do not line up with a PLD main
+        # tank - so the MT seat does not offer it.
+        'slots': [{'id': 'MT', 'role': 'tank', 'jobs': ['WAR', 'DRK', 'GNB']},
+                  {'id': 'OT', 'role': 'tank'},
                   *({'id': job, 'job': job, 'role': 'healer'} for job in HEALERS),
                   {'id': 'M1', 'role': 'melee'}, {'id': 'M2', 'role': 'melee'},
                   {'id': 'P', 'role': 'ranged'}, {'id': 'C', 'role': 'caster'}],
@@ -483,8 +491,252 @@ def convert(path):
     }
 
 
+# ---------------------------------------------------------------------------
+# Tank personal mit -> `tankMits`.
+#
+# The tank plan is a separate workbook ("Dancing Mad (Ultimate) EU Mitigation -
+# Tanks" by Saybell Valentine, tinyurl.com/LPDUtankmit), one tab: "Universal
+# MTOT Sheet". Universal is the point - unlike the Ikuya Omnitank tab there is
+# no per-comp page and no choice to make. Both branches the schema knows about
+# are fixed by seat, and the sheet says so in its own headers:
+#
+#   P3 start   MT = Exdeath tank, OT = Chaos tank
+#   after the Decisive Battle swap, the two trade
+#   invulns    P1: OT on Revolting Ruin 2, MT on Hyperdrive 2
+#              P3: MT on Thunder III 2, OT on Thunder III 4
+#              P5: MT on Flare 1, OT on Flare 2
+#
+# So the rows carry `seat` and never `boss` / `invuln`, and the mits page shows
+# no branch toggles for this sheet. It is still emitted as one plan per tank
+# job, like Ikuya: the shorthand is generic ("KS", "Short", "120S") and the job
+# is known at import, so it expands to the real button here rather than at view
+# time.
+#
+# Columns: B time, C mechanic, D MT, E OT, F prio/notes.
+TANK_SHEET = 2
+TANKS = ['PLD', 'WAR', 'DRK', 'GNB']
+INVULN = {'WAR': 'Holmgang', 'PLD': 'Hallowed Ground', 'DRK': 'Living Dead', 'GNB': 'Superbolide'}
+MIT_120 = {'WAR': 'Damnation', 'PLD': 'Guardian', 'DRK': 'Shadowed Vigil', 'GNB': 'Great Nebula'}
+MIT_90 = {'WAR': 'Thrill of Battle', 'PLD': 'Bulwark', 'DRK': 'Dark Mind', 'GNB': 'Camouflage'}
+# The short personal mitigation each tank presses on itself. DRK stacks two.
+# WAR's is Bloodwhetting, not the ally-only Nascent Flash - that is the buddy mit.
+SHORT_MIT = {'WAR': ['Bloodwhetting'], 'PLD': ['Holy Sheltron'],
+             'DRK': ['The Blackest Night', 'Oblation'], 'GNB': ['Heart of Corundum']}
+BUDDY_MIT = {'WAR': ['Nascent Flash'], 'PLD': ['Intervention'],
+             'DRK': ['The Blackest Night', 'Oblation'], 'GNB': ['Heart of Corundum']}
+PARTY_MIT = {'PLD': 'Divine Veil', 'WAR': 'Shake It Off',
+             'DRK': 'Dark Missionary', 'GNB': 'Heart of Light'}
+
+# Rampart + both long cooldowns + short mit, pressed together. Named apart from
+# the party grid's KITCHEN_SINK, which is the same idea left generic.
+TANK_KITCHEN_SINK = {job: ['Rampart', MIT_120[job], MIT_90[job], *SHORT_MIT[job]] for job in TANKS}
+
+def tank_tokens(job):
+    """Shorthand -> the buttons this job actually presses."""
+    return {
+        'KS': TANK_KITCHEN_SINK[job], 'Kitchen Sink': TANK_KITCHEN_SINK[job],
+        'Rep': ['Reprisal'], 'Rampart': ['Rampart'], 'Ramp': ['Rampart'],
+        'Provoke': ['Provoke'], 'Voke': ['Provoke'],
+        'Short': SHORT_MIT[job], 'Party Mit': [PARTY_MIT[job]],
+        '90': [MIT_90[job]], '90s': [MIT_90[job]], '90S': [MIT_90[job]],
+        '120': [MIT_120[job]], '120s': [MIT_120[job]], '120S': [MIT_120[job]],
+        'Invuln': [INVULN[job]],
+    }
+
+# Source row -> (phase, canonical mechanic to render below). `None` anchors the
+# row to the top of the phase, for a call that lands before the first party
+# mechanic. Rows the sheet names for a mechanic the encounter does not carry
+# (Graven Image, the autos, Flare Diffusion) hang off the nearest party row.
+TANK_ROWS = {
+    7: ('p1', 'p1-revolting-ruin-1'), 9: ('p1', 'p1-revolting-ruin-1'),
+    11: ('p1', 'p1-mystery-magic-1'), 13: ('p1', 'p1-light-of-judgment-1'),
+    15: ('p1', 'p1-hyperdrive-1'), 17: ('p1', 'p1-revolting-ruin-2'),
+    19: ('p1', 'p1-gravitas-ii-part-ii-1'), 21: ('p1', 'p1-double-trouble-trap-2'),
+    23: ('p1', 'p1-light-of-judgment-2'), 25: ('p1', 'p1-hyperdrive-2'),
+    27: ('p1', 'p1-double-trouble-trap-3'),
+    31: ('p2', 'p2-ultimate-embrace-1'), 33: ('p2', 'p2-forsaken-1'),
+    35: ('p2', 'p2-towers-iv-past-future-s-end-1'), 37: ('p2', 'p2-towers-vi-past-future-s-end-1'),
+    39: ('p2', 'p2-light-of-judgement-1'), 41: ('p2', 'p2-wings-of-destruction-1'),
+    43: ('p2', 'p2-ultimate-embrace-2'),
+    51: ('p3', None), 53: ('p3', 'p3-stray-flames-tsunami-1'),
+    55: ('p3', 'p3-thunder-iii-1st-set-1'), 57: ('p3', 'p3-stray-flames-tsunami-2'),
+    59: ('p3', 'p3-cyclone-1'), 61: ('p3', 'p3-thunder-iii-2nd-set-1'),
+    67: ('p3', 'p3-thunder-iii-3rd-set-1'), 69: ('p3', 'p3-earthquake-1'),
+    71: ('p3', 'p3-shocking-impact-shockwave-1'), 73: ('p3', 'p3-thunder-iii-4th-set-1'),
+    75: ('p3', 'p3-shocking-impact-shockwave-2'), 77: ('p3', 'p3-thunder-iii-5th-set-1'),
+    79: ('p3', 'p3-shocking-impact-shockwave-3'), 81: ('p3', 'p3-shocking-impact-shockwave-3'),
+    83: ('p3', 'p3-stomp-a-mole-knock-down-1'),
+    89: ('p4', 'p4-grand-cross-3'), 91: ('p4', 'p4-ultima-upsurge-1'),
+    93: ('p4', 'p4-death-bolt-wave-2'), 95: ('p4', 'p4-ultima-upsurge-2'),
+    101: ('p5', None), 103: ('p5', 'p5-ultima-repeater-1'), 105: ('p5', 'p5-fell-forces-3x-1'),
+    107: ('p5', 'p5-chaotic-flood-1'), 109: ('p5', 'p5-maddening-orchestra-1'),
+    111: ('p5', 'p5-maddening-orchestra-1'), 113: ('p5', 'p5-fell-forces-2x-1'),
+    115: ('p5', 'p5-celestriad-1'), 117: ('p5', 'p5-ultima-repeater-2'),
+    119: ('p5', 'p5-fell-forces-2x-2'), 121: ('p5', 'p5-maddening-orchestra-2'),
+    123: ('p5', 'p5-maddening-orchestra-2'), 125: ('p5', 'p5-fell-forces-3x-2'),
+    127: ('p5', 'p5-forsaken-1st-hit-1'), 129: ('p5', 'p5-forsaken-bonds-4th-hit-1'),
+}
+
+# Cells the sheet writes as prose, or that describe the row rather than the
+# column they sit in - "OT Invuln" in the MT column names who invulns, not what
+# the MT presses. Keyed by (row, seat); the value is a list of (token, note)
+# pairs, expanded per job like any other cell.
+TANK_CELLS = {
+    (17, 'MT'): [('Provoke', None)], (17, 'OT'): [('Invuln', None)],
+    (19, 'MT'): [('Rep', 'Use after the second part lands.')],
+    (71, 'MT'): [('Rep', 'On Chaos.')],
+    (25, 'MT'): [('Invuln', None)], (25, 'OT'): [],
+    (61, 'MT'): [('Invuln', None)], (61, 'OT'): [],
+    (73, 'MT'): [], (73, 'OT'): [('Invuln', None)],
+    (69, 'MT'): [], (69, 'OT'): [],
+    (81, 'MT'): [('120', None), ('Short', None)],
+    (81, 'OT'): [('120', None), ('Short', None)],
+    (113, 'MT'): [('Invuln', 'CARRY')], (113, 'OT'): [],
+    (125, 'MT'): [('90', 'Share the third auto with your co-tank.')],
+    (125, 'OT'): [('Invuln', 'CARRY'), ('90', 'On the third auto.')],
+}
+
+# A row note that only holds for some tank jobs. The plan is generated per job,
+# so an off-list note is simply not written.
+TANK_NOTE_JOBS = {
+    11: (['GNB', 'DRK'], 'GNB/DRK can mit when the tether knockback appears.'),
+    31: (['WAR'], 'Holmgang instead if WAR.'),
+    89: (['PLD', 'WAR'], 'Press after the Chaos 2 debuff damage.'),
+    93: (['DRK', 'GNB'], 'Press at the start of the Ultima Upsurge castbar.'),
+}
+# Row notes rewritten from the source's shorthand, or dropped where they only
+# point at a picture in the spreadsheet.
+TANK_NOTES = {
+    9: 'Mit immediately after the second buster hit.',
+    21: 'Press when Confetti is on 1s to catch Light of Judgement.',
+    23: 'Press on cooldown.',
+    55: 'Assumes Exdeath is held middle. Check the wall-Exdeath sheet for Walldeath.',
+    69: 'Covered by the Thunder III mitigation above.',
+    81: 'Only if you are third in line. Cover your co-tank if they are.',
+    101: 'At a third of the "I\'ll raze to the ground" textbox.',
+    103: 'The OT starts with aggro.',
+    107: 'Voke again for safety - the OT needs aggro.',
+    109: 'Tank swap so the boss does not get dragged out.',
+    113: 'The MT is main threat until the next flare.',
+    121: 'Tank swap so the boss does not get dragged out. Press Rampart last so it holds until the final auto.',
+}
+# A note that belongs to some rows only for one seat.
+TANK_SEAT_NOTES = {(21, 'MT'): 'WAR/PLD mit after the Confetti hit.'}
+
+# Phase-wide asides on the tank plan, from the sheet's assignment headers.
+TANK_PHASE_NOTES = {
+    'p3': ('The MT starts on Exdeath and the OT on Chaos, then the two swap during the '
+           'Decisive Battle by standing under their boss after it cast-locks and provoking. '
+           'Paladin is forced offtank from P3 onward: the invulns do not work with a Paladin '
+           'main tank.'),
+}
+
+
+def tank_actions(raw, job, row, seat):
+    """One MT/OT cell -> action dicts for this job."""
+    pairs = TANK_CELLS.get((row, seat))
+    if pairs is None:
+        pairs = [(token, None) for token in split_top(clean(raw), [' + ', '+'])] if raw else []
+    tokens = tank_tokens(job)
+    out = []
+    for token, note in pairs:
+        if token == 'Short to cotank':
+            for name in BUDDY_MIT[job]:
+                out.append({'name': name, 'buddy': True})
+            continue
+        if token not in tokens:
+            raise ValueError(f'Unknown tank token {token!r} (row {row} {seat})')
+        for name in tokens[token]:
+            action = {'name': name}
+            if note == 'CARRY':
+                action['carryOver'] = True
+            elif note:
+                action['note'] = note
+            out.append(action)
+    seen, deduped = set(), []
+    for action in out:
+        key = (action['name'], action.get('note'), action.get('carryOver'))
+        if key not in seen:
+            seen.add(key)
+            deduped.append(action)
+    return deduped
+
+
+def convert_tanks(path, phase_starts):
+    archive = zipfile.ZipFile(path)
+    strings = [''.join(node.itertext()) for node in
+               ET.fromstring(archive.read('xl/sharedStrings.xml'))]
+    cells = read_cells(archive, strings, TANK_SHEET)
+
+    def seconds(value):
+        """Seconds from a B-cell: a stored time fraction, or '15:07~'."""
+        try:
+            return round(float(value) * 1440)
+        except (TypeError, ValueError):
+            match = re.search(r'(\d+):(\d+)', str(value))
+            return int(match.group(1)) * 60 + int(match.group(2)) if match else 0
+
+    plans = []
+    for job in TANKS:
+        phases = {}
+        for row, (phase_id, anchor) in sorted(TANK_ROWS.items()):
+            start = phase_starts[phase_id]
+            relative = max(0, seconds(cells.get(f'B{row}')) - start)
+            name = clean(cells.get(f'C{row}', ''))
+            notes = []
+            if row in TANK_NOTES:
+                notes.append(TANK_NOTES[row])
+            elif cells.get(f'F{row}') and row not in TANK_NOTE_JOBS:
+                notes.append(clean(cells[f'F{row}']))
+            if row in TANK_NOTE_JOBS:
+                jobs, text_note = TANK_NOTE_JOBS[row]
+                if job in jobs:
+                    notes.append(text_note)
+            by_seat = {seat: tank_actions(cells.get(f'{column}{row}'), job, row, seat)
+                       for seat, column in (('MT', 'D'), ('OT', 'E'))}
+            # A row note belongs to whoever presses something on that row. When
+            # neither seat does the row is a marker ("Covered by the Thunder III
+            # mitigation above") and both keep it; otherwise the idle seat would
+            # show a note about the other tank's press.
+            marker = not any(by_seat.values())
+            for seat in ('MT', 'OT'):
+                actions = by_seat[seat]
+                seat_notes = list(notes) if actions or marker else []
+                if (row, seat) in TANK_SEAT_NOTES and actions:
+                    seat_notes.append(TANK_SEAT_NOTES[(row, seat)])
+                if not actions and not seat_notes:
+                    continue
+                mechanic = {'id': f'{job}-r{row}-{seat}'.lower(), 'name': name,
+                            'time': f'{relative // 60}:{relative % 60:02}'}
+                if anchor:
+                    mechanic['after'] = anchor
+                mechanic['seat'] = seat
+                if seat_notes:
+                    mechanic['note'] = ' '.join(dict.fromkeys(seat_notes))
+                mechanic['actions'] = actions
+                phases.setdefault(phase_id, []).append(mechanic)
+        plans.append({'job': job, 'phases': [
+            {'id': phase_id,
+             **({'note': TANK_PHASE_NOTES[phase_id]} if phase_id in TANK_PHASE_NOTES else {}),
+             'mechanics': mechanics}
+            for phase_id, mechanics in phases.items()
+        ]})
+    return {
+        'note': 'Tank personal mit from the LPDU tank sheet, which is universal: '
+                'both bosses in P3 and both invulns in P5 are fixed by seat, so there is '
+                'nothing to choose here.',
+        'plans': plans,
+    }
+
+
 if __name__ == '__main__':
     sheet = convert(sys.argv[1])
+    if len(sys.argv) > 2:
+        encounter = json.loads((Path(__file__).resolve().parent.parent / 'data' / 'fights'
+                                / 'dmu' / 'encounter.json').read_text(encoding='utf-8'))
+        starts = {p['id']: int(p['start'].split(':')[0]) * 60 + int(p['start'].split(':')[1])
+                  for p in encounter['phases']}
+        sheet['tankMits'] = convert_tanks(sys.argv[2], starts)
     out = Path(__file__).resolve().parent.parent / 'data' / 'fights' / 'dmu' / 'sheets' / 'lpdu.json'
     out.write_text(json.dumps(sheet, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
     print(f'wrote {out}')

@@ -87,5 +87,19 @@ export function slotIdFor(sheet: { slots: { id: string; job?: string; role?: str
 export const jobsForRole = (role?: string) =>
   role ? catalog.jobs.filter(j => j.role === role) : catalog.jobs
 
+/** The jobs a seat offers: its role's jobs, narrowed by any `jobs` list the
+ *  sheet puts on that slot. A sheet restricts a seat when its plan only works
+ *  one way round - LPDU's invulns do not line up with a Paladin main tank. */
+export const jobsForSeat = (
+  sheet: { slots: { id: string; job?: string; role?: string; jobs?: string[] }[] },
+  position?: Position,
+) => {
+  const allowed = position?.slotId
+    ? sheet.slots.find(s => s.id === position.slotId)?.jobs
+    : undefined
+  const jobs = jobsForRole(position?.role)
+  return allowed ? jobs.filter(j => allowed.includes(j.id)) : jobs
+}
+
 export const isKnownPosition = (sheet: { slots: { id: string; job?: string; role?: string }[] }, id: string) =>
   positionsForSheet(sheet).some(p => p.id === id)

@@ -76,6 +76,19 @@ test('rejects a mechanic scoped to something that is not a role', () => {
   }, {}, jobs))
 })
 
+test('accepts a seat restricted to some of its role\'s jobs', () => {
+  const restricted = structuredClone(sheet)
+  restricted.slots[0] = { ...restricted.slots[0], jobs: ['WAR', 'DRK', 'GNB'] }
+  const catalog = validateCatalog(files(restricted), {}, jobs)
+  assert.deepEqual(catalog.sheets[0].slots[0].jobs, ['WAR', 'DRK', 'GNB'])
+})
+
+test('rejects a seat restriction that is not a job ID', () => {
+  const restricted = structuredClone(sheet)
+  restricted.slots[0] = { ...restricted.slots[0], jobs: ['Warrior'] }
+  assert.throws(() => validateCatalog(files(restricted), {}, jobs))
+})
+
 test('validates the repository catalog and keeps FFLogs placeholders empty', () => {
   const root = new URL('../data/fights/', import.meta.url)
   const dataFiles = readdirSync(root, { recursive: true, encoding: 'utf8' })

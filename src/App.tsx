@@ -10,7 +10,7 @@ import {
   IconInfoCircle, IconLayoutGrid, IconMoon, IconPictureInPicture, IconSun,
 } from '@tabler/icons-react'
 import catalog from './data/catalog'
-import { jobsForRole, positionsForSheet, slotIdFor } from './data/resolve'
+import { jobsForRole, jobsForSeat, positionsForSheet, slotIdFor } from './data/resolve'
 import MitView, { type Display, type Layout } from './components/MitView'
 import { theme } from './theme'
 import { initialSelection, readMap, readStored, sheetKey, sheetPath, storeMap, storeValue } from './state'
@@ -89,7 +89,7 @@ function Shell() {
   const viewing = selection.viewing && fight && sheet && selection.roleId
   const positions = sheet ? positionsForSheet(sheet) : []
   const position = positions.find(p => p.id === selection.roleId)
-  const jobOptions = jobsForRole(position?.role)
+  const jobOptions = sheet ? jobsForSeat(sheet, position) : jobsForRole(position?.role)
   // Keep the viewer's job when the new seat can still take it, otherwise clear
   // it rather than silently showing another role's plan.
   const job = jobOptions.find(j => j.id === jobId)
@@ -286,8 +286,11 @@ function Shell() {
       ]}
     />
   </Input.Wrapper> : null
-  // P3 boss / P5 invuln branch toggles for a job-keyed sheet (DMU). Mits page only.
-  const tankBranchToggles = tankPlans.length === 0 || paired ? null
+  // P3 boss / P5 invuln branch toggles for a job-keyed sheet whose rows really
+  // do branch (ikuya). A sheet may key by job and still not branch - LPDU fixes
+  // both bosses and both invulns by seat - and then there is nothing to toggle.
+  const branches = tankPlans.some(p => p.phases.some(ph => ph.mechanics.some(m => m.boss || m.invuln)))
+  const tankBranchToggles = tankPlans.length === 0 || paired || !branches ? null
     : <>
       <Input.Wrapper
         label={<Group gap={4} align="center" wrap="nowrap">P3 boss{priorityTip(priorities?.p3Boss, k => k)}</Group>}
