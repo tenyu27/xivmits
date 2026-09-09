@@ -439,8 +439,10 @@ function Shell() {
             </Input.Wrapper>
           </Group>
           {/* Row 3 - where the page is drawn: the same plan on another surface.
-              Two separate buttons sharing one variant, not a joined pair. */}
-          {(cheatsheetHref || pip.supported) && <Group className="control-row" align="flex-end" gap="sm" wrap="wrap">
+              Two separate buttons sharing one variant, not a joined pair. The
+              rows above each carry a label, which is what sets them apart; this
+              row has none, so it buys the same separation back with `mt`. */}
+          {(cheatsheetHref || pip.supported) && <Group className="control-row" align="flex-end" gap="sm" wrap="wrap" mt="lg">
             {cheatsheetHref && <Button
               component="a" href={cheatsheetHref} variant="default" size="sm"
               leftSection={<IconLayoutGrid size={18} aria-hidden />}
