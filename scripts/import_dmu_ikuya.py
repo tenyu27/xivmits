@@ -10,9 +10,14 @@ import sys
 import zipfile
 import xml.etree.ElementTree as ET
 from pathlib import Path
-from normalize_sheet import normalize_encounter
+import workbook
+from normalize_sheet import bind_sheet, load_encounter
 
 NS = {'s': 'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
+SHEET_ID = '10C3ytfH3irHqkb45rchIq5oqdAs-v_OKTj57M-Twi3k'
+PHASE_TABS = ['P1 | Kefka', 'P2 | Forsaken Kefka', 'P3 | Chaos & Exdeath',
+              'P4 | Kefka Says', 'P5 | Kefka Reimagined']
+OMNITANK_TAB = 'Omnitank'
 COLUMNS = {'F': 'MT', 'H': 'OT', 'J': 'WHM', 'L': 'AST', 'N': 'SCH', 'P': 'SGE', 'R': 'M1', 'T': 'M2', 'V': 'P', 'X': 'C'}
 HEALERS = ['WHM', 'AST', 'SCH', 'SGE']
 # Which jobs may stand in each slot. Healer slots name a job outright; the tank
@@ -22,7 +27,57 @@ ROLES = {'MT': 'tank', 'OT': 'tank', 'M1': 'melee', 'M2': 'melee', 'P': 'ranged'
          **{job: 'healer' for job in HEALERS}}
 MARKERS = '⁰¹²³⁴⁵⁶⁷⁸⁹'
 MARKER = rf'[{MARKERS}]+'
-PHASE_NAMES = ['Kefka', 'Forsaken Kefka', 'Exdeath & Chaos', 'Kefka Says', 'Kefka Reimagined']
+# Workbook row name -> encounter mechanic name, where the two differ. The
+# encounter re-cut the black-hole tethers into sets of beams and renumbered
+# Fell Forces in fight order; the workbook still uses Ikuya's own wording.
+# Actions the workbook parks on one row but that really belong to later rows.
+# Ikuya writes "Sun Sign (7-8th Set)" on the 6th black-hole beam because their
+# sheet has no row for beams 7 and 8; the encounter does, so the press moves to
+# its own rows. It is pressed on beam 6 and is still running for 7 and 8, so the
+# later rows carry over rather than re-press.
+SPREAD_SUFFIX = ' (7-8th Set)'
+SPREAD_ONTO = {'p3-black-hole-6': ['p3-black-hole-7', 'p3-black-hole-8']}
+
+
+def spread_parked_actions(sheet):
+    """Move `<action> (7-8th Set)` off its parked row onto the rows it names."""
+    rows = {m['mechanicId']: m for phase in sheet['phases'] for m in phase['mechanics']}
+    for phase in sheet['phases']:
+        extra = []
+        for mechanic in phase['mechanics']:
+            targets = SPREAD_ONTO.get(mechanic['mechanicId'])
+            if not targets:
+                continue
+            for slot, actions in list(mechanic['assignments'].items()):
+                parked = [a for a in actions if a['name'].endswith(SPREAD_SUFFIX)]
+                if not parked:
+                    continue
+                mechanic['assignments'][slot] = [a for a in actions if a not in parked]
+                for target in targets:
+                    row = rows.get(target) or next(
+                        (e for e in extra if e['mechanicId'] == target), None)
+                    if row is None:
+                        row = {'mechanicId': target, 'assignments': {}}
+                        extra.append(row)
+                    row['assignments'].setdefault(slot, []).extend(
+                        {'name': a['name'][:-len(SPREAD_SUFFIX)], 'carryOver': True} for a in parked)
+        if extra:
+            order = [m['mechanicId'] for m in phase['mechanics']] + [e['mechanicId'] for e in extra]
+            phase['mechanics'] = sorted(phase['mechanics'] + extra,
+                                        key=lambda m: ORDER.get(m['mechanicId'], order.index(m['mechanicId'])))
+    return sheet
+
+
+ALIASES = {
+    'Black Holes II (3rd Tether Set)': 'Black Holes 2nd Set (Beam 1)',
+    'Black Holes II (4th Tether Set)': 'Black Holes 2nd Set (Beam 2)',
+    'Black Holes II (5th Tether Set)': 'Black Holes 2nd Set (Beam 3)',
+    'Black Holes III (6th Tether Set)': 'Black Holes 3rd Set (Beam 1)',
+    'Fell Forces (3x) 1': 'Fell Forces 1 (3x)',
+    'Fell Forces (2x) 1': 'Fell Forces 2 (2x)',
+    'Fell Forces (2x) 2': 'Fell Forces 3 (2x)',
+    'Fell Forces (3x) 2': 'Fell Forces 4 (3x)',
+}
 
 # Rules the source repeats on every row of a phase tab. Hoisted to the phase
 # note (shown once, one rule per line) instead of stamped onto each action, so a
@@ -206,7 +261,7 @@ def parse_omni_cell(text, job, notes):
 
 
 def convert_omnitank(archive, strings, party_phases, phase_starts):
-    root = ET.fromstring(archive.read('xl/worksheets/sheet15.xml'))
+    root = ET.fromstring(archive.read(workbook.worksheet(archive, OMNITANK_TAB)))
     cells = {}
     for cell in root.findall('.//s:sheetData/s:row/s:c', NS):
         value = cell.find('s:v', NS)
@@ -371,13 +426,13 @@ def clock_seconds(text):
     return int(minutes) * 60 + int(seconds)
 
 
-def convert(path):
-    archive = zipfile.ZipFile(path)
-    strings = [''.join(si.itertext()) for si in ET.fromstring(archive.read('xl/sharedStrings.xml'))]
+def convert():
+    archive = workbook.fetch(SHEET_ID)
+    strings = workbook.shared_strings(archive)
     sheet = {
         'id': 'ikuya', 'fightId': 'dmu', 'name': 'Ikuya Mitty',
         'author': 'Ikuya Kirishima', 'updated': '2026-09-07',
-        'sourceFile': Path(path).name, 'sourceVersion': '6.0 (1 Sep)',
+        'sourceVersion': '6.0 (1 Sep)',
         'source': {'name': 'Ikuya Mitty spreadsheet',
                    'url': 'https://docs.google.com/spreadsheets/d/10C3ytfH3irHqkb45rchIq5oqdAs-v_OKTj57M-Twi3k/edit'},
         'description': 'P1–P5 from Ikuya Kirishima’s mitigation plan. Choose a tank position, healer job, or DPS position.',
@@ -386,7 +441,7 @@ def convert(path):
     }
     phase_starts = []
     for phase_number in range(1, 6):
-        root = ET.fromstring(archive.read(f'xl/worksheets/sheet{phase_number + 5}.xml'))
+        root = ET.fromstring(archive.read(workbook.worksheet(archive, PHASE_TABS[phase_number - 1])))
         cells = {}
         for cell in root.findall('.//s:sheetData/s:row/s:c', NS):
             value = cell.find('s:v', NS)
@@ -516,19 +571,19 @@ def convert(path):
             phase['scopedNote'] = {'text': TARGETED_NOTE[phase_number], 'abilities': list(TARGETED_MIT)}
         sheet['phases'].append(phase)
     sheet['tankMits'] = convert_omnitank(archive, strings, sheet['phases'], phase_starts)
-    output = Path(__file__).resolve().parents[1] / 'packages/encounter-data/fights/dmu'
-    output.mkdir(parents=True, exist_ok=True)
-    fight = {'id': 'dmu', 'name': 'Dancing Mad (Ultimate)', 'shortName': 'DMU', 'type': 'Ultimate',
-             'phases': [{'id': f'p{i}', 'label': f'P{i}', 'name': name,
-                         'start': f'{phase_starts[i - 1] // 60}:{phase_starts[i - 1] % 60:02}'}
-                        for i, name in enumerate(PHASE_NAMES, 1)]}
-    encounter, sheet = normalize_encounter(fight, sheet)
-    (output / 'sheets').mkdir(parents=True, exist_ok=True)
-    for path, data in [('encounter.json', encounter), ('sheets/ikuya.json', sheet)]:
-        (output / path).write_text(json.dumps(data, indent=2, ensure_ascii=False) + '\n')
+    # The encounter is log-reconciled and read-only here: the workbook only says
+    # who presses what, so its rows bind onto the mechanics already on file.
+    encounter = load_encounter('dmu')
+    global ORDER
+    # Encounter order, so rows added for parked actions land in the right place.
+    ORDER = {m['id']: i for phase in encounter['phases']
+             for i, m in enumerate(phase['mechanics'])}
+    sheet = spread_parked_actions(bind_sheet(sheet, encounter, ALIASES))
+    out = Path(__file__).resolve().parents[1] / 'packages/encounter-data/fights/dmu/sheets/ikuya.json'
+    out.write_text(json.dumps(sheet, indent=2, ensure_ascii=False) + '\n')
     print([(p['id'], len(p['mechanics']), sum(len(a) for m in p['mechanics'] for a in m['assignments'].values())) for p in sheet['phases']])
     print([(p['job'], sum(len(m['actions']) for ph in p['phases'] for m in ph['mechanics'])) for p in sheet['tankMits']['plans']])
 
 
 if __name__ == '__main__':
-    convert(sys.argv[1])
+    convert()

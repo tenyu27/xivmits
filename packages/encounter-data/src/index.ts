@@ -9,6 +9,7 @@ export const dataRoot = fileURLToPath(new URL('../', import.meta.url))
 export const fightsDir = resolve(dataRoot, 'fights')
 export const iconsFile = resolve(dataRoot, 'icons.json')
 export const jobsFile = resolve(dataRoot, 'jobs.json')
+export const abilitiesFile = resolve(dataRoot, 'abilities.json')
 
 const readJson = (path: string) => JSON.parse(readFileSync(path, 'utf8'))
 
@@ -23,5 +24,5 @@ export function readFightFiles(): Record<string, unknown> {
 /** The validated catalog. Node-only (it reads from disk), so apps call it from
  *  a build step and ship the result, rather than at runtime in a browser. */
 export function loadCatalog(): Catalog {
-  return validateCatalog(readFightFiles(), readJson(iconsFile), readJson(jobsFile))
+  return validateCatalog(readFightFiles(), readJson(iconsFile), readJson(jobsFile), readJson(abilitiesFile))
 }

@@ -16,7 +16,8 @@ import sys
 import zipfile
 import xml.etree.ElementTree as ET
 from pathlib import Path
-from normalize_sheet import normalize_encounter
+import workbook
+from normalize_sheet import bind_sheet, load_encounter
 
 NS = {'s': 'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
 
@@ -33,8 +34,9 @@ ROLES = {'T1': 'tank', 'T2': 'tank', **{j: 'healer' for j in HEALERS},
 # (phase ID, worksheet number, which "Tank 1" header block in that sheet). Every
 # party grid is its own worksheet except "Final Omega" (sheet 4), which stacks
 # two: "P3: Final Omega" then, far below, "P4: Blue Screen".
-PHASES = [('p1', 2, 1), ('p2', 3, 1), ('p3', 4, 1), ('p4', 4, 2),
-          ('p5', 5, 1), ('p6', 6, 1)]
+SHEET_ID = '1ROErvG1BhTuNvXqPGcR6ZyyhJ7uNTZdf2WzKyVj9hh4'
+PHASES = [('p1', 'Beetle', 1), ('p2', 'MF', 1), ('p3', 'Final Omega', 1),
+          ('p4', 'Final Omega', 2), ('p5', 'Dynamis', 1), ('p6', 'Alpha Omega', 1)]
 
 # The sheet writes healer mit in shorthand; expand to the in-game action name so
 # the text reads on its own and scripts/fetch_icons.py can resolve an icon.
@@ -58,8 +60,8 @@ EVERYTHING = {
 
 # Per-pairing tabs -> (job A, job B, worksheet number). Column C is job A,
 # column G is job B; each tab yields two plans (A paired with B, B with A).
-TANK_TABS = [('WAR', 'DRK', 7), ('WAR', 'GNB', 8), ('WAR', 'PLD', 9),
-             ('GNB', 'DRK', 10), ('GNB', 'PLD', 11), ('PLD', 'DRK', 12)]
+TANK_TABS = [('WAR', 'DRK', 'WARDRK'), ('WAR', 'GNB', 'WARGNB'), ('WAR', 'PLD', 'WARPLD'),
+             ('GNB', 'DRK', 'GNBDRK'), ('GNB', 'PLD', 'GNBPLD'), ('PLD', 'DRK', 'PLDDRK')]
 TANK_FULLNAME = {'WARRIOR': 'WAR', 'DARK KNIGHT': 'DRK', 'GUNBREAKER': 'GNB', 'PALADIN': 'PLD'}
 
 # The pairing tabs write mit in shorthand and with a few typos; expand to the
@@ -178,7 +180,7 @@ def extras(raw):
 
 def read_cells(archive, strings, worksheet):
     # Flatten one worksheet to {cell ref: text}, plus the highest row seen.
-    root = ET.fromstring(archive.read(f'xl/worksheets/sheet{worksheet}.xml'))
+    root = ET.fromstring(archive.read(workbook.worksheet(archive, worksheet)))
     cells, maxrow = {}, 0
     for cell in root.findall('.//s:sheetData/s:row/s:c', NS):
         value = cell.find('s:v', NS)
@@ -345,13 +347,13 @@ def convert_tank_tabs(archive, strings, party_phases):
     return {'plans': plans}
 
 
-def convert(path):
-    archive = zipfile.ZipFile(path)
+def convert():
+    archive = workbook.fetch(SHEET_ID)
     strings = [''.join(si.itertext()) for si in ET.fromstring(archive.read('xl/sharedStrings.xml'))]
     sheet = {
         'id': 'topmitty', 'fightId': 'top', 'name': 'TOP Mitty',
         'author': 'Malachite Laurent', 'updated': '2026-09-07',
-        'sourceFile': Path(path).name,
+
         'source': {'name': 'TOP Mitty spreadsheet',
                    'url': 'https://docs.google.com/spreadsheets/d/1ROErvG1BhTuNvXqPGcR6ZyyhJ7uNTZdf2WzKyVj9hh4/edit'},
         'description': "Party mitigation for TOP from Malachite Laurent's plan. "
@@ -363,7 +365,7 @@ def convert(path):
     worksheets = {}
     for phase_id, worksheet, occurrence in PHASES:
         if worksheet not in worksheets:
-            root = ET.fromstring(archive.read(f'xl/worksheets/sheet{worksheet}.xml'))
+            root = ET.fromstring(archive.read(workbook.worksheet(archive, worksheet)))
             cells = {}
             for cell in root.findall('.//s:sheetData/s:row/s:c', NS):
                 value = cell.find('s:v', NS)
@@ -397,11 +399,11 @@ def convert(path):
             mechanics.append(mechanic)
         sheet['phases'].append({'id': phase_id, 'mechanics': mechanics})
     sheet['tankMits'] = convert_tank_tabs(archive, strings, sheet['phases'])
-    encounter, sheet = normalize_encounter(FIGHT, sheet)
-    output = Path(__file__).resolve().parents[1] / 'packages/encounter-data/fights/top'
-    (output / 'sheets').mkdir(parents=True, exist_ok=True)
-    for path, data in [('encounter.json', encounter), ('sheets/topmitty.json', sheet)]:
-        (output / path).write_text(json.dumps(data, indent=2, ensure_ascii=False) + '\n')
+    # The encounter is the fight's source of truth and is never written here;
+    # the workbook's rows bind onto the mechanics already on file.
+    sheet = bind_sheet(sheet, load_encounter('top'))
+    out = Path(__file__).resolve().parents[1] / 'packages/encounter-data/fights/top/sheets/topmitty.json'
+    out.write_text(json.dumps(sheet, indent=2, ensure_ascii=False) + '\n')
     print([(p['id'], len(p['mechanics']),
             sum(len(a) for m in p['mechanics'] for a in m['assignments'].values())) for p in sheet['phases']])
     print([(f"{p['job']}+{p['with']}", sum(len(m['actions']) for ph in p['phases'] for m in ph['mechanics']))
@@ -409,4 +411,4 @@ def convert(path):
 
 
 if __name__ == '__main__':
-    convert(sys.argv[1])
+    convert()

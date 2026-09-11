@@ -1,0 +1,684 @@
+{
+  "abilities": {
+    "90s-mit": {
+      "name": "90s Mit",
+      "kind": "generic"
+    },
+    "addle": {
+      "name": "Addle",
+      "kind": "action",
+      "icon": "000861.png",
+      "action": 7560
+    },
+    "adloquium": {
+      "name": "Adloquium",
+      "kind": "action",
+      "icon": "002801.png",
+      "action": 185
+    },
+    "aetherpact": {
+      "name": "Aetherpact",
+      "kind": "action",
+      "icon": "002816.png",
+      "action": 7437
+    },
+    "aquaveil": {
+      "name": "Aquaveil",
+      "kind": "action",
+      "icon": "002648.png",
+      "action": 25861
+    },
+    "assist-tanks": {
+      "name": "Assist Tanks",
+      "kind": "note"
+    },
+    "asylum": {
+      "name": "Asylum",
+      "kind": "action",
+      "icon": "002632.png",
+      "action": 3569
+    },
+    "avoid-hp-restoring-abilities": {
+      "name": "Avoid HP-restoring abilities",
+      "kind": "note"
+    },
+    "babysit-the-beam-tank": {
+      "name": "Babysit the beam tank",
+      "kind": "note"
+    },
+    "benediction": {
+      "name": "Benediction",
+      "kind": "action",
+      "icon": "002627.png",
+      "action": 140
+    },
+    "bloodwhetting": {
+      "name": "Bloodwhetting",
+      "kind": "action",
+      "icon": "002569.png",
+      "action": 25751
+    },
+    "buddy-mit": {
+      "name": "Buddy Mit",
+      "kind": "note"
+    },
+    "bulwark": {
+      "name": "Bulwark",
+      "kind": "action",
+      "icon": "000167.png",
+      "action": 22
+    },
+    "camouflage": {
+      "name": "Camouflage",
+      "kind": "action",
+      "icon": "003404.png",
+      "action": 16140
+    },
+    "celestial-intersection": {
+      "name": "Celestial Intersection",
+      "kind": "action",
+      "icon": "003556.png",
+      "action": 16556
+    },
+    "collective-unconscious": {
+      "name": "Collective Unconscious",
+      "kind": "action",
+      "icon": "003140.png",
+      "action": 3613
+    },
+    "concitation": {
+      "name": "Concitation",
+      "kind": "action",
+      "icon": "002880.png",
+      "action": 37013
+    },
+    "consolation": {
+      "name": "Consolation",
+      "kind": "action",
+      "icon": "002851.png",
+      "action": 16546
+    },
+    "damnation": {
+      "name": "Damnation",
+      "kind": "action",
+      "icon": "002573.png",
+      "action": 36923
+    },
+    "dark-mind": {
+      "name": "Dark Mind",
+      "kind": "action",
+      "icon": "003076.png",
+      "action": 3634
+    },
+    "dark-missionary": {
+      "name": "Dark Missionary",
+      "kind": "action",
+      "icon": "003087.png",
+      "action": 16471
+    },
+    "deployment-tactics": {
+      "name": "Deployment Tactics",
+      "kind": "action",
+      "icon": "002808.png",
+      "action": 3585
+    },
+    "dismantle": {
+      "name": "Dismantle",
+      "kind": "action",
+      "icon": "003011.png",
+      "action": 2887
+    },
+    "divine-benison": {
+      "name": "Divine Benison",
+      "kind": "action",
+      "icon": "002638.png",
+      "action": 7432
+    },
+    "divine-caress": {
+      "name": "Divine Caress",
+      "kind": "action",
+      "icon": "002128.png",
+      "action": 37011
+    },
+    "divine-veil": {
+      "name": "Divine Veil",
+      "kind": "action",
+      "icon": "002508.png",
+      "action": 3540
+    },
+    "druochole": {
+      "name": "Druochole",
+      "kind": "action",
+      "icon": "003664.png",
+      "action": 24296
+    },
+    "earthly-star": {
+      "name": "Earthly Star",
+      "kind": "action",
+      "icon": "003143.png",
+      "action": 7439
+    },
+    "eukrasian-diagnosis": {
+      "name": "Eukrasian Diagnosis",
+      "kind": "action",
+      "icon": "003659.png",
+      "action": 24291
+    },
+    "eukrasian-prognosis": {
+      "name": "Eukrasian Prognosis",
+      "kind": "action",
+      "icon": "003660.png",
+      "action": 24292
+    },
+    "eukrasian-prognosis-ii": {
+      "name": "Eukrasian Prognosis II",
+      "kind": "action",
+      "icon": "003689.png",
+      "action": 37034
+    },
+    "exaltation": {
+      "name": "Exaltation",
+      "kind": "action",
+      "icon": "003561.png",
+      "action": 25873
+    },
+    "excogitation": {
+      "name": "Excogitation",
+      "kind": "action",
+      "icon": "002813.png",
+      "action": 7434
+    },
+    "expedient": {
+      "name": "Expedient",
+      "kind": "action",
+      "icon": "002878.png",
+      "action": 25868
+    },
+    "extra": {
+      "name": "Extra",
+      "kind": "generic"
+    },
+    "feint": {
+      "name": "Feint",
+      "kind": "action",
+      "icon": "000828.png",
+      "action": 7549
+    },
+    "fey-illumination": {
+      "name": "Fey Illumination",
+      "kind": "action",
+      "icon": "002853.png",
+      "action": 16538
+    },
+    "great-nebula": {
+      "name": "Great Nebula",
+      "kind": "action",
+      "icon": "003435.png",
+      "action": 36935
+    },
+    "guardian": {
+      "name": "Guardian",
+      "kind": "action",
+      "icon": "002524.png",
+      "action": 36920
+    },
+    "haima": {
+      "name": "Haima",
+      "kind": "action",
+      "icon": "003673.png",
+      "action": 24305
+    },
+    "hallowed-ground": {
+      "name": "Hallowed Ground",
+      "kind": "action",
+      "icon": "002502.png",
+      "action": 30
+    },
+    "heart-of-corundum": {
+      "name": "Heart of Corundum",
+      "kind": "action",
+      "icon": "003430.png",
+      "action": 25758
+    },
+    "heart-of-light": {
+      "name": "Heart of Light",
+      "kind": "action",
+      "icon": "003424.png",
+      "action": 16160
+    },
+    "holmgang": {
+      "name": "Holmgang",
+      "kind": "action",
+      "icon": "000266.png",
+      "action": 43
+    },
+    "holos": {
+      "name": "Holos",
+      "kind": "action",
+      "icon": "003678.png",
+      "action": 24310
+    },
+    "holy-sheltron": {
+      "name": "Holy Sheltron",
+      "kind": "action",
+      "icon": "002950.png",
+      "action": 25746
+    },
+    "horoscope": {
+      "name": "Horoscope",
+      "kind": "action",
+      "icon": "003550.png",
+      "action": 16557
+    },
+    "intervention": {
+      "name": "Intervention",
+      "kind": "action",
+      "icon": "002512.png",
+      "action": 7382
+    },
+    "ixochole": {
+      "name": "Ixochole",
+      "kind": "action",
+      "icon": "003667.png",
+      "action": 24299
+    },
+    "kerachole": {
+      "name": "Kerachole",
+      "kind": "action",
+      "icon": "003666.png",
+      "action": 24298
+    },
+    "krasis": {
+      "name": "Krasis",
+      "kind": "action",
+      "icon": "003685.png",
+      "action": 24317
+    },
+    "last-bastion": {
+      "name": "Last Bastion",
+      "kind": "action",
+      "icon": "000103.png",
+      "action": 199
+    },
+    "liturgy-of-the-bell": {
+      "name": "Liturgy of the Bell",
+      "kind": "action",
+      "icon": "002649.png",
+      "action": 25862
+    },
+    "living-dead": {
+      "name": "Living Dead",
+      "kind": "action",
+      "icon": "003077.png",
+      "action": 3638
+    },
+    "macrocosmos": {
+      "name": "Macrocosmos",
+      "kind": "action",
+      "icon": "003562.png",
+      "action": 25874
+    },
+    "magick-barrier": {
+      "name": "Magick Barrier",
+      "kind": "action",
+      "icon": "003237.png",
+      "action": 25857
+    },
+    "manage-accretion-healing": {
+      "name": "Manage Accretion healing",
+      "kind": "note"
+    },
+    "nascent-flash": {
+      "name": "Nascent Flash",
+      "kind": "action",
+      "icon": "002567.png",
+      "action": 16464
+    },
+    "neutral-sect": {
+      "name": "Neutral Sect",
+      "kind": "action",
+      "icon": "003552.png",
+      "action": 16559
+    },
+    "oblation": {
+      "name": "Oblation",
+      "kind": "action",
+      "icon": "003089.png",
+      "action": 25754
+    },
+    "panhaima": {
+      "name": "Panhaima",
+      "kind": "action",
+      "icon": "003679.png",
+      "action": 24311
+    },
+    "party-mit": {
+      "name": "Party Mit",
+      "kind": "generic"
+    },
+    "pepsis": {
+      "name": "Pepsis",
+      "kind": "action",
+      "icon": "003669.png",
+      "action": 24301
+    },
+    "philosophia": {
+      "name": "Philosophia",
+      "kind": "action",
+      "icon": "003690.png",
+      "action": 37035
+    },
+    "physis-ii": {
+      "name": "Physis II",
+      "kind": "action",
+      "icon": "003670.png",
+      "action": 24302
+    },
+    "plenary-indulgence": {
+      "name": "Plenary Indulgence",
+      "kind": "action",
+      "icon": "002639.png",
+      "action": 7433
+    },
+    "pneuma": {
+      "name": "Pneuma",
+      "kind": "action",
+      "icon": "003686.png",
+      "action": 24318
+    },
+    "prognosis": {
+      "name": "Prognosis",
+      "kind": "action",
+      "icon": "003654.png",
+      "action": 24286
+    },
+    "protraction": {
+      "name": "Protraction",
+      "kind": "action",
+      "icon": "002877.png",
+      "action": 25867
+    },
+    "provoke": {
+      "name": "Provoke",
+      "kind": "action",
+      "icon": "000803.png",
+      "action": 7533
+    },
+    "rampart": {
+      "name": "Rampart",
+      "kind": "action",
+      "icon": "000801.png",
+      "action": 7531
+    },
+    "recitation": {
+      "name": "Recitation",
+      "kind": "action",
+      "icon": "002822.png",
+      "action": 16542
+    },
+    "regen": {
+      "name": "Regen",
+      "kind": "action",
+      "icon": "002628.png",
+      "action": 137
+    },
+    "reprisal": {
+      "name": "Reprisal",
+      "kind": "action",
+      "icon": "000806.png",
+      "action": 7535
+    },
+    "sacred-soil": {
+      "name": "Sacred Soil",
+      "kind": "action",
+      "icon": "002804.png",
+      "action": 188
+    },
+    "sentinel": {
+      "name": "Sentinel",
+      "kind": "action",
+      "icon": "000151.png",
+      "action": 17
+    },
+    "seraphism": {
+      "name": "Seraphism",
+      "kind": "action",
+      "icon": "002881.png",
+      "action": 37014
+    },
+    "shadow-wall": {
+      "name": "Shadow Wall",
+      "kind": "action",
+      "icon": "003075.png",
+      "action": 3636
+    },
+    "shadowed-vigil": {
+      "name": "Shadowed Vigil",
+      "kind": "action",
+      "icon": "003094.png",
+      "action": 36927
+    },
+    "shake-it-off": {
+      "name": "Shake It Off",
+      "kind": "action",
+      "icon": "002563.png",
+      "action": 7388
+    },
+    "shield-samba": {
+      "name": "Shield Samba",
+      "kind": "action",
+      "icon": "003469.png",
+      "action": 16012
+    },
+    "succor": {
+      "name": "Succor",
+      "kind": "action",
+      "icon": "002802.png",
+      "action": 186
+    },
+    "summon-seraph": {
+      "name": "Summon Seraph",
+      "kind": "action",
+      "icon": "002850.png",
+      "action": 16545
+    },
+    "sun-sign": {
+      "name": "Sun Sign",
+      "kind": "action",
+      "icon": "003109.png",
+      "action": 37031
+    },
+    "superbolide": {
+      "name": "Superbolide",
+      "kind": "action",
+      "icon": "003416.png",
+      "action": 16152
+    },
+    "tactician": {
+      "name": "Tactician",
+      "kind": "action",
+      "icon": "003040.png",
+      "action": 16889
+    },
+    "taurochole": {
+      "name": "Taurochole",
+      "kind": "action",
+      "icon": "003671.png",
+      "action": 24303
+    },
+    "tempera-grassa": {
+      "name": "Tempera Grassa",
+      "kind": "action",
+      "icon": "003836.png",
+      "action": 34686
+    },
+    "temperance": {
+      "name": "Temperance",
+      "kind": "action",
+      "icon": "002645.png",
+      "action": 16536
+    },
+    "the-blackest-night": {
+      "name": "The Blackest Night",
+      "kind": "action",
+      "icon": "003081.png",
+      "action": 7393
+    },
+    "the-bole": {
+      "name": "The Bole",
+      "kind": "status",
+      "icon": "213205.png"
+    },
+    "the-ewer": {
+      "name": "The Ewer",
+      "kind": "status",
+      "icon": "213208.png"
+    },
+    "thrill-of-battle": {
+      "name": "Thrill of Battle",
+      "kind": "action",
+      "icon": "000263.png",
+      "action": 40
+    },
+    "troubadour": {
+      "name": "Troubadour",
+      "kind": "action",
+      "icon": "002612.png",
+      "action": 7405
+    },
+    "voke-after-buster": {
+      "name": "Voke after Buster",
+      "kind": "note"
+    },
+    "whispering-dawn": {
+      "name": "Whispering Dawn",
+      "kind": "action",
+      "icon": "002852.png",
+      "action": 16537
+    },
+    "zoe": {
+      "name": "Zoe",
+      "kind": "action",
+      "icon": "003668.png",
+      "action": 24300
+    }
+  },
+  "names": {
+    "90s Mit": "90s-mit",
+    "Addle": "addle",
+    "Addle (Exdeath)": "addle",
+    "Adloquium": "adloquium",
+    "Aetherpact": "aetherpact",
+    "Aquaveil": "aquaveil",
+    "Assist Tanks": "assist-tanks",
+    "Asylum": "asylum",
+    "Avoid HP-restoring abilities": "avoid-hp-restoring-abilities",
+    "Babysit the beam tank": "babysit-the-beam-tank",
+    "Benediction": "benediction",
+    "Bloodwhetting": "bloodwhetting",
+    "Buddy Mit": "buddy-mit",
+    "Bulwark": "bulwark",
+    "Camouflage": "camouflage",
+    "Celestial Intersection": "celestial-intersection",
+    "Collective Unconscious": "collective-unconscious",
+    "Concitation": "concitation",
+    "Consolation": "consolation",
+    "Damnation": "damnation",
+    "Dark Mind": "dark-mind",
+    "Dark Missionary": "dark-missionary",
+    "Deployment Tactics": "deployment-tactics",
+    "Dismantle": "dismantle",
+    "Divine Benison": "divine-benison",
+    "Divine Caress": "divine-caress",
+    "Divine Veil": "divine-veil",
+    "Druochole": "druochole",
+    "Earthly Star": "earthly-star",
+    "Eukrasian Diagnosis": "eukrasian-diagnosis",
+    "Eukrasian Prognosis": "eukrasian-prognosis",
+    "Eukrasian Prognosis II": "eukrasian-prognosis-ii",
+    "Exaltation": "exaltation",
+    "Excogitation": "excogitation",
+    "Expedient": "expedient",
+    "Extra (MCH)": "extra",
+    "Extra (RDM)": "extra",
+    "Extra (RDM/MCH)": "extra",
+    "Feint": "feint",
+    "Feint (Chaos)": "feint",
+    "Fey Illumination": "fey-illumination",
+    "Great Nebula": "great-nebula",
+    "Guardian": "guardian",
+    "Haima": "haima",
+    "Hallowed Ground": "hallowed-ground",
+    "Hallowed Ground (Passage of Arms)": "hallowed-ground",
+    "Healer LB": "last-bastion",
+    "Heart of Corundum": "heart-of-corundum",
+    "Heart of Light": "heart-of-light",
+    "Holmgang": "holmgang",
+    "Holos": "holos",
+    "Holy Sheltron": "holy-sheltron",
+    "Holy Sheltron (hold Passage for Block)": "holy-sheltron",
+    "Holy Sheltron (hold Passage for block)": "holy-sheltron",
+    "Horoscope": "horoscope",
+    "Intervention": "intervention",
+    "Ixochole": "ixochole",
+    "Kerachole": "kerachole",
+    "Krasis": "krasis",
+    "LB3": "last-bastion",
+    "Liturgy of the Bell": "liturgy-of-the-bell",
+    "Living Dead": "living-dead",
+    "Macrocosmos": "macrocosmos",
+    "Magick Barrier": "magick-barrier",
+    "Manage Accretion healing": "manage-accretion-healing",
+    "Nascent Flash": "nascent-flash",
+    "Neutral Sect": "neutral-sect",
+    "Oblation": "oblation",
+    "Oblation (DRK)": "oblation",
+    "Panhaima": "panhaima",
+    "Party Mit": "party-mit",
+    "Party Mit (GNB/DRK)": "party-mit",
+    "Party Mit (WAR)": "party-mit",
+    "Party Mit (WAR/PLD)": "party-mit",
+    "Pepsis": "pepsis",
+    "Philosophia": "philosophia",
+    "Physis II": "physis-ii",
+    "Plenary Indulgence": "plenary-indulgence",
+    "Pneuma": "pneuma",
+    "Prognosis": "prognosis",
+    "Protraction": "protraction",
+    "Provoke": "provoke",
+    "Rampart": "rampart",
+    "Recitation": "recitation",
+    "Regen": "regen",
+    "Reprisal": "reprisal",
+    "Reprisal (Exdeath)": "reprisal",
+    "Sacred Soil": "sacred-soil",
+    "Sentinel": "sentinel",
+    "Seraph": "summon-seraph",
+    "Seraph's Veil": "summon-seraph",
+    "Seraphism": "seraphism",
+    "Shadow Wall": "shadow-wall",
+    "Shadowed Vigil": "shadowed-vigil",
+    "Shake It Off": "shake-it-off",
+    "Shield Samba": "shield-samba",
+    "Spreadlo": "deployment-tactics",
+    "Succor": "succor",
+    "Summon Seraph": "summon-seraph",
+    "Sun Sign": "sun-sign",
+    "Superbolide": "superbolide",
+    "Tactician": "tactician",
+    "Tank LB": "last-bastion",
+    "Taurochole": "taurochole",
+    "Tempera Grassa": "tempera-grassa",
+    "Temperance": "temperance",
+    "The Blackest Night": "the-blackest-night",
+    "The Bole": "the-bole",
+    "The Ewer": "the-ewer",
+    "Thrill of Battle": "thrill-of-battle",
+    "Troubadour": "troubadour",
+    "Vengeance": "damnation",
+    "Voke after Buster": "voke-after-buster",
+    "Whispering Dawn": "whispering-dawn",
+    "Zoe": "zoe",
+    "Zoe Shields": "zoe"
+  }
+}

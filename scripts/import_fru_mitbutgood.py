@@ -31,9 +31,11 @@ import sys
 import zipfile
 import xml.etree.ElementTree as ET
 from pathlib import Path
-from normalize_sheet import normalize_encounter
+import workbook
+from normalize_sheet import bind_sheet, load_encounter
 
 NS = {'s': 'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
+SHEET_ID = '1M1LHe4mpb1lyxkLWJxrDwe_JH897nickG3XLTtwnI90'
 
 # Grid column -> slot ID. Healer columns name a job outright; the tank and DPS
 # columns are positions, so the viewer picks the job -- but each DPS column only
@@ -187,7 +189,7 @@ def extras(raw):
 
 
 def read_cells(archive, strings, worksheet):
-    root = ET.fromstring(archive.read(f'xl/worksheets/sheet{worksheet}.xml'))
+    root = ET.fromstring(archive.read(worksheet))
     cells, maxrow = {}, 0
     for cell in root.findall('.//s:sheetData/s:row/s:c', NS):
         ref = cell.get('r')
@@ -249,23 +251,16 @@ def parse_block(cells, header_row, block_end, phase_id):
     return mechanics, notes
 
 
-def convert(path):
-    archive = zipfile.ZipFile(path)
-    strings = [''.join(si.itertext()) for si in ET.fromstring(archive.read('xl/sharedStrings.xml'))]
+def convert():
+    archive = workbook.fetch(SHEET_ID)
+    strings = workbook.shared_strings(archive)
 
-    root = ET.fromstring(archive.read('xl/workbook.xml'))
-    rels = ET.fromstring(archive.read('xl/_rels/workbook.xml.rels'))
-    target = {rel.get('Id'): rel.get('Target') for rel in rels}
-    RID = '{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id'
-    tab_sheet = {
-        s.get('name'): int(re.search(r'sheet(\d+)\.xml', target[s.get(RID)]).group(1))
-        for s in root.findall('.//s:sheets/s:sheet', NS)
-    }
+    tab_sheet = workbook.tabs(archive)
 
     sheet = {
         'id': 'mitbutgood', 'fightId': 'fru', 'name': 'FRU Mit but Good',
         'author': 'Fae Nightwolf & Valiaa Masume', 'updated': '2026-09-08',
-        'sourceFile': Path(path).name, 'sourceVersion': '3/2',
+        'sourceVersion': '3/2',
         'source': {'name': 'FRU Mit but Good spreadsheet',
                    'url': 'https://docs.google.com/spreadsheets/d/1M1LHe4mpb1lyxkLWJxrDwe_JH897nickG3XLTtwnI90/edit'},
         'description': "Party mitigation for FRU from Fae Nightwolf & Valiaa Masume's plan. "
@@ -290,15 +285,15 @@ def convert(path):
             phase['note'] = ' '.join(dict.fromkeys(notes))
         sheet['phases'].append(phase)
 
-    encounter, sheet = normalize_encounter(FIGHT, sheet)
-    output = Path(__file__).resolve().parents[1] / 'packages/encounter-data/fights/fru'
-    (output / 'sheets').mkdir(parents=True, exist_ok=True)
-    for name, data in [('encounter.json', encounter), ('sheets/mitbutgood.json', sheet)]:
-        (output / name).write_text(json.dumps(data, indent=2, ensure_ascii=False) + '\n')
+    # The encounter is the fight's source of truth and is never written here;
+    # the workbook's rows bind onto the mechanics already on file.
+    sheet = bind_sheet(sheet, load_encounter('fru'))
+    out = Path(__file__).resolve().parents[1] / 'packages/encounter-data/fights/fru/sheets/mitbutgood.json'
+    out.write_text(json.dumps(sheet, indent=2, ensure_ascii=False) + '\n')
     print([(p['id'], len(p['mechanics']),
             sum(len(a) for m in p['mechanics'] for a in m['assignments'].values()))
            for p in sheet['phases']])
 
 
 if __name__ == '__main__':
-    convert(sys.argv[1])
+    convert()

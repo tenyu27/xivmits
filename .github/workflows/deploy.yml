@@ -23,10 +23,15 @@ jobs:
       - run: corepack enable
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
           cache: yarn
       - run: yarn install --immutable
       - run: yarn run lint
+      - run: yarn run typecheck
+      # Guards the data contract: every reconciled phase stays anchored to its
+      # FFLogs ability ids, and every action a sheet names resolves to an
+      # ability in the registry.
+      - run: yarn run test
       # Validates every mit sheet against the Zod schema; malformed data fails here.
       - run: yarn run build
       - uses: actions/configure-pages@v5

@@ -3,8 +3,8 @@
 Usage: python3 scripts/fetch_icons.py [--force]
 
 This runs maintainer-side, like the spreadsheet converters. The site never
-touches XIVAPI at runtime - icons are downloaded into public/icons/ and the
-name -> file map is written to data/icons.json, both committed to the repo.
+touches XIVAPI at runtime - icons are downloaded into apps/web/public/icons/ and the
+name -> file map is written to packages/encounter-data/icons.json, both committed to the repo.
 See AGENTS.md: no third-party network requests after load.
 
 Icons are property of SQUARE ENIX; see README for attribution.
@@ -20,6 +20,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ICON_DIR = ROOT / 'apps/web/public/icons'
 MAP_FILE = ROOT / 'packages/encounter-data/icons.json'
+ABILITY_FILE = ROOT / 'packages/encounter-data/abilities.json'
 SEARCH = 'https://v2.xivapi.com/api/search'
 ASSET = 'https://v2.xivapi.com/api/asset'
 
@@ -55,7 +56,7 @@ NO_ICON = {
 # - so the card art lives in the Status sheet instead. Resolved by name there.
 STATUS_ICONS = {'The Balance', 'The Bole', 'The Arrow', 'The Spear', 'The Ewer', 'The Spire'}
 
-# Generic names resolved per job from data/jobs.json instead of by search.
+# Generic names resolved per job from packages/encounter-data/jobs.json instead of by search.
 # 'Party Mit' means a different button for every job standing in that slot.
 JOB_GENERIC = {'Party Mit', 'Extra', 'Short Mit', '90s Mit', '120s Mit', 'Invuln'}
 
@@ -76,6 +77,11 @@ def get(url, params):
         return response.read()
 
 
+def slug(name):
+    """Stable id for an ability, so sheets stop referring to it by prose."""
+    return re.sub(r'(^-|-$)', '', re.sub(r'[^a-z0-9]+', '-', name.lower()))
+
+
 def candidate(name):
     """Sheet names carry qualifiers - 'Feint (Chaos)', 'Sun Sign (7-8th Set)'.
     The parenthetical says when to press it, not what it is."""
@@ -84,19 +90,28 @@ def candidate(name):
 
 
 def resolve_status(name):
-    """Return (icon_id, icon_path, status_name) for a Status-sheet icon."""
+    """Return (action_id, icon_id, icon_path, status_name) for a Status-sheet icon.
+
+    Status rows are not castable actions, so there is no action id; the card
+    icons this covers are cosmetic anyway.
+    """
     payload = json.loads(get(SEARCH, {
         'sheets': 'Status', 'query': f'Name="{name}"', 'fields': 'Name,Icon.path,Icon.id', 'limit': 5,
     }))
     for row in payload.get('results', []):
         icon = row['fields'].get('Icon') or {}
         if icon.get('path') and PLACEHOLDER not in icon['path']:
-            return icon['id'], icon['path'], row['fields']['Name']
+            return None, icon['id'], icon['path'], row['fields']['Name']
     return None
 
 
 def resolve(name):
-    """Return (icon_id, icon_path, action_name) for the real player action."""
+    """Return (action_id, icon_id, icon_path, action_name) for a player action.
+
+    `action_id` is the Action sheet row id, which is the same number FFLogs
+    reports as `abilityGameID` for a player cast - the anchor a future parse
+    needs to match a logged press back to the mit a sheet recorded.
+    """
     if name in STATUS_ICONS:
         return resolve_status(name)
     payload = json.loads(get(SEARCH, {
@@ -122,8 +137,8 @@ def resolve(name):
     if not usable:
         return None
     # Lowest row id is the original action; later rows are re-releases.
-    _, icon_id, path, action = min(usable)
-    return icon_id, path, action
+    action_id, icon_id, path, action = min(usable)
+    return action_id, icon_id, path, action
 
 
 def main(force=False):
@@ -150,9 +165,27 @@ def main(force=False):
     for job in jobs:
         names.update(job.get('abilities', {}).values())
 
-    mapping, unresolved, failed = {}, [], []
+    # Two maps: the ability registry, keyed by an id derived from the real game
+    # name so every way a sheet writes an ability collapses onto one entry, and
+    # `names`, which records what each sheet wrote so an importer can resolve it.
+    mapping, unresolved, failed, abilities, by_name = {}, [], [], {}, {}
     for name in sorted(names):
-        if name in NO_ICON or candidate(name) in JOB_GENERIC:
+        base = candidate(name)
+        if base in JOB_GENERIC:
+            # "Party Mit" is a slot, not a button: jobs.json says which action
+            # each job presses for it, so there is nothing to anchor here. The
+            # qualifier a sheet adds ("Party Mit (GNB/DRK)") scopes who presses
+            # it, so it belongs on the reference, not on a separate ability.
+            ability_id = slug(base)
+            abilities.setdefault(ability_id, {'name': base, 'kind': 'generic'})
+            by_name[name] = ability_id
+            continue
+        if name in NO_ICON:
+            # Prose the sheet writes in an action cell ("Avoid HP-restoring
+            # abilities"): a cue to the reader, with no action behind it.
+            ability_id = slug(name)
+            abilities[ability_id] = {'name': name, 'kind': 'note'}
+            by_name[name] = ability_id
             continue
         query = candidate(name)
         try:
@@ -163,26 +196,45 @@ def main(force=False):
             continue
         if not found:
             unresolved.append(name)
+            abilities[slug(name)] = {'name': name, 'kind': 'note'}
+            by_name[name] = slug(name)
             print(f'  no match: {name!r} (searched {query!r})')
             continue
-        icon_id, icon_path, action = found
+        action_id, icon_id, icon_path, action = found
         filename = f'{icon_id:06d}.png'
         target = ICON_DIR / filename
         if force or not target.exists():
             target.write_bytes(get(ASSET, {'path': icon_path, 'format': 'png'}))
             time.sleep(0.15)
         mapping[name] = filename
-        print(f'  {name:32} -> {action:24} {filename}')
+        # Keyed by the real game name, so 'Feint' and 'Feint (Chaos)' - and
+        # 'Zoe Shields', 'Spreadlo', 'Vengeance' - land on one ability.
+        ability_id = slug(action)
+        entry = {'name': action, 'kind': 'action' if action_id else 'status', 'icon': filename}
+        if action_id is not None:
+            # Same number FFLogs reports as abilityGameID for this cast.
+            entry['action'] = action_id
+        abilities.setdefault(ability_id, entry)
+        by_name[name] = ability_id
+        print(f'  {name:32} -> {action:24} {filename}  action={action_id}')
 
     if failed:
         raise SystemExit('Icon refresh failed; existing map and icons were left unchanged: ' + ', '.join(sorted(failed)))
 
     MAP_FILE.write_text(json.dumps(dict(sorted(mapping.items())), indent=2) + '\n')
+    ABILITY_FILE.write_text(json.dumps(
+        {'abilities': dict(sorted(abilities.items())), 'names': dict(sorted(by_name.items()))},
+        indent=2, ensure_ascii=False) + '\n')
     used = {f for f in mapping.values()}
     for stale in ICON_DIR.glob('*.png'):
         if stale.name not in used:
             stale.unlink()
             print(f'  removed unused icon {stale.name}')
+    kinds = {}
+    for entry in abilities.values():
+        kinds[entry['kind']] = kinds.get(entry['kind'], 0) + 1
+    anchored = sum(1 for e in abilities.values() if e.get('action'))
+    print(f"\n{len(abilities)} abilities recorded ({kinds}), {anchored} anchored to a game action id")
     print(f'\n{len(mapping)} names mapped to {len(used)} icons, '
           f'{len(unresolved) + len(names & NO_ICON)} intentionally or unavoidably text-only')
     if unresolved:

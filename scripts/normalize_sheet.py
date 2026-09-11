@@ -1,36 +1,108 @@
-"""Normalize importer output into canonical encounter and sheet-overlay JSON."""
+"""Bind importer output onto the canonical encounter timeline.
 
+The encounter file is the fight's source of truth. Its mechanic list, ids, times
+and FFLogs ability ids are reconciled against real logs (see scripts/fflogs.py)
+and are never written by a sheet importer - importing a mit sheet must not
+change the fight.
+
+A mit sheet is an overlay: each row references an encounter mechanic by id, the
+way an action references an ability, and adds only who presses what.
+
+    {"mechanicId": "p1-gravitas-2", "assignments": {"SCH": [{"name": "Seraph"}]}}
+
+An importer therefore hands `bind_sheet` rows carrying the spreadsheet's own
+names, and gets back rows carrying encounter ids. A row that matches no
+mechanic is an error, not a new mechanic: either the sheet names it differently
+(add an alias) or the encounter is genuinely missing it (reconcile the log
+first).
+"""
+
+import json
 import re
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+FIGHTS = ROOT / 'packages/encounter-data/fights'
+
+_ALREADY_NUMBERED = re.compile(r'\(\d+\)$|\b\d+(?:st|nd|rd|th)?\b', re.IGNORECASE)
 
 
-def normalize_encounter(fight, sheet):
-    anchors = {}
-    counts = {}
-    encounter_phases = []
+def load_encounter(fight_id):
+    """The committed encounter for a fight. Read-only as far as importers care."""
+    return json.loads((FIGHTS / fight_id / 'encounter.json').read_text(encoding='utf-8'))
 
-    for phase in fight['phases']:
-        sheet_phase = next(item for item in sheet['phases'] if item['id'] == phase['id'])
-        encounter_mechanics = []
-        overlay_mechanics = []
-        for mechanic in sheet_phase['mechanics']:
-            name_slug = re.sub(r'(^-|-$)', '', re.sub(r'[^a-z0-9]+', '-', mechanic['name'].lower()))
-            base = f"{phase['id']}-{name_slug}"
-            counts[base] = counts.get(base, 0) + 1
-            mechanic_id = f"{base}-{counts[base]}"
-            anchors[(phase['id'], mechanic['id'])] = mechanic_id
-            encounter_mechanics.append({
-                'id': mechanic_id,
-                'name': mechanic['name'],
-                **({'time': mechanic['time']} if mechanic.get('time') else {}),
-                'fflogs': {'abilityIds': []},
-            })
-            overlay_mechanics.append({
-                'mechanicId': mechanic_id,
+
+def number_repeated(names):
+    """Suffix 1..n onto names that repeat across the fight and carry no number.
+
+    The encounter's own names were built this way, so a sheet's raw row names
+    have to go through the same rule before they can be matched against them.
+    """
+    totals = {}
+    for name in names:
+        if not _ALREADY_NUMBERED.search(name):
+            totals[name] = totals.get(name, 0) + 1
+    seen, out = {}, []
+    for name in names:
+        if totals.get(name, 0) > 1:
+            seen[name] = seen.get(name, 0) + 1
+            out.append(f'{name} {seen[name]}')
+        else:
+            out.append(name)
+    return out
+
+
+def bind_sheet(sheet, encounter, aliases=None):
+    """Rewrite a sheet's rows to reference `encounter` mechanic ids.
+
+    `sheet` is the importer's draft: phases whose mechanics carry `name`, an
+    importer-local `id`, optional `note`, and `assignments`. Returns the same
+    sheet with each row reduced to {mechanicId, note?, assignments}, and the
+    tankMits `after` / `noteAfter` anchors remapped to encounter ids.
+
+    `aliases` maps a sheet's row name to the encounter's name, for mechanics the
+    two call different things.
+    """
+    aliases = aliases or {}
+    by_phase = {p['id']: p for p in encounter['phases']}
+
+    # Fight-wide, matching how the encounter numbered its own repeated names.
+    raw = [m['name'] for p in sheet['phases'] for m in p['mechanics']]
+    numbered = iter(number_repeated(raw))
+
+    anchors, missing = {}, []
+    for phase in sheet['phases']:
+        encounter_phase = by_phase.get(phase['id'])
+        if encounter_phase is None:
+            raise SystemExit(f"encounter has no phase {phase['id']}")
+        # Consume each encounter mechanic at most once, in file order, so
+        # repeated names bind to successive occurrences.
+        available = list(encounter_phase['mechanics'])
+        rows = []
+        for mechanic in phase['mechanics']:
+            name = next(numbered)
+            wanted = aliases.get(name, name)
+            match = next((m for m in available if m['name'] == wanted), None)
+            if match is None:
+                missing.append(f"  {phase['id']}: {name!r}"
+                               + (f" (aliased to {wanted!r})" if wanted != name else ''))
+                continue
+            available.remove(match)
+            anchors[(phase['id'], mechanic['id'])] = match['id']
+            rows.append({
+                'mechanicId': match['id'],
                 **({'note': mechanic['note']} if mechanic.get('note') else {}),
                 'assignments': mechanic['assignments'],
             })
-        encounter_phases.append({**phase, 'mechanics': encounter_mechanics})
-        sheet_phase['mechanics'] = overlay_mechanics
+        phase['mechanics'] = rows
+
+    if missing:
+        raise SystemExit(
+            f"{len(missing)} sheet row(s) match no mechanic in {encounter['id']}/encounter.json:\n"
+            + '\n'.join(missing)
+            + "\n\nAdd an alias if the sheet just names it differently, or reconcile the\n"
+              "encounter against a log first if the mechanic is genuinely missing.\n"
+              "Importers never add mechanics to an encounter.")
 
     for plan in sheet.get('tankMits', {}).get('plans', []):
         for phase in plan['phases']:
@@ -39,27 +111,4 @@ def normalize_encounter(fight, sheet):
             for mechanic in phase['mechanics']:
                 if mechanic.get('after'):
                     mechanic['after'] = anchors[(phase['id'], mechanic['after'])]
-
-    encounter = {
-        key: value for key, value in fight.items() if key != 'phases'
-    }
-    encounter['fflogs'] = {'encounterIds': []}
-    encounter['phases'] = encounter_phases
-    _number_repeated_mechanics(encounter_phases)
-    return encounter, sheet
-
-
-def _number_repeated_mechanics(phases):
-    mechanics = [mechanic for phase in phases for mechanic in phase['mechanics']]
-    already_numbered = re.compile(r'\(\d+\)$|\b\d+(?:st|nd|rd|th)?\b', re.IGNORECASE)
-    totals = {}
-    for mechanic in mechanics:
-        if not already_numbered.search(mechanic['name']):
-            totals[mechanic['name']] = totals.get(mechanic['name'], 0) + 1
-
-    seen = {}
-    for mechanic in mechanics:
-        name = mechanic['name']
-        if totals.get(name, 0) > 1:
-            seen[name] = seen.get(name, 0) + 1
-            mechanic['name'] = f"{name} {seen[name]}"
+    return sheet

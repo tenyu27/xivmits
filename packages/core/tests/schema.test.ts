@@ -41,6 +41,33 @@ test('resolves canonical mechanic data with sheet assignments', () => {
   })
 })
 
+test('rejects an action with no ability in the registry', () => {
+  // Non-empty, so the check runs, but it has never heard of Reprisal.
+  const registry = {
+    abilities: { feint: { name: 'Feint', kind: 'action', action: 7549 } },
+    names: { Feint: 'feint' },
+  }
+  assert.throws(() => validateCatalog(files(), {}, jobs, registry), /Reprisal/)
+})
+
+test('accepts a catalog whose actions all resolve', () => {
+  const sheetActions = new Set<string>()
+  for (const phase of sheet.phases) {
+    for (const mechanic of phase.mechanics) {
+      for (const actions of Object.values(mechanic.assignments)) {
+        for (const action of actions) sheetActions.add((action as { name: string }).name)
+      }
+    }
+  }
+  const registry = {
+    abilities: Object.fromEntries([...sheetActions].map(n => [
+      n.toLowerCase().replace(/[^a-z0-9]+/g, '-'), { name: n, kind: 'action' as const }])),
+    names: Object.fromEntries([...sheetActions].map(n => [n, n.toLowerCase().replace(/[^a-z0-9]+/g, '-')])),
+  }
+  const catalog = validateCatalog(files(), {}, jobs, registry)
+  assert.equal(Object.keys(catalog.abilities.abilities).length, sheetActions.size)
+})
+
 test('rejects a sheet reference missing from its encounter', () => {
   const invalid = structuredClone(sheet)
   invalid.phases[0].mechanics[0].mechanicId = 'p1-missing-1'

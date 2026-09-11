@@ -21,7 +21,7 @@ Layout, per phase tab:
     those are folded into the neighbouring mechanic or the phase note
 
 The encounter is shared with the Ikuya sheet, so rows map onto the canonical
-mechanic IDs in data/fights/dmu/encounter.json by position -- MECHANICS below is
+mechanic IDs in packages/encounter-data/fights/dmu/encounter.json by position -- MECHANICS below is
 that mapping, written out rather than inferred because two phases disagree with
 the source's own row order. LPDU's untimed "1st..4th beams" rows are the tether
 sets the encounter calls Black Holes II/III; its P3 beam rows are interleaved
@@ -40,6 +40,8 @@ import zipfile
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
+import workbook
+
 NS = {'s': 'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
 
 COLUMNS = {'E': 'MT', 'G': 'OT', 'J': 'WHM', 'L': 'AST', 'N': 'SCH', 'P': 'SGE',
@@ -49,59 +51,64 @@ COLUMNS = {'E': 'MT', 'G': 'OT', 'J': 'WHM', 'L': 'AST', 'N': 'SCH', 'P': 'SGE',
 EXTRAS_COLUMN = 'Z'
 HEALERS = ['WHM', 'AST', 'SCH', 'SGE']
 
-SHEETS = {'p1': 3, 'p2': 4, 'p3': 5, 'p4': 6, 'p5': 9}
+SHEET_ID = '1aA_qF_UsoS51MCDZ4PwQHhprpK7eGO8TXOdZ7pQlkV0'
+# The tank personal-mit plans live in a second spreadsheet. Set its id here,
+# or pass it on the command line.
+TANK_SHEET_ID = '1KgyR0l3oP-NzHclakbnkwECKcgz7tMK9tlnTZX8DT64'
+SHEETS = {'p1': 'P1 | Kefka', 'p2': 'P2 | Forsaken Kefka', 'p3': 'P3 | Chaos & Exdeath',
+          'p4': 'P4 | Kefka Says', 'p5': 'P5 | Ultima Kefka'}
 
 # Source row -> canonical mechanic ID. `None` means the row is prose handled by
 # ROW_NOTES / PHASE_NOTES rather than an assignment row.
 MECHANICS = {
     'p1': [
-        (8, 'p1-revolting-ruin-1'), (9, 'p1-mystery-magic-1'), (11, 'p1-wave-cannon-1'),
+        (8, 'p1-revolting-ruin-iii-1'), (9, 'p1-mystery-magic-1'), (11, 'p1-wave-cannon-1'),
         (13, 'p1-double-trouble-trap-1'), (15, 'p1-light-of-judgment-1'), (17, 'p1-hyperdrive-1'),
-        (18, 'p1-gravitas-ii-part-i-1'), (20, 'p1-revolting-ruin-2'), (21, 'p1-gravitas-ii-part-ii-1'),
+        (18, 'p1-gravitas-1'), (20, 'p1-revolting-ruin-iii-2'), (21, 'p1-gravitas-2'),
         (23, 'p1-double-trouble-trap-2'), (25, 'p1-light-of-judgment-2'), (27, 'p1-hyperdrive-2'),
         (28, 'p1-double-trouble-trap-3'), (30, 'p1-indulgent-will-1'), (32, 'p1-mystery-magic-2'),
     ],
     'p2': [
-        (8, 'p2-ultimate-embrace-1'), (10, 'p2-forsaken-1'), (12, 'p2-towers-i-1'),
-        (14, 'p2-towers-ii-past-future-s-end-1'), (16, 'p2-towers-iii-all-things-ending-1'),
-        (18, 'p2-towers-iv-past-future-s-end-1'), (20, 'p2-towers-v-all-things-ending-1'),
-        (22, 'p2-towers-vi-past-future-s-end-1'), (24, 'p2-towers-vii-all-things-ending-1'),
-        (26, 'p2-towers-viii-past-future-s-end-1'), (28, 'p2-light-of-judgement-1'),
+        (8, 'p2-ultimate-embrace-1'), (10, 'p2-forsaken-1'), (12, 'p2-the-path-of-light-1'),
+        (14, 'p2-the-path-of-light-2'), (16, 'p2-the-path-of-light-3'),
+        (18, 'p2-the-path-of-light-4'), (20, 'p2-the-path-of-light-5'),
+        (22, 'p2-the-path-of-light-6'), (24, 'p2-the-path-of-light-7'),
+        (26, 'p2-the-path-of-light-8'), (28, 'p2-light-of-judgment-1'),
         (30, 'p2-wings-of-destruction-1'), (32, 'p2-ultimate-embrace-2'),
     ],
     'p3': [
-        (8, 'p3-bowels-of-agony-chaos-1'), (10, 'p3-stray-flames-tsunami-1'),
-        (12, 'p3-thunder-iii-1st-set-1'), (14, 'p3-stray-flames-tsunami-2'), (16, 'p3-ultima-blaster-1'),
-        (18, 'p3-vacuum-wave-1'), (20, 'p3-cyclone-1'), (22, 'p3-thunder-iii-2nd-set-1'),
-        (24, 'p3-the-decisive-battle-1'), (26, 'p3-thunder-iii-3rd-set-1'), (30, 'p3-earthquake-1'),
-        (32, 'p3-shocking-impact-shockwave-1'), (34, 'p3-black-holes-ii-3rd-tether-set-1'),
-        (36, 'p3-thunder-iii-4th-set-1'), (38, 'p3-shocking-impact-shockwave-2'),
-        (40, 'p3-black-holes-ii-4th-tether-set-1'), (42, 'p3-thunder-iii-5th-set-1'),
-        (44, 'p3-black-holes-ii-5th-tether-set-1'), (46, 'p3-shocking-impact-shockwave-3'),
-        (48, 'p3-black-holes-iii-6th-tether-set-1'), (50, 'p3-stomp-a-mole-knock-down-1'),
+        (8, 'p3-bowels-of-agony-1'), (10, 'p3-stray-flames-1'),
+        (12, 'p3-thunder-iii-1'), (14, 'p3-stray-flames-2'), (16, 'p3-ultima-blaster-1'),
+        (18, 'p3-vacuum-wave-1'), (20, 'p3-cyclone-1'), (22, 'p3-thunder-iii-2'),
+        (24, 'p3-the-decisive-battle-1'), (26, 'p3-thunder-iii-3'), (30, 'p3-earthquake-1'),
+        (32, 'p3-shocking-impact-1'), (34, 'p3-black-hole-3'),
+        (36, 'p3-thunder-iii-4'), (38, 'p3-shocking-impact-2'),
+        (40, 'p3-black-hole-4'), (42, 'p3-thunder-iii-5'),
+        (44, 'p3-black-hole-5'), (46, 'p3-shocking-impact-3'),
+        (48, 'p3-black-hole-6'), (50, 'p3-stomp-a-mole-1'),
     ],
     'p4': [
-        (8, 'p4-grand-cross-1'), (10, 'p4-inferno-tsunami-1'), (12, 'p4-grand-cross-2'),
-        (14, 'p4-inferno-tsunami-2'), (16, 'p4-grand-cross-3'), (18, 'p4-flood-of-naught-1'),
-        (20, 'p4-death-bolt-wave-1'), (22, 'p4-ultima-upsurge-1'), (24, 'p4-death-bolt-wave-2'),
+        (8, 'p4-grand-cross-1'), (10, 'p4-inferno-1'), (12, 'p4-grand-cross-2'),
+        (14, 'p4-inferno-2'), (16, 'p4-grand-cross-3'), (18, 'p4-flood-of-naught-1'),
+        (20, 'p4-death-bolt-1'), (22, 'p4-ultima-upsurge-1'), (24, 'p4-death-bolt-2'),
         (26, 'p4-ultima-upsurge-2'),
     ],
     'p5': [
-        (8, 'p5-ultima-repeater-1'), (10, 'p5-fell-forces-3x-1'), (12, 'p5-chaotic-flood-1'),
-        (14, 'p5-maddening-orchestra-1'), (16, 'p5-fell-forces-2x-1'), (18, 'p5-celestriad-1'),
-        (20, 'p5-ultima-repeater-2'), (22, 'p5-fell-forces-2x-2'), (24, 'p5-stray-entropy-1'),
-        (26, 'p5-maddening-orchestra-2'), (28, 'p5-fell-forces-3x-2'), (32, 'p5-forsaken-1st-hit-1'),
-        (34, 'p5-forsaken-bonds-2nd-hit-1'), (36, 'p5-forsaken-3rd-hit-1'),
-        (38, 'p5-forsaken-bonds-4th-hit-1'), (40, 'p5-forsaken-5th-hit-1'),
-        (42, 'p5-forsaken-bonds-6th-hit-1'), (44, 'p5-forsaken-7th-hit-1'),
-        (46, 'p5-forsaken-bonds-8th-hit-1'), (48, 'p5-forsaken-null-1'),
+        (8, 'p5-ultima-repeater-1'), (10, 'p5-fell-forces-1'), (12, 'p5-chaotic-flood-1'),
+        (14, 'p5-maddening-orchestra-1'), (16, 'p5-fell-forces-2'), (18, 'p5-celestriad-1'),
+        (20, 'p5-ultima-repeater-2'), (22, 'p5-fell-forces-3'), (24, 'p5-stray-entropy-1'),
+        (26, 'p5-maddening-orchestra-2'), (28, 'p5-fell-forces-4'), (32, 'p5-forsaken-1'),
+        (34, 'p5-forsaken-bonds-1'), (36, 'p5-forsaken-2'),
+        (38, 'p5-forsaken-bonds-2'), (40, 'p5-forsaken-3'),
+        (42, 'p5-forsaken-bonds-3'), (44, 'p5-forsaken-4'),
+        (46, 'p5-forsaken-bonds-4'), (48, 'p5-forsaken-null-1'),
     ],
 }
 
 # Prose the source parks in a spare row, folded onto the mechanic it belongs to.
 ROW_NOTES = {
     ('p3', 'p3-earthquake-1'): 'Both tanks swap bosses here: the Exdeath starter takes Chaos and the Chaos starter takes Exdeath.',
-    ('p3', 'p3-thunder-iii-4th-set-1'): 'Use the first beam set on either tank if it is the stack.',
+    ('p3', 'p3-thunder-iii-4'): 'Use the first beam set on either tank if it is the stack.',
     # The source writes "Enrage!" in the MT column because that is where it fit
     # on the row. It is not an MT assignment and not a button, so it belongs to
     # the mechanic, shown once for every role.
@@ -118,7 +125,7 @@ PHASE_NOTES = {
 COLUMN_A_NOTES = {('p2', 30): 'Wall priority: PLD > WAR > DRK > GNB.',
                   ('p3', 18): 'Tank LB priority: WAR > DRK > PLD > GNB.'}
 
-# Shorthand -> action name. A name data/jobs.json knows how to resolve per job
+# Shorthand -> action name. A name packages/encounter-data/jobs.json knows how to resolve per job
 # ("Party Mit", "Short Mit", "90s Mit", "120s Mit", "Invuln") is left generic on
 # purpose; everything else has to be a real in-game action name. A value may
 # name several buttons, joined by " + ".
@@ -418,7 +425,7 @@ def extras(raw):
 
 
 def read_cells(archive, strings, worksheet):
-    root = ET.fromstring(archive.read(f'xl/worksheets/sheet{worksheet}.xml'))
+    root = ET.fromstring(archive.read(workbook.worksheet(archive, worksheet)))
     cells = {}
     for cell in root.findall('.//s:sheetData/s:row/s:c', NS):
         value = cell.find('s:v', NS)
@@ -428,13 +435,11 @@ def read_cells(archive, strings, worksheet):
     return cells
 
 
-def convert(path, moved=None):
+def convert(archive, moved=None):
     """The party grid. `moved` collects the personal mit lifted out of the tank
     columns, keyed by (phase, mechanic, seat), for the tank plan to absorb."""
     moved = {} if moved is None else moved
-    archive = zipfile.ZipFile(path)
-    strings = [''.join(node.itertext()) for node in
-               ET.fromstring(archive.read('xl/sharedStrings.xml'))]
+    strings = workbook.shared_strings(archive)
 
     phases = []
     for phase_id, worksheet in SHEETS.items():
@@ -495,7 +500,6 @@ def convert(path, moved=None):
         'name': 'LPDU',
         'author': 'LPDU',
         'updated': '2026-09-09',
-        'sourceFile': 'LPDU GENERAL DMU MIT COMPILE + LPDU tank mit sheet',
         'source': {
             'name': 'LPDU General DMU Mit Compile',
             'url': 'https://docs.google.com/spreadsheets/d/1aA_qF_UsoS51MCDZ4PwQHhprpK7eGO8TXOdZ7pQlkV0/edit',
@@ -537,7 +541,7 @@ def convert(path, moved=None):
 # time.
 #
 # Columns: B time, C mechanic, D MT, E OT, F prio/notes.
-TANK_SHEET = 2
+TANK_SHEET = 'Universal MTOT Sheet'
 TANKS = ['PLD', 'WAR', 'DRK', 'GNB']
 INVULN = {'WAR': 'Holmgang', 'PLD': 'Hallowed Ground', 'DRK': 'Living Dead', 'GNB': 'Superbolide'}
 MIT_120 = {'WAR': 'Damnation', 'PLD': 'Guardian', 'DRK': 'Shadowed Vigil', 'GNB': 'Great Nebula'}
@@ -572,33 +576,33 @@ def tank_tokens(job):
 # mechanic. Rows the sheet names for a mechanic the encounter does not carry
 # (Graven Image, the autos, Flare Diffusion) hang off the nearest party row.
 TANK_ROWS = {
-    7: ('p1', 'p1-revolting-ruin-1'), 9: ('p1', 'p1-revolting-ruin-1'),
+    7: ('p1', 'p1-revolting-ruin-iii-1'), 9: ('p1', 'p1-revolting-ruin-iii-1'),
     11: ('p1', 'p1-mystery-magic-1'), 13: ('p1', 'p1-light-of-judgment-1'),
-    15: ('p1', 'p1-hyperdrive-1'), 17: ('p1', 'p1-revolting-ruin-2'),
-    19: ('p1', 'p1-gravitas-ii-part-ii-1'), 21: ('p1', 'p1-double-trouble-trap-2'),
+    15: ('p1', 'p1-hyperdrive-1'), 17: ('p1', 'p1-revolting-ruin-iii-2'),
+    19: ('p1', 'p1-gravitas-2'), 21: ('p1', 'p1-double-trouble-trap-2'),
     23: ('p1', 'p1-light-of-judgment-2'), 25: ('p1', 'p1-hyperdrive-2'),
     27: ('p1', 'p1-double-trouble-trap-3'),
     31: ('p2', 'p2-ultimate-embrace-1'), 33: ('p2', 'p2-forsaken-1'),
-    35: ('p2', 'p2-towers-iv-past-future-s-end-1'), 37: ('p2', 'p2-towers-vi-past-future-s-end-1'),
-    39: ('p2', 'p2-light-of-judgement-1'), 41: ('p2', 'p2-wings-of-destruction-1'),
+    35: ('p2', 'p2-the-path-of-light-4'), 37: ('p2', 'p2-the-path-of-light-6'),
+    39: ('p2', 'p2-light-of-judgment-1'), 41: ('p2', 'p2-wings-of-destruction-1'),
     43: ('p2', 'p2-ultimate-embrace-2'),
-    51: ('p3', None), 53: ('p3', 'p3-stray-flames-tsunami-1'),
-    55: ('p3', 'p3-thunder-iii-1st-set-1'), 57: ('p3', 'p3-stray-flames-tsunami-2'),
-    59: ('p3', 'p3-cyclone-1'), 61: ('p3', 'p3-thunder-iii-2nd-set-1'),
-    67: ('p3', 'p3-thunder-iii-3rd-set-1'), 69: ('p3', 'p3-earthquake-1'),
-    71: ('p3', 'p3-shocking-impact-shockwave-1'), 73: ('p3', 'p3-thunder-iii-4th-set-1'),
-    75: ('p3', 'p3-shocking-impact-shockwave-2'), 77: ('p3', 'p3-thunder-iii-5th-set-1'),
-    79: ('p3', 'p3-shocking-impact-shockwave-3'), 81: ('p3', 'p3-shocking-impact-shockwave-3'),
-    83: ('p3', 'p3-stomp-a-mole-knock-down-1'),
+    51: ('p3', None), 53: ('p3', 'p3-stray-flames-1'),
+    55: ('p3', 'p3-thunder-iii-1'), 57: ('p3', 'p3-stray-flames-2'),
+    59: ('p3', 'p3-cyclone-1'), 61: ('p3', 'p3-thunder-iii-2'),
+    67: ('p3', 'p3-thunder-iii-3'), 69: ('p3', 'p3-earthquake-1'),
+    71: ('p3', 'p3-shocking-impact-1'), 73: ('p3', 'p3-thunder-iii-4'),
+    75: ('p3', 'p3-shocking-impact-2'), 77: ('p3', 'p3-thunder-iii-5'),
+    79: ('p3', 'p3-shocking-impact-3'), 81: ('p3', 'p3-shocking-impact-3'),
+    83: ('p3', 'p3-stomp-a-mole-1'),
     89: ('p4', 'p4-grand-cross-3'), 91: ('p4', 'p4-ultima-upsurge-1'),
-    93: ('p4', 'p4-death-bolt-wave-2'), 95: ('p4', 'p4-ultima-upsurge-2'),
-    101: ('p5', None), 103: ('p5', 'p5-ultima-repeater-1'), 105: ('p5', 'p5-fell-forces-3x-1'),
+    93: ('p4', 'p4-death-bolt-2'), 95: ('p4', 'p4-ultima-upsurge-2'),
+    101: ('p5', None), 103: ('p5', 'p5-ultima-repeater-1'), 105: ('p5', 'p5-fell-forces-1'),
     107: ('p5', 'p5-chaotic-flood-1'), 109: ('p5', 'p5-maddening-orchestra-1'),
-    111: ('p5', 'p5-maddening-orchestra-1'), 113: ('p5', 'p5-fell-forces-2x-1'),
+    111: ('p5', 'p5-maddening-orchestra-1'), 113: ('p5', 'p5-fell-forces-2'),
     115: ('p5', 'p5-celestriad-1'), 117: ('p5', 'p5-ultima-repeater-2'),
-    119: ('p5', 'p5-fell-forces-2x-2'), 121: ('p5', 'p5-maddening-orchestra-2'),
-    123: ('p5', 'p5-maddening-orchestra-2'), 125: ('p5', 'p5-fell-forces-3x-2'),
-    127: ('p5', 'p5-forsaken-1st-hit-1'), 129: ('p5', 'p5-forsaken-bonds-4th-hit-1'),
+    119: ('p5', 'p5-fell-forces-3'), 121: ('p5', 'p5-maddening-orchestra-2'),
+    123: ('p5', 'p5-maddening-orchestra-2'), 125: ('p5', 'p5-fell-forces-4'),
+    127: ('p5', 'p5-forsaken-1'), 129: ('p5', 'p5-forsaken-bonds-2'),
 }
 
 # Cells the sheet writes as prose, or that describe the row rather than the
@@ -752,10 +756,8 @@ def party_buttons(name, job):
     }.get(base, [base])
 
 
-def convert_tanks(path, phase_starts, mechanic_names, moved):
-    archive = zipfile.ZipFile(path)
-    strings = [''.join(node.itertext()) for node in
-               ET.fromstring(archive.read('xl/sharedStrings.xml'))]
+def convert_tanks(archive, phase_starts, mechanic_names, moved):
+    strings = workbook.shared_strings(archive)
     cells = read_cells(archive, strings, TANK_SHEET)
 
     def seconds(value):
@@ -860,14 +862,22 @@ def convert_tanks(path, phase_starts, mechanic_names, moved):
 
 if __name__ == '__main__':
     moved = {}
-    sheet = convert(sys.argv[1], moved)
-    if len(sys.argv) > 2:
-        encounter = json.loads((Path(__file__).resolve().parent.parent / 'packages' / 'encounter-data' / 'fights'
-                                / 'dmu' / 'encounter.json').read_text(encoding='utf-8'))
-        starts = {p['id']: int(p['start'].split(':')[0]) * 60 + int(p['start'].split(':')[1])
-                  for p in encounter['phases']}
-        names = {m['id']: m['name'] for p in encounter['phases'] for m in p['mechanics']}
-        sheet['tankMits'] = convert_tanks(sys.argv[2], starts, names, moved)
-    out = Path(__file__).resolve().parent.parent / 'packages' / 'encounter-data' / 'fights' / 'dmu' / 'sheets' / 'lpdu.json'
+    sheet = convert(workbook.fetch(SHEET_ID), moved)
+    tank_id = sys.argv[1] if len(sys.argv) > 1 else TANK_SHEET_ID
+    if not tank_id:
+        raise SystemExit(
+            'The LPDU tank personal-mit plans come from a second spreadsheet.\n'
+            'Set TANK_SHEET_ID, or pass its id/URL as the first argument.\n'
+            'Running without it would silently drop tankMits from lpdu.json.')
+    if '/' in tank_id:
+        tank_id = tank_id.split('/d/')[1].split('/')[0]
+    encounter = json.loads((Path(__file__).resolve().parents[1] / 'packages' / 'encounter-data'
+                            / 'fights' / 'dmu' / 'encounter.json').read_text(encoding='utf-8'))
+    starts = {p['id']: int(p['start'].split(':')[0]) * 60 + int(p['start'].split(':')[1])
+              for p in encounter['phases']}
+    names = {m['id']: m['name'] for p in encounter['phases'] for m in p['mechanics']}
+    sheet['tankMits'] = convert_tanks(workbook.fetch(tank_id), starts, names, moved)
+    out = (Path(__file__).resolve().parents[1] / 'packages' / 'encounter-data'
+           / 'fights' / 'dmu' / 'sheets' / 'lpdu.json')
     out.write_text(json.dumps(sheet, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
     print(f'wrote {out}')
