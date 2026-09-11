@@ -134,12 +134,14 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
         actions: resolveActions(mechanic.actions),
         alts: mechanic.alts?.map(alt => ({ label: alt.label, actions: resolveActions(alt.actions) })),
       }
-      // A headingless row whose every action is already running, with nothing
-      // of its own to say, is a line that reads "still active" and nothing else.
-      // The press it refers to is on the row above.
-      const onlyCarried = entry.personal === 'bar' && entry.actions.length > 0
-        && entry.actions.every(a => a.action.carryOver) && !mechanic.note && !mechanic.alts?.length
-      if (onlyCarried) continue
+      // A headingless row with nothing in it at all draws a "Personal" label
+      // over empty space. Its `tag` is the only thing it carried, and that has
+      // been hoisted onto the mechanic above. A row that only holds carried-over
+      // actions still says something - that cooldown is covering this mechanic -
+      // so it stays.
+      const empty = entry.personal === 'bar' && entry.actions.length === 0
+        && !mechanic.note && !mechanic.alts?.length
+      if (empty) continue
       if (!mechanic.after) front.push(entry)
       else byAnchor.set(mechanic.after, [...(byAnchor.get(mechanic.after) ?? []), entry])
     }
