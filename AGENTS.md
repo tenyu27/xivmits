@@ -89,6 +89,9 @@ scripts/                         maintainer-side tooling; never runs at build or
   fetch_icons.py                 XIVAPI → icons + abilities.json
 ```
 
+Work in progress on the `remodel` branch, and what is deliberately
+unfinished, is written up in [docs/REMODEL.md](docs/REMODEL.md).
+
 ## The encounter is the fight; a sheet is an overlay
 
 `encounter.json` is the source of truth for a fight's timeline. Its mechanics,
