@@ -66,6 +66,16 @@ test('carries a role-scoped mechanic through to the resolved sheet', () => {
   assert.deepEqual(catalog.sheets[0].phases[0].mechanics[0].roles, ['tank'])
 })
 
+test('carries a minor mechanic through to the resolved sheet', () => {
+  const quiet = structuredClone(encounter)
+  quiet.phases[0].mechanics[0] = { ...quiet.phases[0].mechanics[0], minor: true }
+  const catalog = validateCatalog({
+    '/repo/data/fights/test/encounter.json': quiet,
+    '/repo/data/fights/test/sheets/plan.json': sheet,
+  }, {}, jobs)
+  assert.equal(catalog.sheets[0].phases[0].mechanics[0].minor, true)
+})
+
 test('rejects a mechanic scoped to something that is not a role', () => {
   const scoped = structuredClone(encounter)
   scoped.phases[0].mechanics[0] = { ...scoped.phases[0].mechanics[0], roles: ['MT'] }
@@ -87,4 +97,3 @@ test('rejects a seat restriction that is not a job ID', () => {
   restricted.slots[0] = { ...restricted.slots[0], jobs: ['Warrior'] }
   assert.throws(() => validateCatalog(files(restricted), {}, jobs))
 })
-

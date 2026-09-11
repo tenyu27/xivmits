@@ -4,7 +4,6 @@
   "name": "LPDU",
   "author": "LPDU",
   "updated": "2026-09-09",
-  "sourceFile": "LPDU GENERAL DMU MIT COMPILE + LPDU tank mit sheet",
   "source": {
     "name": "LPDU General DMU Mit Compile",
     "url": "https://docs.google.com/spreadsheets/d/1aA_qF_UsoS51MCDZ4PwQHhprpK7eGO8TXOdZ7pQlkV0/edit"
@@ -66,7 +65,7 @@
       "id": "p1",
       "mechanics": [
         {
-          "mechanicId": "p1-revolting-ruin-1",
+          "mechanicId": "p1-revolting-ruin-iii-1",
           "assignments": {
             "WHM": [
               {
@@ -323,7 +322,7 @@
           }
         },
         {
-          "mechanicId": "p1-gravitas-ii-part-i-1",
+          "mechanicId": "p1-gravitas-1",
           "assignments": {
             "WHM": [
               {
@@ -360,7 +359,7 @@
           }
         },
         {
-          "mechanicId": "p1-revolting-ruin-2",
+          "mechanicId": "p1-revolting-ruin-iii-2",
           "assignments": {
             "WHM": [
               {
@@ -371,7 +370,7 @@
           }
         },
         {
-          "mechanicId": "p1-gravitas-ii-part-ii-1",
+          "mechanicId": "p1-gravitas-2",
           "assignments": {
             "MT": [
               {
@@ -758,7 +757,7 @@
           }
         },
         {
-          "mechanicId": "p2-towers-i-1",
+          "mechanicId": "p2-the-path-of-light-1",
           "assignments": {
             "SCH": [
               {
@@ -776,7 +775,7 @@
           }
         },
         {
-          "mechanicId": "p2-towers-ii-past-future-s-end-1",
+          "mechanicId": "p2-the-path-of-light-2",
           "assignments": {
             "WHM": [
               {
@@ -811,7 +810,7 @@
           }
         },
         {
-          "mechanicId": "p2-towers-iii-all-things-ending-1",
+          "mechanicId": "p2-the-path-of-light-3",
           "assignments": {
             "AST": [
               {
@@ -863,7 +862,7 @@
           }
         },
         {
-          "mechanicId": "p2-towers-iv-past-future-s-end-1",
+          "mechanicId": "p2-the-path-of-light-4",
           "assignments": {
             "OT": [
               {
@@ -894,7 +893,7 @@
           }
         },
         {
-          "mechanicId": "p2-towers-v-all-things-ending-1",
+          "mechanicId": "p2-the-path-of-light-5",
           "assignments": {
             "WHM": [
               {
@@ -928,7 +927,7 @@
           }
         },
         {
-          "mechanicId": "p2-towers-vi-past-future-s-end-1",
+          "mechanicId": "p2-the-path-of-light-6",
           "assignments": {
             "MT": [
               {
@@ -962,7 +961,7 @@
           }
         },
         {
-          "mechanicId": "p2-towers-vii-all-things-ending-1",
+          "mechanicId": "p2-the-path-of-light-7",
           "assignments": {
             "SCH": [
               {
@@ -983,7 +982,7 @@
           }
         },
         {
-          "mechanicId": "p2-towers-viii-past-future-s-end-1",
+          "mechanicId": "p2-the-path-of-light-8",
           "assignments": {
             "SCH": [
               {
@@ -1004,7 +1003,7 @@
           }
         },
         {
-          "mechanicId": "p2-light-of-judgement-1",
+          "mechanicId": "p2-light-of-judgment-1",
           "assignments": {
             "MT": [
               {
@@ -1159,7 +1158,7 @@
       "note": "Paladin is the forced Chaos-start tank and is the offtank (right column) from this point of the fight onward, because of Hallowed Ground timing.",
       "mechanics": [
         {
-          "mechanicId": "p3-bowels-of-agony-chaos-1",
+          "mechanicId": "p3-bowels-of-agony-1",
           "assignments": {
             "MT": [
               {
@@ -1201,7 +1200,7 @@
           }
         },
         {
-          "mechanicId": "p3-stray-flames-tsunami-1",
+          "mechanicId": "p3-stray-flames-1",
           "assignments": {
             "OT": [
               {
@@ -1245,7 +1244,7 @@
           }
         },
         {
-          "mechanicId": "p3-thunder-iii-1st-set-1",
+          "mechanicId": "p3-thunder-iii-1",
           "assignments": {
             "OT": [
               {
@@ -1309,7 +1308,7 @@
           }
         },
         {
-          "mechanicId": "p3-stray-flames-tsunami-2",
+          "mechanicId": "p3-stray-flames-2",
           "assignments": {
             "MT": [
               {
@@ -1463,7 +1462,7 @@
           }
         },
         {
-          "mechanicId": "p3-thunder-iii-2nd-set-1",
+          "mechanicId": "p3-thunder-iii-2",
           "assignments": {
             "WHM": [
               {
@@ -1477,7 +1476,7 @@
           "assignments": {}
         },
         {
-          "mechanicId": "p3-thunder-iii-3rd-set-1",
+          "mechanicId": "p3-thunder-iii-3",
           "assignments": {
             "OT": [
               {
@@ -1591,7 +1590,7 @@
           }
         },
         {
-          "mechanicId": "p3-shocking-impact-shockwave-1",
+          "mechanicId": "p3-shocking-impact-1",
           "assignments": {
             "MT": [
               {
@@ -1646,12 +1645,12 @@
           }
         },
         {
-          "mechanicId": "p3-thunder-iii-4th-set-1",
+          "mechanicId": "p3-thunder-iii-4",
           "note": "Use the first beam set on either tank if it is the stack.",
           "assignments": {}
         },
         {
-          "mechanicId": "p3-shocking-impact-shockwave-2",
+          "mechanicId": "p3-shocking-impact-2",
           "assignments": {
             "MT": [
               {
@@ -1697,7 +1696,7 @@
           }
         },
         {
-          "mechanicId": "p3-black-holes-ii-4th-tether-set-1",
+          "mechanicId": "p3-black-hole-4",
           "assignments": {
             "SCH": [
               {
@@ -1730,7 +1729,7 @@
           }
         },
         {
-          "mechanicId": "p3-thunder-iii-5th-set-1",
+          "mechanicId": "p3-thunder-iii-5",
           "assignments": {
             "OT": [
               {
@@ -1798,11 +1797,11 @@
           }
         },
         {
-          "mechanicId": "p3-black-holes-ii-5th-tether-set-1",
+          "mechanicId": "p3-black-hole-5",
           "assignments": {}
         },
         {
-          "mechanicId": "p3-shocking-impact-shockwave-3",
+          "mechanicId": "p3-shocking-impact-3",
           "assignments": {
             "OT": [
               {
@@ -1849,7 +1848,7 @@
           }
         },
         {
-          "mechanicId": "p3-black-holes-iii-6th-tether-set-1",
+          "mechanicId": "p3-black-hole-6",
           "assignments": {
             "WHM": [
               {
@@ -1865,7 +1864,7 @@
           }
         },
         {
-          "mechanicId": "p3-stomp-a-mole-knock-down-1",
+          "mechanicId": "p3-stomp-a-mole-1",
           "assignments": {
             "MT": [
               {
@@ -1993,7 +1992,7 @@
           }
         },
         {
-          "mechanicId": "p4-inferno-tsunami-1",
+          "mechanicId": "p4-inferno-1",
           "assignments": {
             "WHM": [
               {
@@ -2067,7 +2066,7 @@
           }
         },
         {
-          "mechanicId": "p4-inferno-tsunami-2",
+          "mechanicId": "p4-inferno-2",
           "assignments": {
             "OT": [
               {
@@ -2193,7 +2192,7 @@
           }
         },
         {
-          "mechanicId": "p4-death-bolt-wave-1",
+          "mechanicId": "p4-death-bolt-1",
           "assignments": {
             "SCH": [
               {
@@ -2257,7 +2256,7 @@
           }
         },
         {
-          "mechanicId": "p4-death-bolt-wave-2",
+          "mechanicId": "p4-death-bolt-2",
           "assignments": {
             "MT": [
               {
@@ -2388,7 +2387,7 @@
           }
         },
         {
-          "mechanicId": "p5-fell-forces-3x-1",
+          "mechanicId": "p5-fell-forces-1",
           "assignments": {
             "WHM": [
               {
@@ -2512,7 +2511,7 @@
           }
         },
         {
-          "mechanicId": "p5-fell-forces-2x-1",
+          "mechanicId": "p5-fell-forces-2",
           "assignments": {
             "SCH": [
               {
@@ -2623,7 +2622,7 @@
           }
         },
         {
-          "mechanicId": "p5-fell-forces-2x-2",
+          "mechanicId": "p5-fell-forces-3",
           "assignments": {
             "WHM": [
               {
@@ -2712,7 +2711,7 @@
           }
         },
         {
-          "mechanicId": "p5-fell-forces-3x-2",
+          "mechanicId": "p5-fell-forces-4",
           "assignments": {
             "WHM": [
               {
@@ -2741,7 +2740,7 @@
           }
         },
         {
-          "mechanicId": "p5-forsaken-1st-hit-1",
+          "mechanicId": "p5-forsaken-1",
           "assignments": {
             "MT": [
               {
@@ -2803,7 +2802,7 @@
           }
         },
         {
-          "mechanicId": "p5-forsaken-bonds-2nd-hit-1",
+          "mechanicId": "p5-forsaken-bonds-1",
           "assignments": {
             "SCH": [
               {
@@ -2833,7 +2832,7 @@
           }
         },
         {
-          "mechanicId": "p5-forsaken-3rd-hit-1",
+          "mechanicId": "p5-forsaken-2",
           "assignments": {
             "WHM": [
               {
@@ -2882,7 +2881,7 @@
           }
         },
         {
-          "mechanicId": "p5-forsaken-bonds-4th-hit-1",
+          "mechanicId": "p5-forsaken-bonds-2",
           "assignments": {
             "SCH": [
               {
@@ -2927,7 +2926,7 @@
           }
         },
         {
-          "mechanicId": "p5-forsaken-5th-hit-1",
+          "mechanicId": "p5-forsaken-3",
           "assignments": {
             "MT": [
               {
@@ -2990,7 +2989,7 @@
           }
         },
         {
-          "mechanicId": "p5-forsaken-bonds-6th-hit-1",
+          "mechanicId": "p5-forsaken-bonds-3",
           "assignments": {
             "SCH": [
               {
@@ -3021,7 +3020,7 @@
           }
         },
         {
-          "mechanicId": "p5-forsaken-7th-hit-1",
+          "mechanicId": "p5-forsaken-4",
           "assignments": {
             "SCH": [
               {
@@ -3049,7 +3048,7 @@
           }
         },
         {
-          "mechanicId": "p5-forsaken-bonds-8th-hit-1",
+          "mechanicId": "p5-forsaken-bonds-4",
           "assignments": {
             "SCH": [
               {
@@ -3095,7 +3094,7 @@
               {
                 "id": "pld-r7-mt",
                 "name": "Revolting Ruin 1",
-                "after": "p1-revolting-ruin-1",
+                "after": "p1-revolting-ruin-iii-1",
                 "seat": "MT",
                 "actions": [
                   {
@@ -3115,7 +3114,7 @@
               {
                 "id": "pld-r7-ot",
                 "name": "Revolting Ruin 1",
-                "after": "p1-revolting-ruin-1",
+                "after": "p1-revolting-ruin-iii-1",
                 "seat": "OT",
                 "actions": [
                   {
@@ -3162,7 +3161,7 @@
               {
                 "id": "pld-r17-mt",
                 "name": "Revolting Ruin 2",
-                "after": "p1-revolting-ruin-2",
+                "after": "p1-revolting-ruin-iii-2",
                 "seat": "MT",
                 "note": "MT Provoke obviously",
                 "actions": [
@@ -3174,7 +3173,7 @@
               {
                 "id": "pld-r17-ot",
                 "name": "Revolting Ruin 2",
-                "after": "p1-revolting-ruin-2",
+                "after": "p1-revolting-ruin-iii-2",
                 "seat": "OT",
                 "note": "MT Provoke obviously",
                 "actions": [
@@ -3202,7 +3201,7 @@
               {
                 "id": "pld-r31-mt",
                 "name": "Ultimate Embrace",
-                "time": "0:23",
+                "time": "0:11",
                 "after": "p2-ultimate-embrace-1",
                 "seat": "MT",
                 "actions": [
@@ -3223,7 +3222,7 @@
               {
                 "id": "pld-r31-ot",
                 "name": "Ultimate Embrace",
-                "time": "0:23",
+                "time": "0:11",
                 "after": "p2-ultimate-embrace-1",
                 "seat": "OT",
                 "actions": [
@@ -3336,8 +3335,8 @@
               {
                 "id": "pld-r55-mt",
                 "name": "Thunder III",
-                "time": "1:37",
-                "after": "p3-thunder-iii-1st-set-1",
+                "time": "0:51",
+                "after": "p3-thunder-iii-1",
                 "seat": "MT",
                 "note": "Assumes Exdeath is held middle. Check the wall-Exdeath sheet for Walldeath.",
                 "actions": [
@@ -3356,8 +3355,8 @@
               {
                 "id": "pld-r55-ot",
                 "name": "Thunder III",
-                "time": "1:37",
-                "after": "p3-thunder-iii-1st-set-1",
+                "time": "0:51",
+                "after": "p3-thunder-iii-1",
                 "seat": "OT",
                 "note": "Assumes Exdeath is held middle. Check the wall-Exdeath sheet for Walldeath.",
                 "actions": [
@@ -3376,8 +3375,8 @@
               {
                 "id": "pld-r61-mt",
                 "name": "Thunder III",
-                "time": "2:34",
-                "after": "p3-thunder-iii-2nd-set-1",
+                "time": "1:48",
+                "after": "p3-thunder-iii-2",
                 "seat": "MT",
                 "actions": [
                   {
@@ -3388,8 +3387,8 @@
               {
                 "id": "pld-r67-mt",
                 "name": "Thunder III",
-                "time": "2:52",
-                "after": "p3-thunder-iii-3rd-set-1",
+                "time": "2:06",
+                "after": "p3-thunder-iii-3",
                 "seat": "MT",
                 "actions": [
                   {
@@ -3404,8 +3403,8 @@
               {
                 "id": "pld-r67-ot",
                 "name": "Thunder III",
-                "time": "2:52",
-                "after": "p3-thunder-iii-3rd-set-1",
+                "time": "2:06",
+                "after": "p3-thunder-iii-3",
                 "seat": "OT",
                 "actions": [
                   {
@@ -3420,7 +3419,7 @@
               {
                 "id": "pld-r69-mt",
                 "name": "HP Reduction",
-                "time": "2:59",
+                "time": "2:13",
                 "after": "p3-earthquake-1",
                 "seat": "MT",
                 "note": "Covered by the Thunder III mitigation above.",
@@ -3429,7 +3428,7 @@
               {
                 "id": "pld-r69-ot",
                 "name": "HP Reduction",
-                "time": "2:59",
+                "time": "2:13",
                 "after": "p3-earthquake-1",
                 "seat": "OT",
                 "note": "Covered by the Thunder III mitigation above.",
@@ -3438,8 +3437,8 @@
               {
                 "id": "pld-r73-ot",
                 "name": "Thunder III",
-                "time": "3:33",
-                "after": "p3-thunder-iii-4th-set-1",
+                "time": "2:47",
+                "after": "p3-thunder-iii-4",
                 "seat": "OT",
                 "actions": [
                   {
@@ -3450,8 +3449,8 @@
               {
                 "id": "pld-r77-mt",
                 "name": "Thunder III",
-                "time": "4:15",
-                "after": "p3-thunder-iii-5th-set-1",
+                "time": "3:29",
+                "after": "p3-thunder-iii-5",
                 "seat": "MT",
                 "actions": [
                   {
@@ -3469,8 +3468,8 @@
               {
                 "id": "pld-r77-ot",
                 "name": "Thunder III",
-                "time": "4:15",
-                "after": "p3-thunder-iii-5th-set-1",
+                "time": "3:29",
+                "after": "p3-thunder-iii-5",
                 "seat": "OT",
                 "actions": [
                   {
@@ -3488,8 +3487,8 @@
               {
                 "id": "pld-r81-mt",
                 "name": "3rd in Line Tank",
-                "time": "5:08",
-                "after": "p3-shocking-impact-shockwave-3",
+                "time": "4:22",
+                "after": "p3-shocking-impact-3",
                 "seat": "MT",
                 "note": "Only if you are third in line. Cover your co-tank if they are.",
                 "actions": [
@@ -3504,8 +3503,8 @@
               {
                 "id": "pld-r81-ot",
                 "name": "3rd in Line Tank",
-                "time": "5:08",
-                "after": "p3-shocking-impact-shockwave-3",
+                "time": "4:22",
+                "after": "p3-shocking-impact-3",
                 "seat": "OT",
                 "note": "Only if you are third in line. Cover your co-tank if they are.",
                 "actions": [
@@ -3586,9 +3585,9 @@
                 ]
               },
               {
-                "id": "pld-p3-black-holes-ii-5th-tether-set-1-mt",
-                "name": "Black Holes II (5th Tether Set)",
-                "after": "p3-black-holes-ii-5th-tether-set-1",
+                "id": "pld-p3-black-hole-5-mt",
+                "name": "Black Holes 2nd Set (Beam 3)",
+                "after": "p3-black-hole-5",
                 "seat": "MT",
                 "actions": [
                   {
@@ -3598,9 +3597,9 @@
                 ]
               },
               {
-                "id": "pld-p3-black-holes-ii-5th-tether-set-1-ot",
-                "name": "Black Holes II (5th Tether Set)",
-                "after": "p3-black-holes-ii-5th-tether-set-1",
+                "id": "pld-p3-black-hole-5-ot",
+                "name": "Black Holes 2nd Set (Beam 3)",
+                "after": "p3-black-hole-5",
                 "seat": "OT",
                 "actions": [
                   {
@@ -3610,9 +3609,9 @@
                 ]
               },
               {
-                "id": "pld-p3-shocking-impact-shockwave-3-mt",
+                "id": "pld-p3-shocking-impact-3-mt",
                 "name": "Shocking Impact/Shockwave 3",
-                "after": "p3-shocking-impact-shockwave-3",
+                "after": "p3-shocking-impact-3",
                 "seat": "MT",
                 "actions": [
                   {
@@ -3622,9 +3621,9 @@
                 ]
               },
               {
-                "id": "pld-p3-black-holes-iii-6th-tether-set-1-mt",
-                "name": "Black Holes III (6th Tether Set)",
-                "after": "p3-black-holes-iii-6th-tether-set-1",
+                "id": "pld-p3-black-hole-6-mt",
+                "name": "Black Holes 3rd Set (Beam 1)",
+                "after": "p3-black-hole-6",
                 "seat": "MT",
                 "actions": [
                   {
@@ -3634,9 +3633,9 @@
                 ]
               },
               {
-                "id": "pld-p3-black-holes-iii-6th-tether-set-1-ot",
-                "name": "Black Holes III (6th Tether Set)",
-                "after": "p3-black-holes-iii-6th-tether-set-1",
+                "id": "pld-p3-black-hole-6-ot",
+                "name": "Black Holes 3rd Set (Beam 1)",
+                "after": "p3-black-hole-6",
                 "seat": "OT",
                 "actions": [
                   {
@@ -3712,8 +3711,8 @@
               {
                 "id": "pld-r105-mt",
                 "name": "Autos 1",
-                "time": "0:45",
-                "after": "p5-fell-forces-3x-1",
+                "time": "0:03",
+                "after": "p5-fell-forces-1",
                 "seat": "MT",
                 "actions": [
                   {
@@ -3727,8 +3726,8 @@
               {
                 "id": "pld-r105-ot",
                 "name": "Autos 1",
-                "time": "0:45",
-                "after": "p5-fell-forces-3x-1",
+                "time": "0:03",
+                "after": "p5-fell-forces-1",
                 "seat": "OT",
                 "actions": [
                   {
@@ -3745,7 +3744,7 @@
               {
                 "id": "pld-r107-ot",
                 "name": "Flood",
-                "time": "1:01",
+                "time": "0:19",
                 "after": "p5-chaotic-flood-1",
                 "seat": "OT",
                 "note": "Voke again for safety - the OT needs aggro.",
@@ -3758,7 +3757,7 @@
               {
                 "id": "pld-r109-mt",
                 "name": "Flare Diffusion 1",
-                "time": "1:17",
+                "time": "0:35",
                 "after": "p5-maddening-orchestra-1",
                 "seat": "MT",
                 "note": "Tank swap so the boss does not get dragged out.",
@@ -3780,7 +3779,7 @@
               {
                 "id": "pld-r109-ot",
                 "name": "Flare Diffusion 1",
-                "time": "1:17",
+                "time": "0:35",
                 "after": "p5-maddening-orchestra-1",
                 "seat": "OT",
                 "note": "Tank swap so the boss does not get dragged out.",
@@ -3794,7 +3793,7 @@
               {
                 "id": "pld-r111-mt",
                 "name": "Flare 1",
-                "time": "1:17",
+                "time": "0:35",
                 "after": "p5-maddening-orchestra-1",
                 "seat": "MT",
                 "actions": [
@@ -3807,7 +3806,7 @@
               {
                 "id": "pld-r111-ot",
                 "name": "Flare 1",
-                "time": "1:17",
+                "time": "0:35",
                 "after": "p5-maddening-orchestra-1",
                 "seat": "OT",
                 "actions": [
@@ -3820,8 +3819,8 @@
               {
                 "id": "pld-r113-mt",
                 "name": "Autos 2",
-                "time": "1:22",
-                "after": "p5-fell-forces-2x-1",
+                "time": "0:40",
+                "after": "p5-fell-forces-2",
                 "seat": "MT",
                 "note": "The MT is main threat until the next flare.",
                 "actions": [
@@ -3834,8 +3833,8 @@
               {
                 "id": "pld-r119-mt",
                 "name": "Autos 3",
-                "time": "2:07",
-                "after": "p5-fell-forces-2x-2",
+                "time": "1:25",
+                "after": "p5-fell-forces-3",
                 "seat": "MT",
                 "actions": [
                   {
@@ -3846,8 +3845,8 @@
               {
                 "id": "pld-r119-ot",
                 "name": "Autos 3",
-                "time": "2:07",
-                "after": "p5-fell-forces-2x-2",
+                "time": "1:25",
+                "after": "p5-fell-forces-3",
                 "seat": "OT",
                 "actions": [
                   {
@@ -3858,7 +3857,7 @@
               {
                 "id": "pld-r121-mt",
                 "name": "Flare Diffusion 2",
-                "time": "2:46",
+                "time": "2:04",
                 "after": "p5-maddening-orchestra-2",
                 "seat": "MT",
                 "note": "Tank swap so the boss does not get dragged out. Press Rampart last so it holds until the final auto.",
@@ -3874,7 +3873,7 @@
               {
                 "id": "pld-r121-ot",
                 "name": "Flare Diffusion 2",
-                "time": "2:46",
+                "time": "2:04",
                 "after": "p5-maddening-orchestra-2",
                 "seat": "OT",
                 "note": "Tank swap so the boss does not get dragged out. Press Rampart last so it holds until the final auto.",
@@ -3893,7 +3892,7 @@
               {
                 "id": "pld-r123-mt",
                 "name": "Flare 2",
-                "time": "2:46",
+                "time": "2:04",
                 "after": "p5-maddening-orchestra-2",
                 "seat": "MT",
                 "actions": [
@@ -3906,7 +3905,7 @@
               {
                 "id": "pld-r123-ot",
                 "name": "Flare 2",
-                "time": "2:46",
+                "time": "2:04",
                 "after": "p5-maddening-orchestra-2",
                 "seat": "OT",
                 "actions": [
@@ -3919,8 +3918,8 @@
               {
                 "id": "pld-r125-mt",
                 "name": "Autos 4",
-                "time": "2:54",
-                "after": "p5-fell-forces-3x-2",
+                "time": "2:12",
+                "after": "p5-fell-forces-4",
                 "seat": "MT",
                 "actions": [
                   {
@@ -3932,8 +3931,8 @@
               {
                 "id": "pld-r125-ot",
                 "name": "Autos 4",
-                "time": "2:54",
-                "after": "p5-fell-forces-3x-2",
+                "time": "2:12",
+                "after": "p5-fell-forces-4",
                 "seat": "OT",
                 "actions": [
                   {
@@ -3959,9 +3958,9 @@
                 ]
               },
               {
-                "id": "pld-p5-forsaken-7th-hit-1-mt",
+                "id": "pld-p5-forsaken-4-mt",
                 "name": "Forsaken (7th Hit)",
-                "after": "p5-forsaken-7th-hit-1",
+                "after": "p5-forsaken-4",
                 "seat": "MT",
                 "actions": [
                   {
@@ -3972,9 +3971,9 @@
                 ]
               },
               {
-                "id": "pld-p5-forsaken-7th-hit-1-ot",
+                "id": "pld-p5-forsaken-4-ot",
                 "name": "Forsaken (7th Hit)",
-                "after": "p5-forsaken-7th-hit-1",
+                "after": "p5-forsaken-4",
                 "seat": "OT",
                 "actions": [
                   {
@@ -3997,7 +3996,7 @@
               {
                 "id": "war-r7-mt",
                 "name": "Revolting Ruin 1",
-                "after": "p1-revolting-ruin-1",
+                "after": "p1-revolting-ruin-iii-1",
                 "seat": "MT",
                 "actions": [
                   {
@@ -4017,7 +4016,7 @@
               {
                 "id": "war-r7-ot",
                 "name": "Revolting Ruin 1",
-                "after": "p1-revolting-ruin-1",
+                "after": "p1-revolting-ruin-iii-1",
                 "seat": "OT",
                 "actions": [
                   {
@@ -4064,7 +4063,7 @@
               {
                 "id": "war-r17-mt",
                 "name": "Revolting Ruin 2",
-                "after": "p1-revolting-ruin-2",
+                "after": "p1-revolting-ruin-iii-2",
                 "seat": "MT",
                 "note": "MT Provoke obviously",
                 "actions": [
@@ -4076,7 +4075,7 @@
               {
                 "id": "war-r17-ot",
                 "name": "Revolting Ruin 2",
-                "after": "p1-revolting-ruin-2",
+                "after": "p1-revolting-ruin-iii-2",
                 "seat": "OT",
                 "note": "MT Provoke obviously",
                 "actions": [
@@ -4105,7 +4104,7 @@
               {
                 "id": "war-r31-mt",
                 "name": "Ultimate Embrace",
-                "time": "0:23",
+                "time": "0:11",
                 "after": "p2-ultimate-embrace-1",
                 "seat": "MT",
                 "note": "Holmgang instead if WAR.",
@@ -4131,7 +4130,7 @@
               {
                 "id": "war-r31-ot",
                 "name": "Ultimate Embrace",
-                "time": "0:23",
+                "time": "0:11",
                 "after": "p2-ultimate-embrace-1",
                 "seat": "OT",
                 "note": "Holmgang instead if WAR.",
@@ -4245,8 +4244,8 @@
               {
                 "id": "war-r55-mt",
                 "name": "Thunder III",
-                "time": "1:37",
-                "after": "p3-thunder-iii-1st-set-1",
+                "time": "0:51",
+                "after": "p3-thunder-iii-1",
                 "seat": "MT",
                 "note": "Assumes Exdeath is held middle. Check the wall-Exdeath sheet for Walldeath.",
                 "actions": [
@@ -4265,8 +4264,8 @@
               {
                 "id": "war-r55-ot",
                 "name": "Thunder III",
-                "time": "1:37",
-                "after": "p3-thunder-iii-1st-set-1",
+                "time": "0:51",
+                "after": "p3-thunder-iii-1",
                 "seat": "OT",
                 "note": "Assumes Exdeath is held middle. Check the wall-Exdeath sheet for Walldeath.",
                 "actions": [
@@ -4285,8 +4284,8 @@
               {
                 "id": "war-r61-mt",
                 "name": "Thunder III",
-                "time": "2:34",
-                "after": "p3-thunder-iii-2nd-set-1",
+                "time": "1:48",
+                "after": "p3-thunder-iii-2",
                 "seat": "MT",
                 "actions": [
                   {
@@ -4297,8 +4296,8 @@
               {
                 "id": "war-r67-mt",
                 "name": "Thunder III",
-                "time": "2:52",
-                "after": "p3-thunder-iii-3rd-set-1",
+                "time": "2:06",
+                "after": "p3-thunder-iii-3",
                 "seat": "MT",
                 "actions": [
                   {
@@ -4313,8 +4312,8 @@
               {
                 "id": "war-r67-ot",
                 "name": "Thunder III",
-                "time": "2:52",
-                "after": "p3-thunder-iii-3rd-set-1",
+                "time": "2:06",
+                "after": "p3-thunder-iii-3",
                 "seat": "OT",
                 "actions": [
                   {
@@ -4329,7 +4328,7 @@
               {
                 "id": "war-r69-mt",
                 "name": "HP Reduction",
-                "time": "2:59",
+                "time": "2:13",
                 "after": "p3-earthquake-1",
                 "seat": "MT",
                 "note": "Covered by the Thunder III mitigation above.",
@@ -4338,7 +4337,7 @@
               {
                 "id": "war-r69-ot",
                 "name": "HP Reduction",
-                "time": "2:59",
+                "time": "2:13",
                 "after": "p3-earthquake-1",
                 "seat": "OT",
                 "note": "Covered by the Thunder III mitigation above.",
@@ -4347,8 +4346,8 @@
               {
                 "id": "war-r73-ot",
                 "name": "Thunder III",
-                "time": "3:33",
-                "after": "p3-thunder-iii-4th-set-1",
+                "time": "2:47",
+                "after": "p3-thunder-iii-4",
                 "seat": "OT",
                 "actions": [
                   {
@@ -4359,8 +4358,8 @@
               {
                 "id": "war-r77-mt",
                 "name": "Thunder III",
-                "time": "4:15",
-                "after": "p3-thunder-iii-5th-set-1",
+                "time": "3:29",
+                "after": "p3-thunder-iii-5",
                 "seat": "MT",
                 "actions": [
                   {
@@ -4378,8 +4377,8 @@
               {
                 "id": "war-r77-ot",
                 "name": "Thunder III",
-                "time": "4:15",
-                "after": "p3-thunder-iii-5th-set-1",
+                "time": "3:29",
+                "after": "p3-thunder-iii-5",
                 "seat": "OT",
                 "actions": [
                   {
@@ -4397,8 +4396,8 @@
               {
                 "id": "war-r81-mt",
                 "name": "3rd in Line Tank",
-                "time": "5:08",
-                "after": "p3-shocking-impact-shockwave-3",
+                "time": "4:22",
+                "after": "p3-shocking-impact-3",
                 "seat": "MT",
                 "note": "Only if you are third in line. Cover your co-tank if they are.",
                 "actions": [
@@ -4413,8 +4412,8 @@
               {
                 "id": "war-r81-ot",
                 "name": "3rd in Line Tank",
-                "time": "5:08",
-                "after": "p3-shocking-impact-shockwave-3",
+                "time": "4:22",
+                "after": "p3-shocking-impact-3",
                 "seat": "OT",
                 "note": "Only if you are third in line. Cover your co-tank if they are.",
                 "actions": [
@@ -4497,9 +4496,9 @@
                 ]
               },
               {
-                "id": "war-p3-black-holes-ii-5th-tether-set-1-mt",
-                "name": "Black Holes II (5th Tether Set)",
-                "after": "p3-black-holes-ii-5th-tether-set-1",
+                "id": "war-p3-black-hole-5-mt",
+                "name": "Black Holes 2nd Set (Beam 3)",
+                "after": "p3-black-hole-5",
                 "seat": "MT",
                 "actions": [
                   {
@@ -4509,9 +4508,9 @@
                 ]
               },
               {
-                "id": "war-p3-black-holes-ii-5th-tether-set-1-ot",
-                "name": "Black Holes II (5th Tether Set)",
-                "after": "p3-black-holes-ii-5th-tether-set-1",
+                "id": "war-p3-black-hole-5-ot",
+                "name": "Black Holes 2nd Set (Beam 3)",
+                "after": "p3-black-hole-5",
                 "seat": "OT",
                 "actions": [
                   {
@@ -4521,9 +4520,9 @@
                 ]
               },
               {
-                "id": "war-p3-shocking-impact-shockwave-3-mt",
+                "id": "war-p3-shocking-impact-3-mt",
                 "name": "Shocking Impact/Shockwave 3",
-                "after": "p3-shocking-impact-shockwave-3",
+                "after": "p3-shocking-impact-3",
                 "seat": "MT",
                 "actions": [
                   {
@@ -4533,9 +4532,9 @@
                 ]
               },
               {
-                "id": "war-p3-black-holes-iii-6th-tether-set-1-mt",
-                "name": "Black Holes III (6th Tether Set)",
-                "after": "p3-black-holes-iii-6th-tether-set-1",
+                "id": "war-p3-black-hole-6-mt",
+                "name": "Black Holes 3rd Set (Beam 1)",
+                "after": "p3-black-hole-6",
                 "seat": "MT",
                 "actions": [
                   {
@@ -4545,9 +4544,9 @@
                 ]
               },
               {
-                "id": "war-p3-black-holes-iii-6th-tether-set-1-ot",
-                "name": "Black Holes III (6th Tether Set)",
-                "after": "p3-black-holes-iii-6th-tether-set-1",
+                "id": "war-p3-black-hole-6-ot",
+                "name": "Black Holes 3rd Set (Beam 1)",
+                "after": "p3-black-hole-6",
                 "seat": "OT",
                 "actions": [
                   {
@@ -4623,8 +4622,8 @@
               {
                 "id": "war-r105-mt",
                 "name": "Autos 1",
-                "time": "0:45",
-                "after": "p5-fell-forces-3x-1",
+                "time": "0:03",
+                "after": "p5-fell-forces-1",
                 "seat": "MT",
                 "actions": [
                   {
@@ -4638,8 +4637,8 @@
               {
                 "id": "war-r105-ot",
                 "name": "Autos 1",
-                "time": "0:45",
-                "after": "p5-fell-forces-3x-1",
+                "time": "0:03",
+                "after": "p5-fell-forces-1",
                 "seat": "OT",
                 "actions": [
                   {
@@ -4656,7 +4655,7 @@
               {
                 "id": "war-r107-ot",
                 "name": "Flood",
-                "time": "1:01",
+                "time": "0:19",
                 "after": "p5-chaotic-flood-1",
                 "seat": "OT",
                 "note": "Voke again for safety - the OT needs aggro.",
@@ -4669,7 +4668,7 @@
               {
                 "id": "war-r109-mt",
                 "name": "Flare Diffusion 1",
-                "time": "1:17",
+                "time": "0:35",
                 "after": "p5-maddening-orchestra-1",
                 "seat": "MT",
                 "note": "Tank swap so the boss does not get dragged out.",
@@ -4691,7 +4690,7 @@
               {
                 "id": "war-r109-ot",
                 "name": "Flare Diffusion 1",
-                "time": "1:17",
+                "time": "0:35",
                 "after": "p5-maddening-orchestra-1",
                 "seat": "OT",
                 "note": "Tank swap so the boss does not get dragged out.",
@@ -4705,7 +4704,7 @@
               {
                 "id": "war-r111-mt",
                 "name": "Flare 1",
-                "time": "1:17",
+                "time": "0:35",
                 "after": "p5-maddening-orchestra-1",
                 "seat": "MT",
                 "actions": [
@@ -4718,7 +4717,7 @@
               {
                 "id": "war-r111-ot",
                 "name": "Flare 1",
-                "time": "1:17",
+                "time": "0:35",
                 "after": "p5-maddening-orchestra-1",
                 "seat": "OT",
                 "actions": [
@@ -4731,8 +4730,8 @@
               {
                 "id": "war-r113-mt",
                 "name": "Autos 2",
-                "time": "1:22",
-                "after": "p5-fell-forces-2x-1",
+                "time": "0:40",
+                "after": "p5-fell-forces-2",
                 "seat": "MT",
                 "note": "The MT is main threat until the next flare.",
                 "actions": [
@@ -4745,8 +4744,8 @@
               {
                 "id": "war-r119-mt",
                 "name": "Autos 3",
-                "time": "2:07",
-                "after": "p5-fell-forces-2x-2",
+                "time": "1:25",
+                "after": "p5-fell-forces-3",
                 "seat": "MT",
                 "actions": [
                   {
@@ -4757,8 +4756,8 @@
               {
                 "id": "war-r119-ot",
                 "name": "Autos 3",
-                "time": "2:07",
-                "after": "p5-fell-forces-2x-2",
+                "time": "1:25",
+                "after": "p5-fell-forces-3",
                 "seat": "OT",
                 "actions": [
                   {
@@ -4769,7 +4768,7 @@
               {
                 "id": "war-r121-mt",
                 "name": "Flare Diffusion 2",
-                "time": "2:46",
+                "time": "2:04",
                 "after": "p5-maddening-orchestra-2",
                 "seat": "MT",
                 "note": "Tank swap so the boss does not get dragged out. Press Rampart last so it holds until the final auto.",
@@ -4785,7 +4784,7 @@
               {
                 "id": "war-r121-ot",
                 "name": "Flare Diffusion 2",
-                "time": "2:46",
+                "time": "2:04",
                 "after": "p5-maddening-orchestra-2",
                 "seat": "OT",
                 "note": "Tank swap so the boss does not get dragged out. Press Rampart last so it holds until the final auto.",
@@ -4804,7 +4803,7 @@
               {
                 "id": "war-r123-mt",
                 "name": "Flare 2",
-                "time": "2:46",
+                "time": "2:04",
                 "after": "p5-maddening-orchestra-2",
                 "seat": "MT",
                 "actions": [
@@ -4817,7 +4816,7 @@
               {
                 "id": "war-r123-ot",
                 "name": "Flare 2",
-                "time": "2:46",
+                "time": "2:04",
                 "after": "p5-maddening-orchestra-2",
                 "seat": "OT",
                 "actions": [
@@ -4830,8 +4829,8 @@
               {
                 "id": "war-r125-mt",
                 "name": "Autos 4",
-                "time": "2:54",
-                "after": "p5-fell-forces-3x-2",
+                "time": "2:12",
+                "after": "p5-fell-forces-4",
                 "seat": "MT",
                 "actions": [
                   {
@@ -4843,8 +4842,8 @@
               {
                 "id": "war-r125-ot",
                 "name": "Autos 4",
-                "time": "2:54",
-                "after": "p5-fell-forces-3x-2",
+                "time": "2:12",
+                "after": "p5-fell-forces-4",
                 "seat": "OT",
                 "actions": [
                   {
@@ -4870,9 +4869,9 @@
                 ]
               },
               {
-                "id": "war-p5-forsaken-7th-hit-1-mt",
+                "id": "war-p5-forsaken-4-mt",
                 "name": "Forsaken (7th Hit)",
-                "after": "p5-forsaken-7th-hit-1",
+                "after": "p5-forsaken-4",
                 "seat": "MT",
                 "actions": [
                   {
@@ -4883,9 +4882,9 @@
                 ]
               },
               {
-                "id": "war-p5-forsaken-7th-hit-1-ot",
+                "id": "war-p5-forsaken-4-ot",
                 "name": "Forsaken (7th Hit)",
-                "after": "p5-forsaken-7th-hit-1",
+                "after": "p5-forsaken-4",
                 "seat": "OT",
                 "actions": [
                   {
@@ -4908,7 +4907,7 @@
               {
                 "id": "drk-r7-mt",
                 "name": "Revolting Ruin 1",
-                "after": "p1-revolting-ruin-1",
+                "after": "p1-revolting-ruin-iii-1",
                 "seat": "MT",
                 "actions": [
                   {
@@ -4931,7 +4930,7 @@
               {
                 "id": "drk-r7-ot",
                 "name": "Revolting Ruin 1",
-                "after": "p1-revolting-ruin-1",
+                "after": "p1-revolting-ruin-iii-1",
                 "seat": "OT",
                 "actions": [
                   {
@@ -4989,7 +4988,7 @@
               {
                 "id": "drk-r17-mt",
                 "name": "Revolting Ruin 2",
-                "after": "p1-revolting-ruin-2",
+                "after": "p1-revolting-ruin-iii-2",
                 "seat": "MT",
                 "note": "MT Provoke obviously",
                 "actions": [
@@ -5001,7 +5000,7 @@
               {
                 "id": "drk-r17-ot",
                 "name": "Revolting Ruin 2",
-                "after": "p1-revolting-ruin-2",
+                "after": "p1-revolting-ruin-iii-2",
                 "seat": "OT",
                 "note": "MT Provoke obviously",
                 "actions": [
@@ -5029,7 +5028,7 @@
               {
                 "id": "drk-r31-mt",
                 "name": "Ultimate Embrace",
-                "time": "0:23",
+                "time": "0:11",
                 "after": "p2-ultimate-embrace-1",
                 "seat": "MT",
                 "actions": [
@@ -5053,7 +5052,7 @@
               {
                 "id": "drk-r31-ot",
                 "name": "Ultimate Embrace",
-                "time": "0:23",
+                "time": "0:11",
                 "after": "p2-ultimate-embrace-1",
                 "seat": "OT",
                 "actions": [
@@ -5183,8 +5182,8 @@
               {
                 "id": "drk-r55-mt",
                 "name": "Thunder III",
-                "time": "1:37",
-                "after": "p3-thunder-iii-1st-set-1",
+                "time": "0:51",
+                "after": "p3-thunder-iii-1",
                 "seat": "MT",
                 "note": "Assumes Exdeath is held middle. Check the wall-Exdeath sheet for Walldeath.",
                 "actions": [
@@ -5206,8 +5205,8 @@
               {
                 "id": "drk-r55-ot",
                 "name": "Thunder III",
-                "time": "1:37",
-                "after": "p3-thunder-iii-1st-set-1",
+                "time": "0:51",
+                "after": "p3-thunder-iii-1",
                 "seat": "OT",
                 "note": "Assumes Exdeath is held middle. Check the wall-Exdeath sheet for Walldeath.",
                 "actions": [
@@ -5229,8 +5228,8 @@
               {
                 "id": "drk-r61-mt",
                 "name": "Thunder III",
-                "time": "2:34",
-                "after": "p3-thunder-iii-2nd-set-1",
+                "time": "1:48",
+                "after": "p3-thunder-iii-2",
                 "seat": "MT",
                 "actions": [
                   {
@@ -5241,8 +5240,8 @@
               {
                 "id": "drk-r67-mt",
                 "name": "Thunder III",
-                "time": "2:52",
-                "after": "p3-thunder-iii-3rd-set-1",
+                "time": "2:06",
+                "after": "p3-thunder-iii-3",
                 "seat": "MT",
                 "actions": [
                   {
@@ -5260,8 +5259,8 @@
               {
                 "id": "drk-r67-ot",
                 "name": "Thunder III",
-                "time": "2:52",
-                "after": "p3-thunder-iii-3rd-set-1",
+                "time": "2:06",
+                "after": "p3-thunder-iii-3",
                 "seat": "OT",
                 "actions": [
                   {
@@ -5279,7 +5278,7 @@
               {
                 "id": "drk-r69-mt",
                 "name": "HP Reduction",
-                "time": "2:59",
+                "time": "2:13",
                 "after": "p3-earthquake-1",
                 "seat": "MT",
                 "note": "Covered by the Thunder III mitigation above.",
@@ -5288,7 +5287,7 @@
               {
                 "id": "drk-r69-ot",
                 "name": "HP Reduction",
-                "time": "2:59",
+                "time": "2:13",
                 "after": "p3-earthquake-1",
                 "seat": "OT",
                 "note": "Covered by the Thunder III mitigation above.",
@@ -5297,8 +5296,8 @@
               {
                 "id": "drk-r73-ot",
                 "name": "Thunder III",
-                "time": "3:33",
-                "after": "p3-thunder-iii-4th-set-1",
+                "time": "2:47",
+                "after": "p3-thunder-iii-4",
                 "seat": "OT",
                 "actions": [
                   {
@@ -5309,8 +5308,8 @@
               {
                 "id": "drk-r77-mt",
                 "name": "Thunder III",
-                "time": "4:15",
-                "after": "p3-thunder-iii-5th-set-1",
+                "time": "3:29",
+                "after": "p3-thunder-iii-5",
                 "seat": "MT",
                 "actions": [
                   {
@@ -5331,8 +5330,8 @@
               {
                 "id": "drk-r77-ot",
                 "name": "Thunder III",
-                "time": "4:15",
-                "after": "p3-thunder-iii-5th-set-1",
+                "time": "3:29",
+                "after": "p3-thunder-iii-5",
                 "seat": "OT",
                 "actions": [
                   {
@@ -5353,8 +5352,8 @@
               {
                 "id": "drk-r81-mt",
                 "name": "3rd in Line Tank",
-                "time": "5:08",
-                "after": "p3-shocking-impact-shockwave-3",
+                "time": "4:22",
+                "after": "p3-shocking-impact-3",
                 "seat": "MT",
                 "note": "Only if you are third in line. Cover your co-tank if they are.",
                 "actions": [
@@ -5372,8 +5371,8 @@
               {
                 "id": "drk-r81-ot",
                 "name": "3rd in Line Tank",
-                "time": "5:08",
-                "after": "p3-shocking-impact-shockwave-3",
+                "time": "4:22",
+                "after": "p3-shocking-impact-3",
                 "seat": "OT",
                 "note": "Only if you are third in line. Cover your co-tank if they are.",
                 "actions": [
@@ -5469,9 +5468,9 @@
                 ]
               },
               {
-                "id": "drk-p3-black-holes-ii-5th-tether-set-1-mt",
-                "name": "Black Holes II (5th Tether Set)",
-                "after": "p3-black-holes-ii-5th-tether-set-1",
+                "id": "drk-p3-black-hole-5-mt",
+                "name": "Black Holes 2nd Set (Beam 3)",
+                "after": "p3-black-hole-5",
                 "seat": "MT",
                 "actions": [
                   {
@@ -5485,9 +5484,9 @@
                 ]
               },
               {
-                "id": "drk-p3-black-holes-ii-5th-tether-set-1-ot",
-                "name": "Black Holes II (5th Tether Set)",
-                "after": "p3-black-holes-ii-5th-tether-set-1",
+                "id": "drk-p3-black-hole-5-ot",
+                "name": "Black Holes 2nd Set (Beam 3)",
+                "after": "p3-black-hole-5",
                 "seat": "OT",
                 "actions": [
                   {
@@ -5501,9 +5500,9 @@
                 ]
               },
               {
-                "id": "drk-p3-shocking-impact-shockwave-3-mt",
+                "id": "drk-p3-shocking-impact-3-mt",
                 "name": "Shocking Impact/Shockwave 3",
-                "after": "p3-shocking-impact-shockwave-3",
+                "after": "p3-shocking-impact-3",
                 "seat": "MT",
                 "actions": [
                   {
@@ -5513,9 +5512,9 @@
                 ]
               },
               {
-                "id": "drk-p3-black-holes-iii-6th-tether-set-1-mt",
-                "name": "Black Holes III (6th Tether Set)",
-                "after": "p3-black-holes-iii-6th-tether-set-1",
+                "id": "drk-p3-black-hole-6-mt",
+                "name": "Black Holes 3rd Set (Beam 1)",
+                "after": "p3-black-hole-6",
                 "seat": "MT",
                 "actions": [
                   {
@@ -5525,9 +5524,9 @@
                 ]
               },
               {
-                "id": "drk-p3-black-holes-iii-6th-tether-set-1-ot",
-                "name": "Black Holes III (6th Tether Set)",
-                "after": "p3-black-holes-iii-6th-tether-set-1",
+                "id": "drk-p3-black-hole-6-ot",
+                "name": "Black Holes 3rd Set (Beam 1)",
+                "after": "p3-black-hole-6",
                 "seat": "OT",
                 "actions": [
                   {
@@ -5627,8 +5626,8 @@
               {
                 "id": "drk-r105-mt",
                 "name": "Autos 1",
-                "time": "0:45",
-                "after": "p5-fell-forces-3x-1",
+                "time": "0:03",
+                "after": "p5-fell-forces-1",
                 "seat": "MT",
                 "actions": [
                   {
@@ -5645,8 +5644,8 @@
               {
                 "id": "drk-r105-ot",
                 "name": "Autos 1",
-                "time": "0:45",
-                "after": "p5-fell-forces-3x-1",
+                "time": "0:03",
+                "after": "p5-fell-forces-1",
                 "seat": "OT",
                 "actions": [
                   {
@@ -5666,7 +5665,7 @@
               {
                 "id": "drk-r107-ot",
                 "name": "Flood",
-                "time": "1:01",
+                "time": "0:19",
                 "after": "p5-chaotic-flood-1",
                 "seat": "OT",
                 "note": "Voke again for safety - the OT needs aggro.",
@@ -5679,7 +5678,7 @@
               {
                 "id": "drk-r109-mt",
                 "name": "Flare Diffusion 1",
-                "time": "1:17",
+                "time": "0:35",
                 "after": "p5-maddening-orchestra-1",
                 "seat": "MT",
                 "note": "Tank swap so the boss does not get dragged out.",
@@ -5704,7 +5703,7 @@
               {
                 "id": "drk-r109-ot",
                 "name": "Flare Diffusion 1",
-                "time": "1:17",
+                "time": "0:35",
                 "after": "p5-maddening-orchestra-1",
                 "seat": "OT",
                 "note": "Tank swap so the boss does not get dragged out.",
@@ -5718,7 +5717,7 @@
               {
                 "id": "drk-r111-mt",
                 "name": "Flare 1",
-                "time": "1:17",
+                "time": "0:35",
                 "after": "p5-maddening-orchestra-1",
                 "seat": "MT",
                 "actions": [
@@ -5731,7 +5730,7 @@
               {
                 "id": "drk-r111-ot",
                 "name": "Flare 1",
-                "time": "1:17",
+                "time": "0:35",
                 "after": "p5-maddening-orchestra-1",
                 "seat": "OT",
                 "actions": [
@@ -5748,8 +5747,8 @@
               {
                 "id": "drk-r113-mt",
                 "name": "Autos 2",
-                "time": "1:22",
-                "after": "p5-fell-forces-2x-1",
+                "time": "0:40",
+                "after": "p5-fell-forces-2",
                 "seat": "MT",
                 "note": "The MT is main threat until the next flare.",
                 "actions": [
@@ -5762,8 +5761,8 @@
               {
                 "id": "drk-r119-mt",
                 "name": "Autos 3",
-                "time": "2:07",
-                "after": "p5-fell-forces-2x-2",
+                "time": "1:25",
+                "after": "p5-fell-forces-3",
                 "seat": "MT",
                 "actions": [
                   {
@@ -5777,8 +5776,8 @@
               {
                 "id": "drk-r119-ot",
                 "name": "Autos 3",
-                "time": "2:07",
-                "after": "p5-fell-forces-2x-2",
+                "time": "1:25",
+                "after": "p5-fell-forces-3",
                 "seat": "OT",
                 "actions": [
                   {
@@ -5792,7 +5791,7 @@
               {
                 "id": "drk-r121-mt",
                 "name": "Flare Diffusion 2",
-                "time": "2:46",
+                "time": "2:04",
                 "after": "p5-maddening-orchestra-2",
                 "seat": "MT",
                 "note": "Tank swap so the boss does not get dragged out. Press Rampart last so it holds until the final auto.",
@@ -5811,7 +5810,7 @@
               {
                 "id": "drk-r121-ot",
                 "name": "Flare Diffusion 2",
-                "time": "2:46",
+                "time": "2:04",
                 "after": "p5-maddening-orchestra-2",
                 "seat": "OT",
                 "note": "Tank swap so the boss does not get dragged out. Press Rampart last so it holds until the final auto.",
@@ -5833,7 +5832,7 @@
               {
                 "id": "drk-r123-mt",
                 "name": "Flare 2",
-                "time": "2:46",
+                "time": "2:04",
                 "after": "p5-maddening-orchestra-2",
                 "seat": "MT",
                 "actions": [
@@ -5846,7 +5845,7 @@
               {
                 "id": "drk-r123-ot",
                 "name": "Flare 2",
-                "time": "2:46",
+                "time": "2:04",
                 "after": "p5-maddening-orchestra-2",
                 "seat": "OT",
                 "actions": [
@@ -5859,8 +5858,8 @@
               {
                 "id": "drk-r125-mt",
                 "name": "Autos 4",
-                "time": "2:54",
-                "after": "p5-fell-forces-3x-2",
+                "time": "2:12",
+                "after": "p5-fell-forces-4",
                 "seat": "MT",
                 "actions": [
                   {
@@ -5872,8 +5871,8 @@
               {
                 "id": "drk-r125-ot",
                 "name": "Autos 4",
-                "time": "2:54",
-                "after": "p5-fell-forces-3x-2",
+                "time": "2:12",
+                "after": "p5-fell-forces-4",
                 "seat": "OT",
                 "actions": [
                   {
@@ -5899,9 +5898,9 @@
                 ]
               },
               {
-                "id": "drk-p5-forsaken-7th-hit-1-mt",
+                "id": "drk-p5-forsaken-4-mt",
                 "name": "Forsaken (7th Hit)",
-                "after": "p5-forsaken-7th-hit-1",
+                "after": "p5-forsaken-4",
                 "seat": "MT",
                 "actions": [
                   {
@@ -5922,9 +5921,9 @@
                 ]
               },
               {
-                "id": "drk-p5-forsaken-7th-hit-1-ot",
+                "id": "drk-p5-forsaken-4-ot",
                 "name": "Forsaken (7th Hit)",
-                "after": "p5-forsaken-7th-hit-1",
+                "after": "p5-forsaken-4",
                 "seat": "OT",
                 "actions": [
                   {
@@ -5957,7 +5956,7 @@
               {
                 "id": "gnb-r7-mt",
                 "name": "Revolting Ruin 1",
-                "after": "p1-revolting-ruin-1",
+                "after": "p1-revolting-ruin-iii-1",
                 "seat": "MT",
                 "actions": [
                   {
@@ -5977,7 +5976,7 @@
               {
                 "id": "gnb-r7-ot",
                 "name": "Revolting Ruin 1",
-                "after": "p1-revolting-ruin-1",
+                "after": "p1-revolting-ruin-iii-1",
                 "seat": "OT",
                 "actions": [
                   {
@@ -6024,7 +6023,7 @@
               {
                 "id": "gnb-r17-mt",
                 "name": "Revolting Ruin 2",
-                "after": "p1-revolting-ruin-2",
+                "after": "p1-revolting-ruin-iii-2",
                 "seat": "MT",
                 "note": "MT Provoke obviously",
                 "actions": [
@@ -6036,7 +6035,7 @@
               {
                 "id": "gnb-r17-ot",
                 "name": "Revolting Ruin 2",
-                "after": "p1-revolting-ruin-2",
+                "after": "p1-revolting-ruin-iii-2",
                 "seat": "OT",
                 "note": "MT Provoke obviously",
                 "actions": [
@@ -6064,7 +6063,7 @@
               {
                 "id": "gnb-r31-mt",
                 "name": "Ultimate Embrace",
-                "time": "0:23",
+                "time": "0:11",
                 "after": "p2-ultimate-embrace-1",
                 "seat": "MT",
                 "actions": [
@@ -6085,7 +6084,7 @@
               {
                 "id": "gnb-r31-ot",
                 "name": "Ultimate Embrace",
-                "time": "0:23",
+                "time": "0:11",
                 "after": "p2-ultimate-embrace-1",
                 "seat": "OT",
                 "actions": [
@@ -6198,8 +6197,8 @@
               {
                 "id": "gnb-r55-mt",
                 "name": "Thunder III",
-                "time": "1:37",
-                "after": "p3-thunder-iii-1st-set-1",
+                "time": "0:51",
+                "after": "p3-thunder-iii-1",
                 "seat": "MT",
                 "note": "Assumes Exdeath is held middle. Check the wall-Exdeath sheet for Walldeath.",
                 "actions": [
@@ -6218,8 +6217,8 @@
               {
                 "id": "gnb-r55-ot",
                 "name": "Thunder III",
-                "time": "1:37",
-                "after": "p3-thunder-iii-1st-set-1",
+                "time": "0:51",
+                "after": "p3-thunder-iii-1",
                 "seat": "OT",
                 "note": "Assumes Exdeath is held middle. Check the wall-Exdeath sheet for Walldeath.",
                 "actions": [
@@ -6238,8 +6237,8 @@
               {
                 "id": "gnb-r61-mt",
                 "name": "Thunder III",
-                "time": "2:34",
-                "after": "p3-thunder-iii-2nd-set-1",
+                "time": "1:48",
+                "after": "p3-thunder-iii-2",
                 "seat": "MT",
                 "actions": [
                   {
@@ -6250,8 +6249,8 @@
               {
                 "id": "gnb-r67-mt",
                 "name": "Thunder III",
-                "time": "2:52",
-                "after": "p3-thunder-iii-3rd-set-1",
+                "time": "2:06",
+                "after": "p3-thunder-iii-3",
                 "seat": "MT",
                 "actions": [
                   {
@@ -6263,8 +6262,8 @@
               {
                 "id": "gnb-r67-ot",
                 "name": "Thunder III",
-                "time": "2:52",
-                "after": "p3-thunder-iii-3rd-set-1",
+                "time": "2:06",
+                "after": "p3-thunder-iii-3",
                 "seat": "OT",
                 "actions": [
                   {
@@ -6276,7 +6275,7 @@
               {
                 "id": "gnb-r69-mt",
                 "name": "HP Reduction",
-                "time": "2:59",
+                "time": "2:13",
                 "after": "p3-earthquake-1",
                 "seat": "MT",
                 "note": "Covered by the Thunder III mitigation above.",
@@ -6285,7 +6284,7 @@
               {
                 "id": "gnb-r69-ot",
                 "name": "HP Reduction",
-                "time": "2:59",
+                "time": "2:13",
                 "after": "p3-earthquake-1",
                 "seat": "OT",
                 "note": "Covered by the Thunder III mitigation above.",
@@ -6294,8 +6293,8 @@
               {
                 "id": "gnb-r73-ot",
                 "name": "Thunder III",
-                "time": "3:33",
-                "after": "p3-thunder-iii-4th-set-1",
+                "time": "2:47",
+                "after": "p3-thunder-iii-4",
                 "seat": "OT",
                 "actions": [
                   {
@@ -6306,8 +6305,8 @@
               {
                 "id": "gnb-r77-mt",
                 "name": "Thunder III",
-                "time": "4:15",
-                "after": "p3-thunder-iii-5th-set-1",
+                "time": "3:29",
+                "after": "p3-thunder-iii-5",
                 "seat": "MT",
                 "actions": [
                   {
@@ -6325,8 +6324,8 @@
               {
                 "id": "gnb-r77-ot",
                 "name": "Thunder III",
-                "time": "4:15",
-                "after": "p3-thunder-iii-5th-set-1",
+                "time": "3:29",
+                "after": "p3-thunder-iii-5",
                 "seat": "OT",
                 "actions": [
                   {
@@ -6344,8 +6343,8 @@
               {
                 "id": "gnb-r81-mt",
                 "name": "3rd in Line Tank",
-                "time": "5:08",
-                "after": "p3-shocking-impact-shockwave-3",
+                "time": "4:22",
+                "after": "p3-shocking-impact-3",
                 "seat": "MT",
                 "note": "Only if you are third in line. Cover your co-tank if they are.",
                 "actions": [
@@ -6360,8 +6359,8 @@
               {
                 "id": "gnb-r81-ot",
                 "name": "3rd in Line Tank",
-                "time": "5:08",
-                "after": "p3-shocking-impact-shockwave-3",
+                "time": "4:22",
+                "after": "p3-shocking-impact-3",
                 "seat": "OT",
                 "note": "Only if you are third in line. Cover your co-tank if they are.",
                 "actions": [
@@ -6442,9 +6441,9 @@
                 ]
               },
               {
-                "id": "gnb-p3-black-holes-ii-5th-tether-set-1-mt",
-                "name": "Black Holes II (5th Tether Set)",
-                "after": "p3-black-holes-ii-5th-tether-set-1",
+                "id": "gnb-p3-black-hole-5-mt",
+                "name": "Black Holes 2nd Set (Beam 3)",
+                "after": "p3-black-hole-5",
                 "seat": "MT",
                 "actions": [
                   {
@@ -6454,9 +6453,9 @@
                 ]
               },
               {
-                "id": "gnb-p3-black-holes-ii-5th-tether-set-1-ot",
-                "name": "Black Holes II (5th Tether Set)",
-                "after": "p3-black-holes-ii-5th-tether-set-1",
+                "id": "gnb-p3-black-hole-5-ot",
+                "name": "Black Holes 2nd Set (Beam 3)",
+                "after": "p3-black-hole-5",
                 "seat": "OT",
                 "actions": [
                   {
@@ -6466,9 +6465,9 @@
                 ]
               },
               {
-                "id": "gnb-p3-shocking-impact-shockwave-3-mt",
+                "id": "gnb-p3-shocking-impact-3-mt",
                 "name": "Shocking Impact/Shockwave 3",
-                "after": "p3-shocking-impact-shockwave-3",
+                "after": "p3-shocking-impact-3",
                 "seat": "MT",
                 "actions": [
                   {
@@ -6478,9 +6477,9 @@
                 ]
               },
               {
-                "id": "gnb-p3-black-holes-iii-6th-tether-set-1-mt",
-                "name": "Black Holes III (6th Tether Set)",
-                "after": "p3-black-holes-iii-6th-tether-set-1",
+                "id": "gnb-p3-black-hole-6-mt",
+                "name": "Black Holes 3rd Set (Beam 1)",
+                "after": "p3-black-hole-6",
                 "seat": "MT",
                 "actions": [
                   {
@@ -6490,9 +6489,9 @@
                 ]
               },
               {
-                "id": "gnb-p3-black-holes-iii-6th-tether-set-1-ot",
-                "name": "Black Holes III (6th Tether Set)",
-                "after": "p3-black-holes-iii-6th-tether-set-1",
+                "id": "gnb-p3-black-hole-6-ot",
+                "name": "Black Holes 3rd Set (Beam 1)",
+                "after": "p3-black-hole-6",
                 "seat": "OT",
                 "actions": [
                   {
@@ -6568,8 +6567,8 @@
               {
                 "id": "gnb-r105-mt",
                 "name": "Autos 1",
-                "time": "0:45",
-                "after": "p5-fell-forces-3x-1",
+                "time": "0:03",
+                "after": "p5-fell-forces-1",
                 "seat": "MT",
                 "actions": [
                   {
@@ -6583,8 +6582,8 @@
               {
                 "id": "gnb-r105-ot",
                 "name": "Autos 1",
-                "time": "0:45",
-                "after": "p5-fell-forces-3x-1",
+                "time": "0:03",
+                "after": "p5-fell-forces-1",
                 "seat": "OT",
                 "actions": [
                   {
@@ -6601,7 +6600,7 @@
               {
                 "id": "gnb-r107-ot",
                 "name": "Flood",
-                "time": "1:01",
+                "time": "0:19",
                 "after": "p5-chaotic-flood-1",
                 "seat": "OT",
                 "note": "Voke again for safety - the OT needs aggro.",
@@ -6614,7 +6613,7 @@
               {
                 "id": "gnb-r109-mt",
                 "name": "Flare Diffusion 1",
-                "time": "1:17",
+                "time": "0:35",
                 "after": "p5-maddening-orchestra-1",
                 "seat": "MT",
                 "note": "Tank swap so the boss does not get dragged out.",
@@ -6636,7 +6635,7 @@
               {
                 "id": "gnb-r109-ot",
                 "name": "Flare Diffusion 1",
-                "time": "1:17",
+                "time": "0:35",
                 "after": "p5-maddening-orchestra-1",
                 "seat": "OT",
                 "note": "Tank swap so the boss does not get dragged out.",
@@ -6650,7 +6649,7 @@
               {
                 "id": "gnb-r111-mt",
                 "name": "Flare 1",
-                "time": "1:17",
+                "time": "0:35",
                 "after": "p5-maddening-orchestra-1",
                 "seat": "MT",
                 "actions": [
@@ -6663,7 +6662,7 @@
               {
                 "id": "gnb-r111-ot",
                 "name": "Flare 1",
-                "time": "1:17",
+                "time": "0:35",
                 "after": "p5-maddening-orchestra-1",
                 "seat": "OT",
                 "actions": [
@@ -6676,8 +6675,8 @@
               {
                 "id": "gnb-r113-mt",
                 "name": "Autos 2",
-                "time": "1:22",
-                "after": "p5-fell-forces-2x-1",
+                "time": "0:40",
+                "after": "p5-fell-forces-2",
                 "seat": "MT",
                 "note": "The MT is main threat until the next flare.",
                 "actions": [
@@ -6690,8 +6689,8 @@
               {
                 "id": "gnb-r119-mt",
                 "name": "Autos 3",
-                "time": "2:07",
-                "after": "p5-fell-forces-2x-2",
+                "time": "1:25",
+                "after": "p5-fell-forces-3",
                 "seat": "MT",
                 "actions": [
                   {
@@ -6702,8 +6701,8 @@
               {
                 "id": "gnb-r119-ot",
                 "name": "Autos 3",
-                "time": "2:07",
-                "after": "p5-fell-forces-2x-2",
+                "time": "1:25",
+                "after": "p5-fell-forces-3",
                 "seat": "OT",
                 "actions": [
                   {
@@ -6714,7 +6713,7 @@
               {
                 "id": "gnb-r121-mt",
                 "name": "Flare Diffusion 2",
-                "time": "2:46",
+                "time": "2:04",
                 "after": "p5-maddening-orchestra-2",
                 "seat": "MT",
                 "note": "Tank swap so the boss does not get dragged out. Press Rampart last so it holds until the final auto.",
@@ -6730,7 +6729,7 @@
               {
                 "id": "gnb-r121-ot",
                 "name": "Flare Diffusion 2",
-                "time": "2:46",
+                "time": "2:04",
                 "after": "p5-maddening-orchestra-2",
                 "seat": "OT",
                 "note": "Tank swap so the boss does not get dragged out. Press Rampart last so it holds until the final auto.",
@@ -6749,7 +6748,7 @@
               {
                 "id": "gnb-r123-mt",
                 "name": "Flare 2",
-                "time": "2:46",
+                "time": "2:04",
                 "after": "p5-maddening-orchestra-2",
                 "seat": "MT",
                 "actions": [
@@ -6762,7 +6761,7 @@
               {
                 "id": "gnb-r123-ot",
                 "name": "Flare 2",
-                "time": "2:46",
+                "time": "2:04",
                 "after": "p5-maddening-orchestra-2",
                 "seat": "OT",
                 "actions": [
@@ -6775,8 +6774,8 @@
               {
                 "id": "gnb-r125-mt",
                 "name": "Autos 4",
-                "time": "2:54",
-                "after": "p5-fell-forces-3x-2",
+                "time": "2:12",
+                "after": "p5-fell-forces-4",
                 "seat": "MT",
                 "actions": [
                   {
@@ -6788,8 +6787,8 @@
               {
                 "id": "gnb-r125-ot",
                 "name": "Autos 4",
-                "time": "2:54",
-                "after": "p5-fell-forces-3x-2",
+                "time": "2:12",
+                "after": "p5-fell-forces-4",
                 "seat": "OT",
                 "actions": [
                   {
@@ -6815,9 +6814,9 @@
                 ]
               },
               {
-                "id": "gnb-p5-forsaken-7th-hit-1-mt",
+                "id": "gnb-p5-forsaken-4-mt",
                 "name": "Forsaken (7th Hit)",
-                "after": "p5-forsaken-7th-hit-1",
+                "after": "p5-forsaken-4",
                 "seat": "MT",
                 "actions": [
                   {
@@ -6828,9 +6827,9 @@
                 ]
               },
               {
-                "id": "gnb-p5-forsaken-7th-hit-1-ot",
+                "id": "gnb-p5-forsaken-4-ot",
                 "name": "Forsaken (7th Hit)",
-                "after": "p5-forsaken-7th-hit-1",
+                "after": "p5-forsaken-4",
                 "seat": "OT",
                 "actions": [
                   {

@@ -11,22 +11,29 @@
       "start": "0:00",
       "mechanics": [
         {
-          "id": "p1-revolting-ruin-1",
+          "id": "p1-revolting-ruin-iii-1",
           "name": "Revolting Ruin 1",
           "time": "0:16",
           "roles": [
             "tank"
           ],
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              50179,
+              50401
+            ]
           }
         },
         {
           "id": "p1-mystery-magic-1",
           "name": "Mystery Magic 1",
-          "time": "0:38",
+          "time": "0:39",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47764,
+              47778,
+              47779
+            ]
           }
         },
         {
@@ -34,112 +41,189 @@
           "name": "Wave Cannon",
           "time": "0:43",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47784
+            ]
+          }
+        },
+        {
+          "id": "p1-explosion-1",
+          "name": "Explosion",
+          "time": "0:47",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              47786
+            ]
           }
         },
         {
           "id": "p1-double-trouble-trap-1",
           "name": "Double-Trouble Trap 1",
-          "time": "0:50",
+          "time": "0:51",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47782,
+              47783
+            ]
           }
         },
         {
           "id": "p1-light-of-judgment-1",
           "name": "Light of Judgment 1",
-          "time": "1:03",
+          "time": "1:04",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              50722
+            ]
           }
         },
         {
           "id": "p1-hyperdrive-1",
           "name": "Hyperdrive 1",
-          "time": "1:05",
+          "time": "1:07",
           "roles": [
             "tank"
           ],
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              49739
+            ]
           }
         },
         {
-          "id": "p1-gravitas-ii-part-i-1",
+          "id": "p1-gravitas-1",
           "name": "Gravitas II (Part I)",
-          "time": "1:28",
+          "time": "1:29",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47788
+            ]
           }
         },
         {
-          "id": "p1-revolting-ruin-2",
+          "id": "p1-vitrophyre-1",
+          "name": "Vitrophyre 1",
+          "time": "1:33",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              47792
+            ]
+          }
+        },
+        {
+          "id": "p1-revolting-ruin-iii-2",
           "name": "Revolting Ruin 2",
-          "time": "1:38",
+          "time": "1:39",
           "roles": [
             "tank"
           ],
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              50179,
+              50401
+            ]
           }
         },
         {
-          "id": "p1-gravitas-ii-part-ii-1",
+          "id": "p1-gravitas-2",
           "name": "Gravitas II (Part II)",
-          "time": "1:46",
+          "time": "1:47",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47788
+            ]
+          }
+        },
+        {
+          "id": "p1-vitrophyre-2",
+          "name": "Vitrophyre 2",
+          "time": "1:51",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              47792
+            ]
           }
         },
         {
           "id": "p1-double-trouble-trap-2",
           "name": "Double-Trouble Trap 2",
-          "time": "1:58",
+          "time": "1:59",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47782,
+              47783
+            ]
+          }
+        },
+        {
+          "id": "p1-gravity-iii-1",
+          "name": "Gravity III",
+          "time": "2:02",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              47791
+            ]
           }
         },
         {
           "id": "p1-light-of-judgment-2",
           "name": "Light of Judgment 2",
-          "time": "2:12",
+          "time": "2:14",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              50722
+            ]
           }
         },
         {
           "id": "p1-hyperdrive-2",
           "name": "Hyperdrive 2",
-          "time": "2:16",
+          "time": "2:17",
           "roles": [
             "tank"
           ],
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              49739
+            ]
           }
         },
         {
           "id": "p1-double-trouble-trap-3",
           "name": "Double-Trouble Trap 3",
-          "time": "2:45",
+          "time": "2:49",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47782,
+              47783
+            ]
           }
         },
         {
           "id": "p1-indulgent-will-1",
           "name": "Indulgent Will",
-          "time": "2:53",
+          "time": "2:55",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47797,
+              47798
+            ]
           }
         },
         {
           "id": "p1-mystery-magic-2",
           "name": "Mystery Magic 2",
-          "time": "3:07",
+          "time": "3:08",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47764,
+              47778,
+              47779
+            ]
           }
         }
       ]
@@ -148,110 +232,199 @@
       "id": "p2",
       "label": "P2",
       "name": "Forsaken Kefka",
-      "start": "3:17",
+      "start": "3:29",
       "mechanics": [
         {
           "id": "p2-ultimate-embrace-1",
           "name": "Ultimate Embrace 1",
-          "time": "0:24",
+          "time": "0:13",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              49740
+            ]
           }
         },
         {
           "id": "p2-forsaken-1",
           "name": "Forsaken",
-          "time": "0:39",
+          "time": "0:29",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47804
+            ]
           }
         },
         {
-          "id": "p2-towers-i-1",
+          "id": "p2-the-path-of-light-1",
           "name": "Towers I",
-          "time": "0:53",
+          "time": "0:41",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47806,
+              47808,
+              47809,
+              47810
+            ]
           }
         },
         {
-          "id": "p2-towers-ii-past-future-s-end-1",
+          "id": "p2-the-path-of-light-2",
           "name": "Towers II (Past/Future's End)",
+          "time": "0:51",
+          "fflogs": {
+            "abilityIds": [
+              47806,
+              47809,
+              47810,
+              47826,
+              47827,
+              47830,
+              47831,
+              47832,
+              47833
+            ]
+          }
+        },
+        {
+          "id": "p2-the-path-of-light-3",
+          "name": "Towers III (All Things Ending)",
           "time": "1:03",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47806,
+              47808,
+              47809,
+              47810,
+              47836,
+              47837
+            ]
           }
         },
         {
-          "id": "p2-towers-iii-all-things-ending-1",
-          "name": "Towers III (All Things Ending)",
-          "time": "1:14",
-          "fflogs": {
-            "abilityIds": []
-          }
-        },
-        {
-          "id": "p2-towers-iv-past-future-s-end-1",
+          "id": "p2-the-path-of-light-4",
           "name": "Towers IV (Past/Future's End)",
+          "time": "1:12",
+          "fflogs": {
+            "abilityIds": [
+              47806,
+              47809,
+              47810,
+              47826,
+              47827,
+              47830,
+              47831,
+              47832,
+              47833
+            ]
+          }
+        },
+        {
+          "id": "p2-the-path-of-light-5",
+          "name": "Towers V (All Things Ending)",
           "time": "1:24",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47806,
+              47808,
+              47809,
+              47810,
+              47836,
+              47837
+            ]
           }
         },
         {
-          "id": "p2-towers-v-all-things-ending-1",
-          "name": "Towers V (All Things Ending)",
-          "time": "1:35",
-          "fflogs": {
-            "abilityIds": []
-          }
-        },
-        {
-          "id": "p2-towers-vi-past-future-s-end-1",
+          "id": "p2-the-path-of-light-6",
           "name": "Towers VI (Past/Future's End)",
+          "time": "1:33",
+          "fflogs": {
+            "abilityIds": [
+              47806,
+              47809,
+              47810,
+              47826,
+              47827,
+              47830,
+              47831,
+              47832,
+              47833
+            ]
+          }
+        },
+        {
+          "id": "p2-the-path-of-light-7",
+          "name": "Towers VII (All Things Ending)",
           "time": "1:45",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47806,
+              47808,
+              47809,
+              47810,
+              47836,
+              47837
+            ]
           }
         },
         {
-          "id": "p2-towers-vii-all-things-ending-1",
-          "name": "Towers VII (All Things Ending)",
-          "time": "1:55",
-          "fflogs": {
-            "abilityIds": []
-          }
-        },
-        {
-          "id": "p2-towers-viii-past-future-s-end-1",
+          "id": "p2-the-path-of-light-8",
           "name": "Towers VIII (Past/Future's End)",
-          "time": "2:06",
+          "time": "1:54",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47806,
+              47809,
+              47810,
+              47826,
+              47827,
+              47830,
+              47831,
+              47832,
+              47833
+            ]
           }
         },
         {
-          "id": "p2-light-of-judgement-1",
+          "id": "p2-light-of-judgment-1",
           "name": "Light of Judgement",
-          "time": "2:26",
+          "time": "2:14",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47805
+            ]
+          }
+        },
+        {
+          "id": "p2-trine-1",
+          "name": "Trine",
+          "time": "2:22",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              47839
+            ]
           }
         },
         {
           "id": "p2-wings-of-destruction-1",
           "name": "Wings of Destruction",
-          "time": "2:54",
+          "time": "2:42",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47822,
+              47823,
+              50311
+            ]
           }
         },
         {
           "id": "p2-ultimate-embrace-2",
           "name": "Ultimate Embrace 2",
-          "time": "3:01",
+          "time": "2:50",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              49740
+            ]
           }
         }
       ]
@@ -260,181 +433,335 @@
       "id": "p3",
       "label": "P3",
       "name": "Exdeath & Chaos",
-      "start": "6:22",
+      "start": "7:08",
       "mechanics": [
         {
-          "id": "p3-bowels-of-agony-chaos-1",
+          "id": "p3-bowels-of-agony-1",
           "name": "Bowels of Agony (Chaos)",
-          "time": "1:08",
+          "time": "0:23",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47858
+            ]
           }
         },
         {
-          "id": "p3-stray-flames-tsunami-1",
+          "id": "p3-stray-flames-1",
           "name": "Stray Flames/Tsunami 1",
-          "time": "1:28",
+          "time": "0:42",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47859,
+              47861
+            ]
           }
         },
         {
-          "id": "p3-thunder-iii-1st-set-1",
+          "id": "p3-thunder-iii-1",
           "name": "Thunder III (1st Set)",
-          "time": "1:36",
+          "time": "0:51",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47881,
+              47884,
+              47890
+            ]
           }
         },
         {
-          "id": "p3-stray-flames-tsunami-2",
+          "id": "p3-stray-flames-2",
           "name": "Stray Flames/Tsunami 2",
-          "time": "1:55",
+          "time": "1:09",
           "fflogs": {
-            "abilityIds": []
-          }
-        },
-        {
-          "id": "p3-ultima-blaster-1",
-          "name": "Ultima Blaster",
-          "time": "2:05",
-          "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47859,
+              47861
+            ]
           }
         },
         {
           "id": "p3-vacuum-wave-1",
           "name": "Vacuum Wave",
-          "time": "2:12",
+          "time": "1:19",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47891
+            ]
+          }
+        },
+        {
+          "id": "p3-ultima-blaster-1",
+          "name": "Ultima Blaster",
+          "time": "1:20",
+          "fflogs": {
+            "abilityIds": [
+              47843
+            ]
+          }
+        },
+        {
+          "id": "p3-umbra-smash-1",
+          "name": "Umbra Smash",
+          "time": "1:26",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              47872
+            ]
           }
         },
         {
           "id": "p3-cyclone-1",
           "name": "Cyclone",
-          "time": "2:16",
+          "time": "1:31",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47864
+            ]
           }
         },
         {
-          "id": "p3-thunder-iii-2nd-set-1",
-          "name": "Thunder III (2nd Set)",
-          "time": "2:34",
+          "id": "p3-ultima-blaster-2",
+          "name": "Ultima Blaster 2",
+          "time": "1:42",
+          "minor": true,
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47844
+            ]
+          }
+        },
+        {
+          "id": "p3-thunder-iii-2",
+          "name": "Thunder III (2nd Set)",
+          "time": "1:49",
+          "fflogs": {
+            "abilityIds": [
+              47881,
+              47884
+            ]
           }
         },
         {
           "id": "p3-the-decisive-battle-1",
           "name": "The Decisive Battle",
-          "time": "2:43",
+          "time": "1:54",
           "fflogs": {
-            "abilityIds": []
-          }
-        },
-        {
-          "id": "p3-thunder-iii-3rd-set-1",
-          "name": "Thunder III (3rd Set)",
-          "time": "2:52",
-          "fflogs": {
-            "abilityIds": []
-          }
-        },
-        {
-          "id": "p3-accretions-1",
-          "name": "Accretions",
-          "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              49890,
+              49891
+            ]
           }
         },
         {
           "id": "p3-earthquake-1",
           "name": "Earthquake",
-          "time": "2:57",
+          "time": "2:06",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47866,
+              50545,
+              50546
+            ]
           }
         },
         {
-          "id": "p3-shocking-impact-shockwave-1",
+          "id": "p3-thunder-iii-3",
+          "name": "Thunder III (3rd Set)",
+          "time": "2:07",
+          "fflogs": {
+            "abilityIds": [
+              47881,
+              47884
+            ]
+          }
+        },
+        {
+          "id": "p3-accretion-1",
+          "name": "Accretions",
+          "fflogs": {
+            "abilityIds": [
+              1001604
+            ]
+          },
+          "time": "2:14"
+        },
+        {
+          "id": "p3-shocking-impact-1",
           "name": "Shocking Impact/Shockwave 1",
-          "time": "3:16",
+          "time": "2:31",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47850,
+              47851
+            ]
           }
         },
         {
-          "id": "p3-thunder-iii-4th-set-1",
+          "id": "p3-black-hole-1",
+          "name": "Black Holes 1st Set (Beam 1)",
+          "time": "2:38",
+          "fflogs": {
+            "abilityIds": [
+              47867,
+              47868
+            ]
+          }
+        },
+        {
+          "id": "p3-black-hole-2",
+          "name": "Black Holes 1st Set (Beam 2)",
+          "time": "2:45",
+          "fflogs": {
+            "abilityIds": [
+              47867,
+              47868
+            ]
+          }
+        },
+        {
+          "id": "p3-thunder-iii-4",
           "name": "Thunder III (4th Set)",
-          "time": "3:33",
+          "time": "2:48",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47881,
+              47884
+            ]
           }
         },
         {
-          "id": "p3-shocking-impact-shockwave-2",
+          "id": "p3-shocking-impact-2",
           "name": "Shocking Impact/Shockwave 2",
-          "time": "3:47",
+          "time": "3:01",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47850,
+              47851
+            ]
           }
         },
         {
-          "id": "p3-black-holes-ii-3rd-tether-set-1",
-          "name": "Black Holes II (3rd Tether Set)",
-          "time": "3:54",
+          "id": "p3-black-hole-3",
+          "name": "Black Holes 2nd Set (Beam 1)",
+          "time": "3:09",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47867,
+              47868
+            ]
           }
         },
         {
-          "id": "p3-black-holes-ii-4th-tether-set-1",
-          "name": "Black Holes II (4th Tether Set)",
-          "time": "3:59",
+          "id": "p3-black-hole-4",
+          "name": "Black Holes 2nd Set (Beam 2)",
+          "time": "3:14",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47867,
+              47868
+            ]
           }
         },
         {
-          "id": "p3-black-holes-ii-5th-tether-set-1",
-          "name": "Black Holes II (5th Tether Set)",
-          "time": "4:04",
+          "id": "p3-black-hole-5",
+          "name": "Black Holes 2nd Set (Beam 3)",
+          "time": "3:19",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47867,
+              47868
+            ]
           }
         },
         {
-          "id": "p3-thunder-iii-5th-set-1",
+          "id": "p3-thunder-iii-5",
           "name": "Thunder III (5th Set)",
-          "time": "4:15",
+          "time": "3:29",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47881,
+              47884
+            ]
           }
         },
         {
-          "id": "p3-black-holes-iii-6th-tether-set-1",
-          "name": "Black Holes III (6th Tether Set)",
-          "time": "4:28",
+          "id": "p3-black-hole-6",
+          "name": "Black Holes 3rd Set (Beam 1)",
+          "time": "3:43",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47867,
+              47868
+            ]
           }
         },
         {
-          "id": "p3-shocking-impact-shockwave-3",
+          "id": "p3-black-hole-7",
+          "name": "Black Holes 3rd Set (Beam 2)",
+          "time": "3:48",
+          "fflogs": {
+            "abilityIds": [
+              47867,
+              47868
+            ]
+          }
+        },
+        {
+          "id": "p3-black-hole-8",
+          "name": "Black Holes 3rd Set (Beam 3)",
+          "time": "3:53",
+          "fflogs": {
+            "abilityIds": [
+              47867,
+              47868
+            ]
+          }
+        },
+        {
+          "id": "p3-shocking-impact-3",
           "name": "Shocking Impact/Shockwave 3",
-          "time": "4:55",
+          "time": "4:09",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47850,
+              47851
+            ]
           }
         },
         {
-          "id": "p3-stomp-a-mole-knock-down-1",
-          "name": "Stomp-a-Mole + Knock Down",
-          "time": "5:23",
+          "id": "p3-black-hole-9",
+          "name": "Black Holes 4th Set (Beam 1)",
+          "time": "4:17",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47867,
+              47868
+            ]
+          }
+        },
+        {
+          "id": "p3-black-hole-10",
+          "name": "Black Holes 4th Set (Beam 2)",
+          "time": "4:24",
+          "fflogs": {
+            "abilityIds": [
+              47867,
+              47868
+            ]
+          }
+        },
+        {
+          "id": "p3-stomp-a-mole-1",
+          "name": "Stomp-a-Mole + Knock Down",
+          "time": "4:38",
+          "fflogs": {
+            "abilityIds": [
+              47855,
+              47856,
+              47874,
+              47875
+            ]
           }
         }
       ]
@@ -443,86 +770,119 @@
       "id": "p4",
       "label": "P4",
       "name": "Kefka Says",
-      "start": "12:14",
+      "start": "12:21",
       "mechanics": [
         {
           "id": "p4-grand-cross-1",
           "name": "Grand Cross 1",
-          "time": "0:29",
+          "time": "0:24",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47892
+            ]
           }
         },
         {
-          "id": "p4-inferno-tsunami-1",
+          "id": "p4-inferno-1",
           "name": "Inferno/Tsunami 1",
-          "time": "0:35",
+          "time": "0:30",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47904,
+              47905
+            ]
           }
         },
         {
           "id": "p4-grand-cross-2",
           "name": "Grand Cross 2",
-          "time": "0:44",
+          "time": "0:39",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47892
+            ]
           }
         },
         {
-          "id": "p4-inferno-tsunami-2",
+          "id": "p4-inferno-2",
           "name": "Inferno/Tsunami 2",
-          "time": "0:49",
+          "time": "0:45",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47904,
+              47905
+            ]
           }
         },
         {
           "id": "p4-grand-cross-3",
           "name": "Grand Cross 3",
-          "time": "0:59",
+          "time": "0:54",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47892
+            ]
           }
         },
         {
           "id": "p4-flood-of-naught-1",
           "name": "Flood of Naught",
-          "time": "1:11",
+          "time": "1:06",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              50066,
+              50067,
+              50068,
+              50069,
+              50081,
+              50082
+            ]
           }
         },
         {
-          "id": "p4-death-bolt-wave-1",
+          "id": "p4-death-bolt-1",
           "name": "Death Bolt/Wave 1",
-          "time": "1:21",
+          "time": "1:15",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47896,
+              47897,
+              47898,
+              47899
+            ]
           }
         },
         {
           "id": "p4-ultima-upsurge-1",
           "name": "Ultima Upsurge 1",
-          "time": "1:39",
+          "time": "1:33",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              49738
+            ]
           }
         },
         {
-          "id": "p4-death-bolt-wave-2",
+          "id": "p4-death-bolt-2",
           "name": "Death Bolt/Wave 2",
-          "time": "1:46",
+          "time": "1:42",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47896,
+              47897,
+              47898,
+              47899
+            ]
           }
         },
         {
           "id": "p4-ultima-upsurge-2",
           "name": "Ultima Upsurge 2",
-          "time": "2:18",
+          "time": "2:12",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              49738
+            ]
           }
         }
       ]
@@ -531,172 +891,247 @@
       "id": "p5",
       "label": "P5",
       "name": "Kefka Reimagined",
-      "start": "14:22",
+      "start": "15:04",
       "mechanics": [
         {
           "id": "p5-ultima-repeater-1",
           "name": "Ultima Repeater 1",
-          "time": "0:49",
+          "time": "0:08",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47936,
+              47937
+            ]
           }
         },
         {
-          "id": "p5-fell-forces-3x-1",
-          "name": "Fell Forces (3x) 1",
-          "time": "0:54",
+          "id": "p5-fell-forces-1",
+          "name": "Fell Forces 1 (3x)",
+          "time": "0:13",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              50771,
+              50772,
+              50773
+            ]
           }
         },
         {
           "id": "p5-chaotic-flood-1",
           "name": "Chaotic Flood",
-          "time": "1:06",
+          "time": "0:26",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47951,
+              49471
+            ]
           }
         },
         {
           "id": "p5-maddening-orchestra-1",
           "name": "Maddening Orchestra 1",
-          "time": "1:18",
+          "time": "0:39",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47952,
+              47954,
+              47955,
+              47956,
+              47957,
+              47958
+            ]
           }
         },
         {
-          "id": "p5-fell-forces-2x-1",
-          "name": "Fell Forces (2x) 1",
-          "time": "1:31",
+          "id": "p5-fell-forces-2",
+          "name": "Fell Forces 2 (2x)",
+          "time": "0:50",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              50771,
+              50772,
+              50773
+            ]
           }
         },
         {
           "id": "p5-celestriad-1",
           "name": "Celestriad",
-          "time": "1:49",
+          "time": "1:09",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47938,
+              47939,
+              47940,
+              47941
+            ]
           }
         },
         {
           "id": "p5-ultima-repeater-2",
           "name": "Ultima Repeater 2",
-          "time": "2:11",
+          "time": "1:30",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47936,
+              47937
+            ]
           }
         },
         {
-          "id": "p5-fell-forces-2x-2",
-          "name": "Fell Forces (2x) 2",
-          "time": "2:16",
+          "id": "p5-fell-forces-3",
+          "name": "Fell Forces 3 (2x)",
+          "time": "1:35",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              50771,
+              50772,
+              50773
+            ]
           }
         },
         {
           "id": "p5-stray-entropy-1",
           "name": "Stray Entropy",
-          "time": "2:42",
+          "time": "2:02",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47934,
+              47935
+            ]
           }
         },
         {
           "id": "p5-maddening-orchestra-2",
           "name": "Maddening Orchestra 2",
-          "time": "2:51",
+          "time": "2:11",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47952,
+              47954,
+              47955,
+              47956,
+              47957,
+              47958
+            ]
           }
         },
         {
-          "id": "p5-fell-forces-3x-2",
-          "name": "Fell Forces (3x) 2",
-          "time": "3:03",
+          "id": "p5-fell-forces-4",
+          "name": "Fell Forces 4 (3x)",
+          "time": "2:22",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              50771,
+              50772,
+              50773
+            ]
           }
         },
         {
-          "id": "p5-forsaken-1st-hit-1",
+          "id": "p5-forsaken-1",
           "name": "Forsaken (1st Hit)",
-          "time": "3:20",
+          "time": "2:40",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47925,
+              47928
+            ]
           }
         },
         {
-          "id": "p5-forsaken-bonds-2nd-hit-1",
+          "id": "p5-forsaken-bonds-1",
           "name": "Forsaken Bonds (2nd Hit)",
-          "time": "3:25",
+          "time": "2:45",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47927,
+              47929
+            ]
           }
         },
         {
-          "id": "p5-forsaken-3rd-hit-1",
+          "id": "p5-forsaken-2",
           "name": "Forsaken (3rd Hit)",
-          "time": "3:28",
+          "time": "2:48",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47926,
+              47928
+            ]
           }
         },
         {
-          "id": "p5-forsaken-bonds-4th-hit-1",
+          "id": "p5-forsaken-bonds-2",
           "name": "Forsaken Bonds (4th Hit)",
-          "time": "3:34",
+          "time": "2:53",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47927,
+              47929
+            ]
           }
         },
         {
-          "id": "p5-forsaken-5th-hit-1",
+          "id": "p5-forsaken-3",
           "name": "Forsaken (5th Hit)",
-          "time": "3:37",
+          "time": "2:56",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47926,
+              47928
+            ]
           }
         },
         {
-          "id": "p5-forsaken-bonds-6th-hit-1",
+          "id": "p5-forsaken-bonds-3",
           "name": "Forsaken Bonds (6th Hit)",
-          "time": "3:42",
+          "time": "3:01",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47927,
+              47929
+            ]
           }
         },
         {
-          "id": "p5-forsaken-7th-hit-1",
+          "id": "p5-forsaken-4",
           "name": "Forsaken (7th Hit)",
-          "time": "3:45",
+          "time": "3:04",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47926,
+              47928
+            ]
           }
         },
         {
-          "id": "p5-forsaken-bonds-8th-hit-1",
+          "id": "p5-forsaken-bonds-4",
           "name": "Forsaken Bonds (8th Hit)",
-          "time": "3:50",
+          "time": "3:09",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47927,
+              47929
+            ]
           }
         },
         {
           "id": "p5-forsaken-null-1",
           "name": "Forsaken Null",
-          "time": "4:24",
+          "time": "3:40",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              47930
+            ]
           }
         }
       ]
     }
   ],
   "fflogs": {
-    "encounterIds": []
+    "encounterIds": [
+      1085
+    ]
   }
 }

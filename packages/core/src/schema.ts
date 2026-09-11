@@ -17,6 +17,12 @@ const encounterMechanicSchema = z.object({
   // A sheet that *does* assign someone still shows them the row, so the flag
   // never hides an assignment - see MitView.
   roles: z.array(role).min(1).optional(),
+  // Recorded for completeness, hidden unless a sheet assigns it. The encounter
+  // is the fight's full timeline - chip damage, markers, and casts nobody mits
+  // belong in it - but a sheet's grid should not carry rows its author never
+  // meant you to press anything on. Like `roles`, it only ever hides an empty
+  // row: an assignment always wins.
+  minor: z.boolean().optional(),
   fflogs: z.object({ abilityIds: z.array(z.number().int().positive()) }).strict().optional(),
 }).strict()
 const encounterPhaseSchema = z.object({
@@ -43,7 +49,7 @@ const encounterSchema = z.object({
 }).strict()
 const sheetSchema = z.object({
   id: slug, fightId: slug, name: text, updated: z.iso.date(),
-  author: text.optional(), description: text.optional(), sourceFile: text.optional(), sourceVersion: text.optional(),
+  author: text.optional(), description: text.optional(), sourceVersion: text.optional(),
   source: z.object({ name: text, url: z.url().refine(value => /^https?:\/\//.test(value), 'Use an HTTP(S) source URL') }).strict().optional(),
   // `role` says which jobs may stand in this slot, so a generic assignment
   // ("Party Mit") can be resolved to the job the viewer actually plays.
@@ -181,7 +187,11 @@ export function resolveSheet(encounter: Encounter, sheet: MitSheet): ResolvedShe
   }
 }
 
-export function validateCatalog(files: Record<string, unknown>, rawIcons: unknown = {}, rawJobs: unknown = { jobs: [] }): Catalog {
+export function validateCatalog(
+  files: Record<string, unknown>,
+  rawIcons: unknown = {},
+  rawJobs: unknown = { jobs: [] },
+): Catalog {
   const icons = iconsSchema.parse(rawIcons)
   const { jobs } = jobsSchema.parse(rawJobs)
   unique(jobs.map(j => j.id), 'job IDs')

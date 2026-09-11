@@ -4,7 +4,9 @@
   "shortName": "FRU",
   "type": "Ultimate",
   "fflogs": {
-    "encounterIds": []
+    "encounterIds": [
+      1079
+    ]
   },
   "phases": [
     {

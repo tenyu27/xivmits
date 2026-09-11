@@ -307,6 +307,9 @@
     }
   ],
   "fflogs": {
-    "encounterIds": []
+    "encounterIds": [
+      1077,
+      1068
+    ]
   }
 }
