@@ -65,6 +65,28 @@ Re-reconciling against better logs is expected.
 | p4 | 12:21 | 10 | 12 |
 | p5 | 15:04 | 20 | 12 |
 
+**Phase lengths are not all fixed.** Measured across 100 ranked clears:
+
+| Phase | Length | Note |
+|---|---|---|
+| p1, p2, p4 | fixed | p4 is 163s in all 12 sampled |
+| p3 | 296–313s | ends on a phase push, so it varies with DPS |
+| p5 | 206–225s | ends on the kill |
+
+The two logs used for P1–P3 sit at the maximum: `q2Xx` has the longest P3 in the
+ranked set (313.3s) and `DK6c` ties the longest P5 (224.5s), so the reconciled
+timeline covers the slowest case a clearing team sees.
+
+**P5 is complete.** `Forsaken Null` at 3:40 is the enrage and it resolves in
+both slow logs. Faster teams kill before it, which is why it is absent from all
+12 fast clears — its presence in the data is correct, not an artifact.
+
+**P3 stops one mechanic short of enrage.** After `Stomp-a-Mole` at 4:38 the only
+remaining event is a `Meteor` cast beginning ~5:00 that never resolves, because
+the phase ends first. Capturing it needs a log of a pull that *wiped* to P3
+enrage; `fightRankings` lists only kills, so it cannot be reached from the API.
+That is the one known gap in the DMU timeline.
+
 **P1–P3 rest on only two clears.** P4 and P5 used twelve, which is what revealed
 that `Flood of Naught` is a multi-part cast rather than a per-pull branch, and
 that `Stray Apocalypse` deals no damage at all. The same sample would likely
