@@ -58,7 +58,7 @@ TANK_FAMILIES = {
     'Wings of Destruction': 'Wings of Destruction',
     'Maddening Orchestra': 'Maddening Orchestra',
     'Flare/Holy': 'Flare/Holy',
-    'Black Holes IV (10th Tether Set)': 'Black Holes 4th Set (Beam 2)',
+    'Black Holes IV (10th Tether Set)': 'Black Holes 4th Set (Beam 10)',
 }
 # Rows that are the tank's own business, not a mechanic the encounter carries:
 # a sub-hit of one mechanic, or a cue like "Autos". They keep their wording and
@@ -74,6 +74,11 @@ TANK_ROW_TAGS = {'Fell Forces III': 'Share 3rd hit'}
 # The workbook's bare "Solo" means the invuln eats two of the autos on its own -
 # on the 3x it covers two and the third is shared. Say how many.
 TANK_TAG_TEXT = {'Solo': 'Solo 2 hits'}
+
+# Long cooldowns the workbook lists again on a later row, where they are the
+# same press still running rather than a second one. Only the short mit beside
+# them is actually pressed for that hit.
+TANK_CARRIED = {'Share 3rd hit': {'Rampart'}}
 
 
 def align_tank_rows(sheet, encounter):
@@ -133,6 +138,9 @@ def align_tank_rows(sheet, encounter):
                 # neither tank invulns and both eat the autos together.
                 if not row.get('tag') and match is not None and match['name'].startswith('Fell Forces'):
                     row['tag'] = 'Share'
+                for action in row['actions']:
+                    if action['name'] in TANK_CARRIED.get(row.get('tag'), ()):
+                        action['carryOver'] = True
             # Folding sub-rows onto one mechanic can leave two rows saying
             # exactly the same thing - the 1st and 2nd auto of a Fell Forces are
             # both a bare "Avoid" once they stop carrying distinct names.
@@ -179,10 +187,10 @@ def spread_parked_actions(sheet):
 
 
 ALIASES = {
-    'Black Holes II (3rd Tether Set)': 'Black Holes 2nd Set (Beam 1)',
-    'Black Holes II (4th Tether Set)': 'Black Holes 2nd Set (Beam 2)',
-    'Black Holes II (5th Tether Set)': 'Black Holes 2nd Set (Beam 3)',
-    'Black Holes III (6th Tether Set)': 'Black Holes 3rd Set (Beam 1)',
+    'Black Holes II (3rd Tether Set)': 'Black Holes 2nd Set (Beam 3)',
+    'Black Holes II (4th Tether Set)': 'Black Holes 2nd Set (Beam 4)',
+    'Black Holes II (5th Tether Set)': 'Black Holes 2nd Set (Beam 5)',
+    'Black Holes III (6th Tether Set)': 'Black Holes 3rd Set (Beam 6)',
     'Fell Forces (3x) 1': 'Fell Forces 1 (3x)',
     'Fell Forces (2x) 1': 'Fell Forces 2 (2x)',
     'Fell Forces (2x) 2': 'Fell Forces 3 (2x)',

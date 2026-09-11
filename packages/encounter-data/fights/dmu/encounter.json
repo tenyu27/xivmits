@@ -643,7 +643,7 @@
         },
         {
           "id": "p3-black-hole-3",
-          "name": "Black Holes 2nd Set (Beam 1)",
+          "name": "Black Holes 2nd Set (Beam 3)",
           "time": "3:09",
           "fflogs": {
             "abilityIds": [
@@ -654,7 +654,7 @@
         },
         {
           "id": "p3-black-hole-4",
-          "name": "Black Holes 2nd Set (Beam 2)",
+          "name": "Black Holes 2nd Set (Beam 4)",
           "time": "3:14",
           "fflogs": {
             "abilityIds": [
@@ -665,7 +665,7 @@
         },
         {
           "id": "p3-black-hole-5",
-          "name": "Black Holes 2nd Set (Beam 3)",
+          "name": "Black Holes 2nd Set (Beam 5)",
           "time": "3:19",
           "fflogs": {
             "abilityIds": [
@@ -687,7 +687,7 @@
         },
         {
           "id": "p3-black-hole-6",
-          "name": "Black Holes 3rd Set (Beam 1)",
+          "name": "Black Holes 3rd Set (Beam 6)",
           "time": "3:43",
           "fflogs": {
             "abilityIds": [
@@ -698,7 +698,7 @@
         },
         {
           "id": "p3-black-hole-7",
-          "name": "Black Holes 3rd Set (Beam 2)",
+          "name": "Black Holes 3rd Set (Beam 7)",
           "time": "3:48",
           "fflogs": {
             "abilityIds": [
@@ -709,7 +709,7 @@
         },
         {
           "id": "p3-black-hole-8",
-          "name": "Black Holes 3rd Set (Beam 3)",
+          "name": "Black Holes 3rd Set (Beam 8)",
           "time": "3:53",
           "fflogs": {
             "abilityIds": [
@@ -731,7 +731,7 @@
         },
         {
           "id": "p3-black-hole-9",
-          "name": "Black Holes 4th Set (Beam 1)",
+          "name": "Black Holes 4th Set (Beam 9)",
           "time": "4:17",
           "fflogs": {
             "abilityIds": [
@@ -742,7 +742,7 @@
         },
         {
           "id": "p3-black-hole-10",
-          "name": "Black Holes 4th Set (Beam 2)",
+          "name": "Black Holes 4th Set (Beam 10)",
           "time": "4:24",
           "fflogs": {
             "abilityIds": [

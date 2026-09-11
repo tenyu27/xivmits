@@ -3532,7 +3532,7 @@
               },
               {
                 "id": "pld-p3-r55-chaos",
-                "name": "Black Holes 4th Set (Beam 2)",
+                "name": "Black Holes 4th Set (Beam 10)",
                 "time": "4:24",
                 "after": "p3-black-hole-10",
                 "boss": "Chaos",
@@ -3547,7 +3547,7 @@
               },
               {
                 "id": "pld-p3-r55-exdeath",
-                "name": "Black Holes 4th Set (Beam 2)",
+                "name": "Black Holes 4th Set (Beam 10)",
                 "time": "4:24",
                 "after": "p3-black-hole-10",
                 "boss": "Exdeath",
@@ -3854,7 +3854,8 @@
                 "actions": [
                   {
                     "name": "Rampart",
-                    "note": "Rampart shoud be pressed just before the Maddening Orchestra cast is complete so it carries over to the 3rd auto."
+                    "note": "Rampart shoud be pressed just before the Maddening Orchestra cast is complete so it carries over to the 3rd auto.",
+                    "carryOver": true
                   },
                   {
                     "name": "Holy Sheltron"
@@ -3872,7 +3873,8 @@
                 "actions": [
                   {
                     "name": "Rampart",
-                    "note": "Rampart shoud be pressed just before the Maddening Orchestra cast is complete so it carries over to the 3rd auto."
+                    "note": "Rampart shoud be pressed just before the Maddening Orchestra cast is complete so it carries over to the 3rd auto.",
+                    "carryOver": true
                   },
                   {
                     "name": "Holy Sheltron"
@@ -4338,7 +4340,7 @@
               },
               {
                 "id": "war-p3-r55-chaos",
-                "name": "Black Holes 4th Set (Beam 2)",
+                "name": "Black Holes 4th Set (Beam 10)",
                 "time": "4:24",
                 "after": "p3-black-hole-10",
                 "boss": "Chaos",
@@ -4353,7 +4355,7 @@
               },
               {
                 "id": "war-p3-r55-exdeath",
-                "name": "Black Holes 4th Set (Beam 2)",
+                "name": "Black Holes 4th Set (Beam 10)",
                 "time": "4:24",
                 "after": "p3-black-hole-10",
                 "boss": "Exdeath",
@@ -4657,7 +4659,8 @@
                 "actions": [
                   {
                     "name": "Rampart",
-                    "note": "Rampart shoud be pressed just before the Maddening Orchestra cast is complete so it carries over to the 3rd auto."
+                    "note": "Rampart shoud be pressed just before the Maddening Orchestra cast is complete so it carries over to the 3rd auto.",
+                    "carryOver": true
                   },
                   {
                     "name": "Bloodwhetting"
@@ -4675,7 +4678,8 @@
                 "actions": [
                   {
                     "name": "Rampart",
-                    "note": "Rampart shoud be pressed just before the Maddening Orchestra cast is complete so it carries over to the 3rd auto."
+                    "note": "Rampart shoud be pressed just before the Maddening Orchestra cast is complete so it carries over to the 3rd auto.",
+                    "carryOver": true
                   },
                   {
                     "name": "Bloodwhetting"
@@ -5156,7 +5160,7 @@
               },
               {
                 "id": "drk-p3-r55-chaos",
-                "name": "Black Holes 4th Set (Beam 2)",
+                "name": "Black Holes 4th Set (Beam 10)",
                 "time": "4:24",
                 "after": "p3-black-hole-10",
                 "boss": "Chaos",
@@ -5174,7 +5178,7 @@
               },
               {
                 "id": "drk-p3-r55-exdeath",
-                "name": "Black Holes 4th Set (Beam 2)",
+                "name": "Black Holes 4th Set (Beam 10)",
                 "time": "4:24",
                 "after": "p3-black-hole-10",
                 "boss": "Exdeath",
@@ -5516,7 +5520,8 @@
                 "actions": [
                   {
                     "name": "Rampart",
-                    "note": "Rampart shoud be pressed just before the Maddening Orchestra cast is complete so it carries over to the 3rd auto."
+                    "note": "Rampart shoud be pressed just before the Maddening Orchestra cast is complete so it carries over to the 3rd auto.",
+                    "carryOver": true
                   },
                   {
                     "name": "The Blackest Night"
@@ -5537,7 +5542,8 @@
                 "actions": [
                   {
                     "name": "Rampart",
-                    "note": "Rampart shoud be pressed just before the Maddening Orchestra cast is complete so it carries over to the 3rd auto."
+                    "note": "Rampart shoud be pressed just before the Maddening Orchestra cast is complete so it carries over to the 3rd auto.",
+                    "carryOver": true
                   },
                   {
                     "name": "The Blackest Night"
@@ -5977,7 +5983,7 @@
               },
               {
                 "id": "gnb-p3-r55-chaos",
-                "name": "Black Holes 4th Set (Beam 2)",
+                "name": "Black Holes 4th Set (Beam 10)",
                 "time": "4:24",
                 "after": "p3-black-hole-10",
                 "boss": "Chaos",
@@ -5992,7 +5998,7 @@
               },
               {
                 "id": "gnb-p3-r55-exdeath",
-                "name": "Black Holes 4th Set (Beam 2)",
+                "name": "Black Holes 4th Set (Beam 10)",
                 "time": "4:24",
                 "after": "p3-black-hole-10",
                 "boss": "Exdeath",
@@ -6296,7 +6302,8 @@
                 "actions": [
                   {
                     "name": "Rampart",
-                    "note": "Rampart shoud be pressed just before the Maddening Orchestra cast is complete so it carries over to the 3rd auto."
+                    "note": "Rampart shoud be pressed just before the Maddening Orchestra cast is complete so it carries over to the 3rd auto.",
+                    "carryOver": true
                   },
                   {
                     "name": "Heart of Corundum"
@@ -6314,7 +6321,8 @@
                 "actions": [
                   {
                     "name": "Rampart",
-                    "note": "Rampart shoud be pressed just before the Maddening Orchestra cast is complete so it carries over to the 3rd auto."
+                    "note": "Rampart shoud be pressed just before the Maddening Orchestra cast is complete so it carries over to the 3rd auto.",
+                    "carryOver": true
                   },
                   {
                     "name": "Heart of Corundum"

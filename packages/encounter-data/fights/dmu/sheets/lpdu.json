@@ -3605,7 +3605,7 @@
               },
               {
                 "id": "pld-p3-black-hole-5-mt",
-                "name": "Black Holes 2nd Set (Beam 3)",
+                "name": "Black Holes 2nd Set (Beam 5)",
                 "after": "p3-black-hole-5",
                 "seat": "MT",
                 "actions": [
@@ -3618,7 +3618,7 @@
               },
               {
                 "id": "pld-p3-black-hole-5-ot",
-                "name": "Black Holes 2nd Set (Beam 3)",
+                "name": "Black Holes 2nd Set (Beam 5)",
                 "after": "p3-black-hole-5",
                 "seat": "OT",
                 "actions": [
@@ -3644,7 +3644,7 @@
               },
               {
                 "id": "pld-p3-black-hole-6-mt",
-                "name": "Black Holes 3rd Set (Beam 1)",
+                "name": "Black Holes 3rd Set (Beam 6)",
                 "after": "p3-black-hole-6",
                 "seat": "MT",
                 "actions": [
@@ -3657,7 +3657,7 @@
               },
               {
                 "id": "pld-p3-black-hole-6-ot",
-                "name": "Black Holes 3rd Set (Beam 1)",
+                "name": "Black Holes 3rd Set (Beam 6)",
                 "after": "p3-black-hole-6",
                 "seat": "OT",
                 "actions": [
@@ -4547,7 +4547,7 @@
               },
               {
                 "id": "war-p3-black-hole-5-mt",
-                "name": "Black Holes 2nd Set (Beam 3)",
+                "name": "Black Holes 2nd Set (Beam 5)",
                 "after": "p3-black-hole-5",
                 "seat": "MT",
                 "actions": [
@@ -4560,7 +4560,7 @@
               },
               {
                 "id": "war-p3-black-hole-5-ot",
-                "name": "Black Holes 2nd Set (Beam 3)",
+                "name": "Black Holes 2nd Set (Beam 5)",
                 "after": "p3-black-hole-5",
                 "seat": "OT",
                 "actions": [
@@ -4586,7 +4586,7 @@
               },
               {
                 "id": "war-p3-black-hole-6-mt",
-                "name": "Black Holes 3rd Set (Beam 1)",
+                "name": "Black Holes 3rd Set (Beam 6)",
                 "after": "p3-black-hole-6",
                 "seat": "MT",
                 "actions": [
@@ -4599,7 +4599,7 @@
               },
               {
                 "id": "war-p3-black-hole-6-ot",
-                "name": "Black Holes 3rd Set (Beam 1)",
+                "name": "Black Holes 3rd Set (Beam 6)",
                 "after": "p3-black-hole-6",
                 "seat": "OT",
                 "actions": [
@@ -5550,7 +5550,7 @@
               },
               {
                 "id": "drk-p3-black-hole-5-mt",
-                "name": "Black Holes 2nd Set (Beam 3)",
+                "name": "Black Holes 2nd Set (Beam 5)",
                 "after": "p3-black-hole-5",
                 "seat": "MT",
                 "actions": [
@@ -5567,7 +5567,7 @@
               },
               {
                 "id": "drk-p3-black-hole-5-ot",
-                "name": "Black Holes 2nd Set (Beam 3)",
+                "name": "Black Holes 2nd Set (Beam 5)",
                 "after": "p3-black-hole-5",
                 "seat": "OT",
                 "actions": [
@@ -5597,7 +5597,7 @@
               },
               {
                 "id": "drk-p3-black-hole-6-mt",
-                "name": "Black Holes 3rd Set (Beam 1)",
+                "name": "Black Holes 3rd Set (Beam 6)",
                 "after": "p3-black-hole-6",
                 "seat": "MT",
                 "actions": [
@@ -5610,7 +5610,7 @@
               },
               {
                 "id": "drk-p3-black-hole-6-ot",
-                "name": "Black Holes 3rd Set (Beam 1)",
+                "name": "Black Holes 3rd Set (Beam 6)",
                 "after": "p3-black-hole-6",
                 "seat": "OT",
                 "actions": [
@@ -6554,7 +6554,7 @@
               },
               {
                 "id": "gnb-p3-black-hole-5-mt",
-                "name": "Black Holes 2nd Set (Beam 3)",
+                "name": "Black Holes 2nd Set (Beam 5)",
                 "after": "p3-black-hole-5",
                 "seat": "MT",
                 "actions": [
@@ -6567,7 +6567,7 @@
               },
               {
                 "id": "gnb-p3-black-hole-5-ot",
-                "name": "Black Holes 2nd Set (Beam 3)",
+                "name": "Black Holes 2nd Set (Beam 5)",
                 "after": "p3-black-hole-5",
                 "seat": "OT",
                 "actions": [
@@ -6593,7 +6593,7 @@
               },
               {
                 "id": "gnb-p3-black-hole-6-mt",
-                "name": "Black Holes 3rd Set (Beam 1)",
+                "name": "Black Holes 3rd Set (Beam 6)",
                 "after": "p3-black-hole-6",
                 "seat": "MT",
                 "actions": [
@@ -6606,7 +6606,7 @@
               },
               {
                 "id": "gnb-p3-black-hole-6-ot",
-                "name": "Black Holes 3rd Set (Beam 1)",
+                "name": "Black Holes 3rd Set (Beam 6)",
                 "after": "p3-black-hole-6",
                 "seat": "OT",
                 "actions": [
