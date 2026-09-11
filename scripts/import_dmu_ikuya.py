@@ -71,6 +71,10 @@ TANK_KEEP_NAME = {'Autos'}
 # not have.
 TANK_ROW_TAGS = {'Fell Forces III': 'Share 3rd hit'}
 
+# The workbook's bare "Solo" means the invuln eats two of the autos on its own -
+# on the 3x it covers two and the third is shared. Say how many.
+TANK_TAG_TEXT = {'Solo': 'Solo 2 hits'}
+
 
 def align_tank_rows(sheet, encounter):
     """Give each tank row the name and time of the mechanic it belongs to.
@@ -112,6 +116,8 @@ def align_tank_rows(sheet, encounter):
                 if match is not None:
                     if row['name'] in TANK_ROW_TAGS:
                         row['tag'] = TANK_ROW_TAGS[row['name']]
+                if row.get('tag') in TANK_TAG_TEXT:
+                    row['tag'] = TANK_TAG_TEXT[row['tag']]
                     row['after'] = match['id']
                     row['time'] = match['time']
                     if row['name'] not in TANK_KEEP_NAME:

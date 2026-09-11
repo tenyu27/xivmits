@@ -134,14 +134,6 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
         actions: resolveActions(mechanic.actions),
         alts: mechanic.alts?.map(alt => ({ label: alt.label, actions: resolveActions(alt.actions) })),
       }
-      // A headingless row with nothing in it at all draws a "Personal" label
-      // over empty space. Its `tag` is the only thing it carried, and that has
-      // been hoisted onto the mechanic above. A row that only holds carried-over
-      // actions still says something - that cooldown is covering this mechanic -
-      // so it stays.
-      const empty = entry.personal === 'bar' && entry.actions.length === 0
-        && !mechanic.note && !mechanic.alts?.length
-      if (empty) continue
       if (!mechanic.after) front.push(entry)
       else byAnchor.set(mechanic.after, [...(byAnchor.get(mechanic.after) ?? []), entry])
     }
@@ -166,6 +158,16 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
       pe.mechanic = { ...pe.mechanic, tag: tagged[0].mechanic.tag }
       tagged[0].mechanic = { ...tagged[0].mechanic, tag: undefined }
     }
+
+    // A headingless row with nothing left in it draws a "Personal" label over
+    // empty space: the tag it carried is the row's only content, and the pass
+    // above has just moved it onto the mechanic. Dropped after the hoist, never
+    // before, so the call survives the row. A row holding only carried-over
+    // actions still says something - that cooldown covers this mechanic - and
+    // stays.
+    const hasBody = (e: Entry) => e.personal !== 'bar' || e.actions.length > 0
+      || Boolean(e.note) || Boolean(e.alts?.length)
+    for (const [anchorId, group] of byAnchor) byAnchor.set(anchorId, group.filter(hasBody))
 
     const entries: Entry[] = [...front]
     for (const pe of party) {
