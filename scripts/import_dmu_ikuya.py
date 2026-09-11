@@ -48,23 +48,28 @@ SPREAD_ONTO = {'p3-black-hole-6': ['p3-black-hole-7', 'p3-black-hole-8']}
 TANK_FAMILIES = {
     'Fell Forces (3x)': 'Fell Forces',
     'Fell Forces (2x)': 'Fell Forces',
+    'Fell Forces I': 'Fell Forces',
+    'Fell Forces II': 'Fell Forces',
+    'Fell Forces III': 'Fell Forces',
     'Revolting Ruin III': 'Revolting Ruin',
     'Hyperdrive (3x)': 'Hyperdrive',
     'Thunder III': 'Thunder III',
     'Ultimate Embrace': 'Ultimate Embrace',
     'Wings of Destruction': 'Wings of Destruction',
     'Maddening Orchestra': 'Maddening Orchestra',
+    'Flare/Holy': 'Flare/Holy',
     'Black Holes IV (10th Tether Set)': 'Black Holes 4th Set (Beam 2)',
 }
 # Rows that are the tank's own business, not a mechanic the encounter carries:
 # a sub-hit of one mechanic, or a cue like "Autos". They keep their wording and
 # take only their anchor's time.
-# Rows that are not a mechanic of their own and must keep their wording, because
-# it is the only thing telling them apart from a sibling on the same mechanic:
-# 'Flare/Holy' is a separate press from the 'Maddening Orchestra' row beside it,
-# and I/II/III are the three autos inside one Fell Forces, whose `tag` is already
-# spent on the Avoid/Solo branch.
-TANK_KEEP_NAME = {'Autos', 'Flare/Holy', 'Fell Forces I', 'Fell Forces II', 'Fell Forces III'}
+# 'Autos' is a phase-top cue rather than a mechanic, so it keeps its wording.
+TANK_KEEP_NAME = {'Autos'}
+
+# The three autos inside one Fell Forces are one encounter mechanic; the call
+# that distinguishes them belongs in the row's tag, not in a name the fight does
+# not have.
+TANK_ROW_TAGS = {'Fell Forces III': 'Share 3rd hit'}
 
 
 def align_tank_rows(sheet, encounter):
@@ -88,16 +93,25 @@ def align_tank_rows(sheet, encounter):
                     family = TANK_FAMILIES.get(row['name'])
                     match = None
                     if family:
-                        for mechanic in mechanics:
-                            if mechanic['id'] in taken:
-                                continue
-                            if mechanic['name'] == family or mechanic['name'].startswith(family + ' '):
-                                match = mechanic
-                                taken.add(mechanic['id'])
-                                break
+                        def in_family(m):
+                            return m['name'] == family or m['name'].startswith(family + ' ')
+                        # An anchor that already points at the right mechanic is
+                        # kept, and does not consume it: the three autos inside
+                        # one Fell Forces all belong to that same mechanic.
+                        current = next((m for m in mechanics if m['id'] == row.get('after')), None)
+                        if current is not None and in_family(current):
+                            match = current
+                        else:
+                            for mechanic in mechanics:
+                                if mechanic['id'] not in taken and in_family(mechanic):
+                                    match = mechanic
+                                    taken.add(mechanic['id'])
+                                    break
                     resolved[key] = match
                 match = resolved[key]
                 if match is not None:
+                    if row['name'] in TANK_ROW_TAGS:
+                        row['tag'] = TANK_ROW_TAGS[row['name']]
                     row['after'] = match['id']
                     row['time'] = match['time']
                     if row['name'] not in TANK_KEEP_NAME:
@@ -108,6 +122,19 @@ def align_tank_rows(sheet, encounter):
                     anchored = next((m for m in mechanics if m['id'] == row['after']), None)
                     if anchored and anchored.get('time'):
                         row['time'] = anchored['time']
+            # Folding sub-rows onto one mechanic can leave two rows saying
+            # exactly the same thing - the 1st and 2nd auto of a Fell Forces are
+            # both a bare "Avoid" once they stop carrying distinct names.
+            seen, kept = set(), []
+            for row in phase['mechanics']:
+                fingerprint = (row['name'], row.get('tag'), row.get('seat'), row.get('boss'),
+                               row.get('invuln'), row.get('after'), row.get('note'),
+                               tuple((a['name'], a.get('carryOver'), a.get('note')) for a in row['actions']))
+                if fingerprint in seen:
+                    continue
+                seen.add(fingerprint)
+                kept.append(row)
+            phase['mechanics'] = kept
     return sheet
 
 

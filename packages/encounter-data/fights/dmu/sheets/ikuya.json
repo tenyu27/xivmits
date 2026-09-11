@@ -3422,9 +3422,9 @@
               },
               {
                 "id": "pld-p3-r47-chaos",
-                "name": "Thunder III (2nd Set)",
-                "time": "1:49",
-                "after": "p3-thunder-iii-2",
+                "name": "Thunder III (1st Set)",
+                "time": "0:51",
+                "after": "p3-thunder-iii-1",
                 "boss": "Chaos",
                 "actions": [
                   {
@@ -3434,17 +3434,17 @@
               },
               {
                 "id": "pld-p3-r47-exdeath",
-                "name": "Thunder III (2nd Set)",
-                "time": "1:49",
-                "after": "p3-thunder-iii-2",
+                "name": "Thunder III (1st Set)",
+                "time": "0:51",
+                "after": "p3-thunder-iii-1",
                 "boss": "Exdeath",
                 "actions": []
               },
               {
                 "id": "pld-p3-r49-chaos",
-                "name": "Thunder III (3rd Set)",
-                "time": "2:07",
-                "after": "p3-thunder-iii-3",
+                "name": "Thunder III (2nd Set)",
+                "time": "1:49",
+                "after": "p3-thunder-iii-2",
                 "boss": "Chaos",
                 "tag": "2nd hit",
                 "actions": [
@@ -3458,9 +3458,9 @@
               },
               {
                 "id": "pld-p3-r49-exdeath",
-                "name": "Thunder III (3rd Set)",
-                "time": "2:07",
-                "after": "p3-thunder-iii-3",
+                "name": "Thunder III (2nd Set)",
+                "time": "1:49",
+                "after": "p3-thunder-iii-2",
                 "boss": "Exdeath",
                 "tag": "1st hit",
                 "actions": [
@@ -3474,17 +3474,17 @@
               },
               {
                 "id": "pld-p3-r51-chaos",
-                "name": "Thunder III (4th Set)",
-                "time": "2:48",
-                "after": "p3-thunder-iii-4",
+                "name": "Thunder III (3rd Set)",
+                "time": "2:07",
+                "after": "p3-thunder-iii-3",
                 "boss": "Chaos",
                 "actions": []
               },
               {
                 "id": "pld-p3-r51-exdeath",
-                "name": "Thunder III (4th Set)",
-                "time": "2:48",
-                "after": "p3-thunder-iii-4",
+                "name": "Thunder III (3rd Set)",
+                "time": "2:07",
+                "after": "p3-thunder-iii-3",
                 "boss": "Exdeath",
                 "actions": [
                   {
@@ -3667,9 +3667,9 @@
               },
               {
                 "id": "pld-p5-r85-inv1",
-                "name": "Flare/Holy",
-                "time": "0:39",
-                "after": "p5-maddening-orchestra-1",
+                "name": "Flare/Holy 1",
+                "time": "0:46",
+                "after": "p5-flare-1",
                 "invuln": 1,
                 "actions": [
                   {
@@ -3680,9 +3680,9 @@
               },
               {
                 "id": "pld-p5-r85-inv2",
-                "name": "Flare/Holy",
-                "time": "0:39",
-                "after": "p5-maddening-orchestra-1",
+                "name": "Flare/Holy 1",
+                "time": "0:46",
+                "after": "p5-flare-1",
                 "invuln": 2,
                 "actions": [
                   {
@@ -3789,9 +3789,9 @@
               },
               {
                 "id": "pld-p5-r93-inv1",
-                "name": "Flare/Holy",
-                "time": "2:11",
-                "after": "p5-maddening-orchestra-2",
+                "name": "Flare/Holy 2",
+                "time": "2:17",
+                "after": "p5-flare-2",
                 "invuln": 1,
                 "actions": [
                   {
@@ -3806,9 +3806,9 @@
               },
               {
                 "id": "pld-p5-r93-inv2",
-                "name": "Flare/Holy",
-                "time": "2:11",
-                "after": "p5-maddening-orchestra-2",
+                "name": "Flare/Holy 2",
+                "time": "2:17",
+                "after": "p5-flare-2",
                 "invuln": 2,
                 "actions": [
                   {
@@ -3819,7 +3819,7 @@
               },
               {
                 "id": "pld-p5-r95-inv1",
-                "name": "Fell Forces I",
+                "name": "Fell Forces 4 (3x)",
                 "time": "2:22",
                 "after": "p5-fell-forces-4",
                 "invuln": 1,
@@ -3828,30 +3828,7 @@
               },
               {
                 "id": "pld-p5-r95-inv2",
-                "name": "Fell Forces I",
-                "time": "2:22",
-                "after": "p5-fell-forces-4",
-                "invuln": 2,
-                "tag": "Solo",
-                "actions": [
-                  {
-                    "name": "Hallowed Ground",
-                    "carryOver": true
-                  }
-                ]
-              },
-              {
-                "id": "pld-p5-r97-inv1",
-                "name": "Fell Forces II",
-                "time": "2:22",
-                "after": "p5-fell-forces-4",
-                "invuln": 1,
-                "actions": [],
-                "tag": "Avoid"
-              },
-              {
-                "id": "pld-p5-r97-inv2",
-                "name": "Fell Forces II",
+                "name": "Fell Forces 4 (3x)",
                 "time": "2:22",
                 "after": "p5-fell-forces-4",
                 "invuln": 2,
@@ -3865,7 +3842,7 @@
               },
               {
                 "id": "pld-p5-r99-inv1",
-                "name": "Fell Forces III",
+                "name": "Fell Forces 4 (3x)",
                 "time": "2:22",
                 "after": "p5-fell-forces-4",
                 "invuln": 1,
@@ -3878,11 +3855,12 @@
                   {
                     "name": "Holy Sheltron"
                   }
-                ]
+                ],
+                "tag": "Share 3rd hit"
               },
               {
                 "id": "pld-p5-r99-inv2",
-                "name": "Fell Forces III",
+                "name": "Fell Forces 4 (3x)",
                 "time": "2:22",
                 "after": "p5-fell-forces-4",
                 "invuln": 2,
@@ -3895,7 +3873,8 @@
                   {
                     "name": "Holy Sheltron"
                   }
-                ]
+                ],
+                "tag": "Share 3rd hit"
               }
             ],
             "note": "You start with the boss. Hold aggro at the phase start so your co-tank does not get the Holy debuff.",
@@ -4245,9 +4224,9 @@
               },
               {
                 "id": "war-p3-r47-chaos",
-                "name": "Thunder III (2nd Set)",
-                "time": "1:49",
-                "after": "p3-thunder-iii-2",
+                "name": "Thunder III (1st Set)",
+                "time": "0:51",
+                "after": "p3-thunder-iii-1",
                 "boss": "Chaos",
                 "actions": [
                   {
@@ -4257,17 +4236,17 @@
               },
               {
                 "id": "war-p3-r47-exdeath",
-                "name": "Thunder III (2nd Set)",
-                "time": "1:49",
-                "after": "p3-thunder-iii-2",
+                "name": "Thunder III (1st Set)",
+                "time": "0:51",
+                "after": "p3-thunder-iii-1",
                 "boss": "Exdeath",
                 "actions": []
               },
               {
                 "id": "war-p3-r49-chaos",
-                "name": "Thunder III (3rd Set)",
-                "time": "2:07",
-                "after": "p3-thunder-iii-3",
+                "name": "Thunder III (2nd Set)",
+                "time": "1:49",
+                "after": "p3-thunder-iii-2",
                 "boss": "Chaos",
                 "tag": "2nd hit",
                 "actions": [
@@ -4281,9 +4260,9 @@
               },
               {
                 "id": "war-p3-r49-exdeath",
-                "name": "Thunder III (3rd Set)",
-                "time": "2:07",
-                "after": "p3-thunder-iii-3",
+                "name": "Thunder III (2nd Set)",
+                "time": "1:49",
+                "after": "p3-thunder-iii-2",
                 "boss": "Exdeath",
                 "tag": "1st hit",
                 "actions": [
@@ -4297,17 +4276,17 @@
               },
               {
                 "id": "war-p3-r51-chaos",
-                "name": "Thunder III (4th Set)",
-                "time": "2:48",
-                "after": "p3-thunder-iii-4",
+                "name": "Thunder III (3rd Set)",
+                "time": "2:07",
+                "after": "p3-thunder-iii-3",
                 "boss": "Chaos",
                 "actions": []
               },
               {
                 "id": "war-p3-r51-exdeath",
-                "name": "Thunder III (4th Set)",
-                "time": "2:48",
-                "after": "p3-thunder-iii-4",
+                "name": "Thunder III (3rd Set)",
+                "time": "2:07",
+                "after": "p3-thunder-iii-3",
                 "boss": "Exdeath",
                 "actions": [
                   {
@@ -4490,9 +4469,9 @@
               },
               {
                 "id": "war-p5-r85-inv1",
-                "name": "Flare/Holy",
-                "time": "0:39",
-                "after": "p5-maddening-orchestra-1",
+                "name": "Flare/Holy 1",
+                "time": "0:46",
+                "after": "p5-flare-1",
                 "invuln": 1,
                 "actions": [
                   {
@@ -4503,9 +4482,9 @@
               },
               {
                 "id": "war-p5-r85-inv2",
-                "name": "Flare/Holy",
-                "time": "0:39",
-                "after": "p5-maddening-orchestra-1",
+                "name": "Flare/Holy 1",
+                "time": "0:46",
+                "after": "p5-flare-1",
                 "invuln": 2,
                 "actions": [
                   {
@@ -4609,9 +4588,9 @@
               },
               {
                 "id": "war-p5-r93-inv1",
-                "name": "Flare/Holy",
-                "time": "2:11",
-                "after": "p5-maddening-orchestra-2",
+                "name": "Flare/Holy 2",
+                "time": "2:17",
+                "after": "p5-flare-2",
                 "invuln": 1,
                 "actions": [
                   {
@@ -4626,9 +4605,9 @@
               },
               {
                 "id": "war-p5-r93-inv2",
-                "name": "Flare/Holy",
-                "time": "2:11",
-                "after": "p5-maddening-orchestra-2",
+                "name": "Flare/Holy 2",
+                "time": "2:17",
+                "after": "p5-flare-2",
                 "invuln": 2,
                 "actions": [
                   {
@@ -4639,7 +4618,7 @@
               },
               {
                 "id": "war-p5-r95-inv1",
-                "name": "Fell Forces I",
+                "name": "Fell Forces 4 (3x)",
                 "time": "2:22",
                 "after": "p5-fell-forces-4",
                 "invuln": 1,
@@ -4648,30 +4627,7 @@
               },
               {
                 "id": "war-p5-r95-inv2",
-                "name": "Fell Forces I",
-                "time": "2:22",
-                "after": "p5-fell-forces-4",
-                "invuln": 2,
-                "tag": "Solo",
-                "actions": [
-                  {
-                    "name": "Holmgang",
-                    "carryOver": true
-                  }
-                ]
-              },
-              {
-                "id": "war-p5-r97-inv1",
-                "name": "Fell Forces II",
-                "time": "2:22",
-                "after": "p5-fell-forces-4",
-                "invuln": 1,
-                "actions": [],
-                "tag": "Avoid"
-              },
-              {
-                "id": "war-p5-r97-inv2",
-                "name": "Fell Forces II",
+                "name": "Fell Forces 4 (3x)",
                 "time": "2:22",
                 "after": "p5-fell-forces-4",
                 "invuln": 2,
@@ -4685,7 +4641,7 @@
               },
               {
                 "id": "war-p5-r99-inv1",
-                "name": "Fell Forces III",
+                "name": "Fell Forces 4 (3x)",
                 "time": "2:22",
                 "after": "p5-fell-forces-4",
                 "invuln": 1,
@@ -4698,11 +4654,12 @@
                   {
                     "name": "Bloodwhetting"
                   }
-                ]
+                ],
+                "tag": "Share 3rd hit"
               },
               {
                 "id": "war-p5-r99-inv2",
-                "name": "Fell Forces III",
+                "name": "Fell Forces 4 (3x)",
                 "time": "2:22",
                 "after": "p5-fell-forces-4",
                 "invuln": 2,
@@ -4715,7 +4672,8 @@
                   {
                     "name": "Bloodwhetting"
                   }
-                ]
+                ],
+                "tag": "Share 3rd hit"
               }
             ],
             "note": "You start with the boss. Hold aggro at the phase start so your co-tank does not get the Holy debuff.",
@@ -5068,9 +5026,9 @@
               },
               {
                 "id": "drk-p3-r47-chaos",
-                "name": "Thunder III (2nd Set)",
-                "time": "1:49",
-                "after": "p3-thunder-iii-2",
+                "name": "Thunder III (1st Set)",
+                "time": "0:51",
+                "after": "p3-thunder-iii-1",
                 "boss": "Chaos",
                 "actions": [
                   {
@@ -5080,17 +5038,17 @@
               },
               {
                 "id": "drk-p3-r47-exdeath",
-                "name": "Thunder III (2nd Set)",
-                "time": "1:49",
-                "after": "p3-thunder-iii-2",
+                "name": "Thunder III (1st Set)",
+                "time": "0:51",
+                "after": "p3-thunder-iii-1",
                 "boss": "Exdeath",
                 "actions": []
               },
               {
                 "id": "drk-p3-r49-chaos",
-                "name": "Thunder III (3rd Set)",
-                "time": "2:07",
-                "after": "p3-thunder-iii-3",
+                "name": "Thunder III (2nd Set)",
+                "time": "1:49",
+                "after": "p3-thunder-iii-2",
                 "boss": "Chaos",
                 "tag": "2nd hit",
                 "actions": [
@@ -5107,9 +5065,9 @@
               },
               {
                 "id": "drk-p3-r49-exdeath",
-                "name": "Thunder III (3rd Set)",
-                "time": "2:07",
-                "after": "p3-thunder-iii-3",
+                "name": "Thunder III (2nd Set)",
+                "time": "1:49",
+                "after": "p3-thunder-iii-2",
                 "boss": "Exdeath",
                 "tag": "1st hit",
                 "actions": [
@@ -5126,17 +5084,17 @@
               },
               {
                 "id": "drk-p3-r51-chaos",
-                "name": "Thunder III (4th Set)",
-                "time": "2:48",
-                "after": "p3-thunder-iii-4",
+                "name": "Thunder III (3rd Set)",
+                "time": "2:07",
+                "after": "p3-thunder-iii-3",
                 "boss": "Chaos",
                 "actions": []
               },
               {
                 "id": "drk-p3-r51-exdeath",
-                "name": "Thunder III (4th Set)",
-                "time": "2:48",
-                "after": "p3-thunder-iii-4",
+                "name": "Thunder III (3rd Set)",
+                "time": "2:07",
+                "after": "p3-thunder-iii-3",
                 "boss": "Exdeath",
                 "actions": [
                   {
@@ -5350,9 +5308,9 @@
               },
               {
                 "id": "drk-p5-r85-inv1",
-                "name": "Flare/Holy",
-                "time": "0:39",
-                "after": "p5-maddening-orchestra-1",
+                "name": "Flare/Holy 1",
+                "time": "0:46",
+                "after": "p5-flare-1",
                 "invuln": 1,
                 "actions": [
                   {
@@ -5363,9 +5321,9 @@
               },
               {
                 "id": "drk-p5-r85-inv2",
-                "name": "Flare/Holy",
-                "time": "0:39",
-                "after": "p5-maddening-orchestra-1",
+                "name": "Flare/Holy 1",
+                "time": "0:46",
+                "after": "p5-flare-1",
                 "invuln": 2,
                 "actions": [
                   {
@@ -5485,9 +5443,9 @@
               },
               {
                 "id": "drk-p5-r93-inv1",
-                "name": "Flare/Holy",
-                "time": "2:11",
-                "after": "p5-maddening-orchestra-2",
+                "name": "Flare/Holy 2",
+                "time": "2:17",
+                "after": "p5-flare-2",
                 "invuln": 1,
                 "actions": [
                   {
@@ -5502,9 +5460,9 @@
               },
               {
                 "id": "drk-p5-r93-inv2",
-                "name": "Flare/Holy",
-                "time": "2:11",
-                "after": "p5-maddening-orchestra-2",
+                "name": "Flare/Holy 2",
+                "time": "2:17",
+                "after": "p5-flare-2",
                 "invuln": 2,
                 "actions": [
                   {
@@ -5515,7 +5473,7 @@
               },
               {
                 "id": "drk-p5-r95-inv1",
-                "name": "Fell Forces I",
+                "name": "Fell Forces 4 (3x)",
                 "time": "2:22",
                 "after": "p5-fell-forces-4",
                 "invuln": 1,
@@ -5524,30 +5482,7 @@
               },
               {
                 "id": "drk-p5-r95-inv2",
-                "name": "Fell Forces I",
-                "time": "2:22",
-                "after": "p5-fell-forces-4",
-                "invuln": 2,
-                "tag": "Solo",
-                "actions": [
-                  {
-                    "name": "Living Dead",
-                    "carryOver": true
-                  }
-                ]
-              },
-              {
-                "id": "drk-p5-r97-inv1",
-                "name": "Fell Forces II",
-                "time": "2:22",
-                "after": "p5-fell-forces-4",
-                "invuln": 1,
-                "actions": [],
-                "tag": "Avoid"
-              },
-              {
-                "id": "drk-p5-r97-inv2",
-                "name": "Fell Forces II",
+                "name": "Fell Forces 4 (3x)",
                 "time": "2:22",
                 "after": "p5-fell-forces-4",
                 "invuln": 2,
@@ -5561,7 +5496,7 @@
               },
               {
                 "id": "drk-p5-r99-inv1",
-                "name": "Fell Forces III",
+                "name": "Fell Forces 4 (3x)",
                 "time": "2:22",
                 "after": "p5-fell-forces-4",
                 "invuln": 1,
@@ -5577,11 +5512,12 @@
                   {
                     "name": "Oblation"
                   }
-                ]
+                ],
+                "tag": "Share 3rd hit"
               },
               {
                 "id": "drk-p5-r99-inv2",
-                "name": "Fell Forces III",
+                "name": "Fell Forces 4 (3x)",
                 "time": "2:22",
                 "after": "p5-fell-forces-4",
                 "invuln": 2,
@@ -5597,7 +5533,8 @@
                   {
                     "name": "Oblation"
                   }
-                ]
+                ],
+                "tag": "Share 3rd hit"
               }
             ],
             "note": "You start with the boss. Hold aggro at the phase start so your co-tank does not get the Holy debuff.",
@@ -5918,9 +5855,9 @@
               },
               {
                 "id": "gnb-p3-r47-chaos",
-                "name": "Thunder III (2nd Set)",
-                "time": "1:49",
-                "after": "p3-thunder-iii-2",
+                "name": "Thunder III (1st Set)",
+                "time": "0:51",
+                "after": "p3-thunder-iii-1",
                 "boss": "Chaos",
                 "actions": [
                   {
@@ -5930,17 +5867,17 @@
               },
               {
                 "id": "gnb-p3-r47-exdeath",
-                "name": "Thunder III (2nd Set)",
-                "time": "1:49",
-                "after": "p3-thunder-iii-2",
+                "name": "Thunder III (1st Set)",
+                "time": "0:51",
+                "after": "p3-thunder-iii-1",
                 "boss": "Exdeath",
                 "actions": []
               },
               {
                 "id": "gnb-p3-r49-chaos",
-                "name": "Thunder III (3rd Set)",
-                "time": "2:07",
-                "after": "p3-thunder-iii-3",
+                "name": "Thunder III (2nd Set)",
+                "time": "1:49",
+                "after": "p3-thunder-iii-2",
                 "boss": "Chaos",
                 "tag": "2nd hit",
                 "actions": [
@@ -5954,9 +5891,9 @@
               },
               {
                 "id": "gnb-p3-r49-exdeath",
-                "name": "Thunder III (3rd Set)",
-                "time": "2:07",
-                "after": "p3-thunder-iii-3",
+                "name": "Thunder III (2nd Set)",
+                "time": "1:49",
+                "after": "p3-thunder-iii-2",
                 "boss": "Exdeath",
                 "tag": "1st hit",
                 "actions": [
@@ -5970,17 +5907,17 @@
               },
               {
                 "id": "gnb-p3-r51-chaos",
-                "name": "Thunder III (4th Set)",
-                "time": "2:48",
-                "after": "p3-thunder-iii-4",
+                "name": "Thunder III (3rd Set)",
+                "time": "2:07",
+                "after": "p3-thunder-iii-3",
                 "boss": "Chaos",
                 "actions": []
               },
               {
                 "id": "gnb-p3-r51-exdeath",
-                "name": "Thunder III (4th Set)",
-                "time": "2:48",
-                "after": "p3-thunder-iii-4",
+                "name": "Thunder III (3rd Set)",
+                "time": "2:07",
+                "after": "p3-thunder-iii-3",
                 "boss": "Exdeath",
                 "actions": [
                   {
@@ -6163,9 +6100,9 @@
               },
               {
                 "id": "gnb-p5-r85-inv1",
-                "name": "Flare/Holy",
-                "time": "0:39",
-                "after": "p5-maddening-orchestra-1",
+                "name": "Flare/Holy 1",
+                "time": "0:46",
+                "after": "p5-flare-1",
                 "invuln": 1,
                 "actions": [
                   {
@@ -6176,9 +6113,9 @@
               },
               {
                 "id": "gnb-p5-r85-inv2",
-                "name": "Flare/Holy",
-                "time": "0:39",
-                "after": "p5-maddening-orchestra-1",
+                "name": "Flare/Holy 1",
+                "time": "0:46",
+                "after": "p5-flare-1",
                 "invuln": 2,
                 "actions": [
                   {
@@ -6282,9 +6219,9 @@
               },
               {
                 "id": "gnb-p5-r93-inv1",
-                "name": "Flare/Holy",
-                "time": "2:11",
-                "after": "p5-maddening-orchestra-2",
+                "name": "Flare/Holy 2",
+                "time": "2:17",
+                "after": "p5-flare-2",
                 "invuln": 1,
                 "actions": [
                   {
@@ -6299,9 +6236,9 @@
               },
               {
                 "id": "gnb-p5-r93-inv2",
-                "name": "Flare/Holy",
-                "time": "2:11",
-                "after": "p5-maddening-orchestra-2",
+                "name": "Flare/Holy 2",
+                "time": "2:17",
+                "after": "p5-flare-2",
                 "invuln": 2,
                 "actions": [
                   {
@@ -6312,7 +6249,7 @@
               },
               {
                 "id": "gnb-p5-r95-inv1",
-                "name": "Fell Forces I",
+                "name": "Fell Forces 4 (3x)",
                 "time": "2:22",
                 "after": "p5-fell-forces-4",
                 "invuln": 1,
@@ -6321,30 +6258,7 @@
               },
               {
                 "id": "gnb-p5-r95-inv2",
-                "name": "Fell Forces I",
-                "time": "2:22",
-                "after": "p5-fell-forces-4",
-                "invuln": 2,
-                "tag": "Solo",
-                "actions": [
-                  {
-                    "name": "Superbolide",
-                    "carryOver": true
-                  }
-                ]
-              },
-              {
-                "id": "gnb-p5-r97-inv1",
-                "name": "Fell Forces II",
-                "time": "2:22",
-                "after": "p5-fell-forces-4",
-                "invuln": 1,
-                "actions": [],
-                "tag": "Avoid"
-              },
-              {
-                "id": "gnb-p5-r97-inv2",
-                "name": "Fell Forces II",
+                "name": "Fell Forces 4 (3x)",
                 "time": "2:22",
                 "after": "p5-fell-forces-4",
                 "invuln": 2,
@@ -6358,7 +6272,7 @@
               },
               {
                 "id": "gnb-p5-r99-inv1",
-                "name": "Fell Forces III",
+                "name": "Fell Forces 4 (3x)",
                 "time": "2:22",
                 "after": "p5-fell-forces-4",
                 "invuln": 1,
@@ -6371,11 +6285,12 @@
                   {
                     "name": "Heart of Corundum"
                   }
-                ]
+                ],
+                "tag": "Share 3rd hit"
               },
               {
                 "id": "gnb-p5-r99-inv2",
-                "name": "Fell Forces III",
+                "name": "Fell Forces 4 (3x)",
                 "time": "2:22",
                 "after": "p5-fell-forces-4",
                 "invuln": 2,
@@ -6388,7 +6303,8 @@
                   {
                     "name": "Heart of Corundum"
                   }
-                ]
+                ],
+                "tag": "Share 3rd hit"
               }
             ],
             "note": "You start with the boss. Hold aggro at the phase start so your co-tank does not get the Holy debuff.",

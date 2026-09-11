@@ -113,25 +113,33 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
       // separate, personal line. "Same" also covers a qualified party variant:
       // a personal "Thunder III" folds into "Thunder III (1st Set)" and an
       // "Ultimate Embrace" into the timeline's "Ultimate Embrace 2", and the
-      // party row's own timestamp then stands for both (so a `time` on the
-      // personal row no longer blocks the fold in that case).
+      // party row's own timestamp then stands for both.
+      //
+      // A personal row carries its anchor's time once the importer puts it on
+      // the encounter's clock, so a time of its own no longer argues against
+      // the fold - only a time that disagrees with the anchor does, which means
+      // the row is about a different moment.
       const anchor = mechanic.after ? party.find(pe => pe.mechanic.id === mechanic.after) : undefined
       const anchorName = anchor?.mechanic.name
       const qualified = anchorName && anchorName.startsWith(`${mechanic.name} `)
         && /^(\(.*\)|\d+)$/.test(anchorName.slice(mechanic.name.length + 1))
-      const sameName = Boolean(anchorName && (
-        (!mechanic.time && anchorName === mechanic.name) || qualified
-      ))
-      // A bar row drops its own heading, so its `tag` would float on an empty
-      // one - hoist it onto the party mechanic above instead, right after that
-      // name. A plain row keeps its tag in its own heading.
-      if (sameName && mechanic.tag && anchor) anchor.mechanic = { ...anchor.mechanic, tag: mechanic.tag }
+      const sameMoment = !mechanic.time || mechanic.time === anchor?.mechanic.time
+      const sameName = Boolean(anchorName && sameMoment && (anchorName === mechanic.name || qualified))
+      // A bar row drops its heading, so its `tag` has nowhere to sit there; it
+      // renders beside the Personal label instead, and may be hoisted onto the
+      // party mechanic below. A plain row keeps its tag in its own heading.
       const entry: Entry = {
-        mechanic: sameName ? { ...mechanic, name: '', tag: undefined } : mechanic,
+        mechanic: sameName ? { ...mechanic, name: '' } : mechanic,
         personal: sameName ? 'bar' : 'plain', note: mechanic.note,
         actions: resolveActions(mechanic.actions),
         alts: mechanic.alts?.map(alt => ({ label: alt.label, actions: resolveActions(alt.actions) })),
       }
+      // A headingless row whose every action is already running, with nothing
+      // of its own to say, is a line that reads "still active" and nothing else.
+      // The press it refers to is on the row above.
+      const onlyCarried = entry.personal === 'bar' && entry.actions.length > 0
+        && entry.actions.every(a => a.action.carryOver) && !mechanic.note && !mechanic.alts?.length
+      if (onlyCarried) continue
       if (!mechanic.after) front.push(entry)
       else byAnchor.set(mechanic.after, [...(byAnchor.get(mechanic.after) ?? []), entry])
     }
@@ -143,6 +151,19 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
     const noteRow: Entry | undefined = showPlanNote && plan.noteAfter
       ? { mechanic: { id: `${id}-personal-note`, name: '' }, personal: 'bar', note: plan.note, actions: [] }
       : undefined
+
+    // One tagged personal row under a mechanic reads best with the tag on the
+    // party heading, next to the name. Several - the Solo and the Share-3rd-hit
+    // line of the same Fell Forces - cannot share that one slot, so they each
+    // keep their own.
+    for (const [anchorId, group] of byAnchor) {
+      const tagged = group.filter(e => e.personal === 'bar' && e.mechanic.tag)
+      if (tagged.length !== 1) continue
+      const pe = party.find(p => p.mechanic.id === anchorId)
+      if (!pe) continue
+      pe.mechanic = { ...pe.mechanic, tag: tagged[0].mechanic.tag }
+      tagged[0].mechanic = { ...tagged[0].mechanic, tag: undefined }
+    }
 
     const entries: Entry[] = [...front]
     for (const pe of party) {
@@ -356,9 +377,15 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
           ? <Box className="personal-body">
             {/* Names the block as this tank's own cooldowns, so a personal row
                 is not just "a party row with a differently coloured rule". */}
-            <Text span className="personal-tag" fz={compact ? '0.5rem' : '0.625rem'} fw={700}>
-              <IconUser size={compact ? 9 : 11} aria-hidden />Personal
-            </Text>
+            <Group gap={6} align="center" wrap="nowrap">
+              <Text span className="personal-tag" fz={compact ? '0.5rem' : '0.625rem'} fw={700}>
+                <IconUser size={compact ? 9 : 11} aria-hidden />Personal
+              </Text>
+              {/* A bar row has no heading to hold its tag - the call that tells
+                  it apart from its siblings sits here instead. */}
+              {personal === 'bar' && mechanic.tag
+                && <Text span className="mechanic-tag" fz={compact ? '0.5rem' : '0.625rem'} fw={700}>{mechanic.tag}</Text>}
+            </Group>
             {(actions.length > 0 || (rowNote && showNotes)) && actionList(actions, mechanic.id, rowNote)}
             {alts?.map(alt => miniActions(alt.actions, alt.label, `${mechanic.id}-alt-${alt.label}`))}
           </Box>

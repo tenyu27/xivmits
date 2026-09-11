@@ -41,6 +41,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 import workbook
+from normalize_sheet import snap_tank_times
 
 NS = {'s': 'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
 
@@ -877,6 +878,7 @@ if __name__ == '__main__':
               for p in encounter['phases']}
     names = {m['id']: m['name'] for p in encounter['phases'] for m in p['mechanics']}
     sheet['tankMits'] = convert_tanks(workbook.fetch(tank_id), starts, names, moved)
+    snap_tank_times(sheet, encounter)
     out = (Path(__file__).resolve().parents[1] / 'packages' / 'encounter-data'
            / 'fights' / 'dmu' / 'sheets' / 'lpdu.json')
     out.write_text(json.dumps(sheet, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')

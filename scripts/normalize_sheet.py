@@ -112,3 +112,21 @@ def bind_sheet(sheet, encounter, aliases=None):
                 if mechanic.get('after'):
                     mechanic['after'] = anchors[(phase['id'], mechanic['after'])]
     return sheet
+
+
+def snap_tank_times(sheet, encounter):
+    """Put every anchored tank row on its mechanic's clock.
+
+    A tank workbook keeps its own timings, a second or two off the encounter's
+    log-derived ones. That gap is invisible in the spreadsheet and glaring on the
+    site: a personal row whose time disagrees with the mechanic it sits under
+    cannot fold into it, so the mechanic's name is printed twice.
+    """
+    times = {m['id']: m.get('time') for phase in encounter['phases'] for m in phase['mechanics']}
+    for plan in sheet.get('tankMits', {}).get('plans', []):
+        for phase in plan['phases']:
+            for mechanic in phase['mechanics']:
+                anchored = times.get(mechanic.get('after'))
+                if anchored:
+                    mechanic['time'] = anchored
+    return sheet

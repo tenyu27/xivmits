@@ -142,6 +142,14 @@ the `Maddening Orchestra` row on the same mechanic), and `Fell Forces I/II/III`
 Avoid/Solo branch). LPDU needs none of this: its importer already reads times
 from the encounter.
 
+**A personal row's time decides whether it folds.** MitView drops a personal
+row's heading when it names the mechanic it sits under — otherwise the name
+prints twice, once for the party row and once beneath it. That fold needs the
+row's time to agree with its anchor, which is why both importers now snap tank
+rows onto the encounter's clock (`align_tank_rows` for ikuya, `snap_tank_times`
+for LPDU). Rows that genuinely name something else keep their heading: LPDU's
+`HP Reduction`, `3rd in Line Tank`, `Autos N`, and ikuya's `Autos`.
+
 **Anchors point at the encounter, not the sheet.** `resolveSheet` renders every
 mechanic in a phase, so a personal row may sit under one this sheet assigns
 nobody to — ikuya's tanks cover busters their party grid leaves blank.
