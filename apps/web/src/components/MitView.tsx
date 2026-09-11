@@ -245,7 +245,10 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
         const startsCarryOverRow = action.carryOver && !actions[index - 1]?.action.carryOver
         return <Fragment key={`${keyed}-${action.name}-${index}`}>
           {startsCarryOverRow && <>
-            <Box component="li" className="action-break" aria-hidden />
+            {/* The break drops the carried-over set onto its own line, below the
+                fresh presses. With nothing fresh above it there is no line to
+                break from, and it would only open a blank one. */}
+            {index > 0 && <Box component="li" className="action-break" aria-hidden />}
             <Box component="li" className="carry-over-marker" aria-hidden>
               <IconArrowForward size={15} />
             </Box>
@@ -262,7 +265,7 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
         const startsCarryOverRow = action.carryOver && !actions[index - 1]?.action.carryOver
         return <Fragment key={`${keyed}-${action.name}-${index}`}>
           {startsCarryOverRow && <>
-            <Box component="li" className="action-break" aria-hidden />
+            {index > 0 && <Box component="li" className="action-break" aria-hidden />}
             <Group component="li" className="carry-over-marker" gap={4} align="center">
               <IconArrowForward size={15} aria-hidden />
               <Text span fz="xs" c="dimmed" fw={400}>Still active</Text>

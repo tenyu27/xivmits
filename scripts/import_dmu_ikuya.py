@@ -69,7 +69,7 @@ TANK_KEEP_NAME = {'Autos'}
 # The three autos inside one Fell Forces are one encounter mechanic; the call
 # that distinguishes them belongs in the row's tag, not in a name the fight does
 # not have.
-TANK_ROW_TAGS = {'Fell Forces III': 'Share 3rd hit'}
+TANK_ROW_TAGS = {'Fell Forces III': 'Share'}
 
 # The workbook's bare "Solo" means the invuln eats two of the autos on its own -
 # on the 3x it covers two and the third is shared. Say how many.
@@ -114,10 +114,9 @@ def align_tank_rows(sheet, encounter):
                     resolved[key] = match
                 match = resolved[key]
                 if match is not None:
+                    # Keyed on the workbook's wording, so read before the rename.
                     if row['name'] in TANK_ROW_TAGS:
                         row['tag'] = TANK_ROW_TAGS[row['name']]
-                if row.get('tag') in TANK_TAG_TEXT:
-                    row['tag'] = TANK_TAG_TEXT[row['tag']]
                     row['after'] = match['id']
                     row['time'] = match['time']
                     if row['name'] not in TANK_KEEP_NAME:
@@ -128,6 +127,8 @@ def align_tank_rows(sheet, encounter):
                     anchored = next((m for m in mechanics if m['id'] == row['after']), None)
                     if anchored and anchored.get('time'):
                         row['time'] = anchored['time']
+                if row.get('tag') in TANK_TAG_TEXT:
+                    row['tag'] = TANK_TAG_TEXT[row['tag']]
             # Folding sub-rows onto one mechanic can leave two rows saying
             # exactly the same thing - the 1st and 2nd auto of a Fell Forces are
             # both a bare "Avoid" once they stop carrying distinct names.
