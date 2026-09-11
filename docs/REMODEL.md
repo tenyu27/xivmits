@@ -77,9 +77,12 @@ The two logs used for P1–P3 sit at the maximum: `q2Xx` has the longest P3 in t
 ranked set (313.3s) and `DK6c` ties the longest P5 (224.5s), so the reconciled
 timeline covers the slowest case a clearing team sees.
 
-**P5 is complete.** `Forsaken Null` at 3:40 is the enrage and it resolves in
-both slow logs. Faster teams kill before it, which is why it is absent from all
-12 fast clears — its presence in the data is correct, not an artifact.
+**P5 is complete.** `Forsaken Null` is its enrage, recorded at **3:14, the
+cast** — 3:14.25 median across 15 logs, range 3:14.05–3:14.33, the tightest
+timing in the fight. Not for P3's reason: nothing goes untargetable here, it is
+simply the end of the phase, so cast or damage makes no practical difference.
+Faster teams kill before it, which is why it is absent from all 12 fast clears;
+its presence is correct, not an artifact.
 
 **P3's enrage is recorded, from two wipe logs.** `Meteor` (49752) and a second
 `Bowels of Agony` (49753 — not the 47858 used earlier in the phase) cast
