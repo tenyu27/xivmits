@@ -3613,7 +3613,8 @@
                     "name": "Holy Sheltron"
                   }
                 ],
-                "time": "0:13"
+                "time": "0:13",
+                "tag": "Share"
               },
               {
                 "id": "pld-p5-r81-inv2",
@@ -3629,7 +3630,8 @@
                     "name": "Holy Sheltron"
                   }
                 ],
-                "time": "0:13"
+                "time": "0:13",
+                "tag": "Share"
               },
               {
                 "id": "pld-p5-r83-inv1",
@@ -3731,7 +3733,8 @@
                     "name": "Holy Sheltron"
                   }
                 ],
-                "time": "1:35"
+                "time": "1:35",
+                "tag": "Share"
               },
               {
                 "id": "pld-p5-r89-inv2",
@@ -3746,7 +3749,8 @@
                     "name": "Holy Sheltron"
                   }
                 ],
-                "time": "1:35"
+                "time": "1:35",
+                "tag": "Share"
               },
               {
                 "id": "pld-p5-r91-inv1",
@@ -3856,7 +3860,7 @@
                     "name": "Holy Sheltron"
                   }
                 ],
-                "tag": "Share"
+                "tag": "Share 3rd hit"
               },
               {
                 "id": "pld-p5-r99-inv2",
@@ -3874,7 +3878,7 @@
                     "name": "Holy Sheltron"
                   }
                 ],
-                "tag": "Share"
+                "tag": "Share 3rd hit"
               }
             ],
             "note": "You start with the boss. Hold aggro at the phase start so your co-tank does not get the Holy debuff.",
@@ -4415,7 +4419,8 @@
                     "name": "Bloodwhetting"
                   }
                 ],
-                "time": "0:13"
+                "time": "0:13",
+                "tag": "Share"
               },
               {
                 "id": "war-p5-r81-inv2",
@@ -4431,7 +4436,8 @@
                     "name": "Bloodwhetting"
                   }
                 ],
-                "time": "0:13"
+                "time": "0:13",
+                "tag": "Share"
               },
               {
                 "id": "war-p5-r83-inv1",
@@ -4533,7 +4539,8 @@
                     "name": "Bloodwhetting"
                   }
                 ],
-                "time": "1:35"
+                "time": "1:35",
+                "tag": "Share"
               },
               {
                 "id": "war-p5-r89-inv2",
@@ -4548,7 +4555,8 @@
                     "name": "Bloodwhetting"
                   }
                 ],
-                "time": "1:35"
+                "time": "1:35",
+                "tag": "Share"
               },
               {
                 "id": "war-p5-r91-inv1",
@@ -4655,7 +4663,7 @@
                     "name": "Bloodwhetting"
                   }
                 ],
-                "tag": "Share"
+                "tag": "Share 3rd hit"
               },
               {
                 "id": "war-p5-r99-inv2",
@@ -4673,7 +4681,7 @@
                     "name": "Bloodwhetting"
                   }
                 ],
-                "tag": "Share"
+                "tag": "Share 3rd hit"
               }
             ],
             "note": "You start with the boss. Hold aggro at the phase start so your co-tank does not get the Holy debuff.",
@@ -5245,7 +5253,8 @@
                     "name": "Oblation"
                   }
                 ],
-                "time": "0:13"
+                "time": "0:13",
+                "tag": "Share"
               },
               {
                 "id": "drk-p5-r81-inv2",
@@ -5264,7 +5273,8 @@
                     "name": "Oblation"
                   }
                 ],
-                "time": "0:13"
+                "time": "0:13",
+                "tag": "Share"
               },
               {
                 "id": "drk-p5-r83-inv1",
@@ -5379,7 +5389,8 @@
                     "name": "Oblation"
                   }
                 ],
-                "time": "1:35"
+                "time": "1:35",
+                "tag": "Share"
               },
               {
                 "id": "drk-p5-r89-inv2",
@@ -5397,7 +5408,8 @@
                     "name": "Oblation"
                   }
                 ],
-                "time": "1:35"
+                "time": "1:35",
+                "tag": "Share"
               },
               {
                 "id": "drk-p5-r91-inv1",
@@ -5513,7 +5525,7 @@
                     "name": "Oblation"
                   }
                 ],
-                "tag": "Share"
+                "tag": "Share 3rd hit"
               },
               {
                 "id": "drk-p5-r99-inv2",
@@ -5534,7 +5546,7 @@
                     "name": "Oblation"
                   }
                 ],
-                "tag": "Share"
+                "tag": "Share 3rd hit"
               }
             ],
             "note": "You start with the boss. Hold aggro at the phase start so your co-tank does not get the Holy debuff.",
@@ -6046,7 +6058,8 @@
                     "name": "Heart of Corundum"
                   }
                 ],
-                "time": "0:13"
+                "time": "0:13",
+                "tag": "Share"
               },
               {
                 "id": "gnb-p5-r81-inv2",
@@ -6062,7 +6075,8 @@
                     "name": "Heart of Corundum"
                   }
                 ],
-                "time": "0:13"
+                "time": "0:13",
+                "tag": "Share"
               },
               {
                 "id": "gnb-p5-r83-inv1",
@@ -6164,7 +6178,8 @@
                     "name": "Heart of Corundum"
                   }
                 ],
-                "time": "1:35"
+                "time": "1:35",
+                "tag": "Share"
               },
               {
                 "id": "gnb-p5-r89-inv2",
@@ -6179,7 +6194,8 @@
                     "name": "Heart of Corundum"
                   }
                 ],
-                "time": "1:35"
+                "time": "1:35",
+                "tag": "Share"
               },
               {
                 "id": "gnb-p5-r91-inv1",
@@ -6286,7 +6302,7 @@
                     "name": "Heart of Corundum"
                   }
                 ],
-                "tag": "Share"
+                "tag": "Share 3rd hit"
               },
               {
                 "id": "gnb-p5-r99-inv2",
@@ -6304,7 +6320,7 @@
                     "name": "Heart of Corundum"
                   }
                 ],
-                "tag": "Share"
+                "tag": "Share 3rd hit"
               }
             ],
             "note": "You start with the boss. Hold aggro at the phase start so your co-tank does not get the Holy debuff.",
