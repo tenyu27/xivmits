@@ -773,6 +773,18 @@
               47875
             ]
           }
+        },
+        {
+          "id": "p3-meteor-1",
+          "name": "Meteor (Enrage)",
+          "time": "5:01",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              49752,
+              49753
+            ]
+          }
         }
       ]
     },

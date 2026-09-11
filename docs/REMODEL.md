@@ -81,11 +81,15 @@ timeline covers the slowest case a clearing team sees.
 both slow logs. Faster teams kill before it, which is why it is absent from all
 12 fast clears — its presence in the data is correct, not an artifact.
 
-**P3 stops one mechanic short of enrage.** After `Stomp-a-Mole` at 4:38 the only
-remaining event is a `Meteor` cast beginning ~5:00 that never resolves, because
-the phase ends first. Capturing it needs a log of a pull that *wiped* to P3
-enrage; `fightRankings` lists only kills, so it cannot be reached from the API.
-That is the one known gap in the DMU timeline.
+**P3's enrage is recorded, from two wipe logs.** `Meteor` (49752) and a second
+`Bowels of Agony` (49753 — not the 47858 used earlier in the phase) cast
+together at 5:01 and land lethal at ~5:06. The row is timed at **5:01, the cast
+start**, because that is when the boss goes untargetable and nothing further can
+be mitigated; the damage is unavoidable either way. Both wipe logs confirm
+nothing happens between 4:44 and 5:01. Marked `minor`, since no sheet mits it.
+
+Note `fightRankings` lists only kills, so the enrage cannot be reached from the
+API — those two logs were supplied by hand.
 
 **P1–P3 rest on only two clears.** P4 and P5 used twelve, which is what revealed
 that `Flood of Naught` is a multi-part cast rather than a per-pull branch, and
