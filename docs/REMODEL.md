@@ -61,9 +61,9 @@ Re-reconciling against better logs is expected.
 |---|---|---|---|
 | p1 | 0:00 | 15 + 4 minor | 2 |
 | p2 | 3:29 | 13 + 1 minor | 2 |
-| p3 | 7:08 | 28 + 2 minor | 2 |
+| p3 | 7:08 | 28 + 3 minor | 2 |
 | p4 | 12:21 | 10 | 12 |
-| p5 | 15:04 | 20 | 12 |
+| p5 | 15:04 | 22 | 12 |
 
 **Phase lengths are not all fixed.** Measured across 100 ranked clears:
 
@@ -149,6 +149,13 @@ row's time to agree with its anchor, which is why both importers now snap tank
 rows onto the encounter's clock (`align_tank_rows` for ikuya, `snap_tank_times`
 for LPDU). Rows that genuinely name something else keep their heading: LPDU's
 `HP Reduction`, `3rd in Line Tank`, `Autos N`, and ikuya's `Autos`.
+
+**A tank row's tag belongs to that row.** It is drawn beside the Personal label,
+never lifted onto the mechanic heading: the call describes one press, and a
+mechanic can carry several rows that each need their own - the Solo line and the
+Share-3rd-hit line of the same Fell Forces. A row is dropped only when it holds
+nothing at all; one holding only carried-over actions still says that cooldown
+covers this mechanic.
 
 **Anchors point at the encounter, not the sheet.** `resolveSheet` renders every
 mechanic in a phase, so a personal row may sit under one this sheet assigns
