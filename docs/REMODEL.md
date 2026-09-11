@@ -130,6 +130,23 @@ it the importer refuses rather than dropping `tankMits` silently.
 on "anyone with the link". Tabs resolve by name; never by worksheet index —
 part file numbering does not follow tab order (LPDU's P5 is not next to P1–P4).
 
+**Tank plans keep their own clock.** The Ikuya Omnitank tab times and names its
+rows on the workbook's clock, in the workbook's wording, so after the encounter
+was reconciled they disagreed with the party rows they render beside — "Thunder
+III" next to "Thunder III (2nd Set)", tens of seconds off. `align_tank_rows` in
+the ikuya importer maps a row onto the mechanic family it describes and makes it
+adopt that mechanic's id, name and time. Five names stay bespoke on purpose:
+`Autos` (a phase-top cue, not a mechanic), `Flare/Holy` (a separate press from
+the `Maddening Orchestra` row on the same mechanic), and `Fell Forces I/II/III`
+(the three autos inside one Fell Forces, whose `tag` is already spent on the
+Avoid/Solo branch). LPDU needs none of this: its importer already reads times
+from the encounter.
+
+**Anchors point at the encounter, not the sheet.** `resolveSheet` renders every
+mechanic in a phase, so a personal row may sit under one this sheet assigns
+nobody to — ikuya's tanks cover busters their party grid leaves blank.
+`validateCatalog` checks `after` against the encounter for that reason.
+
 **Sheets can disagree, legitimately.** Ikuya assigns different mits to each
 black-hole beam; LPDU treats the set as one. The encounter carries the finer
 granularity and a sheet simply leaves rows blank.

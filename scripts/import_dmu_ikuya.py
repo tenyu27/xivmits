@@ -39,6 +39,78 @@ SPREAD_SUFFIX = ' (7-8th Set)'
 SPREAD_ONTO = {'p3-black-hole-6': ['p3-black-hole-7', 'p3-black-hole-8']}
 
 
+# The Omnitank tab names and times its rows on its own clock, in its own
+# wording. Once the encounter is reconciled against logs, those disagree with
+# the party rows they render beside - "Thunder III" sitting next to "Thunder III
+# (2nd Set)", at a time several seconds off. These map a tank row's wording onto
+# the encounter mechanic family it describes, so the row can adopt that
+# mechanic's name and time.
+TANK_FAMILIES = {
+    'Fell Forces (3x)': 'Fell Forces',
+    'Fell Forces (2x)': 'Fell Forces',
+    'Revolting Ruin III': 'Revolting Ruin',
+    'Hyperdrive (3x)': 'Hyperdrive',
+    'Thunder III': 'Thunder III',
+    'Ultimate Embrace': 'Ultimate Embrace',
+    'Wings of Destruction': 'Wings of Destruction',
+    'Maddening Orchestra': 'Maddening Orchestra',
+    'Black Holes IV (10th Tether Set)': 'Black Holes 4th Set (Beam 2)',
+}
+# Rows that are the tank's own business, not a mechanic the encounter carries:
+# a sub-hit of one mechanic, or a cue like "Autos". They keep their wording and
+# take only their anchor's time.
+# Rows that are not a mechanic of their own and must keep their wording, because
+# it is the only thing telling them apart from a sibling on the same mechanic:
+# 'Flare/Holy' is a separate press from the 'Maddening Orchestra' row beside it,
+# and I/II/III are the three autos inside one Fell Forces, whose `tag` is already
+# spent on the Avoid/Solo branch.
+TANK_KEEP_NAME = {'Autos', 'Flare/Holy', 'Fell Forces I', 'Fell Forces II', 'Fell Forces III'}
+
+
+def align_tank_rows(sheet, encounter):
+    """Give each tank row the name and time of the mechanic it belongs to.
+
+    Rows arrive in MT/OT pairs sharing a name and time, so a pair resolves once
+    and both halves land on the same mechanic.
+    """
+    by_phase = {p['id']: p['mechanics'] for p in encounter['phases']}
+    for plan in sheet.get('tankMits', {}).get('plans', []):
+        for phase in plan['phases']:
+            mechanics = by_phase[phase['id']]
+            resolved, taken = {}, set()
+            for row in phase['mechanics']:
+                # Not keyed on seat: an MT and an OT row of the same mechanic are
+                # one moment and must land on the same one. Keyed on the row's
+                # original anchor as well, because two pairs can share a name and
+                # carry no time of their own and still be different moments.
+                key = (row['name'], row.get('time'), row.get('after'))
+                if key not in resolved:
+                    family = TANK_FAMILIES.get(row['name'])
+                    match = None
+                    if family:
+                        for mechanic in mechanics:
+                            if mechanic['id'] in taken:
+                                continue
+                            if mechanic['name'] == family or mechanic['name'].startswith(family + ' '):
+                                match = mechanic
+                                taken.add(mechanic['id'])
+                                break
+                    resolved[key] = match
+                match = resolved[key]
+                if match is not None:
+                    row['after'] = match['id']
+                    row['time'] = match['time']
+                    if row['name'] not in TANK_KEEP_NAME:
+                        row['name'] = match['name']
+                elif row.get('after'):
+                    # No mechanic of its own: sit on its anchor's clock rather
+                    # than the workbook's.
+                    anchored = next((m for m in mechanics if m['id'] == row['after']), None)
+                    if anchored and anchored.get('time'):
+                        row['time'] = anchored['time']
+    return sheet
+
+
 def spread_parked_actions(sheet):
     """Move `<action> (7-8th Set)` off its parked row onto the rows it names."""
     rows = {m['mechanicId']: m for phase in sheet['phases'] for m in phase['mechanics']}
@@ -578,7 +650,7 @@ def convert():
     # Encounter order, so rows added for parked actions land in the right place.
     ORDER = {m['id']: i for phase in encounter['phases']
              for i, m in enumerate(phase['mechanics'])}
-    sheet = spread_parked_actions(bind_sheet(sheet, encounter, ALIASES))
+    sheet = align_tank_rows(spread_parked_actions(bind_sheet(sheet, encounter, ALIASES)), encounter)
     out = Path(__file__).resolve().parents[1] / 'packages/encounter-data/fights/dmu/sheets/ikuya.json'
     out.write_text(json.dumps(sheet, indent=2, ensure_ascii=False) + '\n')
     print([(p['id'], len(p['mechanics']), sum(len(a) for m in p['mechanics'] for a in m['assignments'].values())) for p in sheet['phases']])

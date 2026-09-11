@@ -287,8 +287,12 @@ export function validateCatalog(
       for (const phase of plan.phases) {
         if (!fight.phases.some(p => p.id === phase.id)) throw new Error(`Unknown phase ${phase.id} in tank plan ${plan.job}+${plan.with ?? ''} of ${sheet.id}`)
         // `after` / `noteAfter` anchor a personal row to a party mechanic in
-        // the same phase, so the splice has somewhere to land.
-        const anchors = new Set(sheet.phases.find(p => p.id === phase.id)?.mechanics.map(m => m.mechanicId))
+        // the same phase, so the splice has somewhere to land. The landing
+        // spots are the encounter's mechanics, not the sheet's rows: resolveSheet
+        // renders every mechanic in the phase, so a personal row may sit below
+        // one this sheet assigns nobody to - ikuya's tanks cover busters their
+        // party grid leaves blank.
+        const anchors = new Set(fight.phases.find(p => p.id === phase.id)!.mechanics.map(m => m.id))
         for (const mechanic of phase.mechanics) {
           if (mechanic.after && !anchors.has(mechanic.after)) throw new Error(`Tank plan ${plan.job}+${plan.with ?? ''} ${mechanic.id}: unknown anchor ${mechanic.after}`)
         }

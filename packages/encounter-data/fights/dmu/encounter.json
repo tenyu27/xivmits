@@ -601,7 +601,6 @@
           "id": "p3-black-hole-1",
           "name": "Black Holes 1st Set (Beam 1)",
           "time": "2:38",
-          "minor": true,
           "fflogs": {
             "abilityIds": [
               47867,
@@ -613,7 +612,6 @@
           "id": "p3-black-hole-2",
           "name": "Black Holes 1st Set (Beam 2)",
           "time": "2:45",
-          "minor": true,
           "fflogs": {
             "abilityIds": [
               47867,
@@ -647,7 +645,6 @@
           "id": "p3-black-hole-3",
           "name": "Black Holes 2nd Set (Beam 1)",
           "time": "3:09",
-          "minor": true,
           "fflogs": {
             "abilityIds": [
               47867,
@@ -659,7 +656,6 @@
           "id": "p3-black-hole-4",
           "name": "Black Holes 2nd Set (Beam 2)",
           "time": "3:14",
-          "minor": true,
           "fflogs": {
             "abilityIds": [
               47867,
@@ -671,7 +667,6 @@
           "id": "p3-black-hole-5",
           "name": "Black Holes 2nd Set (Beam 3)",
           "time": "3:19",
-          "minor": true,
           "fflogs": {
             "abilityIds": [
               47867,
@@ -694,7 +689,6 @@
           "id": "p3-black-hole-6",
           "name": "Black Holes 3rd Set (Beam 1)",
           "time": "3:43",
-          "minor": true,
           "fflogs": {
             "abilityIds": [
               47867,
@@ -706,7 +700,6 @@
           "id": "p3-black-hole-7",
           "name": "Black Holes 3rd Set (Beam 2)",
           "time": "3:48",
-          "minor": true,
           "fflogs": {
             "abilityIds": [
               47867,
@@ -718,7 +711,6 @@
           "id": "p3-black-hole-8",
           "name": "Black Holes 3rd Set (Beam 3)",
           "time": "3:53",
-          "minor": true,
           "fflogs": {
             "abilityIds": [
               47867,
@@ -741,7 +733,6 @@
           "id": "p3-black-hole-9",
           "name": "Black Holes 4th Set (Beam 1)",
           "time": "4:17",
-          "minor": true,
           "fflogs": {
             "abilityIds": [
               47867,
@@ -753,7 +744,6 @@
           "id": "p3-black-hole-10",
           "name": "Black Holes 4th Set (Beam 2)",
           "time": "4:24",
-          "minor": true,
           "fflogs": {
             "abilityIds": [
               47867,
