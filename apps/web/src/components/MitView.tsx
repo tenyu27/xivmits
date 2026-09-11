@@ -146,27 +146,14 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
       ? { mechanic: { id: `${id}-personal-note`, name: '' }, personal: 'bar', note: plan.note, actions: [] }
       : undefined
 
-    // One tagged personal row under a mechanic reads best with the tag on the
-    // party heading, next to the name. Several - the Solo and the Share-3rd-hit
-    // line of the same Fell Forces - cannot share that one slot, so they each
-    // keep their own.
-    for (const [anchorId, group] of byAnchor) {
-      const tagged = group.filter(e => e.personal === 'bar' && e.mechanic.tag)
-      if (tagged.length !== 1) continue
-      const pe = party.find(p => p.mechanic.id === anchorId)
-      if (!pe) continue
-      pe.mechanic = { ...pe.mechanic, tag: tagged[0].mechanic.tag }
-      tagged[0].mechanic = { ...tagged[0].mechanic, tag: undefined }
-    }
-
-    // A headingless row with nothing left in it draws a "Personal" label over
-    // empty space: the tag it carried is the row's only content, and the pass
-    // above has just moved it onto the mechanic. Dropped after the hoist, never
-    // before, so the call survives the row. A row holding only carried-over
-    // actions still says something - that cooldown covers this mechanic - and
-    // stays.
+    // A bar row keeps its own tag, beside the Personal label: the call belongs
+    // with the press it describes, and several rows under one mechanic - the
+    // Solo line and the Share-3rd-hit line of the same Fell Forces - each need
+    // their own. A row is dropped only when it holds nothing at all: no actions,
+    // no tag, no note. One that holds only carried-over actions still says
+    // something - that cooldown covers this mechanic - and stays.
     const hasBody = (e: Entry) => e.personal !== 'bar' || e.actions.length > 0
-      || Boolean(e.note) || Boolean(e.alts?.length)
+      || Boolean(e.mechanic.tag) || Boolean(e.note) || Boolean(e.alts?.length)
     for (const [anchorId, group] of byAnchor) byAnchor.set(anchorId, group.filter(hasBody))
 
     const entries: Entry[] = [...front]
