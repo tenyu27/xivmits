@@ -18,8 +18,8 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-ICON_DIR = ROOT / 'public/icons'
-MAP_FILE = ROOT / 'data/icons.json'
+ICON_DIR = ROOT / 'apps/web/public/icons'
+MAP_FILE = ROOT / 'packages/encounter-data/icons.json'
 SEARCH = 'https://v2.xivapi.com/api/search'
 ASSET = 'https://v2.xivapi.com/api/asset'
 
@@ -129,7 +129,7 @@ def resolve(name):
 def main(force=False):
     ICON_DIR.mkdir(parents=True, exist_ok=True)
     names = set()
-    for path in sorted((ROOT / 'data/fights').rglob('*.json')):
+    for path in sorted((ROOT / 'packages/encounter-data/fights').rglob('*.json')):
         # Encounters carry the canonical mechanic timeline; only sheets under
         # sheets/ carry assignments and tankMits.
         if path.name in ('fight.json', 'encounter.json'):
@@ -146,7 +146,7 @@ def main(force=False):
                     names.update(action['name'] for action in mechanic['actions'])
 
     # Every per-job ability a sheet can resolve a generic name to.
-    jobs = json.loads((ROOT / 'data/jobs.json').read_text())['jobs']
+    jobs = json.loads((ROOT / 'packages/encounter-data/jobs.json').read_text())['jobs']
     for job in jobs:
         names.update(job.get('abilities', {}).values())
 

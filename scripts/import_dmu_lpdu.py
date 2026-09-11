@@ -862,12 +862,12 @@ if __name__ == '__main__':
     moved = {}
     sheet = convert(sys.argv[1], moved)
     if len(sys.argv) > 2:
-        encounter = json.loads((Path(__file__).resolve().parent.parent / 'data' / 'fights'
+        encounter = json.loads((Path(__file__).resolve().parent.parent / 'packages' / 'encounter-data' / 'fights'
                                 / 'dmu' / 'encounter.json').read_text(encoding='utf-8'))
         starts = {p['id']: int(p['start'].split(':')[0]) * 60 + int(p['start'].split(':')[1])
                   for p in encounter['phases']}
         names = {m['id']: m['name'] for p in encounter['phases'] for m in p['mechanics']}
         sheet['tankMits'] = convert_tanks(sys.argv[2], starts, names, moved)
-    out = Path(__file__).resolve().parent.parent / 'data' / 'fights' / 'dmu' / 'sheets' / 'lpdu.json'
+    out = Path(__file__).resolve().parent.parent / 'packages' / 'encounter-data' / 'fights' / 'dmu' / 'sheets' / 'lpdu.json'
     out.write_text(json.dumps(sheet, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
     print(f'wrote {out}')

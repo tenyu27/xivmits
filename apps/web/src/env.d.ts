@@ -1,6 +1,6 @@
 /// <reference types="vite/client" />
 declare module 'virtual:mit-catalog' {
-  const catalog: import('./data/schema').Catalog
+  const catalog: import('@xivmits/core').Catalog
   export default catalog
 }
 interface Window {

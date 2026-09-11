@@ -1,0 +1,22 @@
+{
+  "name": "@xivmits/encounter-data",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./icons.json": "./icons.json",
+    "./jobs.json": "./jobs.json"
+  },
+  "scripts": {
+    "typecheck": "tsc -b",
+    "test": "node --experimental-strip-types --test tests/*.test.ts"
+  },
+  "dependencies": {
+    "@xivmits/core": "workspace:^"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "typescript": "~6.0.2"
+  }
+}

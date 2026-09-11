@@ -1,5 +1,4 @@
-import catalog from './catalog'
-import type { Job } from './schema'
+import type { Icons, Job } from './schema.ts'
 
 /** A trailing "(...)" on an action name is either a job list saying who presses
  *  it - "Party Mit (GNB/DRK)" - or timing - "Sun Sign (7-8th Set)". */
@@ -19,7 +18,7 @@ export type Resolved =
  * in the slot: "Party Mit" is Heart of Light for a GNB and Shake It Off for a
  * WAR. Knowing the job turns that into a real ability - and therefore an icon.
  */
-export function resolveAction(name: string, job?: Job): Resolved {
+export function resolveAction(name: string, job?: Job, icons: Icons = {}): Resolved {
   const qualifier = name.match(QUALIFIER)?.[1]
   const base = name.replace(QUALIFIER, '').trim()
 
@@ -35,10 +34,10 @@ export function resolveAction(name: string, job?: Job): Resolved {
   if (ability) {
     // A timing qualifier still applies to the resolved ability, so keep it.
     const label = qualifier && !JOB_LIST.test(qualifier) ? `${ability} (${qualifier})` : ability
-    return { applies: true, label, icon: catalog.icons[ability], from: base }
+    return { applies: true, label, icon: icons[ability], from: base }
   }
 
-  return { applies: true, label: name, icon: catalog.icons[name] ?? catalog.icons[base] }
+  return { applies: true, label: name, icon: icons[name] ?? icons[base] }
 }
 
 /** A seat in the party: MT, H, P. Distinct from the job standing in it. */
@@ -84,20 +83,21 @@ export function slotIdFor(sheet: { slots: { id: string; job?: string; role?: str
   return sheet.slots.find(s => s.role === position.role && s.job === jobId)?.id ?? ''
 }
 
-export const jobsForRole = (role?: string) =>
-  role ? catalog.jobs.filter(j => j.role === role) : catalog.jobs
+export const jobsForRole = (jobs: Job[], role?: string) =>
+  role ? jobs.filter(j => j.role === role) : jobs
 
 /** The jobs a seat offers: its role's jobs, narrowed by any `jobs` list the
  *  sheet puts on that slot. A sheet restricts a seat when its plan only works
  *  one way round - LPDU's invulns do not line up with a Paladin main tank. */
 export const jobsForSeat = (
+  allJobs: Job[],
   sheet: { slots: { id: string; job?: string; role?: string; jobs?: string[] }[] },
   position?: Position,
 ) => {
   const allowed = position?.slotId
     ? sheet.slots.find(s => s.id === position.slotId)?.jobs
     : undefined
-  const jobs = jobsForRole(position?.role)
+  const jobs = jobsForRole(allJobs, position?.role)
   return allowed ? jobs.filter(j => allowed.includes(j.id)) : jobs
 }
 

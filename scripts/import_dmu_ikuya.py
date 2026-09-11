@@ -516,7 +516,7 @@ def convert(path):
             phase['scopedNote'] = {'text': TARGETED_NOTE[phase_number], 'abilities': list(TARGETED_MIT)}
         sheet['phases'].append(phase)
     sheet['tankMits'] = convert_omnitank(archive, strings, sheet['phases'], phase_starts)
-    output = Path(__file__).resolve().parents[1] / 'data/fights/dmu'
+    output = Path(__file__).resolve().parents[1] / 'packages/encounter-data/fights/dmu'
     output.mkdir(parents=True, exist_ok=True)
     fight = {'id': 'dmu', 'name': 'Dancing Mad (Ultimate)', 'shortName': 'DMU', 'type': 'Ultimate',
              'phases': [{'id': f'p{i}', 'label': f'P{i}', 'name': name,

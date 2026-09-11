@@ -1,7 +1,6 @@
 import assert from 'node:assert/strict'
-import { readFileSync, readdirSync } from 'node:fs'
 import test from 'node:test'
-import { validateCatalog } from '../src/data/schema.ts'
+import { validateCatalog } from '@xivmits/core/schema'
 
 const encounter = {
   id: 'test', name: 'Test encounter', type: 'Other',
@@ -89,29 +88,3 @@ test('rejects a seat restriction that is not a job ID', () => {
   assert.throws(() => validateCatalog(files(restricted), {}, jobs))
 })
 
-test('validates the repository catalog and keeps FFLogs placeholders empty', () => {
-  const root = new URL('../data/fights/', import.meta.url)
-  const dataFiles = readdirSync(root, { recursive: true, encoding: 'utf8' })
-    .filter(path => path.endsWith('.json'))
-  const catalog = validateCatalog(
-    Object.fromEntries(dataFiles.map(path => [`/repo/data/fights/${path}`, JSON.parse(readFileSync(new URL(path, root), 'utf8'))])),
-    JSON.parse(readFileSync(new URL('../data/icons.json', import.meta.url), 'utf8')),
-    JSON.parse(readFileSync(new URL('../data/jobs.json', import.meta.url), 'utf8')),
-  )
-
-  const encounterCount = dataFiles.filter(path => path.endsWith('encounter.json')).length
-  const sheetCount = dataFiles.filter(path => path.includes('/sheets/')).length
-  assert.equal(catalog.fights.length, encounterCount)
-  assert.equal(catalog.sheets.length, sheetCount)
-  for (const fight of catalog.fights) {
-    assert.deepEqual(fight.fflogs?.encounterIds, [])
-    const mechanics = fight.phases.flatMap(phase => phase.mechanics)
-    const unnumberedNames = mechanics
-      .map(mechanic => mechanic.name)
-      .filter(name => !/\(\d+\)$|\b\d+(?:st|nd|rd|th)?\b/i.test(name))
-    assert.equal(new Set(unnumberedNames).size, unnumberedNames.length)
-    for (const mechanic of mechanics) {
-      assert.deepEqual(mechanic.fflogs?.abilityIds, [])
-    }
-  }
-})

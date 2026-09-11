@@ -398,7 +398,7 @@ def convert(path):
         sheet['phases'].append({'id': phase_id, 'mechanics': mechanics})
     sheet['tankMits'] = convert_tank_tabs(archive, strings, sheet['phases'])
     encounter, sheet = normalize_encounter(FIGHT, sheet)
-    output = Path(__file__).resolve().parents[1] / 'data/fights/top'
+    output = Path(__file__).resolve().parents[1] / 'packages/encounter-data/fights/top'
     (output / 'sheets').mkdir(parents=True, exist_ok=True)
     for path, data in [('encounter.json', encounter), ('sheets/topmitty.json', sheet)]:
         (output / path).write_text(json.dumps(data, indent=2, ensure_ascii=False) + '\n')

@@ -27,4 +27,14 @@ dist-ssr
 
 scratchpad/
 
+# Yarn 4 (node-modules linker): keep the release/plugin metadata, ignore the
+# install-state and caches.
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+.yarn/install-state.gz
+.pnp.*
+
 .env

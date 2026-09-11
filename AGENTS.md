@@ -11,7 +11,7 @@ It is a **viewer, not a planner**. No accounts, no backend, no database, no edit
 Read before non-trivial work:
 
 - [DESIGN.md](DESIGN.md) — design tokens, components, responsive rules, PiP styling, anti-patterns
-- [src/data/schema.ts](src/data/schema.ts) — the build-time data contract; the schema *is* the spec
+- [packages/core/src/schema.ts](packages/core/src/schema.ts) — the build-time data contract; the schema *is* the spec
 
 **Non-goals:** mit planner, spreadsheet editor, collaborative planning, accounts, backend, ACT/FFLogs integration, live Google Sheets sync, comments. Do not add them because they seem natural.
 
@@ -71,7 +71,7 @@ The catalog is built by the `mit-catalog` Vite plugin in `vite.config.ts`: it re
 - **The palette lives in `src/theme.ts`**, as Mantine color tuples; `src/index.css` aliases the product tokens onto Mantine's generated variables. Never hardcode a hex outside `theme.ts`. Fix a wrong Mantine default in `variantColorResolver`, not at the call site.
 - **Theming is Mantine's.** `MantineProvider` uses `defaultColorScheme="auto"` with a `localStorageColorSchemeManager` keyed `xivmits-color-scheme`, and stamps `data-mantine-color-scheme` on `<html>`. The inline script in `index.html` applies the same stored value pre-paint — change the key in both places or you get a flash.
 - **Semantic elements.** Real `<button>` and `<select>`; no clickable `<div>`. Keep visible focus rings.
-- **Mit sheet data is repo data**, validated at build time. Malformed data fails the build rather than shipping. Schemas are `.strict()` — adding a field to the data means adding it to `src/data/schema.ts` first.
+- **Mit sheet data is repo data**, validated at build time. Malformed data fails the build rather than shipping. Schemas are `.strict()` — adding a field to the data means adding it to `packages/core/src/schema.ts` first.
 - **Actions flow horizontally.** They wrap only when out of room; only notes and carry-overs take a full row. Anything that forces every action onto its own line is a regression.
 - **One component renders both views.** `MitView` takes a `compact` flag for PiP. Never fork it — a PiP-only copy will drift.
 - **Slots are opaque IDs**, not a fixed enum. A sheet may key assignments by position (`MT`, `P`), by job (`SGE`), or both in one sheet. Do not hardcode a role list anywhere.
@@ -80,7 +80,7 @@ The catalog is built by the `mit-catalog` Vite plugin in `vite.config.ts`: it re
 
 ## Guardrails
 
-- **Read DESIGN.md and `src/data/schema.ts` before non-trivial work.** The schema is the data contract; DESIGN.md §4 is the component spec.
+- **Read DESIGN.md and `packages/core/src/schema.ts` before non-trivial work.** The schema is the data contract; DESIGN.md §4 is the component spec.
 - **Every mechanic renders, assigned or not.** Blank rows are load-bearing: phases repeat mechanic names, so hiding the unassigned ones makes it ambiguous which occurrence you are covering. Do not "tidy" them away. The single exception is an encounter mechanic with `roles` — a tank buster is `['tank']` — whose *blank* row is dropped for other roles. It never hides an assignment: a sheet that assigns someone still shows them the row.
 - **Do not expand scope.** See the non-goals list at the top of this file. Do not add them because they seem natural.
 - **Phase switching stays instant** — client-side, no spinner, no route transition, no animation.

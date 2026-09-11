@@ -291,7 +291,7 @@ def convert(path):
         sheet['phases'].append(phase)
 
     encounter, sheet = normalize_encounter(FIGHT, sheet)
-    output = Path(__file__).resolve().parents[1] / 'data/fights/fru'
+    output = Path(__file__).resolve().parents[1] / 'packages/encounter-data/fights/fru'
     (output / 'sheets').mkdir(parents=True, exist_ok=True)
     for name, data in [('encounter.json', encounter), ('sheets/mitbutgood.json', sheet)]:
         (output / name).write_text(json.dumps(data, indent=2, ensure_ascii=False) + '\n')

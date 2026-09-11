@@ -3,7 +3,7 @@ import type { ReactNode } from 'react'
 import { Anchor, Box, Group, Text, UnstyledButton } from '@mantine/core'
 import { IconArrowForward, IconExternalLink, IconInfoCircle, IconUser, IconUsers } from '@tabler/icons-react'
 import { resolveAction, type Resolved } from '../data/resolve'
-import type { Fight, Job, Sheet, TankMitPlan } from '../data/schema'
+import type { Fight, Job, Sheet, TankMitPlan } from '@xivmits/core'
 
 const clockSecs = (t: string) => { const [m, s] = t.split(':').map(Number); return m * 60 + s }
 const fmtClock = (secs: number) => `${Math.floor(secs / 60)}:${String(secs % 60).padStart(2, '0')}`

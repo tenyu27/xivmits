@@ -17,6 +17,44 @@ The site remembers your selections in this browser. It does not upload them.
 
 The pop-out window needs a browser that supports the [Document Picture-in-Picture API](https://developer.mozilla.org/en-US/docs/Web/API/Document_Picture-in-Picture_API). The main viewer works without it.
 
+## Repository layout
+
+The repo is a Yarn 4 workspace (Corepack picks the version up from
+`packageManager` in the root `package.json`). The site is one app in it; the domain model and
+the fight data are separate packages so anything built later reads the same
+data as the site rather than a copy of it.
+
+```text
+apps/
+  web/                    xivmits.com — the static viewer (Vite + React)
+packages/
+  core/                   @xivmits/core — schemas, types, and the name/job resolvers
+  encounter-data/         @xivmits/encounter-data — fight data, mit sheets, ability/icon/job maps
+scripts/                  maintainer-side importers and the icon fetcher
+```
+
+`@xivmits/core` is runtime-agnostic: no React, no DOM, no build-tool
+assumptions. `@xivmits/encounter-data` owns the canonical JSON and exposes a
+`loadCatalog()` that validates it — apps import the package, they never fetch
+the data over HTTP.
+
+## Development
+
+```bash
+yarn install       # install every workspace
+yarn dev           # vite dev server for apps/web
+yarn build         # production build -> apps/web/dist
+yarn lint          # oxlint
+yarn typecheck     # tsc -b in every workspace
+yarn test          # schema + catalog tests
+```
+
+## Deployment
+
+`xivmits.com` is a static site on **GitHub Pages**. `.github/workflows/deploy.yml`
+builds `apps/web` on a push to `main` and uploads `apps/web/dist`; the custom
+domain comes from `apps/web/public/CNAME`. There is no server runtime.
+
 ## Credits
 
 Each sheet credits its author and links to the source.

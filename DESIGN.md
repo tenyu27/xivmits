@@ -4,7 +4,7 @@ Companion to [AGENTS.md](./AGENTS.md), which defines *what* ships; this defines 
 
 **Stack:** React + TypeScript + Vite, Mantine, plain CSS custom properties. **Themes:** system / light / dark, dark-primary. **Accent:** one blue. **Scope:** homepage selection, focused mit view, Picture-in-Picture.
 
-**Mantine owns the system.** The palette, scale, and component appearance come from `@mantine/core`; `src/theme.ts` holds the Mantine colour tuples and `src/index.css` aliases the product tokens (`--bg`, `--text`, `--accent`, …) onto Mantine's generated variables so the two cannot drift. Build UI from Mantine components and style props (`p`, `mt`, `c`, `fw`, `fz`, `maw`); write a CSS rule only when no prop expresses it. Fix a wrong Mantine default in `variantColorResolver`, never at the call site.
+**Mantine owns the system.** The palette, scale, and component appearance come from `@mantine/core`; `apps/web/src/theme.ts` holds the Mantine colour tuples and `apps/web/src/index.css` aliases the product tokens (`--bg`, `--text`, `--accent`, …) onto Mantine's generated variables so the two cannot drift. Build UI from Mantine components and style props (`p`, `mt`, `c`, `fw`, `fz`, `maw`); write a CSS rule only when no prop expresses it. Fix a wrong Mantine default in `variantColorResolver`, never at the call site.
 
 ---
 
@@ -18,7 +18,7 @@ Density **Daily-App Balanced** (4). Variance **Predictable Symmetric** (2) — a
 
 ## 2. Color Palette & Roles
 
-Defined once as Mantine tuples in `src/theme.ts`, aliased to tokens in `src/index.css`. Never hardcode a hex anywhere else.
+Defined once as Mantine tuples in `apps/web/src/theme.ts`, aliased to tokens in `apps/web/src/index.css`. Never hardcode a hex anywhere else.
 
 | Token | Light | Dark | Role |
 |---|---|---|---|
@@ -45,7 +45,7 @@ Defined once as Mantine tuples in `src/theme.ts`, aliased to tokens in `src/inde
 
 ## 3. Typography Rules
 
-- **Font:** the system UI stack, set once as `fontFamily` / `fontFamilyMonospace` in `src/theme.ts`. No webfonts — no download, no layout shift, no third-party request after load. (This is a utility, not a creative context; a display face would cost load and legibility for nothing.)
+- **Font:** the system UI stack, set once as `fontFamily` / `fontFamilyMonospace` in `apps/web/src/theme.ts`. No webfonts — no download, no layout shift, no third-party request after load. (This is a utility, not a creative context; a display face would cost load and legibility for nothing.)
 - **Scale:** Mantine `fontSizes` via `fz`. `xs` 0.75rem (timestamps, metadata, footer), `sm` 0.875rem (labels, notes, cast names), `md` 1rem (body), `lg` 1.25rem (phase heading, fight name, PiP ability names), `xl` 1.5rem (wordmark). Two literals sit off the scale on purpose: ability names `1.125rem`, PiP cast name `0.9375rem` — tuned against their own view. Selection headline is `h1` at 2rem/650.
 - **Weight-driven hierarchy:** 700 cast names, 600 ability names, 650 headings, 400 notes and carry-over labels. Line height 1.2 headings, 1.5 body.
 - **Mono for aligned numbers:** timestamps use `ff="monospace"` with `tabular-nums` so a column of `0:23` / `1:14` aligns on the right edge. When a fight sets `phase.start`, the chip leads with the absolute pull time and trails a dimmed phase-relative one, like `6:18 3:01`. Phases that start at `0:00` show one time.
