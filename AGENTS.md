@@ -140,7 +140,7 @@ The catalog is built by the `mit-catalog` Vite plugin in `apps/web/vite.config.t
 ## Guardrails
 
 - **Read DESIGN.md and `packages/core/src/schema.ts` before non-trivial work.** The schema is the data contract; DESIGN.md §4 is the component spec.
-- **Every mechanic renders, assigned or not.** Blank rows are load-bearing: phases repeat mechanic names, so hiding the unassigned ones makes it ambiguous which occurrence you are covering. Do not "tidy" them away. The single exception is an encounter mechanic with `roles` — a tank buster is `['tank']` — whose *blank* row is dropped for other roles. It never hides an assignment: a sheet that assigns someone still shows them the row.
+- **Every mechanic renders by default, assigned or not.** Blank rows distinguish repeated occurrences. The viewer may choose **Mechanics → Mit only** to hide mechanics without job-resolved assignments, including personal mits and alternatives. Carry-overs count as assignments. Keep headings with their personal continuations. This preference persists and applies to every layout and PiP. An encounter mechanic with `roles` has its blank row dropped for other roles; `minor` mechanics stay hidden unless assigned.
 - **Do not expand scope.** See the non-goals list at the top of this file. Do not add them because they seem natural.
 - **Phase switching stays instant** — client-side, no spinner, no route transition, no animation.
 - **PiP is progressive enhancement.** Feature-detect `"documentPictureInPicture" in window`; the normal view must work fully without it.

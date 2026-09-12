@@ -2312,7 +2312,6 @@
     },
     {
       "id": "p5",
-      "note": "This grid shows shields, mitigation and major cooldowns only. Check the job pastebins for the exact healing.",
       "mechanics": [
         {
           "mechanicId": "p5-ultima-repeater-1",

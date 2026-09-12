@@ -45,10 +45,10 @@ export type Display = 'both' | 'icon' | 'text'
 // one-screen cheatsheet - one condensed row per phase, icons only.
 export type Layout = 'tabs' | 'list' | 'grid'
 
-export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, personalPlan, p3Boss, invulnOrder, display = 'both', notes = true, compact = false, layout = 'tabs', hideTabs = false }: {
+export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, personalPlan, p3Boss, invulnOrder, display = 'both', notes = true, compact = false, layout = 'tabs', hideTabs = false, showUnassigned = true }: {
   fight: Fight; sheet: Sheet; roleId: string; phaseId: string; onPhase: (id: string) => void
   job?: Job; personalPlan?: TankMitPlan; p3Boss?: 'Chaos' | 'Exdeath'; invulnOrder?: 1 | 2
-  display?: Display; notes?: boolean; compact?: boolean; layout?: Layout
+  display?: Display; notes?: boolean; compact?: boolean; layout?: Layout; showUnassigned?: boolean
   // Drop the phase tab bar entirely - the cheatsheet tab shows every phase at
   // once, so the jump-nav only costs vertical space.
   hideTabs?: boolean
@@ -69,6 +69,19 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
   const resolveActions = (list: readonly Action[]): ResolvedActions => list
     .map(action => ({ action, resolved: resolveAction(action.name, job) }))
     .filter((entry): entry is ResolvedActions[number] => entry.resolved.applies)
+
+  // Filter after resolving jobs and splicing personal mits. A heading and its
+  // personal continuations stay together, including carry-overs and alternatives.
+  const visibleEntries = (entries: Entry[]) => {
+    if (showUnassigned) return entries
+    const groups: Entry[][] = []
+    for (const entry of entries) {
+      if (entry.personal === 'bar' && groups.length) groups[groups.length - 1].push(entry)
+      else groups.push([entry])
+    }
+    return groups.filter(group => group.some(entry => entry.actions.length > 0
+      || entry.alts?.some(alt => alt.actions.length > 0))).flat()
+  }
 
   // Every mechanic in the phase, assigned or not. A phase repeats names -
   // "Light of Judgment" twice, "Double-Trouble Trap" three times - so dropping
@@ -97,7 +110,7 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
       }))
 
     const plan = personalPlan?.phases.find(p => p.id === id)
-    if (!plan) return { data, entries: party, start, personalNote: undefined as string | undefined }
+    if (!plan) return { data, entries: visibleEntries(party), start, personalNote: undefined as string | undefined }
 
     const front: Entry[] = []
     const byAnchor = new Map<string, Entry[]>()
@@ -162,7 +175,7 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
       for (const spliced of byAnchor.get(pe.mechanic.id) ?? []) entries.push(spliced)
       if (noteRow && plan.noteAfter === pe.mechanic.id) entries.push(noteRow)
     }
-    return { data: data ?? { id, note: undefined as string | undefined, mechanics: [] }, entries, start, personalNote }
+    return { data: data ?? { id, note: undefined as string | undefined, mechanics: [] }, entries: visibleEntries(entries), start, personalNote }
   }
 
   // Keep the active tab in view inside its own horizontal strip. Scroll the
@@ -339,9 +352,9 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
       ? phaseNote(data.scopedNote.text, 'scoped') : null
     // A phase with no mechanics for this viewer can still carry notes: a
     // phase-wide party aside, or a tank pairing's own phase note.
-    if (!entries?.length) return note || personal || scoped
-      ? <>{note}{personal}{scoped}</>
-      : <Text ta="center" c="dimmed" py="xl">No mechanics listed for this phase.</Text>
+    if (!entries?.length) return <>{note}{personal}{scoped}
+      <Text ta="center" c="dimmed" py="xl">{showUnassigned ? 'No mechanics listed for this phase.' : 'No mitigation assigned for this phase.'}</Text>
+    </>
     // One row shape for every entry: a party mechanic, a spliced personal
     // mechanic ('plain' - same shape, accent rule), or a personal continuation
     // of the row above ('bar' - no heading, joined to it). A `note` is the

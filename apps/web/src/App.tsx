@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import {
-  Alert, Anchor, Box, Button, Container, Group, MantineProvider, NativeSelect,
-  Input, SegmentedControl, Stack, Switch, Text, Title, Tooltip, localStorageColorSchemeManager,
+  Alert, Anchor, Badge, Box, Button, Container, Group, MantineProvider, NativeSelect,
+  Input, SegmentedControl, Stack, Text, Title, Tooltip, localStorageColorSchemeManager,
   useComputedColorScheme, useMantineColorScheme,
 } from '@mantine/core'
 import {
@@ -69,6 +69,7 @@ function Shell() {
     return isDisplay(stored) ? stored : 'both'
   })
   const [notes, setNotes] = useState(() => readStored('notes') !== 'off')
+  const [showUnassigned, setShowUnassigned] = useState(() => (query.get('showUnassigned') ?? readStored('showUnassigned')) !== 'off')
   const [personalMits, setPersonalMits] = useState(() => readStored('personalMits') !== 'off')
   const [layout, setLayout] = useState<Layout>(() => {
     const stored = readStored('layout')
@@ -154,6 +155,23 @@ function Shell() {
   function clearQuery() {
     if (window.location.search) window.history.replaceState(null, '', sheetPath(selection.fightId, selection.sheetId))
   }
+  function changeSheet(id: string) {
+    const next = sheets.find(candidate => candidate.id === id)
+    if (!fight || !next || next.id === sheet?.id) return
+    const nextKey = sheetKey(fight.id, next.id)
+    const nextPositions = positionsForSheet(next)
+    const nextPosition = nextPositions.find(candidate => candidate.id === selection.roleId)
+      ?? nextPositions.find(candidate => candidate.role === position?.role)
+      ?? nextPositions.find(candidate => candidate.id === readMap('lastRoleBySheet')[nextKey])
+      ?? nextPositions[0]
+    const roleId = nextPosition?.id ?? ''
+    storeValue('lastFight', fight.id)
+    storeMap('lastSheetByFight', fight.id, next.id)
+    storeMap('lastRoleBySheet', nextKey, roleId)
+    storeMap('lastPhaseBySheet', nextKey, selection.phaseId)
+    window.history.pushState(null, '', sheetPath(fight.id, next.id))
+    setSelection(previous => ({ ...previous, sheetId: next.id, roleId, error: '' }))
+  }
   function changePhase(phaseId: string) {
     setSelection(previous => ({ ...previous, phaseId }))
     storeMap('lastPhaseBySheet', key, phaseId)
@@ -181,6 +199,10 @@ function Shell() {
   function changeNotes(value: boolean) {
     setNotes(value)
     storeValue('notes', value ? 'on' : 'off')
+  }
+  function changeShowUnassigned(value: boolean) {
+    setShowUnassigned(value)
+    storeValue('showUnassigned', value ? 'on' : 'off')
   }
   function changePersonalMits(value: boolean) {
     setPersonalMits(value)
@@ -332,9 +354,14 @@ function Shell() {
     return <Box px="md" py="sm" h="100dvh" style={{ display: 'flex', flexDirection: 'column' }}>
       {viewing && fight && sheet ? <>
         <Group justify="space-between" align="center" wrap="wrap" gap="sm" mb="sm" style={{ flex: '0 0 auto' }}>
-          <Text fz="sm" c="dimmed" style={{ overflowWrap: 'anywhere' }}>
-            {fight.name} · {selection.roleId}{job ? ` ${job.id}` : ''} · {sheet.name}
-          </Text>
+          <Group gap="xs" wrap="wrap" miw={0}>
+            <Text fz="sm" c="dimmed" style={{ overflowWrap: 'anywhere' }}>
+              {fight.name} · {selection.roleId}{job ? ` ${job.id}` : ''} · {sheet.name}
+            </Text>
+            <Badge variant="light" color="teal" size="sm" tt="none">
+              {showUnassigned ? 'Mechanics: all' : 'Mechanics: mit only'}
+            </Badge>
+          </Group>
           <Button
             component="a" href={sheetPath(fight.id, sheet.id)} variant="default" size="compact-sm"
             leftSection={<IconArrowRight size={14} aria-hidden style={{ transform: 'rotate(180deg)' }} />}
@@ -348,7 +375,7 @@ function Shell() {
             <MitView
               hideTabs fight={fight} sheet={sheet} roleId={slotId} phaseId={selection.phaseId}
               onPhase={changePhase} job={jobFree ? undefined : job} personalPlan={tankPlan}
-              p3Boss={p3Boss} invulnOrder={invulnOrder} display="icon" notes={false} layout="grid"
+              p3Boss={p3Boss} invulnOrder={invulnOrder} display="icon" notes={false} layout="grid" showUnassigned={showUnassigned}
             />
           </Box>}
       </> : <Text ta="center" c="dimmed" py="xl">
@@ -364,6 +391,7 @@ function Shell() {
     if (!fight || !sheet) return undefined
     // No `phase` - the cheatsheet shows every phase at once.
     const q = new URLSearchParams({ view: 'cheatsheet' })
+    q.set('showUnassigned', showUnassigned ? 'on' : 'off')
     if (selection.roleId) q.set('role', selection.roleId)
     if (job) q.set('job', job.id)
     if (tankPlans.length) {
@@ -387,22 +415,26 @@ function Shell() {
             row beneath it rather than floating to its right. */}
         <Stack gap="xs">
           <Box miw={0}>
-            <Text fz="sm" c="dimmed">{fight.type} · {sheet.name}</Text>
+            <Text fz="sm" c="dimmed">{fight.type}</Text>
             <Title order={1} fz="xl" lts="-0.035em" style={{ overflowWrap: 'anywhere' }}>{fight.name}</Title>
           </Box>
-          {/* Which fight and sheet you are reading: the action that changes it
-              leads, and the link that leaves the site trails. Opening the plan
-              on another surface is not one of these - that is control row 3. */}
+          {/* Switch sheets within this fight, open its source, or choose a fight. */}
           <Group gap="sm" wrap="wrap">
-            <Button variant="outline" onClick={() => { pip.close(); setSelection(previous => ({ ...previous, viewing: false })); window.history.pushState(null, '', import.meta.env.BASE_URL) }}>
-              Change fight/sheet
-            </Button>
+            <NativeSelect
+              aria-label="Mit sheet" value={sheet.id}
+              onChange={event => changeSheet(event.currentTarget.value)}
+              data={sheets.map(candidate => ({ value: candidate.id, label: candidate.name }))}
+              maw="100%"
+            />
             {sheet.source && <Button
               component="a" href={sheet.source.url} target="_blank" rel="noreferrer"
               variant="default" leftSection={<IconExternalLink size={16} aria-hidden />}
             >
               Source
             </Button>}
+            <Button variant="outline" onClick={() => { pip.close(); setSelection(previous => ({ ...previous, viewing: false })); window.history.pushState(null, '', import.meta.env.BASE_URL) }}>
+              Change fight
+            </Button>
           </Group>
         </Stack>
 
@@ -431,10 +463,34 @@ function Shell() {
               />
             </Input.Wrapper>
             <Input.Wrapper label="Notes" labelElement="div">
-              <Switch
-                aria-label="Show action notes" size="md" checked={notes}
+              <SegmentedControl
+                className="display-picker" aria-label="Show action notes" size="sm"
+                value={notes ? 'show' : 'hide'}
                 disabled={display === 'icon'}
-                onChange={event => changeNotes(event.currentTarget.checked)}
+                onChange={value => changeNotes(value === 'show')}
+                data={[{ value: 'show', label: 'Show' }, { value: 'hide', label: 'Hide' }]}
+              />
+            </Input.Wrapper>
+            <Input.Wrapper
+              label={<Group gap={4} align="center" wrap="nowrap">
+                Mechanics
+                <Tooltip
+                  label="This applies to cheatsheet as well."
+                  withArrow position="top" events={{ hover: true, focus: true, touch: true }}
+                >
+                  <IconInfoCircle
+                    size={12} tabIndex={0} aria-label="This applies to cheatsheet as well."
+                    style={{ opacity: 0.5, cursor: 'help' }}
+                  />
+                </Tooltip>
+              </Group>}
+              labelElement="div"
+            >
+              <SegmentedControl
+                className="display-picker" aria-label="Mechanics" size="sm"
+                value={showUnassigned ? 'all' : 'mit'}
+                onChange={value => changeShowUnassigned(value === 'all')}
+                data={[{ value: 'all', label: 'All' }, { value: 'mit', label: 'Mit only' }]}
               />
             </Input.Wrapper>
           </Group>
@@ -465,11 +521,13 @@ function Shell() {
             fight={fight} sheet={sheet} roleId={slotId} phaseId={selection.phaseId}
             onPhase={changePhase} job={jobFree ? undefined : job} personalPlan={tankPlan}
             p3Boss={p3Boss} invulnOrder={invulnOrder}
-            display={display} notes={notes} layout={layout}
+            display={display} notes={notes} layout={layout} showUnassigned={showUnassigned}
           />}
 
         {pip.pipWindow && createPortal(
-          <MitView compact fight={fight} sheet={sheet} roleId={slotId} phaseId={selection.phaseId} onPhase={changePhase} job={job} personalPlan={tankPlan} p3Boss={p3Boss} invulnOrder={invulnOrder} display={display} notes={notes} layout={layout} />,
+          needsJob
+            ? <Text ta="center" c="dimmed" p="md">Choose a job in the main window to see this role's assignments.</Text>
+            : <MitView compact fight={fight} sheet={sheet} roleId={slotId} phaseId={selection.phaseId} onPhase={changePhase} job={jobFree ? undefined : job} personalPlan={tankPlan} p3Boss={p3Boss} invulnOrder={invulnOrder} display={display} notes={notes} layout={layout} showUnassigned={showUnassigned} />,
           pip.pipWindow.document.body,
         )}
       </> : <Box maw={480} mx="auto">

@@ -119,7 +119,6 @@ ROW_NOTES = {
 # A phase-wide aside, shown once under the phase heading.
 PHASE_NOTES = {
     'p3': 'Paladin is the forced Chaos-start tank and is the offtank (right column) from this point of the fight onward, because of Hallowed Ground timing.',
-    'p5': 'This grid shows shields, mitigation and major cooldowns only. Check the job pastebins for the exact healing.',
 }
 
 # Column A holds a priority call that belongs to the row it sits on.
