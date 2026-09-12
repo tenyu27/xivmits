@@ -15,55 +15,376 @@
       "name": "Fatebreaker",
       "mechanics": [
         {
-          "id": "p1-cyclonic-break-1-1",
+          "id": "p1-cyclonic-break-1",
           "name": "Cyclonic Break 1",
+          "time": "0:16",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              40144,
+              40148,
+              40145,
+              40146
+            ]
           }
+        },
+        {
+          "id": "p1-sinsmoke-1",
+          "name": "Sinsmoke / Sinsmite 1",
+          "time": "0:18",
+          "fflogs": {
+            "abilityIds": [
+              40147,
+              40149
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p1-powder-mark-trail-1",
+          "name": "Powder Mark Trail 1",
+          "time": "0:26",
+          "roles": [
+            "tank"
+          ],
+          "fflogs": {
+            "abilityIds": [
+              40168
+            ]
+          },
+          "minor": true
         },
         {
           "id": "p1-utopian-sky-1",
           "name": "Utopian Sky",
+          "time": "0:32",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              40154,
+              40155
+            ]
           }
         },
         {
-          "id": "p1-cyclonic-break-2-1",
+          "id": "p1-burn-mark-1",
+          "name": "Burn Mark 1",
+          "time": "0:42",
+          "roles": [
+            "tank"
+          ],
+          "fflogs": {
+            "abilityIds": [
+              40169
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p1-blasting-zone-1",
+          "name": "Blasting Zone",
+          "time": "0:50",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40157,
+              40158
+            ]
+          }
+        },
+        {
+          "id": "p1-sinbound-fire-iii-1",
+          "name": "Sinbound Fire III / Sinbound Thunder III",
+          "time": "0:51",
+          "fflogs": {
+            "abilityIds": [
+              40159,
+              40160
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p1-cyclonic-break-2",
           "name": "Cyclonic Break 2",
+          "time": "0:58",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              40329,
+              40330,
+              40145,
+              40146
+            ]
           }
         },
         {
-          "id": "p1-burnished-glory-1-1",
+          "id": "p1-sinsmoke-2",
+          "name": "Sinsmoke / Sinsmite 2",
+          "time": "1:00",
+          "fflogs": {
+            "abilityIds": [
+              40147,
+              40149
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p1-turn-of-the-heavens-1",
+          "name": "Turn of the Heavens",
+          "time": "1:05",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40150,
+              40151
+            ]
+          }
+        },
+        {
+          "id": "p1-burnt-strike-1",
+          "name": "Burnt Strike 1",
+          "time": "1:06",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40163
+            ]
+          }
+        },
+        {
+          "id": "p1-burnout-1",
+          "name": "Burnout 1",
+          "time": "1:07",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40164
+            ]
+          }
+        },
+        {
+          "id": "p1-burnt-strike-2",
+          "name": "Burnt Strike 2",
+          "time": "1:12",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40161
+            ]
+          }
+        },
+        {
+          "id": "p1-blastburn-1",
+          "name": "Blastburn 1",
+          "time": "1:14",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40162
+            ]
+          }
+        },
+        {
+          "id": "p1-brightfire-1",
+          "name": "Brightfire",
+          "time": "1:16",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40152,
+              40153
+            ]
+          }
+        },
+        {
+          "id": "p1-bound-of-faith-1",
+          "name": "Bound of Faith",
+          "time": "1:20",
+          "fflogs": {
+            "abilityIds": [
+              40165,
+              40166,
+              40167,
+              40171
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p1-burnished-glory-1",
           "name": "Burnished Glory 1",
+          "time": "1:28",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              40170
+            ]
           }
         },
         {
-          "id": "p1-fall-of-faith-1-2-1",
-          "name": "Fall of Faith (1/2)",
+          "id": "p1-fall-of-faith-1",
+          "name": "Fall of Faith 1",
+          "time": "1:47",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              40137,
+              40140,
+              40138,
+              40141,
+              40156,
+              40142,
+              40143,
+              40171,
+              40172
+            ]
           }
         },
         {
-          "id": "p1-fall-of-faith-3-4-1",
-          "name": "Fall of Faith (3/4)",
+          "id": "p1-fall-of-faith-2",
+          "name": "Fall of Faith 2",
+          "time": "1:50",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              40137,
+              40140,
+              40138,
+              40141,
+              40156,
+              40142,
+              40143,
+              40171,
+              40172
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p1-fall-of-faith-3",
+          "name": "Fall of Faith 3",
+          "time": "1:53",
+          "fflogs": {
+            "abilityIds": [
+              40137,
+              40140,
+              40138,
+              40141,
+              40156,
+              40142,
+              40143,
+              40171,
+              40172
+            ]
           }
         },
         {
-          "id": "p1-burnished-glory-2-1",
+          "id": "p1-fall-of-faith-4",
+          "name": "Fall of Faith 4",
+          "time": "1:55",
+          "fflogs": {
+            "abilityIds": [
+              40137,
+              40140,
+              40138,
+              40141,
+              40156,
+              40142,
+              40143,
+              40171,
+              40172
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p1-burnished-glory-2",
           "name": "Burnished Glory 2",
+          "time": "2:03",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              40170
+            ]
+          }
+        },
+        {
+          "id": "p1-powder-mark-trail-2",
+          "name": "Powder Mark Trail 2",
+          "time": "2:12",
+          "roles": [
+            "tank"
+          ],
+          "fflogs": {
+            "abilityIds": [
+              40168
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p1-burnt-strike-3",
+          "name": "Burnt Strike 3",
+          "time": "2:23",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40129,
+              40133
+            ]
+          }
+        },
+        {
+          "id": "p1-blastburn-2",
+          "name": "Blastburn / Burnout 2",
+          "time": "2:24",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40130,
+              40134
+            ]
+          }
+        },
+        {
+          "id": "p1-explosion-1",
+          "name": "Explosion",
+          "time": "2:27",
+          "fflogs": {
+            "abilityIds": [
+              40122,
+              40123,
+              40124,
+              40125,
+              40126,
+              40131,
+              40135
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p1-burn-mark-2",
+          "name": "Burn Mark 2",
+          "time": "2:28",
+          "roles": [
+            "tank"
+          ],
+          "fflogs": {
+            "abilityIds": [
+              40169
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p1-burnished-glory-3",
+          "name": "Burnished Glory 3 (Enrage)",
+          "time": "2:32",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40128
+            ]
           }
         }
-      ]
+      ],
+      "start": "0:00"
     },
     {
       "id": "p2",
@@ -71,83 +392,665 @@
       "name": "Usurper of Frost",
       "mechanics": [
         {
+          "id": "p2-quadruple-slap-1",
+          "name": "Quadruple Slap 1",
+          "time": "0:12",
+          "roles": [
+            "tank"
+          ],
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40191
+            ]
+          }
+        },
+        {
+          "id": "p2-quadruple-slap-2",
+          "name": "Quadruple Slap 2",
+          "time": "0:16",
+          "roles": [
+            "tank"
+          ],
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40192
+            ]
+          }
+        },
+        {
+          "id": "p2-mirror-image-1",
+          "name": "Mirror Image",
+          "time": "0:22",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40180
+            ]
+          }
+        },
+        {
           "id": "p2-diamond-dust-1",
           "name": "Diamond Dust",
+          "time": "0:33",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              40197
+            ]
+          }
+        },
+        {
+          "id": "p2-scythe-kick-1",
+          "name": "Scythe Kick / Axe Kick 1",
+          "time": "0:41",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40203,
+              40202
+            ]
+          }
+        },
+        {
+          "id": "p2-the-house-of-light-1",
+          "name": "The House of Light 1",
+          "time": "0:42",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40206
+            ]
+          }
+        },
+        {
+          "id": "p2-frigid-stone-1",
+          "name": "Frigid Stone",
+          "time": "0:44",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40199
+            ]
+          }
+        },
+        {
+          "id": "p2-icicle-impact-1",
+          "name": "Icicle Impact 1",
+          "time": "0:44",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40198
+            ]
+          }
+        },
+        {
+          "id": "p2-icicle-impact-2",
+          "name": "Icicle Impact 2",
+          "time": "0:48",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40198
+            ]
+          }
+        },
+        {
+          "id": "p2-heavenly-strike-1",
+          "name": "Heavenly Strike",
+          "time": "0:48",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40207
+            ]
+          }
+        },
+        {
+          "id": "p2-frigid-needle-1",
+          "name": "Frigid Needle",
+          "time": "0:50",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40200,
+              40201
+            ]
+          }
+        },
+        {
+          "id": "p2-icicle-impact-3",
+          "name": "Icicle Impact 3",
+          "time": "0:52",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40198
+            ]
           }
         },
         {
           "id": "p2-sinbound-holy-1",
-          "name": "Sinbound Holy",
+          "name": "Sinbound Holy 1",
+          "time": "0:52",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              40208,
+              40209
+            ]
+          }
+        },
+        {
+          "id": "p2-sinbound-holy-2",
+          "name": "Sinbound Holy 2",
+          "time": "0:54",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40209
+            ]
+          }
+        },
+        {
+          "id": "p2-sinbound-holy-3",
+          "name": "Sinbound Holy 3",
+          "time": "0:55",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40209
+            ]
+          }
+        },
+        {
+          "id": "p2-sinbound-holy-4",
+          "name": "Sinbound Holy 4",
+          "time": "0:57",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40209
+            ]
+          }
+        },
+        {
+          "id": "p2-frost-armor-1",
+          "name": "Frost Armor / Shining Armor",
+          "time": "1:00",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40184,
+              40185
+            ]
+          }
+        },
+        {
+          "id": "p2-twin-stillness-1",
+          "name": "Twin Stillness / Twin Silence 1",
+          "time": "1:06",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40193,
+              40194
+            ]
+          }
+        },
+        {
+          "id": "p2-twin-stillness-2",
+          "name": "Twin Stillness / Twin Silence 2",
+          "time": "1:09",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40196,
+              40195
+            ]
           }
         },
         {
           "id": "p2-hallowed-ray-1",
           "name": "Hallowed Ray",
+          "time": "1:21",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              40210,
+              40211
+            ]
           }
         },
         {
           "id": "p2-mirror-mirror-1",
-          "name": "Mirror Mirror",
+          "name": "Mirror, Mirror",
+          "time": "1:26",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              40179
+            ]
+          }
+        },
+        {
+          "id": "p2-scythe-kick-2",
+          "name": "Scythe Kick 2",
+          "time": "1:43",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40203
+            ]
+          }
+        },
+        {
+          "id": "p2-reflected-scythe-kick-1",
+          "name": "Reflected Scythe Kick 1",
+          "time": "1:43",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40204
+            ]
+          }
+        },
+        {
+          "id": "p2-the-house-of-light-2",
+          "name": "The House of Light 2",
+          "time": "1:44",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40206
+            ]
+          }
+        },
+        {
+          "id": "p2-reflected-scythe-kick-2",
+          "name": "Reflected Scythe Kick 2",
+          "time": "1:53",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40205
+            ]
+          }
+        },
+        {
+          "id": "p2-the-house-of-light-3",
+          "name": "The House of Light 3",
+          "time": "1:54",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40206
+            ]
           }
         },
         {
           "id": "p2-banish-iii-1",
           "name": "Banish III 1",
+          "time": "2:00",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              40220,
+              40221,
+              40222,
+              40223
+            ]
           }
         },
         {
           "id": "p2-light-rampant-1",
           "name": "Light Rampant",
+          "time": "2:10",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              40212
+            ]
+          }
+        },
+        {
+          "id": "p2-luminous-hammer-1",
+          "name": "Luminous Hammer 1",
+          "time": "2:17",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40218
+            ]
+          }
+        },
+        {
+          "id": "p2-luminous-hammer-2",
+          "name": "Luminous Hammer 2",
+          "time": "2:19",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40218
+            ]
+          }
+        },
+        {
+          "id": "p2-luminous-hammer-3",
+          "name": "Luminous Hammer 3",
+          "time": "2:20",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40218
+            ]
+          }
+        },
+        {
+          "id": "p2-bright-hunger-1",
+          "name": "Bright Hunger 1",
+          "time": "2:21",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40213
+            ]
+          }
+        },
+        {
+          "id": "p2-luminous-hammer-4",
+          "name": "Luminous Hammer 4",
+          "time": "2:22",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40218
+            ]
+          }
+        },
+        {
+          "id": "p2-luminous-hammer-5",
+          "name": "Luminous Hammer 5",
+          "time": "2:24",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40218
+            ]
           }
         },
         {
           "id": "p2-powerful-light-1",
           "name": "Powerful Light",
+          "time": "2:26",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              40217
+            ]
+          }
+        },
+        {
+          "id": "p2-burst-1",
+          "name": "Burst 1",
+          "time": "2:28",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40219
+            ]
+          }
+        },
+        {
+          "id": "p2-burst-2",
+          "name": "Burst 2",
+          "time": "2:31",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40219
+            ]
+          }
+        },
+        {
+          "id": "p2-bright-hunger-2",
+          "name": "Bright Hunger 2",
+          "time": "2:35",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40213
+            ]
           }
         },
         {
           "id": "p2-banish-iii-2",
           "name": "Banish III 2",
+          "time": "2:38",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              40220,
+              40221,
+              40222,
+              40223
+            ]
           }
         },
         {
-          "id": "p2-house-of-light-1",
-          "name": "House of Light",
+          "id": "p2-the-house-of-light-4",
+          "name": "The House of Light 4",
+          "time": "2:47",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              40189,
+              40188
+            ]
           }
         },
         {
           "id": "p2-absolute-zero-1",
           "name": "Absolute Zero",
+          "time": "3:06",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              40224,
+              40333
+            ]
           }
         },
         {
-          "id": "p2-junction-transition-1",
-          "name": "Junction (Transition)",
+          "id": "p2-swelling-frost-1",
+          "name": "Swelling Frost",
+          "time": "3:08",
+          "minor": true,
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              40225
+            ]
+          }
+        },
+        {
+          "id": "p2-endless-ice-age-1",
+          "name": "Endless Ice Age",
+          "time": "3:32",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40259
+            ]
+          }
+        },
+        {
+          "id": "p2-sinbound-blizzard-iii-1",
+          "name": "Sinbound Blizzard III 1",
+          "time": "3:40",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40258,
+              40262
+            ]
+          }
+        },
+        {
+          "id": "p2-hiemal-storm-1",
+          "name": "Hiemal Storm 1",
+          "time": "3:41",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40256,
+              40255
+            ]
+          }
+        },
+        {
+          "id": "p2-hiemal-storm-2",
+          "name": "Hiemal Storm 2",
+          "time": "3:45",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40256,
+              40255
+            ]
+          }
+        },
+        {
+          "id": "p2-sinbound-blizzard-iii-2",
+          "name": "Sinbound Blizzard III 2",
+          "time": "3:46",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40258,
+              40262
+            ]
+          }
+        },
+        {
+          "id": "p2-hiemal-storm-3",
+          "name": "Hiemal Storm 3",
+          "time": "3:48",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40256,
+              40255
+            ]
+          }
+        },
+        {
+          "id": "p2-hiemal-ray-1",
+          "name": "Hiemal Ray 1",
+          "time": "3:48",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40257
+            ]
+          }
+        },
+        {
+          "id": "p2-hiemal-ray-2",
+          "name": "Hiemal Ray 2",
+          "time": "3:51",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40257
+            ]
+          }
+        },
+        {
+          "id": "p2-sinbound-blizzard-iii-3",
+          "name": "Sinbound Blizzard III 3",
+          "time": "3:51",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40258,
+              40262
+            ]
+          }
+        },
+        {
+          "id": "p2-hiemal-storm-4",
+          "name": "Hiemal Storm 4",
+          "time": "3:51",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40256,
+              40255
+            ]
+          }
+        },
+        {
+          "id": "p2-hiemal-ray-3",
+          "name": "Hiemal Ray 3",
+          "time": "3:53",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40257
+            ]
+          }
+        },
+        {
+          "id": "p2-sinbound-blizzard-iii-4",
+          "name": "Sinbound Blizzard III 4",
+          "time": "3:56",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40258,
+              40262
+            ]
+          }
+        },
+        {
+          "id": "p2-sinbound-blizzard-iii-5",
+          "name": "Sinbound Blizzard III 5",
+          "time": "4:02",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40258,
+              40262
+            ]
+          }
+        },
+        {
+          "id": "p2-sinbound-blizzard-iii-6",
+          "name": "Sinbound Blizzard III 6",
+          "time": "4:07",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40258,
+              40262
+            ]
+          }
+        },
+        {
+          "id": "p2-icecrusher-1",
+          "name": "Icecrusher",
+          "time": "4:08",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              40121
+            ]
+          }
+        },
+        {
+          "id": "p2-junction-1",
+          "name": "Junction",
+          "time": "4:24",
+          "fflogs": {
+            "abilityIds": [
+              40226
+            ]
           }
         }
-      ]
+      ],
+      "start": "2:47"
     },
     {
       "id": "p3",
@@ -224,7 +1127,8 @@
             "abilityIds": []
           }
         }
-      ]
+      ],
+      "start": "7:25"
     },
     {
       "id": "p4",

@@ -47,7 +47,8 @@ Re-reconciling against better logs is expected.
 |---|---|
 | Monorepo + Yarn 4 | done |
 | DMU encounter reconciled | done — all 5 phases |
-| FRU, TOP encounters | **not started** — still sheet-derived, no ability ids; TOP has no mechanic times at all |
+| FRU encounter | P1 reviewed; P2 reconciled from six clears for review; P3 start anchored at 7:25; P3–P5 mechanics still sheet-derived. See [FRU.md](FRU.md) |
+| TOP encounter | **not started** — still sheet-derived, no ability ids or mechanic times |
 | Importers bind to encounter | done — all 4 |
 | Google Sheets as source | done — all 4 fetch by id |
 | Ability registry | done — 97 abilities, 86 with game action ids |

@@ -1,6 +1,6 @@
 """Convert the "FRU Mit but Good" party-mit workbook into reviewed repo JSON.
 
-Usage: python3 scripts/import_fru_mitbutgood.py '/path/to/FRU Mit but Good.xlsx'
+Usage: python3 scripts/import_fru_mitbutgood.py
 Uses Python's standard library. The site never reads Excel at runtime.
 
 Scope (this pass): the five party-wide mitigation grids -- Fatebreaker /
@@ -50,6 +50,18 @@ ROLES = {'T1': 'tank', 'T2': 'tank', **{j: 'healer' for j in HEALERS},
 # phase ID -> tab name. The Shiva tab holds two "Tank 1" blocks; both are P2.
 PHASE_TAB = {'p1': 'Fatebreaker', 'p2': 'Shiva', 'p3': 'Gaia',
              'p4': 'Light and Dark', 'p5': 'Pandora'}
+
+# The sheet groups Fall of Faith's four resolutions into pairs.
+# Bind each pair's presses to its
+# first hit; do not invent extra presses on the second hit. See docs/FRU.md.
+MECHANIC_ALIASES = {
+    'Fall of Faith (1/2)': 'Fall of Faith 1',
+    'Fall of Faith (3/4)': 'Fall of Faith 3',
+    'Sinbound Holy': 'Sinbound Holy 1',
+    'Mirror Mirror': 'Mirror, Mirror',
+    'House of Light': 'The House of Light 4',
+    'Junction (Transition)': 'Junction',
+}
 
 FIGHT = {
     'id': 'fru', 'name': 'Futures Rewritten (Ultimate)', 'shortName': 'FRU', 'type': 'Ultimate',
@@ -287,7 +299,7 @@ def convert():
 
     # The encounter is the fight's source of truth and is never written here;
     # the workbook's rows bind onto the mechanics already on file.
-    sheet = bind_sheet(sheet, load_encounter('fru'))
+    sheet = bind_sheet(sheet, load_encounter('fru'), MECHANIC_ALIASES)
     out = Path(__file__).resolve().parents[1] / 'packages/encounter-data/fights/fru/sheets/mitbutgood.json'
     out.write_text(json.dumps(sheet, indent=2, ensure_ascii=False) + '\n')
     print([(p['id'], len(p['mechanics']),

@@ -61,7 +61,7 @@
       "id": "p1",
       "mechanics": [
         {
-          "mechanicId": "p1-cyclonic-break-1-1",
+          "mechanicId": "p1-cyclonic-break-1",
           "assignments": {
             "T1": [
               {
@@ -132,7 +132,7 @@
           }
         },
         {
-          "mechanicId": "p1-cyclonic-break-2-1",
+          "mechanicId": "p1-cyclonic-break-2",
           "assignments": {
             "SCH": [
               {
@@ -159,7 +159,7 @@
           }
         },
         {
-          "mechanicId": "p1-burnished-glory-1-1",
+          "mechanicId": "p1-burnished-glory-1",
           "assignments": {
             "T1": [
               {
@@ -223,7 +223,7 @@
           }
         },
         {
-          "mechanicId": "p1-fall-of-faith-1-2-1",
+          "mechanicId": "p1-fall-of-faith-1",
           "assignments": {
             "SCH": [
               {
@@ -254,7 +254,7 @@
           }
         },
         {
-          "mechanicId": "p1-fall-of-faith-3-4-1",
+          "mechanicId": "p1-fall-of-faith-3",
           "assignments": {
             "T1": [
               {
@@ -298,7 +298,7 @@
           }
         },
         {
-          "mechanicId": "p1-burnished-glory-2-1",
+          "mechanicId": "p1-burnished-glory-2",
           "assignments": {
             "T1": [
               {
@@ -706,7 +706,7 @@
           }
         },
         {
-          "mechanicId": "p2-house-of-light-1",
+          "mechanicId": "p2-the-house-of-light-4",
           "assignments": {
             "T2": [
               {
@@ -778,7 +778,7 @@
           }
         },
         {
-          "mechanicId": "p2-junction-transition-1",
+          "mechanicId": "p2-junction-1",
           "assignments": {
             "T2": [
               {
