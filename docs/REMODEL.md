@@ -135,12 +135,18 @@ rows on the workbook's clock, in the workbook's wording, so after the encounter
 was reconciled they disagreed with the party rows they render beside — "Thunder
 III" next to "Thunder III (2nd Set)", tens of seconds off. `align_tank_rows` in
 the ikuya importer maps a row onto the mechanic family it describes and makes it
-adopt that mechanic's id, name and time. Five names stay bespoke on purpose:
-`Autos` (a phase-top cue, not a mechanic), `Flare/Holy` (a separate press from
-the `Maddening Orchestra` row on the same mechanic), and `Fell Forces I/II/III`
-(the three autos inside one Fell Forces, whose `tag` is already spent on the
-Avoid/Solo branch). LPDU needs none of this: its importer already reads times
-from the encounter.
+adopt that mechanic's id, name and time. Only `Autos` stays bespoke — a
+phase-top cue rather than a mechanic. LPDU needs only the timings straightened,
+via `snap_tank_times`, because its importer already reads the encounter.
+
+Four knobs in the ikuya importer drive that:
+
+| | |
+|---|---|
+| `TANK_FAMILIES` | workbook wording → the encounter mechanic family it names |
+| `TANK_KEEP_NAME` | rows that are not a mechanic and keep their wording |
+| `TANK_ROW_TAGS` | a call the workbook implies by naming a row (`Fell Forces III` → `Share 3rd hit`) |
+| `TANK_CARRIED` | a long cooldown re-listed on a later row, which is the same press still running (`Rampart` on the shared third auto) |
 
 **A personal row's time decides whether it folds.** MitView drops a personal
 row's heading when it names the mechanic it sits under — otherwise the name
@@ -165,6 +171,12 @@ nobody to — ikuya's tanks cover busters their party grid leaves blank.
 **Sheets can disagree, legitimately.** Ikuya assigns different mits to each
 black-hole beam; LPDU treats the set as one. The encounter carries the finer
 granularity and a sheet simply leaves rows blank.
+
+**Never suppress importer output.** `bind_sheet` refuses a row it cannot match
+and says which; running an importer with `>/dev/null` turns that into a silent
+no-op and the sheet simply keeps its previous content. A cascading string
+replacement left two aliases pointing at the same beam, the import failed, and
+the stale file looked like earlier work had been reverted.
 
 ## The abandoned status mapping
 
@@ -203,8 +215,12 @@ The `status` field on the ability schema is kept for verified ids later.
 
 ## Open questions
 
-- Bundle grew 595 → 610 kB: `abilities.json` rides along in the client catalog
+- Bundle grew 595 → 614 kB: `abilities.json` rides along in the client catalog
   though the UI does not read it yet. Exclude until it does?
+- CI has never run this workflow. `main` still carries the pre-monorepo one, so
+  Corepack, Yarn 4 and Node 24 have only ever been exercised locally. Open a
+  pull request before merging: the workflow runs on `pull_request` with every
+  Pages step gated off, which tests the whole path without deploying.
 - Reconcile FRU and TOP. TOP has no mechanic times, so it is the bigger job.
 - Sheets still reference abilities by `name`. The registry makes migrating to
   `ability` ids safe, but 3089 references, the schema, `MitView` and four
