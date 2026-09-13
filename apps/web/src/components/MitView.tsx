@@ -16,6 +16,7 @@ const absClock = (start: string | undefined, rel: string) => {
 
 type Action = { name: string; note?: string; noteJobs?: string[]; carryOver?: boolean; buddy?: boolean; noteLink?: string }
 type ResolvedActions = { action: Action; resolved: Extract<Resolved, { applies: true }> }[]
+type PersonalRun = { actions: ResolvedActions; tag?: string }
 
 // A buddy press whose only note names the melee it covers ("On M1.") carries
 // its target in that note. When every press in a run names the *same* melee,
@@ -447,7 +448,7 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
       </>}
     </>
   }
-  const cheatCell = (entry: Entry, partyActions: ResolvedActions, personalRuns: ResolvedActions[], key: string) => {
+  const cheatCell = (entry: Entry, partyActions: ResolvedActions, personalRuns: PersonalRun[], key: string) => {
     const { mechanic } = entry
     const name = mechanic.name || (entry.personal ? 'Personal' : '')
     const empty = partyActions.length === 0 && personalRuns.length === 0
@@ -460,10 +461,11 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
           icon row, like the unassigned rows in the other layouts. */}
       {!empty && <Box className="cheat-icons">
         {cheatRun(partyActions, `${key}-p`, null)}
-        {personalRuns.map((runActions, index) => <Fragment key={`${key}-x-${index}`}>
-          {cheatRun(runActions, `${key}-x-${index}`, <>
+        {personalRuns.map((run, index) => <Fragment key={`${key}-x-${index}`}>
+          {cheatRun(run.actions, `${key}-x-${index}`, <>
             <Box className="cheat-split cheat-split-personal" aria-hidden />
             <IconUser className="cheat-personal" size={compact ? 9 : 11} aria-label="personal mit" />
+            {run.tag && <Text span className="mechanic-tag cheat-tag" fz="0.5rem" fw={700}>{run.tag}</Text>}
           </>)}
         </Fragment>)}
       </Box>}
@@ -474,14 +476,18 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
   // through the same glyph + splitter path (with no party icons ahead of it).
   // A `bar` row with no actions is a personal phase note - nothing to show.
   const cheatCells = (entries: Entry[]) => {
-    const cells: { entry: Entry; partyActions: ResolvedActions; personalRuns: ResolvedActions[] }[] = []
+    const cells: { entry: Entry; partyActions: ResolvedActions; personalRuns: PersonalRun[] }[] = []
     for (const entry of entries) {
       if (entry.personal === 'bar') {
-        if (entry.actions.length && cells.length) cells[cells.length - 1].personalRuns.push(entry.actions)
+        if (entry.actions.length && cells.length) {
+          // Keep timing/solo tags beside their own actions, including when
+          // several personal rows share one party mechanic.
+          cells[cells.length - 1].personalRuns.push({ actions: entry.actions, tag: entry.mechanic.tag })
+        }
         continue
       }
       if (entry.personal === 'plain') {
-        cells.push({ entry, partyActions: [], personalRuns: entry.actions.length ? [entry.actions] : [] })
+        cells.push({ entry, partyActions: [], personalRuns: entry.actions.length ? [{ actions: entry.actions }] : [] })
         continue
       }
       cells.push({ entry, partyActions: entry.actions, personalRuns: [] })

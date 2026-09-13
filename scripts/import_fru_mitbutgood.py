@@ -5,7 +5,8 @@ Uses Python's standard library. The site never reads Excel at runtime.
 
 Scope (this pass): the five party-wide mitigation grids -- Fatebreaker /
 Shiva / Gaia / Light and Dark / Pandora. The six per-tank-pairing tabs
-(WARGNB, WARPLD, ...) and the healer-specific tabs are NOT imported yet.
+(WARGNB, WARPLD, ...) supply the personal plans via fru_tanks.py.
+The healer-specific tabs are not imported.
 
 Layout, per phase tab:
   * a header row with "Tank 1" in column C, then columns C..M are
@@ -27,8 +28,6 @@ reference clock is inconsistent between tabs.
 """
 import json
 import re
-import sys
-import zipfile
 import xml.etree.ElementTree as ET
 from pathlib import Path
 import workbook
@@ -41,10 +40,10 @@ SHEET_ID = '1M1LHe4mpb1lyxkLWJxrDwe_JH897nickG3XLTtwnI90'
 # columns are positions, so the viewer picks the job -- but each DPS column only
 # admits jobs of its kind (Melee 1/2 -> M1/M2, Phys Range -> P, Caster -> C).
 # "M" (Extras) is not a slot -- see extras() below.
-COLUMNS = {'C': 'T1', 'D': 'T2', 'E': 'SCH', 'F': 'SGE', 'G': 'WHM', 'H': 'AST',
+COLUMNS = {'C': 'MT', 'D': 'OT', 'E': 'SCH', 'F': 'SGE', 'G': 'WHM', 'H': 'AST',
            'I': 'M1', 'J': 'M2', 'K': 'P', 'L': 'C'}
 HEALERS = ['SCH', 'SGE', 'WHM', 'AST']
-ROLES = {'T1': 'tank', 'T2': 'tank', **{j: 'healer' for j in HEALERS},
+ROLES = {'MT': 'tank', 'OT': 'tank', **{j: 'healer' for j in HEALERS},
          'M1': 'melee', 'M2': 'melee', 'P': 'ranged', 'C': 'caster'}
 
 # phase ID -> tab name. The Shiva tab holds two "Tank 1" blocks; both are P2.
@@ -59,19 +58,16 @@ MECHANIC_ALIASES = {
     'Fall of Faith (3/4)': 'Fall of Faith 3',
     'Sinbound Holy': 'Sinbound Holy 1',
     'Mirror Mirror': 'Mirror, Mirror',
-    'House of Light': 'The House of Light 4',
+    'House of Light': 'The House of Light',
     'Junction (Transition)': 'Junction',
-}
-
-FIGHT = {
-    'id': 'fru', 'name': 'Futures Rewritten (Ultimate)', 'shortName': 'FRU', 'type': 'Ultimate',
-    'phases': [
-        {'id': 'p1', 'label': 'P1', 'name': 'Fatebreaker'},
-        {'id': 'p2', 'label': 'P2', 'name': 'Usurper of Frost'},
-        {'id': 'p3', 'label': 'P3', 'name': 'Oracle of Darkness'},
-        {'id': 'p4', 'label': 'P4', 'name': 'Light and Dark'},
-        {'id': 'p5', 'label': 'P5', 'name': 'Pandora'},
-    ],
+    'Fire/Dark Set 1/2': 'Dark Fire III 1',
+    'Set 3 and Rewind': 'Dark Fire III 3',
+    'Dark Water 1': 'Dark Water III 1',
+    'Dark Water 3': 'Dark Water III 3',
+    'Akh Morn Afah 1': 'Akh Morn 1',
+    'Akh Morn Afah 2': 'Akh Morn 2',
+    'Crystallize Mech': 'Crystallized Mech',
+    'Hallowed Wing': 'Hallowed Wings',
 }
 
 # Whole-cell fixups applied before splitting on "/". The source writes
@@ -192,12 +188,72 @@ def extras(raw):
     (Dismantle) bring -- so it lands on the caster and physical-ranged seats
     only. Returns (slot, action name) pairs."""
     tokens = {t.strip() for t in re.split(r'[+/]', str(raw)) if t.strip()}
+    if tokens - {'Barrier', 'Dismantle'}:
+        raise ValueError(f'Unknown extras: {tokens}')
     out = []
     if 'Barrier' in tokens:
         out.append(('C', 'Extra (RDM)'))
     if 'Dismantle' in tokens:
         out.append(('P', 'Extra (MCH)'))
     return out
+
+
+def cell_formats(archive, worksheet):
+    """Keep per-character font semantics, including mixed-format cells.
+
+    The workbook legend distinguishes grey lingering mits from italic
+    conditional mits. Black italic target names/footnotes are only emphasis.
+    """
+    styles = ET.fromstring(archive.read('xl/styles.xml'))
+    fonts = styles.find('s:fonts', NS)
+    xfs = styles.find('s:cellXfs', NS)
+    strings = ET.fromstring(archive.read('xl/sharedStrings.xml'))
+
+    def flags(font, inherited=(False, False)):
+        color = font.find('s:color', NS)
+        italic = font.find('s:i', NS)
+        muted = (color.get('rgb') in {'FF666666', 'FF999999', 'FFB7B7B7', 'FFCC4125'}
+                 if color is not None else inherited[0])
+        return muted, (italic.get('val', '1') != '0' if italic is not None else inherited[1])
+
+    result = {}
+    root = ET.fromstring(archive.read(worksheet))
+    for cell in root.findall('.//s:sheetData/s:row/s:c', NS):
+        base = flags(fonts[int(xfs[int(cell.get('s', '0'))].get('fontId'))])
+        value = cell.find('s:v', NS)
+        node = (strings[int(value.text)] if cell.get('t') == 's' and value is not None
+                else cell.find('s:is', NS))
+        if node is None:
+            continue
+        runs = node.findall('s:r', NS)
+        formatted = []
+        for run in runs or [node]:
+            props = run.find('s:rPr', NS)
+            style = flags(props, base) if props is not None else base
+            text = ''.join(t.text or '' for t in run.findall('s:t', NS))
+            formatted.extend([style] * len(text))
+        result[cell.get('r')] = formatted
+    return result
+
+
+def formatted_actions(raw, footnotes, formats):
+    # Preserve offsets while keeping the source's Seraph/ism typo one token.
+    tokens = str(raw).replace('Seraph/ism', 'Seraph~ism')
+    actions = []
+    for match in re.finditer(r'[^/\n]+', tokens):
+        token = match.group().replace('Seraph~ism', 'Seraph/ism')
+        if not token.strip():
+            continue
+        index = match.start() + len(token) - len(token.lstrip())
+        muted, italic = formats[index] if formats else (False, False)
+        expanded = cell_actions(token, footnotes)
+        for action in expanded:
+            if muted and italic:
+                add_note(action, 'Conditional mitigation in the source sheet.')
+            elif muted:
+                action['carryOver'] = True
+        actions.extend(expanded)
+    return actions
 
 
 def read_cells(archive, strings, worksheet):
@@ -233,7 +289,7 @@ def parse_footnotes(raw):
     return refs, loose
 
 
-def parse_block(cells, header_row, block_end, phase_id):
+def parse_block(cells, header_row, block_end, phase_id, formats=None):
     """One 'Tank 1' block -> (mechanics, phase-note lines).
 
     The block's footnotes live on its Notes row, below every mechanic, so read
@@ -254,7 +310,8 @@ def parse_block(cells, header_row, block_end, phase_id):
             continue
         mechanic = {'id': f'{phase_id}-r{row}', 'name': title, 'assignments': {}}
         for column, slot in COLUMNS.items():
-            actions = cell_actions(cells.get(f'{column}{row}', ''), footnotes)
+            ref = f'{column}{row}'
+            actions = formatted_actions(cells.get(ref, ''), footnotes, (formats or {}).get(ref, []))
             if actions:
                 mechanic['assignments'][slot] = actions
         for slot, name in extras(cells.get(f'M{row}', '')):
@@ -271,11 +328,11 @@ def convert():
 
     sheet = {
         'id': 'mitbutgood', 'fightId': 'fru', 'name': 'FRU Mit but Good',
-        'author': 'Fae Nightwolf & Valiaa Masume', 'updated': '2026-09-08',
+        'author': 'Fae Nightwolf & Valiaa Masume', 'updated': '2026-09-12',
         'sourceVersion': '3/2',
         'source': {'name': 'FRU Mit but Good spreadsheet',
                    'url': 'https://docs.google.com/spreadsheets/d/1M1LHe4mpb1lyxkLWJxrDwe_JH897nickG3XLTtwnI90/edit'},
-        'description': "Party mitigation for FRU from Fae Nightwolf & Valiaa Masume's plan. "
+        'description': "Party and tank mitigation for FRU from Fae Nightwolf & Valiaa Masume's plan. "
                        'Pick a tank position, a healer job, or a DPS position.',
         'slots': [{'id': slot, **({'job': slot} if slot in HEALERS else {}), 'role': ROLES[slot]}
                   for slot in COLUMNS.values()],
@@ -284,14 +341,29 @@ def convert():
 
     for phase_id, tab in PHASE_TAB.items():
         cells, maxrow = read_cells(archive, strings, tab_sheet[tab])
+        formats = cell_formats(archive, tab_sheet[tab])
         headers = sorted(int(ref[1:]) for ref, value in cells.items()
                          if ref.startswith('C') and value == 'Tank 1')
         mechanics, notes = [], []
         for index, header in enumerate(headers):
             end = headers[index + 1] if index + 1 < len(headers) else maxrow + 1
-            block_mechs, block_notes = parse_block(cells, header, end, phase_id)
+            block_mechs, block_notes = parse_block(cells, header, end, phase_id, formats)
             mechanics.extend(block_mechs)
             notes.extend(block_notes)
+        if phase_id == 'p4':
+            if clean(cells.get('D34', '')) != 'A Note About 7/1 Akh Morn':
+                raise ValueError('P4 strategy note moved; review the workbook layout')
+            notes.append(clean(cells['D35']))
+            wing = next(m for m in mechanics if m['name'] == 'Hallowed Wing')
+            for action in wing['assignments']['P']:
+                add_note(action, 'If doing both 7/1 Akh Morns, move party mit from both Akh Morns here for third/fourth-in-line safety.')
+        if phase_id == 'p5':
+            if clean(cells.get('E35', '')) != "TANK LB PRIORITY FOR PANDORA'S BOX":
+                raise ValueError('P5 Tank LB priority moved; review the workbook layout')
+            box = next(m for m in mechanics if m['name'] == "Pandora's Box")
+            for action in box['assignments']['MT']:
+                if action['name'] == 'Tank LB':
+                    add_note(action, f"Tank LB priority: {clean(cells['E36'])}.")
         phase = {'id': phase_id, 'mechanics': mechanics}
         if notes:
             phase['note'] = ' '.join(dict.fromkeys(notes))
@@ -300,6 +372,14 @@ def convert():
     # The encounter is the fight's source of truth and is never written here;
     # the workbook's rows bind onto the mechanics already on file.
     sheet = bind_sheet(sheet, load_encounter('fru'), MECHANIC_ALIASES)
+    # Review decision: hide P3's third Apocalypse water for now. An assignment
+    # overrides the encounter's minor flag, so omit its RDM extra as well.
+    for phase in sheet['phases']:
+        if phase['id'] == 'p3':
+            phase['mechanics'] = [m for m in phase['mechanics']
+                                  if m['mechanicId'] != 'p3-dark-water-iii-3']
+    from fru_tanks import import_tanks
+    sheet['tankMits'] = import_tanks(archive, load_encounter('fru'))
     out = Path(__file__).resolve().parents[1] / 'packages/encounter-data/fights/fru/sheets/mitbutgood.json'
     out.write_text(json.dumps(sheet, indent=2, ensure_ascii=False) + '\n')
     print([(p['id'], len(p['mechanics']),

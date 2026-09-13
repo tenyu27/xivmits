@@ -27,7 +27,7 @@ test('validates the repository catalog and keeps reconciled phases anchored to F
   // Phases already reconciled against real logs must stay anchored: every
   // mechanic carries at least one ability id, and a time to go with it. Add a
   // phase to this list as it is reconciled - the rest are still sheet-derived.
-  const anchored = [['dmu', 'p1'], ['dmu', 'p2'], ['dmu', 'p3'], ['dmu', 'p4'], ['dmu', 'p5'], ['fru', 'p1'], ['fru', 'p2']]
+  const anchored = [['dmu', 'p1'], ['dmu', 'p2'], ['dmu', 'p3'], ['dmu', 'p4'], ['dmu', 'p5'], ['fru', 'p1'], ['fru', 'p2'], ['fru', 'p3'], ['fru', 'p4'], ['fru', 'p5']]
   for (const [fightId, phaseId] of anchored) {
     const phase = catalog.fights.find(f => f.id === fightId)!.phases.find(p => p.id === phaseId)!
     assert.ok(phase.start, `${fightId}/${phaseId} has no phase start`)

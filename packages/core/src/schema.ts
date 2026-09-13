@@ -99,6 +99,13 @@ const sheetSchema = z.object({
     }).strict().optional(),
     plans: z.array(z.object({
       job: jobId, with: jobId.optional(),
+      // A choice can select a whole cross-phase route, so incompatible invuln
+      // assignments cannot be picked independently phase by phase.
+      choices: z.array(z.object({
+        id, label: text, default: id,
+        seats: z.array(id).min(1).optional(),
+        options: z.array(z.object({ id, label: text, labelBySeat: z.record(id, text).optional() }).strict()).min(1),
+      }).strict()).optional(),
       phases: z.array(z.object({
         id,
         // A phase-wide aside; `noteAfter` is the party mechanic id it renders
@@ -111,9 +118,10 @@ const sheetSchema = z.object({
           // Party mechanic id, same phase, this row renders below. Phase top
           // when absent.
           after: id.optional(),
+          when: z.record(id, id).optional(),
           // Show this row only for this party seat, hidden for the other. For a
           // plan keyed by job pair whose rows still split by MT/OT (DMU).
-          seat: z.enum(['MT', 'OT']).optional(),
+          seat: id.optional(),
           // Branch tags for a job-keyed plan (no `with`): show this row only
           // when the viewer holds this boss in P3 / takes this invuln slot in
           // P5. Untagged rows show for every choice.
@@ -256,6 +264,23 @@ export function validateCatalog(
               throw new Error(`Tank plan ${label} in ${sheet.id} has both a co-tank and boss/invuln branch tags`)
             unique(plan.phases.map(p => p.id), `tank plan ${label} phase IDs`)
             unique(plan.phases.flatMap(p => p.mechanics.map(m => m.id)), `tank plan ${label} mechanic IDs`)
+            unique((plan.choices ?? []).map(c => c.id), `tank plan ${label} choices`)
+            for (const choice of plan.choices ?? []) {
+              unique(choice.options.map(o => o.id), `tank plan ${label}/${choice.id} options`)
+              for (const value of [choice.default]) {
+                if (!choice.options.some(o => o.id === value)) throw new Error(`Unknown default in ${label}/${choice.id}`)
+              }
+              for (const seat of [...(choice.seats ?? []), ...choice.options.flatMap(o => Object.keys(o.labelBySeat ?? {}))]) {
+                if (!sheet.slots.some(s => s.id === seat)) throw new Error(`Unknown choice seat ${seat} in ${label}`)
+              }
+            }
+            for (const row of plan.phases.flatMap(p => p.mechanics)) {
+              if (row.seat && !sheet.slots.some(s => s.id === row.seat)) throw new Error(`Unknown tank seat ${row.seat} in ${label}`)
+              for (const [key, value] of Object.entries(row.when ?? {})) {
+                if (!plan.choices?.find(c => c.id === key)?.options.some(o => o.id === value))
+                  throw new Error(`Unknown tank choice ${key}=${value} in ${label}/${row.id}`)
+              }
+            }
           }
         }
         rawSheets.push(sheet)

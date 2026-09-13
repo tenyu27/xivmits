@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import {
-  Alert, Anchor, Badge, Box, Button, Container, Group, MantineProvider, NativeSelect,
+  Alert, Anchor, Badge, Box, Button, Container, Divider, Group, MantineProvider, NativeSelect,
   Input, SegmentedControl, Stack, Text, Title, Tooltip, localStorageColorSchemeManager,
   useComputedColorScheme, useMantineColorScheme,
 } from '@mantine/core'
@@ -10,6 +10,7 @@ import {
   IconInfoCircle, IconLayoutGrid, IconMoon, IconPictureInPicture, IconSun,
 } from '@tabler/icons-react'
 import catalog from './data/catalog'
+import { availableTankChoices, selectTankRoute, tankChoices } from '@xivmits/core'
 import { jobsForRole, jobsForSeat, positionsForSheet, slotIdFor } from './data/resolve'
 import MitView, { type Display, type Layout } from './components/MitView'
 import { theme } from './theme'
@@ -70,7 +71,7 @@ function Shell() {
   })
   const [notes, setNotes] = useState(() => readStored('notes') !== 'off')
   const [showUnassigned, setShowUnassigned] = useState(() => (query.get('showUnassigned') ?? readStored('showUnassigned')) !== 'off')
-  const [personalMits, setPersonalMits] = useState(() => readStored('personalMits') !== 'off')
+  const [personalMits, setPersonalMits] = useState(() => (query.get('personalMits') ?? readStored('personalMits')) !== 'off')
   const [layout, setLayout] = useState<Layout>(() => {
     const stored = readStored('layout')
     return isLayout(stored) ? stored : 'tabs'
@@ -81,6 +82,16 @@ function Shell() {
   const [otherTankId, setOtherTankId] = useState(() => query.get('otherTank') ?? readStored('lastOtherTank'))
   const [p3BossId, setP3BossId] = useState(() => query.get('p3Boss') ?? readStored('lastP3Boss'))
   const [invulnId, setInvulnId] = useState(() => query.get('invuln') ?? readStored('lastInvulnOrder'))
+  const [routePrefs, setRoutePrefs] = useState(() => {
+    const prefs = readMap('tankRouteChoices')
+    const initial = initialSelection()
+    const pair = [query.get('job') ?? readStored('lastJob'), query.get('otherTank') ?? readStored('lastOtherTank')].sort().join('-')
+    const scope = `${sheetKey(initial.fightId, initial.sheetId)}/${pair}`
+    for (const [key, value] of query) {
+      if (key.startsWith('tank.')) prefs[`${scope}/${key.slice(5)}`] = value
+    }
+    return prefs
+  })
   const resolvedScheme = useComputedColorScheme('dark')
   const pip = usePip(resolvedScheme)
   const fight = catalog.fights.find(f => f.id === selection.fightId)
@@ -111,9 +122,8 @@ function Shell() {
   const tankPlans = position?.role === 'tank' && job ? sheet?.tankMits?.plans.filter(p => p.job === job.id) ?? [] : []
   const paired = tankPlans.some(p => p.with)
   const otherTankOptions = tankPlans.map(p => p.with).filter((w): w is string => Boolean(w))
-  // A co-tank must be picked on a paired sheet - no blank/"hide" option. Until
-  // one is, `otherTank` is '' (a "Choose tank" placeholder) and "View mits" is
-  // blocked. Hiding the personal rows once viewing is the "Party" mits toggle.
+  // Pick the co-tank inside the mits view to resolve a paired personal plan.
+  // Until then, the party assignments remain available.
   const otherTank = otherTankOptions.includes(otherTankId) ? otherTankId : ''
   const priorities = sheet?.tankMits?.priorities
   // A stored choice wins; otherwise default by seat - MT holds Exdeath and
@@ -124,9 +134,29 @@ function Shell() {
     ? (Number(invulnId) as 1 | 2) : selection.roleId === 'OT' ? 1 : 2
   // A tank can hide the personal rows entirely - some raiders only want the
   // party grid. Off means no plan is spliced, and its branch selects go away.
-  const tankPlan = !personalMits ? undefined
-    : paired ? tankPlans.find(p => p.with === otherTank)
+  const sourceTankPlan = paired ? tankPlans.find(p => p.with === otherTank)
     : tankPlans[0]
+  const routeScope = `${key}/${[job?.id ?? '', otherTank].sort().join('-')}`
+  const chosenRoute = sourceTankPlan ? tankChoices(sourceTankPlan, Object.fromEntries(
+    (sourceTankPlan.choices ?? []).map(choice => [choice.id, routePrefs[`${routeScope}/${choice.id}`]]),
+  ), slotId) : {}
+  const tankPlan = personalMits && sourceTankPlan ? selectTankRoute(sourceTankPlan, chosenRoute, slotId) : undefined
+  const visibleTankChoices = sourceTankPlan ? availableTankChoices(sourceTankPlan, slotId) : []
+  const serializedRoute = JSON.stringify(chosenRoute)
+
+  // A shared full-view URL can supply a seat/job never saved on this device.
+  // Persist the resolved selection before phase navigation clears that URL.
+  // The separate cheatsheet remains read-only.
+  useEffect(() => {
+    if (cheatsheet || !viewing) return
+    storeMap('lastRoleBySheet', key, selection.roleId)
+    if (job) storeValue('lastJob', job.id)
+    if (otherTank) storeValue('lastOtherTank', otherTank)
+    storeValue('lastP3Boss', p3Boss)
+    storeValue('lastInvulnOrder', String(invulnOrder))
+    const choices = JSON.parse(serializedRoute) as Record<string, string>
+    for (const [id, value] of Object.entries(choices)) storeMap('tankRouteChoices', `${routeScope}/${id}`, value)
+  }, [viewing, key, selection.roleId, job, otherTank, p3Boss, invulnOrder, serializedRoute, routeScope])
 
   useEffect(() => {
     const onPop = () => setSelection(initialSelection())
@@ -216,18 +246,34 @@ function Shell() {
   function changeJob(value: string) {
     setJobId(value)
     storeValue('lastJob', value)
+    if (viewing) clearQuery()
   }
   function changeOtherTank(value: string) {
     setOtherTankId(value)
     storeValue('lastOtherTank', value)
+    if (viewing) clearQuery()
   }
   function changeP3Boss(value: string) {
     setP3BossId(value)
     storeValue('lastP3Boss', value)
+    if (viewing) clearQuery()
   }
   function changeInvuln(value: string) {
     setInvulnId(value)
     storeValue('lastInvulnOrder', value)
+    if (viewing) clearQuery()
+  }
+  function changeTankChoice(id: string, value: string) {
+    const storedKey = `${routeScope}/${id}`
+    setRoutePrefs(previous => ({ ...previous, [storedKey]: value }))
+    storeMap('tankRouteChoices', storedKey, value)
+    // A shared URL takes precedence over storage on reload. Update its choice
+    // too, while retaining the shared job, seat and partner.
+    if (window.location.search) {
+      const params = new URLSearchParams(window.location.search)
+      params.set(`tank.${id}`, value)
+      window.history.replaceState(null, '', `${sheetPath(selection.fightId, selection.sheetId)}?${params}`)
+    }
   }
   function reset() {
     window.history.replaceState(null, '', import.meta.env.BASE_URL)
@@ -293,13 +339,14 @@ function Shell() {
   </Tooltip> : null
   // "Other tank" picks the co-tank on a paired sheet (TOP) - each partner is a
   // whole plan. A "Choose tank" placeholder until one is set, then dropped, like
-  // Job. Rendered in the selection screen's grow row and the mits control row;
+  // Job. Rendered in the mits control row;
   // `labelExtra` hangs the missing-co-tank warning off the label there.
   const otherTankSelect = (labelExtra: React.ReactNode = null) => paired ? <Input.Wrapper
     labelElement="div"
     label={<Group gap={4} align="center" wrap="nowrap">Other tank{labelExtra}</Group>}
   >
     <NativeSelect
+      aria-label="Other tank"
       value={otherTank}
       onChange={event => changeOtherTank(event.currentTarget.value)}
       data={[
@@ -334,18 +381,41 @@ function Shell() {
       </Input.Wrapper>
     </>
   const tankControls = tankPlans.length === 0 ? null : <>
+    {paired && <Box flex="0 0 128px">{otherTankSelect(otherTankWarning)}</Box>}
     <Input.Wrapper label="Mits" labelElement="div">
       <SegmentedControl
         className="display-picker" size="sm" aria-label="Show personal tank mitigation"
         value={personalMits ? 'both' : 'party'}
         onChange={value => changePersonalMits(value === 'both')}
-        data={[{ value: 'both', label: 'All' }, { value: 'party', label: 'Party' }]}
+        data={[{ value: 'both', label: 'All' }, { value: 'party', label: 'Party only' }]}
       />
     </Input.Wrapper>
-    {personalMits && (paired
-      ? <Box flex="0 0 128px">{otherTankSelect(otherTankWarning)}</Box>
-      : tankBranchToggles)}
   </>
+  const choiceLabel = (id: string, option: { id: string; label: string }) => {
+    if (id === 'powder') return option.id === 'first' ? '1st' : '2nd'
+    if (id === 'akh') return option.id === job?.id ? '1st' : '2nd'
+    return option.label
+  }
+  const choiceTitle = (choice: { id: string; label: string }) =>
+    choice.id === 'akh' ? 'P4 7/1 solo' : choice.id === 'powder' && slotId === 'OT' ? 'P1 MT invuln' : choice.label
+  const routeControls = visibleTankChoices.length ? <>
+    {visibleTankChoices.map(choice => <Input.Wrapper
+      key={choice.id} label={choiceTitle(choice)} labelElement="div" maw="100%"
+    >
+      <SegmentedControl
+        className="display-picker" size="sm"
+        aria-label={choice.id === 'akh' ? 'P4 7/1 solo order' : choiceTitle(choice)}
+        // Keep segment identities stable when the job pairing changes so
+        // Mantine's indicator stays attached to the selected order.
+        value={choice.id === 'akh' ? chosenRoute.akh === job?.id ? 'first' : 'second' : chosenRoute[choice.id]}
+        onChange={value => changeTankChoice(choice.id,
+          choice.id === 'akh' ? value === 'first' ? job!.id : otherTank : value)}
+        data={choice.id === 'akh'
+          ? [{ value: 'first', label: '1st' }, { value: 'second', label: '2nd' }]
+          : choice.options.map(option => ({ value: option.id, label: choiceLabel(choice.id, option) }))}
+      />
+    </Input.Wrapper>)}
+  </> : null
 
   // The cheatsheet is its own bare layout (same tab, `?view=cheatsheet`): no
   // site header/footer, no 720px reading column, no phase tab bar - every
@@ -363,12 +433,22 @@ function Shell() {
             </Badge>
           </Group>
           <Button
-            component="a" href={sheetPath(fight.id, sheet.id)} variant="default" size="compact-sm"
+            component="a" href={(() => {
+              const params = new URLSearchParams(query)
+              params.delete('view')
+              return `${sheetPath(fight.id, sheet.id)}?${params}`
+            })()} variant="default" size="compact-sm"
             leftSection={<IconArrowRight size={14} aria-hidden style={{ transform: 'rotate(180deg)' }} />}
           >
             Full view
           </Button>
         </Group>
+        {personalMits && visibleTankChoices.length > 0 && <Text fz="xs" c="dimmed" mb="sm" style={{ overflowWrap: 'anywhere' }}>
+          {visibleTankChoices.map(choice => {
+            const option = choice.options.find(option => option.id === chosenRoute[choice.id])!
+            return `${choiceTitle(choice)}: ${choiceLabel(choice.id, option)}`
+          }).join(' · ')}
+        </Text>}
         {needsJob
           ? <Text ta="center" c="dimmed" py="xl">Choose a job to see this role's assignments.</Text>
           : <Box flex={1} mih={0} style={{ display: 'flex', flexDirection: 'column' }}>
@@ -392,11 +472,13 @@ function Shell() {
     // No `phase` - the cheatsheet shows every phase at once.
     const q = new URLSearchParams({ view: 'cheatsheet' })
     q.set('showUnassigned', showUnassigned ? 'on' : 'off')
+    q.set('personalMits', personalMits ? 'on' : 'off')
     if (selection.roleId) q.set('role', selection.roleId)
     if (job) q.set('job', job.id)
     if (tankPlans.length) {
       if (paired) { if (otherTank) q.set('otherTank', otherTank) }
       else { q.set('p3Boss', p3Boss); q.set('invuln', String(invulnOrder)) }
+      for (const [id, value] of Object.entries(chosenRoute)) q.set(`tank.${id}`, value)
     }
     return `${sheetPath(fight.id, sheet.id)}?${q}`
   })()
@@ -438,17 +520,21 @@ function Shell() {
           </Group>
         </Stack>
 
-        {/* Three fixed rows, one gap between every control. Row 1 - what you
-            are reading: role, job, the plan controls. Row 2 - how the page is
-            drawn: display, layout, notes. Row 3 - where: cheatsheet, pop out.
-            Same label style, height, and bottom alignment throughout; each row
-            wraps only if it runs out of width. */}
+        {/* Keep identity, encounter strategy, display and window controls in
+            separate groups across sheets. Each row wraps at narrow widths. */}
         <Stack gap="sm" my="md">
           <Group className="control-row" align="flex-end" gap="sm" wrap="wrap">
             <Box flex="0 0 88px" miw={76}>{roleSelect}</Box>
             <Box flex="0 0 128px">{jobSelect}</Box>
             {tankControls}
           </Group>
+          {personalMits && (tankBranchToggles || routeControls) && <>
+            <Group className="control-row" align="flex-end" gap="sm" wrap="wrap" miw={0}>
+              {tankBranchToggles}
+              {routeControls}
+            </Group>
+          </>}
+          <Divider color="var(--border)" />
           <Group className="control-row" align="flex-end" gap="sm" wrap="wrap">
             <Input.Wrapper label="Display" labelElement="div">
               <SegmentedControl
@@ -494,11 +580,8 @@ function Shell() {
               />
             </Input.Wrapper>
           </Group>
-          {/* Row 3 - where the page is drawn: the same plan on another surface.
-              Two separate buttons sharing one variant, not a joined pair. The
-              rows above each carry a label, which is what sets them apart; this
-              row has none, so it buys the same separation back with `mt`. */}
-          {(cheatsheetHref || pip.supported) && <Group className="control-row" align="flex-end" gap="sm" wrap="wrap" mt="md">
+          {(cheatsheetHref || pip.supported) && <>
+            <Group className="control-row" align="flex-end" gap="sm" wrap="wrap">
             {cheatsheetHref && <Button
               component="a" href={cheatsheetHref} variant="default" size="sm"
               leftSection={<IconLayoutGrid size={18} aria-hidden />}
@@ -511,7 +594,8 @@ function Shell() {
             >
               {pip.pipWindow ? 'Focus window' : 'Pop out'}
             </Button>}
-          </Group>}
+            </Group>
+          </>}
         </Stack>
         {pip.error && <Alert color="red" variant="light" mb="md" role="alert">{pip.error}</Alert>}
 
@@ -559,8 +643,8 @@ function Shell() {
               ...sheets.map(s => ({ value: s.id, label: s.name })),
             ]}
           />
-          <Group grow align="flex-start" gap="sm">{roleSelect}{jobSelect}{otherTankSelect()}</Group>
-          <Button type="submit" rightSection={<IconArrowRight size={18} aria-hidden />} disabled={!fight || !sheet || !selection.roleId || (!job && !jobFree) || (paired && !otherTank)}>
+          <Group grow align="flex-start" gap="sm">{roleSelect}{jobSelect}</Group>
+          <Button type="submit" rightSection={<IconArrowRight size={18} aria-hidden />} disabled={!fight || !sheet || !selection.roleId || (!job && !jobFree)}>
             View mits
           </Button>
         </Stack>

@@ -47,7 +47,8 @@ Re-reconciling against better logs is expected.
 |---|---|
 | Monorepo + Yarn 4 | done |
 | DMU encounter reconciled | done — all 5 phases |
-| FRU encounter | P1 reviewed; P2 reconciled from six clears for review; P3 start anchored at 7:25; P3–P5 mechanics still sheet-derived. See [FRU.md](FRU.md) |
+| FRU encounter | All five phases reconciled from six clears and reviewed; P5 starts at 14:23. See [FRU.md](FRU.md) |
+| FRU tank plans | All six pairing tabs imported. MT/OT opening duties, co-tank, standard P3 assignments, P1 invuln and P4 7/1 choices resolve one plan across all layouts. See [FRU-TANKS.md](FRU-TANKS.md) |
 | TOP encounter | **not started** — still sheet-derived, no ability ids or mechanic times |
 | Importers bind to encounter | done — all 4 |
 | Google Sheets as source | done — all 4 fetch by id |
@@ -222,7 +223,7 @@ The `status` field on the ability schema is kept for verified ids later.
   Corepack, Yarn 4 and Node 24 have only ever been exercised locally. Open a
   pull request before merging: the workflow runs on `pull_request` with every
   Pages step gated off, which tests the whole path without deploying.
-- Reconcile FRU and TOP. TOP has no mechanic times, so it is the bigger job.
+- Reconcile TOP, which has no mechanic times. FRU encounter reconciliation is complete.
 - Sheets still reference abilities by `name`. The registry makes migrating to
   `ability` ids safe, but 3089 references, the schema, `MitView` and four
   importers all move together.

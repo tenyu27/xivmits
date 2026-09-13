@@ -126,3 +126,9 @@ Two that are specifically tempting:
 A new colour token needs a contrast check in both themes and a definition on bare `:root` before either dark block. A new size needs a place in the type scale, not a one-off. Anything failing (3) or (4) is the wrong idea, not a style problem.
 
 The focused-view header shows the fight type and name, followed by a sheet dropdown, Source, and Change fight. The dropdown lists only sheets for the current fight. Switching sheets keeps the phase and a supported role/job, updates the URL and saved selection, and updates the shared PiP view.
+
+Focused-view controls use separate rows for role/job/mits, encounter strategy,
+display preferences, and window actions. A thin Mantine divider separates
+the identity/strategy controls from display preferences; other rows use spacing.
+Encounter strategy controls always sit below role/job/mits across sheets; omit
+that row when no strategy controls apply.

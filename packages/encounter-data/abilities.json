@@ -561,6 +561,10 @@
       "kind": "action",
       "icon": "003668.png",
       "action": 24300
+    },
+    "kitchen-sink": {
+      "name": "Kitchen Sink",
+      "kind": "note"
     }
   },
   "names": {
@@ -679,6 +683,7 @@
     "Voke after Buster": "voke-after-buster",
     "Whispering Dawn": "whispering-dawn",
     "Zoe": "zoe",
-    "Zoe Shields": "zoe"
+    "Zoe Shields": "zoe",
+    "Kitchen Sink": "kitchen-sink"
   }
 }
