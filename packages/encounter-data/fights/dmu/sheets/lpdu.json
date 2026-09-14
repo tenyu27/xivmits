@@ -3311,32 +3311,6 @@
                   }
                 ],
                 "time": "2:50"
-              },
-              {
-                "id": "pld-p2-wings-of-destruction-1-mt",
-                "name": "Wings of Destruction",
-                "after": "p2-wings-of-destruction-1",
-                "seat": "MT",
-                "actions": [
-                  {
-                    "name": "Holy Sheltron",
-                    "note": "No short mit."
-                  }
-                ],
-                "time": "2:42"
-              },
-              {
-                "id": "pld-p2-wings-of-destruction-1-ot",
-                "name": "Wings of Destruction",
-                "after": "p2-wings-of-destruction-1",
-                "seat": "OT",
-                "actions": [
-                  {
-                    "name": "Holy Sheltron",
-                    "note": "No short mit."
-                  }
-                ],
-                "time": "2:42"
               }
             ]
           },
@@ -3819,9 +3793,9 @@
               },
               {
                 "id": "pld-r111-mt",
-                "name": "Flare 1",
-                "time": "0:39",
-                "after": "p5-maddening-orchestra-1",
+                "name": "Flare/Holy 1",
+                "time": "0:46",
+                "after": "p5-flare-1",
                 "seat": "MT",
                 "actions": [
                   {
@@ -3832,9 +3806,9 @@
               },
               {
                 "id": "pld-r111-ot",
-                "name": "Flare 1",
-                "time": "0:39",
-                "after": "p5-maddening-orchestra-1",
+                "name": "Flare/Holy 1",
+                "time": "0:46",
+                "after": "p5-flare-1",
                 "seat": "OT",
                 "actions": [
                   {
@@ -3918,9 +3892,9 @@
               },
               {
                 "id": "pld-r123-mt",
-                "name": "Flare 2",
-                "time": "2:11",
-                "after": "p5-maddening-orchestra-2",
+                "name": "Flare/Holy 2",
+                "time": "2:17",
+                "after": "p5-flare-2",
                 "seat": "MT",
                 "actions": [
                   {
@@ -3931,9 +3905,9 @@
               },
               {
                 "id": "pld-r123-ot",
-                "name": "Flare 2",
-                "time": "2:11",
-                "after": "p5-maddening-orchestra-2",
+                "name": "Flare/Holy 2",
+                "time": "2:17",
+                "after": "p5-flare-2",
                 "seat": "OT",
                 "actions": [
                   {
@@ -4251,32 +4225,6 @@
                   }
                 ],
                 "time": "2:50"
-              },
-              {
-                "id": "war-p2-wings-of-destruction-1-mt",
-                "name": "Wings of Destruction",
-                "after": "p2-wings-of-destruction-1",
-                "seat": "MT",
-                "actions": [
-                  {
-                    "name": "Bloodwhetting",
-                    "note": "No short mit."
-                  }
-                ],
-                "time": "2:42"
-              },
-              {
-                "id": "war-p2-wings-of-destruction-1-ot",
-                "name": "Wings of Destruction",
-                "after": "p2-wings-of-destruction-1",
-                "seat": "OT",
-                "actions": [
-                  {
-                    "name": "Bloodwhetting",
-                    "note": "No short mit."
-                  }
-                ],
-                "time": "2:42"
               }
             ]
           },
@@ -4761,9 +4709,9 @@
               },
               {
                 "id": "war-r111-mt",
-                "name": "Flare 1",
-                "time": "0:39",
-                "after": "p5-maddening-orchestra-1",
+                "name": "Flare/Holy 1",
+                "time": "0:46",
+                "after": "p5-flare-1",
                 "seat": "MT",
                 "actions": [
                   {
@@ -4774,9 +4722,9 @@
               },
               {
                 "id": "war-r111-ot",
-                "name": "Flare 1",
-                "time": "0:39",
-                "after": "p5-maddening-orchestra-1",
+                "name": "Flare/Holy 1",
+                "time": "0:46",
+                "after": "p5-flare-1",
                 "seat": "OT",
                 "actions": [
                   {
@@ -4860,9 +4808,9 @@
               },
               {
                 "id": "war-r123-mt",
-                "name": "Flare 2",
-                "time": "2:11",
-                "after": "p5-maddening-orchestra-2",
+                "name": "Flare/Holy 2",
+                "time": "2:17",
+                "after": "p5-flare-2",
                 "seat": "MT",
                 "actions": [
                   {
@@ -4873,9 +4821,9 @@
               },
               {
                 "id": "war-r123-ot",
-                "name": "Flare 2",
-                "time": "2:11",
-                "after": "p5-maddening-orchestra-2",
+                "name": "Flare/Holy 2",
+                "time": "2:17",
+                "after": "p5-flare-2",
                 "seat": "OT",
                 "actions": [
                   {
@@ -5212,40 +5160,6 @@
                   }
                 ],
                 "time": "2:50"
-              },
-              {
-                "id": "drk-p2-wings-of-destruction-1-mt",
-                "name": "Wings of Destruction",
-                "after": "p2-wings-of-destruction-1",
-                "seat": "MT",
-                "actions": [
-                  {
-                    "name": "The Blackest Night",
-                    "note": "No short mit."
-                  },
-                  {
-                    "name": "Oblation",
-                    "note": "No short mit."
-                  }
-                ],
-                "time": "2:42"
-              },
-              {
-                "id": "drk-p2-wings-of-destruction-1-ot",
-                "name": "Wings of Destruction",
-                "after": "p2-wings-of-destruction-1",
-                "seat": "OT",
-                "actions": [
-                  {
-                    "name": "The Blackest Night",
-                    "note": "No short mit."
-                  },
-                  {
-                    "name": "Oblation",
-                    "note": "No short mit."
-                  }
-                ],
-                "time": "2:42"
               }
             ]
           },
@@ -5805,9 +5719,9 @@
               },
               {
                 "id": "drk-r111-mt",
-                "name": "Flare 1",
-                "time": "0:39",
-                "after": "p5-maddening-orchestra-1",
+                "name": "Flare/Holy 1",
+                "time": "0:46",
+                "after": "p5-flare-1",
                 "seat": "MT",
                 "actions": [
                   {
@@ -5818,9 +5732,9 @@
               },
               {
                 "id": "drk-r111-ot",
-                "name": "Flare 1",
-                "time": "0:39",
-                "after": "p5-maddening-orchestra-1",
+                "name": "Flare/Holy 1",
+                "time": "0:46",
+                "after": "p5-flare-1",
                 "seat": "OT",
                 "actions": [
                   {
@@ -5920,9 +5834,9 @@
               },
               {
                 "id": "drk-r123-mt",
-                "name": "Flare 2",
-                "time": "2:11",
-                "after": "p5-maddening-orchestra-2",
+                "name": "Flare/Holy 2",
+                "time": "2:17",
+                "after": "p5-flare-2",
                 "seat": "MT",
                 "actions": [
                   {
@@ -5933,9 +5847,9 @@
               },
               {
                 "id": "drk-r123-ot",
-                "name": "Flare 2",
-                "time": "2:11",
-                "after": "p5-maddening-orchestra-2",
+                "name": "Flare/Holy 2",
+                "time": "2:17",
+                "after": "p5-flare-2",
                 "seat": "OT",
                 "actions": [
                   {
@@ -6266,32 +6180,6 @@
                   }
                 ],
                 "time": "2:50"
-              },
-              {
-                "id": "gnb-p2-wings-of-destruction-1-mt",
-                "name": "Wings of Destruction",
-                "after": "p2-wings-of-destruction-1",
-                "seat": "MT",
-                "actions": [
-                  {
-                    "name": "Heart of Corundum",
-                    "note": "No short mit."
-                  }
-                ],
-                "time": "2:42"
-              },
-              {
-                "id": "gnb-p2-wings-of-destruction-1-ot",
-                "name": "Wings of Destruction",
-                "after": "p2-wings-of-destruction-1",
-                "seat": "OT",
-                "actions": [
-                  {
-                    "name": "Heart of Corundum",
-                    "note": "No short mit."
-                  }
-                ],
-                "time": "2:42"
               }
             ]
           },
@@ -6768,9 +6656,9 @@
               },
               {
                 "id": "gnb-r111-mt",
-                "name": "Flare 1",
-                "time": "0:39",
-                "after": "p5-maddening-orchestra-1",
+                "name": "Flare/Holy 1",
+                "time": "0:46",
+                "after": "p5-flare-1",
                 "seat": "MT",
                 "actions": [
                   {
@@ -6781,9 +6669,9 @@
               },
               {
                 "id": "gnb-r111-ot",
-                "name": "Flare 1",
-                "time": "0:39",
-                "after": "p5-maddening-orchestra-1",
+                "name": "Flare/Holy 1",
+                "time": "0:46",
+                "after": "p5-flare-1",
                 "seat": "OT",
                 "actions": [
                   {
@@ -6867,9 +6755,9 @@
               },
               {
                 "id": "gnb-r123-mt",
-                "name": "Flare 2",
-                "time": "2:11",
-                "after": "p5-maddening-orchestra-2",
+                "name": "Flare/Holy 2",
+                "time": "2:17",
+                "after": "p5-flare-2",
                 "seat": "MT",
                 "actions": [
                   {
@@ -6880,9 +6768,9 @@
               },
               {
                 "id": "gnb-r123-ot",
-                "name": "Flare 2",
-                "time": "2:11",
-                "after": "p5-maddening-orchestra-2",
+                "name": "Flare/Holy 2",
+                "time": "2:17",
+                "after": "p5-flare-2",
                 "seat": "OT",
                 "actions": [
                   {

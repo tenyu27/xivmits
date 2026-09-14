@@ -118,7 +118,7 @@ PERSONAL_NOTE = {
     'p1': ('mechanic', 'Diffuse Wave Cannon'),
     'p2': ('alt', 'Solar Ray'),
     'p3': ('row', 'Hello World'),
-    'p5': ('mechanic', 'Sigma Solar Ray'),
+    'p5': ('mechanic', 'Omega Solar Ray'),
 }
 
 # P4 Blue Screen has a party grid (stacked under P3 on the "Final Omega" sheet)
@@ -147,6 +147,11 @@ def clean(value):
         value = value.replace(typo, fixed)
     # A stray number sits where P2's mechanic name belongs; the mechanic is Party Synergy.
     return 'Party Synergy' if re.fullmatch(r'\d+(\.0+)?', value) else value
+
+
+def join_notes(lines):
+    return ' '.join(text if text.endswith(('.', '!', '?')) else text + '.'
+                    for line in lines if (text := clean(line)))
 
 
 def actions_from(raw, slot):
@@ -310,10 +315,17 @@ def convert_tank_tabs(archive, strings, party_phases):
                 title = str(cells.get(f'B{row}', '')).strip()
                 c_raw, g_raw = cells.get(f'C{row}', ''), cells.get(f'G{row}', '')
                 if title == 'Notes':
-                    if c_raw:
-                        phase_a['note'] = clean(c_raw)
-                    if g_raw:
-                        phase_b['note'] = clean(g_raw)
+                    for column, phase in (('C', phase_a), ('G', phase_b)):
+                        lines = [clean(cells.get(f'{column}{row}', ''))]
+                        following = row + 1
+                        while following < end and not cells.get(f'B{following}'):
+                            value = clean(cells.get(f'{column}{following}', ''))
+                            if not value:
+                                break
+                            lines.append(value)
+                            following += 1
+                        if any(lines):
+                            phase['note'] = join_notes(lines)
                     break
                 if title:
                     current_a = {'id': f'{job_a}{job_b}-{phase_id}-r{row}'.lower(),
@@ -340,6 +352,15 @@ def convert_tank_tabs(archive, strings, party_phases):
                                 phase['mechanics'].append(current)
                         elif current['actions']:
                             current['actions'][-1].setdefault('note', clean(raw))
+            if phase_id == 'p6':
+                for ref, value in cells.items():
+                    if not ref.startswith('D') or not header_row < int(ref[1:]) < end:
+                        continue
+                    match = re.match(r'\s*([A-Z]{3}(?:/[A-Z]{3})*):\s*(.+)', value)
+                    if match:
+                        for job, phase in ((job_a, phase_a), (job_b, phase_b)):
+                            if job in match[1].split('/'):
+                                phase['note'] = join_notes([phase.get('note', ''), match[2]])
             phases_a.append(phase_a)
             phases_b.append(phase_b)
         plans.append(place_personal({'job': job_a, 'with': job_b, 'phases': phases_a}, party_phases))

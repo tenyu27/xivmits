@@ -1,13 +1,11 @@
 """Convert the Ikuya DMU P1–P5 workbook tabs, plus the Omnitank tab (tank
 personal-mit -> `tankMits`), into reviewed repo JSON.
 
-Usage: python3 scripts/import_dmu_ikuya.py '/path/to/Ikuya Mitty (DMU).xlsx'
+Usage: python3 scripts/import_dmu_ikuya.py
 Uses Python's standard library. The site never reads Excel at runtime.
 """
 import json
 import re
-import sys
-import zipfile
 import xml.etree.ElementTree as ET
 from pathlib import Path
 import workbook
@@ -60,11 +58,11 @@ TANK_FAMILIES = {
     'Flare/Holy': 'Flare/Holy',
     'Black Holes IV (10th Tether Set)': 'Black Holes 4th Set (Beam 10)',
 }
-# Rows that are the tank's own business, not a mechanic the encounter carries:
-# a sub-hit of one mechanic, or a cue like "Autos". They keep their wording and
-# take only their anchor's time.
-# 'Autos' is a phase-top cue rather than a mechanic, so it keeps its wording.
-TANK_KEEP_NAME = {'Autos'}
+# Explicit anchors for the five Thunder III occurrences. The party workbook
+# omits sets 2–4, so a preceding party row cannot identify these busters.
+THUNDER_ANCHORS = {45: 'p3-thunder-iii-1', 47: 'p3-thunder-iii-2',
+                   49: 'p3-thunder-iii-3', 51: 'p3-thunder-iii-4',
+                   53: 'p3-thunder-iii-5'}
 
 # The three autos inside one Fell Forces are one encounter mechanic; the call
 # that distinguishes them belongs in the row's tag, not in a name the fight does
@@ -93,6 +91,9 @@ def align_tank_rows(sheet, encounter):
             mechanics = by_phase[phase['id']]
             resolved, taken = {}, set()
             for row in phase['mechanics']:
+                source_row = int(re.search(r'-r(\d+)-', row['id']).group(1))
+                if phase['id'] == 'p3' and source_row in THUNDER_ANCHORS:
+                    row['after'] = THUNDER_ANCHORS[source_row]
                 # Not keyed on seat: an MT and an OT row of the same mechanic are
                 # one moment and must land on the same one. Keyed on the row's
                 # original anchor as well, because two pairs can share a name and
@@ -105,11 +106,12 @@ def align_tank_rows(sheet, encounter):
                         def in_family(m):
                             return m['name'] == family or m['name'].startswith(family + ' ')
                         # An anchor that already points at the right mechanic is
-                        # kept, and does not consume it: the three autos inside
-                        # one Fell Forces all belong to that same mechanic.
+                        # kept and marked taken for subsequent family searches.
+                        # Explicit anchors may still reuse it for sub-hits.
                         current = next((m for m in mechanics if m['id'] == row.get('after')), None)
                         if current is not None and in_family(current):
                             match = current
+                            taken.add(match['id'])
                         else:
                             for mechanic in mechanics:
                                 if mechanic['id'] not in taken and in_family(mechanic):
@@ -124,8 +126,7 @@ def align_tank_rows(sheet, encounter):
                         row['tag'] = TANK_ROW_TAGS[row['name']]
                     row['after'] = match['id']
                     row['time'] = match['time']
-                    if row['name'] not in TANK_KEEP_NAME:
-                        row['name'] = match['name']
+                    row['name'] = match['name']
                 elif row.get('after'):
                     # No mechanic of its own: sit on its anchor's clock rather
                     # than the workbook's.
@@ -218,6 +219,7 @@ POSITION_TAGS = {
 # seat that brings one of these abilities, and hidden by the notes toggle.
 TARGETED_MIT = ('Reprisal', 'Addle', 'Feint', 'Dismantle')
 TARGETED_NOTE = {
+    1: 'Targeted mitigation does not work on Wave Cannon, but does apply to Double-Trouble Trap.',
     3: 'Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers '
        'tank autos and busters in this phase, not raidwides.',
     4: 'Targeted mitigation only works on Ultima Upsurge; other uses cover tank autos.',
@@ -226,7 +228,7 @@ TARGETED_NOTE = {
 PHASE_RULES = {
     1: [],
     2: [],
-    3: [],
+    3: ['Both tanks take moderately high damage throughout the phase. Keep mitigation and heals rolling on them.'],
     4: [],
     5: [],
 }
@@ -372,8 +374,9 @@ def parse_omni_cell(text, job, notes):
                 continue
             for action in expand_token(base, job, carry):
                 for marker in markers:
-                    if marker in notes:
-                        add_note(action, notes[marker])
+                    if marker not in notes:
+                        raise ValueError(f'Unresolved Omnitank footnote {marker} in {text!r}')
+                    add_note(action, notes[marker])
                 actions.append(action)
     return actions, extra
 
@@ -410,8 +413,7 @@ def convert_omnitank(archive, strings, party_phases, phase_starts):
     # side it belongs to -- P3 by which boss you hold (E Chaos, I Exdeath), P5 by
     # invuln order (E 1st, I 2nd) -- and the viewer's toggle selects between
     # them. The sheet's priority list is not applied; the player picks.
-    START_WITH_BOSS = ('You start with the boss. Hold aggro at the phase start '
-                       'so your co-tank does not get the Holy debuff.')
+    START_WITH_BOSS = ('You start with the boss. Hold main threat so you do not get the Holy debuff.')
     plans = []
     for job in TANKS:
         phases_out = []
@@ -494,6 +496,8 @@ def convert_omnitank(archive, strings, party_phases, phase_starts):
                             marker['after'] = solo['after']
                         out_mechs.append(marker)
             phase_out = {'id': f'p{phase_number}', 'mechanics': out_mechs}
+            if phase_number in (3, 4):
+                phase_out['note'] = clean(cells[f'D{rows[-1] + 2}'])
             # "You start with the boss" applies to the whole of P5 for the 2nd
             # invuln - a phase-top personal note, not a per-row one.
             if phase_number == 5:
@@ -672,7 +676,7 @@ def convert():
                         if frag in action.get('note', ''):
                             action['noteJobs'] = jobs
             # Timing rules that apply to a whole mechanic, every role.
-            if phase_number == 1 and row == 14:
+            if phase_number == 1 and row in (14, 22):
                 mechanic['note'] = 'Use late into the castbar so it also covers Hyperdrive.'
             if phase_number == 5 and row == 32:
                 mechanic['note'] = 'Use any timed mitigation as late as possible.'

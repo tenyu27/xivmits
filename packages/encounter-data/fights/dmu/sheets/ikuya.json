@@ -370,6 +370,7 @@
         },
         {
           "mechanicId": "p1-light-of-judgment-2",
+          "note": "Use late into the castbar so it also covers Hyperdrive.",
           "assignments": {
             "MT": [
               {
@@ -498,7 +499,16 @@
             ]
           }
         }
-      ]
+      ],
+      "scopedNote": {
+        "text": "Targeted mitigation does not work on Wave Cannon, but does apply to Double-Trouble Trap.",
+        "abilities": [
+          "Reprisal",
+          "Addle",
+          "Feint",
+          "Dismantle"
+        ]
+      }
     },
     {
       "id": "p2",
@@ -1830,6 +1840,7 @@
           }
         }
       ],
+      "note": "Both tanks take moderately high damage throughout the phase. Keep mitigation and heals rolling on them.",
       "scopedNote": {
         "text": "Target your firewalled boss while the firewall is up. Targeted mitigation mostly covers tank autos and busters in this phase, not raidwides.",
         "abilities": [
@@ -3422,9 +3433,9 @@
               },
               {
                 "id": "pld-p3-r47-chaos",
-                "name": "Thunder III (1st Set)",
-                "time": "0:51",
-                "after": "p3-thunder-iii-1",
+                "name": "Thunder III (2nd Set)",
+                "time": "1:49",
+                "after": "p3-thunder-iii-2",
                 "boss": "Chaos",
                 "actions": [
                   {
@@ -3434,17 +3445,17 @@
               },
               {
                 "id": "pld-p3-r47-exdeath",
-                "name": "Thunder III (1st Set)",
-                "time": "0:51",
-                "after": "p3-thunder-iii-1",
+                "name": "Thunder III (2nd Set)",
+                "time": "1:49",
+                "after": "p3-thunder-iii-2",
                 "boss": "Exdeath",
                 "actions": []
               },
               {
                 "id": "pld-p3-r49-chaos",
-                "name": "Thunder III (2nd Set)",
-                "time": "1:49",
-                "after": "p3-thunder-iii-2",
+                "name": "Thunder III (3rd Set)",
+                "time": "2:07",
+                "after": "p3-thunder-iii-3",
                 "boss": "Chaos",
                 "tag": "2nd hit",
                 "actions": [
@@ -3458,9 +3469,9 @@
               },
               {
                 "id": "pld-p3-r49-exdeath",
-                "name": "Thunder III (2nd Set)",
-                "time": "1:49",
-                "after": "p3-thunder-iii-2",
+                "name": "Thunder III (3rd Set)",
+                "time": "2:07",
+                "after": "p3-thunder-iii-3",
                 "boss": "Exdeath",
                 "tag": "1st hit",
                 "actions": [
@@ -3474,17 +3485,17 @@
               },
               {
                 "id": "pld-p3-r51-chaos",
-                "name": "Thunder III (3rd Set)",
-                "time": "2:07",
-                "after": "p3-thunder-iii-3",
+                "name": "Thunder III (4th Set)",
+                "time": "2:48",
+                "after": "p3-thunder-iii-4",
                 "boss": "Chaos",
                 "actions": []
               },
               {
                 "id": "pld-p3-r51-exdeath",
-                "name": "Thunder III (3rd Set)",
-                "time": "2:07",
-                "after": "p3-thunder-iii-3",
+                "name": "Thunder III (4th Set)",
+                "time": "2:48",
+                "after": "p3-thunder-iii-4",
                 "boss": "Exdeath",
                 "actions": [
                   {
@@ -3560,7 +3571,8 @@
                   }
                 ]
               }
-            ]
+            ],
+            "note": "Regardless of who is MT or OT, the invulnerability priority overrides this. You will still mitigate (Reprisal & Party Mit) based on whether you are MT or OT on the main page. This is for middle Exdeath only. Tanks should use their short mitigation for the autos throughout the phase (WAR use Nascent)."
           },
           {
             "id": "p4",
@@ -3594,7 +3606,8 @@
                   }
                 ]
               }
-            ]
+            ],
+            "note": "Kefka does not do any busters throughout the phase, but he does continously auto the main threat dealing around 75k without any mitigation. Ensure CDs are available for P5."
           },
           {
             "id": "p5",
@@ -3883,7 +3896,7 @@
                 "tag": "Share 3rd hit"
               }
             ],
-            "note": "You start with the boss. Hold aggro at the phase start so your co-tank does not get the Holy debuff.",
+            "note": "You start with the boss. Hold main threat so you do not get the Holy debuff.",
             "noteInvuln": 2
           }
         ]
@@ -4230,9 +4243,9 @@
               },
               {
                 "id": "war-p3-r47-chaos",
-                "name": "Thunder III (1st Set)",
-                "time": "0:51",
-                "after": "p3-thunder-iii-1",
+                "name": "Thunder III (2nd Set)",
+                "time": "1:49",
+                "after": "p3-thunder-iii-2",
                 "boss": "Chaos",
                 "actions": [
                   {
@@ -4242,17 +4255,17 @@
               },
               {
                 "id": "war-p3-r47-exdeath",
-                "name": "Thunder III (1st Set)",
-                "time": "0:51",
-                "after": "p3-thunder-iii-1",
+                "name": "Thunder III (2nd Set)",
+                "time": "1:49",
+                "after": "p3-thunder-iii-2",
                 "boss": "Exdeath",
                 "actions": []
               },
               {
                 "id": "war-p3-r49-chaos",
-                "name": "Thunder III (2nd Set)",
-                "time": "1:49",
-                "after": "p3-thunder-iii-2",
+                "name": "Thunder III (3rd Set)",
+                "time": "2:07",
+                "after": "p3-thunder-iii-3",
                 "boss": "Chaos",
                 "tag": "2nd hit",
                 "actions": [
@@ -4266,9 +4279,9 @@
               },
               {
                 "id": "war-p3-r49-exdeath",
-                "name": "Thunder III (2nd Set)",
-                "time": "1:49",
-                "after": "p3-thunder-iii-2",
+                "name": "Thunder III (3rd Set)",
+                "time": "2:07",
+                "after": "p3-thunder-iii-3",
                 "boss": "Exdeath",
                 "tag": "1st hit",
                 "actions": [
@@ -4282,17 +4295,17 @@
               },
               {
                 "id": "war-p3-r51-chaos",
-                "name": "Thunder III (3rd Set)",
-                "time": "2:07",
-                "after": "p3-thunder-iii-3",
+                "name": "Thunder III (4th Set)",
+                "time": "2:48",
+                "after": "p3-thunder-iii-4",
                 "boss": "Chaos",
                 "actions": []
               },
               {
                 "id": "war-p3-r51-exdeath",
-                "name": "Thunder III (3rd Set)",
-                "time": "2:07",
-                "after": "p3-thunder-iii-3",
+                "name": "Thunder III (4th Set)",
+                "time": "2:48",
+                "after": "p3-thunder-iii-4",
                 "boss": "Exdeath",
                 "actions": [
                   {
@@ -4368,7 +4381,8 @@
                   }
                 ]
               }
-            ]
+            ],
+            "note": "Regardless of who is MT or OT, the invulnerability priority overrides this. You will still mitigate (Reprisal & Party Mit) based on whether you are MT or OT on the main page. This is for middle Exdeath only. Tanks should use their short mitigation for the autos throughout the phase (WAR use Nascent)."
           },
           {
             "id": "p4",
@@ -4402,7 +4416,8 @@
                   }
                 ]
               }
-            ]
+            ],
+            "note": "Kefka does not do any busters throughout the phase, but he does continously auto the main threat dealing around 75k without any mitigation. Ensure CDs are available for P5."
           },
           {
             "id": "p5",
@@ -4688,7 +4703,7 @@
                 "tag": "Share 3rd hit"
               }
             ],
-            "note": "You start with the boss. Hold aggro at the phase start so your co-tank does not get the Holy debuff.",
+            "note": "You start with the boss. Hold main threat so you do not get the Holy debuff.",
             "noteInvuln": 2
           }
         ]
@@ -5038,9 +5053,9 @@
               },
               {
                 "id": "drk-p3-r47-chaos",
-                "name": "Thunder III (1st Set)",
-                "time": "0:51",
-                "after": "p3-thunder-iii-1",
+                "name": "Thunder III (2nd Set)",
+                "time": "1:49",
+                "after": "p3-thunder-iii-2",
                 "boss": "Chaos",
                 "actions": [
                   {
@@ -5050,17 +5065,17 @@
               },
               {
                 "id": "drk-p3-r47-exdeath",
-                "name": "Thunder III (1st Set)",
-                "time": "0:51",
-                "after": "p3-thunder-iii-1",
+                "name": "Thunder III (2nd Set)",
+                "time": "1:49",
+                "after": "p3-thunder-iii-2",
                 "boss": "Exdeath",
                 "actions": []
               },
               {
                 "id": "drk-p3-r49-chaos",
-                "name": "Thunder III (2nd Set)",
-                "time": "1:49",
-                "after": "p3-thunder-iii-2",
+                "name": "Thunder III (3rd Set)",
+                "time": "2:07",
+                "after": "p3-thunder-iii-3",
                 "boss": "Chaos",
                 "tag": "2nd hit",
                 "actions": [
@@ -5077,9 +5092,9 @@
               },
               {
                 "id": "drk-p3-r49-exdeath",
-                "name": "Thunder III (2nd Set)",
-                "time": "1:49",
-                "after": "p3-thunder-iii-2",
+                "name": "Thunder III (3rd Set)",
+                "time": "2:07",
+                "after": "p3-thunder-iii-3",
                 "boss": "Exdeath",
                 "tag": "1st hit",
                 "actions": [
@@ -5096,17 +5111,17 @@
               },
               {
                 "id": "drk-p3-r51-chaos",
-                "name": "Thunder III (3rd Set)",
-                "time": "2:07",
-                "after": "p3-thunder-iii-3",
+                "name": "Thunder III (4th Set)",
+                "time": "2:48",
+                "after": "p3-thunder-iii-4",
                 "boss": "Chaos",
                 "actions": []
               },
               {
                 "id": "drk-p3-r51-exdeath",
-                "name": "Thunder III (3rd Set)",
-                "time": "2:07",
-                "after": "p3-thunder-iii-3",
+                "name": "Thunder III (4th Set)",
+                "time": "2:48",
+                "after": "p3-thunder-iii-4",
                 "boss": "Exdeath",
                 "actions": [
                   {
@@ -5194,7 +5209,8 @@
                   }
                 ]
               }
-            ]
+            ],
+            "note": "Regardless of who is MT or OT, the invulnerability priority overrides this. You will still mitigate (Reprisal & Party Mit) based on whether you are MT or OT on the main page. This is for middle Exdeath only. Tanks should use their short mitigation for the autos throughout the phase (WAR use Nascent)."
           },
           {
             "id": "p4",
@@ -5235,7 +5251,8 @@
                   }
                 ]
               }
-            ]
+            ],
+            "note": "Kefka does not do any busters throughout the phase, but he does continously auto the main threat dealing around 75k without any mitigation. Ensure CDs are available for P5."
           },
           {
             "id": "p5",
@@ -5555,7 +5572,7 @@
                 "tag": "Share 3rd hit"
               }
             ],
-            "note": "You start with the boss. Hold aggro at the phase start so your co-tank does not get the Holy debuff.",
+            "note": "You start with the boss. Hold main threat so you do not get the Holy debuff.",
             "noteInvuln": 2
           }
         ]
@@ -5873,9 +5890,9 @@
               },
               {
                 "id": "gnb-p3-r47-chaos",
-                "name": "Thunder III (1st Set)",
-                "time": "0:51",
-                "after": "p3-thunder-iii-1",
+                "name": "Thunder III (2nd Set)",
+                "time": "1:49",
+                "after": "p3-thunder-iii-2",
                 "boss": "Chaos",
                 "actions": [
                   {
@@ -5885,17 +5902,17 @@
               },
               {
                 "id": "gnb-p3-r47-exdeath",
-                "name": "Thunder III (1st Set)",
-                "time": "0:51",
-                "after": "p3-thunder-iii-1",
+                "name": "Thunder III (2nd Set)",
+                "time": "1:49",
+                "after": "p3-thunder-iii-2",
                 "boss": "Exdeath",
                 "actions": []
               },
               {
                 "id": "gnb-p3-r49-chaos",
-                "name": "Thunder III (2nd Set)",
-                "time": "1:49",
-                "after": "p3-thunder-iii-2",
+                "name": "Thunder III (3rd Set)",
+                "time": "2:07",
+                "after": "p3-thunder-iii-3",
                 "boss": "Chaos",
                 "tag": "2nd hit",
                 "actions": [
@@ -5909,9 +5926,9 @@
               },
               {
                 "id": "gnb-p3-r49-exdeath",
-                "name": "Thunder III (2nd Set)",
-                "time": "1:49",
-                "after": "p3-thunder-iii-2",
+                "name": "Thunder III (3rd Set)",
+                "time": "2:07",
+                "after": "p3-thunder-iii-3",
                 "boss": "Exdeath",
                 "tag": "1st hit",
                 "actions": [
@@ -5925,17 +5942,17 @@
               },
               {
                 "id": "gnb-p3-r51-chaos",
-                "name": "Thunder III (3rd Set)",
-                "time": "2:07",
-                "after": "p3-thunder-iii-3",
+                "name": "Thunder III (4th Set)",
+                "time": "2:48",
+                "after": "p3-thunder-iii-4",
                 "boss": "Chaos",
                 "actions": []
               },
               {
                 "id": "gnb-p3-r51-exdeath",
-                "name": "Thunder III (3rd Set)",
-                "time": "2:07",
-                "after": "p3-thunder-iii-3",
+                "name": "Thunder III (4th Set)",
+                "time": "2:48",
+                "after": "p3-thunder-iii-4",
                 "boss": "Exdeath",
                 "actions": [
                   {
@@ -6011,7 +6028,8 @@
                   }
                 ]
               }
-            ]
+            ],
+            "note": "Regardless of who is MT or OT, the invulnerability priority overrides this. You will still mitigate (Reprisal & Party Mit) based on whether you are MT or OT on the main page. This is for middle Exdeath only. Tanks should use their short mitigation for the autos throughout the phase (WAR use Nascent)."
           },
           {
             "id": "p4",
@@ -6045,7 +6063,8 @@
                   }
                 ]
               }
-            ]
+            ],
+            "note": "Kefka does not do any busters throughout the phase, but he does continously auto the main threat dealing around 75k without any mitigation. Ensure CDs are available for P5."
           },
           {
             "id": "p5",
@@ -6331,7 +6350,7 @@
                 "tag": "Share 3rd hit"
               }
             ],
-            "note": "You start with the boss. Hold aggro at the phase start so your co-tank does not get the Holy debuff.",
+            "note": "You start with the boss. Hold main threat so you do not get the Holy debuff.",
             "noteInvuln": 2
           }
         ]

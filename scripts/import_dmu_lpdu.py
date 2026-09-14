@@ -475,7 +475,12 @@ def convert(archive, moved=None):
                     continue
                 personal = [a for a in actions if not is_group_mit(a['name'])]
                 if personal:
-                    moved[(phase_id, mechanic_id, seat)] = personal
+                    for action in personal:
+                        target = mechanic_id
+                        if phase_id == 'p5' and action.get('note') == 'On the flare.':
+                            target = {'p5-maddening-orchestra-1': 'p5-flare-1',
+                                      'p5-maddening-orchestra-2': 'p5-flare-2'}[mechanic_id]
+                        moved.setdefault((phase_id, target, seat), []).append(action)
                     lifted = True
                 group = [a for a in actions if is_group_mit(a['name'])]
                 if group:
@@ -598,10 +603,10 @@ TANK_ROWS = {
     93: ('p4', 'p4-death-bolt-2'), 95: ('p4', 'p4-ultima-upsurge-2'),
     101: ('p5', None), 103: ('p5', 'p5-ultima-repeater-1'), 105: ('p5', 'p5-fell-forces-1'),
     107: ('p5', 'p5-chaotic-flood-1'), 109: ('p5', 'p5-maddening-orchestra-1'),
-    111: ('p5', 'p5-maddening-orchestra-1'), 113: ('p5', 'p5-fell-forces-2'),
+    111: ('p5', 'p5-flare-1'), 113: ('p5', 'p5-fell-forces-2'),
     115: ('p5', 'p5-celestriad-1'), 117: ('p5', 'p5-ultima-repeater-2'),
     119: ('p5', 'p5-fell-forces-3'), 121: ('p5', 'p5-maddening-orchestra-2'),
-    123: ('p5', 'p5-maddening-orchestra-2'), 125: ('p5', 'p5-fell-forces-4'),
+    123: ('p5', 'p5-flare-2'), 125: ('p5', 'p5-fell-forces-4'),
     127: ('p5', 'p5-forsaken-1'), 129: ('p5', 'p5-forsaken-bonds-2'),
 }
 
@@ -726,6 +731,8 @@ def moved_actions(action, job):
     """A personal action lifted off the party grid -> what this job presses."""
     out = []
     for name in party_buttons(action['name'], job):
+        if action['name'] == 'Kitchen Sink' and action.get('note') == 'No short mit.' and name in SHORT_MIT[job]:
+            continue
         moved = {'name': name}
         if action.get('buddy'):
             moved['buddy'] = True
@@ -815,6 +822,8 @@ def convert_tanks(archive, phase_starts, mechanic_names, moved):
                 # repeating the heading underneath it. Rows the tank sheet gives
                 # its own label ("Autos 1", "Flare Diffusion 1") keep both.
                 mechanic = {'id': f'{job}-r{row}-{seat}'.lower(), 'name': name}
+                if row in (111, 123):
+                    mechanic['name'] = mechanic_names[anchor]
                 if name != mechanic_names.get(anchor):
                     mechanic['time'] = f'{relative // 60}:{relative % 60:02}'
                 if anchor:
@@ -842,10 +851,14 @@ def convert_tanks(archive, phase_starts, mechanic_names, moved):
                 elif action.get('note') and 'note' not in existing:
                     existing['note'] = action['note']
             if leftover:
-                phases.setdefault(phase_id, []).append({
-                    'id': f'{job}-{anchor}-{seat}'.lower(), 'name': mechanic_names[anchor],
-                    'after': anchor, 'seat': seat, 'actions': leftover,
-                })
+                host = next((r for r in rows if r['name'] == mechanic_names[anchor]), None)
+                if host is not None:
+                    host['actions'].extend(leftover)
+                else:
+                    phases.setdefault(phase_id, []).append({
+                        'id': f'{job}-{anchor}-{seat}'.lower(), 'name': mechanic_names[anchor],
+                        'after': anchor, 'seat': seat, 'actions': leftover,
+                    })
         plans.append({'job': job, 'phases': [
             {'id': phase_id,
              **({'note': TANK_PHASE_NOTES[phase_id]} if phase_id in TANK_PHASE_NOTES else {}),
