@@ -27,7 +27,7 @@ ASSET = 'https://v2.xivapi.com/api/asset'
 # Sheet shorthand that is not the in-game action name.
 ALIASES = {
     'Seraph': 'Summon Seraph',
-    "Seraph's Veil": 'Summon Seraph',
+    'Seraph Veil': 'Seraphic Veil',
     'Spreadlo': 'Deployment Tactics',
     'Zoe Shields': 'Zoe',
     # Every job's level 3 limit break shares one icon in the game data, so the
@@ -62,7 +62,8 @@ JOB_GENERIC = {'Party Mit', 'Extra', 'Short Mit', '90s Mit', '120s Mit', 'Invuln
 
 # Real, castable actions the game data flags IsPlayerAction=false because they
 # are granted by a stance (SGE's Eukrasia) rather than slotted on a hotbar.
-NONPLAYER_OK = {'Eukrasian Prognosis', 'Eukrasian Prognosis II', 'Eukrasian Diagnosis'}
+NONPLAYER_OK = {'Eukrasian Prognosis', 'Eukrasian Prognosis II', 'Eukrasian Diagnosis',
+                'Seraphic Veil'}  # TOP also names Seraph's automatic shield.
 
 # The placeholder icon unused Action rows point at.
 PLACEHOLDER = '000000/000405'

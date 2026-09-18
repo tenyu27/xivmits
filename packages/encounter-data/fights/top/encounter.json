@@ -10,41 +10,330 @@
       "name": "Omega",
       "mechanics": [
         {
+          "id": "p1-program-loop-1",
+          "name": "Program Loop 1",
+          "time": "0:11",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31491
+            ]
+          }
+        },
+        {
+          "id": "p1-storage-violation-1",
+          "name": "Storage Violation 1",
+          "time": "0:30",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31492
+            ]
+          }
+        },
+        {
+          "id": "p1-blaster-1",
+          "name": "Blaster 1",
+          "time": "0:30",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31495,
+              31496,
+              31498
+            ]
+          }
+        },
+        {
+          "id": "p1-storage-violation-2",
+          "name": "Storage Violation 2",
+          "time": "0:39",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31492
+            ]
+          }
+        },
+        {
+          "id": "p1-blaster-2",
+          "name": "Blaster 2",
+          "time": "0:39",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31496,
+              31498
+            ]
+          }
+        },
+        {
+          "id": "p1-storage-violation-3",
+          "name": "Storage Violation 3",
+          "time": "0:48",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31492
+            ]
+          }
+        },
+        {
+          "id": "p1-blaster-3",
+          "name": "Blaster 3",
+          "time": "0:48",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31496,
+              31498
+            ]
+          }
+        },
+        {
+          "id": "p1-blaster-4",
+          "name": "Blaster 4",
+          "time": "0:57",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31497,
+              31498
+            ]
+          }
+        },
+        {
+          "id": "p1-storage-violation-4",
+          "name": "Storage Violation 4",
+          "time": "0:57",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31492
+            ]
+          }
+        },
+        {
           "id": "p1-pantokrator-1",
           "name": "Pantokrator",
+          "time": "1:04",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31499
+            ]
           }
         },
         {
-          "id": "p1-stack-1-1",
-          "name": "Stack 1",
+          "id": "p1-flame-thrower-1",
+          "name": "Flame Thrower",
+          "time": "1:15",
+          "minor": true,
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31501,
+              32368
+            ]
           }
         },
         {
-          "id": "p1-stack-2-1",
-          "name": "Stack 2",
+          "id": "p1-condensed-wave-cannon-kyrios-1",
+          "name": "Condensed Wave Cannon Kyrios 1",
+          "time": "1:22",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31503
+            ]
           }
         },
         {
-          "id": "p1-stack-3-1",
-          "name": "Stack 3",
+          "id": "p1-ballistic-impact-1",
+          "name": "Ballistic Impact",
+          "time": "1:22",
+          "minor": true,
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31500
+            ]
           }
         },
         {
-          "id": "p1-stack-4-1",
-          "name": "Stack 4",
+          "id": "p1-guided-missile-kyrios-1",
+          "name": "Guided Missile Kyrios 1",
+          "time": "1:22",
+          "minor": true,
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31502
+            ]
+          }
+        },
+        {
+          "id": "p1-condensed-wave-cannon-kyrios-2",
+          "name": "Condensed Wave Cannon Kyrios 2",
+          "time": "1:28",
+          "fflogs": {
+            "abilityIds": [
+              31503
+            ]
+          }
+        },
+        {
+          "id": "p1-guided-missile-kyrios-2",
+          "name": "Guided Missile Kyrios 2",
+          "time": "1:28",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31502
+            ]
+          }
+        },
+        {
+          "id": "p1-condensed-wave-cannon-kyrios-3",
+          "name": "Condensed Wave Cannon Kyrios 3",
+          "time": "1:34",
+          "fflogs": {
+            "abilityIds": [
+              31503
+            ]
+          }
+        },
+        {
+          "id": "p1-guided-missile-kyrios-3",
+          "name": "Guided Missile Kyrios 3",
+          "time": "1:34",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31502
+            ]
+          }
+        },
+        {
+          "id": "p1-condensed-wave-cannon-kyrios-4",
+          "name": "Condensed Wave Cannon Kyrios 4",
+          "time": "1:40",
+          "fflogs": {
+            "abilityIds": [
+              31503
+            ]
+          }
+        },
+        {
+          "id": "p1-guided-missile-kyrios-4",
+          "name": "Guided Missile Kyrios 4",
+          "time": "1:40",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31502
+            ]
+          }
+        },
+        {
+          "id": "p1-wave-cannon-kyrios-1",
+          "name": "Wave Cannon Kyrios 1",
+          "time": "1:49",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31505
+            ]
+          }
+        },
+        {
+          "id": "p1-diffuse-wave-cannon-kyrios-1",
+          "name": "Diffuse Wave Cannon Kyrios 1",
+          "time": "1:49",
+          "roles": [
+            "tank"
+          ],
+          "fflogs": {
+            "abilityIds": [
+              31504
+            ]
+          }
+        },
+        {
+          "id": "p1-diffuse-wave-cannon-kyrios-2",
+          "name": "Diffuse Wave Cannon Kyrios 2",
+          "time": "1:51",
+          "minor": true,
+          "roles": [
+            "tank"
+          ],
+          "fflogs": {
+            "abilityIds": [
+              31504
+            ]
+          }
+        },
+        {
+          "id": "p1-diffuse-wave-cannon-kyrios-3",
+          "name": "Diffuse Wave Cannon Kyrios 3",
+          "time": "1:53",
+          "minor": true,
+          "roles": [
+            "tank"
+          ],
+          "fflogs": {
+            "abilityIds": [
+              31504
+            ]
+          }
+        },
+        {
+          "id": "p1-diffuse-wave-cannon-kyrios-4",
+          "name": "Diffuse Wave Cannon Kyrios 4",
+          "time": "1:55",
+          "minor": true,
+          "roles": [
+            "tank"
+          ],
+          "fflogs": {
+            "abilityIds": [
+              31504
+            ]
+          }
+        },
+        {
+          "id": "p1-diffuse-wave-cannon-kyrios-5",
+          "name": "Diffuse Wave Cannon Kyrios 5",
+          "time": "1:57",
+          "minor": true,
+          "roles": [
+            "tank"
+          ],
+          "fflogs": {
+            "abilityIds": [
+              31504
+            ]
+          }
+        },
+        {
+          "id": "p1-wave-cannon-kyrios-2",
+          "name": "Wave Cannon Kyrios 2",
+          "time": "1:58",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31505
+            ]
+          }
+        },
+        {
+          "id": "p1-atomic-ray-1",
+          "name": "Atomic Ray (Enrage)",
+          "time": "2:03",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31480
+            ]
           }
         }
-      ]
+      ],
+      "start": "0:00"
     },
     {
       "id": "p2",
@@ -52,13 +341,256 @@
       "name": "Omega M/F",
       "mechanics": [
         {
+          "id": "p2-firewall-1",
+          "name": "Firewall",
+          "time": "0:04",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31552,
+              31553
+            ]
+          }
+        },
+        {
+          "id": "p2-solar-ray-1",
+          "name": "Solar Ray 1",
+          "time": "0:13",
+          "roles": [
+            "tank"
+          ],
+          "fflogs": {
+            "abilityIds": [
+              32362,
+              32363
+            ]
+          }
+        },
+        {
           "id": "p2-party-synergy-1",
           "name": "Party Synergy",
+          "time": "0:26",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31550,
+              31551
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p2-superliminal-steel-1",
+          "name": "Superliminal Steel / Optimized Blizzard III 1",
+          "time": "0:39",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31530,
+              31531,
+              31532,
+              31533
+            ]
+          }
+        },
+        {
+          "id": "p2-beyond-strength-1",
+          "name": "Beyond Strength / Efficient Bladework 1",
+          "time": "0:39",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31525,
+              31526
+            ]
+          }
+        },
+        {
+          "id": "p2-optical-laser-1",
+          "name": "Optical Laser 1",
+          "time": "0:46",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31521
+            ]
+          }
+        },
+        {
+          "id": "p2-optimized-fire-iii-1",
+          "name": "Optimized Fire III",
+          "time": "0:46",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31535
+            ]
+          }
+        },
+        {
+          "id": "p2-discharger-1",
+          "name": "Discharger 1",
+          "time": "0:53",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31534
+            ]
+          }
+        },
+        {
+          "id": "p2-efficient-bladework-1",
+          "name": "Efficient Bladework",
+          "time": "0:57",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31526
+            ]
+          }
+        },
+        {
+          "id": "p2-spotlight-1",
+          "name": "Spotlight",
+          "time": "0:58",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31536
+            ]
+          }
+        },
+        {
+          "id": "p2-synthetic-shield-1",
+          "name": "Synthetic Shield 1",
+          "time": "1:11",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              32369
+            ]
+          }
+        },
+        {
+          "id": "p2-limitless-synergy-1",
+          "name": "Limitless Synergy",
+          "time": "1:16",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31544,
+              31545
+            ]
+          }
+        },
+        {
+          "id": "p2-optimized-passage-of-arms-1",
+          "name": "Optimized Passage of Arms",
+          "time": "1:26",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31556
+            ]
+          }
+        },
+        {
+          "id": "p2-laser-shower-1",
+          "name": "Laser Shower",
+          "time": "1:26",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31557
+            ]
+          }
+        },
+        {
+          "id": "p2-synthetic-shield-2",
+          "name": "Synthetic Shield 2",
+          "time": "1:27",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              32369
+            ]
+          }
+        },
+        {
+          "id": "p2-optimized-sagittarius-arrow-1",
+          "name": "Optimized Sagittarius Arrow",
+          "time": "1:34",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31539
+            ]
+          }
+        },
+        {
+          "id": "p2-optimized-bladedance-1",
+          "name": "Optimized Bladedance",
+          "time": "1:35",
+          "roles": [
+            "tank"
+          ],
+          "fflogs": {
+            "abilityIds": [
+              31540,
+              31541,
+              31542,
+              31543,
+              32629
+            ]
+          }
+        },
+        {
+          "id": "p2-beyond-defense-1",
+          "name": "Beyond Defense 1",
+          "time": "1:46",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31527,
+              31528
+            ]
+          }
+        },
+        {
+          "id": "p2-optimized-meteor-1",
+          "name": "Optimized Meteor",
+          "time": "1:49",
+          "fflogs": {
+            "abilityIds": [
+              31537,
+              31538
+            ]
+          }
+        },
+        {
+          "id": "p2-pile-pitch-1",
+          "name": "Pile Pitch 1",
+          "time": "1:49",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31529
+            ]
+          }
+        },
+        {
+          "id": "p2-cosmo-memory-1",
+          "name": "Cosmo Memory 1",
+          "time": "1:59",
+          "fflogs": {
+            "abilityIds": [
+              31522,
+              31523,
+              31524
+            ]
           }
         }
-      ]
+      ],
+      "start": "2:11"
     },
     {
       "id": "p3",
@@ -66,48 +598,250 @@
       "name": "Omega Reconfigured",
       "mechanics": [
         {
+          "id": "p3-wave-repeater-1",
+          "name": "Wave Repeater 1",
+          "time": "0:14",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31567,
+              31568,
+              31569,
+              31570
+            ]
+          }
+        },
+        {
+          "id": "p3-wave-repeater-2",
+          "name": "Wave Repeater 2",
+          "time": "0:22",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31567,
+              31568,
+              31569,
+              31570
+            ]
+          }
+        },
+        {
+          "id": "p3-colossal-blow-1",
+          "name": "Colossal Blow",
+          "time": "0:26",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31566
+            ]
+          }
+        },
+        {
+          "id": "p3-sniper-cannon-1",
+          "name": "Sniper Cannon / High-Powered Sniper Cannon",
+          "time": "0:29",
+          "fflogs": {
+            "abilityIds": [
+              31571,
+              31572
+            ]
+          },
+          "minor": true
+        },
+        {
           "id": "p3-hello-world-1",
-          "name": "Hello World",
+          "name": "Hello, World",
+          "time": "0:42",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31573
+            ]
           }
         },
         {
-          "id": "p3-1st-patch-set-1",
-          "name": "1st Patch Set",
+          "id": "p3-latent-defect-1",
+          "name": "Latent Defect 1",
+          "time": "1:06",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31599,
+              31583,
+              31584,
+              31574,
+              31575
+            ]
           }
         },
         {
-          "id": "p3-2nd-patch-set-1",
-          "name": "2nd Patch Set",
+          "id": "p3-patch-1",
+          "name": "Patch 1",
+          "time": "1:08",
+          "minor": true,
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31587
+            ]
           }
         },
         {
-          "id": "p3-3rd-patch-set-1",
-          "name": "3rd Patch Set",
+          "id": "p3-critical-performance-bug-1",
+          "name": "Critical Performance Bug / Critical Underflow Bug 1",
+          "time": "1:12",
+          "minor": true,
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31579,
+              31578
+            ]
           }
         },
         {
-          "id": "p3-4th-patch-set-1",
-          "name": "4th Patch Set",
+          "id": "p3-latent-defect-2",
+          "name": "Latent Defect 2",
+          "time": "1:27",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31599,
+              31583,
+              31584,
+              31574,
+              31575
+            ]
+          }
+        },
+        {
+          "id": "p3-patch-2",
+          "name": "Patch 2",
+          "time": "1:29",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31587
+            ]
+          }
+        },
+        {
+          "id": "p3-critical-performance-bug-2",
+          "name": "Critical Performance Bug / Critical Underflow Bug 2",
+          "time": "1:34",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31579,
+              31578
+            ]
+          }
+        },
+        {
+          "id": "p3-latent-defect-3",
+          "name": "Latent Defect 3",
+          "time": "1:48",
+          "fflogs": {
+            "abilityIds": [
+              31599,
+              31583,
+              31584,
+              31574,
+              31575
+            ]
+          }
+        },
+        {
+          "id": "p3-patch-3",
+          "name": "Patch 3",
+          "time": "1:50",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31587
+            ]
+          }
+        },
+        {
+          "id": "p3-critical-performance-bug-3",
+          "name": "Critical Performance Bug / Critical Underflow Bug 3",
+          "time": "1:55",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31579,
+              31578
+            ]
+          }
+        },
+        {
+          "id": "p3-patch-4",
+          "name": "Patch 4",
+          "time": "2:08",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31587
+            ]
+          }
+        },
+        {
+          "id": "p3-latent-defect-4",
+          "name": "Latent Defect 4",
+          "time": "2:09",
+          "fflogs": {
+            "abilityIds": [
+              31599,
+              31583,
+              31584,
+              31574,
+              31575
+            ]
+          }
+        },
+        {
+          "id": "p3-critical-performance-bug-4",
+          "name": "Critical Performance Bug / Critical Underflow Bug 4",
+          "time": "2:16",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31579,
+              31578
+            ]
           }
         },
         {
           "id": "p3-critical-error-1",
           "name": "Critical Error",
+          "time": "2:31",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31588
+            ]
+          }
+        },
+        {
+          "id": "p3-oversampled-wave-cannon-1",
+          "name": "Oversampled Wave Cannon 1",
+          "time": "2:52",
+          "fflogs": {
+            "abilityIds": [
+              31595,
+              31596,
+              31597
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p3-ion-efflux-1",
+          "name": "Ion Efflux (Enrage)",
+          "time": "2:58",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31560
+            ]
           }
         }
-      ]
+      ],
+      "start": "4:36"
     },
     {
       "id": "p4",
@@ -115,55 +849,115 @@
       "name": "Blue Screen",
       "mechanics": [
         {
-          "id": "p4-protean-1-1",
-          "name": "Protean 1",
+          "id": "p4-wave-cannon-1",
+          "name": "Wave Cannon 1 (Protean)",
+          "time": "0:15",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31617,
+              31614
+            ]
           }
         },
         {
-          "id": "p4-stack-1-1",
-          "name": "Stack 1",
+          "id": "p4-wave-cannon-2",
+          "name": "Wave Cannon 2 (Stack)",
+          "time": "0:20",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31616,
+              31615,
+              32534
+            ]
           }
         },
         {
-          "id": "p4-protean-2-1",
-          "name": "Protean 2",
+          "id": "p4-wave-repeater-1",
+          "name": "Wave Repeater 1",
+          "time": "0:22",
+          "minor": true,
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31567,
+              31568,
+              31569,
+              31570
+            ]
           }
         },
         {
-          "id": "p4-stack-2-1",
-          "name": "Stack 2",
+          "id": "p4-wave-cannon-3",
+          "name": "Wave Cannon 3 (Protean)",
+          "time": "0:26",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31614,
+              32534
+            ]
           }
         },
         {
-          "id": "p4-protean-3-1",
-          "name": "Protean 3",
+          "id": "p4-wave-cannon-4",
+          "name": "Wave Cannon 4 (Stack)",
+          "time": "0:30",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31616,
+              31615,
+              31618
+            ]
           }
         },
         {
-          "id": "p4-stack-3-1",
-          "name": "Stack 3",
+          "id": "p4-wave-cannon-5",
+          "name": "Wave Cannon 5 (Protean)",
+          "time": "0:36",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31614,
+              31619
+            ]
+          }
+        },
+        {
+          "id": "p4-wave-repeater-2",
+          "name": "Wave Repeater 2",
+          "time": "0:40",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31567,
+              31568,
+              31569,
+              31570
+            ]
+          }
+        },
+        {
+          "id": "p4-wave-cannon-6",
+          "name": "Wave Cannon 6 (Stack)",
+          "time": "0:41",
+          "fflogs": {
+            "abilityIds": [
+              31616,
+              31615,
+              31620
+            ]
           }
         },
         {
           "id": "p4-blue-screen-1",
           "name": "Blue Screen",
+          "time": "0:56",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31611,
+              31612
+            ]
           }
         }
-      ]
+      ],
+      "start": "7:50"
     },
     {
       "id": "p5",
@@ -171,55 +965,537 @@
       "name": "Run: Dynamis",
       "mechanics": [
         {
-          "id": "p5-delta-cast-1",
-          "name": "Delta Cast",
+          "id": "p5-solar-ray-1",
+          "name": "Solar Ray 1",
+          "time": "0:09",
+          "roles": [
+            "tank"
+          ],
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              33196
+            ]
           }
         },
         {
-          "id": "p5-delta-mech-1",
-          "name": "Delta Mech",
+          "id": "p5-solar-ray-2",
+          "name": "Solar Ray 2",
+          "time": "0:12",
+          "minor": true,
+          "roles": [
+            "tank"
+          ],
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31489
+            ]
           }
         },
         {
-          "id": "p5-sigma-cast-1",
-          "name": "Sigma Cast",
+          "id": "p5-run-mi-delta-version-1",
+          "name": "Run: ****mi* (Delta Version)",
+          "time": "0:25",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31624
+            ]
           }
         },
         {
-          "id": "p5-sigma-mech-1",
-          "name": "Sigma Mech",
+          "id": "p5-peripheral-synthesis-1",
+          "name": "Peripheral Synthesis",
+          "time": "0:35",
+          "minor": true,
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31628
+            ]
           }
         },
         {
-          "id": "p5-omega-cast-1",
-          "name": "Omega Cast",
+          "id": "p5-archive-peripheral-1",
+          "name": "Archive Peripheral",
+          "time": "0:38",
+          "minor": true,
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              32630
+            ]
           }
         },
         {
-          "id": "p5-omega-mech-1",
-          "name": "Omega Mech",
+          "id": "p5-patch-1",
+          "name": "Patch 1",
+          "time": "0:47",
+          "minor": true,
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31587
+            ]
+          }
+        },
+        {
+          "id": "p5-optical-laser-1",
+          "name": "Optical Laser 1",
+          "time": "0:48",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31521
+            ]
+          }
+        },
+        {
+          "id": "p5-patch-2",
+          "name": "Patch 2",
+          "time": "0:50",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31587
+            ]
+          }
+        },
+        {
+          "id": "p5-explosion-1",
+          "name": "Explosion",
+          "time": "0:51",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31482
+            ]
+          }
+        },
+        {
+          "id": "p5-beyond-defense-1",
+          "name": "Beyond Defense 1",
+          "time": "0:54",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31527,
+              31528
+            ]
+          }
+        },
+        {
+          "id": "p5-hyper-pulse-1",
+          "name": "Hyper Pulse 1",
+          "time": "0:56",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31600,
+              31601
+            ]
+          }
+        },
+        {
+          "id": "p5-oversampled-wave-cannon-1",
+          "name": "Oversampled Wave Cannon 1",
+          "time": "0:59",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31638,
+              31597
+            ]
+          }
+        },
+        {
+          "id": "p5-pile-pitch-1",
+          "name": "Pile Pitch 1",
+          "time": "0:59",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31529
+            ]
+          }
+        },
+        {
+          "id": "p5-patch-3",
+          "name": "Patch 3",
+          "time": "1:08",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31587
+            ]
+          }
+        },
+        {
+          "id": "p5-swivel-cannon-1",
+          "name": "Swivel Cannon",
+          "time": "1:11",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31636,
+              31637
+            ]
+          }
+        },
+        {
+          "id": "p5-hello-distant-world-1",
+          "name": "Hello, Distant World / Hello, Near World 1",
+          "time": "1:12",
+          "fflogs": {
+            "abilityIds": [
+              33040,
+              33041,
+              31625,
+              31626
+            ]
+          }
+        },
+        {
+          "id": "p5-patch-4",
+          "name": "Patch 4",
+          "time": "1:21",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31587
+            ]
+          }
+        },
+        {
+          "id": "p5-solar-ray-3",
+          "name": "Solar Ray 3",
+          "time": "1:31",
+          "roles": [
+            "tank"
+          ],
+          "fflogs": {
+            "abilityIds": [
+              33196
+            ]
+          }
+        },
+        {
+          "id": "p5-solar-ray-4",
+          "name": "Solar Ray 4",
+          "time": "1:34",
+          "minor": true,
+          "roles": [
+            "tank"
+          ],
+          "fflogs": {
+            "abilityIds": [
+              31489
+            ]
+          }
+        },
+        {
+          "id": "p5-run-mi-sigma-version-1",
+          "name": "Run: ****mi* (Sigma Version)",
+          "time": "1:48",
+          "fflogs": {
+            "abilityIds": [
+              32788
+            ]
+          }
+        },
+        {
+          "id": "p5-program-loop-1",
+          "name": "Program Loop 1",
+          "time": "2:06",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31640
+            ]
+          }
+        },
+        {
+          "id": "p5-hyper-pulse-2",
+          "name": "Hyper Pulse 2",
+          "time": "2:10",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31602
+            ]
+          }
+        },
+        {
+          "id": "p5-wave-cannon-1",
+          "name": "Wave Cannon 1",
+          "time": "2:10",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31603,
+              31604
+            ]
+          }
+        },
+        {
+          "id": "p5-discharger-1",
+          "name": "Discharger 1",
+          "time": "2:18",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31534
+            ]
+          }
+        },
+        {
+          "id": "p5-storage-violation-1",
+          "name": "Storage Violation 1",
+          "time": "2:22",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31492,
+              31493
+            ]
+          }
+        },
+        {
+          "id": "p5-rear-lasers-1",
+          "name": "Rear Lasers",
+          "time": "2:36",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31631,
+              31632
+            ]
+          }
+        },
+        {
+          "id": "p5-optimized-blizzard-iii-1",
+          "name": "Optimized Blizzard III",
+          "time": "2:39",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31533
+            ]
+          }
+        },
+        {
+          "id": "p5-hyper-pulse-3",
+          "name": "Hyper Pulse 3",
+          "time": "2:47",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31602
+            ]
+          }
+        },
+        {
+          "id": "p5-hello-distant-world-2",
+          "name": "Hello, Distant World / Hello, Near World 2",
+          "time": "2:47",
+          "fflogs": {
+            "abilityIds": [
+              33040,
+              33041,
+              31625,
+              31626
+            ]
+          }
+        },
+        {
+          "id": "p5-solar-ray-5",
+          "name": "Solar Ray 5",
+          "time": "3:00",
+          "roles": [
+            "tank"
+          ],
+          "fflogs": {
+            "abilityIds": [
+              33197
+            ]
+          }
+        },
+        {
+          "id": "p5-solar-ray-6",
+          "name": "Solar Ray 6",
+          "time": "3:04",
+          "minor": true,
+          "roles": [
+            "tank"
+          ],
+          "fflogs": {
+            "abilityIds": [
+              31490
+            ]
+          }
+        },
+        {
+          "id": "p5-run-mi-omega-version-1",
+          "name": "Run: ****mi* (Omega Version)",
+          "time": "3:17",
+          "fflogs": {
+            "abilityIds": [
+              32789
+            ]
+          }
+        },
+        {
+          "id": "p5-diffuse-wave-cannon-1",
+          "name": "Diffuse Wave Cannon",
+          "time": "3:34",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31643,
+              31644,
+              31607,
+              31608,
+              31609
+            ]
+          }
+        },
+        {
+          "id": "p5-superliminal-steel-1",
+          "name": "Superliminal Steel / Optimized Blizzard III 1",
+          "time": "3:35",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31530,
+              31531,
+              31532,
+              31533
+            ]
+          }
+        },
+        {
+          "id": "p5-beyond-strength-1",
+          "name": "Beyond Strength / Efficient Bladework 1",
+          "time": "3:35",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31525,
+              31526
+            ]
+          }
+        },
+        {
+          "id": "p5-superliminal-steel-2",
+          "name": "Superliminal Steel / Optimized Blizzard III 2",
+          "time": "3:39",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31530,
+              31531,
+              31532,
+              31533
+            ]
+          }
+        },
+        {
+          "id": "p5-beyond-strength-2",
+          "name": "Beyond Strength / Efficient Bladework 2",
+          "time": "3:39",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31525,
+              31526
+            ]
+          }
+        },
+        {
+          "id": "p5-hello-distant-world-3",
+          "name": "Hello, Distant World / Hello, Near World 3",
+          "time": "3:52",
+          "fflogs": {
+            "abilityIds": [
+              33040,
+              33041,
+              31625,
+              31626
+            ]
+          }
+        },
+        {
+          "id": "p5-oversampled-wave-cannon-2",
+          "name": "Oversampled Wave Cannon 2",
+          "time": "3:53",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31639,
+              31597
+            ]
+          }
+        },
+        {
+          "id": "p5-blaster-1",
+          "name": "Blaster 1",
+          "time": "4:08",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              32374,
+              32373,
+              31641
+            ]
+          }
+        },
+        {
+          "id": "p5-hello-distant-world-4",
+          "name": "Hello, Distant World / Hello, Near World 4",
+          "time": "4:10",
+          "fflogs": {
+            "abilityIds": [
+              33040,
+              33041,
+              31625,
+              31626
+            ]
+          }
+        },
+        {
+          "id": "p5-solar-ray-7",
+          "name": "Solar Ray 7",
+          "time": "4:24",
+          "roles": [
+            "tank"
+          ],
+          "fflogs": {
+            "abilityIds": [
+              33197
+            ]
+          }
+        },
+        {
+          "id": "p5-solar-ray-8",
+          "name": "Solar Ray 8",
+          "time": "4:27",
+          "minor": true,
+          "roles": [
+            "tank"
+          ],
+          "fflogs": {
+            "abilityIds": [
+              31490
+            ]
           }
         },
         {
           "id": "p5-blind-faith-1",
-          "name": "Blind Faith",
+          "name": "Blind Faith 1",
+          "time": "4:35",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31623
+            ]
           }
         }
-      ]
+      ],
+      "start": "9:01"
     },
     {
       "id": "p6",
@@ -227,83 +1503,236 @@
       "name": "Alpha Omega",
       "mechanics": [
         {
+          "id": "p6-blind-faith-1",
+          "name": "Blind Faith 1",
+          "time": "0:00",
+          "fflogs": {
+            "abilityIds": [
+              32626
+            ]
+          },
+          "minor": true
+        },
+        {
           "id": "p6-cosmo-memory-1",
-          "name": "Cosmo Memory",
+          "name": "Cosmo Memory 1",
+          "time": "1:10",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31649
+            ]
           }
         },
         {
-          "id": "p6-cosmo-dive-1-1",
+          "id": "p6-cosmo-arrow-1",
+          "name": "Cosmo Arrow 1",
+          "time": "1:22",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31650,
+              31651,
+              31652
+            ]
+          }
+        },
+        {
+          "id": "p6-cosmo-dive-1",
           "name": "Cosmo Dive 1",
+          "time": "1:40",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31654,
+              31655,
+              31656
+            ]
           }
         },
         {
-          "id": "p6-protean-1-1",
-          "name": "Protean 1",
+          "id": "p6-unlimited-wave-cannon-1",
+          "name": "Unlimited Wave Cannon 1",
+          "time": "1:55",
+          "minor": true,
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31660,
+              31661,
+              31662,
+              31663
+            ]
           }
         },
         {
-          "id": "p6-wave-cannon-1-1",
-          "name": "Wave Cannon 1",
+          "id": "p6-wave-cannon-1",
+          "name": "Wave Cannon 1 (Protean)",
+          "time": "2:17",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31659
+            ]
           }
         },
         {
-          "id": "p6-protean-2-1",
-          "name": "Protean 2",
+          "id": "p6-wave-cannon-2",
+          "name": "Wave Cannon 2 (Protean)",
+          "time": "2:19",
+          "minor": true,
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31659
+            ]
           }
         },
         {
-          "id": "p6-wave-cannon-2-1",
-          "name": "Wave Cannon 2",
+          "id": "p6-wave-cannon-3",
+          "name": "Wave Cannon 3 (Stack)",
+          "time": "2:26",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31657,
+              31658
+            ]
           }
         },
         {
-          "id": "p6-cosmo-dive-2-1",
+          "id": "p6-cosmo-arrow-2",
+          "name": "Cosmo Arrow 2",
+          "time": "2:39",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31650,
+              31651,
+              31652
+            ]
+          }
+        },
+        {
+          "id": "p6-wave-cannon-4",
+          "name": "Wave Cannon 4 (Protean)",
+          "time": "2:51",
+          "fflogs": {
+            "abilityIds": [
+              31659
+            ]
+          }
+        },
+        {
+          "id": "p6-wave-cannon-5",
+          "name": "Wave Cannon 5 (Protean)",
+          "time": "2:53",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31659
+            ]
+          }
+        },
+        {
+          "id": "p6-wave-cannon-6",
+          "name": "Wave Cannon 6 (Stack)",
+          "time": "2:59",
+          "fflogs": {
+            "abilityIds": [
+              31657,
+              31658
+            ]
+          }
+        },
+        {
+          "id": "p6-unlimited-wave-cannon-2",
+          "name": "Unlimited Wave Cannon 2",
+          "time": "3:12",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31660,
+              31661,
+              31662,
+              31663
+            ]
+          }
+        },
+        {
+          "id": "p6-cosmo-dive-2",
           "name": "Cosmo Dive 2",
+          "time": "3:34",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31654,
+              31655,
+              31656
+            ]
           }
         },
         {
           "id": "p6-cosmo-meteor-1",
-          "name": "Cosmo Meteor",
+          "name": "Cosmo Meteor 1",
+          "time": "3:58",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31664,
+              31666,
+              32699
+            ]
           }
         },
         {
-          "id": "p6-flares-1",
-          "name": "Flares",
+          "id": "p6-cosmo-meteor-2",
+          "name": "Cosmo Meteor 2",
+          "time": "4:04",
+          "minor": true,
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              32699
+            ]
+          }
+        },
+        {
+          "id": "p6-cosmo-meteor-3",
+          "name": "Cosmo Meteor 3 (Flares / Stack)",
+          "time": "4:16",
+          "fflogs": {
+            "abilityIds": [
+              31667,
+              31668,
+              31665
+            ]
           }
         },
         {
           "id": "p6-magic-number-1",
           "name": "Magic Number 1",
+          "time": "4:30",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31670
+            ]
           }
         },
         {
           "id": "p6-magic-number-2",
           "name": "Magic Number 2",
+          "time": "4:46",
           "fflogs": {
-            "abilityIds": []
+            "abilityIds": [
+              31670
+            ]
+          }
+        },
+        {
+          "id": "p6-run-mi-1",
+          "name": "Run: ****mi* (Enrage)",
+          "time": "4:53",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              31648
+            ]
           }
         }
-      ]
+      ],
+      "start": "13:48"
     }
   ],
   "fflogs": {

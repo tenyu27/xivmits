@@ -43,18 +43,20 @@ class TankImportTest(unittest.TestCase):
                  'C77': 'Healers must mitigate tanks.', 'G77': 'Healers must mitigate tanks.',
                  'C82': 'P6: Alpha Omega', 'C86': 'WARRIOR', 'G86': 'DARK KNIGHT',
                  'B87': 'Cosmo Dive 1', 'C87': 'Rampart', 'G87': 'Rampart',
+                 'B91': 'Wave Cannon 2', 'G91': 'Shadow Wall',
                  'D98': 'WAR/DRK: Rampart after Cosmo Arrow.', 'D99': 'DRK: Save MP for TBN.'}
-        party = [{'id': 'p5', 'mechanics': [{'id': 'sigma', 'name': 'Sigma Mech'}]},
-                 {'id': 'p6', 'mechanics': [{'id': 'dive', 'name': 'Cosmo Dive 1'}]}]
+        encounter = json.loads((ROOT / 'top/encounter.json').read_text())
         with patch.object(top, 'TANK_TABS', [('WAR', 'DRK', 'WARDRK')]), \
                 patch.object(top, 'read_cells', return_value=(cells, 99)):
-            plans = top.convert_tank_tabs(None, [], party)['plans']
+            plans = top.convert_tank_tabs(None, [], encounter['phases'])['plans']
         for plan in plans:
             omega = plan['phases'][0]['mechanics'][0]
-            self.assertEqual(omega['name'], 'Omega Solar Ray')
+            self.assertEqual(omega['after'], 'p5-solar-ray-5')
+            self.assertEqual(omega['time'], '3:00')
             self.assertEqual(omega['note'], 'Prepop after Sigma. Healers must mitigate tanks.')
-            self.assertIn('Rampart after Cosmo Arrow.', plan['phases'][1]['note'])
-            self.assertEqual('Save MP' in plan['phases'][1]['note'], plan['job'] == 'DRK')
+            self.assertIn('Rampart after Cosmo Arrow.', plan['phases'][1]['mechanics'][0]['note'])
+            notes = ' '.join(m.get('note', '') for m in plan['phases'][1]['mechanics'])
+            self.assertEqual('Save MP' in notes, plan['job'] == 'DRK')
 
 
 if __name__ == '__main__':

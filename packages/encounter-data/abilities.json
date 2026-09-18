@@ -288,6 +288,10 @@
       "icon": "003666.png",
       "action": 24298
     },
+    "kitchen-sink": {
+      "name": "Kitchen Sink",
+      "kind": "note"
+    },
     "krasis": {
       "name": "Krasis",
       "kind": "action",
@@ -440,6 +444,12 @@
       "icon": "000151.png",
       "action": 17
     },
+    "seraphic-veil": {
+      "name": "Seraphic Veil",
+      "kind": "action",
+      "icon": "002847.png",
+      "action": 16548
+    },
     "seraphism": {
       "name": "Seraphism",
       "kind": "action",
@@ -561,10 +571,6 @@
       "kind": "action",
       "icon": "003668.png",
       "action": 24300
-    },
-    "kitchen-sink": {
-      "name": "Kitchen Sink",
-      "kind": "note"
     }
   },
   "names": {
@@ -626,6 +632,7 @@
     "Intervention": "intervention",
     "Ixochole": "ixochole",
     "Kerachole": "kerachole",
+    "Kitchen Sink": "kitchen-sink",
     "Krasis": "krasis",
     "LB3": "last-bastion",
     "Liturgy of the Bell": "liturgy-of-the-bell",
@@ -658,7 +665,7 @@
     "Sacred Soil": "sacred-soil",
     "Sentinel": "sentinel",
     "Seraph": "summon-seraph",
-    "Seraph's Veil": "summon-seraph",
+    "Seraph Veil": "seraphic-veil",
     "Seraphism": "seraphism",
     "Shadow Wall": "shadow-wall",
     "Shadowed Vigil": "shadowed-vigil",
@@ -683,7 +690,6 @@
     "Voke after Buster": "voke-after-buster",
     "Whispering Dawn": "whispering-dawn",
     "Zoe": "zoe",
-    "Zoe Shields": "zoe",
-    "Kitchen Sink": "kitchen-sink"
+    "Zoe Shields": "zoe"
   }
 }

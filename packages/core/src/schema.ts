@@ -69,6 +69,10 @@ const sheetSchema = z.object({
     scopedNote: z.object({ text, abilities: z.array(text).min(1) }).strict().optional(),
     mechanics: z.array(z.object({
       mechanicId: id,
+      // A sheet may cover a whole sequence with one assignment row. Keep a
+      // canonical member as its reference; the displayed group starts one
+      // second after `after` and includes everything before `before`.
+      group: z.object({ name: text, after: id, before: id }).strict().optional(),
       // An aside for the whole mechanic, every role - "avoid HP-restoring
       // abilities here". Renders once under the cast, above the abilities,
       // whether or not this viewer presses anything.
@@ -187,7 +191,9 @@ export type EncounterPhase = z.infer<typeof encounterPhaseSchema>
 export type Encounter = z.infer<typeof encounterSchema>
 export type MitSheet = z.infer<typeof sheetSchema>
 export type MitSheetMechanicReference = MitSheet['phases'][number]['mechanics'][number]
-export type ResolvedMechanic = EncounterMechanic & Omit<MitSheetMechanicReference, 'mechanicId'>
+export type ResolvedMechanic = EncounterMechanic & Omit<MitSheetMechanicReference, 'mechanicId' | 'group'> & {
+  coveredMechanicIds?: string[]
+}
 export type ResolvedSheet = Omit<MitSheet, 'phases'> & {
   phases: Array<Omit<MitSheet['phases'][number], 'mechanics'> & { mechanics: ResolvedMechanic[] }>
 }
@@ -206,6 +212,11 @@ function unique(values: string[], label: string) {
   if (new Set(values).size !== values.length) throw new Error(`Duplicate ${label}`)
 }
 
+function seconds(value: string): number {
+  const [minutes, seconds] = value.split(':').map(Number)
+  return minutes * 60 + seconds
+}
+
 /** Join normalized source data into the view model consumed by React. */
 export function resolveSheet(encounter: Encounter, sheet: MitSheet): ResolvedSheet {
   return {
@@ -213,11 +224,49 @@ export function resolveSheet(encounter: Encounter, sheet: MitSheet): ResolvedShe
     phases: sheet.phases.map(phase => {
       const encounterPhase = encounter.phases.find(candidate => candidate.id === phase.id)!
       const overlays = new Map(phase.mechanics.map(mechanic => [mechanic.mechanicId, mechanic]))
+      const covered = new Set<string>()
+      const groups = new Map<string, ResolvedMechanic>()
+      for (const overlay of phase.mechanics) {
+        if (!overlay.group) continue
+        const { name, after, before } = overlay.group
+        const start = encounterPhase.mechanics.find(m => m.id === after)
+        const end = encounterPhase.mechanics.find(m => m.id === before)
+        if (!start?.time || !end?.time || encounterPhase.mechanics.some(m => !m.time))
+          throw new Error(`Group ${name}: boundaries and mechanics must have times in ${phase.id}`)
+        const from = seconds(start.time) + 1
+        const until = seconds(end.time)
+        if (from >= until) throw new Error(`Group ${name}: invalid interval`)
+        const members = encounterPhase.mechanics.filter(m => seconds(m.time!) >= from && seconds(m.time!) < until)
+        if (!members.some(m => m.id === overlay.mechanicId))
+          throw new Error(`Group ${name}: reference must be inside its interval`)
+        if (groups.has(after) || members.some(m => covered.has(m.id) || groups.has(m.id)) || covered.has(after))
+          throw new Error(`Group ${name}: overlapping intervals`)
+        for (const member of members) {
+          if (member.id !== overlay.mechanicId && overlays.has(member.id))
+            throw new Error(`Group ${name}: separate overlay for ${member.id} would be hidden`)
+          for (const plan of sheet.tankMits?.plans ?? []) {
+            const personal = plan.phases.find(p => p.id === phase.id)
+            if (personal?.noteAfter === member.id || personal?.mechanics.some(m => m.after === member.id))
+              throw new Error(`Group ${name}: tank anchor ${member.id} would be hidden`)
+          }
+          covered.add(member.id)
+        }
+        groups.set(after, {
+          id: overlay.mechanicId, name,
+          time: `${Math.floor(from / 60)}:${String(from % 60).padStart(2, '0')}`,
+          coveredMechanicIds: members.map(m => m.id),
+          fflogs: { abilityIds: [...new Set(members.flatMap(m => m.fflogs?.abilityIds ?? []))] },
+          note: overlay.note, assignments: overlay.assignments,
+        })
+      }
       return {
         ...phase,
-        mechanics: encounterPhase.mechanics.map(mechanic => {
+        mechanics: encounterPhase.mechanics.flatMap(mechanic => {
+          if (covered.has(mechanic.id)) return []
           const overlay = overlays.get(mechanic.id)
-          return { ...mechanic, note: overlay?.note, assignments: overlay?.assignments ?? {} }
+          const row = { ...mechanic, note: overlay?.note, assignments: overlay?.assignments ?? {} }
+          const group = groups.get(mechanic.id)
+          return group ? [row, group] : [row]
         }),
       }
     }),

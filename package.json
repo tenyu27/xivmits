@@ -16,7 +16,7 @@
     "preview": "yarn workspace @xivmits/web preview",
     "lint": "oxlint",
     "typecheck": "yarn workspace @xivmits/core typecheck && yarn workspace @xivmits/encounter-data typecheck && yarn workspace @xivmits/web typecheck",
-    "test": "yarn workspace @xivmits/core test && yarn workspace @xivmits/encounter-data test"
+    "test": "yarn workspace @xivmits/core test && yarn workspace @xivmits/encounter-data test && yarn workspace @xivmits/web test"
   },
   "devDependencies": {
     "oxlint": "^1.79.0",

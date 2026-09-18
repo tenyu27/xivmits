@@ -49,10 +49,10 @@ Re-reconciling against better logs is expected.
 | DMU encounter reconciled | done — all 5 phases |
 | FRU encounter | All five phases reconciled from six clears and reviewed; P5 starts at 14:23. See [FRU.md](FRU.md) |
 | FRU tank plans | All six pairing tabs imported. MT/OT opening duties, co-tank, standard P3 assignments, P1 invuln and P4 7/1 choices resolve one plan across all layouts. See [FRU-TANKS.md](FRU-TANKS.md) |
-| TOP encounter | **not started** — still sheet-derived, no ability ids or mechanic times |
+| TOP encounter | All six phases reconciled from 18 clears, including 12 slow clears found across all ranking partitions; party bindings and all 12 tank plans use the encounter clock. See [TOP.md](TOP.md) |
 | Importers bind to encounter | done — all 4 |
 | Google Sheets as source | done — all 4 fetch by id |
-| Ability registry | done — 97 abilities, 86 with game action ids |
+| Ability registry | done — 99 abilities, 87 with game action ids |
 | Status → ability mapping | **abandoned, see below** |
 | `apps/analyze`, `apps/parse` | not started, deliberately |
 | `packages/fflogs`, `packages/analysis` | not started; `scripts/fflogs.py` is the current client |
@@ -223,7 +223,7 @@ The `status` field on the ability schema is kept for verified ids later.
   Corepack, Yarn 4 and Node 24 have only ever been exercised locally. Open a
   pull request before merging: the workflow runs on `pull_request` with every
   Pages step gated off, which tests the whole path without deploying.
-- Reconcile TOP, which has no mechanic times. FRU encounter reconciliation is complete.
+- FRU and TOP encounter reconciliation is complete for the sampled clears. Slow wipe logs could extend the observed enrage coverage.
 - Sheets still reference abilities by `name`. The registry makes migrating to
   `ability` ids safe, but 3089 references, the schema, `MitView` and four
   importers all move together.

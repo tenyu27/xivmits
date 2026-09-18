@@ -16,7 +16,7 @@ const absClock = (start: string | undefined, rel: string) => {
 
 type Action = { name: string; note?: string; noteJobs?: string[]; carryOver?: boolean; buddy?: boolean; noteLink?: string }
 type ResolvedActions = { action: Action; resolved: Extract<Resolved, { applies: true }> }[]
-type PersonalRun = { actions: ResolvedActions; tag?: string }
+type PersonalRun = { actions: ResolvedActions; tag?: string; alts?: Entry['alts'] }
 
 // A buddy press whose only note names the melee it covers ("On M1.") carries
 // its target in that note. When every press in a run names the *same* melee,
@@ -65,7 +65,7 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
   const phase = fight.phases.find(p => p.id === phaseId) ?? fight.phases[0]
   const slot = sheet.slots.find(s => s.id === roleId)
   const iconSize = compact ? 26 : 32
-  const showNotes = notes && display !== 'icon'
+  const showNotes = notes && display !== 'icon' && !grid
 
   const resolveActions = (list: readonly Action[]): ResolvedActions => list
     .map(action => ({ action, resolved: resolveAction(action.name, job) }))
@@ -95,6 +95,15 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
   const entriesFor = (id: string) => {
     const start = fight.phases.find(p => p.id === id)?.start
     const data = sheet.phases.find(p => p.id === id)
+    const plan = personalPlan?.phases.find(p => p.id === id)
+    // Keep the landing rows for this viewer's personal assignments, even when
+    // the encounter hides their blank rows, such as TOP's P3 monitors.
+    const personalMechanics = (plan?.mechanics ?? []).filter(mechanic =>
+      (!mechanic.seat || mechanic.seat === roleId)
+      && (!mechanic.boss || mechanic.boss === p3Boss)
+      && (!mechanic.invuln || mechanic.invuln === invulnOrder))
+    const personalAnchors = new Set(personalMechanics.map(m => m.after))
+    const showPlanNote = showNotes && plan?.note && (!plan.noteInvuln || plan.noteInvuln === invulnOrder)
     const party: Entry[] = (data?.mechanics ?? [])
       // A role-scoped mechanic (a tank buster) keeps its blank row only for the
       // roles it is about, and a `minor` one - chip damage the encounter records
@@ -103,6 +112,8 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
       // leaves to the tanks, so either flag hides an empty row, never an
       // assignment.
       .filter(mechanic => (mechanic.assignments[roleId]?.length ?? 0) > 0
+        || personalAnchors.has(mechanic.id)
+        || (showPlanNote && plan?.noteAfter === mechanic.id)
         || (!mechanic.minor
           && (!mechanic.roles || !slot?.role || mechanic.roles.includes(slot.role))))
       .map(mechanic => ({
@@ -110,18 +121,11 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
         note: mechanic.note,
       }))
 
-    const plan = personalPlan?.phases.find(p => p.id === id)
     if (!plan) return { data, entries: visibleEntries(party), start, personalNote: undefined as string | undefined }
 
     const front: Entry[] = []
     const byAnchor = new Map<string, Entry[]>()
-    for (const mechanic of plan.mechanics) {
-      // A row tagged with a seat belongs only to that seat's viewer.
-      if (mechanic.seat && mechanic.seat !== roleId) continue
-      // Branch tags on a job-keyed plan: the row is for one boss / invuln slot
-      // only. Untagged rows always show; a tagged row needs the matching choice.
-      if (mechanic.boss && mechanic.boss !== p3Boss) continue
-      if (mechanic.invuln && mechanic.invuln !== invulnOrder) continue
+    for (const mechanic of personalMechanics) {
       // When a personal row names the same mechanic as the party row it sits
       // under, drop the repeated heading - the accent edge already says it is a
       // separate, personal line. "Same" also covers a qualified party variant:
@@ -154,7 +158,6 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
     // The plan's phase note. Anchored (`noteAfter`) it rides the timeline as an
     // edged personal row; unanchored it reads like any other phase note, at the
     // top, so `personalNote` carries it out to `mechanics()`.
-    const showPlanNote = plan.note && (!plan.noteInvuln || plan.noteInvuln === invulnOrder)
     const personalNote = showPlanNote && !plan.noteAfter ? plan.note : undefined
     const noteRow: Entry | undefined = showPlanNote && plan.noteAfter
       ? { mechanic: { id: `${id}-personal-note`, name: '' }, personal: 'bar', note: plan.note, actions: [] }
@@ -167,7 +170,7 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
     // no tag, no note. One that holds only carried-over actions still says
     // something - that cooldown covers this mechanic - and stays.
     const hasBody = (e: Entry) => e.personal !== 'bar' || e.actions.length > 0
-      || Boolean(e.mechanic.tag) || Boolean(e.note) || Boolean(e.alts?.length)
+      || Boolean(e.mechanic.tag) || Boolean(showNotes && e.note) || Boolean(e.alts?.length)
     for (const [anchorId, group] of byAnchor) byAnchor.set(anchorId, group.filter(hasBody))
 
     const entries: Entry[] = [...front]
@@ -332,15 +335,16 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
     </>
   }
 
+  const phaseNote = (body: string, key?: string) => <Group key={key} className="phase-note" gap={6} align="flex-start" wrap="nowrap" mb="sm" maw="64ch">
+    <IconInfoCircle size={compact ? 14 : 16} className="phase-note-icon" aria-hidden />
+    <Text c="dimmed" fz={compact ? 'xs' : 'sm'} style={{ whiteSpace: 'pre-line' }}>{body}</Text>
+  </Group>
+
   const mechanics =(data: ReturnType<typeof entriesFor>['data'], entries: ReturnType<typeof entriesFor>['entries'], phaseStart?: string, personalNote?: string) => {
     if (!data) return <Text ta="center" c="dimmed" py="xl">No mitigation data available for this phase.</Text>
     // A phase-wide aside sits above the mechanic list: the rules the sheet
     // repeats every row (shields, targeted-mit caveats) collected here once,
     // one per line, so a mit's own note carries only what is specific to it.
-    const phaseNote = (body: string, key?: string) => <Group key={key} className="phase-note" gap={6} align="flex-start" wrap="nowrap" mb="sm" maw="64ch">
-      <IconInfoCircle size={compact ? 14 : 16} className="phase-note-icon" aria-hidden />
-      <Text c="dimmed" fz={compact ? 'xs' : 'sm'} style={{ whiteSpace: 'pre-line' }}>{body}</Text>
-    </Group>
     const note = data.note && showNotes && phaseNote(data.note)
     // The plan's unanchored phase note - "you start with the boss" - reads like
     // any other phase note, not an edged personal row. Still notes-toggle gated.
@@ -469,25 +473,28 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
           </>)}
         </Fragment>)}
       </Box>}
+      {personalRuns.flatMap((run, index) => (run.alts ?? []).map(alt =>
+        miniActions(alt.actions, alt.label, `${key}-alt-${index}-${alt.label}`)))}
     </Box>
   }
   // Personal mit never takes its own cell: a `bar` row folds into the cell
   // before it, a `plain` personal mechanic keeps its name but renders its icons
   // through the same glyph + splitter path (with no party icons ahead of it).
-  // A `bar` row with no actions is a personal phase note - nothing to show.
+  // Keep alternatives when folding a personal row into its heading.
+  // The cheatsheet intentionally omits notes.
   const cheatCells = (entries: Entry[]) => {
     const cells: { entry: Entry; partyActions: ResolvedActions; personalRuns: PersonalRun[] }[] = []
     for (const entry of entries) {
       if (entry.personal === 'bar') {
-        if (entry.actions.length && cells.length) {
+        if (cells.length) {
           // Keep timing/solo tags beside their own actions, including when
           // several personal rows share one party mechanic.
-          cells[cells.length - 1].personalRuns.push({ actions: entry.actions, tag: entry.mechanic.tag })
+          cells[cells.length - 1].personalRuns.push({ actions: entry.actions, tag: entry.mechanic.tag, alts: entry.alts })
         }
         continue
       }
       if (entry.personal === 'plain') {
-        cells.push({ entry, partyActions: [], personalRuns: entry.actions.length ? [{ actions: entry.actions }] : [] })
+        cells.push({ entry, partyActions: [], personalRuns: [{ actions: entry.actions, alts: entry.alts }] })
         continue
       }
       cells.push({ entry, partyActions: entry.actions, personalRuns: [] })

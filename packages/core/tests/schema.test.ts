@@ -124,3 +124,80 @@ test('rejects a seat restriction that is not a job ID', () => {
   restricted.slots[0] = { ...restricted.slots[0], jobs: ['Warrior'] }
   assert.throws(() => validateCatalog(files(restricted), {}, jobs))
 })
+
+
+function groupedFiles() {
+  const groupEncounter = structuredClone(encounter)
+  groupEncounter.phases[0].mechanics.push(
+    { id: 'p1-hit-1', name: 'Hit 1', time: '0:25', fflogs: { abilityIds: [1] } },
+    { id: 'p1-hit-2', name: 'Hit 2', time: '0:35', fflogs: { abilityIds: [2] } },
+    { id: 'p1-buster-1', name: 'Buster', time: '0:45', fflogs: { abilityIds: [3] } },
+  )
+  const groupSheet = {
+    ...structuredClone(sheet),
+    phases: [{ id: 'p1', mechanics: [{
+      mechanicId: 'p1-hit-1',
+      group: { name: 'Sequence', after: 'p1-raidwide-1', before: 'p1-buster-1' },
+      assignments: { MT: [{ name: 'Reprisal' }] },
+    }] }],
+  }
+  return {
+    '/repo/data/fights/test/encounter.json': groupEncounter,
+    '/repo/data/fights/test/sheets/plan.json': groupSheet,
+  }
+}
+
+test('groups a sequence at its start without mutating logged events or duplicating presses', () => {
+  const input = groupedFiles()
+  const original = structuredClone(input)
+  const catalog = validateCatalog(input, {}, jobs)
+  const rows = catalog.sheets[0].phases[0].mechanics
+  assert.deepEqual(rows.map(m => [m.name, m.time]), [
+    ['Raidwide', '0:18'], ['Sequence', '0:19'], ['Buster', '0:45'],
+  ])
+  assert.deepEqual(rows[1].coveredMechanicIds, ['p1-hit-1', 'p1-hit-2'])
+  assert.deepEqual(rows[1].fflogs?.abilityIds, [1, 2])
+  assert.equal(rows.flatMap(m => Object.values(m.assignments).flat()).length, 1)
+  assert.deepEqual(input, original)
+})
+
+test('rejects missing, reversed, and out-of-window group references', () => {
+  for (const [field, value, error] of [
+    ['after', 'p1-missing-1', /must have times/],
+    ['before', 'p1-missing-1', /must have times/],
+    ['after', 'p1-buster-1', /invalid interval/],
+    ['after', 'p1-hit-1', /reference must be inside/],
+  ] as const) {
+    const input = groupedFiles()
+    input['/repo/data/fights/test/sheets/plan.json'].phases[0].mechanics[0].group[field] = value
+    assert.throws(() => validateCatalog(input, {}, jobs), error)
+  }
+})
+
+test('rejects overlapping groups and separate overlays they would hide', () => {
+  const input = groupedFiles()
+  const rows = input['/repo/data/fights/test/sheets/plan.json'].phases[0].mechanics
+  rows.push({ ...structuredClone(rows[0]), mechanicId: 'p1-hit-2' })
+  assert.throws(() => validateCatalog(input, {}, jobs), /separate overlay.*would be hidden/)
+
+  const overlap = groupedFiles()
+  const first = overlap['/repo/data/fights/test/sheets/plan.json'].phases[0].mechanics[0]
+  first.group.before = 'p1-hit-2'
+  overlap['/repo/data/fights/test/sheets/plan.json'].phases[0].mechanics.push({
+    mechanicId: 'p1-hit-2', group: { name: 'Overlapping', after: 'p1-raidwide-1', before: 'p1-buster-1' },
+    assignments: { MT: [{ name: 'Reprisal' }] },
+  })
+  assert.throws(() => validateCatalog(overlap, {}, jobs), /overlapping intervals/)
+})
+
+test('rejects grouping that would hide a tank personal anchor or note', () => {
+  for (const note of [false, true]) {
+    const input = groupedFiles()
+    const source = input['/repo/data/fights/test/sheets/plan.json']
+    const withTank = { ...source, tankMits: { plans: [{ job: 'GNB', phases: [{
+      id: 'p1', ...(note ? { note: 'Tank note', noteAfter: 'p1-hit-2' } : {}),
+      mechanics: note ? [] : [{ id: 'personal', name: 'Tank mit', after: 'p1-hit-2', actions: [{ name: 'Rampart' }] }],
+    }] }] } }
+    assert.throws(() => validateCatalog({ ...input, '/repo/data/fights/test/sheets/plan.json': withTank }, {}, jobs), /tank anchor.*would be hidden/)
+  }
+})
