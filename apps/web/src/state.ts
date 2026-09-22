@@ -28,7 +28,9 @@ export function initialSelection() {
   const parts = path.split('/').filter(Boolean)
   const linked = parts.length > 0
   const fight = catalog.fights.find(f => f.id === (linked ? parts[0] : readStored('lastFight')))
-  const sheet = fight && catalog.sheets.find(s => s.fightId === fight.id && s.id === (linked ? parts[1] : readMap('lastSheetByFight')[fight.id]))
+  const sheets = catalog.sheets.filter(s => s.fightId === fight?.id)
+  const sheet = sheets.find(s => s.id === (linked ? parts[1] : readMap('lastSheetByFight')[fight!.id]))
+    ?? (linked && parts[1] ? undefined : sheets[0])
   const key = sheet ? sheetKey(sheet.fightId, sheet.id) : ''
   const query = new URLSearchParams(window.location.search)
   const role = query.get('role') ?? readMap('lastRoleBySheet')[key]

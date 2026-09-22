@@ -13,6 +13,7 @@ import catalog from './data/catalog'
 import { availableTankChoices, selectTankRoute, tankChoices } from '@xivmits/core'
 import { jobsForRole, jobsForSeat, positionsForSheet, slotIdFor } from './data/resolve'
 import MitView, { type Display, type Layout } from './components/MitView'
+import { LatestUpdate, UpdatesPage, updatesPath } from './components/Updates'
 import { theme } from './theme'
 import { initialSelection, readMap, readStored, sheetKey, sheetPath, storeMap, storeValue } from './state'
 import { usePip } from './usePip'
@@ -64,6 +65,7 @@ const query = new URLSearchParams(window.location.search)
 const cheatsheet = query.get('view') === 'cheatsheet'
 
 function Shell() {
+  const [updatesPage, setUpdatesPage] = useState(() => window.location.pathname.replace(/\/$/, '') === updatesPath.replace(/\/$/, ''))
   const [selection, setSelection] = useState(initialSelection)
   const [display, setDisplay] = useState<Display>(() => {
     const stored = readStored('display')
@@ -159,15 +161,18 @@ function Shell() {
   }, [viewing, key, selection.roleId, job, otherTank, p3Boss, invulnOrder, serializedRoute, routeScope])
 
   useEffect(() => {
-    const onPop = () => setSelection(initialSelection())
+    const onPop = () => {
+      setSelection(initialSelection())
+      setUpdatesPage(window.location.pathname.replace(/\/$/, '') === updatesPath.replace(/\/$/, ''))
+    }
     window.addEventListener('popstate', onPop)
     return () => window.removeEventListener('popstate', onPop)
   }, [])
   useEffect(() => {
-    document.title = viewing
+    document.title = updatesPage ? 'Updates | XIVMits' : viewing
       ? `${fight.name} · ${selection.roleId}${cheatsheet ? ' · Cheatsheet' : ''} | XIVMits`
       : 'XIVMits · FFXIV raid mits'
-  }, [viewing, fight, selection.roleId])
+  }, [viewing, fight, selection.roleId, updatesPage])
 
   function pickSheet(id: string, fightId = selection.fightId) {
     const next = catalog.sheets.find(s => s.id === id && s.fightId === fightId)
@@ -420,7 +425,7 @@ function Shell() {
   // The cheatsheet is its own bare layout (same tab, `?view=cheatsheet`): no
   // site header/footer, no 720px reading column, no phase tab bar - every
   // pixel goes to fitting all phase columns across with the least wrapping.
-  if (cheatsheet) {
+  if (cheatsheet && !updatesPage) {
     return <Box px="md" py="sm" h="100dvh" style={{ display: 'flex', flexDirection: 'column' }}>
       {viewing && fight && sheet ? <>
         <Group justify="space-between" align="center" wrap="wrap" gap="sm" mb="sm" style={{ flex: '0 0 auto' }}>
@@ -491,8 +496,8 @@ function Shell() {
       <ThemeControl />
     </Group>
 
-    <Box component="main" flex={1} miw={0} py="xl">
-      {viewing ? <>
+    <Box component="main" flex={1} miw={0} py="xl" display={!viewing ? 'flex' : undefined} style={!viewing ? { flexDirection: 'column' } : undefined}>
+      {updatesPage ? <UpdatesPage /> : viewing ? <>
         {/* Fight name on its own line; the fight/sheet actions always sit as a
             row beneath it rather than floating to its right. */}
         <Stack gap="xs">
@@ -614,7 +619,7 @@ function Shell() {
             : <MitView compact fight={fight} sheet={sheet} roleId={slotId} phaseId={selection.phaseId} onPhase={changePhase} job={jobFree ? undefined : job} personalPlan={tankPlan} p3Boss={p3Boss} invulnOrder={invulnOrder} display={display} notes={notes} layout={layout} showUnassigned={showUnassigned} />,
           pip.pipWindow.document.body,
         )}
-      </> : <Box maw={480} mx="auto">
+      </> : <Box w="100%" maw={480} mx="auto">
         <Title order={1}>What do I mit?</Title>
         <Text c="dimmed" mt="sm">Easy focus on your own mit without distraction.</Text>
 
@@ -631,17 +636,17 @@ function Shell() {
             onChange={event => {
               const fightId = event.currentTarget.value
               const saved = readMap('lastSheetByFight')[fightId]
-              pickSheet(catalog.sheets.some(s => s.id === saved && s.fightId === fightId) ? saved : '', fightId)
+              const available = catalog.sheets.filter(s => s.fightId === fightId)
+              pickSheet((available.find(s => s.id === saved) ?? available[0])?.id ?? '', fightId)
             }}
             data={[{ value: '', label: 'Choose fight' }, ...catalog.fights.map(f => ({ value: f.id, label: f.name }))]}
           />
           <NativeSelect
-            label="Mit sheet" value={selection.sheetId} disabled={!fight}
+            label="Mit sheet" value={selection.sheetId} disabled={!sheets.length}
             onChange={event => pickSheet(event.currentTarget.value)}
-            data={[
-              { value: '', label: fight ? sheets.length ? 'Choose sheet' : 'No sheets available' : 'Pick a fight first' },
-              ...sheets.map(s => ({ value: s.id, label: s.name })),
-            ]}
+            data={sheets.length
+              ? sheets.map(s => ({ value: s.id, label: s.name }))
+              : [{ value: '', label: fight ? 'No sheets available' : 'Pick a fight first' }]}
           />
           <Group grow align="flex-start" gap="sm">{roleSelect}{jobSelect}</Group>
           <Button type="submit" rightSection={<IconArrowRight size={18} aria-hidden />} disabled={!fight || !sheet || !selection.roleId || (!job && !jobFree)}>
@@ -649,12 +654,14 @@ function Shell() {
           </Button>
         </Stack>
       </Box>}
+      {!updatesPage && !viewing && <LatestUpdate />}
     </Box>
 
     <Stack component="footer" gap="sm" pt="lg" pb="md" style={{ borderTop: '1px solid var(--border)' }}>
       <Group justify="space-between" align="center" gap="sm" wrap="wrap">
         <Group gap="xs" align="center">
           <Text fz="sm" c="dimmed">Made by tenyu</Text>
+          <Anchor href={updatesPath} fz="sm">Updates</Anchor>
           <Text fz="sm" c="dimmed" aria-hidden>·</Text>
           {/* Icon-only, so the accessible name has to come from aria-label - see
               DESIGN.md §7. `title` gives sighted users the same words. */}

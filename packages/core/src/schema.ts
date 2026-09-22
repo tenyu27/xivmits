@@ -43,6 +43,8 @@ const action = z.object({
 }).strict()
 const encounterSchema = z.object({
   id: slug, name: text, shortName: text.optional(),
+  // Original duty release date, not the latest sheet update or FFLogs partition.
+  released: z.iso.date(),
   type: z.enum(['Savage', 'Ultimate', 'Criterion', 'Other']),
   fflogs: z.object({ encounterIds: z.array(z.number().int().positive()) }).strict().optional(),
   phases: z.array(encounterPhaseSchema).min(1),
@@ -406,5 +408,6 @@ export function validateCatalog(
         + '\nRun scripts/fetch_icons.py to rebuild the registry.')
     }
   }
+  fights.sort((a, b) => b.released.localeCompare(a.released) || a.id.localeCompare(b.id))
   return { fights, sheets, icons, jobs, abilities }
 }

@@ -158,6 +158,12 @@
       "icon": "003143.png",
       "action": 7439
     },
+    "equilibrium": {
+      "name": "Equilibrium",
+      "kind": "action",
+      "icon": "002560.png",
+      "action": 3552
+    },
     "eukrasian-diagnosis": {
       "name": "Eukrasian Diagnosis",
       "kind": "action",
@@ -337,6 +343,12 @@
       "kind": "action",
       "icon": "002567.png",
       "action": 16464
+    },
+    "nebula": {
+      "name": "Nebula",
+      "kind": "action",
+      "icon": "003412.png",
+      "action": 16148
     },
     "neutral-sect": {
       "name": "Neutral Sect",
@@ -603,6 +615,7 @@
     "Divine Veil": "divine-veil",
     "Druochole": "druochole",
     "Earthly Star": "earthly-star",
+    "Equilibrium": "equilibrium",
     "Eukrasian Diagnosis": "eukrasian-diagnosis",
     "Eukrasian Prognosis": "eukrasian-prognosis",
     "Eukrasian Prognosis II": "eukrasian-prognosis-ii",
@@ -641,6 +654,7 @@
     "Magick Barrier": "magick-barrier",
     "Manage Accretion healing": "manage-accretion-healing",
     "Nascent Flash": "nascent-flash",
+    "Nebula": "nebula",
     "Neutral Sect": "neutral-sect",
     "Oblation": "oblation",
     "Oblation (DRK)": "oblation",

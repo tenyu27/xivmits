@@ -1,0 +1,1081 @@
+{
+  "id": "dsr",
+  "name": "Dragonsong's Reprise (Ultimate)",
+  "shortName": "DSR",
+  "type": "Ultimate",
+  "released": "2022-04-26",
+  "fflogs": {
+    "encounterIds": [
+      1065,
+      1076
+    ]
+  },
+  "phases": [
+    {
+      "id": "p2",
+      "label": "P2",
+      "name": "Thordan",
+      "start": "0:00",
+      "mechanics": [
+        {
+          "id": "p2-ascalon-s-mercy-concealed-1",
+          "name": "Ascalon's Mercy Concealed 1",
+          "time": "0:09",
+          "fflogs": {
+            "abilityIds": [
+              25544,
+              25545
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p2-ascalon-s-might-1",
+          "name": "Ascalon's Might 1",
+          "time": "0:16",
+          "fflogs": {
+            "abilityIds": [
+              25541
+            ]
+          },
+          "roles": [
+            "tank"
+          ]
+        },
+        {
+          "id": "p2-strength-of-the-ward-1",
+          "name": "Strength of the Ward",
+          "time": "0:25",
+          "fflogs": {
+            "abilityIds": [
+              25555
+            ]
+          }
+        },
+        {
+          "id": "p2-lightning-storm-1",
+          "name": "Lightning Storm 1",
+          "time": "0:36",
+          "fflogs": {
+            "abilityIds": [
+              25548,
+              25549
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p2-ascalon-s-mercy-concealed-2",
+          "name": "Ascalon's Mercy Concealed 2",
+          "time": "0:44",
+          "fflogs": {
+            "abilityIds": [
+              25544,
+              25545
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p2-the-dragon-s-rage-1",
+          "name": "The Dragon's Rage",
+          "time": "0:52",
+          "fflogs": {
+            "abilityIds": [
+              25550,
+              25551
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p2-holy-shield-bash-1",
+          "name": "Holy Shield Bash",
+          "time": "0:59",
+          "fflogs": {
+            "abilityIds": [
+              25297,
+              25579,
+              25298,
+              25299
+            ]
+          },
+          "roles": [
+            "tank"
+          ]
+        },
+        {
+          "id": "p2-ancient-quaga-1",
+          "name": "Ancient Quaga 1",
+          "time": "1:04",
+          "fflogs": {
+            "abilityIds": [
+              25542
+            ]
+          }
+        },
+        {
+          "id": "p2-heavenly-heel-1",
+          "name": "Heavenly Heel 1",
+          "time": "1:16",
+          "fflogs": {
+            "abilityIds": [
+              25543
+            ]
+          },
+          "roles": [
+            "tank"
+          ]
+        },
+        {
+          "id": "p2-ascalon-s-might-2",
+          "name": "Ascalon's Might 2",
+          "time": "1:24",
+          "fflogs": {
+            "abilityIds": [
+              25541
+            ]
+          },
+          "roles": [
+            "tank"
+          ]
+        },
+        {
+          "id": "p2-sanctity-of-the-ward-1",
+          "name": "Sanctity of the Ward",
+          "time": "1:33",
+          "fflogs": {
+            "abilityIds": [
+              25569
+            ]
+          }
+        },
+        {
+          "id": "p2-sacred-sever-1",
+          "name": "Sacred Sever",
+          "time": "1:51",
+          "fflogs": {
+            "abilityIds": [
+              25571
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p2-hiemal-storm-1",
+          "name": "Hiemal Storm",
+          "time": "2:01",
+          "fflogs": {
+            "abilityIds": [
+              25574,
+              25575
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p2-holy-comet-1",
+          "name": "Holy Comet",
+          "time": "2:01",
+          "fflogs": {
+            "abilityIds": [
+              25576,
+              25577
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p2-ultimate-end-1",
+          "name": "Ultimate End",
+          "time": "2:45",
+          "fflogs": {
+            "abilityIds": [
+              25534,
+              25533
+            ]
+          }
+        },
+        {
+          "id": "p2-broad-swing-1",
+          "name": "Broad Swing 1",
+          "time": "2:54",
+          "fflogs": {
+            "abilityIds": [
+              25536,
+              25537,
+              25538
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p2-broad-swing-2",
+          "name": "Broad Swing 2",
+          "time": "3:03",
+          "fflogs": {
+            "abilityIds": [
+              25536,
+              25537,
+              25538
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p2-aetheric-burst-1",
+          "name": "Aetheric Burst 1",
+          "time": "3:11",
+          "fflogs": {
+            "abilityIds": [
+              25539
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p2-final-chorus-1",
+          "name": "Final Chorus",
+          "time": "3:23",
+          "fflogs": {
+            "abilityIds": [
+              26377,
+              26376
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "label": "P3",
+      "name": "Nidhogg",
+      "start": "3:26",
+      "mechanics": [
+        {
+          "id": "p3-dive-from-grace-1",
+          "name": "Dive from Grace",
+          "time": "0:13",
+          "fflogs": {
+            "abilityIds": [
+              26381
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p3-eye-of-the-tyrant-1",
+          "name": "Eye of the Tyrant 1",
+          "time": "0:29",
+          "fflogs": {
+            "abilityIds": [
+              26388
+            ]
+          }
+        },
+        {
+          "id": "p3-darkdragon-dive-1",
+          "name": "Darkdragon Dive 1",
+          "time": "0:32",
+          "fflogs": {
+            "abilityIds": [
+              26385
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p3-darkdragon-dive-2",
+          "name": "Darkdragon Dive 2",
+          "time": "0:42",
+          "fflogs": {
+            "abilityIds": [
+              26385
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p3-eye-of-the-tyrant-2",
+          "name": "Eye of the Tyrant 2",
+          "time": "0:50",
+          "fflogs": {
+            "abilityIds": [
+              26388
+            ]
+          }
+        },
+        {
+          "id": "p3-darkdragon-dive-3",
+          "name": "Darkdragon Dive 3",
+          "time": "0:53",
+          "fflogs": {
+            "abilityIds": [
+              26385
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p3-drachenlance-1",
+          "name": "Drachenlance 1",
+          "time": "1:05",
+          "fflogs": {
+            "abilityIds": [
+              26379,
+              26380
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p3-darkdragon-dive-4",
+          "name": "Darkdragon Dive 4",
+          "time": "1:10",
+          "fflogs": {
+            "abilityIds": [
+              26392
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p3-soul-tether-1",
+          "name": "Soul Tether",
+          "time": "1:23",
+          "fflogs": {
+            "abilityIds": [
+              26396
+            ]
+          },
+          "roles": [
+            "tank"
+          ]
+        },
+        {
+          "id": "p3-drachenlance-2",
+          "name": "Drachenlance 2",
+          "time": "1:43",
+          "fflogs": {
+            "abilityIds": [
+              26379,
+              26380
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p3-revenge-of-the-horde-1",
+          "name": "Revenge of the Horde 1",
+          "time": "1:48",
+          "fflogs": {
+            "abilityIds": [
+              29750
+            ]
+          },
+          "minor": true
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "label": "P4",
+      "name": "Eyes",
+      "start": "5:40",
+      "mechanics": [
+        {
+          "id": "p4-resentment-1",
+          "name": "Resentment 1",
+          "time": "0:12",
+          "fflogs": {
+            "abilityIds": [
+              26810
+            ]
+          }
+        },
+        {
+          "id": "p4-hatebound-1",
+          "name": "Hatebound",
+          "time": "0:16",
+          "fflogs": {
+            "abilityIds": [
+              26814
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p4-flare-nova-1",
+          "name": "Flare Nova",
+          "time": "0:28",
+          "fflogs": {
+            "abilityIds": [
+              26817
+            ]
+          }
+        },
+        {
+          "id": "p4-flare-star-1",
+          "name": "Flare Star",
+          "time": "0:33",
+          "fflogs": {
+            "abilityIds": [
+              26815
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p4-mirage-dive-1",
+          "name": "Mirage Dive",
+          "time": "0:42",
+          "fflogs": {
+            "abilityIds": [
+              26819,
+              26820
+            ]
+          }
+        },
+        {
+          "id": "p4-steep-in-rage-1",
+          "name": "Steep in Rage",
+          "time": "1:05",
+          "fflogs": {
+            "abilityIds": [
+              26813
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "rewind",
+      "label": "Rewind",
+      "name": "Save Haurchefant",
+      "start": "6:57",
+      "mechanics": [
+        {
+          "id": "rewind-spear-of-the-fury-1",
+          "name": "Spear of the Fury",
+          "time": "0:18",
+          "fflogs": {
+            "abilityIds": [
+              25314
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "rewind-brightwing-1",
+          "name": "Brightwing 1",
+          "time": "0:34",
+          "fflogs": {
+            "abilityIds": [
+              25369
+            ]
+          }
+        },
+        {
+          "id": "rewind-brightwing-2",
+          "name": "Brightwing 2",
+          "time": "0:39",
+          "fflogs": {
+            "abilityIds": [
+              25369
+            ]
+          }
+        },
+        {
+          "id": "rewind-brightwing-3",
+          "name": "Brightwing 3",
+          "time": "0:44",
+          "fflogs": {
+            "abilityIds": [
+              25369
+            ]
+          }
+        },
+        {
+          "id": "rewind-brightwing-4",
+          "name": "Brightwing 4",
+          "time": "0:49",
+          "fflogs": {
+            "abilityIds": [
+              25369
+            ]
+          }
+        },
+        {
+          "id": "rewind-pure-of-heart-1",
+          "name": "Pure of Heart",
+          "time": "0:54",
+          "fflogs": {
+            "abilityIds": [
+              25316
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "label": "P5",
+      "name": "Dark Thordan",
+      "start": "8:21",
+      "mechanics": [
+        {
+          "id": "p5-incarnation-1",
+          "name": "Incarnation",
+          "time": "0:04",
+          "fflogs": {
+            "abilityIds": [
+              27526
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p5-wrath-of-the-heavens-1",
+          "name": "Wrath of the Heavens",
+          "time": "0:25",
+          "fflogs": {
+            "abilityIds": [
+              27529
+            ]
+          }
+        },
+        {
+          "id": "p5-spiral-pierce-1",
+          "name": "Spiral Pierce",
+          "time": "0:41",
+          "fflogs": {
+            "abilityIds": [
+              27530,
+              29346
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p5-ascalon-s-mercy-revealed-1",
+          "name": "Ascalon's Mercy Revealed",
+          "time": "0:43",
+          "fflogs": {
+            "abilityIds": [
+              25546,
+              25547
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p5-cauterize-1",
+          "name": "Cauterize 1",
+          "time": "0:48",
+          "fflogs": {
+            "abilityIds": [
+              27534,
+              27533
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p5-ancient-quaga-1",
+          "name": "Ancient Quaga 2",
+          "time": "0:55",
+          "fflogs": {
+            "abilityIds": [
+              25542
+            ]
+          }
+        },
+        {
+          "id": "p5-heavenly-heel-1",
+          "name": "Heavenly Heel 2",
+          "time": "1:08",
+          "fflogs": {
+            "abilityIds": [
+              25543
+            ]
+          },
+          "roles": [
+            "tank"
+          ]
+        },
+        {
+          "id": "p5-ascalon-s-might-1",
+          "name": "Ascalon's Might 3",
+          "time": "1:15",
+          "fflogs": {
+            "abilityIds": [
+              25541
+            ]
+          },
+          "roles": [
+            "tank"
+          ]
+        },
+        {
+          "id": "p5-death-of-the-heavens-1",
+          "name": "Death of the Heavens",
+          "time": "1:25",
+          "fflogs": {
+            "abilityIds": [
+              27538
+            ]
+          }
+        },
+        {
+          "id": "p5-lightning-storm-1",
+          "name": "Lightning Storm 2",
+          "time": "1:40",
+          "fflogs": {
+            "abilityIds": [
+              25548,
+              25549
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p5-heavensflame-1",
+          "name": "Heavensflame",
+          "time": "1:54",
+          "fflogs": {
+            "abilityIds": [
+              25310,
+              25311
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p5-holy-meteor-1",
+          "name": "Holy Meteor",
+          "time": "1:55",
+          "fflogs": {
+            "abilityIds": [
+              27543
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p5-ancient-quaga-2",
+          "name": "Ancient Quaga 3",
+          "time": "2:19",
+          "fflogs": {
+            "abilityIds": [
+              25542
+            ]
+          }
+        },
+        {
+          "id": "p5-heavenly-heel-2",
+          "name": "Heavenly Heel 3",
+          "time": "2:31",
+          "fflogs": {
+            "abilityIds": [
+              25543
+            ]
+          },
+          "roles": [
+            "tank"
+          ]
+        },
+        {
+          "id": "p5-ascalon-s-might-2",
+          "name": "Ascalon's Might 4",
+          "time": "2:39",
+          "fflogs": {
+            "abilityIds": [
+              25541
+            ]
+          },
+          "roles": [
+            "tank"
+          ]
+        },
+        {
+          "id": "p5-aetheric-burst-1",
+          "name": "Aetheric Burst 2",
+          "time": "2:46",
+          "fflogs": {
+            "abilityIds": [
+              27528
+            ]
+          },
+          "minor": true
+        }
+      ]
+    },
+    {
+      "id": "p6",
+      "label": "P6",
+      "name": "Double Dragons",
+      "start": "11:29",
+      "mechanics": [
+        {
+          "id": "p6-great-wyrmsbreath-1",
+          "name": "Great Wyrmsbreath 1",
+          "time": "0:11",
+          "fflogs": {
+            "abilityIds": [
+              27956,
+              27957,
+              27954,
+              27955,
+              27958,
+              27959,
+              27963,
+              27964,
+              27965
+            ]
+          }
+        },
+        {
+          "id": "p6-akh-afah-1",
+          "name": "Akh Afah 1",
+          "time": "0:29",
+          "fflogs": {
+            "abilityIds": [
+              27969,
+              27970,
+              27971,
+              27972
+            ]
+          }
+        },
+        {
+          "id": "p6-hallowed-wings-1",
+          "name": "Hallowed Wings 1",
+          "time": "0:42",
+          "fflogs": {
+            "abilityIds": [
+              27939,
+              27940,
+              27942,
+              27943,
+              27941,
+              27944
+            ]
+          },
+          "roles": [
+            "tank"
+          ]
+        },
+        {
+          "id": "p6-cauterize-1",
+          "name": "Cauterize 2",
+          "time": "0:46",
+          "fflogs": {
+            "abilityIds": [
+              27966,
+              27967
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p6-hallowed-plume-1",
+          "name": "Hallowed Plume 1",
+          "time": "0:52",
+          "fflogs": {
+            "abilityIds": [
+              27945
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p6-wroth-flames-1",
+          "name": "Wroth Flames",
+          "time": "1:03",
+          "fflogs": {
+            "abilityIds": [
+              27973
+            ]
+          }
+        },
+        {
+          "id": "p6-akh-morn-1",
+          "name": "Akh Morn",
+          "time": "1:08",
+          "fflogs": {
+            "abilityIds": [
+              27974,
+              27975
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p6-spreading-flames-1",
+          "name": "Spreading Flames",
+          "time": "1:30",
+          "fflogs": {
+            "abilityIds": [
+              29739,
+              29740
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p6-akh-afah-2",
+          "name": "Akh Afah 2",
+          "time": "1:38",
+          "fflogs": {
+            "abilityIds": [
+              27969,
+              27970,
+              27971,
+              27972
+            ]
+          }
+        },
+        {
+          "id": "p6-hallowed-wings-2",
+          "name": "Hallowed Wings 2",
+          "time": "1:51",
+          "fflogs": {
+            "abilityIds": [
+              27939,
+              27940,
+              27942,
+              27943,
+              27941,
+              27944
+            ]
+          },
+          "roles": [
+            "tank"
+          ]
+        },
+        {
+          "id": "p6-hallowed-plume-2",
+          "name": "Hallowed Plume 2",
+          "time": "1:59",
+          "fflogs": {
+            "abilityIds": [
+              27945
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p6-great-wyrmsbreath-2",
+          "name": "Great Wyrmsbreath 2",
+          "time": "2:12",
+          "fflogs": {
+            "abilityIds": [
+              27956,
+              27957,
+              27954,
+              27955,
+              27958,
+              27959,
+              27963,
+              27964,
+              27965
+            ]
+          }
+        },
+        {
+          "id": "p6-cauterize-2",
+          "name": "Cauterize 3",
+          "time": "2:26",
+          "fflogs": {
+            "abilityIds": [
+              27966,
+              27967
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p6-touchdown-1",
+          "name": "Touchdown",
+          "time": "2:37",
+          "fflogs": {
+            "abilityIds": [
+              27968,
+              28903
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p6-revenge-of-the-horde-1",
+          "name": "Revenge of the Horde 2",
+          "time": "2:39",
+          "fflogs": {
+            "abilityIds": [
+              27937
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p6-resentment-1",
+          "name": "Resentment 2",
+          "time": "3:12",
+          "fflogs": {
+            "abilityIds": [
+              26810
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "p7",
+      "label": "P7",
+      "name": "Dragon King Thordan",
+      "start": "15:15",
+      "mechanics": [
+        {
+          "id": "p7-alternative-end-1",
+          "name": "Alternative End",
+          "time": "0:00",
+          "fflogs": {
+            "abilityIds": [
+              29752
+            ]
+          }
+        },
+        {
+          "id": "p7-exaflare-s-edge-1",
+          "name": "Exaflare's Edge 1",
+          "time": "0:13",
+          "fflogs": {
+            "abilityIds": [
+              28059,
+              28060,
+              28061
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p7-akh-morn-s-edge-1",
+          "name": "Akh Morn's Edge 1",
+          "time": "0:35",
+          "fflogs": {
+            "abilityIds": [
+              28051,
+              28052,
+              28053,
+              28054,
+              28055,
+              29452,
+              29453,
+              29454
+            ]
+          }
+        },
+        {
+          "id": "p7-gigaflare-s-edge-1",
+          "name": "Gigaflare's Edge 1",
+          "time": "0:59",
+          "fflogs": {
+            "abilityIds": [
+              28057,
+              28058,
+              28114,
+              28115
+            ]
+          }
+        },
+        {
+          "id": "p7-exaflare-s-edge-2",
+          "name": "Exaflare's Edge 2",
+          "time": "1:32",
+          "fflogs": {
+            "abilityIds": [
+              28059,
+              28060,
+              28061
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p7-akh-morn-s-edge-2",
+          "name": "Akh Morn's Edge 2",
+          "time": "1:53",
+          "fflogs": {
+            "abilityIds": [
+              28051,
+              28052,
+              28053,
+              28054,
+              28055,
+              29452,
+              29453,
+              29454
+            ]
+          }
+        },
+        {
+          "id": "p7-gigaflare-s-edge-2",
+          "name": "Gigaflare's Edge 2",
+          "time": "2:19",
+          "fflogs": {
+            "abilityIds": [
+              28057,
+              28058,
+              28114,
+              28115
+            ]
+          }
+        },
+        {
+          "id": "p7-exaflare-s-edge-3",
+          "name": "Exaflare's Edge 3",
+          "time": "2:52",
+          "fflogs": {
+            "abilityIds": [
+              28059,
+              28060,
+              28061
+            ]
+          },
+          "minor": true
+        },
+        {
+          "id": "p7-akh-morn-s-edge-3",
+          "name": "Akh Morn's Edge 3",
+          "time": "3:13",
+          "fflogs": {
+            "abilityIds": [
+              28051,
+              28052,
+              28053,
+              28054,
+              28055,
+              29452,
+              29453,
+              29454
+            ]
+          }
+        },
+        {
+          "id": "p7-morn-afah-s-edge-1",
+          "name": "Morn Afah's Edge",
+          "time": "3:40",
+          "fflogs": {
+            "abilityIds": [
+              28206,
+              29455,
+              29456,
+              29457
+            ]
+          },
+          "minor": true
+        }
+      ]
+    }
+  ]
+}

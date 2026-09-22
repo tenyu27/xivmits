@@ -44,6 +44,7 @@ export default defineConfig({
           this.emitFile({ type: 'asset', fileName: `${sheet.fightId}/${sheet.id}/index.html`, source: page.source })
         }
         this.emitFile({ type: 'asset', fileName: '404.html', source: page.source })
+        this.emitFile({ type: 'asset', fileName: 'updates/index.html', source: page.source })
       } },
     },
     react(),

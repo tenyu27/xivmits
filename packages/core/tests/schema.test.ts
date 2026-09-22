@@ -4,6 +4,7 @@ import { validateCatalog } from '@xivmits/core/schema'
 
 const encounter = {
   id: 'test', name: 'Test encounter', type: 'Other',
+  released: '2022-04-26',
   fflogs: { encounterIds: [] },
   phases: [{
     id: 'p1', label: 'P1', start: '0:00',
@@ -31,6 +32,22 @@ const files = (sheetValue: unknown = sheet) => ({
   '/repo/data/fights/test/sheets/plan.json': sheetValue,
 })
 const jobs = { jobs: [{ id: 'GNB', name: 'Gunbreaker', role: 'tank' }] }
+
+test('orders fights by original release date, newest first, independently of file order', () => {
+  const newer = { ...encounter, id: 'newer', released: '2024-11-26' }
+  const catalog = validateCatalog({
+    ...files(), '/repo/data/fights/newer/encounter.json': newer,
+  }, {}, jobs)
+  assert.deepEqual(catalog.fights.map(f => f.id), ['newer', 'test'])
+})
+
+test('requires a valid encounter release date', () => {
+  for (const released of [undefined, '2024-02-30', 'yesterday']) {
+    assert.throws(() => validateCatalog({
+      ...files(), '/repo/data/fights/test/encounter.json': { ...encounter, released },
+    }, {}, jobs))
+  }
+})
 
 test('resolves canonical mechanic data with sheet assignments', () => {
   const catalog = validateCatalog(files(), {}, jobs)

@@ -1,0 +1,4084 @@
+{
+  "id": "malachite",
+  "fightId": "dsr",
+  "name": "DSR Mitty",
+  "author": "Malachite Laurent",
+  "updated": "2026-09-17",
+  "source": {
+    "name": "DSR Mitty spreadsheet",
+    "url": "https://docs.google.com/spreadsheets/d/1sUEuFDGa_Qg4SYHo4y7b4oEvUGvmhkUMn2rPdXdWEo0/edit?gid=1960553822#gid=1960553822"
+  },
+  "description": "Party mitigation and all six tank pairings, from the Thordan checkpoint through Dragon King Thordan.",
+  "slots": [
+    {
+      "id": "MT",
+      "role": "tank"
+    },
+    {
+      "id": "OT",
+      "role": "tank"
+    },
+    {
+      "id": "SCH",
+      "role": "healer",
+      "job": "SCH"
+    },
+    {
+      "id": "SGE",
+      "role": "healer",
+      "job": "SGE"
+    },
+    {
+      "id": "WHM",
+      "role": "healer",
+      "job": "WHM"
+    },
+    {
+      "id": "AST",
+      "role": "healer",
+      "job": "AST"
+    },
+    {
+      "id": "M1",
+      "role": "melee"
+    },
+    {
+      "id": "M2",
+      "role": "melee"
+    },
+    {
+      "id": "P",
+      "role": "ranged"
+    },
+    {
+      "id": "C",
+      "role": "caster"
+    }
+  ],
+  "phases": [
+    {
+      "id": "p2",
+      "mechanics": [
+        {
+          "mechanicId": "p2-strength-of-the-ward-1",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "OT": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Expedient"
+              },
+              {
+                "name": "Summon Seraph"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Holos"
+              },
+              {
+                "name": "Eukrasian Prognosis"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              },
+              {
+                "name": "Horoscope"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "C": [
+              {
+                "name": "Extra (RDM)"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p2-ancient-quaga-1",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "M2": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle"
+              }
+            ],
+            "P": [
+              {
+                "name": "Extra (MCH)"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p2-sanctity-of-the-ward-1",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Deployment Tactics"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Zoe"
+              },
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Panhaima"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Liturgy of the Bell"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Macrocosmos"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p2-ultimate-end-1",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal"
+              },
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Succor"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p2-final-chorus-1",
+          "assignments": {
+            "OT": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Succor"
+              },
+              {
+                "name": "Fey Illumination"
+              },
+              {
+                "name": "Deployment Tactics",
+                "note": "Deployment Tactics is optional."
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Zoe"
+              },
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Kerachole"
+              },
+              {
+                "name": "Physis II"
+              },
+              {
+                "name": "Holos",
+                "note": "Holos is optional."
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "C": [
+              {
+                "name": "Extra (RDM)"
+              }
+            ]
+          }
+        }
+      ],
+      "note": "Times start at the Thordan checkpoint. This sheet does not assign the P1 door boss."
+    },
+    {
+      "id": "p3",
+      "mechanics": [
+        {
+          "mechanicId": "p3-eye-of-the-tyrant-1",
+          "assignments": {
+            "OT": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Succor"
+              },
+              {
+                "name": "Expedient"
+              },
+              {
+                "name": "Deployment Tactics",
+                "note": "Deployment Tactics is optional."
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Holos",
+                "note": "Holos is optional."
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p3-eye-of-the-tyrant-2",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal"
+              },
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Summon Seraph"
+              },
+              {
+                "name": "Fey Illumination"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Panhaima"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "M2": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "P": [
+              {
+                "name": "Extra (MCH)"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p3-soul-tether-1",
+          "assignments": {
+            "OT": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "mechanics": [
+        {
+          "mechanicId": "p4-resentment-1",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Deployment Tactics"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Zoe"
+              },
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance",
+                "note": "early"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              }
+            ],
+            "C": [
+              {
+                "name": "Extra (RDM)"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p4-flare-nova-1",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "OT": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Fey Illumination"
+              },
+              {
+                "name": "Summon Seraph"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Macrocosmos"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p4-mirage-dive-1",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Succor"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Holos"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p4-steep-in-rage-1",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Succor"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "rewind",
+      "mechanics": [
+        {
+          "mechanicId": "rewind-brightwing-1",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Deployment Tactics"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Zoe",
+                "note": "Late"
+              },
+              {
+                "name": "Eukrasian Prognosis",
+                "note": "Late"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "rewind-brightwing-2",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Buddy Mit",
+                "buddy": true,
+                "note": "On M1."
+              },
+              {
+                "name": "Oblation (DRK)",
+                "buddy": true,
+                "note": "On M1."
+              }
+            ],
+            "OT": [
+              {
+                "name": "Buddy Mit",
+                "buddy": true,
+                "note": "On M2."
+              },
+              {
+                "name": "Oblation (DRK)",
+                "buddy": true,
+                "note": "On M2."
+              },
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Expedient"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Panhaima"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Liturgy of the Bell"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "rewind-brightwing-3",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "OT": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "rewind-brightwing-4",
+          "assignments": {}
+        },
+        {
+          "mechanicId": "rewind-pure-of-heart-1",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Succor"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "M2": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle"
+              },
+              {
+                "name": "Extra (RDM)"
+              }
+            ],
+            "P": [
+              {
+                "name": "Extra (MCH)"
+              }
+            ]
+          }
+        }
+      ],
+      "note": "Brightwing bait order: healers, melee, ranged, tanks. Use the assigned shields before the first bait."
+    },
+    {
+      "id": "p5",
+      "mechanics": [
+        {
+          "mechanicId": "p5-wrath-of-the-heavens-1",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "OT": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Deployment Tactics"
+              },
+              {
+                "name": "Summon Seraph"
+              },
+              {
+                "name": "Fey Illumination"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Zoe"
+              },
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Holos"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p5-ancient-quaga-1",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Succor"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p5-death-of-the-heavens-1",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Expedient"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Panhaima"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance"
+              }
+            ],
+            "C": [
+              {
+                "name": "Extra (RDM)"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p5-ancient-quaga-2",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "OT": [
+              {
+                "name": "Party Mit"
+              },
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Succor"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "M2": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p5-heavenly-heel-2",
+          "note": "Healers need to mitigate tanks for this buster.",
+          "assignments": {
+            "M1": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Assist Tanks"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Assist Tanks"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Assist Tanks"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Assist Tanks"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "p6",
+      "mechanics": [
+        {
+          "mechanicId": "p6-great-wyrmsbreath-1",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Summon Seraph"
+              },
+              {
+                "name": "Fey Illumination"
+              },
+              {
+                "name": "Sacred Soil",
+                "note": "Use Sacred Soil on the second GCD."
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Zoe"
+              },
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Kerachole",
+                "note": "Use Kerachole on the second GCD."
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p6-akh-afah-1",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Succor"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p6-wroth-flames-1",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "OT": [
+              {
+                "name": "Party Mit"
+              },
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Deployment Tactics"
+              },
+              {
+                "name": "Expedient"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Panhaima"
+              },
+              {
+                "name": "Holos"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance"
+              },
+              {
+                "name": "Liturgy of the Bell"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "M2": [
+              {
+                "name": "Feint",
+                "note": "Optional; use on Hallowed Plume."
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              },
+              {
+                "name": "Extra (MCH)"
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle"
+              },
+              {
+                "name": "Extra (RDM)"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p6-akh-afah-2",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Succor"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p6-great-wyrmsbreath-2",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Succor"
+              },
+              {
+                "name": "Summon Seraph"
+              },
+              {
+                "name": "Fey Illumination"
+              },
+              {
+                "name": "Adloquium",
+                "note": "Single-target shield on the melee with Mortal Vow."
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Eukrasian Diagnosis",
+                "note": "Single-target shield on the melee with Mortal Vow."
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p6-cauterize-2",
+          "assignments": {
+            "OT": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Succor"
+              },
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Summon Seraph"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Macrocosmos"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "p7",
+      "mechanics": [
+        {
+          "mechanicId": "p7-alternative-end-1",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "OT": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Deployment Tactics"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Zoe"
+              },
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Holos"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "C": [
+              {
+                "name": "Extra (RDM)"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p7-akh-morn-s-edge-1",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Succor"
+              },
+              {
+                "name": "Fey Illumination"
+              },
+              {
+                "name": "Sacred Soil",
+                "note": "Use Sacred Soil early, after the second melee auto."
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Panhaima"
+              },
+              {
+                "name": "Kerachole",
+                "note": "Use Kerachole early, after the second melee auto."
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle"
+              }
+            ],
+            "P": [
+              {
+                "name": "Extra (MCH)"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p7-gigaflare-s-edge-1",
+          "assignments": {
+            "OT": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Succor"
+              },
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Expedient"
+              },
+              {
+                "name": "Summon Seraph"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Zoe"
+              },
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Liturgy of the Bell"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "M2": [
+              {
+                "name": "Feint"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p7-akh-morn-s-edge-2",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Succor"
+              },
+              {
+                "name": "Sacred Soil",
+                "note": "Use Sacred Soil early, after the second melee auto."
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Kerachole",
+                "note": "Use Kerachole early, after the second melee auto."
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit",
+                "note": "Use early."
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p7-gigaflare-s-edge-2",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "OT": [
+              {
+                "name": "Party Mit"
+              },
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Deployment Tactics"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Holos"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Macrocosmos"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle"
+              },
+              {
+                "name": "Extra (RDM)"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p7-akh-morn-s-edge-3",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Expedient"
+              },
+              {
+                "name": "Summon Seraph"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Zoe"
+              },
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Kerachole"
+              },
+              {
+                "name": "Panhaima"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              },
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "M2": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              },
+              {
+                "name": "Extra (MCH)"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tankMits": {
+    "note": "Tank personal plans follow the selected job pairing. Coordinate the indicated Heel, Slashes, and invulnerability duties with your co-tank.",
+    "plans": [
+      {
+        "job": "WAR",
+        "with": "DRK",
+        "phases": [
+          {
+            "id": "p2",
+            "mechanics": [
+              {
+                "id": "p2-ascalon-s-might-1-personal",
+                "after": "p2-ascalon-s-might-1",
+                "name": "Ascalon's Might 1",
+                "actions": [
+                  {
+                    "name": "Holmgang"
+                  }
+                ],
+                "time": "0:16"
+              },
+              {
+                "id": "p2-holy-shield-bash-1-personal",
+                "after": "p2-holy-shield-bash-1",
+                "name": "Holy Shield Bash",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  }
+                ],
+                "time": "0:59"
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "mechanics": [
+              {
+                "id": "p3-soul-tether-1-personal",
+                "after": "p3-soul-tether-1",
+                "name": "Soul Tether",
+                "actions": [
+                  {
+                    "name": "Holmgang"
+                  },
+                  {
+                    "name": "Nascent Flash",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  }
+                ],
+                "time": "1:23"
+              }
+            ],
+            "note": "Use CDs on autos throughout phase"
+          },
+          {
+            "id": "p5",
+            "mechanics": [
+              {
+                "id": "p5-heavenly-heel-1-personal",
+                "after": "p5-heavenly-heel-1",
+                "name": "Heavenly Heel 2",
+                "actions": [
+                  {
+                    "name": "Holmgang"
+                  }
+                ],
+                "time": "1:08"
+              }
+            ]
+          },
+          {
+            "id": "p6",
+            "mechanics": [
+              {
+                "id": "p6-great-wyrmsbreath-1-personal",
+                "after": "p6-great-wyrmsbreath-1",
+                "name": "Great Wyrmsbreath 1",
+                "actions": [
+                  {
+                    "name": "Vengeance"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ],
+                "time": "0:11"
+              },
+              {
+                "id": "p6-hallowed-wings-1-personal",
+                "after": "p6-hallowed-wings-1",
+                "name": "Hallowed Wings 1",
+                "actions": [
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  },
+                  {
+                    "name": "Equilibrium"
+                  }
+                ],
+                "time": "0:42"
+              },
+              {
+                "id": "p6-hallowed-wings-2-personal",
+                "after": "p6-hallowed-wings-2",
+                "name": "Hallowed Wings 2",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ],
+                "time": "1:51"
+              },
+              {
+                "id": "p6-great-wyrmsbreath-2-personal",
+                "after": "p6-great-wyrmsbreath-2",
+                "name": "Great Wyrmsbreath 2",
+                "actions": [
+                  {
+                    "name": "Vengeance"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Equilibrium"
+                  }
+                ],
+                "time": "2:12"
+              },
+              {
+                "id": "p6-cauterize-2-personal",
+                "after": "p6-cauterize-2",
+                "name": "Cauterize 3",
+                "actions": [
+                  {
+                    "name": "Holmgang"
+                  },
+                  {
+                    "name": "Nascent Flash",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  }
+                ],
+                "time": "2:26"
+              }
+            ]
+          },
+          {
+            "id": "p7",
+            "mechanics": [
+              {
+                "id": "p7-akh-morn-s-edge-1-personal",
+                "after": "p7-akh-morn-s-edge-1",
+                "name": "Akh Morn's Edge 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ],
+                "note": "AM1: Press Rampart after 3rd explosion of the first exaflares",
+                "time": "0:35"
+              },
+              {
+                "id": "p7-akh-morn-s-edge-2-personal",
+                "after": "p7-akh-morn-s-edge-2",
+                "name": "Akh Morn's Edge 2",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  }
+                ],
+                "time": "1:53"
+              },
+              {
+                "id": "p7-akh-morn-s-edge-3-personal",
+                "after": "p7-akh-morn-s-edge-3",
+                "name": "Akh Morn's Edge 3",
+                "actions": [
+                  {
+                    "name": "Holmgang",
+                    "note": "End of Cast"
+                  },
+                  {
+                    "name": "Nascent Flash",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  }
+                ],
+                "time": "3:13"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "job": "DRK",
+        "with": "WAR",
+        "phases": [
+          {
+            "id": "p2",
+            "mechanics": [
+              {
+                "id": "p2-holy-shield-bash-1-personal",
+                "after": "p2-holy-shield-bash-1",
+                "name": "Holy Shield Bash",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  }
+                ],
+                "time": "0:59"
+              },
+              {
+                "id": "p2-heavenly-heel-1-personal",
+                "after": "p2-heavenly-heel-1",
+                "name": "Heavenly Heel 1",
+                "actions": [
+                  {
+                    "name": "Living Dead"
+                  }
+                ],
+                "time": "1:16"
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "mechanics": [
+              {
+                "id": "p3-soul-tether-1-personal",
+                "after": "p3-soul-tether-1",
+                "name": "Soul Tether",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  }
+                ],
+                "time": "1:23"
+              }
+            ]
+          },
+          {
+            "id": "p5",
+            "mechanics": [
+              {
+                "id": "p5-heavenly-heel-2-personal",
+                "after": "p5-heavenly-heel-2",
+                "name": "Heavenly Heel 3",
+                "actions": [
+                  {
+                    "name": "Living Dead"
+                  }
+                ],
+                "time": "2:31"
+              }
+            ]
+          },
+          {
+            "id": "p6",
+            "mechanics": [
+              {
+                "id": "p6-great-wyrmsbreath-1-personal",
+                "after": "p6-great-wyrmsbreath-1",
+                "name": "Great Wyrmsbreath 1",
+                "actions": [
+                  {
+                    "name": "Shadow Wall"
+                  },
+                  {
+                    "name": "Oblation"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  }
+                ],
+                "time": "0:11"
+              },
+              {
+                "id": "p6-hallowed-wings-1-personal",
+                "after": "p6-hallowed-wings-1",
+                "name": "Hallowed Wings 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "Oblation"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  }
+                ],
+                "time": "0:42"
+              },
+              {
+                "id": "p6-hallowed-wings-2-personal",
+                "after": "p6-hallowed-wings-2",
+                "name": "Hallowed Wings 2",
+                "actions": [
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "Oblation"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  }
+                ],
+                "time": "1:51"
+              },
+              {
+                "id": "p6-great-wyrmsbreath-2-personal",
+                "after": "p6-great-wyrmsbreath-2",
+                "name": "Great Wyrmsbreath 2",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Shadow Wall"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  }
+                ],
+                "note": "WB2: Rampart, TBN start of cast Shadowwall at 80% of cast (B in wyrmsbreath)",
+                "time": "2:12"
+              },
+              {
+                "id": "p6-cauterize-2-personal",
+                "after": "p6-cauterize-2",
+                "name": "Cauterize 3",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Shadow Wall"
+                  },
+                  {
+                    "name": "Oblation"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  }
+                ],
+                "time": "2:26"
+              }
+            ]
+          },
+          {
+            "id": "p7",
+            "mechanics": [
+              {
+                "id": "p7-akh-morn-s-edge-1-personal",
+                "after": "p7-akh-morn-s-edge-1",
+                "name": "Akh Morn's Edge 1",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  }
+                ],
+                "note": "AM1: Press Rampart after 3rd explosion of the first exaflares",
+                "time": "0:35"
+              },
+              {
+                "id": "p7-akh-morn-s-edge-2-personal",
+                "after": "p7-akh-morn-s-edge-2",
+                "name": "Akh Morn's Edge 2",
+                "actions": [
+                  {
+                    "name": "Living Dead"
+                  },
+                  {
+                    "name": "The Blackest Night",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  },
+                  {
+                    "name": "Oblation",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  }
+                ],
+                "time": "1:53"
+              },
+              {
+                "id": "p7-akh-morn-s-edge-3-personal",
+                "after": "p7-akh-morn-s-edge-3",
+                "name": "Akh Morn's Edge 3",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  }
+                ],
+                "time": "3:13"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "job": "WAR",
+        "with": "GNB",
+        "phases": [
+          {
+            "id": "p2",
+            "mechanics": [
+              {
+                "id": "p2-ascalon-s-might-1-personal",
+                "after": "p2-ascalon-s-might-1",
+                "name": "Ascalon's Might 1",
+                "actions": [
+                  {
+                    "name": "Holmgang"
+                  }
+                ],
+                "time": "0:16"
+              },
+              {
+                "id": "p2-holy-shield-bash-1-personal",
+                "after": "p2-holy-shield-bash-1",
+                "name": "Holy Shield Bash",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  }
+                ],
+                "time": "0:59"
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "mechanics": [
+              {
+                "id": "p3-soul-tether-1-personal",
+                "after": "p3-soul-tether-1",
+                "name": "Soul Tether",
+                "actions": [
+                  {
+                    "name": "Holmgang"
+                  },
+                  {
+                    "name": "Nascent Flash",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  }
+                ],
+                "time": "1:23"
+              }
+            ],
+            "note": "Use CDs on autos throughout phase"
+          },
+          {
+            "id": "p5",
+            "mechanics": [
+              {
+                "id": "p5-heavenly-heel-1-personal",
+                "after": "p5-heavenly-heel-1",
+                "name": "Heavenly Heel 2",
+                "actions": [
+                  {
+                    "name": "Holmgang"
+                  }
+                ],
+                "time": "1:08"
+              },
+              {
+                "id": "p5-heavenly-heel-2-personal",
+                "after": "p5-heavenly-heel-2",
+                "name": "Heavenly Heel 3",
+                "actions": [
+                  {
+                    "name": "Rampart",
+                    "note": "Take Slashes"
+                  },
+                  {
+                    "name": "Bloodwhetting",
+                    "note": "Take Slashes"
+                  },
+                  {
+                    "name": "Equilibrium",
+                    "note": "Take Slashes"
+                  }
+                ],
+                "note": "Feint is free :)",
+                "time": "2:31"
+              }
+            ]
+          },
+          {
+            "id": "p6",
+            "mechanics": [
+              {
+                "id": "p6-great-wyrmsbreath-1-personal",
+                "after": "p6-great-wyrmsbreath-1",
+                "name": "Great Wyrmsbreath 1",
+                "actions": [
+                  {
+                    "name": "Vengeance"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ],
+                "time": "0:11"
+              },
+              {
+                "id": "p6-hallowed-wings-1-personal",
+                "after": "p6-hallowed-wings-1",
+                "name": "Hallowed Wings 1",
+                "actions": [
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  },
+                  {
+                    "name": "Equilibrium"
+                  }
+                ],
+                "time": "0:42"
+              },
+              {
+                "id": "p6-hallowed-wings-2-personal",
+                "after": "p6-hallowed-wings-2",
+                "name": "Hallowed Wings 2",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ],
+                "time": "1:51"
+              },
+              {
+                "id": "p6-great-wyrmsbreath-2-personal",
+                "after": "p6-great-wyrmsbreath-2",
+                "name": "Great Wyrmsbreath 2",
+                "actions": [
+                  {
+                    "name": "Vengeance"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Equilibrium"
+                  }
+                ],
+                "time": "2:12"
+              },
+              {
+                "id": "p6-cauterize-2-personal",
+                "after": "p6-cauterize-2",
+                "name": "Cauterize 3",
+                "actions": [
+                  {
+                    "name": "Holmgang"
+                  },
+                  {
+                    "name": "Nascent Flash",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  }
+                ],
+                "time": "2:26"
+              }
+            ]
+          },
+          {
+            "id": "p7",
+            "mechanics": [
+              {
+                "id": "p7-akh-morn-s-edge-1-personal",
+                "after": "p7-akh-morn-s-edge-1",
+                "name": "Akh Morn's Edge 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ],
+                "note": "AM1: Press Rampart after 3rd explosion of the first exaflares",
+                "time": "0:35"
+              },
+              {
+                "id": "p7-akh-morn-s-edge-2-personal",
+                "after": "p7-akh-morn-s-edge-2",
+                "name": "Akh Morn's Edge 2",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  }
+                ],
+                "time": "1:53"
+              },
+              {
+                "id": "p7-akh-morn-s-edge-3-personal",
+                "after": "p7-akh-morn-s-edge-3",
+                "name": "Akh Morn's Edge 3",
+                "actions": [
+                  {
+                    "name": "Holmgang",
+                    "note": "End of Cast"
+                  },
+                  {
+                    "name": "Nascent Flash",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  }
+                ],
+                "time": "3:13"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "job": "GNB",
+        "with": "WAR",
+        "phases": [
+          {
+            "id": "p2",
+            "mechanics": [
+              {
+                "id": "p2-holy-shield-bash-1-personal",
+                "after": "p2-holy-shield-bash-1",
+                "name": "Holy Shield Bash",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  }
+                ],
+                "time": "0:59"
+              },
+              {
+                "id": "p2-heavenly-heel-1-personal",
+                "after": "p2-heavenly-heel-1",
+                "name": "Heavenly Heel 1",
+                "actions": [
+                  {
+                    "name": "Superbolide"
+                  }
+                ],
+                "time": "1:16"
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "mechanics": [
+              {
+                "id": "p3-soul-tether-1-personal",
+                "after": "p3-soul-tether-1",
+                "name": "Soul Tether",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  }
+                ],
+                "time": "1:23"
+              }
+            ]
+          },
+          {
+            "id": "p5",
+            "mechanics": [
+              {
+                "id": "p5-heavenly-heel-2-personal",
+                "after": "p5-heavenly-heel-2",
+                "name": "Heavenly Heel 3",
+                "actions": [
+                  {
+                    "name": "Camouflage",
+                    "note": "Take Heel"
+                  },
+                  {
+                    "name": "Heart of Corundum",
+                    "note": "Take Heel"
+                  },
+                  {
+                    "name": "Reprisal",
+                    "note": "Take Heel"
+                  }
+                ],
+                "note": "Feint is free :)",
+                "time": "2:31"
+              }
+            ]
+          },
+          {
+            "id": "p6",
+            "mechanics": [
+              {
+                "id": "p6-great-wyrmsbreath-1-personal",
+                "after": "p6-great-wyrmsbreath-1",
+                "name": "Great Wyrmsbreath 1",
+                "actions": [
+                  {
+                    "name": "Nebula"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "time": "0:11"
+              },
+              {
+                "id": "p6-hallowed-wings-1-personal",
+                "after": "p6-hallowed-wings-1",
+                "name": "Hallowed Wings 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "time": "0:42"
+              },
+              {
+                "id": "p6-hallowed-wings-2-personal",
+                "after": "p6-hallowed-wings-2",
+                "name": "Hallowed Wings 2",
+                "actions": [
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "time": "1:51"
+              },
+              {
+                "id": "p6-great-wyrmsbreath-2-personal",
+                "after": "p6-great-wyrmsbreath-2",
+                "name": "Great Wyrmsbreath 2",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Nebula"
+                  }
+                ],
+                "note": "WB2: Rampart start of cast Nebula at 80% of cast (B in wyrmsbreath)",
+                "time": "2:12"
+              },
+              {
+                "id": "p6-cauterize-2-personal",
+                "after": "p6-cauterize-2",
+                "name": "Cauterize 3",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Nebula"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "time": "2:26"
+              }
+            ]
+          },
+          {
+            "id": "p7",
+            "mechanics": [
+              {
+                "id": "p7-akh-morn-s-edge-1-personal",
+                "after": "p7-akh-morn-s-edge-1",
+                "name": "Akh Morn's Edge 1",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  }
+                ],
+                "note": "AM1: Press Rampart and Camouflage after 3rd explosion of the first exaflares",
+                "time": "0:35"
+              },
+              {
+                "id": "p7-akh-morn-s-edge-2-personal",
+                "after": "p7-akh-morn-s-edge-2",
+                "name": "Akh Morn's Edge 2",
+                "actions": [
+                  {
+                    "name": "Superbolide"
+                  },
+                  {
+                    "name": "Heart of Corundum",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  }
+                ],
+                "time": "1:53"
+              },
+              {
+                "id": "p7-akh-morn-s-edge-3-personal",
+                "after": "p7-akh-morn-s-edge-3",
+                "name": "Akh Morn's Edge 3",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  }
+                ],
+                "time": "3:13"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "job": "WAR",
+        "with": "PLD",
+        "phases": [
+          {
+            "id": "p2",
+            "mechanics": [
+              {
+                "id": "p2-ascalon-s-might-1-personal",
+                "after": "p2-ascalon-s-might-1",
+                "name": "Ascalon's Might 1",
+                "actions": [
+                  {
+                    "name": "Holmgang"
+                  }
+                ],
+                "time": "0:16"
+              },
+              {
+                "id": "p2-holy-shield-bash-1-personal",
+                "after": "p2-holy-shield-bash-1",
+                "name": "Holy Shield Bash",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  }
+                ],
+                "time": "0:59"
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "mechanics": [
+              {
+                "id": "p3-soul-tether-1-personal",
+                "after": "p3-soul-tether-1",
+                "name": "Soul Tether",
+                "actions": [
+                  {
+                    "name": "Holmgang"
+                  },
+                  {
+                    "name": "Nascent Flash",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  }
+                ],
+                "time": "1:23"
+              }
+            ],
+            "note": "Use CDs on autos throughout phase"
+          },
+          {
+            "id": "p5",
+            "mechanics": [
+              {
+                "id": "p5-heavenly-heel-1-personal",
+                "after": "p5-heavenly-heel-1",
+                "name": "Heavenly Heel 2",
+                "actions": [
+                  {
+                    "name": "Holmgang"
+                  }
+                ],
+                "time": "1:08"
+              },
+              {
+                "id": "p5-heavenly-heel-2-personal",
+                "after": "p5-heavenly-heel-2",
+                "name": "Heavenly Heel 3",
+                "actions": [
+                  {
+                    "name": "Rampart",
+                    "note": "Take Slashes"
+                  },
+                  {
+                    "name": "Bloodwhetting",
+                    "note": "Take Slashes"
+                  },
+                  {
+                    "name": "Equilibrium",
+                    "note": "Take Slashes"
+                  }
+                ],
+                "note": "Feint is free :)",
+                "time": "2:31"
+              }
+            ]
+          },
+          {
+            "id": "p6",
+            "mechanics": [
+              {
+                "id": "p6-great-wyrmsbreath-1-personal",
+                "after": "p6-great-wyrmsbreath-1",
+                "name": "Great Wyrmsbreath 1",
+                "actions": [
+                  {
+                    "name": "Vengeance"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ],
+                "time": "0:11"
+              },
+              {
+                "id": "p6-hallowed-wings-1-personal",
+                "after": "p6-hallowed-wings-1",
+                "name": "Hallowed Wings 1",
+                "actions": [
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  },
+                  {
+                    "name": "Equilibrium"
+                  }
+                ],
+                "time": "0:42"
+              },
+              {
+                "id": "p6-hallowed-wings-2-personal",
+                "after": "p6-hallowed-wings-2",
+                "name": "Hallowed Wings 2",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ],
+                "time": "1:51"
+              },
+              {
+                "id": "p6-great-wyrmsbreath-2-personal",
+                "after": "p6-great-wyrmsbreath-2",
+                "name": "Great Wyrmsbreath 2",
+                "actions": [
+                  {
+                    "name": "Vengeance"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Equilibrium"
+                  }
+                ],
+                "time": "2:12"
+              },
+              {
+                "id": "p6-cauterize-2-personal",
+                "after": "p6-cauterize-2",
+                "name": "Cauterize 3",
+                "actions": [
+                  {
+                    "name": "Holmgang"
+                  },
+                  {
+                    "name": "Nascent Flash",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  }
+                ],
+                "time": "2:26"
+              }
+            ]
+          },
+          {
+            "id": "p7",
+            "mechanics": [
+              {
+                "id": "p7-akh-morn-s-edge-1-personal",
+                "after": "p7-akh-morn-s-edge-1",
+                "name": "Akh Morn's Edge 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Thrill of Battle"
+                  },
+                  {
+                    "name": "Bloodwhetting"
+                  }
+                ],
+                "note": "AM1: Press Rampart after 3rd explosion of the first exaflares",
+                "time": "0:35"
+              },
+              {
+                "id": "p7-akh-morn-s-edge-2-personal",
+                "after": "p7-akh-morn-s-edge-2",
+                "name": "Akh Morn's Edge 2",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  }
+                ],
+                "time": "1:53"
+              },
+              {
+                "id": "p7-akh-morn-s-edge-3-personal",
+                "after": "p7-akh-morn-s-edge-3",
+                "name": "Akh Morn's Edge 3",
+                "actions": [
+                  {
+                    "name": "Holmgang"
+                  },
+                  {
+                    "name": "Nascent Flash",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  }
+                ],
+                "time": "3:13"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "job": "PLD",
+        "with": "WAR",
+        "phases": [
+          {
+            "id": "p2",
+            "mechanics": [
+              {
+                "id": "p2-holy-shield-bash-1-personal",
+                "after": "p2-holy-shield-bash-1",
+                "name": "Holy Shield Bash",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  }
+                ],
+                "time": "0:59"
+              },
+              {
+                "id": "p2-heavenly-heel-1-personal",
+                "after": "p2-heavenly-heel-1",
+                "name": "Heavenly Heel 1",
+                "actions": [
+                  {
+                    "name": "Hallowed Ground"
+                  }
+                ],
+                "time": "1:16"
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "mechanics": [
+              {
+                "id": "p3-soul-tether-1-personal",
+                "after": "p3-soul-tether-1",
+                "name": "Soul Tether",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  }
+                ],
+                "time": "1:23"
+              }
+            ]
+          },
+          {
+            "id": "p5",
+            "mechanics": [
+              {
+                "id": "p5-heavenly-heel-2-personal",
+                "after": "p5-heavenly-heel-2",
+                "name": "Heavenly Heel 3",
+                "actions": [
+                  {
+                    "name": "Bulwark",
+                    "note": "Take Heel"
+                  },
+                  {
+                    "name": "Holy Sheltron",
+                    "note": "Take Heel"
+                  },
+                  {
+                    "name": "Reprisal",
+                    "note": "Take Heel"
+                  },
+                  {
+                    "name": "Intervention",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  }
+                ],
+                "note": "Feint is free :)",
+                "time": "2:31"
+              }
+            ]
+          },
+          {
+            "id": "p6",
+            "mechanics": [
+              {
+                "id": "p6-great-wyrmsbreath-1-personal",
+                "after": "p6-great-wyrmsbreath-1",
+                "name": "Great Wyrmsbreath 1",
+                "actions": [
+                  {
+                    "name": "Sentinel"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ],
+                "time": "0:11"
+              },
+              {
+                "id": "p6-hallowed-wings-1-personal",
+                "after": "p6-hallowed-wings-1",
+                "name": "Hallowed Wings 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ],
+                "time": "0:42"
+              },
+              {
+                "id": "p6-hallowed-wings-2-personal",
+                "after": "p6-hallowed-wings-2",
+                "name": "Hallowed Wings 2",
+                "actions": [
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ],
+                "time": "1:51"
+              },
+              {
+                "id": "p6-great-wyrmsbreath-2-personal",
+                "after": "p6-great-wyrmsbreath-2",
+                "name": "Great Wyrmsbreath 2",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Sentinel"
+                  }
+                ],
+                "note": "WB2: Rampart start of cast Sentinel at 80% of cast (B in wyrmsbreath)",
+                "time": "2:12"
+              },
+              {
+                "id": "p6-cauterize-2-personal",
+                "after": "p6-cauterize-2",
+                "name": "Cauterize 3",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Sentinel"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  },
+                  {
+                    "name": "Intervention",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  }
+                ],
+                "time": "2:26"
+              }
+            ]
+          },
+          {
+            "id": "p7",
+            "mechanics": [
+              {
+                "id": "p7-akh-morn-s-edge-1-personal",
+                "after": "p7-akh-morn-s-edge-1",
+                "name": "Akh Morn's Edge 1",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  }
+                ],
+                "note": "AM1: Press Rampart after 3rd explosion of the first exaflares",
+                "time": "0:35"
+              },
+              {
+                "id": "p7-akh-morn-s-edge-2-personal",
+                "after": "p7-akh-morn-s-edge-2",
+                "name": "Akh Morn's Edge 2",
+                "actions": [
+                  {
+                    "name": "Hallowed Ground"
+                  },
+                  {
+                    "name": "Intervention",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  }
+                ],
+                "time": "1:53"
+              },
+              {
+                "id": "p7-akh-morn-s-edge-3-personal",
+                "after": "p7-akh-morn-s-edge-3",
+                "name": "Akh Morn's Edge 3",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  }
+                ],
+                "time": "3:13"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "job": "GNB",
+        "with": "DRK",
+        "phases": [
+          {
+            "id": "p2",
+            "mechanics": [
+              {
+                "id": "p2-ascalon-s-might-1-personal",
+                "after": "p2-ascalon-s-might-1",
+                "name": "Ascalon's Might 1",
+                "actions": [
+                  {
+                    "name": "Nebula"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  },
+                  {
+                    "name": "Reprisal"
+                  }
+                ],
+                "note": "Rep from tank not doing 1st quaga for 1st Might",
+                "time": "0:16"
+              },
+              {
+                "id": "p2-holy-shield-bash-1-personal",
+                "after": "p2-holy-shield-bash-1",
+                "name": "Holy Shield Bash",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "time": "0:59"
+              },
+              {
+                "id": "p2-heavenly-heel-1-personal",
+                "after": "p2-heavenly-heel-1",
+                "name": "Heavenly Heel 1",
+                "actions": [
+                  {
+                    "name": "Superbolide"
+                  }
+                ],
+                "time": "1:16"
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "mechanics": [
+              {
+                "id": "p3-soul-tether-1-personal",
+                "after": "p3-soul-tether-1",
+                "name": "Soul Tether",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  }
+                ],
+                "time": "1:23"
+              }
+            ]
+          },
+          {
+            "id": "p5",
+            "mechanics": [
+              {
+                "id": "p5-heavenly-heel-1-personal",
+                "after": "p5-heavenly-heel-1",
+                "name": "Heavenly Heel 2",
+                "actions": [
+                  {
+                    "name": "Superbolide"
+                  }
+                ],
+                "time": "1:08"
+              }
+            ]
+          },
+          {
+            "id": "p6",
+            "mechanics": [
+              {
+                "id": "p6-great-wyrmsbreath-1-personal",
+                "after": "p6-great-wyrmsbreath-1",
+                "name": "Great Wyrmsbreath 1",
+                "actions": [
+                  {
+                    "name": "Nebula"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "time": "0:11"
+              },
+              {
+                "id": "p6-hallowed-wings-1-personal",
+                "after": "p6-hallowed-wings-1",
+                "name": "Hallowed Wings 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "time": "0:42"
+              },
+              {
+                "id": "p6-hallowed-wings-2-personal",
+                "after": "p6-hallowed-wings-2",
+                "name": "Hallowed Wings 2",
+                "actions": [
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "time": "1:51"
+              },
+              {
+                "id": "p6-great-wyrmsbreath-2-personal",
+                "after": "p6-great-wyrmsbreath-2",
+                "name": "Great Wyrmsbreath 2",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Nebula"
+                  }
+                ],
+                "note": "WB2: Rampart start of cast Nebula at 80% of cast (B in wyrmsbreath)",
+                "time": "2:12"
+              },
+              {
+                "id": "p6-cauterize-2-personal",
+                "after": "p6-cauterize-2",
+                "name": "Cauterize 3",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Nebula"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "time": "2:26"
+              }
+            ]
+          },
+          {
+            "id": "p7",
+            "mechanics": [
+              {
+                "id": "p7-akh-morn-s-edge-1-personal",
+                "after": "p7-akh-morn-s-edge-1",
+                "name": "Akh Morn's Edge 1",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  }
+                ],
+                "note": "AM1: Press Rampart and Camouflage after 3rd explosion of the first exaflares",
+                "time": "0:35"
+              },
+              {
+                "id": "p7-akh-morn-s-edge-2-personal",
+                "after": "p7-akh-morn-s-edge-2",
+                "name": "Akh Morn's Edge 2",
+                "actions": [
+                  {
+                    "name": "Superbolide"
+                  },
+                  {
+                    "name": "Heart of Corundum",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  }
+                ],
+                "time": "1:53"
+              },
+              {
+                "id": "p7-akh-morn-s-edge-3-personal",
+                "after": "p7-akh-morn-s-edge-3",
+                "name": "Akh Morn's Edge 3",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  }
+                ],
+                "time": "3:13"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "job": "DRK",
+        "with": "GNB",
+        "phases": [
+          {
+            "id": "p2",
+            "mechanics": [
+              {
+                "id": "p2-ascalon-s-might-1-personal",
+                "after": "p2-ascalon-s-might-1",
+                "name": "Ascalon's Might 1",
+                "actions": [
+                  {
+                    "name": "The Blackest Night",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  },
+                  {
+                    "name": "Oblation",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  }
+                ],
+                "note": "Rep from tank not doing 1st quaga for 1st Might",
+                "time": "0:16"
+              },
+              {
+                "id": "p2-holy-shield-bash-1-personal",
+                "after": "p2-holy-shield-bash-1",
+                "name": "Holy Shield Bash",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  }
+                ],
+                "time": "0:59"
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "mechanics": [
+              {
+                "id": "p3-soul-tether-1-personal",
+                "after": "p3-soul-tether-1",
+                "name": "Soul Tether",
+                "actions": [
+                  {
+                    "name": "Living Dead"
+                  },
+                  {
+                    "name": "The Blackest Night",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  },
+                  {
+                    "name": "Oblation",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  }
+                ],
+                "time": "1:23"
+              }
+            ],
+            "note": "Use CDs on autos throughout phase"
+          },
+          {
+            "id": "p5",
+            "mechanics": [
+              {
+                "id": "p5-heavenly-heel-2-personal",
+                "after": "p5-heavenly-heel-2",
+                "name": "Heavenly Heel 3",
+                "actions": [
+                  {
+                    "name": "Living Dead"
+                  }
+                ],
+                "time": "2:31"
+              }
+            ]
+          },
+          {
+            "id": "p6",
+            "mechanics": [
+              {
+                "id": "p6-great-wyrmsbreath-1-personal",
+                "after": "p6-great-wyrmsbreath-1",
+                "name": "Great Wyrmsbreath 1",
+                "actions": [
+                  {
+                    "name": "Shadow Wall"
+                  },
+                  {
+                    "name": "Oblation"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  }
+                ],
+                "time": "0:11"
+              },
+              {
+                "id": "p6-hallowed-wings-1-personal",
+                "after": "p6-hallowed-wings-1",
+                "name": "Hallowed Wings 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "Oblation"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  }
+                ],
+                "time": "0:42"
+              },
+              {
+                "id": "p6-hallowed-wings-2-personal",
+                "after": "p6-hallowed-wings-2",
+                "name": "Hallowed Wings 2",
+                "actions": [
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "Oblation"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  }
+                ],
+                "time": "1:51"
+              },
+              {
+                "id": "p6-great-wyrmsbreath-2-personal",
+                "after": "p6-great-wyrmsbreath-2",
+                "name": "Great Wyrmsbreath 2",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Shadow Wall"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  }
+                ],
+                "note": "WB2: Rampart, TBN start of cast Shadowwall at 80% of cast (B in wyrmsbreath)",
+                "time": "2:12"
+              },
+              {
+                "id": "p6-cauterize-2-personal",
+                "after": "p6-cauterize-2",
+                "name": "Cauterize 3",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Shadow Wall"
+                  },
+                  {
+                    "name": "Oblation"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  }
+                ],
+                "time": "2:26"
+              }
+            ]
+          },
+          {
+            "id": "p7",
+            "mechanics": [
+              {
+                "id": "p7-akh-morn-s-edge-1-personal",
+                "after": "p7-akh-morn-s-edge-1",
+                "name": "Akh Morn's Edge 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "Oblation"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  }
+                ],
+                "note": "AM1: Press Rampart after 3rd explosion of the first exaflares",
+                "time": "0:35"
+              },
+              {
+                "id": "p7-akh-morn-s-edge-2-personal",
+                "after": "p7-akh-morn-s-edge-2",
+                "name": "Akh Morn's Edge 2",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  }
+                ],
+                "time": "1:53"
+              },
+              {
+                "id": "p7-akh-morn-s-edge-3-personal",
+                "after": "p7-akh-morn-s-edge-3",
+                "name": "Akh Morn's Edge 3",
+                "actions": [
+                  {
+                    "name": "Living Dead"
+                  },
+                  {
+                    "name": "The Blackest Night",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  },
+                  {
+                    "name": "Oblation",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  }
+                ],
+                "time": "3:13"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "job": "GNB",
+        "with": "PLD",
+        "phases": [
+          {
+            "id": "p2",
+            "mechanics": [
+              {
+                "id": "p2-ascalon-s-might-1-personal",
+                "after": "p2-ascalon-s-might-1",
+                "name": "Ascalon's Might 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "note": "Rep from tank not doing 1st quaga for 1st Might",
+                "time": "0:16"
+              },
+              {
+                "id": "p2-holy-shield-bash-1-personal",
+                "after": "p2-holy-shield-bash-1",
+                "name": "Holy Shield Bash",
+                "actions": [
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Nebula"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "time": "0:59"
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "mechanics": [
+              {
+                "id": "p3-soul-tether-1-personal",
+                "after": "p3-soul-tether-1",
+                "name": "Soul Tether",
+                "actions": [
+                  {
+                    "name": "Superbolide"
+                  },
+                  {
+                    "name": "Heart of Corundum",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  }
+                ],
+                "time": "1:23"
+              }
+            ]
+          },
+          {
+            "id": "p5",
+            "mechanics": [
+              {
+                "id": "p5-heavenly-heel-2-personal",
+                "after": "p5-heavenly-heel-2",
+                "name": "Heavenly Heel 3",
+                "actions": [
+                  {
+                    "name": "Camouflage",
+                    "note": "Take Slashes"
+                  },
+                  {
+                    "name": "Heart of Corundum",
+                    "note": "Take Slashes"
+                  },
+                  {
+                    "name": "Reprisal",
+                    "note": "Take Slashes"
+                  }
+                ],
+                "note": "Feint is free :)",
+                "time": "2:31"
+              }
+            ]
+          },
+          {
+            "id": "p6",
+            "mechanics": [
+              {
+                "id": "p6-great-wyrmsbreath-1-personal",
+                "after": "p6-great-wyrmsbreath-1",
+                "name": "Great Wyrmsbreath 1",
+                "actions": [
+                  {
+                    "name": "Nebula"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "time": "0:11"
+              },
+              {
+                "id": "p6-hallowed-wings-1-personal",
+                "after": "p6-hallowed-wings-1",
+                "name": "Hallowed Wings 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "time": "0:42"
+              },
+              {
+                "id": "p6-hallowed-wings-2-personal",
+                "after": "p6-hallowed-wings-2",
+                "name": "Hallowed Wings 2",
+                "actions": [
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "time": "1:51"
+              },
+              {
+                "id": "p6-great-wyrmsbreath-2-personal",
+                "after": "p6-great-wyrmsbreath-2",
+                "name": "Great Wyrmsbreath 2",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Nebula"
+                  }
+                ],
+                "note": "WB2: Rampart start of cast Nebula at 80% of cast (B in wyrmsbreath)",
+                "time": "2:12"
+              },
+              {
+                "id": "p6-cauterize-2-personal",
+                "after": "p6-cauterize-2",
+                "name": "Cauterize 3",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Nebula"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "time": "2:26"
+              }
+            ]
+          },
+          {
+            "id": "p7",
+            "mechanics": [
+              {
+                "id": "p7-akh-morn-s-edge-1-personal",
+                "after": "p7-akh-morn-s-edge-1",
+                "name": "Akh Morn's Edge 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Camouflage"
+                  },
+                  {
+                    "name": "Heart of Corundum"
+                  }
+                ],
+                "note": "AM1: Press Rampart and Camouflage after 3rd explosion of the first exaflares",
+                "time": "0:35"
+              },
+              {
+                "id": "p7-akh-morn-s-edge-2-personal",
+                "after": "p7-akh-morn-s-edge-2",
+                "name": "Akh Morn's Edge 2",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  }
+                ],
+                "time": "1:53"
+              },
+              {
+                "id": "p7-akh-morn-s-edge-3-personal",
+                "after": "p7-akh-morn-s-edge-3",
+                "name": "Akh Morn's Edge 3",
+                "actions": [
+                  {
+                    "name": "Superbolide"
+                  },
+                  {
+                    "name": "Heart of Corundum",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  }
+                ],
+                "time": "3:13"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "job": "PLD",
+        "with": "GNB",
+        "phases": [
+          {
+            "id": "p2",
+            "mechanics": [
+              {
+                "id": "p2-ascalon-s-might-1-personal",
+                "after": "p2-ascalon-s-might-1",
+                "name": "Ascalon's Might 1",
+                "actions": [
+                  {
+                    "name": "Intervention",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  }
+                ],
+                "note": "Rep from tank not doing 1st quaga for 1st Might",
+                "time": "0:16"
+              },
+              {
+                "id": "p2-holy-shield-bash-1-personal",
+                "after": "p2-holy-shield-bash-1",
+                "name": "Holy Shield Bash",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  },
+                  {
+                    "name": "Intervention",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  }
+                ],
+                "time": "0:59"
+              },
+              {
+                "id": "p2-heavenly-heel-1-personal",
+                "after": "p2-heavenly-heel-1",
+                "name": "Heavenly Heel 1",
+                "actions": [
+                  {
+                    "name": "Hallowed Ground"
+                  }
+                ],
+                "time": "1:16"
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "mechanics": [
+              {
+                "id": "p3-soul-tether-1-personal",
+                "after": "p3-soul-tether-1",
+                "name": "Soul Tether",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  }
+                ],
+                "time": "1:23"
+              }
+            ],
+            "note": "Use CDs on autos throughout phase"
+          },
+          {
+            "id": "p5",
+            "mechanics": [
+              {
+                "id": "p5-heavenly-heel-1-personal",
+                "after": "p5-heavenly-heel-1",
+                "name": "Heavenly Heel 2",
+                "actions": [
+                  {
+                    "name": "Hallowed Ground"
+                  }
+                ],
+                "time": "1:08"
+              },
+              {
+                "id": "p5-heavenly-heel-2-personal",
+                "after": "p5-heavenly-heel-2",
+                "name": "Heavenly Heel 3",
+                "actions": [
+                  {
+                    "name": "Bulwark",
+                    "note": "Take Heel"
+                  },
+                  {
+                    "name": "Holy Sheltron",
+                    "note": "Take Heel"
+                  },
+                  {
+                    "name": "Reprisal",
+                    "note": "Take Heel"
+                  },
+                  {
+                    "name": "Intervention",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  }
+                ],
+                "note": "Feint is free :)",
+                "time": "2:31"
+              }
+            ]
+          },
+          {
+            "id": "p6",
+            "mechanics": [
+              {
+                "id": "p6-great-wyrmsbreath-1-personal",
+                "after": "p6-great-wyrmsbreath-1",
+                "name": "Great Wyrmsbreath 1",
+                "actions": [
+                  {
+                    "name": "Sentinel"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ],
+                "time": "0:11"
+              },
+              {
+                "id": "p6-hallowed-wings-1-personal",
+                "after": "p6-hallowed-wings-1",
+                "name": "Hallowed Wings 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ],
+                "time": "0:42"
+              },
+              {
+                "id": "p6-hallowed-wings-2-personal",
+                "after": "p6-hallowed-wings-2",
+                "name": "Hallowed Wings 2",
+                "actions": [
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ],
+                "time": "1:51"
+              },
+              {
+                "id": "p6-great-wyrmsbreath-2-personal",
+                "after": "p6-great-wyrmsbreath-2",
+                "name": "Great Wyrmsbreath 2",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Sentinel"
+                  }
+                ],
+                "note": "WB2: Rampart start of cast Sentinel at 80% of cast (B in wyrmsbreath)",
+                "time": "2:12"
+              },
+              {
+                "id": "p6-cauterize-2-personal",
+                "after": "p6-cauterize-2",
+                "name": "Cauterize 3",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Sentinel"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  },
+                  {
+                    "name": "Intervention",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  }
+                ],
+                "time": "2:26"
+              }
+            ]
+          },
+          {
+            "id": "p7",
+            "mechanics": [
+              {
+                "id": "p7-akh-morn-s-edge-1-personal",
+                "after": "p7-akh-morn-s-edge-1",
+                "name": "Akh Morn's Edge 1",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  }
+                ],
+                "note": "AM1: Press Rampart after 3rd explosion of the first exaflares",
+                "time": "0:35"
+              },
+              {
+                "id": "p7-akh-morn-s-edge-2-personal",
+                "after": "p7-akh-morn-s-edge-2",
+                "name": "Akh Morn's Edge 2",
+                "actions": [
+                  {
+                    "name": "Hallowed Ground"
+                  },
+                  {
+                    "name": "Intervention",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  }
+                ],
+                "time": "1:53"
+              },
+              {
+                "id": "p7-akh-morn-s-edge-3-personal",
+                "after": "p7-akh-morn-s-edge-3",
+                "name": "Akh Morn's Edge 3",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  }
+                ],
+                "time": "3:13"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "job": "PLD",
+        "with": "DRK",
+        "phases": [
+          {
+            "id": "p2",
+            "mechanics": [
+              {
+                "id": "p2-ascalon-s-might-1-personal",
+                "after": "p2-ascalon-s-might-1",
+                "name": "Ascalon's Might 1",
+                "actions": [
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ],
+                "note": "Rep from tank not doing 1st quaga for 1st Might",
+                "time": "0:16"
+              },
+              {
+                "id": "p2-holy-shield-bash-1-personal",
+                "after": "p2-holy-shield-bash-1",
+                "name": "Holy Shield Bash",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Sentinel"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ],
+                "time": "0:59"
+              },
+              {
+                "id": "p2-heavenly-heel-1-personal",
+                "after": "p2-heavenly-heel-1",
+                "name": "Heavenly Heel 1",
+                "actions": [
+                  {
+                    "name": "Hallowed Ground"
+                  }
+                ],
+                "time": "1:16"
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "mechanics": [
+              {
+                "id": "p3-soul-tether-1-personal",
+                "after": "p3-soul-tether-1",
+                "name": "Soul Tether",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  }
+                ],
+                "time": "1:23"
+              }
+            ]
+          },
+          {
+            "id": "p5",
+            "mechanics": [
+              {
+                "id": "p5-heavenly-heel-1-personal",
+                "after": "p5-heavenly-heel-1",
+                "name": "Heavenly Heel 2",
+                "actions": [
+                  {
+                    "name": "Hallowed Ground"
+                  }
+                ],
+                "time": "1:08"
+              }
+            ]
+          },
+          {
+            "id": "p6",
+            "mechanics": [
+              {
+                "id": "p6-great-wyrmsbreath-1-personal",
+                "after": "p6-great-wyrmsbreath-1",
+                "name": "Great Wyrmsbreath 1",
+                "actions": [
+                  {
+                    "name": "Sentinel"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ],
+                "time": "0:11"
+              },
+              {
+                "id": "p6-hallowed-wings-1-personal",
+                "after": "p6-hallowed-wings-1",
+                "name": "Hallowed Wings 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ],
+                "time": "0:42"
+              },
+              {
+                "id": "p6-hallowed-wings-2-personal",
+                "after": "p6-hallowed-wings-2",
+                "name": "Hallowed Wings 2",
+                "actions": [
+                  {
+                    "name": "Bulwark"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  }
+                ],
+                "time": "1:51"
+              },
+              {
+                "id": "p6-great-wyrmsbreath-2-personal",
+                "after": "p6-great-wyrmsbreath-2",
+                "name": "Great Wyrmsbreath 2",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Sentinel"
+                  }
+                ],
+                "note": "WB2: Rampart start of cast Sentinel at 80% of cast (B in wyrmsbreath)",
+                "time": "2:12"
+              },
+              {
+                "id": "p6-cauterize-2-personal",
+                "after": "p6-cauterize-2",
+                "name": "Cauterize 3",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Sentinel"
+                  },
+                  {
+                    "name": "Holy Sheltron"
+                  },
+                  {
+                    "name": "Intervention",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  }
+                ],
+                "time": "2:26"
+              }
+            ]
+          },
+          {
+            "id": "p7",
+            "mechanics": [
+              {
+                "id": "p7-akh-morn-s-edge-1-personal",
+                "after": "p7-akh-morn-s-edge-1",
+                "name": "Akh Morn's Edge 1",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  }
+                ],
+                "note": "AM1: Press Rampart after 3rd explosion of the first exaflares",
+                "time": "0:35"
+              },
+              {
+                "id": "p7-akh-morn-s-edge-2-personal",
+                "after": "p7-akh-morn-s-edge-2",
+                "name": "Akh Morn's Edge 2",
+                "actions": [
+                  {
+                    "name": "Hallowed Ground"
+                  },
+                  {
+                    "name": "Intervention",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  }
+                ],
+                "time": "1:53"
+              },
+              {
+                "id": "p7-akh-morn-s-edge-3-personal",
+                "after": "p7-akh-morn-s-edge-3",
+                "name": "Akh Morn's Edge 3",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  }
+                ],
+                "time": "3:13"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "job": "DRK",
+        "with": "PLD",
+        "phases": [
+          {
+            "id": "p2",
+            "mechanics": [
+              {
+                "id": "p2-ascalon-s-might-1-personal",
+                "after": "p2-ascalon-s-might-1",
+                "name": "Ascalon's Might 1",
+                "actions": [
+                  {
+                    "name": "The Blackest Night",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  },
+                  {
+                    "name": "Oblation",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  }
+                ],
+                "note": "Rep from tank not doing 1st quaga for 1st Might",
+                "time": "0:16"
+              },
+              {
+                "id": "p2-holy-shield-bash-1-personal",
+                "after": "p2-holy-shield-bash-1",
+                "name": "Holy Shield Bash",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  }
+                ],
+                "time": "0:59"
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "mechanics": [
+              {
+                "id": "p3-soul-tether-1-personal",
+                "after": "p3-soul-tether-1",
+                "name": "Soul Tether",
+                "actions": [
+                  {
+                    "name": "Living Dead"
+                  },
+                  {
+                    "name": "The Blackest Night",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  },
+                  {
+                    "name": "Oblation",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  }
+                ],
+                "time": "1:23"
+              }
+            ],
+            "note": "Use CDs on autos throughout phase"
+          },
+          {
+            "id": "p5",
+            "mechanics": [
+              {
+                "id": "p5-heavenly-heel-2-personal",
+                "after": "p5-heavenly-heel-2",
+                "name": "Heavenly Heel 3",
+                "actions": [
+                  {
+                    "name": "Living Dead"
+                  }
+                ],
+                "time": "2:31"
+              }
+            ]
+          },
+          {
+            "id": "p6",
+            "mechanics": [
+              {
+                "id": "p6-great-wyrmsbreath-1-personal",
+                "after": "p6-great-wyrmsbreath-1",
+                "name": "Great Wyrmsbreath 1",
+                "actions": [
+                  {
+                    "name": "Shadow Wall"
+                  },
+                  {
+                    "name": "Oblation"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  }
+                ],
+                "time": "0:11"
+              },
+              {
+                "id": "p6-hallowed-wings-1-personal",
+                "after": "p6-hallowed-wings-1",
+                "name": "Hallowed Wings 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "Oblation"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  }
+                ],
+                "time": "0:42"
+              },
+              {
+                "id": "p6-hallowed-wings-2-personal",
+                "after": "p6-hallowed-wings-2",
+                "name": "Hallowed Wings 2",
+                "actions": [
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "Oblation"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  }
+                ],
+                "time": "1:51"
+              },
+              {
+                "id": "p6-great-wyrmsbreath-2-personal",
+                "after": "p6-great-wyrmsbreath-2",
+                "name": "Great Wyrmsbreath 2",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Shadow Wall"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  }
+                ],
+                "note": "WB2: Rampart, TBN start of cast Shadowwall at 80% of cast (B in wyrmsbreath)",
+                "time": "2:12"
+              },
+              {
+                "id": "p6-cauterize-2-personal",
+                "after": "p6-cauterize-2",
+                "name": "Cauterize 3",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Shadow Wall"
+                  },
+                  {
+                    "name": "Oblation"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  }
+                ],
+                "time": "2:26"
+              }
+            ]
+          },
+          {
+            "id": "p7",
+            "mechanics": [
+              {
+                "id": "p7-akh-morn-s-edge-1-personal",
+                "after": "p7-akh-morn-s-edge-1",
+                "name": "Akh Morn's Edge 1",
+                "actions": [
+                  {
+                    "name": "Rampart"
+                  },
+                  {
+                    "name": "Dark Mind"
+                  },
+                  {
+                    "name": "Oblation"
+                  },
+                  {
+                    "name": "The Blackest Night"
+                  }
+                ],
+                "note": "AM1: Press Rampart after 3rd explosion of the first exaflares",
+                "time": "0:35"
+              },
+              {
+                "id": "p7-akh-morn-s-edge-2-personal",
+                "after": "p7-akh-morn-s-edge-2",
+                "name": "Akh Morn's Edge 2",
+                "actions": [
+                  {
+                    "name": "Kitchen Sink"
+                  }
+                ],
+                "time": "1:53"
+              },
+              {
+                "id": "p7-akh-morn-s-edge-3-personal",
+                "after": "p7-akh-morn-s-edge-3",
+                "name": "Akh Morn's Edge 3",
+                "actions": [
+                  {
+                    "name": "Living Dead"
+                  },
+                  {
+                    "name": "The Blackest Night",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  },
+                  {
+                    "name": "Oblation",
+                    "buddy": true,
+                    "note": "On your co-tank."
+                  }
+                ],
+                "time": "3:13"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

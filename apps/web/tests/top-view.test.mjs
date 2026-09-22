@@ -1,4 +1,7 @@
 import assert from 'node:assert/strict'
+import { mkdtempSync, rmSync } from 'node:fs'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
 import { after, before, test } from 'node:test'
 import { createElement as h } from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
@@ -7,15 +10,21 @@ import { createServer } from 'vite'
 import { loadCatalog } from '@xivmits/encounter-data'
 import { resolveAction } from '@xivmits/core'
 
-let server, MitView
+let server, MitView, cacheDir
 const catalog = loadCatalog()
 const fight = catalog.fights.find(f => f.id === 'top')
 const sheet = catalog.sheets.find(s => s.fightId === 'top')
 before(async () => {
-  server = await createServer({ server: { middlewareMode: true, hmr: false }, appType: 'custom' })
+  // Test servers must not replace the running dev server's optimized dependencies.
+  cacheDir = mkdtempSync(join(tmpdir(), 'xivmits-vite-test-'))
+  server = await createServer({ cacheDir, server: { middlewareMode: true, hmr: false, ws: false }, appType: 'custom' })
   MitView = (await server.ssrLoadModule('/src/components/MitView.tsx')).default
 })
-after(async () => { await server?.close() })
+after(async () => {
+  try { await server?.close() } finally {
+    if (cacheDir) rmSync(cacheDir, { recursive: true, force: true })
+  }
+})
 
 const escape = value => value.replaceAll('&', '&amp;').replaceAll('<', '&lt;')
   .replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#x27;')
