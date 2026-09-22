@@ -14,6 +14,7 @@ import { availableTankChoices, selectTankRoute, tankChoices } from '@xivmits/cor
 import { jobsForRole, jobsForSeat, positionsForSheet, slotIdFor } from './data/resolve'
 import MitView, { type Display, type Layout } from './components/MitView'
 import { LatestUpdate, UpdatesPage, updatesPath } from './components/Updates'
+import { pageInfo, renderMetadata } from './seo'
 import { theme } from './theme'
 import { initialSelection, readMap, readStored, sheetKey, sheetPath, storeMap, storeValue } from './state'
 import { usePip } from './usePip'
@@ -61,12 +62,12 @@ const isLayout = (value: string): value is Layout => value === 'tabs' || value =
 
 // Read once at mount - the cheatsheet tab is a fixed, read-only view and does
 // not renavigate within itself.
-const query = new URLSearchParams(window.location.search)
+const query = new URLSearchParams(typeof window === 'undefined' ? '' : window.location.search)
 const cheatsheet = query.get('view') === 'cheatsheet'
 
-function Shell() {
-  const [updatesPage, setUpdatesPage] = useState(() => window.location.pathname.replace(/\/$/, '') === updatesPath.replace(/\/$/, ''))
-  const [selection, setSelection] = useState(initialSelection)
+function Shell({ initialPath }: { initialPath: string }) {
+  const [updatesPage, setUpdatesPage] = useState(() => initialPath.replace(/\/$/, '') === updatesPath.replace(/\/$/, ''))
+  const [selection, setSelection] = useState(() => initialSelection(initialPath))
   const [display, setDisplay] = useState<Display>(() => {
     const stored = readStored('display')
     return isDisplay(stored) ? stored : 'both'
@@ -86,7 +87,7 @@ function Shell() {
   const [invulnId, setInvulnId] = useState(() => query.get('invuln') ?? readStored('lastInvulnOrder'))
   const [routePrefs, setRoutePrefs] = useState(() => {
     const prefs = readMap('tankRouteChoices')
-    const initial = initialSelection()
+    const initial = initialSelection(initialPath)
     const pair = [query.get('job') ?? readStored('lastJob'), query.get('otherTank') ?? readStored('lastOtherTank')].sort().join('-')
     const scope = `${sheetKey(initial.fightId, initial.sheetId)}/${pair}`
     for (const [key, value] of query) {
@@ -99,6 +100,7 @@ function Shell() {
   const fight = catalog.fights.find(f => f.id === selection.fightId)
   const sheets = catalog.sheets.filter(s => s.fightId === fight?.id)
   const sheet = sheets.find(s => s.id === selection.sheetId)
+  const page = pageInfo(catalog, typeof window === 'undefined' ? initialPath : window.location.pathname)
   const key = sheet ? sheetKey(sheet.fightId, sheet.id) : ''
   const viewing = selection.viewing && fight && sheet && selection.roleId
   const positions = sheet ? positionsForSheet(sheet) : []
@@ -149,6 +151,7 @@ function Shell() {
   // A shared full-view URL can supply a seat/job never saved on this device.
   // Persist the resolved selection before phase navigation clears that URL.
   // The separate cheatsheet remains read-only.
+  const metadata = renderMetadata(page)
   useEffect(() => {
     if (cheatsheet || !viewing) return
     storeMap('lastRoleBySheet', key, selection.roleId)
@@ -169,10 +172,16 @@ function Shell() {
     return () => window.removeEventListener('popstate', onPop)
   }, [])
   useEffect(() => {
-    document.title = updatesPage ? 'Updates | XIVMits' : viewing
-      ? `${fight.name} · ${selection.roleId}${cheatsheet ? ' · Cheatsheet' : ''} | XIVMits`
-      : 'XIVMits · FFXIV raid mits'
-  }, [viewing, fight, selection.roleId, updatesPage])
+    // Replace the same managed head elements emitted at build time. Canonicals
+    // intentionally omit role/job/layout parameters: those personalize one sheet.
+    const template = document.createElement('template')
+    template.innerHTML = metadata
+    document.head.querySelectorAll('[data-seo]').forEach(node => node.remove())
+    for (const node of Array.from(template.content.children)) {
+      node.setAttribute('data-seo', '')
+      document.head.append(node)
+    }
+  }, [metadata])
 
   function pickSheet(id: string, fightId = selection.fightId) {
     const next = catalog.sheets.find(s => s.id === id && s.fightId === fightId)
@@ -661,7 +670,6 @@ function Shell() {
       <Group justify="space-between" align="center" gap="sm" wrap="wrap">
         <Group gap="xs" align="center">
           <Text fz="sm" c="dimmed">Made by tenyu</Text>
-          <Anchor href={updatesPath} fz="sm">Updates</Anchor>
           <Text fz="sm" c="dimmed" aria-hidden>·</Text>
           {/* Icon-only, so the accessible name has to come from aria-label - see
               DESIGN.md §7. `title` gives sighted users the same words. */}
@@ -700,8 +708,8 @@ function Shell() {
 // Key must match the pre-paint script in index.html.
 const colorSchemeManager = localStorageColorSchemeManager({ key: 'xivmits-color-scheme' })
 
-export default function App() {
+export default function App({ initialPath = window.location.pathname }: { initialPath?: string }) {
   return <MantineProvider theme={theme} defaultColorScheme="auto" colorSchemeManager={colorSchemeManager}>
-    <Shell />
+    <Shell initialPath={initialPath.replace(/\/index\.html$/, '/')} />
   </MantineProvider>
 }

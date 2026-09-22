@@ -305,7 +305,7 @@ def convert(archive=None):
                                 **{job: [{'name': 'Assist Tanks'}] for job in HEALERS}}})
     phases['p2']['note'] = 'Times start at the Thordan checkpoint. This sheet does not assign the P1 door boss.'
     phases['rewind']['note'] = 'Brightwing bait order: healers, melee, ranged, tanks. Use the assigned shields before the first bait.'
-    sheet = {'id': 'malachite', 'fightId': 'dsr', 'name': 'DSR Mitty',
+    sheet = {'id': 'dsrmitty', 'fightId': 'dsr', 'name': 'DSR Mitty',
              'author': 'Malachite Laurent', 'updated': '2026-09-17',
              'source': {'name': 'DSR Mitty spreadsheet', 'url': SOURCE},
              'description': 'Party mitigation and all six tank pairings, from the Thordan checkpoint through Dragon King Thordan.',
@@ -314,7 +314,7 @@ def convert(archive=None):
     sheet = bind_sheet(sheet, encounter)
     sheet['tankMits'] = import_tanks(archive, encounter)
     snap_tank_times(sheet, encounter)
-    output = ROOT / 'packages/encounter-data/fights/dsr/sheets/malachite.json'
+    output = ROOT / 'packages/encounter-data/fights/dsr/sheets/dsrmitty.json'
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(sheet, indent=2, ensure_ascii=False) + '\n')
     print([(p['id'], len(p['mechanics']), sum(len(a) for m in p['mechanics'] for a in m['assignments'].values()))

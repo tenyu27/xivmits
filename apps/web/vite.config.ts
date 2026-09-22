@@ -4,6 +4,7 @@ import { defineConfig } from 'vite'
 import { existsSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { fightsDir, iconsFile, jobsFile, loadCatalog } from '@xivmits/encounter-data'
+import { pageInfo, renderMetadata } from './src/seo.ts'
 
 function readCatalog() {
   const catalog = loadCatalog()
@@ -22,6 +23,10 @@ export default defineConfig({
   plugins: [
     {
       name: 'mit-catalog',
+      transformIndexHtml(html, context) {
+        return html.replace(/<!--seo:start-->[\s\S]*?<!--seo:end-->/,
+          () => `<!--seo:start-->${renderMetadata(pageInfo(readCatalog(), context.path))}<!--seo:end-->`)
+      },
       buildStart() { readCatalog() },
       resolveId(id) { if (id === 'virtual:mit-catalog') return '\0mit-catalog' },
       load(id) { if (id === '\0mit-catalog') return `export default ${JSON.stringify(readCatalog())}` },
@@ -37,15 +42,6 @@ export default defineConfig({
           }
         })
       },
-      generateBundle: { order: 'post', handler(_options, bundle) {
-        const page = bundle['index.html']
-        if (!page || page.type !== 'asset') throw new Error('Missing index.html')
-        for (const sheet of readCatalog().sheets) {
-          this.emitFile({ type: 'asset', fileName: `${sheet.fightId}/${sheet.id}/index.html`, source: page.source })
-        }
-        this.emitFile({ type: 'asset', fileName: '404.html', source: page.source })
-        this.emitFile({ type: 'asset', fileName: 'updates/index.html', source: page.source })
-      } },
     },
     react(),
     babel({ presets: [reactCompilerPreset()] })

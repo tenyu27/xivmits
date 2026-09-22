@@ -93,7 +93,7 @@ test('tank choices recover stale preferences and reject malformed catalog condit
   assert.equal(tankChoices(plan, { route: 'obsolete', powder: 'invalid' }, 'OT').route, undefined)
   assert.equal(tankChoices(plan, {}, 'OT').powder, 'first')
   const files = structuredClone(readFightFiles())
-  const path = Object.keys(files).find(p => p.endsWith('fru/sheets/mitbutgood.json'))!
+  const path = Object.keys(files).find(p => p.endsWith('fru/sheets/fmbg.json'))!
   const raw = files[path] as { tankMits: { plans: typeof plans } }
   raw.tankMits.plans[0].phases[0].mechanics[0].when = { route: 'unknown-route' }
   assert.throws(() => validateCatalog(files, {}, { jobs: loadCatalog().jobs }), /Unknown tank choice/)

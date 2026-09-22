@@ -22,9 +22,9 @@ export function storeMap(key: string, id: string, value: string) {
 export const sheetKey = (fight: string, sheet: string) => `${fight}/${sheet}`
 export const sheetPath = (fight: string, sheet: string) => `${import.meta.env.BASE_URL}${fight}/${sheet}/`
 
-export function initialSelection() {
+export function initialSelection(pathname = window.location.pathname) {
   const base = import.meta.env.BASE_URL
-  const path = window.location.pathname.startsWith(base) ? window.location.pathname.slice(base.length) : window.location.pathname
+  const path = pathname.startsWith(base) ? pathname.slice(base.length) : pathname
   const parts = path.split('/').filter(Boolean)
   const linked = parts.length > 0
   const fight = catalog.fights.find(f => f.id === (linked ? parts[0] : readStored('lastFight')))
@@ -32,7 +32,7 @@ export function initialSelection() {
   const sheet = sheets.find(s => s.id === (linked ? parts[1] : readMap('lastSheetByFight')[fight!.id]))
     ?? (linked && parts[1] ? undefined : sheets[0])
   const key = sheet ? sheetKey(sheet.fightId, sheet.id) : ''
-  const query = new URLSearchParams(window.location.search)
+  const query = new URLSearchParams(typeof window === 'undefined' ? '' : window.location.search)
   const role = query.get('role') ?? readMap('lastRoleBySheet')[key]
   const phase = query.get('phase') ?? readMap('lastPhaseBySheet')[key]
   // `role` is a seat (MT, H, P), which may be a synthesized position rather

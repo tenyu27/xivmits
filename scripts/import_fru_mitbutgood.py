@@ -327,7 +327,7 @@ def convert():
     tab_sheet = workbook.tabs(archive)
 
     sheet = {
-        'id': 'mitbutgood', 'fightId': 'fru', 'name': 'FRU Mit but Good',
+        'id': 'fmbg', 'fightId': 'fru', 'name': 'FRU Mit but Good',
         'author': 'Fae Nightwolf & Valiaa Masume', 'updated': '2026-09-12',
         'sourceVersion': '3/2',
         'source': {'name': 'FRU Mit but Good spreadsheet',
@@ -380,7 +380,7 @@ def convert():
                                   if m['mechanicId'] != 'p3-dark-water-iii-3']
     from fru_tanks import import_tanks
     sheet['tankMits'] = import_tanks(archive, load_encounter('fru'))
-    out = Path(__file__).resolve().parents[1] / 'packages/encounter-data/fights/fru/sheets/mitbutgood.json'
+    out = Path(__file__).resolve().parents[1] / 'packages/encounter-data/fights/fru/sheets/fmbg.json'
     out.write_text(json.dumps(sheet, indent=2, ensure_ascii=False) + '\n')
     print([(p['id'], len(p['mechanics']),
             sum(len(a) for m in p['mechanics'] for a in m['assignments'].values()))

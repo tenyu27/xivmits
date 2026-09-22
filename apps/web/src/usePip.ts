@@ -32,5 +32,5 @@ export function usePip(scheme: string) {
     finally { opening.current = false }
   }
   function close() { current.current?.close(); current.current = null; setPipWindow(null) }
-  return { pipWindow, error, open, close, supported: 'documentPictureInPicture' in window }
+  return { pipWindow, error, open, close, supported: typeof window !== 'undefined' && 'documentPictureInPicture' in window }
 }
