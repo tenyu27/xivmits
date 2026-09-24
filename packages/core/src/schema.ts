@@ -65,6 +65,8 @@ const sheetSchema = z.object({
     // is free for autos this phase". Renders under the phase heading, and is
     // hidden by the notes toggle like an action note.
     note: text.optional(),
+    // Strategy guidance can concern a role even without an assigned action.
+    noteRoles: z.array(role).min(1).optional(),
     // Also under the phase heading, but only for a viewer whose role presses
     // one of `abilities` this phase (targeted mit: Reprisal / Addle / …), and
     // hidden by the notes toggle like an action note.
@@ -79,6 +81,7 @@ const sheetSchema = z.object({
       // abilities here". Renders once under the cast, above the abilities,
       // whether or not this viewer presses anything.
       note: text.optional(),
+      noteRoles: z.array(role).min(1).optional(),
       assignments: z.record(id, z.array(action).min(1)),
     }).strict()),
   }).strict()),
@@ -258,7 +261,7 @@ export function resolveSheet(encounter: Encounter, sheet: MitSheet): ResolvedShe
           time: `${Math.floor(from / 60)}:${String(from % 60).padStart(2, '0')}`,
           coveredMechanicIds: members.map(m => m.id),
           fflogs: { abilityIds: [...new Set(members.flatMap(m => m.fflogs?.abilityIds ?? []))] },
-          note: overlay.note, assignments: overlay.assignments,
+          note: overlay.note, noteRoles: overlay.noteRoles, assignments: overlay.assignments,
         })
       }
       return {
@@ -266,7 +269,7 @@ export function resolveSheet(encounter: Encounter, sheet: MitSheet): ResolvedShe
         mechanics: encounterPhase.mechanics.flatMap(mechanic => {
           if (covered.has(mechanic.id)) return []
           const overlay = overlays.get(mechanic.id)
-          const row = { ...mechanic, note: overlay?.note, assignments: overlay?.assignments ?? {} }
+          const row = { ...mechanic, note: overlay?.note, noteRoles: overlay?.noteRoles, assignments: overlay?.assignments ?? {} }
           const group = groups.get(mechanic.id)
           return group ? [row, group] : [row]
         }),

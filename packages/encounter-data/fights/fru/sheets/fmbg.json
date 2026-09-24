@@ -367,7 +367,11 @@
           }
         }
       ],
-      "note": "Using too many single target mits on MT for PM2 can cause buff cap, please be careful"
+      "note": "Using too many single target mits on MT for PM2 can cause buff cap, please be careful",
+      "noteRoles": [
+        "tank",
+        "healer"
+      ]
     },
     {
       "id": "p2",
@@ -1526,7 +1530,10 @@
           }
         }
       ],
-      "note": "If doing 7/1 Akh Morn, look at relevant Tank CDs in the tank comp specific section. Tanks should have enough mit to survive HW vuln wildcharges. You can move Phys Ranged party mit off both Akh Morns to Hallowed Wing for 3rd and 4th in line safety if doing both 7/1 AM."
+      "note": "If doing 7/1 Akh Morn, look at relevant Tank CDs in the tank comp specific section. Tanks should have enough mit to survive HW vuln wildcharges.",
+      "noteRoles": [
+        "tank"
+      ]
     },
     {
       "id": "p5",

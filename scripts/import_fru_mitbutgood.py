@@ -353,7 +353,9 @@ def convert():
         if phase_id == 'p4':
             if clean(cells.get('D34', '')) != 'A Note About 7/1 Akh Morn':
                 raise ValueError('P4 strategy note moved; review the workbook layout')
-            notes.append(clean(cells['D35']))
+            # The physical-ranged relocation instruction already lives on its
+            # Party Mit below. Keep only tank strategy in the phase note.
+            notes.append(clean(cells['D35']).split('You can move Phys Ranged')[0].strip())
             wing = next(m for m in mechanics if m['name'] == 'Hallowed Wing')
             for action in wing['assignments']['P']:
                 add_note(action, 'If doing both 7/1 Akh Morns, move party mit from both Akh Morns here for third/fourth-in-line safety.')
@@ -367,6 +369,7 @@ def convert():
         phase = {'id': phase_id, 'mechanics': mechanics}
         if notes:
             phase['note'] = ' '.join(dict.fromkeys(notes))
+            phase['noteRoles'] = {'p1': ['tank', 'healer'], 'p4': ['tank']}[phase_id]
         sheet['phases'].append(phase)
 
     # The encounter is the fight's source of truth and is never written here;

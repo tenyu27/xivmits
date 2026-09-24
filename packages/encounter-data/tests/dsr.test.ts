@@ -85,7 +85,9 @@ test('DSR retains source continuations and every pairing without importing dupli
   assert.ok(!JSON.stringify(sheet).match(/Cosmo|Wave Cannon|Under Construction/))
   const heel = sheet.phases.find(p => p.id === 'p5')!.mechanics.find(m => m.id === 'p5-heavenly-heel-2')!
   assert.deepEqual(heel.assignments.M1, [{ name: 'Feint' }])
-  assert.ok(heel.note?.includes('Healers'))
+  assert.equal(heel.note, undefined)
+  for (const job of ['SCH', 'SGE', 'WHM', 'AST'])
+    assert.ok(heel.assignments[job][0].note?.includes('Healers'))
   const rewind = sheet.phases.find(p => p.id === 'rewind')!.mechanics.find(m => m.id === 'rewind-brightwing-2')!
   assert.ok(rewind.assignments.OT.some(a => a.name === 'Reprisal'))
 })

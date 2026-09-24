@@ -58,12 +58,6 @@ TANK_FAMILIES = {
     'Flare/Holy': 'Flare/Holy',
     'Black Holes IV (10th Tether Set)': 'Black Holes 4th Set (Beam 10)',
 }
-# Explicit anchors for the five Thunder III occurrences. The party workbook
-# omits sets 2–4, so a preceding party row cannot identify these busters.
-THUNDER_ANCHORS = {45: 'p3-thunder-iii-1', 47: 'p3-thunder-iii-2',
-                   49: 'p3-thunder-iii-3', 51: 'p3-thunder-iii-4',
-                   53: 'p3-thunder-iii-5'}
-
 # The three autos inside one Fell Forces are one encounter mechanic; the call
 # that distinguishes them belongs in the row's tag, not in a name the fight does
 # not have.
@@ -90,10 +84,15 @@ def align_tank_rows(sheet, encounter):
         for phase in plan['phases']:
             mechanics = by_phase[phase['id']]
             resolved, taken = {}, set()
+            # The party workbook omits Thunder sets 2–4. Use source occurrence
+            # order, not the preceding party mechanic or absolute row numbers.
+            thunder_rows = list(dict.fromkeys(
+                re.search(r'-r(\d+)-', row['id']).group(1)
+                for row in phase['mechanics'] if row['name'] == 'Thunder III'))
             for row in phase['mechanics']:
-                source_row = int(re.search(r'-r(\d+)-', row['id']).group(1))
-                if phase['id'] == 'p3' and source_row in THUNDER_ANCHORS:
-                    row['after'] = THUNDER_ANCHORS[source_row]
+                source_row = re.search(r'-r(\d+)-', row['id']).group(1)
+                if phase['id'] == 'p3' and row['name'] == 'Thunder III':
+                    row['after'] = f'p3-thunder-iii-{thunder_rows.index(source_row) + 1}'
                 # Not keyed on seat: an MT and an OT row of the same mechanic are
                 # one moment and must land on the same one. Keyed on the row's
                 # original anchor as well, because two pairs can share a name and
@@ -247,6 +246,36 @@ def add_note(action, note):
         action['note'] = (action.get('note', '') + ' ' + note).strip()
 
 
+def add_press_note(mechanic, note):
+    """Keep press instructions on fresh assignments, never blank seats or carry-overs."""
+    for actions in mechanic['assignments'].values():
+        for action in actions:
+            if not action.get('carryOver'):
+                add_note(action, note)
+
+
+def accretion_assignments(note):
+    """Split the source's mixed-role footnote onto each seat's instruction."""
+    assignments = {slot: [{'name': 'Manage Accretion healing' if slot in HEALERS
+                          else 'Avoid HP-restoring abilities'}] for slot in COLUMNS.values()}
+    for sentence in re.split(r'(?<=\.)\s+', note):
+        if sentence.startswith('Non-healers'):
+            slots = [slot for slot in assignments if slot not in HEALERS]
+        elif sentence.startswith('If both Accretions'):
+            slots = list(assignments)
+        elif sentence.startswith(('Healers will', 'The H1 and H2')):
+            slots = HEALERS
+        elif sentence.startswith('If playing AST'):
+            slots = ['AST']
+        elif sentence.startswith('WHM can'):
+            slots = ['WHM']
+        else:
+            raise ValueError(f'Unreviewed Accretion instruction: {sentence}')
+        for slot in slots:
+            add_note(assignments[slot][0], sentence)
+    return assignments
+
+
 def column_number(column):
     result = 0
     for c in column:
@@ -284,15 +313,22 @@ def as_list(value):
 KITCHEN_SINK = {job: ['Rampart', MIT_40[job], MIT_90[job], *as_list(SHORT_MIT[job])] for job in TANKS}
 KNOWN_TOKENS = {'Kitchen Sink', 'Buddy Mit', 'Rampart', 'Invulnerability', '40%', '90s', 'Short Mit', 'Short', 'Provoke'}
 
-# phase -> (data rows, mode). Left column is E, right is I, time D. 'seat' rows
-# split by MT / OT; 'split' rows split by the P3-boss / P5-invuln choice.
-OMNI_BLOCKS = [
-    (1, [8, 10, 12, 14], 'seat'),
-    (2, [27, 29, 31], 'seat'),
-    (3, [45, 47, 49, 51, 53, 55], 'split'),
-    (4, [69], 'seat'),
-    (5, [81, 83, 85, 87, 89, 91, 93, 95, 97, 99], 'split'),
-]
+def omni_blocks(cells):
+    """Find phase blocks by their headings, so inserted note rows are harmless."""
+    headings = sorted((int(ref[1:]), int(match.group(1)))
+                      for ref, value in cells.items() if ref.startswith('E')
+                      if (match := re.match(r'(?:Phase |P)([1-5]):', value)))
+    if [phase for _, phase in headings] != list(range(1, 6)):
+        raise ValueError('Expected five Omnitank phase headings')
+    blocks = []
+    for start, phase in headings:
+        end = min(int(ref[1:]) for ref, value in cells.items()
+                  if ref.startswith('B') and value == 'Notes' and int(ref[1:]) > start)
+        rows = sorted(int(ref[1:]) for ref in cells
+                      if ref.startswith('B') and start < int(ref[1:]) < end)
+        header = next(row for row in range(start, rows[0]) if cells.get(f'D{row}') == 'Time')
+        blocks.append((phase, rows, 'split' if phase in (3, 5) else 'seat', end, header))
+    return blocks
 
 
 def omni_seconds(value):
@@ -391,9 +427,10 @@ def convert_omnitank(archive, strings, party_phases, phase_starts):
         cells[cell.get('r')] = strings[int(value.text)] if cell.get('t') == 's' else value.text
 
     # Footnotes: one dict per phase block, keyed by superscript marker.
+    blocks = omni_blocks(cells)
     block_notes = {}
-    for phase_number, rows, _ in OMNI_BLOCKS:
-        raw = cells.get(f'D{rows[-1] + 2}', '')
+    for phase_number, rows, _, notes_row, _ in blocks:
+        raw = cells[f'D{notes_row}']
         block_notes[phase_number] = {m[0]: clean(m[1]) for m in re.findall(rf'({MARKER})\s+(.*?)(?=\n{MARKER}\s|$)', raw, re.S)}
 
     def party_lookup(phase_number):
@@ -417,12 +454,12 @@ def convert_omnitank(archive, strings, party_phases, phase_starts):
     plans = []
     for job in TANKS:
         phases_out = []
-        for phase_number, rows, mode in OMNI_BLOCKS:
+        for phase_number, rows, mode, notes_row, _ in blocks:
             start = phase_starts[phase_number - 1]
             timed = party_lookup(phase_number)
             notes = block_notes[phase_number]
             out_mechs = []
-            for row in rows:
+            for row_index, row in enumerate(rows):
                 row_mechs = []
                 title = cells.get(f'B{row}', '')
                 name = clean(re.sub(MARKER, '', title))
@@ -439,7 +476,13 @@ def convert_omnitank(archive, strings, party_phases, phase_starts):
                 for column, tag, suffix in variants:
                     actions, extra = parse_omni_cell(cells.get(f'{column}{row}', ''), job, notes)
                     note_parts = [notes[m] for m in title_markers if m in notes] + extra
-                    alts = omni_alt(phase_number, row, tag.get('seat'), job)
+                    alts = omni_alt(phase_number, row_index, tag.get('seat'), job)
+                    if phase_number == 5 and job in ('WAR', 'DRK'):
+                        swap_note = re.search(r'If playing WAR/DRK,.*?Discuss beforehand\.',
+                                              cells[f'D{notes_row}'], re.S)
+                        for action in actions:
+                            if action['name'] == INVULN[job] and not action.get('carryOver') and swap_note:
+                                add_note(action, swap_note.group())
                     # WAR's kitchen-sink alternative lives in the `alts` sub-row
                     # on its own rows; the source also repeats it as a footnote
                     # that lands on every job and row (title markers -> note_parts,
@@ -497,7 +540,8 @@ def convert_omnitank(archive, strings, party_phases, phase_starts):
                         out_mechs.append(marker)
             phase_out = {'id': f'p{phase_number}', 'mechanics': out_mechs}
             if phase_number in (3, 4):
-                phase_out['note'] = clean(cells[f'D{rows[-1] + 2}'])
+                # Numbered footnotes already live on their actions.
+                phase_out['note'] = clean(re.split(rf'\n{MARKER}\s', cells[f'D{notes_row}'])[0])
             # "You start with the boss" applies to the whole of P5 for the 2nd
             # invuln - a phase-top personal note, not a per-row one.
             if phase_number == 5:
@@ -514,11 +558,12 @@ def convert_omnitank(archive, strings, party_phases, phase_starts):
         return [j for j in (p.strip() for p in stripped.split('>')) if j in TANKS]
 
     p3_pri = {}
-    for cell in (cells.get('E43', ''), cells.get('I43', '')):
+    headers = {phase: header for phase, _, _, _, header in blocks}
+    for cell in (cells[f'E{headers[3]}'], cells[f'I{headers[3]}']):
         m = re.match(r'\s*([A-Za-z]+)\s*\((.*)\)', cell)
         if m:
             p3_pri[m.group(1)] = order_list(m.group(2))
-    invuln_pri = {k: order_list(cells.get(c, '')) for k, c in (('1', 'E79'), ('2', 'I79'))}
+    invuln_pri = {k: order_list(cells[f'{column}{headers[5]}']) for k, column in (('1', 'E'), ('2', 'I'))}
     priorities = {}
     if all(len(v) == len(TANKS) for v in p3_pri.values()) and len(p3_pri) == 2:
         priorities['p3Boss'] = p3_pri
@@ -531,14 +576,14 @@ def convert_omnitank(archive, strings, party_phases, phase_starts):
     return result
 
 
-def omni_alt(phase_number, row, seat, job):
+def omni_alt(phase_number, row_index, seat, job):
     """WAR's one contingency: keep the P1 invuln, spend it on the first P2
     Ultimate Embrace instead."""
     if job != 'WAR' or seat != 'MT':
         return None
-    if phase_number == 1 and row == 14:
+    if phase_number == 1 and row_index == 3:
         return [{'label': 'Alt: kitchen sink', 'actions': [{'name': n} for n in KITCHEN_SINK['WAR']]}]
-    if phase_number == 2 and row == 27:
+    if phase_number == 2 and row_index == 0:
         return [{'label': 'Alt: Holmgang (if saved from P1)', 'actions': [{'name': 'Holmgang'}]}]
     return None
 
@@ -553,8 +598,8 @@ def convert():
     strings = workbook.shared_strings(archive)
     sheet = {
         'id': 'ikuya', 'fightId': 'dmu', 'name': 'Ikuya Mitty',
-        'author': 'Ikuya Kirishima', 'updated': '2026-09-07',
-        'sourceVersion': '6.0 (1 Sep)',
+        'author': 'Ikuya Kirishima', 'updated': '2026-09-23',
+        'sourceVersion': '6.1 (20 Sep)',
         'source': {'name': 'Ikuya Mitty spreadsheet',
                    'url': 'https://docs.google.com/spreadsheets/d/10C3ytfH3irHqkb45rchIq5oqdAs-v_OKTj57M-Twi3k/edit'},
         'description': 'P1–P5 from Ikuya Kirishima’s mitigation plan. Choose a tank position, healer job, or DPS position.',
@@ -648,10 +693,7 @@ def convert():
                     mechanic['assignments'].setdefault(slot, []).append(dict(extra))
                 prev_extras_row = row
             if phase_number == 3 and row == 24:
-                mechanic['note'] = notes['⁴']
-                for slot in COLUMNS.values():
-                    name = 'Manage Accretion healing' if slot in HEALERS else 'Avoid HP-restoring abilities'
-                    mechanic['assignments'][slot] = [{'name': name}]
+                mechanic['assignments'] = accretion_assignments(notes['⁴'])
             # Mechanic footnotes and unnumbered timing rules belong beside the
             # affected actions. Phase-wide rules live in the phase note instead
             # (see PHASE_RULES) - only genuinely local notes are added here.
@@ -675,14 +717,15 @@ def convert():
                     for frag, jobs in NOTE_JOBS.items():
                         if frag in action.get('note', ''):
                             action['noteJobs'] = jobs
-            # Timing rules that apply to a whole mechanic, every role.
+            # This is a press-timing instruction, not a mechanic warning.
+            # Blank seats and cooldowns already running have nothing to press.
             if phase_number == 1 and row in (14, 22):
-                mechanic['note'] = 'Use late into the castbar so it also covers Hyperdrive.'
+                add_press_note(mechanic, 'Use late into the castbar so it also covers Hyperdrive.')
             if phase_number == 5 and row == 32:
-                mechanic['note'] = 'Use any timed mitigation as late as possible.'
+                add_press_note(mechanic, 'Use any timed mitigation as late as possible.')
             if phase_number == 5 and row == 40:
-                mechanic['note'] = ('It is important that the new round of mitigation for the 5th hit '
-                                    'are applied as the first round of mitigation will fall off.')
+                add_press_note(mechanic, 'Apply the new round of mitigation for the 5th hit '
+                               'as the first round of mitigation will fall off.')
             mechanics.append(mechanic)
         phase = {'id': f'p{phase_number}', 'mechanics': mechanics}
         if PHASE_RULES[phase_number]:

@@ -550,22 +550,24 @@
           "assignments": {
             "SCH": [
               {
-                "name": "Deployment Tactics"
+                "name": "Deployment Tactics",
+                "note": "Use the assigned shields before the first bait."
               }
             ],
             "SGE": [
               {
                 "name": "Zoe",
-                "note": "Late"
+                "note": "Late Use the assigned shields before the first bait."
               },
               {
                 "name": "Eukrasian Prognosis",
-                "note": "Late"
+                "note": "Late Use the assigned shields before the first bait."
               }
             ],
             "AST": [
               {
-                "name": "Neutral Sect"
+                "name": "Neutral Sect",
+                "note": "Use the assigned shields before the first bait."
               }
             ]
           }
@@ -700,7 +702,7 @@
           }
         }
       ],
-      "note": "Brightwing bait order: healers, melee, ranged, tanks. Use the assigned shields before the first bait."
+      "note": "Brightwing bait order: healers, melee, ranged, tanks."
     },
     {
       "id": "p5",
@@ -854,7 +856,6 @@
         },
         {
           "mechanicId": "p5-heavenly-heel-2",
-          "note": "Healers need to mitigate tanks for this buster.",
           "assignments": {
             "M1": [
               {
@@ -863,22 +864,26 @@
             ],
             "SCH": [
               {
-                "name": "Assist Tanks"
+                "name": "Assist Tanks",
+                "note": "Healers need to mitigate tanks for this buster."
               }
             ],
             "SGE": [
               {
-                "name": "Assist Tanks"
+                "name": "Assist Tanks",
+                "note": "Healers need to mitigate tanks for this buster."
               }
             ],
             "WHM": [
               {
-                "name": "Assist Tanks"
+                "name": "Assist Tanks",
+                "note": "Healers need to mitigate tanks for this buster."
               }
             ],
             "AST": [
               {
-                "name": "Assist Tanks"
+                "name": "Assist Tanks",
+                "note": "Healers need to mitigate tanks for this buster."
               }
             ]
           }

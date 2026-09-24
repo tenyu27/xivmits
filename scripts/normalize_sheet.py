@@ -92,6 +92,7 @@ def bind_sheet(sheet, encounter, aliases=None):
             rows.append({
                 'mechanicId': match['id'],
                 **({'note': mechanic['note']} if mechanic.get('note') else {}),
+                **({'noteRoles': mechanic['noteRoles']} if mechanic.get('noteRoles') else {}),
                 'assignments': mechanic['assignments'],
             })
         phase['mechanics'] = rows

@@ -372,6 +372,12 @@
       "name": "Party Mit",
       "kind": "generic"
     },
+    "passage-of-arms": {
+      "name": "Passage of Arms",
+      "kind": "action",
+      "icon": "002515.png",
+      "action": 7385
+    },
     "pepsis": {
       "name": "Pepsis",
       "kind": "action",
@@ -663,6 +669,7 @@
     "Party Mit (GNB/DRK)": "party-mit",
     "Party Mit (WAR)": "party-mit",
     "Party Mit (WAR/PLD)": "party-mit",
+    "Passage of Arms (PLD)": "passage-of-arms",
     "Pepsis": "pepsis",
     "Philosophia": "philosophia",
     "Physis II": "physis-ii",

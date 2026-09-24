@@ -109,7 +109,6 @@ MECHANICS = {
 # Prose the source parks in a spare row, folded onto the mechanic it belongs to.
 ROW_NOTES = {
     ('p3', 'p3-earthquake-1'): 'Both tanks swap bosses here: the Exdeath starter takes Chaos and the Chaos starter takes Exdeath.',
-    ('p3', 'p3-thunder-iii-4'): 'Use the first beam set on either tank if it is the stack.',
     # The source writes "Enrage!" in the MT column because that is where it fit
     # on the row. It is not an MT assignment and not a button, so it belongs to
     # the mechanic, shown once for every role.
@@ -124,6 +123,11 @@ PHASE_NOTES = {
 # Column A holds a priority call that belongs to the row it sits on.
 COLUMN_A_NOTES = {('p2', 30): 'Wall priority: PLD > WAR > DRK > GNB.',
                   ('p3', 18): 'Tank LB priority: WAR > DRK > PLD > GNB.'}
+
+# The icons in I32 and I38 are Passage of Arms. I35's arrows offer one use
+# on either Stack/Roles, not a beam instruction or two cooldown uses.
+PASSAGE_ROWS = {'p3-shocking-impact-1', 'p3-shocking-impact-2'}
+PASSAGE_NOTE = 'Use on either of the first two Stack/Roles when it is the stack. Choose one use across these two rows.'
 
 # Shorthand -> action name. A name packages/encounter-data/jobs.json knows how to resolve per job
 # ("Party Mit", "Short Mit", "90s Mit", "120s Mit", "Invuln") is left generic on
@@ -463,6 +467,8 @@ def convert(archive, moved=None):
             note = ' '.join(part for part in note_parts if part)
             if note:
                 entry['note'] = note
+                if (phase_id, row) in COLUMN_A_NOTES or mechanic_id == 'p3-earthquake-1':
+                    entry['noteRoles'] = ['tank']
             if not assignments and not note:
                 continue
             # The tank columns keep only what a tank presses for the group;
@@ -492,10 +498,15 @@ def convert(archive, moved=None):
             if not assignments and not note and not lifted:
                 continue
             entry['assignments'] = assignments
+            if mechanic_id in PASSAGE_ROWS:
+                # PLD is the forced OT in this sheet. Keep the job qualifier
+                # because the OT seat also admits the other tank jobs.
+                assignments.setdefault('OT', []).append({'name': 'Passage of Arms (PLD)', 'note': PASSAGE_NOTE})
             mechanics.append(entry)
         phase = {'id': phase_id}
         if phase_id in PHASE_NOTES:
             phase['note'] = PHASE_NOTES[phase_id]
+            phase['noteRoles'] = ['tank']
         phase['mechanics'] = mechanics
         phases.append(phase)
 

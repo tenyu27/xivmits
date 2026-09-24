@@ -3,8 +3,8 @@
   "fightId": "dmu",
   "name": "Ikuya Mitty",
   "author": "Ikuya Kirishima",
-  "updated": "2026-09-07",
-  "sourceVersion": "6.0 (1 Sep)",
+  "updated": "2026-09-23",
+  "sourceVersion": "6.1 (20 Sep)",
   "source": {
     "name": "Ikuya Mitty spreadsheet",
     "url": "https://docs.google.com/spreadsheets/d/10C3ytfH3irHqkb45rchIq5oqdAs-v_OKTj57M-Twi3k/edit"
@@ -231,21 +231,23 @@
         },
         {
           "mechanicId": "p1-light-of-judgment-1",
-          "note": "Use late into the castbar so it also covers Hyperdrive.",
           "assignments": {
             "MT": [
               {
-                "name": "Reprisal"
+                "name": "Reprisal",
+                "note": "Use late into the castbar so it also covers Hyperdrive."
               }
             ],
             "WHM": [
               {
-                "name": "Plenary Indulgence"
+                "name": "Plenary Indulgence",
+                "note": "Use late into the castbar so it also covers Hyperdrive."
               }
             ],
             "AST": [
               {
-                "name": "Collective Unconscious"
+                "name": "Collective Unconscious",
+                "note": "Use late into the castbar so it also covers Hyperdrive."
               }
             ],
             "SCH": [
@@ -256,12 +258,14 @@
             ],
             "SGE": [
               {
-                "name": "Kerachole"
+                "name": "Kerachole",
+                "note": "Use late into the castbar so it also covers Hyperdrive."
               }
             ],
             "M2": [
               {
-                "name": "Feint"
+                "name": "Feint",
+                "note": "Use late into the castbar so it also covers Hyperdrive."
               }
             ],
             "C": [
@@ -270,12 +274,14 @@
                 "carryOver": true
               },
               {
-                "name": "Extra (RDM/MCH)"
+                "name": "Extra (RDM/MCH)",
+                "note": "Use late into the castbar so it also covers Hyperdrive."
               }
             ],
             "P": [
               {
-                "name": "Extra (RDM/MCH)"
+                "name": "Extra (RDM/MCH)",
+                "note": "Use late into the castbar so it also covers Hyperdrive."
               }
             ]
           }
@@ -370,24 +376,27 @@
         },
         {
           "mechanicId": "p1-light-of-judgment-2",
-          "note": "Use late into the castbar so it also covers Hyperdrive.",
           "assignments": {
             "MT": [
               {
-                "name": "Reprisal"
+                "name": "Reprisal",
+                "note": "Use late into the castbar so it also covers Hyperdrive."
               },
               {
-                "name": "Party Mit"
+                "name": "Party Mit",
+                "note": "Use late into the castbar so it also covers Hyperdrive."
               }
             ],
             "WHM": [
               {
-                "name": "Plenary Indulgence"
+                "name": "Plenary Indulgence",
+                "note": "Use late into the castbar so it also covers Hyperdrive."
               }
             ],
             "AST": [
               {
-                "name": "Collective Unconscious"
+                "name": "Collective Unconscious",
+                "note": "Use late into the castbar so it also covers Hyperdrive."
               }
             ],
             "SCH": [
@@ -398,7 +407,8 @@
             ],
             "SGE": [
               {
-                "name": "Kerachole"
+                "name": "Kerachole",
+                "note": "Use late into the castbar so it also covers Hyperdrive."
               },
               {
                 "name": "Panhaima",
@@ -407,7 +417,8 @@
             ],
             "M1": [
               {
-                "name": "Feint"
+                "name": "Feint",
+                "note": "Use late into the castbar so it also covers Hyperdrive."
               }
             ]
           }
@@ -753,7 +764,15 @@
           "assignments": {
             "WHM": [
               {
-                "name": "Liturgy of the Bell"
+                "name": "Temperance"
+              },
+              {
+                "name": "Divine Caress"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
               }
             ],
             "SCH": [
@@ -776,15 +795,13 @@
                 "name": "Plenary Indulgence"
               },
               {
-                "name": "Temperance"
+                "name": "Temperance",
+                "carryOver": true
               }
             ],
             "AST": [
               {
                 "name": "Collective Unconscious"
-              },
-              {
-                "name": "Neutral Sect"
               }
             ],
             "SCH": [
@@ -814,7 +831,7 @@
             ],
             "WHM": [
               {
-                "name": "Divine Caress"
+                "name": "Liturgy of the Bell"
               },
               {
                 "name": "Temperance",
@@ -843,7 +860,7 @@
           "assignments": {
             "WHM": [
               {
-                "name": "Temperance",
+                "name": "Liturgy of the Bell",
                 "carryOver": true
               }
             ],
@@ -1074,11 +1091,6 @@
                 "name": "Party Mit"
               }
             ],
-            "OT": [
-              {
-                "name": "Reprisal"
-              }
-            ],
             "SCH": [
               {
                 "name": "Spreadlo",
@@ -1114,8 +1126,7 @@
           "assignments": {
             "OT": [
               {
-                "name": "Reprisal",
-                "carryOver": true
+                "name": "Reprisal"
               }
             ],
             "SCH": [
@@ -1430,56 +1441,65 @@
         },
         {
           "mechanicId": "p3-accretion-1",
-          "note": "Non-healers should avoid using any healing abilities that may cause their Accretion to pop early such as Second Wind, Curing Waltz or Divine Veil. If both Accretions are activated in a short amount of time, it will cause a wipe. Healers will need to manage HP burst accordingly to ensure that Accretions are not popped together. The H1 and H2 can throw single target heals at whoever has the Accretion between them. If playing AST, I recommend popping Macrocosmos immediately for the top-up as this will also take care of the tanks. WHM can use Benediction (if not used earlier) to instantly pop the healer Accretion.",
           "assignments": {
             "MT": [
               {
-                "name": "Avoid HP-restoring abilities"
+                "name": "Avoid HP-restoring abilities",
+                "note": "Non-healers should avoid using any healing abilities that may cause their Accretion to pop early such as Second Wind, Curing Waltz or Divine Veil. If both Accretions are activated in a short amount of time, it will cause a wipe."
               }
             ],
             "OT": [
               {
-                "name": "Avoid HP-restoring abilities"
+                "name": "Avoid HP-restoring abilities",
+                "note": "Non-healers should avoid using any healing abilities that may cause their Accretion to pop early such as Second Wind, Curing Waltz or Divine Veil. If both Accretions are activated in a short amount of time, it will cause a wipe."
               }
             ],
             "WHM": [
               {
-                "name": "Manage Accretion healing"
+                "name": "Manage Accretion healing",
+                "note": "If both Accretions are activated in a short amount of time, it will cause a wipe. Healers will need to manage HP burst accordingly to ensure that Accretions are not popped together. The H1 and H2 can throw single target heals at whoever has the Accretion between them. WHM can use Benediction (if not used earlier) to instantly pop the healer Accretion."
               }
             ],
             "AST": [
               {
-                "name": "Manage Accretion healing"
+                "name": "Manage Accretion healing",
+                "note": "If both Accretions are activated in a short amount of time, it will cause a wipe. Healers will need to manage HP burst accordingly to ensure that Accretions are not popped together. The H1 and H2 can throw single target heals at whoever has the Accretion between them. If playing AST, I recommend popping Macrocosmos immediately for the top-up as this will also take care of the tanks."
               }
             ],
             "SCH": [
               {
-                "name": "Manage Accretion healing"
+                "name": "Manage Accretion healing",
+                "note": "If both Accretions are activated in a short amount of time, it will cause a wipe. Healers will need to manage HP burst accordingly to ensure that Accretions are not popped together. The H1 and H2 can throw single target heals at whoever has the Accretion between them."
               }
             ],
             "SGE": [
               {
-                "name": "Manage Accretion healing"
+                "name": "Manage Accretion healing",
+                "note": "If both Accretions are activated in a short amount of time, it will cause a wipe. Healers will need to manage HP burst accordingly to ensure that Accretions are not popped together. The H1 and H2 can throw single target heals at whoever has the Accretion between them."
               }
             ],
             "M1": [
               {
-                "name": "Avoid HP-restoring abilities"
+                "name": "Avoid HP-restoring abilities",
+                "note": "Non-healers should avoid using any healing abilities that may cause their Accretion to pop early such as Second Wind, Curing Waltz or Divine Veil. If both Accretions are activated in a short amount of time, it will cause a wipe."
               }
             ],
             "M2": [
               {
-                "name": "Avoid HP-restoring abilities"
+                "name": "Avoid HP-restoring abilities",
+                "note": "Non-healers should avoid using any healing abilities that may cause their Accretion to pop early such as Second Wind, Curing Waltz or Divine Veil. If both Accretions are activated in a short amount of time, it will cause a wipe."
               }
             ],
             "P": [
               {
-                "name": "Avoid HP-restoring abilities"
+                "name": "Avoid HP-restoring abilities",
+                "note": "Non-healers should avoid using any healing abilities that may cause their Accretion to pop early such as Second Wind, Curing Waltz or Divine Veil. If both Accretions are activated in a short amount of time, it will cause a wipe."
               }
             ],
             "C": [
               {
-                "name": "Avoid HP-restoring abilities"
+                "name": "Avoid HP-restoring abilities",
+                "note": "Non-healers should avoid using any healing abilities that may cause their Accretion to pop early such as Second Wind, Curing Waltz or Divine Veil. If both Accretions are activated in a short amount of time, it will cause a wipe."
               }
             ]
           }
@@ -2635,64 +2655,77 @@
         },
         {
           "mechanicId": "p5-forsaken-1",
-          "note": "Use any timed mitigation as late as possible.",
           "assignments": {
             "MT": [
               {
-                "name": "Reprisal"
+                "name": "Reprisal",
+                "note": "Use any timed mitigation as late as possible."
               },
               {
-                "name": "Party Mit"
+                "name": "Party Mit",
+                "note": "Use any timed mitigation as late as possible."
               }
             ],
             "WHM": [
               {
-                "name": "Temperance"
+                "name": "Temperance",
+                "note": "Use any timed mitigation as late as possible."
               }
             ],
             "AST": [
               {
-                "name": "Neutral Sect"
+                "name": "Neutral Sect",
+                "note": "Use any timed mitigation as late as possible."
               },
               {
-                "name": "Collective Unconscious"
+                "name": "Collective Unconscious",
+                "note": "Use any timed mitigation as late as possible."
               }
             ],
             "SCH": [
               {
-                "name": "Spreadlo"
+                "name": "Spreadlo",
+                "note": "Use any timed mitigation as late as possible."
               },
               {
-                "name": "Fey Illumination"
+                "name": "Fey Illumination",
+                "note": "Use any timed mitigation as late as possible."
               },
               {
-                "name": "Sacred Soil"
+                "name": "Sacred Soil",
+                "note": "Use any timed mitigation as late as possible."
               }
             ],
             "SGE": [
               {
-                "name": "Zoe Shields"
+                "name": "Zoe Shields",
+                "note": "Use any timed mitigation as late as possible."
               },
               {
-                "name": "Holos"
+                "name": "Holos",
+                "note": "Use any timed mitigation as late as possible."
               },
               {
-                "name": "Kerachole"
+                "name": "Kerachole",
+                "note": "Use any timed mitigation as late as possible."
               }
             ],
             "M2": [
               {
-                "name": "Feint"
+                "name": "Feint",
+                "note": "Use any timed mitigation as late as possible."
               }
             ],
             "P": [
               {
-                "name": "Extra (RDM/MCH)"
+                "name": "Extra (RDM/MCH)",
+                "note": "Use any timed mitigation as late as possible."
               }
             ],
             "C": [
               {
-                "name": "Extra (RDM/MCH)"
+                "name": "Extra (RDM/MCH)",
+                "note": "Use any timed mitigation as late as possible."
               }
             ]
           }
@@ -2884,19 +2917,21 @@
         },
         {
           "mechanicId": "p5-forsaken-3",
-          "note": "It is important that the new round of mitigation for the 5th hit are applied as the first round of mitigation will fall off.",
           "assignments": {
             "OT": [
               {
-                "name": "Reprisal"
+                "name": "Reprisal",
+                "note": "Apply the new round of mitigation for the 5th hit as the first round of mitigation will fall off."
               },
               {
-                "name": "Party Mit"
+                "name": "Party Mit",
+                "note": "Apply the new round of mitigation for the 5th hit as the first round of mitigation will fall off."
               }
             ],
             "WHM": [
               {
-                "name": "Divine Caress"
+                "name": "Divine Caress",
+                "note": "Apply the new round of mitigation for the 5th hit as the first round of mitigation will fall off."
               },
               {
                 "name": "Temperance",
@@ -2905,7 +2940,8 @@
             ],
             "AST": [
               {
-                "name": "Sun Sign"
+                "name": "Sun Sign",
+                "note": "Apply the new round of mitigation for the 5th hit as the first round of mitigation will fall off."
               }
             ],
             "SCH": [
@@ -2926,17 +2962,20 @@
             ],
             "M1": [
               {
-                "name": "Feint"
+                "name": "Feint",
+                "note": "Apply the new round of mitigation for the 5th hit as the first round of mitigation will fall off."
               }
             ],
             "P": [
               {
-                "name": "Party Mit"
+                "name": "Party Mit",
+                "note": "Apply the new round of mitigation for the 5th hit as the first round of mitigation will fall off."
               }
             ],
             "C": [
               {
-                "name": "Addle"
+                "name": "Addle",
+                "note": "Apply the new round of mitigation for the 5th hit as the first round of mitigation will fall off."
               }
             ]
           }
@@ -3402,7 +3441,8 @@
                 "tag": "1st hit",
                 "actions": [
                   {
-                    "name": "Rampart"
+                    "name": "Rampart",
+                    "note": "Use Rampart to also cover the Stray Flames."
                   },
                   {
                     "name": "Bulwark"
@@ -3421,7 +3461,8 @@
                 "tag": "2nd hit",
                 "actions": [
                   {
-                    "name": "Rampart"
+                    "name": "Rampart",
+                    "note": "Use Rampart to also cover the Stray Flames."
                   },
                   {
                     "name": "Bulwark"
@@ -3572,13 +3613,13 @@
                 ]
               }
             ],
-            "note": "Regardless of who is MT or OT, the invulnerability priority overrides this. You will still mitigate (Reprisal & Party Mit) based on whether you are MT or OT on the main page. This is for middle Exdeath only. Tanks should use their short mitigation for the autos throughout the phase (WAR use Nascent)."
+            "note": "Regardless of who is MT or OT, the invulnerability priority overrides this. You will still mitigate (Reprisal & Party Mit) based on whether you are MT or OT on the main page. This is for middle Exdeath only. Tanks should use their short mitigation for the autos in between busters throughout the phase (WAR use Nascent)."
           },
           {
             "id": "p4",
             "mechanics": [
               {
-                "id": "pld-p4-r69-mt",
+                "id": "pld-p4-r71-mt",
                 "name": "Autos",
                 "time": "0:00",
                 "seat": "MT",
@@ -3595,7 +3636,7 @@
                 ]
               },
               {
-                "id": "pld-p4-r69-ot",
+                "id": "pld-p4-r71-ot",
                 "name": "Autos",
                 "time": "0:00",
                 "seat": "OT",
@@ -3613,7 +3654,7 @@
             "id": "p5",
             "mechanics": [
               {
-                "id": "pld-p5-r81-inv1",
+                "id": "pld-p5-r83-inv1",
                 "name": "Fell Forces 1 (3x)",
                 "after": "p5-fell-forces-1",
                 "invuln": 1,
@@ -3630,7 +3671,7 @@
                 "tag": "Share"
               },
               {
-                "id": "pld-p5-r81-inv2",
+                "id": "pld-p5-r83-inv2",
                 "name": "Fell Forces 1 (3x)",
                 "after": "p5-fell-forces-1",
                 "invuln": 2,
@@ -3647,7 +3688,7 @@
                 "tag": "Share"
               },
               {
-                "id": "pld-p5-r83-inv1",
+                "id": "pld-p5-r85-inv1",
                 "name": "Maddening Orchestra 1",
                 "after": "p5-maddening-orchestra-1",
                 "invuln": 1,
@@ -3666,7 +3707,7 @@
                 "time": "0:39"
               },
               {
-                "id": "pld-p5-r83-inv2",
+                "id": "pld-p5-r85-inv2",
                 "name": "Maddening Orchestra 1",
                 "after": "p5-maddening-orchestra-1",
                 "invuln": 2,
@@ -3681,7 +3722,7 @@
                 "time": "0:39"
               },
               {
-                "id": "pld-p5-r85-inv1",
+                "id": "pld-p5-r87-inv1",
                 "name": "Flare/Holy 1",
                 "time": "0:46",
                 "after": "p5-flare-1",
@@ -3694,7 +3735,7 @@
                 ]
               },
               {
-                "id": "pld-p5-r85-inv2",
+                "id": "pld-p5-r87-inv2",
                 "name": "Flare/Holy 1",
                 "time": "0:46",
                 "after": "p5-flare-1",
@@ -3711,7 +3752,7 @@
                 ]
               },
               {
-                "id": "pld-p5-r87-inv1",
+                "id": "pld-p5-r89-inv1",
                 "name": "Fell Forces 2 (2x)",
                 "after": "p5-fell-forces-2",
                 "invuln": 1,
@@ -3725,7 +3766,7 @@
                 "time": "0:50"
               },
               {
-                "id": "pld-p5-r87-inv2",
+                "id": "pld-p5-r89-inv2",
                 "name": "Fell Forces 2 (2x)",
                 "invuln": 2,
                 "tag": "Avoid",
@@ -3734,7 +3775,7 @@
                 "time": "0:50"
               },
               {
-                "id": "pld-p5-r89-inv1",
+                "id": "pld-p5-r91-inv1",
                 "name": "Fell Forces 3 (2x)",
                 "after": "p5-fell-forces-3",
                 "invuln": 1,
@@ -3750,7 +3791,7 @@
                 "tag": "Share"
               },
               {
-                "id": "pld-p5-r89-inv2",
+                "id": "pld-p5-r91-inv2",
                 "name": "Fell Forces 3 (2x)",
                 "after": "p5-fell-forces-3",
                 "invuln": 2,
@@ -3766,7 +3807,7 @@
                 "tag": "Share"
               },
               {
-                "id": "pld-p5-r91-inv1",
+                "id": "pld-p5-r93-inv1",
                 "name": "Maddening Orchestra 2",
                 "after": "p5-maddening-orchestra-2",
                 "invuln": 1,
@@ -3782,7 +3823,7 @@
                 "time": "2:11"
               },
               {
-                "id": "pld-p5-r91-inv2",
+                "id": "pld-p5-r93-inv2",
                 "name": "Maddening Orchestra 2",
                 "after": "p5-maddening-orchestra-2",
                 "invuln": 2,
@@ -3805,7 +3846,7 @@
                 "time": "2:11"
               },
               {
-                "id": "pld-p5-r93-inv1",
+                "id": "pld-p5-r95-inv1",
                 "name": "Flare/Holy 2",
                 "time": "2:17",
                 "after": "p5-flare-2",
@@ -3822,7 +3863,7 @@
                 ]
               },
               {
-                "id": "pld-p5-r93-inv2",
+                "id": "pld-p5-r95-inv2",
                 "name": "Flare/Holy 2",
                 "time": "2:17",
                 "after": "p5-flare-2",
@@ -3835,7 +3876,7 @@
                 ]
               },
               {
-                "id": "pld-p5-r95-inv1",
+                "id": "pld-p5-r97-inv1",
                 "name": "Fell Forces 4 (3x)",
                 "time": "2:22",
                 "after": "p5-fell-forces-4",
@@ -3844,7 +3885,7 @@
                 "tag": "Avoid"
               },
               {
-                "id": "pld-p5-r95-inv2",
+                "id": "pld-p5-r97-inv2",
                 "name": "Fell Forces 4 (3x)",
                 "time": "2:22",
                 "after": "p5-fell-forces-4",
@@ -3858,7 +3899,7 @@
                 ]
               },
               {
-                "id": "pld-p5-r99-inv1",
+                "id": "pld-p5-r101-inv1",
                 "name": "Fell Forces 4 (3x)",
                 "time": "2:22",
                 "after": "p5-fell-forces-4",
@@ -3877,7 +3918,7 @@
                 "tag": "Share 3rd hit"
               },
               {
-                "id": "pld-p5-r99-inv2",
+                "id": "pld-p5-r101-inv2",
                 "name": "Fell Forces 4 (3x)",
                 "time": "2:22",
                 "after": "p5-fell-forces-4",
@@ -4212,7 +4253,8 @@
                 "tag": "1st hit",
                 "actions": [
                   {
-                    "name": "Rampart"
+                    "name": "Rampart",
+                    "note": "Use Rampart to also cover the Stray Flames."
                   },
                   {
                     "name": "Thrill of Battle"
@@ -4231,7 +4273,8 @@
                 "tag": "2nd hit",
                 "actions": [
                   {
-                    "name": "Rampart"
+                    "name": "Rampart",
+                    "note": "Use Rampart to also cover the Stray Flames."
                   },
                   {
                     "name": "Thrill of Battle"
@@ -4382,13 +4425,13 @@
                 ]
               }
             ],
-            "note": "Regardless of who is MT or OT, the invulnerability priority overrides this. You will still mitigate (Reprisal & Party Mit) based on whether you are MT or OT on the main page. This is for middle Exdeath only. Tanks should use their short mitigation for the autos throughout the phase (WAR use Nascent)."
+            "note": "Regardless of who is MT or OT, the invulnerability priority overrides this. You will still mitigate (Reprisal & Party Mit) based on whether you are MT or OT on the main page. This is for middle Exdeath only. Tanks should use their short mitigation for the autos in between busters throughout the phase (WAR use Nascent)."
           },
           {
             "id": "p4",
             "mechanics": [
               {
-                "id": "war-p4-r69-mt",
+                "id": "war-p4-r71-mt",
                 "name": "Autos",
                 "time": "0:00",
                 "seat": "MT",
@@ -4405,7 +4448,7 @@
                 ]
               },
               {
-                "id": "war-p4-r69-ot",
+                "id": "war-p4-r71-ot",
                 "name": "Autos",
                 "time": "0:00",
                 "seat": "OT",
@@ -4423,7 +4466,7 @@
             "id": "p5",
             "mechanics": [
               {
-                "id": "war-p5-r81-inv1",
+                "id": "war-p5-r83-inv1",
                 "name": "Fell Forces 1 (3x)",
                 "after": "p5-fell-forces-1",
                 "invuln": 1,
@@ -4440,7 +4483,7 @@
                 "tag": "Share"
               },
               {
-                "id": "war-p5-r81-inv2",
+                "id": "war-p5-r83-inv2",
                 "name": "Fell Forces 1 (3x)",
                 "after": "p5-fell-forces-1",
                 "invuln": 2,
@@ -4457,7 +4500,7 @@
                 "tag": "Share"
               },
               {
-                "id": "war-p5-r83-inv1",
+                "id": "war-p5-r85-inv1",
                 "name": "Maddening Orchestra 1",
                 "after": "p5-maddening-orchestra-1",
                 "invuln": 1,
@@ -4476,7 +4519,7 @@
                 "time": "0:39"
               },
               {
-                "id": "war-p5-r83-inv2",
+                "id": "war-p5-r85-inv2",
                 "name": "Maddening Orchestra 1",
                 "after": "p5-maddening-orchestra-1",
                 "invuln": 2,
@@ -4491,7 +4534,7 @@
                 "time": "0:39"
               },
               {
-                "id": "war-p5-r85-inv1",
+                "id": "war-p5-r87-inv1",
                 "name": "Flare/Holy 1",
                 "time": "0:46",
                 "after": "p5-flare-1",
@@ -4499,12 +4542,12 @@
                 "actions": [
                   {
                     "name": "Holmgang",
-                    "note": "Invulnerabilities should be used just before the Flare/Holy debuffs expire so that they can cover two autos."
+                    "note": "Invulnerabilities should be used just before the Flare/Holy debuffs expire so that they can cover two autos. If playing WAR/DRK, you can swap invulnerabilities as WAR has more tools to heal between the 2nd and 3rd auto. Discuss beforehand."
                   }
                 ]
               },
               {
-                "id": "war-p5-r85-inv2",
+                "id": "war-p5-r87-inv2",
                 "name": "Flare/Holy 1",
                 "time": "0:46",
                 "after": "p5-flare-1",
@@ -4521,7 +4564,7 @@
                 ]
               },
               {
-                "id": "war-p5-r87-inv1",
+                "id": "war-p5-r89-inv1",
                 "name": "Fell Forces 2 (2x)",
                 "after": "p5-fell-forces-2",
                 "invuln": 1,
@@ -4535,7 +4578,7 @@
                 "time": "0:50"
               },
               {
-                "id": "war-p5-r87-inv2",
+                "id": "war-p5-r89-inv2",
                 "name": "Fell Forces 2 (2x)",
                 "invuln": 2,
                 "tag": "Avoid",
@@ -4544,7 +4587,7 @@
                 "time": "0:50"
               },
               {
-                "id": "war-p5-r89-inv1",
+                "id": "war-p5-r91-inv1",
                 "name": "Fell Forces 3 (2x)",
                 "after": "p5-fell-forces-3",
                 "invuln": 1,
@@ -4560,7 +4603,7 @@
                 "tag": "Share"
               },
               {
-                "id": "war-p5-r89-inv2",
+                "id": "war-p5-r91-inv2",
                 "name": "Fell Forces 3 (2x)",
                 "after": "p5-fell-forces-3",
                 "invuln": 2,
@@ -4576,7 +4619,7 @@
                 "tag": "Share"
               },
               {
-                "id": "war-p5-r91-inv1",
+                "id": "war-p5-r93-inv1",
                 "name": "Maddening Orchestra 2",
                 "after": "p5-maddening-orchestra-2",
                 "invuln": 1,
@@ -4592,7 +4635,7 @@
                 "time": "2:11"
               },
               {
-                "id": "war-p5-r91-inv2",
+                "id": "war-p5-r93-inv2",
                 "name": "Maddening Orchestra 2",
                 "after": "p5-maddening-orchestra-2",
                 "invuln": 2,
@@ -4612,7 +4655,7 @@
                 "time": "2:11"
               },
               {
-                "id": "war-p5-r93-inv1",
+                "id": "war-p5-r95-inv1",
                 "name": "Flare/Holy 2",
                 "time": "2:17",
                 "after": "p5-flare-2",
@@ -4629,7 +4672,7 @@
                 ]
               },
               {
-                "id": "war-p5-r93-inv2",
+                "id": "war-p5-r95-inv2",
                 "name": "Flare/Holy 2",
                 "time": "2:17",
                 "after": "p5-flare-2",
@@ -4637,12 +4680,12 @@
                 "actions": [
                   {
                     "name": "Holmgang",
-                    "note": "Invulnerabilities should be used just before the Flare/Holy debuffs expire so that they can cover two autos."
+                    "note": "Invulnerabilities should be used just before the Flare/Holy debuffs expire so that they can cover two autos. If playing WAR/DRK, you can swap invulnerabilities as WAR has more tools to heal between the 2nd and 3rd auto. Discuss beforehand."
                   }
                 ]
               },
               {
-                "id": "war-p5-r95-inv1",
+                "id": "war-p5-r97-inv1",
                 "name": "Fell Forces 4 (3x)",
                 "time": "2:22",
                 "after": "p5-fell-forces-4",
@@ -4651,7 +4694,7 @@
                 "tag": "Avoid"
               },
               {
-                "id": "war-p5-r95-inv2",
+                "id": "war-p5-r97-inv2",
                 "name": "Fell Forces 4 (3x)",
                 "time": "2:22",
                 "after": "p5-fell-forces-4",
@@ -4665,7 +4708,7 @@
                 ]
               },
               {
-                "id": "war-p5-r99-inv1",
+                "id": "war-p5-r101-inv1",
                 "name": "Fell Forces 4 (3x)",
                 "time": "2:22",
                 "after": "p5-fell-forces-4",
@@ -4684,7 +4727,7 @@
                 "tag": "Share 3rd hit"
               },
               {
-                "id": "war-p5-r99-inv2",
+                "id": "war-p5-r101-inv2",
                 "name": "Fell Forces 4 (3x)",
                 "time": "2:22",
                 "after": "p5-fell-forces-4",
@@ -5016,7 +5059,8 @@
                 "tag": "1st hit",
                 "actions": [
                   {
-                    "name": "Rampart"
+                    "name": "Rampart",
+                    "note": "Use Rampart to also cover the Stray Flames."
                   },
                   {
                     "name": "Dark Mind"
@@ -5038,7 +5082,8 @@
                 "tag": "2nd hit",
                 "actions": [
                   {
-                    "name": "Rampart"
+                    "name": "Rampart",
+                    "note": "Use Rampart to also cover the Stray Flames."
                   },
                   {
                     "name": "Dark Mind"
@@ -5210,13 +5255,13 @@
                 ]
               }
             ],
-            "note": "Regardless of who is MT or OT, the invulnerability priority overrides this. You will still mitigate (Reprisal & Party Mit) based on whether you are MT or OT on the main page. This is for middle Exdeath only. Tanks should use their short mitigation for the autos throughout the phase (WAR use Nascent)."
+            "note": "Regardless of who is MT or OT, the invulnerability priority overrides this. You will still mitigate (Reprisal & Party Mit) based on whether you are MT or OT on the main page. This is for middle Exdeath only. Tanks should use their short mitigation for the autos in between busters throughout the phase (WAR use Nascent)."
           },
           {
             "id": "p4",
             "mechanics": [
               {
-                "id": "drk-p4-r69-mt",
+                "id": "drk-p4-r71-mt",
                 "name": "Autos",
                 "time": "0:00",
                 "seat": "MT",
@@ -5236,7 +5281,7 @@
                 ]
               },
               {
-                "id": "drk-p4-r69-ot",
+                "id": "drk-p4-r71-ot",
                 "name": "Autos",
                 "time": "0:00",
                 "seat": "OT",
@@ -5258,7 +5303,7 @@
             "id": "p5",
             "mechanics": [
               {
-                "id": "drk-p5-r81-inv1",
+                "id": "drk-p5-r83-inv1",
                 "name": "Fell Forces 1 (3x)",
                 "after": "p5-fell-forces-1",
                 "invuln": 1,
@@ -5278,7 +5323,7 @@
                 "tag": "Share"
               },
               {
-                "id": "drk-p5-r81-inv2",
+                "id": "drk-p5-r83-inv2",
                 "name": "Fell Forces 1 (3x)",
                 "after": "p5-fell-forces-1",
                 "invuln": 2,
@@ -5298,7 +5343,7 @@
                 "tag": "Share"
               },
               {
-                "id": "drk-p5-r83-inv1",
+                "id": "drk-p5-r85-inv1",
                 "name": "Maddening Orchestra 1",
                 "after": "p5-maddening-orchestra-1",
                 "invuln": 1,
@@ -5320,7 +5365,7 @@
                 "time": "0:39"
               },
               {
-                "id": "drk-p5-r83-inv2",
+                "id": "drk-p5-r85-inv2",
                 "name": "Maddening Orchestra 1",
                 "after": "p5-maddening-orchestra-1",
                 "invuln": 2,
@@ -5338,7 +5383,7 @@
                 "time": "0:39"
               },
               {
-                "id": "drk-p5-r85-inv1",
+                "id": "drk-p5-r87-inv1",
                 "name": "Flare/Holy 1",
                 "time": "0:46",
                 "after": "p5-flare-1",
@@ -5346,12 +5391,12 @@
                 "actions": [
                   {
                     "name": "Living Dead",
-                    "note": "Invulnerabilities should be used just before the Flare/Holy debuffs expire so that they can cover two autos."
+                    "note": "Invulnerabilities should be used just before the Flare/Holy debuffs expire so that they can cover two autos. If playing WAR/DRK, you can swap invulnerabilities as WAR has more tools to heal between the 2nd and 3rd auto. Discuss beforehand."
                   }
                 ]
               },
               {
-                "id": "drk-p5-r85-inv2",
+                "id": "drk-p5-r87-inv2",
                 "name": "Flare/Holy 1",
                 "time": "0:46",
                 "after": "p5-flare-1",
@@ -5372,7 +5417,7 @@
                 ]
               },
               {
-                "id": "drk-p5-r87-inv1",
+                "id": "drk-p5-r89-inv1",
                 "name": "Fell Forces 2 (2x)",
                 "after": "p5-fell-forces-2",
                 "invuln": 1,
@@ -5386,7 +5431,7 @@
                 "time": "0:50"
               },
               {
-                "id": "drk-p5-r87-inv2",
+                "id": "drk-p5-r89-inv2",
                 "name": "Fell Forces 2 (2x)",
                 "invuln": 2,
                 "tag": "Avoid",
@@ -5395,7 +5440,7 @@
                 "time": "0:50"
               },
               {
-                "id": "drk-p5-r89-inv1",
+                "id": "drk-p5-r91-inv1",
                 "name": "Fell Forces 3 (2x)",
                 "after": "p5-fell-forces-3",
                 "invuln": 1,
@@ -5414,7 +5459,7 @@
                 "tag": "Share"
               },
               {
-                "id": "drk-p5-r89-inv2",
+                "id": "drk-p5-r91-inv2",
                 "name": "Fell Forces 3 (2x)",
                 "after": "p5-fell-forces-3",
                 "invuln": 2,
@@ -5433,7 +5478,7 @@
                 "tag": "Share"
               },
               {
-                "id": "drk-p5-r91-inv1",
+                "id": "drk-p5-r93-inv1",
                 "name": "Maddening Orchestra 2",
                 "after": "p5-maddening-orchestra-2",
                 "invuln": 1,
@@ -5449,7 +5494,7 @@
                 "time": "2:11"
               },
               {
-                "id": "drk-p5-r91-inv2",
+                "id": "drk-p5-r93-inv2",
                 "name": "Maddening Orchestra 2",
                 "after": "p5-maddening-orchestra-2",
                 "invuln": 2,
@@ -5475,7 +5520,7 @@
                 "time": "2:11"
               },
               {
-                "id": "drk-p5-r93-inv1",
+                "id": "drk-p5-r95-inv1",
                 "name": "Flare/Holy 2",
                 "time": "2:17",
                 "after": "p5-flare-2",
@@ -5492,7 +5537,7 @@
                 ]
               },
               {
-                "id": "drk-p5-r93-inv2",
+                "id": "drk-p5-r95-inv2",
                 "name": "Flare/Holy 2",
                 "time": "2:17",
                 "after": "p5-flare-2",
@@ -5500,12 +5545,12 @@
                 "actions": [
                   {
                     "name": "Living Dead",
-                    "note": "Invulnerabilities should be used just before the Flare/Holy debuffs expire so that they can cover two autos."
+                    "note": "Invulnerabilities should be used just before the Flare/Holy debuffs expire so that they can cover two autos. If playing WAR/DRK, you can swap invulnerabilities as WAR has more tools to heal between the 2nd and 3rd auto. Discuss beforehand."
                   }
                 ]
               },
               {
-                "id": "drk-p5-r95-inv1",
+                "id": "drk-p5-r97-inv1",
                 "name": "Fell Forces 4 (3x)",
                 "time": "2:22",
                 "after": "p5-fell-forces-4",
@@ -5514,7 +5559,7 @@
                 "tag": "Avoid"
               },
               {
-                "id": "drk-p5-r95-inv2",
+                "id": "drk-p5-r97-inv2",
                 "name": "Fell Forces 4 (3x)",
                 "time": "2:22",
                 "after": "p5-fell-forces-4",
@@ -5528,7 +5573,7 @@
                 ]
               },
               {
-                "id": "drk-p5-r99-inv1",
+                "id": "drk-p5-r101-inv1",
                 "name": "Fell Forces 4 (3x)",
                 "time": "2:22",
                 "after": "p5-fell-forces-4",
@@ -5550,7 +5595,7 @@
                 "tag": "Share 3rd hit"
               },
               {
-                "id": "drk-p5-r99-inv2",
+                "id": "drk-p5-r101-inv2",
                 "name": "Fell Forces 4 (3x)",
                 "time": "2:22",
                 "after": "p5-fell-forces-4",
@@ -5859,7 +5904,8 @@
                 "tag": "1st hit",
                 "actions": [
                   {
-                    "name": "Rampart"
+                    "name": "Rampart",
+                    "note": "Use Rampart to also cover the Stray Flames."
                   },
                   {
                     "name": "Camouflage"
@@ -5878,7 +5924,8 @@
                 "tag": "2nd hit",
                 "actions": [
                   {
-                    "name": "Rampart"
+                    "name": "Rampart",
+                    "note": "Use Rampart to also cover the Stray Flames."
                   },
                   {
                     "name": "Camouflage"
@@ -6029,13 +6076,13 @@
                 ]
               }
             ],
-            "note": "Regardless of who is MT or OT, the invulnerability priority overrides this. You will still mitigate (Reprisal & Party Mit) based on whether you are MT or OT on the main page. This is for middle Exdeath only. Tanks should use their short mitigation for the autos throughout the phase (WAR use Nascent)."
+            "note": "Regardless of who is MT or OT, the invulnerability priority overrides this. You will still mitigate (Reprisal & Party Mit) based on whether you are MT or OT on the main page. This is for middle Exdeath only. Tanks should use their short mitigation for the autos in between busters throughout the phase (WAR use Nascent)."
           },
           {
             "id": "p4",
             "mechanics": [
               {
-                "id": "gnb-p4-r69-mt",
+                "id": "gnb-p4-r71-mt",
                 "name": "Autos",
                 "time": "0:00",
                 "seat": "MT",
@@ -6052,7 +6099,7 @@
                 ]
               },
               {
-                "id": "gnb-p4-r69-ot",
+                "id": "gnb-p4-r71-ot",
                 "name": "Autos",
                 "time": "0:00",
                 "seat": "OT",
@@ -6070,7 +6117,7 @@
             "id": "p5",
             "mechanics": [
               {
-                "id": "gnb-p5-r81-inv1",
+                "id": "gnb-p5-r83-inv1",
                 "name": "Fell Forces 1 (3x)",
                 "after": "p5-fell-forces-1",
                 "invuln": 1,
@@ -6087,7 +6134,7 @@
                 "tag": "Share"
               },
               {
-                "id": "gnb-p5-r81-inv2",
+                "id": "gnb-p5-r83-inv2",
                 "name": "Fell Forces 1 (3x)",
                 "after": "p5-fell-forces-1",
                 "invuln": 2,
@@ -6104,7 +6151,7 @@
                 "tag": "Share"
               },
               {
-                "id": "gnb-p5-r83-inv1",
+                "id": "gnb-p5-r85-inv1",
                 "name": "Maddening Orchestra 1",
                 "after": "p5-maddening-orchestra-1",
                 "invuln": 1,
@@ -6123,7 +6170,7 @@
                 "time": "0:39"
               },
               {
-                "id": "gnb-p5-r83-inv2",
+                "id": "gnb-p5-r85-inv2",
                 "name": "Maddening Orchestra 1",
                 "after": "p5-maddening-orchestra-1",
                 "invuln": 2,
@@ -6138,7 +6185,7 @@
                 "time": "0:39"
               },
               {
-                "id": "gnb-p5-r85-inv1",
+                "id": "gnb-p5-r87-inv1",
                 "name": "Flare/Holy 1",
                 "time": "0:46",
                 "after": "p5-flare-1",
@@ -6151,7 +6198,7 @@
                 ]
               },
               {
-                "id": "gnb-p5-r85-inv2",
+                "id": "gnb-p5-r87-inv2",
                 "name": "Flare/Holy 1",
                 "time": "0:46",
                 "after": "p5-flare-1",
@@ -6168,7 +6215,7 @@
                 ]
               },
               {
-                "id": "gnb-p5-r87-inv1",
+                "id": "gnb-p5-r89-inv1",
                 "name": "Fell Forces 2 (2x)",
                 "after": "p5-fell-forces-2",
                 "invuln": 1,
@@ -6182,7 +6229,7 @@
                 "time": "0:50"
               },
               {
-                "id": "gnb-p5-r87-inv2",
+                "id": "gnb-p5-r89-inv2",
                 "name": "Fell Forces 2 (2x)",
                 "invuln": 2,
                 "tag": "Avoid",
@@ -6191,7 +6238,7 @@
                 "time": "0:50"
               },
               {
-                "id": "gnb-p5-r89-inv1",
+                "id": "gnb-p5-r91-inv1",
                 "name": "Fell Forces 3 (2x)",
                 "after": "p5-fell-forces-3",
                 "invuln": 1,
@@ -6207,7 +6254,7 @@
                 "tag": "Share"
               },
               {
-                "id": "gnb-p5-r89-inv2",
+                "id": "gnb-p5-r91-inv2",
                 "name": "Fell Forces 3 (2x)",
                 "after": "p5-fell-forces-3",
                 "invuln": 2,
@@ -6223,7 +6270,7 @@
                 "tag": "Share"
               },
               {
-                "id": "gnb-p5-r91-inv1",
+                "id": "gnb-p5-r93-inv1",
                 "name": "Maddening Orchestra 2",
                 "after": "p5-maddening-orchestra-2",
                 "invuln": 1,
@@ -6239,7 +6286,7 @@
                 "time": "2:11"
               },
               {
-                "id": "gnb-p5-r91-inv2",
+                "id": "gnb-p5-r93-inv2",
                 "name": "Maddening Orchestra 2",
                 "after": "p5-maddening-orchestra-2",
                 "invuln": 2,
@@ -6259,7 +6306,7 @@
                 "time": "2:11"
               },
               {
-                "id": "gnb-p5-r93-inv1",
+                "id": "gnb-p5-r95-inv1",
                 "name": "Flare/Holy 2",
                 "time": "2:17",
                 "after": "p5-flare-2",
@@ -6276,7 +6323,7 @@
                 ]
               },
               {
-                "id": "gnb-p5-r93-inv2",
+                "id": "gnb-p5-r95-inv2",
                 "name": "Flare/Holy 2",
                 "time": "2:17",
                 "after": "p5-flare-2",
@@ -6289,7 +6336,7 @@
                 ]
               },
               {
-                "id": "gnb-p5-r95-inv1",
+                "id": "gnb-p5-r97-inv1",
                 "name": "Fell Forces 4 (3x)",
                 "time": "2:22",
                 "after": "p5-fell-forces-4",
@@ -6298,7 +6345,7 @@
                 "tag": "Avoid"
               },
               {
-                "id": "gnb-p5-r95-inv2",
+                "id": "gnb-p5-r97-inv2",
                 "name": "Fell Forces 4 (3x)",
                 "time": "2:22",
                 "after": "p5-fell-forces-4",
@@ -6312,7 +6359,7 @@
                 ]
               },
               {
-                "id": "gnb-p5-r99-inv1",
+                "id": "gnb-p5-r101-inv1",
                 "name": "Fell Forces 4 (3x)",
                 "time": "2:22",
                 "after": "p5-fell-forces-4",
@@ -6331,7 +6378,7 @@
                 "tag": "Share 3rd hit"
               },
               {
-                "id": "gnb-p5-r99-inv2",
+                "id": "gnb-p5-r101-inv2",
                 "name": "Fell Forces 4 (3x)",
                 "time": "2:22",
                 "after": "p5-fell-forces-4",

@@ -11,6 +11,20 @@ ROOT = Path(__file__).resolve().parents[1] / 'packages/encounter-data/fights'
 
 
 class TankImportTest(unittest.TestCase):
+    def test_lpdu_passage_icons_are_one_conditional_pld_use(self):
+        sheet = json.loads((ROOT / 'dmu/sheets/lpdu.json').read_text())
+        rows = sheet['phases'][2]['mechanics']
+        passage = [(row['mechanicId'], slot, action) for row in rows
+                   for slot, actions in row['assignments'].items() for action in actions
+                   if action['name'].startswith('Passage of Arms')]
+        self.assertEqual([row for row, _, _ in passage],
+                         ['p3-shocking-impact-1', 'p3-shocking-impact-2'])
+        for _, slot, action in passage:
+            self.assertEqual(slot, 'OT')
+            self.assertEqual(action['name'], 'Passage of Arms (PLD)')
+            self.assertIn('Choose one use', action['note'])
+        self.assertNotIn(('p3', 'p3-thunder-iii-4'), lpdu.ROW_NOTES)
+
     def test_no_short_kitchen_sink_excludes_short_cooldowns_for_every_job(self):
         for job in lpdu.TANKS:
             actions = lpdu.moved_actions({'name': 'Kitchen Sink', 'note': 'No short mit.'}, job)

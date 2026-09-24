@@ -64,6 +64,8 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
   const stacked = list || grid
   const phase = fight.phases.find(p => p.id === phaseId) ?? fight.phases[0]
   const slot = sheet.slots.find(s => s.id === roleId)
+  const viewerRole = job?.role ?? slot?.role
+  const noteApplies = (roles?: readonly string[]) => !roles || Boolean(viewerRole && roles.includes(viewerRole))
   const iconSize = compact ? 26 : 32
   const showNotes = notes && display !== 'icon' && !grid
 
@@ -118,7 +120,7 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
           && (!mechanic.roles || !slot?.role || mechanic.roles.includes(slot.role))))
       .map(mechanic => ({
         mechanic, actions: resolveActions(mechanic.assignments[roleId] ?? []),
-        note: mechanic.note,
+        note: noteApplies(mechanic.noteRoles) ? mechanic.note : undefined,
       }))
 
     if (!plan) return { data, entries: visibleEntries(party), start, personalNote: undefined as string | undefined }
@@ -179,7 +181,7 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
       for (const spliced of byAnchor.get(pe.mechanic.id) ?? []) entries.push(spliced)
       if (noteRow && plan.noteAfter === pe.mechanic.id) entries.push(noteRow)
     }
-    return { data: data ?? { id, note: undefined as string | undefined, mechanics: [] }, entries: visibleEntries(entries), start, personalNote }
+    return { data: data ?? ({ id, mechanics: [] } as Sheet['phases'][number]), entries: visibleEntries(entries), start, personalNote }
   }
 
   // Keep the active tab in view inside its own horizontal strip. Scroll the
@@ -345,7 +347,7 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
     // A phase-wide aside sits above the mechanic list: the rules the sheet
     // repeats every row (shields, targeted-mit caveats) collected here once,
     // one per line, so a mit's own note carries only what is specific to it.
-    const note = data.note && showNotes && phaseNote(data.note)
+    const note = data.note && showNotes && noteApplies(data.noteRoles) && phaseNote(data.note)
     // The plan's unanchored phase note - "you start with the boss" - reads like
     // any other phase note, not an edged personal row. Still notes-toggle gated.
     const personal = personalNote && showNotes ? phaseNote(personalNote, 'personal') : null

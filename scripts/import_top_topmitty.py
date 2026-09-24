@@ -453,6 +453,29 @@ def add_source_notes(sheet, worksheets):
     if pairs:
         phase = next(p for p in sheet['phases'] if p['id'] == 'p5')
         phase['note'] += '\n' + 'For ' + ', '.join(label for _, label in pairs) + ': ' + warning + '.'
+    scope_party_notes(sheet)
+
+
+def scope_party_notes(sheet):
+    for phase in sheet['phases']:
+        if phase['id'] == 'p2':
+            phase['noteRoles'] = ['melee', 'caster']
+        if phase['id'] == 'p5':
+            lines = phase['note'].splitlines()
+            healer_notes = [line for line in lines if 'Healers must' in line]
+            phase['note'] = '\n'.join(line for line in lines if line not in healer_notes)
+            for job in HEALERS:
+                first = next(a for m in phase['mechanics'] for a in m['assignments'].get(job, [])
+                             if not a.get('carryOver'))
+                first['note'] = join_notes([first.get('note', ''), *healer_notes])
+        for mechanic in phase['mechanics']:
+            if mechanic.get('note') and mechanic['mechanicId'] in (
+                    'p2-optimized-meteor-1', 'p6-wave-cannon-3', 'p6-wave-cannon-6'):
+                note = mechanic.pop('note')
+                for actions in mechanic['assignments'].values():
+                    for action in actions:
+                        if not action.get('carryOver'):
+                            action['note'] = join_notes([action.get('note', ''), note])
 
 
 def convert():

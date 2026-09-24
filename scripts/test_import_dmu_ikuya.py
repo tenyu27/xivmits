@@ -1,9 +1,9 @@
-"""Regression checks against the Ikuya v6.0 Omnitank assignments."""
+"""Regression checks against the Ikuya v6.1 assignments and note scopes."""
 import json
 from pathlib import Path
 import unittest
 
-from import_dmu_ikuya import align_tank_rows, parse_omni_cell
+from import_dmu_ikuya import add_press_note, align_tank_rows, omni_blocks, parse_omni_cell
 from normalize_sheet import load_encounter
 
 
@@ -13,6 +13,51 @@ class IkuyaTankTest(unittest.TestCase):
         cls.encounter = load_encounter('dmu')
         path = Path(__file__).resolve().parents[1] / 'packages/encounter-data/fights/dmu/sheets/ikuya.json'
         cls.sheet = json.loads(path.read_text())
+
+    def test_press_notes_exclude_blank_seats_and_carryovers(self):
+        row = {'assignments': {'C': [{'name': 'Addle', 'carryOver': True}],
+                               'M2': [{'name': 'Feint'}]}}
+        add_press_note(row, 'Use late into the castbar.')
+        self.assertNotIn('note', row)
+        self.assertNotIn('note', row['assignments']['C'][0])
+        self.assertEqual(row['assignments']['M2'][0]['note'], 'Use late into the castbar.')
+        for phase in self.sheet['phases']:
+            for mechanic in phase['mechanics']:
+                self.assertNotIn('castbar', mechanic.get('note', ''))
+                for actions in mechanic['assignments'].values():
+                    for action in actions:
+                        if action.get('carryOver'):
+                            self.assertNotIn('Use late into', action.get('note', ''))
+
+    def test_omnitank_blocks_follow_headings_after_inserted_rows(self):
+        cells = {}
+        for phase, start in enumerate([2, 24, 51, 80, 105], 1):
+            cells.update({f'E{start}': f'Phase {phase}: Boss', f'D{start+4}': 'Time',
+                          f'B{start+6}': 'Buster', f'B{start+8}': 'Notes'})
+        self.assertEqual(omni_blocks(cells), [
+            (phase, [start+6], 'split' if phase in (3, 5) else 'seat', start+8, start+4)
+            for phase, start in enumerate([2, 24, 51, 80, 105], 1)])
+        del cells['E80']
+        with self.assertRaisesRegex(ValueError, 'five Omnitank'):
+            omni_blocks(cells)
+
+    def test_p1_addle_is_one_press_then_one_carryover(self):
+        addles = [(row['mechanicId'], action.get('carryOver', False))
+                  for row in self.sheet['phases'][0]['mechanics']
+                  for action in row['assignments'].get('C', []) if action['name'] == 'Addle']
+        self.assertEqual(addles, [('p1-double-trouble-trap-1', False),
+                                 ('p1-light-of-judgment-1', True)])
+
+    def test_v61_tank_timing_notes(self):
+        for plan in self.sheet['tankMits']['plans']:
+            for row in plan['phases'][2]['mechanics'][:2]:
+                self.assertIn('Stray Flames', row['actions'][0]['note'])
+            for row in plan['phases'][4]['mechanics']:
+                for action in row['actions']:
+                    if 'If playing WAR/DRK' in action.get('note', ''):
+                        self.assertIn(plan['job'], ['WAR', 'DRK'])
+                        self.assertIn(action['name'], ['Holmgang', 'Living Dead'])
+                        self.assertFalse(action.get('carryOver', False))
 
     def test_thunder_rows_do_not_reuse_preceding_party_buster(self):
         # Only sets 1 and 5 exist in the party workbook. Sets 2–4 must

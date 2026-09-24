@@ -300,11 +300,17 @@ def convert(archive=None):
                 raise ValueError('Dark Thordan healer note changed')
             m = mechanics['p5-heavenly-heel-2']
             phases['p5']['mechanics'].append({'id': m['id'], 'name': m['name'],
-                'note': 'Healers need to mitigate tanks for this buster.',
                 'assignments': {'M1': [{'name': 'Feint'}],
-                                **{job: [{'name': 'Assist Tanks'}] for job in HEALERS}}})
+                                **{job: [{'name': 'Assist Tanks', 'note': 'Healers need to mitigate tanks for this buster.'}]
+                                   for job in HEALERS}}})
     phases['p2']['note'] = 'Times start at the Thordan checkpoint. This sheet does not assign the P1 door boss.'
-    phases['rewind']['note'] = 'Brightwing bait order: healers, melee, ranged, tanks. Use the assigned shields before the first bait.'
+    phases['rewind']['note'] = 'Brightwing bait order: healers, melee, ranged, tanks.'
+    for mechanic in phases['rewind']['mechanics']:
+        if mechanic['id'] != 'rewind-brightwing-1':
+            continue
+        for job in ('SCH', 'SGE', 'AST'):
+            for action in mechanic['assignments'].get(job, []):
+                add_note(action, 'Use the assigned shields before the first bait.')
     sheet = {'id': 'dsrmitty', 'fightId': 'dsr', 'name': 'DSR Mitty',
              'author': 'Malachite Laurent', 'updated': '2026-09-17',
              'source': {'name': 'DSR Mitty spreadsheet', 'url': SOURCE},

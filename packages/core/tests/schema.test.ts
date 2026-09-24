@@ -33,6 +33,17 @@ const files = (sheetValue: unknown = sheet) => ({
 })
 const jobs = { jobs: [{ id: 'GNB', name: 'Gunbreaker', role: 'tank' }] }
 
+test('retains and validates the audience of phase and mechanic notes', () => {
+  const scoped = structuredClone(sheet)
+  Object.assign(scoped.phases[0], { note: 'Tank strategy.', noteRoles: ['tank'] })
+  Object.assign(scoped.phases[0].mechanics[0], { note: 'Healer instruction.', noteRoles: ['healer'] })
+  const phase = validateCatalog(files(scoped), {}, jobs).sheets[0].phases[0]
+  assert.deepEqual(phase.noteRoles, ['tank'])
+  assert.deepEqual(phase.mechanics[0].noteRoles, ['healer'])
+  Object.assign(scoped.phases[0], { noteRoles: ['invalid'] })
+  assert.throws(() => validateCatalog(files(scoped), {}, jobs))
+})
+
 test('orders fights by original release date, newest first, independently of file order', () => {
   const newer = { ...encounter, id: 'newer', released: '2024-11-26' }
   const catalog = validateCatalog({
@@ -54,7 +65,7 @@ test('resolves canonical mechanic data with sheet assignments', () => {
   assert.deepEqual(catalog.sheets[0].phases[0].mechanics[0], {
     id: 'p1-raidwide-1', name: 'Raidwide', time: '0:18',
     fflogs: { abilityIds: [] }, assignments: { MT: [{ name: 'Reprisal' }] },
-    note: undefined,
+    note: undefined, noteRoles: undefined,
   })
 })
 

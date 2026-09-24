@@ -1098,7 +1098,10 @@
                 "note": "Only when the party runs a fake melee."
               }
             ]
-          }
+          },
+          "noteRoles": [
+            "tank"
+          ]
         },
         {
           "mechanicId": "p2-ultimate-embrace-2",
@@ -1430,7 +1433,10 @@
                 "name": "90s Mit"
               }
             ]
-          }
+          },
+          "noteRoles": [
+            "tank"
+          ]
         },
         {
           "mechanicId": "p3-cyclone-1",
@@ -1587,7 +1593,10 @@
                 "note": "On the Chaos autos."
               }
             ]
-          }
+          },
+          "noteRoles": [
+            "tank"
+          ]
         },
         {
           "mechanicId": "p3-shocking-impact-1",
@@ -1601,6 +1610,10 @@
             "OT": [
               {
                 "name": "Party Mit"
+              },
+              {
+                "name": "Passage of Arms (PLD)",
+                "note": "Use on either of the first two Stack/Roles when it is the stack. Choose one use across these two rows."
               }
             ],
             "WHM": [
@@ -1646,7 +1659,6 @@
         },
         {
           "mechanicId": "p3-thunder-iii-4",
-          "note": "Use the first beam set on either tank if it is the stack.",
           "assignments": {}
         },
         {
@@ -1691,6 +1703,12 @@
               {
                 "name": "Holos",
                 "note": "Use late."
+              }
+            ],
+            "OT": [
+              {
+                "name": "Passage of Arms (PLD)",
+                "note": "Use on either of the first two Stack/Roles when it is the stack. Choose one use across these two rows."
               }
             ]
           }
@@ -1931,6 +1949,9 @@
             ]
           }
         }
+      ],
+      "noteRoles": [
+        "tank"
       ]
     },
     {
@@ -2299,12 +2320,6 @@
               {
                 "name": "Kerachole"
               }
-            ],
-            "C": [
-              {
-                "name": "Addle",
-                "note": "Only when the party runs a fake melee."
-              }
             ]
           }
         }
@@ -2381,6 +2396,12 @@
               {
                 "name": "Party Mit",
                 "note": "At the Smile quote."
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle",
+                "note": "Only when the party runs a fake melee."
               }
             ]
           }
@@ -2561,12 +2582,6 @@
               {
                 "name": "Physis II",
                 "note": "On the first tower spawn."
-              }
-            ],
-            "C": [
-              {
-                "name": "Addle",
-                "note": "Only when the party runs a fake melee."
               }
             ]
           }
@@ -2796,6 +2811,12 @@
             "M1": [
               {
                 "name": "Feint"
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle",
+                "note": "Only when the party runs a fake melee."
               }
             ]
           }

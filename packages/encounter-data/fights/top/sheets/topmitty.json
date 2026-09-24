@@ -218,100 +218,127 @@
       "mechanics": [
         {
           "mechanicId": "p2-optimized-meteor-1",
-          "note": "Mitigation for Optimized Meteor and Cosmo Memory.",
           "assignments": {
             "T1": [
               {
-                "name": "Party Mit"
+                "name": "Party Mit",
+                "note": "Mitigation for Optimized Meteor and Cosmo Memory."
               }
             ],
             "T2": [
               {
-                "name": "Party Mit"
+                "name": "Party Mit",
+                "note": "Mitigation for Optimized Meteor and Cosmo Memory."
               }
             ],
             "SCH": [
               {
-                "name": "Sacred Soil"
+                "name": "Sacred Soil",
+                "note": "Mitigation for Optimized Meteor and Cosmo Memory."
               },
               {
-                "name": "Fey Illumination"
+                "name": "Fey Illumination",
+                "note": "Mitigation for Optimized Meteor and Cosmo Memory."
               },
               {
-                "name": "Expedient"
+                "name": "Expedient",
+                "note": "Mitigation for Optimized Meteor and Cosmo Memory."
               },
               {
-                "name": "Seraph Veil"
+                "name": "Seraph Veil",
+                "note": "Mitigation for Optimized Meteor and Cosmo Memory."
               },
               {
-                "name": "Deployment Tactics"
+                "name": "Deployment Tactics",
+                "note": "Mitigation for Optimized Meteor and Cosmo Memory."
               },
               {
-                "name": "Whispering Dawn"
+                "name": "Whispering Dawn",
+                "note": "Mitigation for Optimized Meteor and Cosmo Memory."
               }
             ],
             "SGE": [
               {
-                "name": "Kerachole"
+                "name": "Kerachole",
+                "note": "Mitigation for Optimized Meteor and Cosmo Memory."
               },
               {
-                "name": "Holos"
+                "name": "Holos",
+                "note": "Mitigation for Optimized Meteor and Cosmo Memory."
               },
               {
-                "name": "Panhaima"
+                "name": "Panhaima",
+                "note": "Mitigation for Optimized Meteor and Cosmo Memory."
               },
               {
-                "name": "Eukrasian Prognosis"
+                "name": "Eukrasian Prognosis",
+                "note": "Mitigation for Optimized Meteor and Cosmo Memory."
               },
               {
-                "name": "Physis II"
+                "name": "Physis II",
+                "note": "Mitigation for Optimized Meteor and Cosmo Memory."
               }
             ],
             "WHM": [
               {
-                "name": "Temperance"
+                "name": "Temperance",
+                "note": "Mitigation for Optimized Meteor and Cosmo Memory."
               },
               {
-                "name": "Liturgy of the Bell"
+                "name": "Liturgy of the Bell",
+                "note": "Mitigation for Optimized Meteor and Cosmo Memory."
               },
               {
-                "name": "Plenary Indulgence"
+                "name": "Plenary Indulgence",
+                "note": "Mitigation for Optimized Meteor and Cosmo Memory."
               },
               {
-                "name": "Asylum"
+                "name": "Asylum",
+                "note": "Mitigation for Optimized Meteor and Cosmo Memory."
               }
             ],
             "AST": [
               {
-                "name": "Collective Unconscious"
+                "name": "Collective Unconscious",
+                "note": "Mitigation for Optimized Meteor and Cosmo Memory."
               },
               {
-                "name": "Neutral Sect"
+                "name": "Neutral Sect",
+                "note": "Mitigation for Optimized Meteor and Cosmo Memory."
               },
               {
-                "name": "Earthly Star"
+                "name": "Earthly Star",
+                "note": "Mitigation for Optimized Meteor and Cosmo Memory."
               },
               {
-                "name": "Macrocosmos"
+                "name": "Macrocosmos",
+                "note": "Mitigation for Optimized Meteor and Cosmo Memory."
               },
               {
-                "name": "Horoscope"
+                "name": "Horoscope",
+                "note": "Mitigation for Optimized Meteor and Cosmo Memory."
               }
             ],
             "P": [
               {
-                "name": "Party Mit"
+                "name": "Party Mit",
+                "note": "Mitigation for Optimized Meteor and Cosmo Memory."
               }
             ],
             "C": [
               {
-                "name": "Extra (RDM)"
+                "name": "Extra (RDM)",
+                "note": "Mitigation for Optimized Meteor and Cosmo Memory."
               }
             ]
           }
         }
       ],
-      "note": "After Playstation: Feint / Addle are free to use to help with tank autos (it does not work on flares or cosmo memory)"
+      "note": "After Playstation: Feint / Addle are free to use to help with tank autos (it does not work on flares or cosmo memory)",
+      "noteRoles": [
+        "melee",
+        "caster"
+      ]
     },
     {
       "id": "p3",
@@ -681,7 +708,8 @@
             ],
             "SCH": [
               {
-                "name": "Deployment Tactics"
+                "name": "Deployment Tactics",
+                "note": "For WAR/PLD, GNB/DRK, GNB/PLD, PLD/DRK: Healers must put personal mit on tanks or they die to busters."
               },
               {
                 "name": "Sacred Soil"
@@ -689,7 +717,8 @@
             ],
             "SGE": [
               {
-                "name": "Zoe"
+                "name": "Zoe",
+                "note": "For WAR/PLD, GNB/DRK, GNB/PLD, PLD/DRK: Healers must put personal mit on tanks or they die to busters."
               },
               {
                 "name": "Eukrasian Prognosis"
@@ -737,12 +766,14 @@
             ],
             "WHM": [
               {
-                "name": "Liturgy of the Bell"
+                "name": "Liturgy of the Bell",
+                "note": "For WAR/PLD, GNB/DRK, GNB/PLD, PLD/DRK: Healers must put personal mit on tanks or they die to busters."
               }
             ],
             "AST": [
               {
-                "name": "Macrocosmos"
+                "name": "Macrocosmos",
+                "note": "For WAR/PLD, GNB/DRK, GNB/PLD, PLD/DRK: Healers must put personal mit on tanks or they die to busters."
               },
               {
                 "name": "Earthly Star"
@@ -961,7 +992,7 @@
           }
         }
       ],
-      "note": "15s party mit should be pressed after the second hit of the tank buster\n10s party mit should be pressed at the start of the raidwide cast\nFor WAR/PLD, GNB/DRK, GNB/PLD, PLD/DRK: Healers must put personal mit on tanks or they die to busters."
+      "note": "15s party mit should be pressed after the second hit of the tank buster\n10s party mit should be pressed at the start of the raidwide cast"
     },
     {
       "id": "p6",
@@ -1095,43 +1126,51 @@
           "assignments": {
             "T2": [
               {
-                "name": "Reprisal"
+                "name": "Reprisal",
+                "note": "Don't press 10s mit too early on the wave cannon or it will fall off for the wild charge. Press it after the 1st set of proteans go off."
               },
               {
-                "name": "Party Mit"
+                "name": "Party Mit",
+                "note": "Don't press 10s mit too early on the wave cannon or it will fall off for the wild charge. Press it after the 1st set of proteans go off."
               }
             ],
             "SCH": [
               {
-                "name": "Sacred Soil"
+                "name": "Sacred Soil",
+                "note": "Don't press 10s mit too early on the wave cannon or it will fall off for the wild charge. Press it after the 1st set of proteans go off."
               },
               {
-                "name": "Succor"
+                "name": "Succor",
+                "note": "Don't press 10s mit too early on the wave cannon or it will fall off for the wild charge. Press it after the 1st set of proteans go off."
               }
             ],
             "SGE": [
               {
-                "name": "Zoe"
+                "name": "Zoe",
+                "note": "Don't press 10s mit too early on the wave cannon or it will fall off for the wild charge. Press it after the 1st set of proteans go off."
               },
               {
-                "name": "Eukrasian Prognosis"
+                "name": "Eukrasian Prognosis",
+                "note": "Don't press 10s mit too early on the wave cannon or it will fall off for the wild charge. Press it after the 1st set of proteans go off."
               },
               {
-                "name": "Kerachole"
+                "name": "Kerachole",
+                "note": "Don't press 10s mit too early on the wave cannon or it will fall off for the wild charge. Press it after the 1st set of proteans go off."
               }
             ],
             "AST": [
               {
-                "name": "Collective Unconscious"
+                "name": "Collective Unconscious",
+                "note": "Don't press 10s mit too early on the wave cannon or it will fall off for the wild charge. Press it after the 1st set of proteans go off."
               }
             ],
             "P": [
               {
-                "name": "Party Mit"
+                "name": "Party Mit",
+                "note": "Don't press 10s mit too early on the wave cannon or it will fall off for the wild charge. Press it after the 1st set of proteans go off."
               }
             ]
-          },
-          "note": "Don't press 10s mit too early on the wave cannon or it will fall off for the wild charge. Press it after the 1st set of proteans go off."
+          }
         },
         {
           "mechanicId": "p6-wave-cannon-4",
@@ -1156,50 +1195,59 @@
           "assignments": {
             "T1": [
               {
-                "name": "Reprisal"
+                "name": "Reprisal",
+                "note": "Don't press 10s mit too early on the wave cannon or it will fall off for the wild charge. Press it after the 1st set of proteans go off."
               },
               {
-                "name": "Party Mit"
+                "name": "Party Mit",
+                "note": "Don't press 10s mit too early on the wave cannon or it will fall off for the wild charge. Press it after the 1st set of proteans go off."
               }
             ],
             "SCH": [
               {
-                "name": "Succor"
+                "name": "Succor",
+                "note": "Don't press 10s mit too early on the wave cannon or it will fall off for the wild charge. Press it after the 1st set of proteans go off."
               },
               {
-                "name": "Sacred Soil"
+                "name": "Sacred Soil",
+                "note": "Don't press 10s mit too early on the wave cannon or it will fall off for the wild charge. Press it after the 1st set of proteans go off."
               }
             ],
             "SGE": [
               {
-                "name": "Eukrasian Prognosis"
+                "name": "Eukrasian Prognosis",
+                "note": "Don't press 10s mit too early on the wave cannon or it will fall off for the wild charge. Press it after the 1st set of proteans go off."
               },
               {
-                "name": "Kerachole"
+                "name": "Kerachole",
+                "note": "Don't press 10s mit too early on the wave cannon or it will fall off for the wild charge. Press it after the 1st set of proteans go off."
               }
             ],
             "AST": [
               {
-                "name": "Macrocosmos"
+                "name": "Macrocosmos",
+                "note": "Don't press 10s mit too early on the wave cannon or it will fall off for the wild charge. Press it after the 1st set of proteans go off."
               }
             ],
             "M2": [
               {
-                "name": "Feint"
+                "name": "Feint",
+                "note": "Don't press 10s mit too early on the wave cannon or it will fall off for the wild charge. Press it after the 1st set of proteans go off."
               }
             ],
             "C": [
               {
-                "name": "Extra (RDM)"
+                "name": "Extra (RDM)",
+                "note": "Don't press 10s mit too early on the wave cannon or it will fall off for the wild charge. Press it after the 1st set of proteans go off."
               }
             ],
             "P": [
               {
-                "name": "Extra (MCH)"
+                "name": "Extra (MCH)",
+                "note": "Don't press 10s mit too early on the wave cannon or it will fall off for the wild charge. Press it after the 1st set of proteans go off."
               }
             ]
-          },
-          "note": "Don't press 10s mit too early on the wave cannon or it will fall off for the wild charge. Press it after the 1st set of proteans go off."
+          }
         },
         {
           "mechanicId": "p6-cosmo-dive-2",

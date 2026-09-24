@@ -34,7 +34,8 @@ test('TOP P2 groups the numeric source row at Meteor instead of Party Synergy', 
   const rows = sheet.phases[1].mechanics
   assert.equal(rows.length, 1)
   assert.equal(rows[0].mechanicId, 'p2-optimized-meteor-1')
-  assert.equal(rows[0].note, 'Mitigation for Optimized Meteor and Cosmo Memory.')
+  assert.equal(rows[0].note, undefined)
+  assert.equal(rows[0].assignments.T1[0].note, 'Mitigation for Optimized Meteor and Cosmo Memory.')
   const mechanics = fight.phases[1].mechanics
   assert.equal(mechanics.find(m => m.id === 'p2-party-synergy-1')!.minor, true)
   assert.ok(!mechanics.find(m => m.id === 'p2-optimized-meteor-1')!.minor)
@@ -114,10 +115,19 @@ test('TOP preserves reviewed source guidance outside tank-only plans', () => {
   assert.match(sheet.phases[1].note!, /After Playstation: Feint \/ Addle/)
   assert.match(sheet.phases[4].note!, /15s party mit.*second hit/)
   assert.match(sheet.phases[4].note!, /10s party mit.*start of the raidwide cast/)
-  assert.match(sheet.phases[4].note!, /WAR\/PLD, GNB\/DRK, GNB\/PLD, PLD\/DRK: Healers must/)
+  assert.deepEqual(sheet.phases[1].noteRoles, ['melee', 'caster'])
+  assert.ok(!sheet.phases[4].note!.includes('Healers must'))
+  for (const job of ['WHM', 'AST', 'SCH', 'SGE']) {
+    const actions = sheet.phases[4].mechanics.flatMap(m => m.assignments[job] ?? [])
+    assert.match(actions[0].note!, /WAR\/PLD, GNB\/DRK, GNB\/PLD, PLD\/DRK: Healers must/)
+  }
   assert.equal(sheet.phases[5].note, undefined)
-  for (const id of ['p6-wave-cannon-3', 'p6-wave-cannon-6'])
-    assert.match(sheet.phases[5].mechanics.find(m => m.mechanicId === id)!.note!, /after the 1st set of proteans/)
+  for (const id of ['p6-wave-cannon-3', 'p6-wave-cannon-6']) {
+    const row = sheet.phases[5].mechanics.find(m => m.mechanicId === id)!
+    assert.equal(row.note, undefined)
+    for (const action of Object.values(row.assignments).flat())
+      assert.match(action.note!, /after the 1st set of proteans/)
+  }
   assert.match(sheet.phases[5].mechanics.find(m => m.mechanicId === 'p6-cosmo-memory-1')!.assignments.T1.find(a => a.name === 'Tank LB')!.note!, /WAR > DRK > PLD/)
   for (const plan of sheet.tankMits!.plans) {
     const phase = plan.phases.find(p => p.id === 'p6')!
