@@ -110,7 +110,7 @@ sheet's grid unless that sheet assigns it.
 
 Ability ids work the same way. `abilities.json` is keyed by an id derived from
 the real in-game name, so every wording a sheet uses collapses onto one entry
-(`Feint (Chaos)`, `Vengeance` for Damnation, `Spreadlo` for Deployment Tactics),
+(`Feint (Chaos)`, `Spreadlo` for Deployment Tactics, `Seraph Veil` for Seraphic Veil),
 and `action` holds the game's Action row id — the same number FFLogs reports as
 `abilityGameID`. `names` maps each sheet wording to its ability, and
 `validateCatalog` fails the build on an action with no entry.
