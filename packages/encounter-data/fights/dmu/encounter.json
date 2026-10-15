@@ -1,6 +1,7 @@
 {
   "id": "dmu",
   "released": "2026-06-02",
+  "syncLevel": 100,
   "name": "Dancing Mad (Ultimate)",
   "shortName": "DMU",
   "type": "Ultimate",
