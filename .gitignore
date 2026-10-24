@@ -38,3 +38,6 @@ scratchpad/
 .pnp.*
 
 .env
+
+__pycache__/
+*.pyc
