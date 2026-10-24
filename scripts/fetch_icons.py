@@ -31,12 +31,11 @@ ALIASES = {
     'Seraph Veil': 'Seraphic Veil',
     'Spreadlo': 'Deployment Tactics',
     'Zoe Shields': 'Zoe',
-    # Every job's level 3 limit break shares one icon in the game data, so the
-    # sheet's generic "LB3" - and TOP Mitty's "Tank LB" / "Healer LB" - resolve
-    # to it without naming a per-job ability.
+    # Tank LB3 and the sheet's generic "LB3" are Last Bastion. Healer LB3 is
+    # Pulse of Life (action 208). The two rows share one icon file.
     'LB3': 'Last Bastion',
     'Tank LB': 'Last Bastion',
-    'Healer LB': 'Last Bastion',
+    'Healer LB': 'Pulse of Life',
 }
 
 # A trait replaces the action at `level`. The old button stays its own registry
@@ -70,7 +69,7 @@ NO_ICON = {
     'Assist Tanks', 'Avoid HP-restoring abilities', 'Manage Accretion healing',
     # TOP Mitty tank tabs: "press your whole kit" / "cover your co-tank" / a
     # cue, not one button.
-    'Kitchen Sink', 'Buddy Mit', 'Voke after Buster',
+    'Kitchen Sink', 'Voke after Buster',
     # LPDU writes a couple of calls as prose: a bundle of AST cooldowns, a
     # babysitting instruction, and the enrage marker.
     'All single-target mit', 'Card mits', 'Babysit the beam tank', 'Enrage',
@@ -84,7 +83,7 @@ CARD_ROWS = {'The Bole': 37027, 'The Ewer': 37028}
 
 # Generic names resolved per job from packages/encounter-data/jobs.json instead of by search.
 # 'Party Mit' means a different button for every job standing in that slot.
-JOB_GENERIC = {'Party Mit', 'Extra', 'Short Mit', '90s Mit', '120s Mit', 'Invuln'}
+JOB_GENERIC = {'Party Mit', 'Extra', 'Buddy Mit', 'Short Mit', '90s Mit', '120s Mit', 'Invuln'}
 
 # Damage reduction, in percent, ascending by the level the step starts. The
 # action text shows the post-trait 15%. The level-98 traits are the change

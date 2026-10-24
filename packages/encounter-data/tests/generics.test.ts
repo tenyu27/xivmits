@@ -8,7 +8,7 @@ const catalog = loadCatalog()
 // jobs.json already maps these per tank. They have to be registry abilities
 // too, or a sheet that writes the generic fails validation before the job
 // can turn it into a button.
-const generics = ['120s Mit', 'Short Mit', 'Invuln', '90s Mit', 'Party Mit', 'Extra'] as const
+const generics = ['120s Mit', 'Short Mit', 'Invuln', '90s Mit', 'Party Mit', 'Extra', 'Buddy Mit'] as const
 
 test('tank generics are registry abilities and resolve on a real fight', () => {
   const fight = catalog.fights.find(f => f.id === 'dmu')!
@@ -22,6 +22,7 @@ test('tank generics are registry abilities and resolve on a real fight', () => {
     'Invuln': 'Superbolide',
     '90s Mit': 'Camouflage',
     'Party Mit': 'Heart of Light',
+    'Buddy Mit': 'Heart of Corundum',
   }
   for (const name of generics) {
     const id = catalog.abilities.names[name]
@@ -32,4 +33,9 @@ test('tank generics are registry abilities and resolve on a real fight', () => {
     assert.equal(resolved.applies && resolved.label, button, name)
     assert.equal(resolved.applies && resolved.icon, catalog.icons[button], name)
   }
+  const healerLb = catalog.abilities.abilities[catalog.abilities.names['Healer LB']]
+  assert.equal(healerLb.name, 'Pulse of Life')
+  assert.equal(healerLb.action, 208)
+  assert.notEqual(catalog.abilities.names['Healer LB'], catalog.abilities.names['Tank LB'])
+  assert.equal(catalog.icons['Healer LB'], healerLb.icon)
 })
