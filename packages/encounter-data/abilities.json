@@ -762,14 +762,18 @@
       "level": 70
     },
     "the-bole": {
-      "name": "The Bole",
-      "kind": "status",
-      "icon": "213205.png"
+      "name": "the Bole",
+      "kind": "action",
+      "icon": "003111.png",
+      "action": 37027,
+      "level": 30
     },
     "the-ewer": {
-      "name": "The Ewer",
-      "kind": "status",
-      "icon": "213208.png"
+      "name": "the Ewer",
+      "kind": "action",
+      "icon": "003114.png",
+      "action": 37028,
+      "level": 30
     },
     "thrill-of-battle": {
       "name": "Thrill of Battle",

@@ -22,6 +22,7 @@ ICON_DIR = ROOT / 'apps/web/public/icons'
 MAP_FILE = ROOT / 'packages/encounter-data/icons.json'
 ABILITY_FILE = ROOT / 'packages/encounter-data/abilities.json'
 SEARCH = 'https://v2.xivapi.com/api/search'
+SHEET = 'https://v2.xivapi.com/api/sheet'
 ASSET = 'https://v2.xivapi.com/api/asset'
 
 # Sheet shorthand that is not the in-game action name.
@@ -75,9 +76,11 @@ NO_ICON = {
     'All single-target mit', 'Card mits', 'Babysit the beam tank', 'Enrage',
 }
 
-# AST cards have no Action row - they are drawn and played through Play I/II/III
-# - so the card art lives in the Status sheet instead. Resolved by name there.
-STATUS_ICONS = {'The Balance', 'The Bole', 'The Arrow', 'The Spear', 'The Ewer', 'The Spire'}
+# Arcana are level-30 actions, not statuses. IsPlayerAction is false, so the
+# player-action search skips them and the old Status-sheet icons were the
+# wrong art. None of the six were removed in 7.0 (rows 37023-37028). Sheets
+# name only the Bole and the Ewer, so the other four are not registered.
+CARD_ROWS = {'The Bole': 37027, 'The Ewer': 37028}
 
 # Generic names resolved per job from packages/encounter-data/jobs.json instead of by search.
 # 'Party Mit' means a different button for every job standing in that slot.
@@ -112,10 +115,11 @@ NONPLAYER_OK = {'Eukrasian Prognosis', 'Eukrasian Prognosis II', 'Eukrasian Diag
 PLACEHOLDER = '000000/000405'
 
 
-def get(url, params):
+def get(url, params=None):
+    if params:
+        url = f'{url}?{urllib.parse.urlencode(params)}'
     request = urllib.request.Request(
-        f'{url}?{urllib.parse.urlencode(params)}',
-        headers={'User-Agent': 'xivmits-icon-import/1.0 (+https://xivmits.com)'},
+        url, headers={'User-Agent': 'xivmits-icon-import/1.0 (+https://xivmits.com)'},
     )
     with urllib.request.urlopen(request, timeout=30) as response:
         return response.read()
@@ -133,20 +137,18 @@ def candidate(name):
     return ALIASES.get(base, ALIASES.get(name, base))
 
 
-def resolve_status(name):
-    """Return (action_id, icon_id, icon_path, status_name, level) for a Status icon.
+def resolve_row(row_id):
+    """Return (action_id, icon_id, icon_path, action_name, level) for one Action row.
 
-    Status rows are not castable actions, so there is no action id and no job
-    level; the card icons this covers are cosmetic anyway.
+    Arcana are not player actions, so the name search skips them. Their
+    ClassJobLevel is still the level a player learns the card.
     """
-    payload = json.loads(get(SEARCH, {
-        'sheets': 'Status', 'query': f'Name="{name}"', 'fields': 'Name,Icon.path,Icon.id', 'limit': 5,
-    }))
-    for row in payload.get('results', []):
-        icon = row['fields'].get('Icon') or {}
-        if icon.get('path') and PLACEHOLDER not in icon['path']:
-            return None, icon['id'], icon['path'], row['fields']['Name'], None
-    return None
+    payload = json.loads(get(f'{SHEET}/Action/{row_id}'))
+    fields = payload['fields']
+    icon = fields.get('Icon') or {}
+    if not icon.get('path') or PLACEHOLDER in icon['path']:
+        return None
+    return row_id, icon['id'], icon['path'], fields['Name'], fields.get('ClassJobLevel') or None
 
 
 def resolve(name):
@@ -157,8 +159,8 @@ def resolve(name):
     needs to match a logged press back to the mit a sheet recorded. `level` is
     ClassJobLevel, when the job learns it.
     """
-    if name in STATUS_ICONS:
-        return resolve_status(name)
+    if name in CARD_ROWS:
+        return resolve_row(CARD_ROWS[name])
     payload = json.loads(get(SEARCH, {
         'sheets': 'Action',
         'query': f'Name="{name}"',
