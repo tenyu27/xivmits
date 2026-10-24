@@ -17,10 +17,23 @@ test('job mappings stay limited to generics a sheet can actually assign', () => 
   assert.equal(job('RDM').abilities?.Extra, 'Magick Barrier')
   assert.equal(job('PCT').abilities?.['Party Mit'], undefined)
   assert.equal(catalog.abilities.names['Tempera Grassa'], undefined)
-  // Oblation is the action's name. An identity mapping stripped the (DRK)
-  // qualifier the sheet uses to say whose press it is.
-  assert.equal(job('DRK').abilities?.Oblation, undefined)
-  const resolved = resolveAction('Oblation (DRK)', job('DRK'), catalog.icons)
-  assert.equal(resolved.applies && resolved.label, 'Oblation (DRK)')
-  assert.equal(resolved.applies && resolved.icon, catalog.icons['Oblation (DRK)'])
+  // "Oblation (DRK)" is the sheet's way of saying the DRK presses Oblation.
+  // The mapping strips the qualifier so the row reads the button name.
+  assert.equal(job('DRK').abilities?.Oblation, 'Oblation')
+  const rows: [string, string, string][] = [
+    ['dsr', 'dsrmitty', 'rewind-brightwing-2'],
+    ['fru', 'fmbg', 'p2-banish-iii-1'],
+  ]
+  for (const [fightId, sheetId, mechanicId] of rows) {
+    const fight = catalog.fights.find(candidate => candidate.id === fightId)!
+    const sheet = catalog.sheets.find(candidate => candidate.fightId === fightId && candidate.id === sheetId)!
+    const mechanic = sheet.phases.flatMap(phase => phase.mechanics).find(candidate => candidate.id === mechanicId)!
+    const names = Object.values(mechanic.assignments).flat().map(action => action.name).filter(name => name.includes('Oblation'))
+    assert.ok(names.length > 0, mechanicId)
+    for (const name of names) {
+      const resolved = resolveAction(name, job('DRK'), catalog.icons, fight.syncLevel)
+      assert.equal(resolved.applies && resolved.label, 'Oblation', `${fightId} ${mechanicId} ${name}`)
+      assert.equal(resolved.applies && resolved.icon, catalog.icons.Oblation, name)
+    }
+  }
 })
