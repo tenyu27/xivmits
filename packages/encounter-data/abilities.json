@@ -1,5 +1,9 @@
 {
   "abilities": {
+    "120s-mit": {
+      "name": "120s Mit",
+      "kind": "generic"
+    },
     "90s-mit": {
       "name": "90s Mit",
       "kind": "generic"
@@ -368,6 +372,10 @@
       "action": 7382,
       "level": 62
     },
+    "invuln": {
+      "name": "Invuln",
+      "kind": "generic"
+    },
     "ixochole": {
       "name": "Ixochole",
       "kind": "action",
@@ -662,6 +670,10 @@
       "action": 16012,
       "level": 56
     },
+    "short-mit": {
+      "name": "Short Mit",
+      "kind": "generic"
+    },
     "succor": {
       "name": "Succor",
       "kind": "action",
@@ -784,6 +796,7 @@
     }
   },
   "names": {
+    "120s Mit": "120s-mit",
     "90s Mit": "90s-mit",
     "Addle": "addle",
     "Addle (Exdeath)": "addle",
@@ -821,6 +834,7 @@
     "Exaltation": "exaltation",
     "Excogitation": "excogitation",
     "Expedient": "expedient",
+    "Extra": "extra",
     "Extra (MCH)": "extra",
     "Extra (RDM)": "extra",
     "Extra (RDM/MCH)": "extra",
@@ -844,6 +858,7 @@
     "Horoscope": "horoscope",
     "Imperator": "imperator",
     "Intervention": "intervention",
+    "Invuln": "invuln",
     "Ixochole": "ixochole",
     "Kerachole": "kerachole",
     "Kitchen Sink": "kitchen-sink",
@@ -890,6 +905,7 @@
     "Shadowed Vigil": "shadowed-vigil",
     "Shake It Off": "shake-it-off",
     "Shield Samba": "shield-samba",
+    "Short Mit": "short-mit",
     "Spreadlo": "deployment-tactics",
     "Succor": "succor",
     "Summon Seraph": "summon-seraph",

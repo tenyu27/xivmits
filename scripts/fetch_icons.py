@@ -207,6 +207,11 @@ def main(force=False):
         for steps in job.get('levels', {}).values():
             names.update(step['name'] for step in steps)
 
+    # A sheet may name a generic no current fight uses. Register every one,
+    # the same way Party Mit and 90s Mit are registered, so "120s Mit",
+    # "Short Mit" and "Invuln" are valid abilities rather than unknown wording.
+    names.update(JOB_GENERIC)
+
     # Keep retired actions and their replacements in the registry even when no
     # current sheet names them, so the next regeneration does not drop replacedBy.
     names.update(REPLACED_BY)
