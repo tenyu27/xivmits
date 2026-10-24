@@ -8,25 +8,39 @@
       "name": "Addle",
       "kind": "action",
       "icon": "000861.png",
-      "action": 7560
+      "action": 7560,
+      "level": 8,
+      "durations": [
+        {
+          "level": 1,
+          "seconds": 10
+        },
+        {
+          "level": 98,
+          "seconds": 15
+        }
+      ]
     },
     "adloquium": {
       "name": "Adloquium",
       "kind": "action",
       "icon": "002801.png",
-      "action": 185
+      "action": 185,
+      "level": 30
     },
     "aetherpact": {
       "name": "Aetherpact",
       "kind": "action",
       "icon": "002816.png",
-      "action": 7437
+      "action": 7437,
+      "level": 70
     },
     "aquaveil": {
       "name": "Aquaveil",
       "kind": "action",
       "icon": "002648.png",
-      "action": 25861
+      "action": 25861,
+      "level": 86
     },
     "assist-tanks": {
       "name": "Assist Tanks",
@@ -36,7 +50,8 @@
       "name": "Asylum",
       "kind": "action",
       "icon": "002632.png",
-      "action": 3569
+      "action": 3569,
+      "level": 52
     },
     "avoid-hp-restoring-abilities": {
       "name": "Avoid HP-restoring abilities",
@@ -50,13 +65,15 @@
       "name": "Benediction",
       "kind": "action",
       "icon": "002627.png",
-      "action": 140
+      "action": 140,
+      "level": 50
     },
     "bloodwhetting": {
       "name": "Bloodwhetting",
       "kind": "action",
       "icon": "002569.png",
-      "action": 25751
+      "action": 25751,
+      "level": 82
     },
     "buddy-mit": {
       "name": "Buddy Mit",
@@ -66,139 +83,162 @@
       "name": "Bulwark",
       "kind": "action",
       "icon": "000167.png",
-      "action": 22
+      "action": 22,
+      "level": 52
     },
     "camouflage": {
       "name": "Camouflage",
       "kind": "action",
       "icon": "003404.png",
-      "action": 16140
+      "action": 16140,
+      "level": 6
     },
     "celestial-intersection": {
       "name": "Celestial Intersection",
       "kind": "action",
       "icon": "003556.png",
-      "action": 16556
+      "action": 16556,
+      "level": 74
     },
     "collective-unconscious": {
       "name": "Collective Unconscious",
       "kind": "action",
       "icon": "003140.png",
-      "action": 3613
+      "action": 3613,
+      "level": 58
     },
     "concitation": {
       "name": "Concitation",
       "kind": "action",
       "icon": "002880.png",
-      "action": 37013
+      "action": 37013,
+      "level": 96
     },
     "consolation": {
       "name": "Consolation",
       "kind": "action",
       "icon": "002851.png",
-      "action": 16546
+      "action": 16546,
+      "level": 80
     },
     "damnation": {
       "name": "Damnation",
       "kind": "action",
       "icon": "002573.png",
-      "action": 36923
+      "action": 36923,
+      "level": 92
     },
     "dark-mind": {
       "name": "Dark Mind",
       "kind": "action",
       "icon": "003076.png",
-      "action": 3634
+      "action": 3634,
+      "level": 45
     },
     "dark-missionary": {
       "name": "Dark Missionary",
       "kind": "action",
       "icon": "003087.png",
-      "action": 16471
+      "action": 16471,
+      "level": 66
     },
     "deployment-tactics": {
       "name": "Deployment Tactics",
       "kind": "action",
       "icon": "002808.png",
-      "action": 3585
+      "action": 3585,
+      "level": 56
     },
     "dismantle": {
       "name": "Dismantle",
       "kind": "action",
       "icon": "003011.png",
-      "action": 2887
+      "action": 2887,
+      "level": 62
     },
     "divine-benison": {
       "name": "Divine Benison",
       "kind": "action",
       "icon": "002638.png",
-      "action": 7432
+      "action": 7432,
+      "level": 66
     },
     "divine-caress": {
       "name": "Divine Caress",
       "kind": "action",
       "icon": "002128.png",
-      "action": 37011
+      "action": 37011,
+      "level": 100
     },
     "divine-veil": {
       "name": "Divine Veil",
       "kind": "action",
       "icon": "002508.png",
-      "action": 3540
+      "action": 3540,
+      "level": 56
     },
     "druochole": {
       "name": "Druochole",
       "kind": "action",
       "icon": "003664.png",
-      "action": 24296
+      "action": 24296,
+      "level": 45
     },
     "earthly-star": {
       "name": "Earthly Star",
       "kind": "action",
       "icon": "003143.png",
-      "action": 7439
+      "action": 7439,
+      "level": 62
     },
     "equilibrium": {
       "name": "Equilibrium",
       "kind": "action",
       "icon": "002560.png",
-      "action": 3552
+      "action": 3552,
+      "level": 58
     },
     "eukrasian-diagnosis": {
       "name": "Eukrasian Diagnosis",
       "kind": "action",
       "icon": "003659.png",
-      "action": 24291
+      "action": 24291,
+      "level": 30
     },
     "eukrasian-prognosis": {
       "name": "Eukrasian Prognosis",
       "kind": "action",
       "icon": "003660.png",
-      "action": 24292
+      "action": 24292,
+      "level": 30
     },
     "eukrasian-prognosis-ii": {
       "name": "Eukrasian Prognosis II",
       "kind": "action",
       "icon": "003689.png",
-      "action": 37034
+      "action": 37034,
+      "level": 96
     },
     "exaltation": {
       "name": "Exaltation",
       "kind": "action",
       "icon": "003561.png",
-      "action": 25873
+      "action": 25873,
+      "level": 86
     },
     "excogitation": {
       "name": "Excogitation",
       "kind": "action",
       "icon": "002813.png",
-      "action": 7434
+      "action": 7434,
+      "level": 62
     },
     "expedient": {
       "name": "Expedient",
       "kind": "action",
       "icon": "002878.png",
-      "action": 25868
+      "action": 25868,
+      "level": 90
     },
     "extra": {
       "name": "Extra",
@@ -208,91 +248,116 @@
       "name": "Feint",
       "kind": "action",
       "icon": "000828.png",
-      "action": 7549
+      "action": 7549,
+      "level": 22,
+      "durations": [
+        {
+          "level": 1,
+          "seconds": 10
+        },
+        {
+          "level": 98,
+          "seconds": 15
+        }
+      ]
     },
     "fey-illumination": {
       "name": "Fey Illumination",
       "kind": "action",
       "icon": "002853.png",
-      "action": 16538
+      "action": 16538,
+      "level": 40
     },
     "great-nebula": {
       "name": "Great Nebula",
       "kind": "action",
       "icon": "003435.png",
-      "action": 36935
+      "action": 36935,
+      "level": 92
     },
     "guardian": {
       "name": "Guardian",
       "kind": "action",
       "icon": "002524.png",
-      "action": 36920
+      "action": 36920,
+      "level": 92
     },
     "haima": {
       "name": "Haima",
       "kind": "action",
       "icon": "003673.png",
-      "action": 24305
+      "action": 24305,
+      "level": 70
     },
     "hallowed-ground": {
       "name": "Hallowed Ground",
       "kind": "action",
       "icon": "002502.png",
-      "action": 30
+      "action": 30,
+      "level": 50
     },
     "heart-of-corundum": {
       "name": "Heart of Corundum",
       "kind": "action",
       "icon": "003430.png",
-      "action": 25758
+      "action": 25758,
+      "level": 82
     },
     "heart-of-light": {
       "name": "Heart of Light",
       "kind": "action",
       "icon": "003424.png",
-      "action": 16160
+      "action": 16160,
+      "level": 64
     },
     "holmgang": {
       "name": "Holmgang",
       "kind": "action",
       "icon": "000266.png",
-      "action": 43
+      "action": 43,
+      "level": 42
     },
     "holos": {
       "name": "Holos",
       "kind": "action",
       "icon": "003678.png",
-      "action": 24310
+      "action": 24310,
+      "level": 76
     },
     "holy-sheltron": {
       "name": "Holy Sheltron",
       "kind": "action",
       "icon": "002950.png",
-      "action": 25746
+      "action": 25746,
+      "level": 82
     },
     "horoscope": {
       "name": "Horoscope",
       "kind": "action",
       "icon": "003550.png",
-      "action": 16557
+      "action": 16557,
+      "level": 76
     },
     "intervention": {
       "name": "Intervention",
       "kind": "action",
       "icon": "002512.png",
-      "action": 7382
+      "action": 7382,
+      "level": 62
     },
     "ixochole": {
       "name": "Ixochole",
       "kind": "action",
       "icon": "003667.png",
-      "action": 24299
+      "action": 24299,
+      "level": 52
     },
     "kerachole": {
       "name": "Kerachole",
       "kind": "action",
       "icon": "003666.png",
-      "action": 24298
+      "action": 24298,
+      "level": 50
     },
     "kitchen-sink": {
       "name": "Kitchen Sink",
@@ -302,7 +367,8 @@
       "name": "Krasis",
       "kind": "action",
       "icon": "003685.png",
-      "action": 24317
+      "action": 24317,
+      "level": 86
     },
     "last-bastion": {
       "name": "Last Bastion",
@@ -314,25 +380,29 @@
       "name": "Liturgy of the Bell",
       "kind": "action",
       "icon": "002649.png",
-      "action": 25862
+      "action": 25862,
+      "level": 90
     },
     "living-dead": {
       "name": "Living Dead",
       "kind": "action",
       "icon": "003077.png",
-      "action": 3638
+      "action": 3638,
+      "level": 50
     },
     "macrocosmos": {
       "name": "Macrocosmos",
       "kind": "action",
       "icon": "003562.png",
-      "action": 25874
+      "action": 25874,
+      "level": 90
     },
     "magick-barrier": {
       "name": "Magick Barrier",
       "kind": "action",
       "icon": "003237.png",
-      "action": 25857
+      "action": 25857,
+      "level": 86
     },
     "manage-accretion-healing": {
       "name": "Manage Accretion healing",
@@ -342,31 +412,36 @@
       "name": "Nascent Flash",
       "kind": "action",
       "icon": "002567.png",
-      "action": 16464
+      "action": 16464,
+      "level": 76
     },
     "nebula": {
       "name": "Nebula",
       "kind": "action",
       "icon": "003412.png",
-      "action": 16148
+      "action": 16148,
+      "level": 38
     },
     "neutral-sect": {
       "name": "Neutral Sect",
       "kind": "action",
       "icon": "003552.png",
-      "action": 16559
+      "action": 16559,
+      "level": 80
     },
     "oblation": {
       "name": "Oblation",
       "kind": "action",
       "icon": "003089.png",
-      "action": 25754
+      "action": 25754,
+      "level": 82
     },
     "panhaima": {
       "name": "Panhaima",
       "kind": "action",
       "icon": "003679.png",
-      "action": 24311
+      "action": 24311,
+      "level": 80
     },
     "party-mit": {
       "name": "Party Mit",
@@ -376,181 +451,221 @@
       "name": "Passage of Arms",
       "kind": "action",
       "icon": "002515.png",
-      "action": 7385
+      "action": 7385,
+      "level": 70
     },
     "pepsis": {
       "name": "Pepsis",
       "kind": "action",
       "icon": "003669.png",
-      "action": 24301
+      "action": 24301,
+      "level": 58
     },
     "philosophia": {
       "name": "Philosophia",
       "kind": "action",
       "icon": "003690.png",
-      "action": 37035
+      "action": 37035,
+      "level": 100
     },
     "physis-ii": {
       "name": "Physis II",
       "kind": "action",
       "icon": "003670.png",
-      "action": 24302
+      "action": 24302,
+      "level": 60
     },
     "plenary-indulgence": {
       "name": "Plenary Indulgence",
       "kind": "action",
       "icon": "002639.png",
-      "action": 7433
+      "action": 7433,
+      "level": 70
     },
     "pneuma": {
       "name": "Pneuma",
       "kind": "action",
       "icon": "003686.png",
-      "action": 24318
+      "action": 24318,
+      "level": 90
     },
     "prognosis": {
       "name": "Prognosis",
       "kind": "action",
       "icon": "003654.png",
-      "action": 24286
+      "action": 24286,
+      "level": 10
     },
     "protraction": {
       "name": "Protraction",
       "kind": "action",
       "icon": "002877.png",
-      "action": 25867
+      "action": 25867,
+      "level": 86
     },
     "provoke": {
       "name": "Provoke",
       "kind": "action",
       "icon": "000803.png",
-      "action": 7533
+      "action": 7533,
+      "level": 15
     },
     "rampart": {
       "name": "Rampart",
       "kind": "action",
       "icon": "000801.png",
-      "action": 7531
+      "action": 7531,
+      "level": 8
     },
     "recitation": {
       "name": "Recitation",
       "kind": "action",
       "icon": "002822.png",
-      "action": 16542
+      "action": 16542,
+      "level": 74
     },
     "regen": {
       "name": "Regen",
       "kind": "action",
       "icon": "002628.png",
-      "action": 137
+      "action": 137,
+      "level": 35
     },
     "reprisal": {
       "name": "Reprisal",
       "kind": "action",
       "icon": "000806.png",
-      "action": 7535
+      "action": 7535,
+      "level": 22,
+      "durations": [
+        {
+          "level": 1,
+          "seconds": 10
+        },
+        {
+          "level": 98,
+          "seconds": 15
+        }
+      ]
     },
     "sacred-soil": {
       "name": "Sacred Soil",
       "kind": "action",
       "icon": "002804.png",
-      "action": 188
+      "action": 188,
+      "level": 50
     },
     "sentinel": {
       "name": "Sentinel",
       "kind": "action",
       "icon": "000151.png",
-      "action": 17
+      "action": 17,
+      "level": 38
     },
     "seraphic-veil": {
       "name": "Seraphic Veil",
       "kind": "action",
       "icon": "002847.png",
-      "action": 16548
+      "action": 16548,
+      "level": 80
     },
     "seraphism": {
       "name": "Seraphism",
       "kind": "action",
       "icon": "002881.png",
-      "action": 37014
+      "action": 37014,
+      "level": 100
     },
     "shadow-wall": {
       "name": "Shadow Wall",
       "kind": "action",
       "icon": "003075.png",
-      "action": 3636
+      "action": 3636,
+      "level": 38
     },
     "shadowed-vigil": {
       "name": "Shadowed Vigil",
       "kind": "action",
       "icon": "003094.png",
-      "action": 36927
+      "action": 36927,
+      "level": 92
     },
     "shake-it-off": {
       "name": "Shake It Off",
       "kind": "action",
       "icon": "002563.png",
-      "action": 7388
+      "action": 7388,
+      "level": 68
     },
     "shield-samba": {
       "name": "Shield Samba",
       "kind": "action",
       "icon": "003469.png",
-      "action": 16012
+      "action": 16012,
+      "level": 56
     },
     "succor": {
       "name": "Succor",
       "kind": "action",
       "icon": "002802.png",
-      "action": 186
+      "action": 186,
+      "level": 35
     },
     "summon-seraph": {
       "name": "Summon Seraph",
       "kind": "action",
       "icon": "002850.png",
-      "action": 16545
+      "action": 16545,
+      "level": 80
     },
     "sun-sign": {
       "name": "Sun Sign",
       "kind": "action",
       "icon": "003109.png",
-      "action": 37031
+      "action": 37031,
+      "level": 100
     },
     "superbolide": {
       "name": "Superbolide",
       "kind": "action",
       "icon": "003416.png",
-      "action": 16152
+      "action": 16152,
+      "level": 50
     },
     "tactician": {
       "name": "Tactician",
       "kind": "action",
       "icon": "003040.png",
-      "action": 16889
+      "action": 16889,
+      "level": 56
     },
     "taurochole": {
       "name": "Taurochole",
       "kind": "action",
       "icon": "003671.png",
-      "action": 24303
+      "action": 24303,
+      "level": 62
     },
     "tempera-grassa": {
       "name": "Tempera Grassa",
       "kind": "action",
       "icon": "003836.png",
-      "action": 34686
+      "action": 34686,
+      "level": 88
     },
     "temperance": {
       "name": "Temperance",
       "kind": "action",
       "icon": "002645.png",
-      "action": 16536
+      "action": 16536,
+      "level": 80
     },
     "the-blackest-night": {
       "name": "The Blackest Night",
       "kind": "action",
       "icon": "003081.png",
-      "action": 7393
+      "action": 7393,
+      "level": 70
     },
     "the-bole": {
       "name": "The Bole",
@@ -566,13 +681,22 @@
       "name": "Thrill of Battle",
       "kind": "action",
       "icon": "000263.png",
-      "action": 40
+      "action": 40,
+      "level": 30
     },
     "troubadour": {
       "name": "Troubadour",
       "kind": "action",
       "icon": "002612.png",
-      "action": 7405
+      "action": 7405,
+      "level": 62
+    },
+    "vengeance": {
+      "name": "Vengeance",
+      "kind": "action",
+      "icon": "000267.png",
+      "action": 44,
+      "level": 38
     },
     "voke-after-buster": {
       "name": "Voke after Buster",
@@ -582,13 +706,15 @@
       "name": "Whispering Dawn",
       "kind": "action",
       "icon": "002852.png",
-      "action": 16537
+      "action": 16537,
+      "level": 20
     },
     "zoe": {
       "name": "Zoe",
       "kind": "action",
       "icon": "003668.png",
-      "action": 24300
+      "action": 24300,
+      "level": 56
     }
   },
   "names": {
@@ -707,7 +833,7 @@
     "The Ewer": "the-ewer",
     "Thrill of Battle": "thrill-of-battle",
     "Troubadour": "troubadour",
-    "Vengeance": "damnation",
+    "Vengeance": "vengeance",
     "Voke after Buster": "voke-after-buster",
     "Whispering Dawn": "whispering-dawn",
     "Zoe": "zoe",

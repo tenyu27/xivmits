@@ -64,13 +64,15 @@ TANK_FULLNAME = {'WARRIOR': 'WAR', 'DARK KNIGHT': 'DRK', 'GUNBREAKER': 'GNB', 'P
 
 # The pairing tabs write mit in shorthand and with a few typos; expand to the
 # in-game action name so the text reads on its own and fetch_icons can resolve
-# an icon. Names already spelled the game's way pass through untouched.
+# an icon. Names already spelled the game's way pass through untouched. TOP
+# syncs to level 90, so the sheet's "Nebula" is GNB's level 38 Nebula — Great
+# Nebula only replaces it at 92 — and must not be expanded to the newer name.
 # "Kitchen Sink" (press your whole kit) stays as written - a decision, not a
 # single button, like "Party Mit (GNB/DRK)" in the party grid.
 TANK_ABILITY = {
     'Thril': 'Thrill of Battle', 'Thrill': 'Thrill of Battle', 'Vengence': 'Vengeance',
     'Bolide': 'Superbolide', 'Camo': 'Camouflage', 'HOC': 'Heart of Corundum',
-    'Nebula': 'Great Nebula', 'TBN': 'The Blackest Night', 'Sheltron': 'Holy Sheltron',
+    'TBN': 'The Blackest Night', 'Sheltron': 'Holy Sheltron',
     'Sentinal': 'Sentinel', 'Nascent': 'Nascent Flash', 'Intervention': 'Intervention',
 }
 
@@ -81,13 +83,14 @@ TANK_BUDDY = {'WAR': 'Nascent Flash', 'PLD': 'Intervention',
               'GNB': 'Heart of Corundum', 'DRK': ['The Blackest Night', 'Oblation']}
 
 # "Kitchen Sink" means press the whole personal-mit kit. Raid mitigation only,
-# level 100 - invulns (Holmgang / Hallowed Ground / Living Dead / Superbolide)
-# are their own line in the sheet, not part of the sink.
+# at TOP's level 90 sync — invulns (Holmgang / Hallowed Ground / Living Dead /
+# Superbolide) are their own line in the sheet, not part of the sink. GNB's
+# 120s button here is Nebula; Great Nebula is level 92.
 TANK_EVERYTHING = {
     'WAR': ['Rampart', 'Vengeance', 'Thrill of Battle', 'Bloodwhetting'],
     'PLD': ['Rampart', 'Sentinel', 'Holy Sheltron', 'Bulwark'],
     'DRK': ['Rampart', 'Shadow Wall', 'Dark Mind', 'The Blackest Night', 'Oblation'],
-    'GNB': ['Rampart', 'Great Nebula', 'Camouflage', 'Heart of Corundum'],
+    'GNB': ['Rampart', 'Nebula', 'Camouflage', 'Heart of Corundum'],
 }
 
 # Tank-tab phase headers sit in column C: "P1: Beetle Omega", "P5: Dynamis".

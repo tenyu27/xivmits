@@ -44,7 +44,7 @@ test('DSR party assignments survive every layout, job filtering, Mit only, and c
         const html = render(phase, slot.id, job, { layout, compact: true, showUnassigned: false })
         const context = `${job.id}/${slot.id}/${phase.id}/${layout}`
         for (const row of phase.mechanics) for (const action of row.assignments[slot.id] ?? []) {
-          const resolved = resolveAction(action.name, job)
+          const resolved = resolveAction(action.name, job, {}, fight.syncLevel)
           if (resolved.applies) assert.ok(html.includes(escape(resolved.label)), `${context}: ${resolved.label}`)
         }
         if (job.id !== 'MCH') assert.ok(!html.includes('Dismantle'), context)
@@ -63,7 +63,7 @@ test('DSR tank plans preserve every personal and buddy assignment and phase note
         const html = render(phase, seat, job, { personalPlan: plan, layout, showUnassigned: false })
         const context = `${plan.job}/${plan.with}/${phase.id}/${seat}/${layout}`
         for (const row of personal.mechanics) for (const action of row.actions) {
-          const resolved = resolveAction(action.name, job)
+          const resolved = resolveAction(action.name, job, {}, fight.syncLevel)
           if (resolved.applies) assert.ok(html.includes(escape(resolved.label)), `${context}: ${resolved.label}`)
           if (action.note && layout !== 'grid') assert.ok(html.includes(escape(action.note)), context)
         }

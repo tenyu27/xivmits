@@ -63,5 +63,25 @@ class TopBindingTest(unittest.TestCase):
             top.bind_party(source, load_encounter('top'))
 
 
+class TopSyncLevelTest(unittest.TestCase):
+    def test_sheet_nebula_is_not_expanded_to_level_92_great_nebula(self):
+        # The upstream pairing tabs write "Nebula". TOP syncs to 90; Great
+        # Nebula replaces Nebula at 92.
+        self.assertNotIn('Nebula', top.TANK_ABILITY)
+        self.assertNotIn('Great Nebula', top.TANK_EVERYTHING['GNB'])
+        self.assertEqual(
+            [action['name'] for action in top.tank_actions('Rampart, Camo, Nebula, HOC', 'GNB')],
+            ['Rampart', 'Camouflage', 'Nebula', 'Heart of Corundum'],
+        )
+        self.assertEqual(
+            [action['name'] for action in top.tank_actions('Kitchen Sink', 'GNB')],
+            ['Rampart', 'Nebula', 'Camouflage', 'Heart of Corundum'],
+        )
+        self.assertEqual(
+            [action['name'] for action in top.tank_actions('Nebula, HOC', 'GNB')],
+            ['Nebula', 'Heart of Corundum'],
+        )
+
+
 if __name__ == '__main__':
     unittest.main()

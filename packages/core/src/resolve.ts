@@ -11,14 +11,50 @@ export type Resolved =
   | { applies: true; label: string; icon?: string; from?: string }
   | { applies: false }
 
+/** The highest step whose level the sync has reached. No sync means the duty
+ *  level is unknown, so the highest step — the unsynced answer — stands. */
+function highestAt<T extends { level: number }>(steps: readonly T[], syncLevel?: number): T | undefined {
+  let best: T | undefined
+  for (const step of steps) {
+    if (syncLevel !== undefined && step.level > syncLevel) continue
+    if (!best || step.level >= best.level) best = step
+  }
+  return best
+}
+
+/** The button a job presses for a generic slot at a synced level: the
+ *  `levels` step with the highest level it has reached. With no sync level,
+ *  or no table for the slot, the job's current (unsynced) ability stands. */
+export function abilityAtLevel(job: Job | undefined, slot: string, syncLevel?: number): string | undefined {
+  const steps = job?.levels?.[slot]
+  if (steps?.length && syncLevel !== undefined) {
+    const reached = highestAt(steps, syncLevel)
+    if (reached) return reached.name
+  }
+  return job?.abilities?.[slot]
+}
+
+/** How many seconds an effect lasts at a synced level, from its `durations`
+ *  steps. With no sync level, the highest step is the unsynced length. */
+export function durationAtLevel(
+  durations: { level: number; seconds: number }[] | undefined,
+  syncLevel?: number,
+): number | undefined {
+  if (!durations?.length) return undefined
+  return highestAt(durations, syncLevel)?.seconds
+}
+
 /**
  * Turn a sheet's action name into what this player actually presses.
  *
  * Sheets write generic names because a plan is written once for whoever stands
  * in the slot: "Party Mit" is Heart of Light for a GNB and Shake It Off for a
  * WAR. Knowing the job turns that into a real ability - and therefore an icon.
+ * A slot whose button is replaced as the job levels ("120s Mit") follows the
+ * fight's sync level, so a level 90 duty still shows Vengeance rather than
+ * Damnation.
  */
-export function resolveAction(name: string, job?: Job, icons: Icons = {}): Resolved {
+export function resolveAction(name: string, job?: Job, icons: Icons = {}, syncLevel?: number): Resolved {
   const qualifier = name.match(QUALIFIER)?.[1]
   const base = name.replace(QUALIFIER, '').trim()
 
@@ -30,7 +66,7 @@ export function resolveAction(name: string, job?: Job, icons: Icons = {}): Resol
     return { applies: false }
   }
 
-  const ability = job?.abilities?.[base]
+  const ability = abilityAtLevel(job, base, syncLevel)
   if (ability) {
     // A timing qualifier still applies to the resolved ability, so keep it.
     const label = qualifier && !JOB_LIST.test(qualifier) ? `${ability} (${qualifier})` : ability

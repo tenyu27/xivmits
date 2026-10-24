@@ -2310,7 +2310,7 @@
                     "name": "Rampart"
                   },
                   {
-                    "name": "Great Nebula"
+                    "name": "Nebula"
                   },
                   {
                     "name": "Camouflage"
@@ -2343,7 +2343,7 @@
                 "name": "Latent Defect 2",
                 "actions": [
                   {
-                    "name": "Great Nebula"
+                    "name": "Nebula"
                   }
                 ],
                 "after": "p3-latent-defect-2",
@@ -2402,7 +2402,7 @@
                     "name": "Rampart"
                   },
                   {
-                    "name": "Great Nebula"
+                    "name": "Nebula"
                   },
                   {
                     "name": "Camouflage"
@@ -2422,7 +2422,7 @@
                     "name": "Rampart"
                   },
                   {
-                    "name": "Great Nebula"
+                    "name": "Nebula"
                   },
                   {
                     "name": "Camouflage"
@@ -2477,7 +2477,7 @@
                 "name": "Wave Cannon 6 (Stack)",
                 "actions": [
                   {
-                    "name": "Great Nebula"
+                    "name": "Nebula"
                   },
                   {
                     "name": "Heart of Corundum"
@@ -3113,7 +3113,7 @@
                     "name": "Rampart"
                   },
                   {
-                    "name": "Great Nebula"
+                    "name": "Nebula"
                   },
                   {
                     "name": "Camouflage"
@@ -3175,7 +3175,7 @@
                     "name": "Rampart"
                   },
                   {
-                    "name": "Great Nebula"
+                    "name": "Nebula"
                   },
                   {
                     "name": "Camouflage"
@@ -3211,7 +3211,7 @@
                 "name": "Latent Defect 4",
                 "actions": [
                   {
-                    "name": "Great Nebula"
+                    "name": "Nebula"
                   },
                   {
                     "name": "Heart of Corundum"
@@ -3269,7 +3269,7 @@
                     "name": "Rampart"
                   },
                   {
-                    "name": "Great Nebula"
+                    "name": "Nebula"
                   },
                   {
                     "name": "Camouflage"
@@ -3309,7 +3309,7 @@
                 "name": "Wave Cannon 3 (Stack)",
                 "actions": [
                   {
-                    "name": "Great Nebula"
+                    "name": "Nebula"
                   },
                   {
                     "name": "Heart of Corundum"
@@ -3683,7 +3683,7 @@
                     "name": "Rampart"
                   },
                   {
-                    "name": "Great Nebula"
+                    "name": "Nebula"
                   },
                   {
                     "name": "Camouflage"
@@ -3751,7 +3751,7 @@
                     "name": "Rampart"
                   },
                   {
-                    "name": "Great Nebula"
+                    "name": "Nebula"
                   },
                   {
                     "name": "Camouflage"
@@ -3787,7 +3787,7 @@
                 "name": "Latent Defect 4",
                 "actions": [
                   {
-                    "name": "Great Nebula"
+                    "name": "Nebula"
                   },
                   {
                     "name": "Heart of Corundum"
@@ -3816,7 +3816,7 @@
                     "name": "Rampart"
                   },
                   {
-                    "name": "Great Nebula"
+                    "name": "Nebula"
                   },
                   {
                     "name": "Camouflage"
@@ -3868,7 +3868,7 @@
                     "name": "Camouflage"
                   },
                   {
-                    "name": "Great Nebula"
+                    "name": "Nebula"
                   },
                   {
                     "name": "Heart of Corundum"
@@ -3905,7 +3905,7 @@
                 "name": "Wave Cannon 3 (Stack)",
                 "actions": [
                   {
-                    "name": "Great Nebula"
+                    "name": "Nebula"
                   },
                   {
                     "name": "Heart of Corundum"

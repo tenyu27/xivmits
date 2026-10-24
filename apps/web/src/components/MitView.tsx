@@ -70,7 +70,7 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
   const showNotes = notes && display !== 'icon' && !grid
 
   const resolveActions = (list: readonly Action[]): ResolvedActions => list
-    .map(action => ({ action, resolved: resolveAction(action.name, job) }))
+    .map(action => ({ action, resolved: resolveAction(action.name, job, fight.syncLevel) }))
     .filter((entry): entry is ResolvedActions[number] => entry.resolved.applies)
 
   // Filter after resolving jobs and splicing personal mits. A heading and its

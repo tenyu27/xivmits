@@ -50,7 +50,7 @@ test('all TOP tank assignments, alternatives, and notes render for both seats in
             for (const row of phase.mechanics) {
               assert.ok(html.includes(escape(row.name)), `${context}: missing ${row.name}`)
               for (const action of [...row.actions, ...(row.alts ?? []).flatMap(a => a.actions)]) {
-                const resolved = resolveAction(action.name, job)
+                const resolved = resolveAction(action.name, job, {}, fight.syncLevel)
                 if (resolved.applies) assert.ok(html.includes(escape(resolved.label)), `${context}: missing ${resolved.label}`)
                 if (action.note && layout !== 'grid') assert.ok(html.includes(escape(action.note)), `${context}: missing action note`)
               }
@@ -106,7 +106,7 @@ test('every supported TOP job renders its assignments across phases, layouts and
         for (const showUnassigned of [true, false]) {
           const html = render(phase.id, undefined, { job, roleId, layout, display, showUnassigned })
           for (const row of phase.mechanics) for (const action of row.assignments[roleId] ?? []) {
-            const resolved = resolveAction(action.name, job)
+            const resolved = resolveAction(action.name, job, {}, fight.syncLevel)
             if (resolved.applies) assert.ok(html.includes(escape(resolved.label)), `${job.id}/${roleId}/${phase.id}/${layout}/${display}: ${resolved.label}`)
           }
           if (job.role !== 'tank') assert.ok(!html.includes('aria-label="personal mit"') && !html.includes('assignment personal'))

@@ -4,6 +4,7 @@
   "shortName": "DSR",
   "type": "Ultimate",
   "released": "2022-04-26",
+  "syncLevel": 90,
   "fflogs": {
     "encounterIds": [
       1065,

@@ -1,6 +1,7 @@
 {
   "id": "fru",
   "released": "2024-11-26",
+  "syncLevel": 100,
   "name": "Futures Rewritten (Ultimate)",
   "shortName": "FRU",
   "type": "Ultimate",

@@ -11,6 +11,18 @@
         "90s Mit": "Bulwark",
         "120s Mit": "Guardian",
         "Invuln": "Hallowed Ground"
+      },
+      "levels": {
+        "120s Mit": [
+          {
+            "level": 38,
+            "name": "Sentinel"
+          },
+          {
+            "level": 92,
+            "name": "Guardian"
+          }
+        ]
       }
     },
     {
@@ -24,6 +36,18 @@
         "90s Mit": "Thrill of Battle",
         "120s Mit": "Damnation",
         "Invuln": "Holmgang"
+      },
+      "levels": {
+        "120s Mit": [
+          {
+            "level": 38,
+            "name": "Vengeance"
+          },
+          {
+            "level": 92,
+            "name": "Damnation"
+          }
+        ]
       }
     },
     {
@@ -38,6 +62,18 @@
         "90s Mit": "Dark Mind",
         "120s Mit": "Shadowed Vigil",
         "Invuln": "Living Dead"
+      },
+      "levels": {
+        "120s Mit": [
+          {
+            "level": 38,
+            "name": "Shadow Wall"
+          },
+          {
+            "level": 92,
+            "name": "Shadowed Vigil"
+          }
+        ]
       }
     },
     {
@@ -51,6 +87,18 @@
         "90s Mit": "Camouflage",
         "120s Mit": "Great Nebula",
         "Invuln": "Superbolide"
+      },
+      "levels": {
+        "120s Mit": [
+          {
+            "level": 38,
+            "name": "Nebula"
+          },
+          {
+            "level": 92,
+            "name": "Great Nebula"
+          }
+        ]
       }
     },
     {

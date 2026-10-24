@@ -36,9 +36,15 @@ ALIASES = {
     'LB3': 'Last Bastion',
     'Tank LB': 'Last Bastion',
     'Healer LB': 'Last Bastion',
-    # TOP Mitty's tank-pairing tabs write pre-7.0 / shorthand names.
-    'Vengeance': 'Damnation',
 }
+
+# Effect lengths that change with level, ascending, keyed by the game's action
+# name. The tooltip states the unsynced length (15s). Enhanced Reprisal (trait
+# 640), Enhanced Feint (641) and Enhanced Addle (643) are the level 98 traits
+# that extend these from 10s to 15s, so a fight that syncs below 98 — TOP and
+# DSR at 90 — still has the 10s version. The first step is that base length.
+DURATIONS = {name: [{'level': 1, 'seconds': 10}, {'level': 98, 'seconds': 15}]
+             for name in ('Reprisal', 'Feint', 'Addle')}
 
 # Names that describe a decision, not a single ability. These intentionally get
 # no icon - the text carries the whole meaning.
@@ -60,8 +66,18 @@ STATUS_ICONS = {'The Balance', 'The Bole', 'The Arrow', 'The Spear', 'The Ewer',
 # 'Party Mit' means a different button for every job standing in that slot.
 JOB_GENERIC = {'Party Mit', 'Extra', 'Short Mit', '90s Mit', '120s Mit', 'Invuln'}
 
-# Real, castable actions the game data flags IsPlayerAction=false because they
-# are granted by a stance (SGE's Eukrasia) rather than slotted on a hotbar.
+# Real, castable actions the game data flags IsPlayerAction=false. They are not
+# slotted on a hotbar of their own: Sage's Eukrasia grants Eukrasian Diagnosis
+# (level 30, action 24291), Eukrasian Prognosis (level 30, action 24292) and
+# Eukrasian Prognosis II (level 96, action 37034), and Seraph grants Seraphic
+# Veil (level 80, action 16548). Sheets name those presses, so they belong in
+# the registry.
+#
+# Each name also has later rows — placeholder icons 000405 / 000784, and for
+# Seraphic Veil a non-placeholder copy (row 29240) — none of which carry a
+# ClassJobLevel. Only a row that has one is the action a player learns. Require
+# that level here, then keep the lowest row id: a later re-release of the same
+# name must not replace the original. Dropping either rule records a copy.
 NONPLAYER_OK = {'Eukrasian Prognosis', 'Eukrasian Prognosis II', 'Eukrasian Diagnosis',
                 'Seraphic Veil'}  # TOP also names Seraph's automatic shield.
 
@@ -91,10 +107,10 @@ def candidate(name):
 
 
 def resolve_status(name):
-    """Return (action_id, icon_id, icon_path, status_name) for a Status-sheet icon.
+    """Return (action_id, icon_id, icon_path, status_name, level) for a Status icon.
 
-    Status rows are not castable actions, so there is no action id; the card
-    icons this covers are cosmetic anyway.
+    Status rows are not castable actions, so there is no action id and no job
+    level; the card icons this covers are cosmetic anyway.
     """
     payload = json.loads(get(SEARCH, {
         'sheets': 'Status', 'query': f'Name="{name}"', 'fields': 'Name,Icon.path,Icon.id', 'limit': 5,
@@ -102,16 +118,17 @@ def resolve_status(name):
     for row in payload.get('results', []):
         icon = row['fields'].get('Icon') or {}
         if icon.get('path') and PLACEHOLDER not in icon['path']:
-            return None, icon['id'], icon['path'], row['fields']['Name']
+            return None, icon['id'], icon['path'], row['fields']['Name'], None
     return None
 
 
 def resolve(name):
-    """Return (action_id, icon_id, icon_path, action_name) for a player action.
+    """Return (action_id, icon_id, icon_path, action_name, level) for a player action.
 
     `action_id` is the Action sheet row id, which is the same number FFLogs
     reports as `abilityGameID` for a player cast - the anchor a future parse
-    needs to match a logged press back to the mit a sheet recorded.
+    needs to match a logged press back to the mit a sheet recorded. `level` is
+    ClassJobLevel, when the job learns it.
     """
     if name in STATUS_ICONS:
         return resolve_status(name)
@@ -127,19 +144,22 @@ def resolve(name):
         icon = fields.get('Icon') or {}
         path = icon.get('path', '')
         category = ((fields.get('ActionCategory') or {}).get('fields') or {}).get('Name')
+        level = fields.get('ClassJobLevel') or None
         # Limit breaks are not player actions and carry no job level, but they
         # are real, castable, and named per job - they just share one icon.
-        player = fields.get('IsPlayerAction') and fields.get('ClassJobLevel')
-        if not player and category != 'Limit Break' and fields['Name'] not in NONPLAYER_OK:
+        # NONPLAYER_OK rows are real too, but only the copy that has a level:
+        # the others are placeholders or duplicates. See NONPLAYER_OK.
+        player = fields.get('IsPlayerAction') and level
+        named = fields['Name'] in NONPLAYER_OK and level
+        if not player and category != 'Limit Break' and not named:
             continue
         if PLACEHOLDER in path:
             continue
-        usable.append((row['row_id'], icon['id'], path, fields['Name']))
+        usable.append((row['row_id'], icon['id'], path, fields['Name'], level))
     if not usable:
         return None
     # Lowest row id is the original action; later rows are re-releases.
-    action_id, icon_id, path, action = min(usable)
-    return action_id, icon_id, path, action
+    return min(usable)
 
 
 def main(force=False):
@@ -165,6 +185,10 @@ def main(force=False):
     jobs = json.loads((ROOT / 'packages/encounter-data/jobs.json').read_text())['jobs']
     for job in jobs:
         names.update(job.get('abilities', {}).values())
+        # Lower-level forms of a slot ("120s Mit" is Vengeance before Damnation)
+        # have to be in the registry even when no current sheet writes them.
+        for steps in job.get('levels', {}).values():
+            names.update(step['name'] for step in steps)
 
     # Two maps: the ability registry, keyed by an id derived from the real game
     # name so every way a sheet writes an ability collapses onto one entry, and
@@ -201,7 +225,7 @@ def main(force=False):
             by_name[name] = slug(name)
             print(f'  no match: {name!r} (searched {query!r})')
             continue
-        action_id, icon_id, icon_path, action = found
+        action_id, icon_id, icon_path, action, level = found
         filename = f'{icon_id:06d}.png'
         target = ICON_DIR / filename
         if force or not target.exists():
@@ -209,15 +233,20 @@ def main(force=False):
             time.sleep(0.15)
         mapping[name] = filename
         # Keyed by the real game name, so 'Feint' and 'Feint (Chaos)' - and
-        # 'Zoe Shields', 'Spreadlo', 'Vengeance' - land on one ability.
+        # 'Zoe Shields', 'Spreadlo', 'Seraph Veil' - land on one ability.
+        # Vengeance does not: it is action 44, and Damnation replaces it at 92.
         ability_id = slug(action)
         entry = {'name': action, 'kind': 'action' if action_id else 'status', 'icon': filename}
         if action_id is not None:
             # Same number FFLogs reports as abilityGameID for this cast.
             entry['action'] = action_id
+        if level:
+            entry['level'] = level  # ClassJobLevel: when the job learns it
+        if action in DURATIONS:
+            entry['durations'] = DURATIONS[action]
         abilities.setdefault(ability_id, entry)
         by_name[name] = ability_id
-        print(f'  {name:32} -> {action:24} {filename}  action={action_id}')
+        print(f'  {name:32} -> {action:24} {filename}  action={action_id} level={level}')
 
     if failed:
         raise SystemExit('Icon refresh failed; existing map and icons were left unchanged: ' + ', '.join(sorted(failed)))
