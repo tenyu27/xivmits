@@ -154,3 +154,54 @@ test('non-hotbar rows the sheets name stay anchored to their real game rows', ()
     assert.ok(entry.icon && entry.icon !== '000405.png' && entry.icon !== '000784.png', `${name} fell back to a placeholder icon`)
   }
 })
+
+// Trait levels from v2.xivapi.com. The level-96 set is every "Upgrades X to Y"
+// trait from 96 through 100; the tanks are the level-92 masteries the sheets use.
+const replacements: [string, string, number][] = [
+  ['Succor', 'Concitation', 96],
+  ['Eukrasian Prognosis', 'Eukrasian Prognosis II', 96],
+  ['Aspected Helios', 'Helios Conjunction', 96],
+  ['Medica II', 'Medica III', 96],
+  ['Requiescat', 'Imperator', 96],
+  ['Sentinel', 'Guardian', 92],
+  ['Vengeance', 'Damnation', 92],
+  ['Shadow Wall', 'Shadowed Vigil', 92],
+  ['Nebula', 'Great Nebula', 92],
+]
+
+test('retired actions record the trait that replaces them', () => {
+  for (const [name, replacement, level] of replacements) {
+    assert.deepEqual(entryFor(name)?.replacedBy, { name: replacement, level }, name)
+    assert.equal(entryFor(replacement)?.name, replacement)
+  }
+})
+
+test('no sheet assigns an action that the fight sync level has already replaced', () => {
+  const retired: string[] = []
+  for (const sheet of catalog.sheets) {
+    const sync = catalog.fights.find(fight => fight.id === sheet.fightId)!.syncLevel!
+    const names = new Set<string>()
+    for (const phase of sheet.phases) {
+      for (const mechanic of phase.mechanics) {
+        for (const actions of Object.values(mechanic.assignments)) {
+          for (const action of actions) names.add(action.name)
+        }
+      }
+    }
+    for (const plan of sheet.tankMits?.plans ?? []) {
+      for (const phase of plan.phases) {
+        for (const mechanic of phase.mechanics) {
+          for (const action of mechanic.actions) names.add(action.name)
+          for (const alt of mechanic.alts ?? []) {
+            for (const action of alt.actions) names.add(action.name)
+          }
+        }
+      }
+    }
+    for (const name of names) {
+      const replacedBy = entryFor(name)?.replacedBy
+      if (replacedBy && replacedBy.level <= sync) retired.push(`${sheet.fightId}/${sheet.id} ${name} → ${replacedBy.name} at ${replacedBy.level} (sync ${sync})`)
+    }
+  }
+  assert.deepEqual(retired, [])
+})

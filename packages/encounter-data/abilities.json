@@ -42,6 +42,15 @@
       "action": 25861,
       "level": 86
     },
+    "aspected-helios": {
+      "name": "Aspected Helios",
+      "kind": "action",
+      "action": 3601,
+      "replacedBy": {
+        "name": "Helios Conjunction",
+        "level": 96
+      }
+    },
     "assist-tanks": {
       "name": "Assist Tanks",
       "kind": "note"
@@ -210,7 +219,11 @@
       "kind": "action",
       "icon": "003660.png",
       "action": 24292,
-      "level": 30
+      "level": 30,
+      "replacedBy": {
+        "name": "Eukrasian Prognosis II",
+        "level": 96
+      }
     },
     "eukrasian-prognosis-ii": {
       "name": "Eukrasian Prognosis II",
@@ -310,6 +323,11 @@
       "action": 16160,
       "level": 64
     },
+    "helios-conjunction": {
+      "name": "Helios Conjunction",
+      "kind": "action",
+      "action": 37030
+    },
     "holmgang": {
       "name": "Holmgang",
       "kind": "action",
@@ -337,6 +355,11 @@
       "icon": "003550.png",
       "action": 16557,
       "level": 76
+    },
+    "imperator": {
+      "name": "Imperator",
+      "kind": "action",
+      "action": 36921
     },
     "intervention": {
       "name": "Intervention",
@@ -408,6 +431,20 @@
       "name": "Manage Accretion healing",
       "kind": "note"
     },
+    "medica-ii": {
+      "name": "Medica II",
+      "kind": "action",
+      "action": 133,
+      "replacedBy": {
+        "name": "Medica III",
+        "level": 96
+      }
+    },
+    "medica-iii": {
+      "name": "Medica III",
+      "kind": "action",
+      "action": 37010
+    },
     "nascent-flash": {
       "name": "Nascent Flash",
       "kind": "action",
@@ -420,7 +457,11 @@
       "kind": "action",
       "icon": "003412.png",
       "action": 16148,
-      "level": 38
+      "level": 38,
+      "replacedBy": {
+        "name": "Great Nebula",
+        "level": 92
+      }
     },
     "neutral-sect": {
       "name": "Neutral Sect",
@@ -548,6 +589,15 @@
         }
       ]
     },
+    "requiescat": {
+      "name": "Requiescat",
+      "kind": "action",
+      "action": 7383,
+      "replacedBy": {
+        "name": "Imperator",
+        "level": 96
+      }
+    },
     "sacred-soil": {
       "name": "Sacred Soil",
       "kind": "action",
@@ -560,7 +610,11 @@
       "kind": "action",
       "icon": "000151.png",
       "action": 17,
-      "level": 38
+      "level": 38,
+      "replacedBy": {
+        "name": "Guardian",
+        "level": 92
+      }
     },
     "seraphic-veil": {
       "name": "Seraphic Veil",
@@ -581,7 +635,11 @@
       "kind": "action",
       "icon": "003075.png",
       "action": 3636,
-      "level": 38
+      "level": 38,
+      "replacedBy": {
+        "name": "Shadowed Vigil",
+        "level": 92
+      }
     },
     "shadowed-vigil": {
       "name": "Shadowed Vigil",
@@ -609,7 +667,11 @@
       "kind": "action",
       "icon": "002802.png",
       "action": 186,
-      "level": 35
+      "level": 35,
+      "replacedBy": {
+        "name": "Concitation",
+        "level": 96
+      }
     },
     "summon-seraph": {
       "name": "Summon Seraph",
@@ -696,7 +758,11 @@
       "kind": "action",
       "icon": "000267.png",
       "action": 44,
-      "level": 38
+      "level": 38,
+      "replacedBy": {
+        "name": "Damnation",
+        "level": 92
+      }
     },
     "voke-after-buster": {
       "name": "Voke after Buster",
@@ -724,6 +790,7 @@
     "Adloquium": "adloquium",
     "Aetherpact": "aetherpact",
     "Aquaveil": "aquaveil",
+    "Aspected Helios": "aspected-helios",
     "Assist Tanks": "assist-tanks",
     "Asylum": "asylum",
     "Avoid HP-restoring abilities": "avoid-hp-restoring-abilities",
@@ -768,12 +835,14 @@
     "Healer LB": "last-bastion",
     "Heart of Corundum": "heart-of-corundum",
     "Heart of Light": "heart-of-light",
+    "Helios Conjunction": "helios-conjunction",
     "Holmgang": "holmgang",
     "Holos": "holos",
     "Holy Sheltron": "holy-sheltron",
     "Holy Sheltron (hold Passage for Block)": "holy-sheltron",
     "Holy Sheltron (hold Passage for block)": "holy-sheltron",
     "Horoscope": "horoscope",
+    "Imperator": "imperator",
     "Intervention": "intervention",
     "Ixochole": "ixochole",
     "Kerachole": "kerachole",
@@ -785,6 +854,8 @@
     "Macrocosmos": "macrocosmos",
     "Magick Barrier": "magick-barrier",
     "Manage Accretion healing": "manage-accretion-healing",
+    "Medica II": "medica-ii",
+    "Medica III": "medica-iii",
     "Nascent Flash": "nascent-flash",
     "Nebula": "nebula",
     "Neutral Sect": "neutral-sect",
@@ -809,6 +880,7 @@
     "Regen": "regen",
     "Reprisal": "reprisal",
     "Reprisal (Exdeath)": "reprisal",
+    "Requiescat": "requiescat",
     "Sacred Soil": "sacred-soil",
     "Sentinel": "sentinel",
     "Seraph": "summon-seraph",

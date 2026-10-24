@@ -38,6 +38,23 @@ ALIASES = {
     'Healer LB': 'Last Bastion',
 }
 
+# A trait replaces the action at `level`. The old button stays its own registry
+# entry so a sheet can still name it for a fight synced below that level, and
+# sync.test.ts rejects it once the duty's sync level has caught up. Levels are
+# the Trait sheet's Level on v2.xivapi.com. The extra level-96 upgrade found
+# beside the healer shields is Requiescat Mastery (trait 565) → Imperator.
+REPLACED_BY = {
+    'Succor': ('Concitation', 96),                 # trait 628 Succor Mastery
+    'Eukrasian Prognosis': ('Eukrasian Prognosis II', 96),  # trait 637
+    'Aspected Helios': ('Helios Conjunction', 96),  # trait 633
+    'Medica II': ('Medica III', 96),               # trait 624 Medica Mastery
+    'Requiescat': ('Imperator', 96),               # trait 565 Requiescat Mastery
+    'Sentinel': ('Guardian', 92),                  # trait 564 Sentinel Mastery
+    'Vengeance': ('Damnation', 92),                # trait 567 Vengeance Mastery
+    'Shadow Wall': ('Shadowed Vigil', 92),         # trait 571 Shadow Wall Mastery
+    'Nebula': ('Great Nebula', 92),                # trait 574 Nebula Mastery
+}
+
 # Effect lengths that change with level, ascending, keyed by the game's action
 # name. The tooltip states the unsynced length (15s). Enhanced Reprisal (trait
 # 640), Enhanced Feint (641) and Enhanced Addle (643) are the level 98 traits
@@ -190,6 +207,11 @@ def main(force=False):
         for steps in job.get('levels', {}).values():
             names.update(step['name'] for step in steps)
 
+    # Keep retired actions and their replacements in the registry even when no
+    # current sheet names them, so the next regeneration does not drop replacedBy.
+    names.update(REPLACED_BY)
+    names.update(replacement for replacement, _level in REPLACED_BY.values())
+
     # Two maps: the ability registry, keyed by an id derived from the real game
     # name so every way a sheet writes an ability collapses onto one entry, and
     # `names`, which records what each sheet wrote so an importer can resolve it.
@@ -244,6 +266,9 @@ def main(force=False):
             entry['level'] = level  # ClassJobLevel: when the job learns it
         if action in DURATIONS:
             entry['durations'] = DURATIONS[action]
+        replacement = REPLACED_BY.get(action)
+        if replacement:
+            entry['replacedBy'] = {'name': replacement[0], 'level': replacement[1]}
         abilities.setdefault(ability_id, entry)
         by_name[name] = ability_id
         print(f'  {name:32} -> {action:24} {filename}  action={action_id} level={level}')
