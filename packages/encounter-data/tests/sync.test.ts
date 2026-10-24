@@ -176,31 +176,52 @@ test('retired actions record the trait that replaces them', () => {
   }
 })
 
+function jobsForSlot(slots: { id: string; job?: string; role?: string; jobs?: string[] }[], slotId: string): Job[] {
+  const slot = slots.find(candidate => candidate.id === slotId)
+  if (!slot) return []
+  if (slot.job) {
+    const job = catalog.jobs.find(candidate => candidate.id === slot.job)
+    return job ? [job] : []
+  }
+  return catalog.jobs.filter(job => job.role === slot.role && (!slot.jobs || slot.jobs.includes(job.id)))
+}
+
+/** A written name, and whatever a generic slot resolves to at this sync. */
+function retiredAt(name: string, sync: number, where: string, jobs: Job[]): string[] {
+  const found: string[] = []
+  const written = entryFor(name)?.replacedBy
+  if (written && written.level <= sync) found.push(`${where}: ${name} → ${written.name} at ${written.level} (sync ${sync})`)
+  for (const job of jobs) {
+    const resolved = abilityAtLevel(job, baseName(name), sync)
+    if (!resolved) continue
+    const replacedBy = entryFor(resolved)?.replacedBy
+    if (replacedBy && replacedBy.level <= sync) {
+      found.push(`${where}: ${job.id} ${name} resolves to ${resolved}, replaced by ${replacedBy.name} at ${replacedBy.level} (sync ${sync})`)
+    }
+  }
+  return found
+}
+
 test('no sheet assigns an action that the fight sync level has already replaced', () => {
   const retired: string[] = []
   for (const sheet of catalog.sheets) {
     const sync = catalog.fights.find(fight => fight.id === sheet.fightId)!.syncLevel!
-    const names = new Set<string>()
-    for (const phase of sheet.phases) {
-      for (const mechanic of phase.mechanics) {
-        for (const actions of Object.values(mechanic.assignments)) {
-          for (const action of actions) names.add(action.name)
+    for (const phase of sheet.phases) for (const mechanic of phase.mechanics) {
+      for (const [slotId, actions] of Object.entries(mechanic.assignments)) {
+        for (const action of actions) {
+          retired.push(...retiredAt(action.name, sync, `${sheet.fightId}/${sheet.id} ${mechanic.id} ${slotId}`, jobsForSlot(sheet.slots, slotId)))
         }
       }
     }
     for (const plan of sheet.tankMits?.plans ?? []) {
-      for (const phase of plan.phases) {
-        for (const mechanic of phase.mechanics) {
-          for (const action of mechanic.actions) names.add(action.name)
-          for (const alt of mechanic.alts ?? []) {
-            for (const action of alt.actions) names.add(action.name)
-          }
+      const job = catalog.jobs.find(candidate => candidate.id === plan.job)
+      assert.ok(job, plan.job)
+      for (const phase of plan.phases) for (const mechanic of phase.mechanics) {
+        for (const action of mechanic.actions) retired.push(...retiredAt(action.name, sync, `${sheet.fightId}/${sheet.id} ${plan.job} ${mechanic.id}`, [job]))
+        for (const alt of mechanic.alts ?? []) {
+          for (const action of alt.actions) retired.push(...retiredAt(action.name, sync, `${sheet.fightId}/${sheet.id} ${plan.job} ${mechanic.id} alt`, [job]))
         }
       }
-    }
-    for (const name of names) {
-      const replacedBy = entryFor(name)?.replacedBy
-      if (replacedBy && replacedBy.level <= sync) retired.push(`${sheet.fightId}/${sheet.id} ${name} → ${replacedBy.name} at ${replacedBy.level} (sync ${sync})`)
     }
   }
   assert.deepEqual(retired, [])
