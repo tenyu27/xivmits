@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import type { ReactNode } from 'react'
 import { createPortal } from 'react-dom'
 import {
   Alert, Anchor, Badge, Box, Button, Container, Divider, Group, MantineProvider, NativeSelect,
@@ -9,7 +10,8 @@ import {
   IconAlertCircle, IconArrowRight, IconBrandX, IconCoffee, IconDeviceDesktop, IconExternalLink,
   IconInfoCircle, IconLayoutGrid, IconMoon, IconPictureInPicture, IconSun,
 } from '@tabler/icons-react'
-import index, { loadFight, type FightBundle } from './data/catalog'
+import index, { readFight, type FightBundle } from './data/catalog'
+import FightLoadNotice from './components/FightLoadNotice'
 import { availableTankChoices, selectTankRoute, tankChoices } from '@xivmits/core'
 import { jobsForRole, jobsForSeat, positionsForSheet, slotIdFor } from './data/resolve'
 import MitView, { type Display, type Layout } from './components/MitView'
@@ -99,18 +101,30 @@ function Shell({ initialPath }: { initialPath: string }) {
   const pip = usePip(resolvedScheme)
   // The index is enough to pick a fight and a seat. Assignments arrive with the
   // fight chunk, which starts loading as soon as a fight is chosen.
-  const [bundle, setBundle] = useState<FightBundle | null>(null)
+  const [loadAttempt, setLoadAttempt] = useState(0)
+  // `settled` is the last chunk that finished. Until its key matches the fight
+  // and attempt on screen, the view is still loading — derived, so a fight
+  // change does not need a synchronous setState to clear the previous result.
+  const [settled, setSettled] = useState<{ key: string; bundle: FightBundle | null } | null>(null)
+  const loadKey = `${selection.fightId}:${loadAttempt}`
   useEffect(() => {
     if (!selection.fightId) return
     let current = true
-    loadFight(selection.fightId).then(next => { if (current) setBundle(next) })
+    const key = loadKey
+    readFight(selection.fightId).then(next => {
+      if (current) setSettled({ key, bundle: next })
+    })
     return () => { current = false }
-  }, [selection.fightId])
+  }, [selection.fightId, loadKey])
+  const retryFight = () => setLoadAttempt(attempt => attempt + 1)
+  const bundle = settled?.key === loadKey ? settled.bundle : null
+  const loadFailed = Boolean(selection.fightId) && settled?.key === loadKey && !bundle
   const summaryFight = index.fights.find(f => f.id === selection.fightId)
   const summarySheets = index.sheets.filter(s => s.fightId === summaryFight?.id)
   const summarySheet = summarySheets.find(s => s.id === selection.sheetId)
   const detail = bundle?.fight.id === selection.fightId ? bundle : undefined
   const assignments = detail?.sheets.find(s => s.id === selection.sheetId)
+  const fightReady = Boolean(detail && assignments)
   const fight = detail?.fight ?? summaryFight
   const sheets = detail?.sheets ?? summarySheets
   const sheet = assignments ?? summarySheet
@@ -131,6 +145,12 @@ function Shell({ initialPath }: { initialPath: string }) {
   // Mit" cannot become a real ability, and job-qualified lines cannot be
   // filtered at all.
   const needsJob = Boolean(position && !jobFree && (!job || !slotId))
+  // The MitView element is built only once the chunk is here. Evaluating it
+  // while `detail` is still unset would read a fight that has not loaded.
+  const assignmentBody = (ready: () => ReactNode, chooseJob: ReactNode) => {
+    if (!fightReady) return <FightLoadNotice failed={loadFailed} onRetry={retryFight} />
+    return needsJob ? chooseJob : ready()
+  }
 
   // Tank personal mit: once a tank seat has a job, that job's plan splices into
   // the party timeline (MitView `personalPlan`). A sheet keys these two ways.
@@ -477,15 +497,16 @@ function Shell({ initialPath }: { initialPath: string }) {
             return `${choiceTitle(choice)}: ${choiceLabel(choice.id, option)}`
           }).join(' · ')}
         </Text>}
-        {needsJob
-          ? <Text ta="center" c="dimmed" py="xl">Choose a job to see this role's assignments.</Text>
-          : detail && assignments && <Box flex={1} mih={0} style={{ display: 'flex', flexDirection: 'column' }}>
+        {assignmentBody(
+          () => <Box flex={1} mih={0} style={{ display: 'flex', flexDirection: 'column' }}>
             <MitView
-              hideTabs fight={detail.fight} sheet={assignments} roleId={slotId} phaseId={selection.phaseId}
+              hideTabs fight={detail!.fight} sheet={assignments!} roleId={slotId} phaseId={selection.phaseId}
               onPhase={changePhase} job={jobFree ? undefined : job} personalPlan={tankPlan}
               p3Boss={p3Boss} invulnOrder={invulnOrder} display="icon" notes={false} layout="grid" showUnassigned={showUnassigned}
             />
-          </Box>}
+          </Box>,
+          <Text ta="center" c="dimmed" py="xl">Choose a job to see this role's assignments.</Text>,
+        )}
       </> : <Text ta="center" c="dimmed" py="xl">
         Mit sheet not found. <Anchor href={import.meta.env.BASE_URL}>Start over</Anchor>.
       </Text>}
@@ -627,19 +648,21 @@ function Shell({ initialPath }: { initialPath: string }) {
         </Stack>
         {pip.error && <Alert color="red" variant="light" mb="md" role="alert">{pip.error}</Alert>}
 
-        {needsJob
-          ? <Text ta="center" c="dimmed" py="xl">Choose a job to see this role's assignments.</Text>
-          : detail && assignments && <MitView
-            fight={detail.fight} sheet={assignments} roleId={slotId} phaseId={selection.phaseId}
+        {assignmentBody(
+          () => <MitView
+            fight={detail!.fight} sheet={assignments!} roleId={slotId} phaseId={selection.phaseId}
             onPhase={changePhase} job={jobFree ? undefined : job} personalPlan={tankPlan}
             p3Boss={p3Boss} invulnOrder={invulnOrder}
             display={display} notes={notes} layout={layout} showUnassigned={showUnassigned}
-          />}
+          />,
+          <Text ta="center" c="dimmed" py="xl">Choose a job to see this role's assignments.</Text>,
+        )}
 
-        {pip.pipWindow && detail && assignments && createPortal(
-          needsJob
-            ? <Text ta="center" c="dimmed" p="md">Choose a job in the main window to see this role's assignments.</Text>
-            : <MitView compact fight={detail.fight} sheet={assignments} roleId={slotId} phaseId={selection.phaseId} onPhase={changePhase} job={jobFree ? undefined : job} personalPlan={tankPlan} p3Boss={p3Boss} invulnOrder={invulnOrder} display={display} notes={notes} layout={layout} showUnassigned={showUnassigned} />,
+        {pip.pipWindow && viewing && createPortal(
+          assignmentBody(
+            () => <MitView compact fight={detail!.fight} sheet={assignments!} roleId={slotId} phaseId={selection.phaseId} onPhase={changePhase} job={jobFree ? undefined : job} personalPlan={tankPlan} p3Boss={p3Boss} invulnOrder={invulnOrder} display={display} notes={notes} layout={layout} showUnassigned={showUnassigned} />,
+            <Text ta="center" c="dimmed" p="md">Choose a job in the main window to see this role's assignments.</Text>,
+          ),
           pip.pipWindow.document.body,
         )}
       </> : <Box w="100%" maw={480} mx="auto">

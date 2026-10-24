@@ -23,7 +23,7 @@ function toIndex(catalog: Catalog) {
   return {
     fights: catalog.fights.map(fight => ({
       id: fight.id, name: fight.name, shortName: fight.shortName, released: fight.released,
-      type: fight.type, level: fight.level,
+      type: fight.type, syncLevel: fight.syncLevel,
       phases: fight.phases.map(phase => ({ id: phase.id, label: phase.label, name: phase.name, start: phase.start })),
     })),
     sheets: catalog.sheets.map(sheet => ({
