@@ -668,7 +668,17 @@
       "kind": "action",
       "icon": "003469.png",
       "action": 16012,
-      "level": 56
+      "level": 56,
+      "potencies": [
+        {
+          "level": 56,
+          "percent": 10
+        },
+        {
+          "level": 98,
+          "percent": 15
+        }
+      ]
     },
     "short-mit": {
       "name": "Short Mit",
@@ -711,7 +721,17 @@
       "kind": "action",
       "icon": "003040.png",
       "action": 16889,
-      "level": 56
+      "level": 56,
+      "potencies": [
+        {
+          "level": 56,
+          "percent": 10
+        },
+        {
+          "level": 98,
+          "percent": 15
+        }
+      ]
     },
     "taurochole": {
       "name": "Taurochole",
@@ -763,7 +783,17 @@
       "kind": "action",
       "icon": "002612.png",
       "action": 7405,
-      "level": 62
+      "level": 62,
+      "potencies": [
+        {
+          "level": 62,
+          "percent": 10
+        },
+        {
+          "level": 98,
+          "percent": 15
+        }
+      ]
     },
     "vengeance": {
       "name": "Vengeance",

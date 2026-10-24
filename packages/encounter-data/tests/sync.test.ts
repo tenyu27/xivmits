@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import { abilityAtLevel, durationAtLevel } from '@xivmits/core'
+import { abilityAtLevel, durationAtLevel, potencyAtLevel } from '@xivmits/core'
 import { loadCatalog } from '@xivmits/encounter-data'
 import type { Job } from '@xivmits/core'
 
@@ -204,4 +204,19 @@ test('no sheet assigns an action that the fight sync level has already replaced'
     }
   }
   assert.deepEqual(retired, [])
+})
+
+test('party mits record the level 98 potency step', () => {
+  const potencies: [string, number][] = [['Troubadour', 62], ['Tactician', 56], ['Shield Samba', 56]]
+  const dsr = catalog.fights.find(fight => fight.id === 'dsr')!.syncLevel
+  const dmu = catalog.fights.find(fight => fight.id === 'dmu')!.syncLevel
+  assert.equal(dsr, 90)
+  assert.equal(dmu, 100)
+  for (const [name, learned] of potencies) {
+    const steps = entryFor(name)?.potencies
+    assert.deepEqual(steps, [{ level: learned, percent: 10 }, { level: 98, percent: 15 }], name)
+    assert.equal(potencyAtLevel(steps, dsr), 10, name)
+    assert.equal(potencyAtLevel(steps, dmu), 15, name)
+    assert.equal(potencyAtLevel(steps), 15, name)
+  }
 })

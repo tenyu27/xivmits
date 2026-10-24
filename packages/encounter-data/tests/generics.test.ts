@@ -13,7 +13,7 @@ const generics = ['120s Mit', 'Short Mit', 'Invuln', '90s Mit', 'Party Mit', 'Ex
 test('tank generics are registry abilities and resolve on a real fight', () => {
   const fight = catalog.fights.find(f => f.id === 'dmu')!
   const sheet = catalog.sheets.find(s => s.fightId === fight.id && s.id === 'lpdu')!
-  assert.equal(fight.level, 100)
+  assert.equal(fight.syncLevel, 100)
   assert.ok(sheet.slots.some(slot => slot.role === 'tank'))
   const gnb = catalog.jobs.find(job => job.id === 'GNB')!
   const expected = {

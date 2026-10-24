@@ -139,3 +139,14 @@ export const jobsForSeat = (
 
 export const isKnownPosition = (sheet: { slots: { id: string; job?: string; role?: string }[] }, id: string) =>
   positionsForSheet(sheet).some(p => p.id === id)
+
+/** Damage reduction, in percent, at a synced level. Same step rule as
+ *  `durationAtLevel`: the highest step the sync has reached, or the top step
+ *  when the duty's sync level is unknown. */
+export function potencyAtLevel(
+  potencies: { level: number; percent: number }[] | undefined,
+  syncLevel?: number,
+): number | undefined {
+  if (!potencies?.length) return undefined
+  return highestAt(potencies, syncLevel)?.percent
+}

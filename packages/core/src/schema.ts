@@ -194,6 +194,13 @@ const abilitySchema = z.object({
     name: text,
     level: z.number().int().min(1).max(100),
   }).strict().optional(),
+  // Damage reduction, in percent, ascending by level. Same step rule as
+  // `durations`. Troubadour, Tactician and Shield Samba go from 10% to 15%
+  // at the level-98 traits. Recorded only; the viewer does not show it.
+  potencies: z.array(z.object({
+    level: z.number().int().min(1).max(100),
+    percent: z.number().int().positive(),
+  }).strict()).min(1).optional(),
 }).strict()
 const abilitiesSchema = z.object({
   abilities: z.record(slug, abilitySchema),
@@ -324,6 +331,13 @@ export function validateCatalog(
   for (const ability of Object.values(abilities.abilities)) {
     if (ability.replacedBy && !Object.values(abilities.abilities).some(candidate => candidate.name === ability.replacedBy!.name)) {
       throw new Error(`abilities.json: ${ability.name} replacedBy unknown ability ${ability.replacedBy.name}`)
+    }
+    for (const [field, steps] of [['durations', ability.durations], ['potencies', ability.potencies]] as const) {
+      for (let index = 1; index < (steps?.length ?? 0); index++) {
+        if (steps![index].level <= steps![index - 1].level) {
+          throw new Error(`abilities.json: ${ability.name} ${field} levels must increase`)
+        }
+      }
     }
   }
   const fights: Encounter[] = []

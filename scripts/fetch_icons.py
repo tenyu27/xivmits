@@ -83,6 +83,16 @@ STATUS_ICONS = {'The Balance', 'The Bole', 'The Arrow', 'The Spear', 'The Ewer',
 # 'Party Mit' means a different button for every job standing in that slot.
 JOB_GENERIC = {'Party Mit', 'Extra', 'Short Mit', '90s Mit', '120s Mit', 'Invuln'}
 
+# Damage reduction, in percent, ascending by the level the step starts. The
+# action text shows the post-trait 15%. The level-98 traits are the change
+# from 10% to 15%; the level-88 traits only cut the recast to 90s. Same step
+# convention as DURATIONS.
+POTENCIES = {
+    'Troubadour': [{'level': 62, 'percent': 10}, {'level': 98, 'percent': 15}],    # action 7405, trait 601
+    'Tactician': [{'level': 56, 'percent': 10}, {'level': 98, 'percent': 15}],     # action 16889, trait 607
+    'Shield Samba': [{'level': 56, 'percent': 10}, {'level': 98, 'percent': 15}],  # action 16012, trait 611
+}
+
 # Real, castable actions the game data flags IsPlayerAction=false. They are not
 # slotted on a hotbar of their own: Sage's Eukrasia grants Eukrasian Diagnosis
 # (level 30, action 24291), Eukrasian Prognosis (level 30, action 24292) and
@@ -271,6 +281,8 @@ def main(force=False):
             entry['level'] = level  # ClassJobLevel: when the job learns it
         if action in DURATIONS:
             entry['durations'] = DURATIONS[action]
+        if action in POTENCIES:
+            entry['potencies'] = POTENCIES[action]
         replacement = REPLACED_BY.get(action)
         if replacement:
             entry['replacedBy'] = {'name': replacement[0], 'level': replacement[1]}
