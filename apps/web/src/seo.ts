@@ -23,6 +23,9 @@ export function pageInfo(catalog: PageCatalog, pathname: string) {
     : home ? homeDescription : updates ? 'New fights, mitigation sheets, and changes to XIVMits, the FFXIV mitigation sheet viewer.'
       : 'This XIVMits page could not be found. Browse the available FFXIV mitigation sheets.'
   const url = `${siteUrl}${path}`
+  // Sheet pages share one image per fight. Home, updates, and unknown URLs
+  // use the site card. Both are static PNGs under public/og, text only.
+  const image = `${siteUrl}/og/${fight ? fight.id : 'site'}.png`
   const website = { '@type': 'WebSite', '@id': `${siteUrl}/#website`, name: 'XIVMits', url: `${siteUrl}/`, description: homeDescription, inLanguage: 'en' }
   const structuredData = found ? {
     '@context': 'https://schema.org',
@@ -31,7 +34,7 @@ export function pageInfo(catalog: PageCatalog, pathname: string) {
       inLanguage: 'en', isPartOf: { '@id': website['@id'] },
     }],
   } : null
-  return { title, description, url, found, sheet, fight, structuredData }
+  return { title, description, url, image, found, sheet, fight, structuredData }
 }
 
 export const escapeHtml = (value: string) => value.replaceAll('&', '&amp;').replaceAll('<', '&lt;')
@@ -47,9 +50,13 @@ export function renderMetadata(page: ReturnType<typeof pageInfo>) {
     <meta property="og:title" content="${escapeHtml(page.title)}" />
     <meta property="og:description" content="${escapeHtml(page.description)}" />
     <meta property="og:url" content="${escapeHtml(page.url)}" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content="${escapeHtml(page.image)}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${escapeHtml(page.title)}" />
     <meta name="twitter:description" content="${escapeHtml(page.description)}" />
+    <meta name="twitter:image" content="${escapeHtml(page.image)}" />
     ${page.structuredData ? `<script type="application/ld+json">${JSON.stringify(page.structuredData).replaceAll('<', '\\u003c')}</script>` : ''}`.replace(/<(title|meta|link|script)(?=[ >])/g, '<$1 data-seo')
 }
 
