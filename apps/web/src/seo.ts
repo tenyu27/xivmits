@@ -1,9 +1,14 @@
-import type { Catalog } from '@xivmits/core'
+// The home page holds summaries. Prerender and the SEO tests still pass the
+// full catalog; both have the names this metadata reads.
+type PageCatalog = {
+  fights: { id: string; name: string; shortName?: string }[]
+  sheets: { id: string; fightId: string; name: string }[]
+}
 
 export const siteUrl = 'https://xivmits.com'
 export const homeDescription = 'View community FFXIV mitigation sheets by fight, role, job, and phase. Read your raid assignments in a cheatsheet or an always-on-top window.'
 
-export function pageInfo(catalog: Catalog, pathname: string) {
+export function pageInfo(catalog: PageCatalog, pathname: string) {
   const path = pathname.replace(/\/index\.html$/, '/').replace(/\/?$/, '/')
   const sheet = catalog.sheets.find(s => path === `/${s.fightId}/${s.id}/`)
   const fight = sheet && catalog.fights.find(f => f.id === sheet.fightId)
@@ -48,7 +53,7 @@ export function renderMetadata(page: ReturnType<typeof pageInfo>) {
     ${page.structuredData ? `<script type="application/ld+json">${JSON.stringify(page.structuredData).replaceAll('<', '\\u003c')}</script>` : ''}`.replace(/<(title|meta|link|script)(?=[ >])/g, '<$1 data-seo')
 }
 
-export function sitemap(catalog: Catalog) {
+export function sitemap(catalog: PageCatalog) {
   // No synthetic lastmod dates: sheet.updated doesn't track every change to a
   // rendered page, so omit it rather than claim an inaccurate modification time.
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[
