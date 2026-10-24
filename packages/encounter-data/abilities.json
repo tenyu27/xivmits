@@ -746,13 +746,6 @@
       "action": 24303,
       "level": 62
     },
-    "tempera-grassa": {
-      "name": "Tempera Grassa",
-      "kind": "action",
-      "icon": "003836.png",
-      "action": 34686,
-      "level": 88
-    },
     "temperance": {
       "name": "Temperance",
       "kind": "action",
@@ -955,7 +948,6 @@
     "Tactician": "tactician",
     "Tank LB": "last-bastion",
     "Taurochole": "taurochole",
-    "Tempera Grassa": "tempera-grassa",
     "Temperance": "temperance",
     "The Blackest Night": "the-blackest-night",
     "The Bole": "the-bole",
