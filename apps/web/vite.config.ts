@@ -3,7 +3,7 @@ import babel from '@rolldown/plugin-babel'
 import { defineConfig } from 'vite'
 import { existsSync } from 'node:fs'
 import { resolve } from 'node:path'
-import { fightsDir, iconsFile, jobsFile, loadCatalog } from '@xivmits/encounter-data'
+import { abilitiesFile, fightsDir, iconsFile, jobsFile, loadCatalog } from '@xivmits/encounter-data'
 import { pageInfo, renderMetadata } from './src/seo.ts'
 
 function readCatalog() {
@@ -34,8 +34,9 @@ export default defineConfig({
         server.watcher.add(fightsDir)
         server.watcher.add(iconsFile)
         server.watcher.add(jobsFile)
+        server.watcher.add(abilitiesFile)
         server.watcher.on('all', (_event, path) => {
-          if (path.startsWith(fightsDir) || path === iconsFile || path === jobsFile) {
+          if (path.startsWith(fightsDir) || path === iconsFile || path === jobsFile || path === abilitiesFile) {
             const module = server.moduleGraph.getModuleById('\0mit-catalog')
             if (module) server.moduleGraph.invalidateModule(module)
             server.ws.send({ type: 'full-reload' })
