@@ -24,8 +24,14 @@ The encounter is shared with the Ikuya sheet, so rows map onto the canonical
 mechanic IDs in packages/encounter-data/fights/dmu/encounter.json by position -- MECHANICS below is
 that mapping, written out rather than inferred because two phases disagree with
 the source's own row order. LPDU's untimed "1st..4th beams" rows are the tether
-sets the encounter calls Black Holes II/III; its P3 beam rows are interleaved
-differently from the encounter's timed order, and the timed order wins.
+sets the encounter calls Black Holes II/III. P3 writes two boss tracks down the
+same grid: Exdeath's Thunder III / Stack rows and the beam sets (Black Holes).
+The compile does not sort those tracks onto the encounter clock, so a later
+row can name an earlier mechanic -- row 42 "Thunder III (5th Set)" (3:29) is
+above row 44 "3rd beams" (Black Holes 2nd Set, 3:19), and row 46
+"Stack/Roles 3" (4:09) is above row 48 "4th beams" (Black Holes 3rd Set, 3:43).
+That row order is kept in the sheet JSON. resolveSheet displays the encounter's
+timed order, so the viewer still reads the clock.
 
 Cells are shorthand ("Rep", "Soil", "EukProg/Kera"). ABILITY expands each token
 to the in-game action name so the text reads on its own and
@@ -85,6 +91,9 @@ MECHANICS = {
         (32, 'p3-shocking-impact-1'), (34, 'p3-black-hole-3'),
         (36, 'p3-thunder-iii-4'), (38, 'p3-shocking-impact-2'),
         (40, 'p3-black-hole-4'), (42, 'p3-thunder-iii-5'),
+        # Rows 44 and 48 are the beam track. Their encounter times (3:19, 3:43)
+        # fall before the thunder/stack rows above them (3:29, 4:09). Kept in
+        # spreadsheet order on purpose; see the module docstring.
         (44, 'p3-black-hole-5'), (46, 'p3-shocking-impact-3'),
         (48, 'p3-black-hole-6'), (50, 'p3-stomp-a-mole-1'),
     ],
@@ -133,6 +142,10 @@ PASSAGE_NOTE = 'Use on either of the first two Stack/Roles when it is the stack.
 # ("Party Mit", "Short Mit", "90s Mit", "120s Mit", "Invuln") is left generic on
 # purpose; everything else has to be a real in-game action name. A value may
 # name several buttons, joined by " + ".
+# The ranged column (V) writes "90s" for Troubadour / Tactician / Shield Samba.
+# That is Party Mit, not the tank 90s cooldown the same token means in E/G.
+# expand() applies that exception. Scholar's "Succor" at level 100 is
+# Concitation (Succor Mastery, trait 628, level 96).
 ABILITY = {
     # Tanks
     'Rep': 'Reprisal', 'Ramp': 'Rampart', 'Provoke': 'Provoke',
@@ -158,7 +171,7 @@ ABILITY = {
     'Soil': 'Sacred Soil', 'Exped': 'Expedient', 'Expedient': 'Expedient',
     'Expedience': 'Expedient', 'Illum': 'Fey Illumination', 'Fey Illum': 'Fey Illumination',
     'Seraph': 'Summon Seraph', 'Seraphism': 'Seraphism', 'Spreadlo': 'Spreadlo',
-    'Succor': 'Succor', 'Succor(s)': 'Succor', 'Adlo': 'Adloquium',
+    'Succor': 'Concitation', 'Succor(s)': 'Concitation', 'Adlo': 'Adloquium',
     'Excog': 'Excogitation', 'Protraction': 'Protraction', 'Tether': 'Aetherpact',
     # Sage
     'Eprog': 'Eukrasian Prognosis II', 'Eprog(s)': 'Eukrasian Prognosis II',
@@ -198,7 +211,7 @@ OVERRIDES = {
                       {'name': 'Party Mit (WAR/PLD)', 'note': 'After the knockback.'}],
     ('p1', 'G', 23): [{'name': 'Reprisal', 'note': 'On the knockback.'}],
     ('p1', 'J', 23): [{'name': 'Plenary Indulgence', 'note': 'Before the knockback.'}],
-    ('p1', 'N', 23): [{'name': 'Succor'}, {'name': 'Sacred Soil'},
+    ('p1', 'N', 23): [{'name': 'Concitation'}, {'name': 'Sacred Soil'},
                       {'name': 'Summon Seraph', 'note': 'After the knockback.'}],
     ('p1', 'E', 27): [{'name': 'Invuln', 'note': 'Kitchen sink instead if WAR.', 'noteJobs': ['WAR']}],
     ('p1', 'E', 30): [{'name': 'Reprisal', 'note': 'On the confusion.'}],
@@ -247,7 +260,7 @@ OVERRIDES = {
                       {'name': '90s Mit', 'note': 'Second hit.'}],
     ('p3', 'G', 42): [{'name': 'Short Mit'}, {'name': 'Rampart'},
                       {'name': '90s Mit', 'note': 'First hit.'}, {'name': 'Reprisal'}],
-    ('p3', 'N', 40): [{'name': 'Succor'}, {'name': 'Expedient'}],
+    ('p3', 'N', 40): [{'name': 'Concitation'}, {'name': 'Expedient'}],
     ('p3', 'P', 40): [{'name': 'Eukrasian Prognosis II', 'note': 'Each set.'},
                       {'name': 'Physis II', 'note': 'As the last beam hits.'},
                       {'name': 'Panhaima', 'note': 'As the last beam hits.'}],
@@ -291,14 +304,14 @@ OVERRIDES = {
     ('p5', 'P', 8): [{'name': 'Eukrasian Prognosis II'}, {'name': 'Kerachole'}, {'name': 'Physis II'},
                      {'name': 'Haima', 'note': 'On the MT.'}],
     ('p5', 'V', 8): [{'name': 'Party Mit', 'note': 'At the Smile quote.'}],
-    ('p5', 'N', 10): [{'name': 'Succor'}, {'name': 'Expedient', 'note': 'After the first hit.'}],
+    ('p5', 'N', 10): [{'name': 'Concitation'}, {'name': 'Expedient', 'note': 'After the first hit.'}],
     ('p5', 'P', 10): [{'name': 'Eukrasian Prognosis II'},
                       {'name': 'Holos', 'note': 'After the first hit.'}],
     ('p5', 'E', 14): [{'name': 'Rampart'}, {'name': '90s Mit'}, {'name': 'Short Mit'},
                       {'name': 'Invuln', 'note': 'On the flare.'}],
     ('p5', 'G', 14): [{'name': '120s Mit', 'note': 'First two hits.'},
                       {'name': 'Short Mit', 'note': 'On the flare.'}],
-    ('p5', 'N', 16): [{'name': 'Succor'},
+    ('p5', 'N', 16): [{'name': 'Concitation'},
                       {'name': 'Summon Seraph', 'note': 'On the second auto hit.'}],
     ('p5', 'P', 18): [{'name': 'Eukrasian Prognosis II'},
                       {'name': 'Physis II', 'note': 'On the first tower spawn.'}],
@@ -306,7 +319,7 @@ OVERRIDES = {
                       {'name': '120s Mit', 'note': 'On the flare.'}],
     ('p5', 'G', 26): [{'name': 'Rampart'}, {'name': 'Short Mit'},
                       {'name': 'Invuln', 'note': 'On the flare.'}],
-    ('p5', 'N', 26): [{'name': 'Succor'}, {'name': 'Sacred Soil', 'note': 'Use early.'}],
+    ('p5', 'N', 26): [{'name': 'Concitation'}, {'name': 'Sacred Soil', 'note': 'Use early.'}],
     ('p5', 'P', 26): [{'name': 'Eukrasian Prognosis II'},
                       {'name': 'Kerachole', 'note': 'Use early.'},
                       {'name': 'Haima', 'note': 'On the tank that is not invulning.'}],
@@ -327,7 +340,7 @@ OVERRIDES = {
                       {'name': 'Oblation (DRK)', 'note': 'On R2.', 'buddy': True}],
     # "Enrage!" is not a button, and not an MT assignment - see ROW_NOTES.
     ('p5', 'E', 48): [],
-    ('p5', 'N', 42): [{'name': 'Succor'}, {'name': 'Seraphism'},
+    ('p5', 'N', 42): [{'name': 'Concitation'}, {'name': 'Seraphism'},
                       {'name': 'Summon Seraph', 'note': 'Off cooldown.'}],
     ('p5', 'P', 44): [{'name': 'Eukrasian Prognosis II'}, {'name': 'Panhaima'},
                       {'name': 'Physis II'}, {'name': 'Pneuma', 'note': 'After.'}],
@@ -376,8 +389,11 @@ def split_top(text, seps):
     return [p.strip() for p in parts if p.strip()]
 
 
-def expand(token):
-    """One shorthand token -> action dicts."""
+def expand(token, column=None):
+    """One shorthand token -> action dicts.
+
+    `column` is the grid column. Ranged (V) uses "90s" for its party mit.
+    """
     note = None
     if token.lower().startswith('kitchen'):
         names = KITCHEN_SINK[:-1] if 'no short' in token.lower() else KITCHEN_SINK
@@ -386,7 +402,12 @@ def expand(token):
         if token.endswith(' ' + tail):
             token, note = token[: -len(tail) - 1].strip(), text
             break
-    name = ABILITY.get(token)
+    # Physical ranged have no tank 90s cooldown. Their "90s" is Troubadour,
+    # Tactician, or Shield Samba.
+    if column == 'V' and token.lower() == '90s':
+        name = 'Party Mit'
+    else:
+        name = ABILITY.get(token)
     if name is None:
         raise ValueError(f'Unknown token {token!r}')
     # One shorthand may stand for several buttons pressed together.
@@ -397,11 +418,11 @@ def expand(token):
     return actions
 
 
-def cell_actions(raw):
+def cell_actions(raw, column=None):
     """One grid cell -> list of action dicts."""
     out = []
     for token in split_top(clean(raw), SEPARATORS):
-        out.extend(expand(token))
+        out.extend(expand(token, column))
     # A duplicate name from two segments is one press, not two.
     seen, deduped = set(), []
     for action in out:
@@ -456,7 +477,7 @@ def convert(archive, moved=None):
                 if not raw:
                     continue
                 key = (phase_id, column, row)
-                actions = OVERRIDES[key] if key in OVERRIDES else cell_actions(raw)
+                actions = OVERRIDES[key] if key in OVERRIDES else cell_actions(raw, column)
                 if actions:
                     assignments.setdefault(slot, []).extend(actions)
             for slot, action in extras(cells.get(f'{EXTRAS_COLUMN}{row}', '') or ''):
