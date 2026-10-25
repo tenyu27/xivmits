@@ -13,6 +13,16 @@
         "Invuln": "Hallowed Ground"
       },
       "levels": {
+        "Short Mit": [
+          {
+            "level": 35,
+            "name": "Sheltron"
+          },
+          {
+            "level": 82,
+            "name": "Holy Sheltron"
+          }
+        ],
         "120s Mit": [
           {
             "level": 38,
@@ -38,6 +48,16 @@
         "Invuln": "Holmgang"
       },
       "levels": {
+        "Short Mit": [
+          {
+            "level": 56,
+            "name": "Raw Intuition"
+          },
+          {
+            "level": 82,
+            "name": "Bloodwhetting"
+          }
+        ],
         "120s Mit": [
           {
             "level": 38,
@@ -89,6 +109,26 @@
         "Invuln": "Superbolide"
       },
       "levels": {
+        "Buddy Mit": [
+          {
+            "level": 68,
+            "name": "Heart of Stone"
+          },
+          {
+            "level": 82,
+            "name": "Heart of Corundum"
+          }
+        ],
+        "Short Mit": [
+          {
+            "level": 68,
+            "name": "Heart of Stone"
+          },
+          {
+            "level": 82,
+            "name": "Heart of Corundum"
+          }
+        ],
         "120s Mit": [
           {
             "level": 38,

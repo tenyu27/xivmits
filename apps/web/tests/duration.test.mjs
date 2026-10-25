@@ -23,14 +23,15 @@ after(async () => {
 })
 
 function render(fightId, phaseId, roleId, options = {}) {
+  const { job: jobId, ...view } = options
   const fight = catalog.fights.find(f => f.id === fightId)
   const sheet = catalog.sheets.find(s => s.fightId === fightId)
   return renderToStaticMarkup(h(MantineProvider, {}, h(MitView, {
     fight: { ...fight, phases: fight.phases.filter(p => p.id === phaseId) },
     sheet: { ...sheet, phases: sheet.phases.filter(p => p.id === phaseId) },
     roleId, phaseId, onPhase: () => {},
-    job: catalog.jobs.find(j => j.id === (options.job ?? 'WAR')),
-    ...options,
+    job: catalog.jobs.find(j => j.id === (jobId ?? 'WAR')),
+    ...view,
   })))
 }
 
@@ -41,6 +42,12 @@ test('Reprisal, Feint, and Addle show the duration at the fight sync level', () 
   assert.ok(dsr.includes('Reprisal'))
   assert.ok(durations(dsr).length > 0)
   assert.ok(durations(dsr).every(value => value === '10s'))
+  const tea = render('tea', 'p1', 'MT', { job: 'PLD' })
+  assert.ok(tea.includes('Reprisal'))
+  assert.ok(tea.includes('Sheltron'))
+  assert.ok(!tea.includes('Holy Sheltron'))
+  assert.ok(durations(tea).length > 0)
+  assert.ok(durations(tea).every(value => value === '10s'))
   const fru = render('fru', 'p1', 'MT')
   assert.ok(fru.includes('Reprisal'))
   assert.ok(durations(fru).includes('15s'))

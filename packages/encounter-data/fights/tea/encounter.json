@@ -1,0 +1,1165 @@
+{
+  "id": "tea",
+  "name": "The Epic of Alexander (Ultimate)",
+  "shortName": "TEA",
+  "type": "Ultimate",
+  "released": "2019-11-12",
+  "syncLevel": 80,
+  "fflogs": {
+    "encounterIds": [
+      1062,
+      1075
+    ]
+  },
+  "phases": [
+    {
+      "id": "p1",
+      "label": "P1",
+      "name": "Living Liquid",
+      "start": "0:00",
+      "mechanics": [
+        {
+          "id": "p1-prepull",
+          "name": "Prepull",
+          "time": "0:00",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p1-fluid-swing-1",
+          "name": "Fluid Swing 1",
+          "time": "0:11",
+          "roles": [
+            "tank"
+          ],
+          "fflogs": {
+            "abilityIds": [
+              18864
+            ]
+          }
+        },
+        {
+          "id": "p1-cascade-1",
+          "name": "Cascade 1",
+          "time": "0:20",
+          "fflogs": {
+            "abilityIds": [
+              18470
+            ]
+          }
+        },
+        {
+          "id": "p1-hand-of-prayer-1",
+          "name": "Hand of Prayer 1",
+          "time": "0:36",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18475,
+              18476
+            ]
+          }
+        },
+        {
+          "id": "p1-fluid-swing-2",
+          "name": "Fluid Swing 2",
+          "time": "0:38",
+          "roles": [
+            "tank"
+          ],
+          "fflogs": {
+            "abilityIds": [
+              18864,
+              18871
+            ]
+          }
+        },
+        {
+          "id": "p1-jagd-dolls-1",
+          "name": "Jagd Dolls 1",
+          "time": "0:40",
+          "fflogs": {
+            "abilityIds": [
+              18462
+            ]
+          }
+        },
+        {
+          "id": "p1-embolus-1",
+          "name": "Embolus 1",
+          "time": "0:42",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18473
+            ]
+          }
+        },
+        {
+          "id": "p1-hand-of-pain-1",
+          "name": "Hand of Pain 1",
+          "time": "0:43",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18477
+            ]
+          }
+        },
+        {
+          "id": "p1-jagd-dolls-2",
+          "name": "Jagd Dolls 2",
+          "time": "0:50",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18462
+            ]
+          }
+        },
+        {
+          "id": "p1-fluid-swing-3",
+          "name": "Fluid Swing 3",
+          "time": "0:57",
+          "roles": [
+            "tank"
+          ],
+          "fflogs": {
+            "abilityIds": [
+              18864,
+              18871
+            ]
+          }
+        },
+        {
+          "id": "p1-protean-wave-1",
+          "name": "Protean Wave 1",
+          "time": "1:10",
+          "fflogs": {
+            "abilityIds": [
+              18466,
+              18467
+            ]
+          }
+        },
+        {
+          "id": "p1-hand-of-pain-2",
+          "name": "Hand of Pain 2",
+          "time": "1:10",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18477
+            ]
+          }
+        },
+        {
+          "id": "p1-sluice-1",
+          "name": "Sluice 1",
+          "time": "1:15",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18865
+            ]
+          }
+        },
+        {
+          "id": "p1-splash-1",
+          "name": "Splash 1",
+          "time": "1:21",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p1-drainage-1",
+          "name": "Drainage",
+          "time": "1:27",
+          "roles": [
+            "tank"
+          ],
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18471
+            ]
+          }
+        },
+        {
+          "id": "p1-hand-of-pain-3",
+          "name": "Hand of Pain 3",
+          "time": "1:29",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18477
+            ]
+          }
+        },
+        {
+          "id": "p1-cascade-2",
+          "name": "Cascade 2",
+          "time": "1:32",
+          "fflogs": {
+            "abilityIds": [
+              18470
+            ]
+          }
+        },
+        {
+          "id": "p1-throttle-1",
+          "name": "Throttle",
+          "time": "1:36",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18472
+            ]
+          }
+        },
+        {
+          "id": "p1-protean-wave-2",
+          "name": "Protean Wave 2",
+          "time": "1:47",
+          "fflogs": {
+            "abilityIds": [
+              18466,
+              18467
+            ]
+          }
+        },
+        {
+          "id": "p1-hand-of-pain-4",
+          "name": "Hand of Pain 4",
+          "time": "1:49",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18477
+            ]
+          }
+        },
+        {
+          "id": "p1-sluice-2",
+          "name": "Sluice 2",
+          "time": "1:52",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18865
+            ]
+          }
+        },
+        {
+          "id": "p1-embolus-2",
+          "name": "Embolus 2",
+          "time": "1:59",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18473
+            ]
+          }
+        },
+        {
+          "id": "p1-hand-of-prayer-2",
+          "name": "Hand of Prayer 2",
+          "time": "2:04",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18475,
+              18476
+            ]
+          }
+        },
+        {
+          "id": "p1-splash-2",
+          "name": "Splash 2",
+          "time": "2:07",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p1-hand-of-pain-5",
+          "name": "Hand of Pain 5",
+          "time": "2:09",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18477
+            ]
+          }
+        },
+        {
+          "id": "p1-fluid-swing-4",
+          "name": "Fluid Swing 4",
+          "time": "2:14",
+          "roles": [
+            "tank"
+          ],
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18864
+            ]
+          }
+        },
+        {
+          "id": "p1-cascade-enrage-1",
+          "name": "Cascade Enrage",
+          "time": "2:22",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18867
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "lc",
+      "label": "LC",
+      "name": "Limit Cut",
+      "mechanics": [
+        {
+          "id": "lc-hawk-blaster-1",
+          "name": "Hawk Blaster 1",
+          "time": "0:00",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18480
+            ]
+          }
+        },
+        {
+          "id": "lc-limit-cut-1",
+          "name": "Limit Cut 1",
+          "time": "0:07",
+          "fflogs": {
+            "abilityIds": [
+              18484,
+              19279
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "label": "P2",
+      "name": "Brute Justice & Cruise Chaser",
+      "mechanics": [
+        {
+          "id": "p2-j-kick-1",
+          "name": "J Kick",
+          "time": "0:00",
+          "fflogs": {
+            "abilityIds": [
+              18516
+            ]
+          }
+        },
+        {
+          "id": "p2-whirlwind-1",
+          "name": "Whirlwind 1",
+          "time": "0:12",
+          "fflogs": {
+            "abilityIds": [
+              18882
+            ]
+          }
+        },
+        {
+          "id": "p2-judgment-nisi-1",
+          "name": "Judgment Nisi",
+          "time": "0:15",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18494
+            ]
+          }
+        },
+        {
+          "id": "p2-link-up-1",
+          "name": "Link-Up",
+          "time": "0:21",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18495
+            ]
+          }
+        },
+        {
+          "id": "p2-optical-sight-1",
+          "name": "Optical Sight",
+          "time": "0:29",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18479
+            ]
+          }
+        },
+        {
+          "id": "p2-chakrams-1",
+          "name": "Chakrams",
+          "time": "0:30",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18517
+            ]
+          }
+        },
+        {
+          "id": "p2-hawk-blaster-1",
+          "name": "Hawk Blaster",
+          "time": "0:35",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18481
+            ]
+          }
+        },
+        {
+          "id": "p2-photon-1",
+          "name": "Photon 1",
+          "time": "0:36",
+          "fflogs": {
+            "abilityIds": [
+              18486
+            ]
+          }
+        },
+        {
+          "id": "p2-spin-crusher-1",
+          "name": "Spin Crusher",
+          "time": "0:47",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              19058
+            ]
+          }
+        },
+        {
+          "id": "p2-compressed-water-1",
+          "name": "Compressed Water 1",
+          "time": "0:51",
+          "fflogs": {
+            "abilityIds": [
+              18497
+            ]
+          }
+        },
+        {
+          "id": "p2-earth-missile-1",
+          "name": "Earth Missile",
+          "time": "1:03",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18510
+            ]
+          }
+        },
+        {
+          "id": "p2-hidden-minefield-1",
+          "name": "Hidden Minefield",
+          "time": "1:05",
+          "fflogs": {
+            "abilityIds": [
+              18513
+            ]
+          }
+        },
+        {
+          "id": "p2-enumeration-1",
+          "name": "Enumeration 1",
+          "time": "1:07",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18512
+            ]
+          }
+        },
+        {
+          "id": "p2-compressed-water-2",
+          "name": "Compressed Water 2",
+          "time": "1:21",
+          "fflogs": {
+            "abilityIds": [
+              18497
+            ]
+          }
+        },
+        {
+          "id": "p2-limit-cut-2",
+          "name": "Limit Cut 2",
+          "time": "1:27",
+          "fflogs": {
+            "abilityIds": [
+              18483
+            ]
+          }
+        },
+        {
+          "id": "p2-flarethrower-1",
+          "name": "Flarethrower",
+          "time": "1:29",
+          "roles": [
+            "tank"
+          ],
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18501
+            ]
+          }
+        },
+        {
+          "id": "p2-whirlwind-2",
+          "name": "Whirlwind 2",
+          "time": "1:42",
+          "fflogs": {
+            "abilityIds": [
+              18882
+            ]
+          }
+        },
+        {
+          "id": "p2-compressed-water-3",
+          "name": "Compressed Water 3",
+          "time": "1:50",
+          "fflogs": {
+            "abilityIds": [
+              18497
+            ]
+          }
+        },
+        {
+          "id": "p2-propeller-wind-1",
+          "name": "Propeller Wind",
+          "time": "2:08",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18482
+            ]
+          }
+        },
+        {
+          "id": "p2-gavel-1",
+          "name": "Gavel",
+          "time": "2:10",
+          "fflogs": {
+            "abilityIds": [
+              18492
+            ]
+          }
+        },
+        {
+          "id": "p2-photon-2",
+          "name": "Photon 2",
+          "time": "2:21",
+          "roles": [
+            "tank"
+          ],
+          "fflogs": {
+            "abilityIds": [
+              18486
+            ]
+          }
+        },
+        {
+          "id": "p2-double-rocket-punch-1",
+          "name": "Double Rocket Punch",
+          "time": "2:29",
+          "roles": [
+            "tank"
+          ],
+          "fflogs": {
+            "abilityIds": [
+              18503
+            ]
+          }
+        },
+        {
+          "id": "p2-super-jump-1",
+          "name": "Super Jump 1",
+          "time": "2:36",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18506
+            ]
+          }
+        },
+        {
+          "id": "p2-apocalyptic-ray-1",
+          "name": "Apocalyptic Ray",
+          "time": "2:38",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p2-whirlwind-3",
+          "name": "Whirlwind 3",
+          "time": "2:49",
+          "fflogs": {
+            "abilityIds": [
+              18882
+            ]
+          }
+        },
+        {
+          "id": "p2-whirlwind-4",
+          "name": "Whirlwind 4",
+          "time": "2:57",
+          "fflogs": {
+            "abilityIds": [
+              18882
+            ]
+          }
+        },
+        {
+          "id": "p2-final-sentence-1",
+          "name": "Final Sentence",
+          "time": "3:08",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18518
+            ]
+          }
+        },
+        {
+          "id": "p2-eternal-darkness-1",
+          "name": "Eternal Darkness 1",
+          "time": "3:18",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18490
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "label": "P3",
+      "name": "Alexander Prime",
+      "mechanics": [
+        {
+          "id": "p3-temporal-stasis-1",
+          "name": "Temporal Stasis",
+          "time": "0:00",
+          "fflogs": {
+            "abilityIds": [
+              18522
+            ]
+          }
+        },
+        {
+          "id": "p3-surety-1",
+          "name": "Surety and Severity",
+          "time": "0:03",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18529
+            ]
+          }
+        },
+        {
+          "id": "p3-chastening-heat-1",
+          "name": "Chastening Heat 1",
+          "time": "0:22",
+          "roles": [
+            "tank"
+          ],
+          "fflogs": {
+            "abilityIds": [
+              19072
+            ]
+          }
+        },
+        {
+          "id": "p3-divine-spear-1",
+          "name": "Divine Spear 1",
+          "time": "0:25",
+          "roles": [
+            "tank"
+          ],
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              19074
+            ]
+          }
+        },
+        {
+          "id": "p3-inception-formation-1",
+          "name": "Inception Formation",
+          "time": "0:38",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18543
+            ]
+          }
+        },
+        {
+          "id": "p3-judgment-crystal-1",
+          "name": "Judgment Crystal 1",
+          "time": "0:52",
+          "fflogs": {
+            "abilityIds": [
+              18523
+            ]
+          }
+        },
+        {
+          "id": "p3-judgment-crystal-2",
+          "name": "Judgment Crystal 2",
+          "time": "0:58",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18524
+            ]
+          }
+        },
+        {
+          "id": "p3-inception-1",
+          "name": "Inception",
+          "time": "1:21",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18526
+            ]
+          }
+        },
+        {
+          "id": "p3-sacrament-1",
+          "name": "Sacrament",
+          "time": "1:29",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18527
+            ]
+          }
+        },
+        {
+          "id": "p3-super-jump-2",
+          "name": "Super Jump 2",
+          "time": "1:38",
+          "roles": [
+            "tank"
+          ],
+          "fflogs": {
+            "abilityIds": [
+              18506
+            ]
+          }
+        },
+        {
+          "id": "p3-chastening-heat-2",
+          "name": "Chastening Heat 2",
+          "time": "1:51",
+          "roles": [
+            "tank"
+          ],
+          "fflogs": {
+            "abilityIds": [
+              19072
+            ]
+          }
+        },
+        {
+          "id": "p3-divine-spear-2",
+          "name": "Divine Spear 2",
+          "time": "1:56",
+          "roles": [
+            "tank"
+          ],
+          "fflogs": {
+            "abilityIds": [
+              19074
+            ]
+          }
+        },
+        {
+          "id": "p3-wormhole-formation-1",
+          "name": "Wormhole Formation",
+          "time": "2:09",
+          "fflogs": {
+            "abilityIds": [
+              18542
+            ]
+          }
+        },
+        {
+          "id": "p3-incinerating-heat-1",
+          "name": "Incinerating Heat",
+          "time": "2:50",
+          "fflogs": {
+            "abilityIds": [
+              19025
+            ]
+          }
+        },
+        {
+          "id": "p3-enumeration-2",
+          "name": "Enumeration 2",
+          "time": "2:55",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18512
+            ]
+          }
+        },
+        {
+          "id": "p3-mega-holy-1",
+          "name": "Mega Holy 1",
+          "time": "3:03",
+          "fflogs": {
+            "abilityIds": [
+              19075
+            ]
+          }
+        },
+        {
+          "id": "p3-mega-holy-2",
+          "name": "Mega Holy 2",
+          "time": "3:10",
+          "fflogs": {
+            "abilityIds": [
+              19075
+            ]
+          }
+        },
+        {
+          "id": "p3-j-storm-1",
+          "name": "J Storm",
+          "time": "3:26",
+          "fflogs": {
+            "abilityIds": [
+              18550
+            ]
+          }
+        },
+        {
+          "id": "p3-j-wave-0",
+          "name": "J Wave 0",
+          "time": "3:29",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-j-wave-4",
+          "name": "J Wave 4",
+          "time": "3:41",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-j-wave-6",
+          "name": "J Wave 6",
+          "time": "3:48",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-eternal-darkness-2",
+          "name": "Eternal Darkness 2",
+          "time": "3:52",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18549
+            ]
+          }
+        },
+        {
+          "id": "p3-j-wave-8",
+          "name": "J Wave 8",
+          "time": "3:54",
+          "fflogs": {
+            "abilityIds": []
+          }
+        },
+        {
+          "id": "p3-divine-judgment-enrage-1",
+          "name": "Divine Judgment Enrage",
+          "time": "4:32",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18553
+            ]
+          }
+        },
+        {
+          "id": "p3-divine-judgment-1",
+          "name": "Divine Judgment",
+          "time": "4:47",
+          "fflogs": {
+            "abilityIds": [
+              18554
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "label": "P4",
+      "name": "Perfect Alexander",
+      "mechanics": [
+        {
+          "id": "p4-final-word-1",
+          "name": "The Final Word",
+          "time": "0:00",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18557
+            ]
+          }
+        },
+        {
+          "id": "p4-ordained-motion-1",
+          "name": "Ordained Motion 1",
+          "time": "0:07",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18558,
+              18559
+            ]
+          }
+        },
+        {
+          "id": "p4-ordained-motion-2",
+          "name": "Ordained Motion 2",
+          "time": "0:17",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18558,
+              18559
+            ]
+          }
+        },
+        {
+          "id": "p4-optical-sight-1",
+          "name": "Optical Sight 1",
+          "time": "0:27",
+          "fflogs": {
+            "abilityIds": [
+              18570,
+              18571
+            ]
+          }
+        },
+        {
+          "id": "p4-optical-sight-2",
+          "name": "Optical Sight 2",
+          "time": "0:34",
+          "fflogs": {
+            "abilityIds": [
+              18570,
+              18571
+            ]
+          }
+        },
+        {
+          "id": "p4-fate-projection-alpha-1",
+          "name": "Fate Projection α",
+          "time": "0:49",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18555
+            ]
+          }
+        },
+        {
+          "id": "p4-fate-calibration-alpha-1",
+          "name": "Fate Calibration α",
+          "time": "1:14",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18556
+            ]
+          }
+        },
+        {
+          "id": "p4-ordained-capital-punishment-1",
+          "name": "Ordained Capital Punishment 1",
+          "time": "1:39",
+          "fflogs": {
+            "abilityIds": [
+              18578
+            ]
+          }
+        },
+        {
+          "id": "p4-ordained-punishment-1",
+          "name": "Ordained Punishment 1",
+          "time": "1:48",
+          "roles": [
+            "tank"
+          ],
+          "fflogs": {
+            "abilityIds": [
+              18577
+            ]
+          }
+        },
+        {
+          "id": "p4-fate-projection-beta-1",
+          "name": "Fate Projection β",
+          "time": "2:03",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              19219
+            ]
+          }
+        },
+        {
+          "id": "p4-fate-calibration-beta-1",
+          "name": "Fate Calibration β",
+          "time": "2:41",
+          "fflogs": {
+            "abilityIds": [
+              19220
+            ]
+          }
+        },
+        {
+          "id": "p4-ordained-capital-punishment-2",
+          "name": "Ordained Capital Punishment 2",
+          "time": "3:18",
+          "fflogs": {
+            "abilityIds": [
+              18578
+            ]
+          }
+        },
+        {
+          "id": "p4-ordained-punishment-2",
+          "name": "Ordained Punishment 2",
+          "time": "3:27",
+          "roles": [
+            "tank"
+          ],
+          "fflogs": {
+            "abilityIds": [
+              18577
+            ]
+          }
+        },
+        {
+          "id": "p4-almighty-judgment-1",
+          "name": "Almighty Judgment 1",
+          "time": "3:37",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18574
+            ]
+          }
+        },
+        {
+          "id": "p4-irresistible-grace-1",
+          "name": "Irresistible Grace 1",
+          "time": "3:53",
+          "fflogs": {
+            "abilityIds": [
+              18580
+            ]
+          }
+        },
+        {
+          "id": "p4-ordained-capital-punishment-3",
+          "name": "Ordained Capital Punishment 3",
+          "time": "4:04",
+          "fflogs": {
+            "abilityIds": [
+              18578
+            ]
+          }
+        },
+        {
+          "id": "p4-ordained-punishment-3",
+          "name": "Ordained Punishment 3",
+          "time": "4:13",
+          "roles": [
+            "tank"
+          ],
+          "fflogs": {
+            "abilityIds": [
+              18577
+            ]
+          }
+        },
+        {
+          "id": "p4-almighty-judgment-2",
+          "name": "Almighty Judgment 2",
+          "time": "4:23",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18574
+            ]
+          }
+        },
+        {
+          "id": "p4-irresistible-grace-2",
+          "name": "Irresistible Grace 2",
+          "time": "4:39",
+          "fflogs": {
+            "abilityIds": [
+              18580
+            ]
+          }
+        },
+        {
+          "id": "p4-temporal-prison-1",
+          "name": "Temporal Prison",
+          "time": "5:39",
+          "minor": true,
+          "fflogs": {
+            "abilityIds": [
+              18583
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
