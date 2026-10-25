@@ -13,7 +13,7 @@ import {
 import index, { readFight, type FightBundle } from './data/catalog'
 import FightLoadNotice from './components/FightLoadNotice'
 import { availableTankChoices, selectTankRoute, tankChoices } from '@xivmits/core'
-import { jobsForRole, jobsForSeat, positionsForSheet, slotIdFor } from './data/resolve'
+import { jobsForRole, jobsForSeat, meleeJobFree, positionsForSheet, slotIdFor } from './data/resolve'
 import MitView, { type Display, type Layout } from './components/MitView'
 import { LatestUpdate, UpdatesPage, updatesPath } from './components/Updates'
 import { pageInfo, renderMetadata } from './seo'
@@ -138,9 +138,9 @@ function Shell({ initialPath }: { initialPath: string }) {
   // it rather than silently showing another role's plan.
   const job = jobOptions.find(j => j.id === jobId)
   const slotId = sheet ? slotIdFor(sheet, position, job?.id) : ''
-  // Melee mitigation is the same for every melee job, so that seat carries no
-  // generic lines to resolve - the job selector is disabled and no job needed.
-  const jobFree = position?.role === 'melee'
+  // Melee seats share one kit unless a line is qualified by job (Mantra (MNK)).
+  // A shared kit needs no job. A qualified line does, so it can be dropped.
+  const jobFree = meleeJobFree(position?.role, assignments, position?.slotId)
   // Otherwise a job is always required: without it a generic line like "Party
   // Mit" cannot become a real ability, and job-qualified lines cannot be
   // filtered at all.
@@ -343,8 +343,8 @@ function Shell({ initialPath }: { initialPath: string }) {
     // The placeholder exists only while nothing is chosen. Dropping it once a
     // job is set keeps the closed select narrow and stops it offering a state
     // the app no longer accepts. Raiders read abbreviations faster than names,
-    // and they match what the sheets themselves write. A melee seat needs no
-    // job at all, so it just shows "--".
+    // and they match what the sheets themselves write. A melee seat whose kit
+    // is shared needs no job, so it just shows "--".
     data={jobFree
       ? [{ value: '', label: '--' }]
       : [

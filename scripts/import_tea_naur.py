@@ -167,9 +167,8 @@ ROWS = [
 ]
 
 # Caret and prose cells. A caret amends the earlier press in that column; it is
-# not an action on the row it sits on. `slots` is where the note lands.
+# not an action on the row it sits on.
 CARETS = {
-    ('LLBJCC', 'K22'): ('p1-jagd-dolls-1', 'K', 'If playing MCH.', '(^ if MCH)'),
     ('LLBJCC', 'L28'): ('p1-splash-1', 'L', 'On Living Liquid.', '(^on LL)'),
     ('LLBJCC', 'M28'): ('p1-splash-1', 'M', 'On Living Liquid.', '(^on LL)'),
     ('LLBJCC', 'K57'): ('p2-hidden-minefield-1', 'K', 'Press it when Enumeration goes off.', '(press it when'),
@@ -177,6 +176,13 @@ CARETS = {
     ('LLBJCC', 'M64'): ('p2-whirlwind-2', 'M', 'On Cruise Chaser.', '(^on CC)'),
     ('LLBJCC', 'M72'): ('p2-double-rocket-punch-1', 'M', 'On your co-tank.', '(^to other Tank)'),
     ('Alex PrimePA', 'C38'): ('p3-j-wave-8', 'C', 'Whenever it is up.', '(whenever its up)'),
+}
+# A caret that names who presses, rather than a note on the press.
+# `(^ if MCH)` sits on the Fluid Swing row under Doll Feeds and means the
+# phys-range Party Mit there is the machinist's. A note would still hand
+# Troubadour and Shield Samba to the other ranged jobs.
+CONSTRAINTS = {
+    ('LLBJCC', 'K22'): ('p1-jagd-dolls-1', 'K', 'Party Mit', 'Party Mit (MCH)', '(^ if MCH)'),
 }
 # The rest of the Mines party-mit sentence, split across the next row's cell.
 CONTINUATION_TAILS = {('LLBJCC', 'K58'): 'Enum goes off)'}
@@ -555,7 +561,7 @@ def build_sheet(tabs):
     for (tab, ref), prefix in PROSE.items():
         _expect(tabs[tab], tab, ref, prefix)
         take(tab, ref)
-    for (tab, ref), (*_rest, expected) in CARETS.items():
+    for (tab, ref), (*_rest, expected) in {**CARETS, **CONSTRAINTS}.items():
         if clean(tabs[tab].get(ref, '')) != expected:
             raise ValueError(f'{tab} {ref} was {tabs[tab].get(ref)!r}, expected {expected!r}')
         take(tab, ref)
@@ -571,7 +577,7 @@ def build_sheet(tabs):
         assignments = {}
         for column, slot in COLUMNS.items():
             ref = f'{column}{row}'
-            if ref not in tabs[tab] or (tab, ref) in CARETS or (tab, ref) in CONTINUATION_TAILS:
+            if ref not in tabs[tab] or (tab, ref) in CARETS or (tab, ref) in CONSTRAINTS or (tab, ref) in CONTINUATION_TAILS:
                 continue
             take(tab, ref)
             for made in parse_actions(slot, tabs[tab][ref]):
@@ -591,6 +597,13 @@ def build_sheet(tabs):
             raise ValueError(f'Caret {tab} {ref} has nothing to attach to')
         for item in targets:
             item['note'] = f"{item['note']} {note}".strip() if item.get('note') else note
+
+    for (tab, ref), (mechanic_id, column, old, new, _expected) in CONSTRAINTS.items():
+        targets = [item for slot_actions in by_id[mechanic_id]['assignments'].values()
+                   for item in slot_actions if item.get('_from') == column and item['name'] == old]
+        if len(targets) != 1:
+            raise ValueError(f'Constraint {tab} {ref} matched {len(targets)} {old!r} actions')
+        targets[0]['name'] = new
 
     for assignments in by_id.values():
         for slot_actions in assignments['assignments'].values():

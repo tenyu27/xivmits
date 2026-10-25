@@ -51,6 +51,17 @@ test('every indexable route has unique metadata, a canonical, real HTML, and mat
   assert.equal(descriptions.size, entry.pagePaths.length)
 })
 
+test('the TEA sheet page names NAUR and points at the TEA card', () => {
+  const page = seo.pageInfo(catalog, '/tea/naur/')
+  assert.equal(page.title, 'NAUR | TEA mitigation | XIVMits')
+  assert.equal(page.url, 'https://xivmits.com/tea/naur/')
+  assert.equal(page.image, 'https://xivmits.com/og/tea.png')
+  const html = entry.renderPage(template, '/tea/naur/')
+  assert.ok(html.includes('<title data-seo>NAUR | TEA mitigation | XIVMits</title>'))
+  assert.ok(html.includes('rel="canonical" href="https://xivmits.com/tea/naur/"'))
+  assert.ok(html.includes('property="og:image" content="https://xivmits.com/og/tea.png"'))
+})
+
 test('sitemap discovers every sheet and matches generated routes', () => {
   for (const sheet of catalog.sheets) {
     const path = `/${sheet.fightId}/${sheet.id}/`

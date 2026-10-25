@@ -18,6 +18,28 @@ export type { Resolved, Position } from '@xivmits/core'
 
 export const resolveAction = (name: string, job?: Job, syncLevel?: number) =>
   resolveActionWith(name, job, catalog.icons, syncLevel)
+
+/** A trailing "(PLD/WAR)" is a job list. Timing qualifiers such as "(7-8th Set)" are not. */
+const JOB_LIST = /\(([A-Z]{3}(?:\/[A-Z]{3})*)\)\s*$/
+
+type KitSheet = {
+  phases: { mechanics: { assignments: Record<string, { name: string }[] | undefined> }[] }[]
+}
+
+/** True when every melee standing in this seat presses the same buttons.
+ *  A job-qualified line (Mantra (MNK)) means the seat has to know the job,
+ *  or that line cannot be dropped for everyone else. An unloaded sheet
+ *  still shares a kit, so the picker does not demand a job before the data arrives. */
+export function meleeSharesKit(sheet: KitSheet | undefined, slotId?: string) {
+  if (!sheet || !slotId) return true
+  return !sheet.phases.some(phase => phase.mechanics.some(mechanic =>
+    (mechanic.assignments[slotId] ?? []).some(action => JOB_LIST.test(action.name))))
+}
+
+/** The melee job picker stays disabled only while the seat shares one kit. */
+export function meleeJobFree(role: string | undefined, sheet: KitSheet | undefined, slotId?: string) {
+  return role === 'melee' && meleeSharesKit(sheet, slotId)
+}
 export const jobsForRole = (role?: string) => jobsForRoleIn(catalog.jobs, role)
 export const jobsForSeat = (
   sheet: { slots: { id: string; job?: string; role?: string; jobs?: string[] }[] },

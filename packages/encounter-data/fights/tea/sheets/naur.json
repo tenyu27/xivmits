@@ -284,8 +284,8 @@
             ],
             "P": [
               {
-                "name": "Party Mit",
-                "note": "Optional. If playing MCH."
+                "name": "Party Mit (MCH)",
+                "note": "Optional."
               },
               {
                 "name": "Nature's Minne (BRD)",
