@@ -9,6 +9,7 @@ import {
   resolveAction as resolveActionWith,
   jobsForRole as jobsForRoleIn,
   jobsForSeat as jobsForSeatIn,
+  isJobQualified,
   type Job,
   type Position,
 } from '@xivmits/core'
@@ -18,9 +19,6 @@ export type { Resolved, Position } from '@xivmits/core'
 
 export const resolveAction = (name: string, job?: Job, syncLevel?: number) =>
   resolveActionWith(name, job, catalog.icons, syncLevel)
-
-/** A trailing "(PLD/WAR)" is a job list. Timing qualifiers such as "(7-8th Set)" are not. */
-const JOB_LIST = /\(([A-Z]{3}(?:\/[A-Z]{3})*)\)\s*$/
 
 type KitSheet = {
   phases: { mechanics: { assignments: Record<string, { name: string }[] | undefined> }[] }[]
@@ -33,7 +31,7 @@ type KitSheet = {
 export function meleeSharesKit(sheet: KitSheet | undefined, slotId?: string) {
   if (!sheet || !slotId) return true
   return !sheet.phases.some(phase => phase.mechanics.some(mechanic =>
-    (mechanic.assignments[slotId] ?? []).some(action => JOB_LIST.test(action.name))))
+    (mechanic.assignments[slotId] ?? []).some(action => isJobQualified(action.name))))
 }
 
 /** The melee job picker stays disabled only while the seat shares one kit. */

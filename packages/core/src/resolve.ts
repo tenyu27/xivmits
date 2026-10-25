@@ -5,6 +5,10 @@ import type { Icons, Job } from './schema.ts'
 const QUALIFIER = /\s*\(([^)]*)\)\s*$/
 const JOB_LIST = /^[A-Z]{3}(\/[A-Z]{3})*$/
 
+/** True when a trailing "(PLD/WAR)" says which jobs press the line.
+ *  A timing qualifier such as "(7-8th Set)" is not a job list. */
+export const isJobQualified = (name: string) => JOB_LIST.test(name.match(QUALIFIER)?.[1] ?? '')
+
 /** `applies: false` means this line belongs to a different job and should not
  *  be rendered at all - see resolveAction. */
 export type Resolved =

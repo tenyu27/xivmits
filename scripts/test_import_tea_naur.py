@@ -99,7 +99,7 @@ class ParserTest(unittest.TestCase):
 
 class EncounterTest(unittest.TestCase):
     def test_committed_encounter_matches_the_builder(self):
-        self.assertEqual(json.loads(ENCOUNTER_PATH.read_text()), build_encounter())
+        self.assertEqual(json.loads(ENCOUNTER_PATH.read_text(encoding='utf-8')), build_encounter())
 
     def test_phase_clocks_and_sync(self):
         fight = build_encounter()
