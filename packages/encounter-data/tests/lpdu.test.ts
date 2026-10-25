@@ -37,11 +37,13 @@ test('LPDU ranged party mit and Scholar shields use the level-100 names', () => 
 
 test('LPDU arcana use the level-30 action rows', () => {
   // The Balance, Arrow, Spear and Spire still exist (37023-37026) and no sheet
-  // names them. The Bole and the Ewer are actions 37027 and 37028.
+  // names them. The Bole and the Ewer are actions 37027 and 37028. Other
+  // actions can start with "The " (TEA's The Blackest Night); this is the arcana.
   const names = new Set(catalog.sheets.flatMap(sheet => sheet.phases.flatMap(phase =>
     phase.mechanics.flatMap(mechanic => Object.values(mechanic.assignments).flatMap(actions =>
       actions.map(action => action.name))))))
-  assert.deepEqual([...names].filter(name => name.startsWith('The ')).sort(), ['The Bole', 'The Ewer'])
+  const arcana = [...names].filter(name => /^(The )?(Balance|Bole|Arrow|Spear|Ewer|Spire)$/.test(name)).sort()
+  assert.deepEqual(arcana, ['The Bole', 'The Ewer'])
   for (const [name, action] of [['The Bole', 37027], ['The Ewer', 37028]] as const) {
     const ability = catalog.abilities.abilities[catalog.abilities.names[name]]
     assert.equal(ability.kind, 'action', name)

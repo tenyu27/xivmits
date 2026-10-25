@@ -53,6 +53,10 @@ REPLACED_BY = {
     'Vengeance': ('Damnation', 92),                # trait 567 Vengeance Mastery
     'Shadow Wall': ('Shadowed Vigil', 92),         # trait 571 Shadow Wall Mastery
     'Nebula': ('Great Nebula', 92),                # trait 574 Nebula Mastery
+    'Sheltron': ('Holy Sheltron', 82),             # trait 412 Sheltron Mastery
+    'Raw Intuition': ('Bloodwhetting', 82),        # trait 418 Raw Intuition Mastery
+    'Heart of Stone': ('Heart of Corundum', 82),   # trait 424 Heart of Stone Mastery
+    'Physis': ('Physis II', 60),                   # trait 510 Physis Mastery
 }
 
 # Effect lengths that change with level, ascending, keyed by the game's action
@@ -73,6 +77,8 @@ NO_ICON = {
     # LPDU writes a couple of calls as prose: a bundle of AST cooldowns, a
     # babysitting instruction, and the enrage marker.
     'All single-target mit', 'Card mits', 'Babysit the beam tank', 'Enrage',
+    # TEA writes the defensive arcana as a choice, not a pair of buttons.
+    'Defensive cards',
 }
 
 # Arcana are level-30 actions, not statuses. IsPlayerAction is false, so the
@@ -108,7 +114,10 @@ POTENCIES = {
 # that level here, then keep the lowest row id: a later re-release of the same
 # name must not replace the original. Dropping either rule records a copy.
 NONPLAYER_OK = {'Eukrasian Prognosis', 'Eukrasian Prognosis II', 'Eukrasian Diagnosis',
-                'Seraphic Veil'}  # TOP also names Seraph's automatic shield.
+                'Seraphic Veil',  # TOP also names Seraph's automatic shield.
+                # Scholar's fairy tether. The Action row is IsPlayerAction=false
+                # (the fairy carries it) but the player learns it at 70.
+                'Fey Union'}
 
 # The placeholder icon unused Action rows point at.
 PLACEHOLDER = '000000/000405'

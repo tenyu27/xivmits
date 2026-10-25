@@ -18,7 +18,7 @@ const baseName = (name: string) => name.replace(/\s*\([^)]*\)\s*$/, '').trim()
 test('every fight records the level it syncs to', () => {
   assert.deepEqual(
     Object.fromEntries(catalog.fights.map(fight => [fight.id, fight.syncLevel])),
-    { dmu: 100, dsr: 90, fru: 100, top: 90 },
+    { dmu: 100, dsr: 90, fru: 100, tea: 80, top: 90 },
   )
 })
 
@@ -106,6 +106,23 @@ test('a job slot resolves to the button its level has, and the unsynced answer i
     ['PLD', 'WAR', 'DRK', 'GNB'].map(id => slot(id)),
     ['Guardian', 'Damnation', 'Shadowed Vigil', 'Great Nebula'],
   )
+  const at = (id: string, name: string, sync?: number) =>
+    abilityAtLevel(catalog.jobs.find(job => job.id === id), name, sync)
+  assert.deepEqual(
+    ['PLD', 'WAR', 'DRK', 'GNB'].map(id => at(id, 'Short Mit', 80)),
+    ['Sheltron', 'Raw Intuition', 'The Blackest Night', 'Heart of Stone'],
+  )
+  assert.deepEqual(
+    ['PLD', 'WAR', 'DRK', 'GNB'].map(id => at(id, 'Short Mit', 82)),
+    ['Holy Sheltron', 'Bloodwhetting', 'The Blackest Night', 'Heart of Corundum'],
+  )
+  assert.equal(at('GNB', 'Buddy Mit', 80), 'Heart of Stone')
+  assert.equal(at('GNB', 'Buddy Mit', 90), 'Heart of Corundum')
+  assert.equal(at('WAR', 'Buddy Mit', 80), 'Nascent Flash')
+  assert.deepEqual(
+    ['PLD', 'WAR', 'DRK', 'GNB'].map(id => at(id, '120s Mit', 80)),
+    ['Sentinel', 'Vengeance', 'Shadow Wall', 'Nebula'],
+  )
 })
 
 test('Vengeance is its own action, not Damnation', () => {
@@ -129,6 +146,7 @@ test('Reprisal, Feint and Addle last 10s until the level 98 trait', () => {
     const durations = entryFor(name)?.durations
     assert.ok(durations, name)
     assert.deepEqual(durations.map(step => step.level), [...durations.map(step => step.level)].sort((a, b) => a - b))
+    assert.equal(durationAtLevel(durations, 80), 10, name)
     assert.equal(durationAtLevel(durations, 90), 10, name)
     assert.equal(durationAtLevel(durations, 97), 10, name)
     assert.equal(durationAtLevel(durations, 98), 15, name)
@@ -167,6 +185,10 @@ const replacements: [string, string, number][] = [
   ['Vengeance', 'Damnation', 92],
   ['Shadow Wall', 'Shadowed Vigil', 92],
   ['Nebula', 'Great Nebula', 92],
+  ['Sheltron', 'Holy Sheltron', 82],
+  ['Raw Intuition', 'Bloodwhetting', 82],
+  ['Heart of Stone', 'Heart of Corundum', 82],
+  ['Physis', 'Physis II', 60],
 ]
 
 test('retired actions record the trait that replaces them', () => {
@@ -236,6 +258,7 @@ test('party mits record the level 98 potency step', () => {
   for (const [name, learned] of potencies) {
     const steps = entryFor(name)?.potencies
     assert.deepEqual(steps, [{ level: learned, percent: 10 }, { level: 98, percent: 15 }], name)
+    assert.equal(potencyAtLevel(steps, catalog.fights.find(fight => fight.id === 'tea')!.syncLevel), 10, name)
     assert.equal(potencyAtLevel(steps, dsr), 10, name)
     assert.equal(potencyAtLevel(steps, dmu), 15, name)
     assert.equal(potencyAtLevel(steps), 15, name)

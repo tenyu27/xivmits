@@ -49,7 +49,9 @@
     "aspected-helios": {
       "name": "Aspected Helios",
       "kind": "action",
+      "icon": "003130.png",
       "action": 3601,
+      "level": 40,
       "replacedBy": {
         "name": "Helios Conjunction",
         "level": 96
@@ -58,6 +60,13 @@
     "assist-tanks": {
       "name": "Assist Tanks",
       "kind": "note"
+    },
+    "assize": {
+      "name": "Assize",
+      "kind": "action",
+      "icon": "002634.png",
+      "action": 3571,
+      "level": 56
     },
     "asylum": {
       "name": "Asylum",
@@ -80,6 +89,13 @@
       "icon": "002627.png",
       "action": 140,
       "level": 50
+    },
+    "benefic-ii": {
+      "name": "Benefic II",
+      "kind": "action",
+      "icon": "003128.png",
+      "action": 3610,
+      "level": 26
     },
     "bloodwhetting": {
       "name": "Bloodwhetting",
@@ -113,6 +129,13 @@
       "action": 16556,
       "level": 74
     },
+    "celestial-opposition": {
+      "name": "Celestial Opposition",
+      "kind": "action",
+      "icon": "003142.png",
+      "action": 16553,
+      "level": 60
+    },
     "collective-unconscious": {
       "name": "Collective Unconscious",
       "kind": "action",
@@ -133,6 +156,13 @@
       "icon": "002851.png",
       "action": 16546,
       "level": 80
+    },
+    "cure-iii": {
+      "name": "Cure III",
+      "kind": "action",
+      "icon": "000407.png",
+      "action": 131,
+      "level": 40
     },
     "damnation": {
       "name": "Damnation",
@@ -155,6 +185,10 @@
       "action": 16471,
       "level": 66
     },
+    "defensive-cards": {
+      "name": "Defensive cards",
+      "kind": "note"
+    },
     "deployment-tactics": {
       "name": "Deployment Tactics",
       "kind": "action",
@@ -168,6 +202,13 @@
       "icon": "003011.png",
       "action": 2887,
       "level": 62
+    },
+    "dissipation": {
+      "name": "Dissipation",
+      "kind": "action",
+      "icon": "002810.png",
+      "action": 3587,
+      "level": 60
     },
     "divine-benison": {
       "name": "Divine Benison",
@@ -210,6 +251,13 @@
       "icon": "002560.png",
       "action": 3552,
       "level": 58
+    },
+    "essential-dignity": {
+      "name": "Essential Dignity",
+      "kind": "action",
+      "icon": "003141.png",
+      "action": 3614,
+      "level": 15
     },
     "eukrasian-diagnosis": {
       "name": "Eukrasian Diagnosis",
@@ -278,12 +326,26 @@
         }
       ]
     },
+    "fey-blessing": {
+      "name": "Fey Blessing",
+      "kind": "action",
+      "icon": "002854.png",
+      "action": 16543,
+      "level": 76
+    },
     "fey-illumination": {
       "name": "Fey Illumination",
       "kind": "action",
       "icon": "002853.png",
       "action": 16538,
       "level": 40
+    },
+    "fey-union": {
+      "name": "Fey Union",
+      "kind": "action",
+      "icon": "002818.png",
+      "action": 7438,
+      "level": 70
     },
     "great-nebula": {
       "name": "Great Nebula",
@@ -327,10 +389,30 @@
       "action": 16160,
       "level": 64
     },
+    "heart-of-stone": {
+      "name": "Heart of Stone",
+      "kind": "action",
+      "icon": "003425.png",
+      "action": 16161,
+      "level": 68,
+      "replacedBy": {
+        "name": "Heart of Corundum",
+        "level": 82
+      }
+    },
+    "helios": {
+      "name": "Helios",
+      "kind": "action",
+      "icon": "003129.png",
+      "action": 3600,
+      "level": 10
+    },
     "helios-conjunction": {
       "name": "Helios Conjunction",
       "kind": "action",
-      "action": 37030
+      "icon": "003567.png",
+      "action": 37030,
+      "level": 96
     },
     "holmgang": {
       "name": "Holmgang",
@@ -363,7 +445,16 @@
     "imperator": {
       "name": "Imperator",
       "kind": "action",
-      "action": 36921
+      "icon": "002955.png",
+      "action": 36921,
+      "level": 96
+    },
+    "indomitability": {
+      "name": "Indomitability",
+      "kind": "action",
+      "icon": "002806.png",
+      "action": 3583,
+      "level": 52
     },
     "intervention": {
       "name": "Intervention",
@@ -382,6 +473,13 @@
       "icon": "003667.png",
       "action": 24299,
       "level": 52
+    },
+    "kardia": {
+      "name": "Kardia",
+      "kind": "action",
+      "icon": "003653.png",
+      "action": 24285,
+      "level": 4
     },
     "kerachole": {
       "name": "Kerachole",
@@ -439,10 +537,19 @@
       "name": "Manage Accretion healing",
       "kind": "note"
     },
+    "mantra": {
+      "name": "Mantra",
+      "kind": "action",
+      "icon": "000216.png",
+      "action": 65,
+      "level": 42
+    },
     "medica-ii": {
       "name": "Medica II",
       "kind": "action",
+      "icon": "000409.png",
       "action": 133,
+      "level": 50,
       "replacedBy": {
         "name": "Medica III",
         "level": 96
@@ -451,7 +558,9 @@
     "medica-iii": {
       "name": "Medica III",
       "kind": "action",
-      "action": 37010
+      "icon": "002127.png",
+      "action": 37010,
+      "level": 96
     },
     "nascent-flash": {
       "name": "Nascent Flash",
@@ -459,6 +568,13 @@
       "icon": "002567.png",
       "action": 16464,
       "level": 76
+    },
+    "nature-s-minne": {
+      "name": "Nature's Minne",
+      "kind": "action",
+      "icon": "002615.png",
+      "action": 7408,
+      "level": 66
     },
     "nebula": {
       "name": "Nebula",
@@ -517,6 +633,17 @@
       "action": 37035,
       "level": 100
     },
+    "physis": {
+      "name": "Physis",
+      "kind": "action",
+      "icon": "003656.png",
+      "action": 24288,
+      "level": 20,
+      "replacedBy": {
+        "name": "Physis II",
+        "level": 60
+      }
+    },
     "physis-ii": {
       "name": "Physis II",
       "kind": "action",
@@ -572,6 +699,17 @@
       "action": 7531,
       "level": 8
     },
+    "raw-intuition": {
+      "name": "Raw Intuition",
+      "kind": "action",
+      "icon": "002559.png",
+      "action": 3551,
+      "level": 56,
+      "replacedBy": {
+        "name": "Bloodwhetting",
+        "level": 82
+      }
+    },
     "recitation": {
       "name": "Recitation",
       "kind": "action",
@@ -606,7 +744,9 @@
     "requiescat": {
       "name": "Requiescat",
       "kind": "action",
+      "icon": "002513.png",
       "action": 7383,
+      "level": 68,
       "replacedBy": {
         "name": "Imperator",
         "level": 96
@@ -669,6 +809,17 @@
       "action": 7388,
       "level": 68
     },
+    "sheltron": {
+      "name": "Sheltron",
+      "kind": "action",
+      "icon": "002510.png",
+      "action": 3542,
+      "level": 35,
+      "replacedBy": {
+        "name": "Holy Sheltron",
+        "level": 82
+      }
+    },
     "shield-samba": {
       "name": "Shield Samba",
       "kind": "action",
@@ -689,6 +840,13 @@
     "short-mit": {
       "name": "Short Mit",
       "kind": "generic"
+    },
+    "soteria": {
+      "name": "Soteria",
+      "kind": "action",
+      "icon": "003662.png",
+      "action": 24294,
+      "level": 35
     },
     "succor": {
       "name": "Succor",
@@ -722,6 +880,13 @@
       "action": 16152,
       "level": 50
     },
+    "synastry": {
+      "name": "Synastry",
+      "kind": "action",
+      "icon": "003139.png",
+      "action": 3612,
+      "level": 50
+    },
     "tactician": {
       "name": "Tactician",
       "kind": "action",
@@ -752,6 +917,13 @@
       "icon": "002645.png",
       "action": 16536,
       "level": 80
+    },
+    "tetragrammaton": {
+      "name": "Tetragrammaton",
+      "kind": "action",
+      "icon": "002633.png",
+      "action": 3570,
+      "level": 60
     },
     "the-blackest-night": {
       "name": "The Blackest Night",
@@ -838,29 +1010,36 @@
     "Aquaveil": "aquaveil",
     "Aspected Helios": "aspected-helios",
     "Assist Tanks": "assist-tanks",
+    "Assize": "assize",
     "Asylum": "asylum",
     "Avoid HP-restoring abilities": "avoid-hp-restoring-abilities",
     "Babysit the beam tank": "babysit-the-beam-tank",
     "Benediction": "benediction",
+    "Benefic II": "benefic-ii",
     "Bloodwhetting": "bloodwhetting",
     "Buddy Mit": "buddy-mit",
     "Bulwark": "bulwark",
     "Camouflage": "camouflage",
     "Celestial Intersection": "celestial-intersection",
+    "Celestial Opposition": "celestial-opposition",
     "Collective Unconscious": "collective-unconscious",
     "Concitation": "concitation",
     "Consolation": "consolation",
+    "Cure III": "cure-iii",
     "Damnation": "damnation",
     "Dark Mind": "dark-mind",
     "Dark Missionary": "dark-missionary",
+    "Defensive cards": "defensive-cards",
     "Deployment Tactics": "deployment-tactics",
     "Dismantle": "dismantle",
+    "Dissipation": "dissipation",
     "Divine Benison": "divine-benison",
     "Divine Caress": "divine-caress",
     "Divine Veil": "divine-veil",
     "Druochole": "druochole",
     "Earthly Star": "earthly-star",
     "Equilibrium": "equilibrium",
+    "Essential Dignity": "essential-dignity",
     "Eukrasian Diagnosis": "eukrasian-diagnosis",
     "Eukrasian Prognosis": "eukrasian-prognosis",
     "Eukrasian Prognosis II": "eukrasian-prognosis-ii",
@@ -873,7 +1052,9 @@
     "Extra (RDM/MCH)": "extra",
     "Feint": "feint",
     "Feint (Chaos)": "feint",
+    "Fey Blessing": "fey-blessing",
     "Fey Illumination": "fey-illumination",
+    "Fey Union": "fey-union",
     "Great Nebula": "great-nebula",
     "Guardian": "guardian",
     "Haima": "haima",
@@ -882,6 +1063,8 @@
     "Healer LB": "pulse-of-life",
     "Heart of Corundum": "heart-of-corundum",
     "Heart of Light": "heart-of-light",
+    "Heart of Stone": "heart-of-stone",
+    "Helios": "helios",
     "Helios Conjunction": "helios-conjunction",
     "Holmgang": "holmgang",
     "Holos": "holos",
@@ -890,9 +1073,11 @@
     "Holy Sheltron (hold Passage for block)": "holy-sheltron",
     "Horoscope": "horoscope",
     "Imperator": "imperator",
+    "Indomitability": "indomitability",
     "Intervention": "intervention",
     "Invuln": "invuln",
     "Ixochole": "ixochole",
+    "Kardia": "kardia",
     "Kerachole": "kerachole",
     "Kitchen Sink": "kitchen-sink",
     "Krasis": "krasis",
@@ -902,9 +1087,11 @@
     "Macrocosmos": "macrocosmos",
     "Magick Barrier": "magick-barrier",
     "Manage Accretion healing": "manage-accretion-healing",
+    "Mantra (MNK)": "mantra",
     "Medica II": "medica-ii",
     "Medica III": "medica-iii",
     "Nascent Flash": "nascent-flash",
+    "Nature's Minne (BRD)": "nature-s-minne",
     "Nebula": "nebula",
     "Neutral Sect": "neutral-sect",
     "Oblation": "oblation",
@@ -917,14 +1104,15 @@
     "Passage of Arms (PLD)": "passage-of-arms",
     "Pepsis": "pepsis",
     "Philosophia": "philosophia",
+    "Physis": "physis",
     "Physis II": "physis-ii",
     "Plenary Indulgence": "plenary-indulgence",
     "Pneuma": "pneuma",
     "Prognosis": "prognosis",
     "Protraction": "protraction",
     "Provoke": "provoke",
-    "Pulse of Life": "pulse-of-life",
     "Rampart": "rampart",
+    "Raw Intuition": "raw-intuition",
     "Recitation": "recitation",
     "Regen": "regen",
     "Reprisal": "reprisal",
@@ -938,18 +1126,23 @@
     "Shadow Wall": "shadow-wall",
     "Shadowed Vigil": "shadowed-vigil",
     "Shake It Off": "shake-it-off",
+    "Sheltron": "sheltron",
     "Shield Samba": "shield-samba",
     "Short Mit": "short-mit",
+    "Soteria": "soteria",
     "Spreadlo": "deployment-tactics",
     "Succor": "succor",
     "Summon Seraph": "summon-seraph",
     "Sun Sign": "sun-sign",
     "Superbolide": "superbolide",
+    "Synastry": "synastry",
     "Tactician": "tactician",
     "Tank LB": "last-bastion",
     "Taurochole": "taurochole",
     "Temperance": "temperance",
+    "Tetragrammaton": "tetragrammaton",
     "The Blackest Night": "the-blackest-night",
+    "The Blackest Night (DRK)": "the-blackest-night",
     "The Bole": "the-bole",
     "The Ewer": "the-ewer",
     "Thrill of Battle": "thrill-of-battle",

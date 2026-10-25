@@ -1,0 +1,2199 @@
+{
+  "id": "naur",
+  "fightId": "tea",
+  "name": "NAUR",
+  "author": "@sounox (LPDU/NAUR) and Jamie Jams @ Faerie",
+  "updated": "2025-11-21",
+  "sourceVersion": "2025-11-21",
+  "source": {
+    "name": "NAUR TEA mitigation sheet",
+    "url": "https://docs.google.com/spreadsheets/d/1A58RflNeNq9mesuvSEcQzIvQ3MwOGyvPRi5khNACrc8/edit?gid=1511755464#gid=1511755464"
+  },
+  "description": "Party mitigation for The Epic of Alexander (Ultimate) from the NAUR sheet by @sounox (LPDU/NAUR) and Jamie Jams @ Faerie, reworked 11/21/2025 for NAUR staff. Pick a tank position, a healer job, or a DPS position.",
+  "slots": [
+    {
+      "id": "MT",
+      "role": "tank"
+    },
+    {
+      "id": "OT",
+      "role": "tank"
+    },
+    {
+      "id": "SCH",
+      "job": "SCH",
+      "role": "healer"
+    },
+    {
+      "id": "SGE",
+      "job": "SGE",
+      "role": "healer"
+    },
+    {
+      "id": "WHM",
+      "job": "WHM",
+      "role": "healer"
+    },
+    {
+      "id": "AST",
+      "job": "AST",
+      "role": "healer"
+    },
+    {
+      "id": "M1",
+      "role": "melee"
+    },
+    {
+      "id": "M2",
+      "role": "melee"
+    },
+    {
+      "id": "P",
+      "role": "ranged"
+    },
+    {
+      "id": "C",
+      "role": "caster"
+    }
+  ],
+  "phases": [
+    {
+      "id": "p1",
+      "mechanics": [
+        {
+          "mechanicId": "p1-prepull",
+          "assignments": {
+            "MT": [
+              {
+                "name": "90s Mit",
+                "note": "8 seconds before."
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Succor"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Zoe",
+                "note": "8 seconds before."
+              },
+              {
+                "name": "Eukrasian Prognosis",
+                "note": "8 seconds before."
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Regen"
+              },
+              {
+                "name": "Divine Benison",
+                "note": "On the main tank. 5 seconds before."
+              }
+            ],
+            "AST": [
+              {
+                "name": "Horoscope"
+              },
+              {
+                "name": "Celestial Intersection",
+                "note": "On the main tank. 15 seconds before."
+              },
+              {
+                "name": "Earthly Star",
+                "note": "Place it on the pull."
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p1-fluid-swing-1",
+          "assignments": {
+            "MT": [
+              {
+                "name": "90s Mit"
+              },
+              {
+                "name": "Short Mit"
+              },
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "OT": [
+              {
+                "name": "Short Mit",
+                "note": "On the main tank."
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Dissipation"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p1-cascade-1",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal"
+              },
+              {
+                "name": "Passage of Arms (PLD)"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Indomitability"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Physis II"
+              },
+              {
+                "name": "Ixochole"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Assize"
+              },
+              {
+                "name": "Divine Benison",
+                "note": "On a ranged player."
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "OT": [
+              {
+                "name": "Passage of Arms (PLD)"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p1-fluid-swing-2",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Invuln"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Benediction",
+                "note": "On the main tank."
+              }
+            ],
+            "AST": [
+              {
+                "name": "Synastry",
+                "note": "On the main tank."
+              },
+              {
+                "name": "Benefic II",
+                "note": "On the main tank."
+              },
+              {
+                "name": "Essential Dignity",
+                "note": "On the main tank."
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p1-jagd-dolls-1",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Recitation"
+              },
+              {
+                "name": "Adloquium"
+              },
+              {
+                "name": "Deployment Tactics"
+              },
+              {
+                "name": "Whispering Dawn"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Holos"
+              },
+              {
+                "name": "Kerachole"
+              },
+              {
+                "name": "Ixochole"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance"
+              },
+              {
+                "name": "Plenary Indulgence"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              },
+              {
+                "name": "Horoscope"
+              },
+              {
+                "name": "Defensive cards",
+                "note": "On a ranged player."
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit",
+                "note": "Optional. If playing MCH."
+              },
+              {
+                "name": "Nature's Minne (BRD)",
+                "note": "Optional."
+              }
+            ],
+            "M1": [
+              {
+                "name": "Mantra (MNK)",
+                "note": "Optional."
+              }
+            ],
+            "M2": [
+              {
+                "name": "Mantra (MNK)",
+                "note": "Optional."
+              }
+            ]
+          },
+          "note": "Press Holos, Kerachole, Sacred Soil, or Temperance once the first doll AoEs go off.",
+          "noteRoles": [
+            "healer"
+          ]
+        },
+        {
+          "mechanicId": "p1-fluid-swing-3",
+          "assignments": {
+            "MT": [
+              {
+                "name": "120s Mit"
+              },
+              {
+                "name": "Short Mit"
+              }
+            ],
+            "OT": [
+              {
+                "name": "120s Mit"
+              },
+              {
+                "name": "Reprisal"
+              },
+              {
+                "name": "Short Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Fey Blessing"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Taurochole",
+                "note": "On the off tank."
+              },
+              {
+                "name": "Haima",
+                "note": "On the main tank."
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Tetragrammaton",
+                "note": "On the off tank."
+              }
+            ],
+            "AST": [
+              {
+                "name": "Celestial Intersection",
+                "note": "On the main tank."
+              },
+              {
+                "name": "Celestial Opposition"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p1-protean-wave-1",
+          "assignments": {
+            "OT": [
+              {
+                "name": "The Blackest Night (DRK)",
+                "note": "On cooldown."
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Succor"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kardia",
+                "note": "On the off tank."
+              },
+              {
+                "name": "Soteria",
+                "note": "On the off tank."
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Assize"
+              },
+              {
+                "name": "Divine Benison",
+                "note": "On the main tank."
+              }
+            ],
+            "AST": [
+              {
+                "name": "Earthly Star",
+                "note": "Place it."
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p1-splash-1",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal"
+              },
+              {
+                "name": "90s Mit"
+              },
+              {
+                "name": "Short Mit"
+              }
+            ],
+            "OT": [
+              {
+                "name": "Party Mit"
+              },
+              {
+                "name": "90s Mit"
+              },
+              {
+                "name": "Short Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Fey Illumination"
+              },
+              {
+                "name": "Summon Seraph",
+                "note": "First Summon Seraph."
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Panhaima"
+              },
+              {
+                "name": "Kerachole"
+              },
+              {
+                "name": "Physis II"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Asylum"
+              }
+            ],
+            "M2": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              },
+              {
+                "name": "Extra (MCH)",
+                "note": "On Living Liquid."
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle",
+                "note": "On Living Liquid."
+              }
+            ]
+          },
+          "note": "Also covers Drainage."
+        },
+        {
+          "mechanicId": "p1-cascade-2",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal"
+              },
+              {
+                "name": "90s Mit"
+              }
+            ],
+            "OT": [
+              {
+                "name": "Party Mit"
+              },
+              {
+                "name": "90s Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Summon Seraph",
+                "note": "Second Summon Seraph."
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Ixochole"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p1-protean-wave-2",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Short Mit",
+                "note": "On the off tank."
+              }
+            ],
+            "OT": [
+              {
+                "name": "Short Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Excogitation",
+                "note": "On the off tank."
+              },
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Fey Blessing"
+              },
+              {
+                "name": "Succor"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Divine Benison",
+                "note": "On the off tank."
+              },
+              {
+                "name": "Plenary Indulgence"
+              },
+              {
+                "name": "Assize"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Celestial Intersection",
+                "note": "On the off tank."
+              },
+              {
+                "name": "Celestial Opposition"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint"
+              }
+            ]
+          }
+        }
+      ],
+      "note": "Doll feeds and Protean 2 can be tough on healers. Ranged DPS, please use personals on doll feeds, and melee DPS, please use personals on Protean 2 (Second Wind, Manaward, Radiant Aegis, Riddle of Earth, Shade Shift)."
+    },
+    {
+      "id": "lc",
+      "mechanics": [
+        {
+          "mechanicId": "lc-limit-cut-1",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Succor"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Medica II"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Horoscope"
+              },
+              {
+                "name": "Aspected Helios"
+              },
+              {
+                "name": "Earthly Star",
+                "note": "Place it on player 6."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "mechanics": [
+        {
+          "mechanicId": "p2-j-kick-1",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Party Mit"
+              },
+              {
+                "name": "Passage of Arms (PLD)"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Succor"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              },
+              {
+                "name": "Eukrasian Prognosis"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "OT": [
+              {
+                "name": "Passage of Arms (PLD)"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p2-whirlwind-1",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Party Mit"
+              },
+              {
+                "name": "Short Mit"
+              }
+            ],
+            "OT": [
+              {
+                "name": "Reprisal"
+              },
+              {
+                "name": "Short Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Fey Blessing"
+              },
+              {
+                "name": "Whispering Dawn"
+              },
+              {
+                "name": "Succor"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Taurochole",
+                "note": "On the main tank."
+              },
+              {
+                "name": "Eukrasian Prognosis"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Divine Benison",
+                "note": "On a tank."
+              }
+            ],
+            "AST": [
+              {
+                "name": "Celestial Intersection",
+                "note": "On a tank."
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p2-photon-1",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Rampart"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Indomitability"
+              },
+              {
+                "name": "Recitation"
+              },
+              {
+                "name": "Deployment Tactics"
+              },
+              {
+                "name": "Dissipation"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              },
+              {
+                "name": "Physis II"
+              },
+              {
+                "name": "Ixochole"
+              },
+              {
+                "name": "Zoe"
+              },
+              {
+                "name": "Eukrasian Prognosis"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Asylum"
+              },
+              {
+                "name": "Plenary Indulgence"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Horoscope"
+              },
+              {
+                "name": "Celestial Opposition"
+              }
+            ],
+            "P": [
+              {
+                "name": "Nature's Minne (BRD)",
+                "note": "Optional."
+              }
+            ],
+            "M1": [
+              {
+                "name": "Mantra (MNK)",
+                "note": "Optional."
+              }
+            ],
+            "M2": [
+              {
+                "name": "Mantra (MNK)",
+                "note": "Optional."
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p2-compressed-water-1",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal",
+                "note": "On Brute Justice."
+              },
+              {
+                "name": "Short Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Succor"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Earthly Star",
+                "note": "Place it."
+              }
+            ],
+            "M2": [
+              {
+                "name": "Feint"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p2-hidden-minefield-1",
+          "assignments": {
+            "OT": [
+              {
+                "name": "Kitchen Sink"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Excogitation",
+                "note": "On the off tank."
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Haima",
+                "note": "On the off tank."
+              },
+              {
+                "name": "Soteria",
+                "note": "On the off tank."
+              },
+              {
+                "name": "Holos"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Divine Benison",
+                "note": "On the off tank."
+              },
+              {
+                "name": "Temperance"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Celestial Intersection",
+                "note": "On the off tank."
+              },
+              {
+                "name": "Defensive cards",
+                "note": "On the off tank."
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit",
+                "note": "Press it when Enumeration goes off."
+              }
+            ]
+          },
+          "note": "Enumeration follows."
+        },
+        {
+          "mechanicId": "p2-compressed-water-2",
+          "assignments": {
+            "MT": [
+              {
+                "name": "120s Mit"
+              },
+              {
+                "name": "Short Mit"
+              }
+            ],
+            "OT": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Succor"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              },
+              {
+                "name": "Ixochole"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle",
+                "note": "On Brute Justice."
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p2-limit-cut-2",
+          "assignments": {
+            "SGE": [
+              {
+                "name": "Taurochole",
+                "note": "On the main tank."
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Divine Benison",
+                "note": "On the main tank."
+              }
+            ],
+            "AST": [
+              {
+                "name": "Celestial Intersection",
+                "note": "On the main tank."
+              }
+            ]
+          },
+          "note": "Flarethrower follows."
+        },
+        {
+          "mechanicId": "p2-whirlwind-2",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "OT": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Fey Illumination"
+              },
+              {
+                "name": "Whispering Dawn"
+              },
+              {
+                "name": "Summon Seraph",
+                "note": "First Summon Seraph."
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Panhaima"
+              },
+              {
+                "name": "Kerachole"
+              },
+              {
+                "name": "Physis II"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Plenary Indulgence"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              },
+              {
+                "name": "Horoscope"
+              },
+              {
+                "name": "Celestial Opposition"
+              }
+            ],
+            "P": [
+              {
+                "name": "Extra (MCH)",
+                "note": "On Cruise Chaser."
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p2-compressed-water-3",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Short Mit"
+              }
+            ],
+            "OT": [
+              {
+                "name": "Short Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Succor"
+              },
+              {
+                "name": "Summon Seraph",
+                "note": "Second Summon Seraph."
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kardia",
+                "note": "On the main tank."
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p2-gavel-1",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Fey Union"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Ixochole"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Asylum"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Earthly Star",
+                "note": "Place it."
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p2-photon-2",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Rampart"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Excogitation",
+                "note": "On a tank."
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Taurochole",
+                "note": "On the off tank."
+              },
+              {
+                "name": "Druochole",
+                "note": "On the tanks."
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Benediction"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Synastry",
+                "note": "On the main tank."
+              },
+              {
+                "name": "Benefic II",
+                "note": "On the main tank."
+              },
+              {
+                "name": "Essential Dignity",
+                "note": "On the off tank."
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p2-double-rocket-punch-1",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal"
+              },
+              {
+                "name": "Short Mit"
+              },
+              {
+                "name": "Passage of Arms (PLD)",
+                "note": "On your co-tank."
+              }
+            ],
+            "OT": [
+              {
+                "name": "90s Mit"
+              },
+              {
+                "name": "Short Mit"
+              },
+              {
+                "name": "Passage of Arms (PLD)",
+                "note": "On your co-tank."
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Adloquium"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              },
+              {
+                "name": "Eukrasian Diagnosis",
+                "note": "On the tanks."
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Divine Benison",
+                "note": "On a tank."
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              },
+              {
+                "name": "Celestial Intersection",
+                "note": "On a tank."
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p2-whirlwind-3",
+          "assignments": {
+            "OT": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "M2": [
+              {
+                "name": "Feint"
+              }
+            ]
+          },
+          "note": "Second Whirlwind follows."
+        }
+      ],
+      "note": "Once the first water debuff hits 14 seconds, press Sacred Soil or Kerachole, then on cooldown to cover the rest. This is immediately after Photon.",
+      "noteRoles": [
+        "healer"
+      ]
+    },
+    {
+      "id": "p3",
+      "mechanics": [
+        {
+          "mechanicId": "p3-temporal-stasis-1",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Succor"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p3-chastening-heat-1",
+          "assignments": {
+            "OT": [
+              {
+                "name": "Invuln"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Celestial Intersection",
+                "note": "On a tank."
+              },
+              {
+                "name": "Defensive cards",
+                "note": "On a tank."
+              }
+            ]
+          },
+          "note": "Divine Spear cleaves follow."
+        },
+        {
+          "mechanicId": "p3-judgment-crystal-1",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "OT": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Fey Illumination"
+              },
+              {
+                "name": "Whispering Dawn"
+              },
+              {
+                "name": "Fey Blessing"
+              },
+              {
+                "name": "Summon Seraph"
+              },
+              {
+                "name": "Indomitability"
+              },
+              {
+                "name": "Deployment Tactics"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              },
+              {
+                "name": "Ixochole"
+              },
+              {
+                "name": "Holos"
+              },
+              {
+                "name": "Panhaima"
+              },
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Physis II"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance"
+              },
+              {
+                "name": "Plenary Indulgence"
+              },
+              {
+                "name": "Asylum"
+              },
+              {
+                "name": "Assize"
+              },
+              {
+                "name": "Medica II"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              },
+              {
+                "name": "Neutral Sect"
+              },
+              {
+                "name": "Earthly Star"
+              },
+              {
+                "name": "Celestial Opposition"
+              },
+              {
+                "name": "Horoscope"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              },
+              {
+                "name": "Nature's Minne (BRD)",
+                "note": "Optional."
+              }
+            ],
+            "M1": [
+              {
+                "name": "Mantra (MNK)",
+                "note": "Optional."
+              }
+            ],
+            "M2": [
+              {
+                "name": "Mantra (MNK)",
+                "note": "Optional."
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p3-super-jump-2",
+          "assignments": {
+            "OT": [
+              {
+                "name": "120s Mit"
+              },
+              {
+                "name": "90s Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Adloquium",
+                "note": "On the tanks."
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Diagnosis",
+                "note": "On the tanks."
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p3-chastening-heat-2",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Kitchen Sink"
+              }
+            ],
+            "OT": [
+              {
+                "name": "Reprisal"
+              },
+              {
+                "name": "Short Mit",
+                "note": "On the main tank."
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Taurochole"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Divine Benison",
+                "note": "On a tank."
+              }
+            ],
+            "AST": [
+              {
+                "name": "Celestial Intersection",
+                "note": "On a tank."
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p3-divine-spear-2",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Invuln"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p3-wormhole-formation-1",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Succor"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Horoscope"
+              },
+              {
+                "name": "Aspected Helios"
+              },
+              {
+                "name": "Defensive cards",
+                "note": "On a DPS."
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p3-incinerating-heat-1",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Party Mit",
+                "note": "If 7 people."
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Succor"
+              },
+              {
+                "name": "Fey Blessing"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Ixochole"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Plenary Indulgence"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              },
+              {
+                "name": "Earthly Star",
+                "note": "Place it."
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p3-mega-holy-1",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal",
+                "note": "Late."
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Succor"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Celestial Opposition"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint",
+                "note": "Late."
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle",
+                "note": "Late."
+              }
+            ],
+            "P": [
+              {
+                "name": "Extra (MCH)"
+              }
+            ]
+          },
+          "note": "Second Mega Holy follows."
+        },
+        {
+          "mechanicId": "p3-j-storm-1",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Deployment Tactics"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Zoe"
+              },
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Ixochole"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Horoscope"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p3-j-wave-0",
+          "assignments": {
+            "SCH": [
+              {
+                "name": "Succor"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Asylum"
+              }
+            ]
+          },
+          "note": "Covers J Waves 0 through 3."
+        },
+        {
+          "mechanicId": "p3-j-wave-4",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "OT": [
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Succor"
+              },
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Fey Illumination"
+              },
+              {
+                "name": "Summon Seraph"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Panhaima"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              },
+              {
+                "name": "Aspected Helios"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              },
+              {
+                "name": "Nature's Minne (BRD)",
+                "note": "Optional."
+              }
+            ],
+            "M1": [
+              {
+                "name": "Mantra (MNK)",
+                "note": "Optional."
+              }
+            ],
+            "M2": [
+              {
+                "name": "Mantra (MNK)",
+                "note": "Optional."
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p3-j-wave-6",
+          "assignments": {
+            "OT": [
+              {
+                "name": "Party Mit"
+              },
+              {
+                "name": "Passage of Arms (PLD)"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Succor"
+              },
+              {
+                "name": "Fey Blessing"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Holos"
+              },
+              {
+                "name": "Physis II"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Plenary Indulgence"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              },
+              {
+                "name": "Earthly Star",
+                "note": "Place it."
+              }
+            ],
+            "M2": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "MT": [
+              {
+                "name": "Passage of Arms (PLD)"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p3-j-wave-8",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Reprisal",
+                "note": "Whenever it is up."
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Succor"
+              },
+              {
+                "name": "Dissipation"
+              },
+              {
+                "name": "Indomitability"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Ixochole"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Medica II"
+              },
+              {
+                "name": "Cure III"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Aspected Helios"
+              },
+              {
+                "name": "Helios"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p3-divine-judgment-1",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Tank LB"
+              }
+            ],
+            "OT": [
+              {
+                "name": "Tank LB"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Succor"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Kerachole"
+              }
+            ]
+          }
+        }
+      ],
+      "note": "If a Warrior is in the party, both tanks can swap mits and roles for this phase.",
+      "noteRoles": [
+        "tank"
+      ]
+    },
+    {
+      "id": "p4",
+      "mechanics": [
+        {
+          "mechanicId": "p4-optical-sight-1",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Party Mit"
+              },
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "OT": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Fey Illumination"
+              },
+              {
+                "name": "Whispering Dawn"
+              },
+              {
+                "name": "Fey Blessing"
+              },
+              {
+                "name": "Summon Seraph"
+              },
+              {
+                "name": "Indomitability"
+              },
+              {
+                "name": "Deployment Tactics"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              },
+              {
+                "name": "Ixochole"
+              },
+              {
+                "name": "Holos"
+              },
+              {
+                "name": "Panhaima"
+              },
+              {
+                "name": "Eukrasian Prognosis"
+              },
+              {
+                "name": "Physis II"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance"
+              },
+              {
+                "name": "Plenary Indulgence"
+              },
+              {
+                "name": "Asylum"
+              },
+              {
+                "name": "Assize"
+              },
+              {
+                "name": "Medica II"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              },
+              {
+                "name": "Neutral Sect"
+              },
+              {
+                "name": "Earthly Star"
+              },
+              {
+                "name": "Celestial Opposition"
+              },
+              {
+                "name": "Horoscope"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "M2": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              },
+              {
+                "name": "Extra (MCH)"
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle",
+                "note": "Late."
+              }
+            ]
+          },
+          "note": "Second Optical Sight follows."
+        },
+        {
+          "mechanicId": "p4-ordained-capital-punishment-1",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Kitchen Sink"
+              }
+            ],
+            "OT": [
+              {
+                "name": "Kitchen Sink"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              },
+              {
+                "name": "Haima",
+                "note": "On a tank."
+              },
+              {
+                "name": "Taurochole",
+                "note": "On a tank."
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Divine Benison",
+                "note": "On a tank."
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              },
+              {
+                "name": "Celestial Intersection",
+                "note": "On a tank."
+              }
+            ]
+          },
+          "note": "Ordained Punishment follows."
+        },
+        {
+          "mechanicId": "p4-fate-calibration-beta-1",
+          "assignments": {
+            "OT": [
+              {
+                "name": "Party Mit"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Succor"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Kerachole"
+              },
+              {
+                "name": "Eukrasian Prognosis"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Plenary Indulgence"
+              },
+              {
+                "name": "Asylum"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Horoscope"
+              },
+              {
+                "name": "Aspected Helios"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p4-ordained-capital-punishment-2",
+          "assignments": {
+            "OT": [
+              {
+                "name": "Invuln"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Benediction",
+                "note": "On a tank."
+              }
+            ]
+          },
+          "note": "Ordained Punishment follows."
+        },
+        {
+          "mechanicId": "p4-irresistible-grace-1",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Party Mit"
+              },
+              {
+                "name": "Reprisal"
+              },
+              {
+                "name": "Passage of Arms (PLD)"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Deployment Tactics"
+              },
+              {
+                "name": "Sacred Soil"
+              },
+              {
+                "name": "Fey Blessing"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Panhaima"
+              },
+              {
+                "name": "Kerachole"
+              },
+              {
+                "name": "Zoe"
+              },
+              {
+                "name": "Eukrasian Prognosis"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Temperance"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Neutral Sect"
+              }
+            ],
+            "M1": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "C": [
+              {
+                "name": "Addle"
+              }
+            ],
+            "OT": [
+              {
+                "name": "Passage of Arms (PLD)"
+              }
+            ]
+          }
+        },
+        {
+          "mechanicId": "p4-ordained-capital-punishment-3",
+          "assignments": {
+            "MT": [
+              {
+                "name": "Invuln"
+              }
+            ]
+          },
+          "note": "Ordained Punishment follows."
+        },
+        {
+          "mechanicId": "p4-irresistible-grace-2",
+          "assignments": {
+            "OT": [
+              {
+                "name": "Party Mit"
+              },
+              {
+                "name": "Reprisal"
+              }
+            ],
+            "SCH": [
+              {
+                "name": "Summon Seraph"
+              },
+              {
+                "name": "Fey Illumination"
+              },
+              {
+                "name": "Sacred Soil"
+              }
+            ],
+            "SGE": [
+              {
+                "name": "Holos"
+              },
+              {
+                "name": "Kerachole"
+              },
+              {
+                "name": "Eukrasian Prognosis"
+              }
+            ],
+            "WHM": [
+              {
+                "name": "Asylum"
+              }
+            ],
+            "AST": [
+              {
+                "name": "Collective Unconscious"
+              }
+            ],
+            "M2": [
+              {
+                "name": "Feint"
+              }
+            ],
+            "P": [
+              {
+                "name": "Party Mit"
+              },
+              {
+                "name": "Extra (MCH)"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

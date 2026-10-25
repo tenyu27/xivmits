@@ -43,7 +43,7 @@ test('DSR party rows follow every workbook section and its row order', () => {
 })
 
 test('fight selection follows original release order', () => {
-  assert.deepEqual(catalog.fights.map(f => f.id), ['dmu', 'fru', 'top', 'dsr'])
+  assert.deepEqual(catalog.fights.map(f => f.id), ['dmu', 'fru', 'top', 'dsr', 'tea'])
 })
 
 test('DSR uses longest observed phase lengths and keeps checkpoint and transition clocks distinct', () => {
