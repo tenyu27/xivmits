@@ -59,4 +59,4 @@ domain comes from `apps/web/public/CNAME`. There is no server runtime.
 
 Each sheet credits its author and links to the source.
 
-Ability icons and FINAL FANTASY XIV content are the property of SQUARE ENIX CO., LTD., used under the [FFXIV Materials Usage License](https://support.na.square-enix.com/rule.php?id=5382). Icon data is sourced via [XIVAPI](https://xivapi.com). XIVMits is an unofficial fan project and is not affiliated with or endorsed by Square Enix.
+Ability icons and FINAL FANTASY XIV content are the property of SQUARE ENIX CO., LTD., used under the [FFXIV Materials Usage License](https://sqex.to/FFXIVMU). Icon data is sourced via [XIVAPI](https://xivapi.com). XIVMits is an unofficial fan project and is not affiliated with or endorsed by Square Enix.

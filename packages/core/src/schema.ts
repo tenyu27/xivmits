@@ -47,7 +47,8 @@ const encounterSchema = z.object({
   released: z.iso.date(),
   // The level the duty syncs players to. A sheet can only assign what that
   // level has learned, and a generic name ("120s Mit") resolves to the button
-  // the synced job actually has. See resolveAction.
+  // the synced job actually has. A trait that replaces an action at or below
+  // this level has already happened for everyone in the instance.
   syncLevel: z.number().int().min(1).max(100).optional(),
   type: z.enum(['Savage', 'Ultimate', 'Criterion', 'Other']),
   fflogs: z.object({ encounterIds: z.array(z.number().int().positive()) }).strict().optional(),
@@ -161,7 +162,7 @@ const sheetSchema = z.object({
 // derived from the real in-game name so every way a sheet writes an ability -
 // "Feint", "Feint (Chaos)", "Spreadlo" for Deployment Tactics, "Seraph Veil"
 // for Seraphic Veil - lands on one entry. Vengeance is its own action, not
-// Damnation: Damnation replaces it at level 92.
+// Damnation: Damnation replaces it at level 92, recorded as `replacedBy`.
 //
 // `action` is the game's Action row id, which is the same number FFLogs reports
 // as `abilityGameID` for a player cast, and `status` the FFLogs status id
@@ -185,6 +186,20 @@ const abilitySchema = z.object({
   durations: z.array(z.object({
     level: z.number().int().min(1).max(100),
     seconds: z.number().int().positive(),
+  }).strict()).min(1).optional(),
+  // The button this one becomes once the player reaches `level`. A sheet for a
+  // fight synced to that level or above must name the replacement. The old
+  // action stays its own entry so a lower sync can still assign it.
+  replacedBy: z.object({
+    name: text,
+    level: z.number().int().min(1).max(100),
+  }).strict().optional(),
+  // Damage reduction, in percent, ascending by level. Same step rule as
+  // `durations`. Troubadour, Tactician and Shield Samba go from 10% to 15%
+  // at the level-98 traits. Recorded only; the viewer does not show it.
+  potencies: z.array(z.object({
+    level: z.number().int().min(1).max(100),
+    percent: z.number().int().positive(),
   }).strict()).min(1).optional(),
 }).strict()
 const abilitiesSchema = z.object({
@@ -312,6 +327,18 @@ export function validateCatalog(
   const abilities = abilitiesSchema.parse(rawAbilities)
   for (const [wording, id] of Object.entries(abilities.names)) {
     if (!abilities.abilities[id]) throw new Error(`abilities.json: ${wording} -> unknown ability ${id}`)
+  }
+  for (const ability of Object.values(abilities.abilities)) {
+    if (ability.replacedBy && !Object.values(abilities.abilities).some(candidate => candidate.name === ability.replacedBy!.name)) {
+      throw new Error(`abilities.json: ${ability.name} replacedBy unknown ability ${ability.replacedBy.name}`)
+    }
+    for (const [field, steps] of [['durations', ability.durations], ['potencies', ability.potencies]] as const) {
+      for (let index = 1; index < (steps?.length ?? 0); index++) {
+        if (steps![index].level <= steps![index - 1].level) {
+          throw new Error(`abilities.json: ${ability.name} ${field} levels must increase`)
+        }
+      }
+    }
   }
   const fights: Encounter[] = []
   const rawSheets: MitSheet[] = []

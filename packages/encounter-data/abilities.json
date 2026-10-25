@@ -1,5 +1,9 @@
 {
   "abilities": {
+    "120s-mit": {
+      "name": "120s Mit",
+      "kind": "generic"
+    },
     "90s-mit": {
       "name": "90s Mit",
       "kind": "generic"
@@ -42,6 +46,15 @@
       "action": 25861,
       "level": 86
     },
+    "aspected-helios": {
+      "name": "Aspected Helios",
+      "kind": "action",
+      "action": 3601,
+      "replacedBy": {
+        "name": "Helios Conjunction",
+        "level": 96
+      }
+    },
     "assist-tanks": {
       "name": "Assist Tanks",
       "kind": "note"
@@ -77,7 +90,7 @@
     },
     "buddy-mit": {
       "name": "Buddy Mit",
-      "kind": "note"
+      "kind": "generic"
     },
     "bulwark": {
       "name": "Bulwark",
@@ -210,7 +223,11 @@
       "kind": "action",
       "icon": "003660.png",
       "action": 24292,
-      "level": 30
+      "level": 30,
+      "replacedBy": {
+        "name": "Eukrasian Prognosis II",
+        "level": 96
+      }
     },
     "eukrasian-prognosis-ii": {
       "name": "Eukrasian Prognosis II",
@@ -310,6 +327,11 @@
       "action": 16160,
       "level": 64
     },
+    "helios-conjunction": {
+      "name": "Helios Conjunction",
+      "kind": "action",
+      "action": 37030
+    },
     "holmgang": {
       "name": "Holmgang",
       "kind": "action",
@@ -338,12 +360,21 @@
       "action": 16557,
       "level": 76
     },
+    "imperator": {
+      "name": "Imperator",
+      "kind": "action",
+      "action": 36921
+    },
     "intervention": {
       "name": "Intervention",
       "kind": "action",
       "icon": "002512.png",
       "action": 7382,
       "level": 62
+    },
+    "invuln": {
+      "name": "Invuln",
+      "kind": "generic"
     },
     "ixochole": {
       "name": "Ixochole",
@@ -408,6 +439,20 @@
       "name": "Manage Accretion healing",
       "kind": "note"
     },
+    "medica-ii": {
+      "name": "Medica II",
+      "kind": "action",
+      "action": 133,
+      "replacedBy": {
+        "name": "Medica III",
+        "level": 96
+      }
+    },
+    "medica-iii": {
+      "name": "Medica III",
+      "kind": "action",
+      "action": 37010
+    },
     "nascent-flash": {
       "name": "Nascent Flash",
       "kind": "action",
@@ -420,7 +465,11 @@
       "kind": "action",
       "icon": "003412.png",
       "action": 16148,
-      "level": 38
+      "level": 38,
+      "replacedBy": {
+        "name": "Great Nebula",
+        "level": 92
+      }
     },
     "neutral-sect": {
       "name": "Neutral Sect",
@@ -510,6 +559,12 @@
       "action": 7533,
       "level": 15
     },
+    "pulse-of-life": {
+      "name": "Pulse of Life",
+      "kind": "action",
+      "icon": "000103.png",
+      "action": 208
+    },
     "rampart": {
       "name": "Rampart",
       "kind": "action",
@@ -548,6 +603,15 @@
         }
       ]
     },
+    "requiescat": {
+      "name": "Requiescat",
+      "kind": "action",
+      "action": 7383,
+      "replacedBy": {
+        "name": "Imperator",
+        "level": 96
+      }
+    },
     "sacred-soil": {
       "name": "Sacred Soil",
       "kind": "action",
@@ -560,7 +624,11 @@
       "kind": "action",
       "icon": "000151.png",
       "action": 17,
-      "level": 38
+      "level": 38,
+      "replacedBy": {
+        "name": "Guardian",
+        "level": 92
+      }
     },
     "seraphic-veil": {
       "name": "Seraphic Veil",
@@ -581,7 +649,11 @@
       "kind": "action",
       "icon": "003075.png",
       "action": 3636,
-      "level": 38
+      "level": 38,
+      "replacedBy": {
+        "name": "Shadowed Vigil",
+        "level": 92
+      }
     },
     "shadowed-vigil": {
       "name": "Shadowed Vigil",
@@ -602,14 +674,32 @@
       "kind": "action",
       "icon": "003469.png",
       "action": 16012,
-      "level": 56
+      "level": 56,
+      "potencies": [
+        {
+          "level": 56,
+          "percent": 10
+        },
+        {
+          "level": 98,
+          "percent": 15
+        }
+      ]
+    },
+    "short-mit": {
+      "name": "Short Mit",
+      "kind": "generic"
     },
     "succor": {
       "name": "Succor",
       "kind": "action",
       "icon": "002802.png",
       "action": 186,
-      "level": 35
+      "level": 35,
+      "replacedBy": {
+        "name": "Concitation",
+        "level": 96
+      }
     },
     "summon-seraph": {
       "name": "Summon Seraph",
@@ -637,7 +727,17 @@
       "kind": "action",
       "icon": "003040.png",
       "action": 16889,
-      "level": 56
+      "level": 56,
+      "potencies": [
+        {
+          "level": 56,
+          "percent": 10
+        },
+        {
+          "level": 98,
+          "percent": 15
+        }
+      ]
     },
     "taurochole": {
       "name": "Taurochole",
@@ -645,13 +745,6 @@
       "icon": "003671.png",
       "action": 24303,
       "level": 62
-    },
-    "tempera-grassa": {
-      "name": "Tempera Grassa",
-      "kind": "action",
-      "icon": "003836.png",
-      "action": 34686,
-      "level": 88
     },
     "temperance": {
       "name": "Temperance",
@@ -668,14 +761,18 @@
       "level": 70
     },
     "the-bole": {
-      "name": "The Bole",
-      "kind": "status",
-      "icon": "213205.png"
+      "name": "the Bole",
+      "kind": "action",
+      "icon": "003111.png",
+      "action": 37027,
+      "level": 30
     },
     "the-ewer": {
-      "name": "The Ewer",
-      "kind": "status",
-      "icon": "213208.png"
+      "name": "the Ewer",
+      "kind": "action",
+      "icon": "003114.png",
+      "action": 37028,
+      "level": 30
     },
     "thrill-of-battle": {
       "name": "Thrill of Battle",
@@ -689,14 +786,28 @@
       "kind": "action",
       "icon": "002612.png",
       "action": 7405,
-      "level": 62
+      "level": 62,
+      "potencies": [
+        {
+          "level": 62,
+          "percent": 10
+        },
+        {
+          "level": 98,
+          "percent": 15
+        }
+      ]
     },
     "vengeance": {
       "name": "Vengeance",
       "kind": "action",
       "icon": "000267.png",
       "action": 44,
-      "level": 38
+      "level": 38,
+      "replacedBy": {
+        "name": "Damnation",
+        "level": 92
+      }
     },
     "voke-after-buster": {
       "name": "Voke after Buster",
@@ -718,12 +829,14 @@
     }
   },
   "names": {
+    "120s Mit": "120s-mit",
     "90s Mit": "90s-mit",
     "Addle": "addle",
     "Addle (Exdeath)": "addle",
     "Adloquium": "adloquium",
     "Aetherpact": "aetherpact",
     "Aquaveil": "aquaveil",
+    "Aspected Helios": "aspected-helios",
     "Assist Tanks": "assist-tanks",
     "Asylum": "asylum",
     "Avoid HP-restoring abilities": "avoid-hp-restoring-abilities",
@@ -754,6 +867,7 @@
     "Exaltation": "exaltation",
     "Excogitation": "excogitation",
     "Expedient": "expedient",
+    "Extra": "extra",
     "Extra (MCH)": "extra",
     "Extra (RDM)": "extra",
     "Extra (RDM/MCH)": "extra",
@@ -765,16 +879,19 @@
     "Haima": "haima",
     "Hallowed Ground": "hallowed-ground",
     "Hallowed Ground (Passage of Arms)": "hallowed-ground",
-    "Healer LB": "last-bastion",
+    "Healer LB": "pulse-of-life",
     "Heart of Corundum": "heart-of-corundum",
     "Heart of Light": "heart-of-light",
+    "Helios Conjunction": "helios-conjunction",
     "Holmgang": "holmgang",
     "Holos": "holos",
     "Holy Sheltron": "holy-sheltron",
     "Holy Sheltron (hold Passage for Block)": "holy-sheltron",
     "Holy Sheltron (hold Passage for block)": "holy-sheltron",
     "Horoscope": "horoscope",
+    "Imperator": "imperator",
     "Intervention": "intervention",
+    "Invuln": "invuln",
     "Ixochole": "ixochole",
     "Kerachole": "kerachole",
     "Kitchen Sink": "kitchen-sink",
@@ -785,6 +902,8 @@
     "Macrocosmos": "macrocosmos",
     "Magick Barrier": "magick-barrier",
     "Manage Accretion healing": "manage-accretion-healing",
+    "Medica II": "medica-ii",
+    "Medica III": "medica-iii",
     "Nascent Flash": "nascent-flash",
     "Nebula": "nebula",
     "Neutral Sect": "neutral-sect",
@@ -804,11 +923,13 @@
     "Prognosis": "prognosis",
     "Protraction": "protraction",
     "Provoke": "provoke",
+    "Pulse of Life": "pulse-of-life",
     "Rampart": "rampart",
     "Recitation": "recitation",
     "Regen": "regen",
     "Reprisal": "reprisal",
     "Reprisal (Exdeath)": "reprisal",
+    "Requiescat": "requiescat",
     "Sacred Soil": "sacred-soil",
     "Sentinel": "sentinel",
     "Seraph": "summon-seraph",
@@ -818,6 +939,7 @@
     "Shadowed Vigil": "shadowed-vigil",
     "Shake It Off": "shake-it-off",
     "Shield Samba": "shield-samba",
+    "Short Mit": "short-mit",
     "Spreadlo": "deployment-tactics",
     "Succor": "succor",
     "Summon Seraph": "summon-seraph",
@@ -826,7 +948,6 @@
     "Tactician": "tactician",
     "Tank LB": "last-bastion",
     "Taurochole": "taurochole",
-    "Tempera Grassa": "tempera-grassa",
     "Temperance": "temperance",
     "The Blackest Night": "the-blackest-night",
     "The Bole": "the-bole",

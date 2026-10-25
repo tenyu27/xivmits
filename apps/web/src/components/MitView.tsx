@@ -2,8 +2,19 @@ import { Fragment, useId, useRef, useEffect } from 'react'
 import type { ReactNode } from 'react'
 import { Anchor, Box, Group, Text, UnstyledButton } from '@mantine/core'
 import { IconArrowForward, IconExternalLink, IconInfoCircle, IconUser, IconUsers } from '@tabler/icons-react'
+import { durationAtLevel } from '@xivmits/core'
 import { resolveAction, type Resolved } from '../data/resolve'
+import catalog from '../data/catalog'
 import type { Fight, Job, Sheet, TankMitPlan } from '@xivmits/core'
+
+// The effect length at this duty's sync level, when the registry records one.
+// Qualified sheet wording ("Feint (Chaos)") and the resolved button share an
+// ability, so either name finds the steps.
+const effectSeconds = (name: string, syncLevel?: number) => {
+  const base = name.replace(/\s*\([^)]*\)\s*$/, '').trim()
+  const id = catalog.abilities.names[name] ?? catalog.abilities.names[base]
+  return durationAtLevel(id ? catalog.abilities.abilities[id]?.durations : undefined, syncLevel)
+}
 
 const clockSecs = (t: string) => { const [m, s] = t.split(':').map(Number); return m * 60 + s }
 const fmtClock = (secs: number) => `${Math.floor(secs / 60)}:${String(secs % 60).padStart(2, '0')}`
@@ -282,6 +293,7 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
     : <Box component="ul" className="actions actions-flow">
       {actions.map(({ action, resolved: { label, icon } }, index) => {
         const startsCarryOverRow = action.carryOver && !actions[index - 1]?.action.carryOver
+        const seconds = grid ? undefined : effectSeconds(label, fight.syncLevel) ?? effectSeconds(action.name, fight.syncLevel)
         return <Fragment key={`${keyed}-${action.name}-${index}`}>
           {startsCarryOverRow && <>
             {index > 0 && <Box component="li" className="action-break" aria-hidden />}
@@ -301,6 +313,10 @@ export default function MitView({ fight, sheet, roleId, phaseId, onPhase, job, p
               <Text span className="action-name" fz={compact ? '1rem' : '1.125rem'} fw={action.carryOver ? 500 : 600} c={action.carryOver ? 'dimmed' : undefined} style={{ overflowWrap: 'anywhere' }}>
                 {label}
               </Text>
+              {/* The duration sits with the name, in the same muted size as a
+                  timestamp. Icon-only and the cheatsheet have no label row, so
+                  a "10s" there would be the only text in the cell. */}
+              {seconds && <Text span className="action-duration" fz="xs" fw={400} c="dimmed">{seconds}s</Text>}
             </Group>
           </Box>
         </Fragment>

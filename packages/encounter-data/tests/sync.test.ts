@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import { abilityAtLevel, durationAtLevel } from '@xivmits/core'
+import { abilityAtLevel, durationAtLevel, potencyAtLevel } from '@xivmits/core'
 import { loadCatalog } from '@xivmits/encounter-data'
 import type { Job } from '@xivmits/core'
 
@@ -152,5 +152,92 @@ test('non-hotbar rows the sheets name stay anchored to their real game rows', ()
     assert.equal(entry.action, action, name)
     assert.equal(entry.level, level, name)
     assert.ok(entry.icon && entry.icon !== '000405.png' && entry.icon !== '000784.png', `${name} fell back to a placeholder icon`)
+  }
+})
+
+// Trait levels from v2.xivapi.com. The level-96 set is every "Upgrades X to Y"
+// trait from 96 through 100; the tanks are the level-92 masteries the sheets use.
+const replacements: [string, string, number][] = [
+  ['Succor', 'Concitation', 96],
+  ['Eukrasian Prognosis', 'Eukrasian Prognosis II', 96],
+  ['Aspected Helios', 'Helios Conjunction', 96],
+  ['Medica II', 'Medica III', 96],
+  ['Requiescat', 'Imperator', 96],
+  ['Sentinel', 'Guardian', 92],
+  ['Vengeance', 'Damnation', 92],
+  ['Shadow Wall', 'Shadowed Vigil', 92],
+  ['Nebula', 'Great Nebula', 92],
+]
+
+test('retired actions record the trait that replaces them', () => {
+  for (const [name, replacement, level] of replacements) {
+    assert.deepEqual(entryFor(name)?.replacedBy, { name: replacement, level }, name)
+    assert.equal(entryFor(replacement)?.name, replacement)
+  }
+})
+
+function jobsForSlot(slots: { id: string; job?: string; role?: string; jobs?: string[] }[], slotId: string): Job[] {
+  const slot = slots.find(candidate => candidate.id === slotId)
+  if (!slot) return []
+  if (slot.job) {
+    const job = catalog.jobs.find(candidate => candidate.id === slot.job)
+    return job ? [job] : []
+  }
+  return catalog.jobs.filter(job => job.role === slot.role && (!slot.jobs || slot.jobs.includes(job.id)))
+}
+
+/** A written name, and whatever a generic slot resolves to at this sync. */
+function retiredAt(name: string, sync: number, where: string, jobs: Job[]): string[] {
+  const found: string[] = []
+  const written = entryFor(name)?.replacedBy
+  if (written && written.level <= sync) found.push(`${where}: ${name} → ${written.name} at ${written.level} (sync ${sync})`)
+  for (const job of jobs) {
+    const resolved = abilityAtLevel(job, baseName(name), sync)
+    if (!resolved) continue
+    const replacedBy = entryFor(resolved)?.replacedBy
+    if (replacedBy && replacedBy.level <= sync) {
+      found.push(`${where}: ${job.id} ${name} resolves to ${resolved}, replaced by ${replacedBy.name} at ${replacedBy.level} (sync ${sync})`)
+    }
+  }
+  return found
+}
+
+test('no sheet assigns an action that the fight sync level has already replaced', () => {
+  const retired: string[] = []
+  for (const sheet of catalog.sheets) {
+    const sync = catalog.fights.find(fight => fight.id === sheet.fightId)!.syncLevel!
+    for (const phase of sheet.phases) for (const mechanic of phase.mechanics) {
+      for (const [slotId, actions] of Object.entries(mechanic.assignments)) {
+        for (const action of actions) {
+          retired.push(...retiredAt(action.name, sync, `${sheet.fightId}/${sheet.id} ${mechanic.id} ${slotId}`, jobsForSlot(sheet.slots, slotId)))
+        }
+      }
+    }
+    for (const plan of sheet.tankMits?.plans ?? []) {
+      const job = catalog.jobs.find(candidate => candidate.id === plan.job)
+      assert.ok(job, plan.job)
+      for (const phase of plan.phases) for (const mechanic of phase.mechanics) {
+        for (const action of mechanic.actions) retired.push(...retiredAt(action.name, sync, `${sheet.fightId}/${sheet.id} ${plan.job} ${mechanic.id}`, [job]))
+        for (const alt of mechanic.alts ?? []) {
+          for (const action of alt.actions) retired.push(...retiredAt(action.name, sync, `${sheet.fightId}/${sheet.id} ${plan.job} ${mechanic.id} alt`, [job]))
+        }
+      }
+    }
+  }
+  assert.deepEqual(retired, [])
+})
+
+test('party mits record the level 98 potency step', () => {
+  const potencies: [string, number][] = [['Troubadour', 62], ['Tactician', 56], ['Shield Samba', 56]]
+  const dsr = catalog.fights.find(fight => fight.id === 'dsr')!.syncLevel
+  const dmu = catalog.fights.find(fight => fight.id === 'dmu')!.syncLevel
+  assert.equal(dsr, 90)
+  assert.equal(dmu, 100)
+  for (const [name, learned] of potencies) {
+    const steps = entryFor(name)?.potencies
+    assert.deepEqual(steps, [{ level: learned, percent: 10 }, { level: 98, percent: 15 }], name)
+    assert.equal(potencyAtLevel(steps, dsr), 10, name)
+    assert.equal(potencyAtLevel(steps, dmu), 15, name)
+    assert.equal(potencyAtLevel(steps), 15, name)
   }
 })

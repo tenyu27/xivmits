@@ -4,7 +4,7 @@ import { validateCatalog } from '@xivmits/core/schema'
 
 const encounter = {
   id: 'test', name: 'Test encounter', type: 'Other',
-  released: '2022-04-26',
+  released: '2022-04-26', syncLevel: 90,
   fflogs: { encounterIds: [] },
   phases: [{
     id: 'p1', label: 'P1', start: '0:00',

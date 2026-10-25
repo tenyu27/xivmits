@@ -104,34 +104,22 @@
     {
       "id": "WHM",
       "name": "White Mage",
-      "role": "healer",
-      "abilities": {
-        "Party Mit": "Temperance"
-      }
+      "role": "healer"
     },
     {
       "id": "SCH",
       "name": "Scholar",
-      "role": "healer",
-      "abilities": {
-        "Party Mit": "Fey Illumination"
-      }
+      "role": "healer"
     },
     {
       "id": "AST",
       "name": "Astrologian",
-      "role": "healer",
-      "abilities": {
-        "Party Mit": "Collective Unconscious"
-      }
+      "role": "healer"
     },
     {
       "id": "SGE",
       "name": "Sage",
-      "role": "healer",
-      "abilities": {
-        "Party Mit": "Kerachole"
-      }
+      "role": "healer"
     },
     {
       "id": "MNK",
@@ -203,17 +191,14 @@
       "name": "Red Mage",
       "role": "caster",
       "abilities": {
-        "Party Mit": "Addle",
+        "Party Mit": "Magick Barrier",
         "Extra": "Magick Barrier"
       }
     },
     {
       "id": "PCT",
       "name": "Pictomancer",
-      "role": "caster",
-      "abilities": {
-        "Party Mit": "Tempera Grassa"
-      }
+      "role": "caster"
     }
   ]
 }

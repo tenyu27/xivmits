@@ -22,6 +22,7 @@ ICON_DIR = ROOT / 'apps/web/public/icons'
 MAP_FILE = ROOT / 'packages/encounter-data/icons.json'
 ABILITY_FILE = ROOT / 'packages/encounter-data/abilities.json'
 SEARCH = 'https://v2.xivapi.com/api/search'
+SHEET = 'https://v2.xivapi.com/api/sheet'
 ASSET = 'https://v2.xivapi.com/api/asset'
 
 # Sheet shorthand that is not the in-game action name.
@@ -30,12 +31,28 @@ ALIASES = {
     'Seraph Veil': 'Seraphic Veil',
     'Spreadlo': 'Deployment Tactics',
     'Zoe Shields': 'Zoe',
-    # Every job's level 3 limit break shares one icon in the game data, so the
-    # sheet's generic "LB3" - and TOP Mitty's "Tank LB" / "Healer LB" - resolve
-    # to it without naming a per-job ability.
+    # Tank LB3 and the sheet's generic "LB3" are Last Bastion. Healer LB3 is
+    # Pulse of Life (action 208). The two rows share one icon file.
     'LB3': 'Last Bastion',
     'Tank LB': 'Last Bastion',
-    'Healer LB': 'Last Bastion',
+    'Healer LB': 'Pulse of Life',
+}
+
+# A trait replaces the action at `level`. The old button stays its own registry
+# entry so a sheet can still name it for a fight synced below that level, and
+# sync.test.ts rejects it once the duty's sync level has caught up. Levels are
+# the Trait sheet's Level on v2.xivapi.com. The extra level-96 upgrade found
+# beside the healer shields is Requiescat Mastery (trait 565) → Imperator.
+REPLACED_BY = {
+    'Succor': ('Concitation', 96),                 # trait 628 Succor Mastery
+    'Eukrasian Prognosis': ('Eukrasian Prognosis II', 96),  # trait 637
+    'Aspected Helios': ('Helios Conjunction', 96),  # trait 633
+    'Medica II': ('Medica III', 96),               # trait 624 Medica Mastery
+    'Requiescat': ('Imperator', 96),               # trait 565 Requiescat Mastery
+    'Sentinel': ('Guardian', 92),                  # trait 564 Sentinel Mastery
+    'Vengeance': ('Damnation', 92),                # trait 567 Vengeance Mastery
+    'Shadow Wall': ('Shadowed Vigil', 92),         # trait 571 Shadow Wall Mastery
+    'Nebula': ('Great Nebula', 92),                # trait 574 Nebula Mastery
 }
 
 # Effect lengths that change with level, ascending, keyed by the game's action
@@ -52,19 +69,31 @@ NO_ICON = {
     'Assist Tanks', 'Avoid HP-restoring abilities', 'Manage Accretion healing',
     # TOP Mitty tank tabs: "press your whole kit" / "cover your co-tank" / a
     # cue, not one button.
-    'Kitchen Sink', 'Buddy Mit', 'Voke after Buster',
+    'Kitchen Sink', 'Voke after Buster',
     # LPDU writes a couple of calls as prose: a bundle of AST cooldowns, a
     # babysitting instruction, and the enrage marker.
     'All single-target mit', 'Card mits', 'Babysit the beam tank', 'Enrage',
 }
 
-# AST cards have no Action row - they are drawn and played through Play I/II/III
-# - so the card art lives in the Status sheet instead. Resolved by name there.
-STATUS_ICONS = {'The Balance', 'The Bole', 'The Arrow', 'The Spear', 'The Ewer', 'The Spire'}
+# Arcana are level-30 actions, not statuses. IsPlayerAction is false, so the
+# player-action search skips them and the old Status-sheet icons were the
+# wrong art. None of the six were removed in 7.0 (rows 37023-37028). Sheets
+# name only the Bole and the Ewer, so the other four are not registered.
+CARD_ROWS = {'The Bole': 37027, 'The Ewer': 37028}
 
 # Generic names resolved per job from packages/encounter-data/jobs.json instead of by search.
 # 'Party Mit' means a different button for every job standing in that slot.
-JOB_GENERIC = {'Party Mit', 'Extra', 'Short Mit', '90s Mit', '120s Mit', 'Invuln'}
+JOB_GENERIC = {'Party Mit', 'Extra', 'Buddy Mit', 'Short Mit', '90s Mit', '120s Mit', 'Invuln'}
+
+# Damage reduction, in percent, ascending by the level the step starts. The
+# action text shows the post-trait 15%. The level-98 traits are the change
+# from 10% to 15%; the level-88 traits only cut the recast to 90s. Same step
+# convention as DURATIONS.
+POTENCIES = {
+    'Troubadour': [{'level': 62, 'percent': 10}, {'level': 98, 'percent': 15}],    # action 7405, trait 601
+    'Tactician': [{'level': 56, 'percent': 10}, {'level': 98, 'percent': 15}],     # action 16889, trait 607
+    'Shield Samba': [{'level': 56, 'percent': 10}, {'level': 98, 'percent': 15}],  # action 16012, trait 611
+}
 
 # Real, castable actions the game data flags IsPlayerAction=false. They are not
 # slotted on a hotbar of their own: Sage's Eukrasia grants Eukrasian Diagnosis
@@ -85,10 +114,11 @@ NONPLAYER_OK = {'Eukrasian Prognosis', 'Eukrasian Prognosis II', 'Eukrasian Diag
 PLACEHOLDER = '000000/000405'
 
 
-def get(url, params):
+def get(url, params=None):
+    if params:
+        url = f'{url}?{urllib.parse.urlencode(params)}'
     request = urllib.request.Request(
-        f'{url}?{urllib.parse.urlencode(params)}',
-        headers={'User-Agent': 'xivmits-icon-import/1.0 (+https://xivmits.com)'},
+        url, headers={'User-Agent': 'xivmits-icon-import/1.0 (+https://xivmits.com)'},
     )
     with urllib.request.urlopen(request, timeout=30) as response:
         return response.read()
@@ -106,20 +136,18 @@ def candidate(name):
     return ALIASES.get(base, ALIASES.get(name, base))
 
 
-def resolve_status(name):
-    """Return (action_id, icon_id, icon_path, status_name, level) for a Status icon.
+def resolve_row(row_id):
+    """Return (action_id, icon_id, icon_path, action_name, level) for one Action row.
 
-    Status rows are not castable actions, so there is no action id and no job
-    level; the card icons this covers are cosmetic anyway.
+    Arcana are not player actions, so the name search skips them. Their
+    ClassJobLevel is still the level a player learns the card.
     """
-    payload = json.loads(get(SEARCH, {
-        'sheets': 'Status', 'query': f'Name="{name}"', 'fields': 'Name,Icon.path,Icon.id', 'limit': 5,
-    }))
-    for row in payload.get('results', []):
-        icon = row['fields'].get('Icon') or {}
-        if icon.get('path') and PLACEHOLDER not in icon['path']:
-            return None, icon['id'], icon['path'], row['fields']['Name'], None
-    return None
+    payload = json.loads(get(f'{SHEET}/Action/{row_id}'))
+    fields = payload['fields']
+    icon = fields.get('Icon') or {}
+    if not icon.get('path') or PLACEHOLDER in icon['path']:
+        return None
+    return row_id, icon['id'], icon['path'], fields['Name'], fields.get('ClassJobLevel') or None
 
 
 def resolve(name):
@@ -130,8 +158,8 @@ def resolve(name):
     needs to match a logged press back to the mit a sheet recorded. `level` is
     ClassJobLevel, when the job learns it.
     """
-    if name in STATUS_ICONS:
-        return resolve_status(name)
+    if name in CARD_ROWS:
+        return resolve_row(CARD_ROWS[name])
     payload = json.loads(get(SEARCH, {
         'sheets': 'Action',
         'query': f'Name="{name}"',
@@ -190,6 +218,16 @@ def main(force=False):
         for steps in job.get('levels', {}).values():
             names.update(step['name'] for step in steps)
 
+    # A sheet may name a generic no current fight uses. Register every one,
+    # the same way Party Mit and 90s Mit are registered, so "120s Mit",
+    # "Short Mit" and "Invuln" are valid abilities rather than unknown wording.
+    names.update(JOB_GENERIC)
+
+    # Keep retired actions and their replacements in the registry even when no
+    # current sheet names them, so the next regeneration does not drop replacedBy.
+    names.update(REPLACED_BY)
+    names.update(replacement for replacement, _level in REPLACED_BY.values())
+
     # Two maps: the ability registry, keyed by an id derived from the real game
     # name so every way a sheet writes an ability collapses onto one entry, and
     # `names`, which records what each sheet wrote so an importer can resolve it.
@@ -244,6 +282,11 @@ def main(force=False):
             entry['level'] = level  # ClassJobLevel: when the job learns it
         if action in DURATIONS:
             entry['durations'] = DURATIONS[action]
+        if action in POTENCIES:
+            entry['potencies'] = POTENCIES[action]
+        replacement = REPLACED_BY.get(action)
+        if replacement:
+            entry['replacedBy'] = {'name': replacement[0], 'level': replacement[1]}
         abilities.setdefault(ability_id, entry)
         by_name[name] = ability_id
         print(f'  {name:32} -> {action:24} {filename}  action={action_id} level={level}')

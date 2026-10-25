@@ -38,6 +38,12 @@ test('every indexable route has unique metadata, a canonical, real HTML, and mat
     assert.equal((bodyOf(html).match(/<h1\b/g) ?? []).length, 1, path)
     assert.ok(bodyOf(html).includes('<main'), path)
     assert.equal(jsonLd(html)['@graph'][1].url, page.url)
+    assert.ok(html.includes('twitter:card" content="summary_large_image"'), path)
+    assert.ok(html.includes(`property="og:image" content="${page.image}"`), path)
+    assert.ok(html.includes('property="og:image:width" content="1200"'), path)
+    assert.ok(html.includes('property="og:image:height" content="630"'), path)
+    assert.ok(html.includes(`name="twitter:image" content="${page.image}"`), path)
+    assert.equal(page.image, path === '/' || path === '/updates/' ? 'https://xivmits.com/og/site.png' : `https://xivmits.com/og/${page.fight.id}.png`)
     titles.add(page.title)
     descriptions.add(page.description)
   }
@@ -72,6 +78,8 @@ test('unknown URLs are noindex with useful recovery links, never canonicalized t
   for (const path of ['/404.html', '/not-a-fight/not-a-sheet/']) {
     const html = entry.renderPage(template, path)
     assert.ok(html.includes('noindex, follow'))
+    assert.ok(html.includes('twitter:card" content="summary_large_image"'))
+    assert.ok(html.includes('property="og:image" content="https://xivmits.com/og/site.png"'))
     assert.ok(!html.includes('rel="canonical"'))
     assert.ok(!html.includes('application/ld+json'))
     assert.ok(bodyOf(html).includes('Mit sheet not found.'))
